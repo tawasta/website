@@ -14,18 +14,17 @@
 ##############################################################################
 {
     'name': 'Website Futurality Theme',
-    'category': 'Theme/Creative',
+    'category': 'Theme',
     'version': '0.1',
     'author': 'Oy Tawasta Technologies Ltd',
     'website': 'http://www.tawasta.fi',
     'depends': [
         'website',
-        'website_less',
         'website_sale',
     ],
     'description': '''
 Website Futurality Theme
-==================
+========================
 
 Futurality Theme For the website
 
@@ -35,5 +34,6 @@ Features
 * Simplifies the website
 ''',
     'data': [
+        'views/layout.xml',
     ],
 }
