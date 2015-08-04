@@ -21,6 +21,7 @@
     'depends': [
         'website',
         'website_less',
+        'website_sale',
     ],
     'description': '''
 Website Futurality Theme
