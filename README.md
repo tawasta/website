@@ -1,7 +1,7 @@
 Website Simple Footer
 =====================
 
-Simple footer for website
+Simple footer for the website
 
 
 Features
