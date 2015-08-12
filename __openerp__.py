@@ -34,6 +34,8 @@ Features
 * Simplifies the website
 ''',
     'data': [
-        'views/layout.xml',
+        'views/style.xml',
+        'views/contact.xml',
     ],
+    'application': True,
 }
