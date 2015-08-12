@@ -37,6 +37,7 @@ Features
     'data': [
         'views/style.xml',
         'views/contact.xml',
+        'views/sale_product.xml',
     ],
     'application': True,
 }
