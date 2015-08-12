@@ -8,26 +8,29 @@
 				<footer>
 					<div id='footer' class='container'>
 						<div class="row">
-							<div class='col-md-3' id='footer_info'>
+							<div class='col-md-2' id='footer_info'>
 								<ul class="list-unstyled">
 									<li><i class="fa width-em1 fa-info"/> <span t-field="res_company.name"/></li>
 									<t t-if="res_company.partner_id.businessid">
 										<li><i class="fa width-em1" /> <span t-field="res_company.partner_id.businessid"/></li>
 									</t>
 								</ul>
-									
+							</div>
+							
+							<div class='col-md-2' id='footer_address'>
 								<ul class="list-unstyled">
 									<li><i class="fa width-em1 fa-map-marker"/> <span t-field="res_company.street"/></li>
 									<li><i class="fa width-em1"/> <span t-field="res_company.street2"/></li>
 									<li><i class="fa width-em1"/> <span t-field="res_company.zip"/> <span t-field="res_company.city"/></li>
+									<li><i class="fa width-em1"/> <span t-field="res_company.country_id"/></li>
 								</ul>
 							</div>
 							
-							<div class='col-md-6' id='footer_empty'>
+							<div class='col-md-4' id='footer_empty'>
 							
 							</div>
 						
-							<div class='col-md-3' id='footer_contact'>
+							<div class='col-md-4' id='footer_contact'>
 								<h4><a href="/page/website.contactus">Contact us</a></h4>
 			                    
 			                    <ul class="list-unstyled">
