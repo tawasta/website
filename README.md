@@ -1,9 +1,10 @@
 Website Futurality Theme
 ==================
 
-Futurality Theme For the website
+Futurality theme for the website-module
 
 
 Features
 ========
 * Simplifies the website
+* Adds some Futurality-colours
