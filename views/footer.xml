@@ -65,5 +65,10 @@
 			</xpath>
 		</template>
 		
+		<!-- Remove the Odoo link -->
+		<template id="footer_odoo_link_remove" name="Remove Odoo Link from Footer" inherit_id="website.layout_footer_copyright">
+			<xpath expr="//div[@id='wrapwrap']/footer/div[2]/div[1]" position="replace" />
+		</template>
+		
 	</data>
 </openerp>
