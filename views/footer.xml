@@ -11,8 +11,8 @@
 							<div class='col-md-2' id='footer_info'>
 								<ul class="list-unstyled">
 									<li><i class="fa width-em1 fa-info"/> <span t-field="res_company.name"/></li>
-									<t t-if="res_company.partner_id.businessid">
-										<li><i class="fa width-em1" /> <span t-field="res_company.partner_id.businessid"/></li>
+									<t t-if="res_company.company_registry">
+										<li><i class="fa width-em1" /> <span t-field="res_company.company_registry"/></li>
 									</t>
 								</ul>
 							</div>
