@@ -1,0 +1,16 @@
+h1{
+	color: #6faa13;
+}
+
+h2{
+	color: #4183c4;
+}
+
+h3, h4, h5, h6{
+	color: #f15a29;
+}
+
+body, p, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: "Ubuntu", "Open Sans", sans-serif;	
+}
+	
