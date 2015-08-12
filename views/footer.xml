@@ -14,7 +14,7 @@
 									<t t-if="res_company.partner_id.businessid">
 										<li><i class="fa width-em1 fa-info"/> <span t-field="res_company.partner_id.businessid"/></li>
 									</t>
-									<li> </li>
+									
 									<li><i class="fa width-em1 fa-road"/> <span t-field="res_company.street"/></li>
 									<li><i class="fa width-em1 fa-map-marker"/> <span t-field="res_company.street2"/></li>
 									<li><i class="fa width-em1 fa-globe"/> <span t-field="res_company.zip"/> <span t-field="res_company.city"/></li>
