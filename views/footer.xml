@@ -1,7 +1,7 @@
 <openerp>
 	<data>
 		<!-- Customize footer  -->
-		<template id="custom_footer" inherit_id="website.footer_custom" name="Custom Footer">
+		<template id="footer_simple" name="Simple Footer" inherit_id="website.footer_custom">
 		
 			<!-- Remove footer items -->
 			<xpath expr="//div[@id='wrapwrap']/footer" position="replace">
