@@ -3,7 +3,7 @@
 		<!-- Customize footer  -->
 		<template id="footer_simple" name="Simple Footer" inherit_id="website.footer_custom">
 		
-			<!-- Remove footer items -->
+			<!-- Overwrite the whole footer -->
 			<xpath expr="//div[@id='wrapwrap']/footer" position="replace">
 				<footer>
 					<div id='footer' class='container'>
