@@ -1,0 +1,45 @@
+<openerp>
+	<data>
+		<!-- Customize footer  -->
+		<template id="custom_footer" inherit_id="website.footer_custom" name="Custom Footer">
+		
+			<!-- Remove footer items -->
+			<xpath expr="//div[@id='wrapwrap']/footer" position="replace">
+				<footer>
+					<div id='footer' class='container'>
+						<div class="row">
+							<div class='col-md-3' id='footer_info'>
+								<ul class="list-unstyled">
+									<li><i class="fa width-em1 fa-building"/> <span t-field="res_company.name"/></li>
+									<li></li>
+									<li><i class="fa width-em1 fa-road"/> <span t-field="res_company.street"/></li>
+									<li><i class="fa width-em1 fa-map-marker"/> <span t-field="res_company.street2"/></li>
+									<li><i class="fa width-em1 fa-globe"/> <span t-field="res_company.zip"/> <span t-field="res_company.city"/></li>
+								</ul>
+							</div>
+							
+							<div class='col-md-6' id='footer_empty'>
+							
+							</div>
+						
+							<div class='col-md-3' id='footer_contact'>
+								<h4><a href="/page/website.contactus">Contact us</a></h4>
+			                    
+			                    <ul class="list-unstyled">
+			                    	<t t-if="res_company.email">
+			                        	<li><i class="fa width-em1 fa-envelope"/> <span t-field="res_company.email"/></li>
+			                        </t>
+			                        
+			                        <t t-if="res_company.phone">
+                        				<li><i class="fa width-em1 fa-phone"/> <span t-field="res_company.phone"/></li>
+                        			</t>
+			                    </ul>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</xpath>
+		</template>
+		
+	</data>
+</openerp>
