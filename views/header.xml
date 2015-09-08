@@ -1,0 +1,9 @@
+<openerp>
+	<data>
+		<!-- Customize header  -->
+		<template id="header_large" name="Large Header" inherit_id="website.layout">
+
+        </template>
+		
+	</data>
+</openerp>
