@@ -1,4 +1,4 @@
 Website Large Header
 ====================
 
-Large header with larger logo
+Allows using larger header and logo.
