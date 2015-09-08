@@ -27,6 +27,7 @@
     'website': 'http://www.tawasta.fi',
     'depends': [
         'website',
+        'website_logo',
     ],
     'data': [
         'views/style.xml',

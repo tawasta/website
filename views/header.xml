@@ -2,8 +2,16 @@
 	<data>
 		<!-- Customize header  -->
 		<template id="header_large" name="Large Header" inherit_id="website.layout">
-
-        </template>
+            <xpath expr="//header/div/div[@class='container']" position="before">
+                <div id="div-logo">
+                    <div class="container">
+				        <a href="/" class="navbar-brand logo">
+				            <img id="company-logo" src="/logo.png" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
+				        </a>
+                    </div>
+                </div>
+            </xpath>
+		</template>
 		
 	</data>
 </openerp>
