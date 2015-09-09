@@ -1,0 +1,12 @@
+<openerp>
+	<data>
+		<!-- Customize footer  -->
+		<template id="footer_attribution" name="Footer attribution" inherit_id="website.footer_custom">
+		
+			<xpath expr="//div[@id='wrapwrap']/footer" position="inside">
+			
+			</xpath>
+		</template>
+		
+	</data>
+</openerp>
