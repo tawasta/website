@@ -31,6 +31,7 @@
     'data': [
         'views/style.xml',
         'views/footer.xml',
+        #'views/attribution_config_view.xml',
     ],
     'application': True,
 }
