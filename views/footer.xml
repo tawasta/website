@@ -7,7 +7,7 @@
 			     <br/>
 			     <div class='text-muted pull-left'>
 			         <!--<span t-field="website.attribution"/> -->
-			         All product icons by <a href="http://www.freepik.com/">Freepik</a> from <a href="http://www.flaticon.com/">www.flaticon.com</a>
+			         <p>All product icons by <a href="http://www.freepik.com/">Freepik</a> from <a href="http://www.flaticon.com/">www.flaticon.com</a></p>
 			     </div>
 			</xpath>
 			
