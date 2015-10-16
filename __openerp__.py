@@ -22,7 +22,7 @@
 {
     'name': 'Website Disclaimer',
     'category': 'Theme',
-    'version': '8.0.0.1.0',
+    'version': '8.0.0.1.1',
     'category': 'Theme',
     'website': 'http://www.tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
