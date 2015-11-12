@@ -19,6 +19,11 @@ from openerp.addons.web.http import request
 
 class website_sale(website_sale):
 
+	# 1. Private attributes
+
+	# 2. Fields declaration	
+
+	# 3. Default methods
 
 	def checkout_form_save(self, checkout):
 
@@ -33,3 +38,14 @@ class website_sale(website_sale):
 		partner.staff_count = request.params['staff_count']
 
 		partner.member_privacy = request.params['checkbox_privacy']
+
+
+	# 4. Compute and search fields, in the same order that fields declaration
+
+	# 5. Constraints and onchanges
+
+	# 6. CRUD methods
+
+	# 7. Action methods
+
+	# 8. Business methods
