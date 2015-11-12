@@ -23,19 +23,20 @@
 			<xpath expr="//div[@class='col-md-8 oe_cart']/div/div[13]" position="after">
 
 				<div id="membership_checkboxes" class="form-group col-lg-12">
-					<label>Jäsenyys</label>
+					<label>Membership</label>
 					<p>
 						<input type="checkbox" name="checkbox_membership"/>
-						Haluan liittyä jäseneksi
+						I would like to be a member
 					</p>
 					<p>
 						<input type="checkbox" name="checkbox_membership2"/>
-						Haluan liittyä ohjausryhmäjäseneksi
+						I would like to be a steering group member
 					</p>
-					<label>Yksityisyys</label>
+					<label>Privacy</label>
 					<p>
 						<input type="checkbox" name="checkbox_privacy"/>
-						Tietojani voidaan antaa COSSin jäsenille ja yhteistyökumppaneille. Organisaation tiedot saa julkaista COSSin kotisivujen jäsenlistalla.
+						I am willing to let COSS's members and partners use my information.
+						Details of organisation can be published in COSS's homepages memberlist. 
 					</p>
 				</div>
 			</xpath>

@@ -32,3 +32,4 @@ class website_sale(website_sale):
 		#Partneriin kirjoitus
 		partner.staff_count = request.params['staff_count']
 
+		partner.member_privacy = request.params['checkbox_privacy']
