@@ -19,3 +19,16 @@ from openerp.addons.web.http import request
 
 class website_sale(website_sale):
 
+
+	def checkout_form_save(self, checkout):
+
+		super(website_sale, self).checkout_form_save(checkout)
+
+		cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
+		orm_partner = registry.get('res.partner')
+		orm_user = registry.get('res.users')
+		partner = orm_user.browse(cr, SUPERUSER_ID, request.uid, context).partner_id
+		
+		#Partneriin kirjoitus
+		partner.staff_count = request.params['staff_count']
+
