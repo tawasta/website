@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <!-- Extend membership form view -->
+        <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">view.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="membership.view_partner_form"/>
+            <field name="priority" eval="200"/>
+            <field name="arch" type="xml">
+                <field name="website" position="before">
+                    <field name="staff_count" attrs="{'invisible': [('is_company','=',False)]}" />
+
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
