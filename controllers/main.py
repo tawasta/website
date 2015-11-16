@@ -24,6 +24,10 @@ class website_sale(website_sale):
 	# 2. Fields declaration	
 
 	# 3. Default methods
+	# def checkout_values(self, data):
+
+	# 	super(website_sale, self).checkout_values(data)
+	# self.mandatory_billing_fields.append("staff_count")
 
 	def checkout_form_save(self, checkout):
 
@@ -33,11 +37,26 @@ class website_sale(website_sale):
 		orm_partner = registry.get('res.partner')
 		orm_user = registry.get('res.users')
 		partner = orm_user.browse(cr, SUPERUSER_ID, request.uid, context).partner_id
-		
+
 		#Partneriin kirjoitus
 		partner.staff_count = request.params['staff_count']
 
-		partner.member_privacy = request.params['checkbox_privacy']
+		if 'member_privacy' in request.params:
+			partner.member_privacy = request.params['member_privacy']
+		else:
+			partner.member_privacy = False
+
+
+		if 'steering_member' in request.params:
+			partner.steering_member = request.params['steering_member']
+		else:
+			partner.steering_member = False
+
+	def _get_mandatory_billing_fields(self):
+		super(website_sale, self)._get_mandatory_billing_fields()
+		self.mandatory_billing_fields.extend(["staff_count", "member_privacy", "steering_member"])
+		print self.mandatory_billing_fields
+		return self.mandatory_billing_fields
 
 
 	# 4. Compute and search fields, in the same order that fields declaration

@@ -12,6 +12,7 @@
                 <field name="website" position="before">
                     <field name="staff_count" attrs="{'invisible': [('is_company','=',False)]}" />
                     <field name="member_privacy" widget="checkbox"/>
+                    <field name="steering_member" widget="checkbox"/>
                 </field>
             </field>
         </record>
