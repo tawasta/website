@@ -21,16 +21,20 @@
 
 			<!-- Between clearfix and shipping divs -->
 			<xpath expr="//div[@class='col-md-8 oe_cart']/div/div[13]" position="after">		
-				<div id="membership_checkboxes" class="form-group col-lg-12">
+				<div id="membership_div" t-attf-class="form-group #{error.get('checkbox_membership') and 'has-error' or ''} col-lg-12">
 					<label>Membership</label>
 					<p>
 						<input type="checkbox" name="checkbox_membership"/>
 						I would like to be a member
 					</p>
+				</div>
+				<div id="steering_div" t-attf-class="form-group #{error.get('steering_member') and 'has-error' or ''} col-lg-12">
 					<p>
 						<input type="checkbox" name="steering_member" />
 						I would like to be a steering group member
 					</p>
+				</div>
+				<div id="privacy_div" t-attf-class="form-group #{error.get('member_privacy') and 'has-error' or ''} col-lg-12">
 					<label>Privacy</label>
 					<p>
 						<input type="checkbox" name="member_privacy"/>
