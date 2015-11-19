@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # 1. Standard library imports:
-
+from collections import OrderedDict
 # 2. Known third party imports (One per line sorted and splitted in python stdlib):
 
 # 3. Odoo imports (openerp):
@@ -24,11 +24,8 @@ class website_sale(website_sale):
 	# 2. Fields declaration	
 
 	# 3. Default methods
-	# def checkout_values(self, data):
 
-	# 	super(website_sale, self).checkout_values(data)
-	# self.mandatory_billing_fields.append("staff_count")
-
+	# Save the new fields to partners form
 	def checkout_form_save(self, checkout):
 
 		super(website_sale, self).checkout_form_save(checkout)
@@ -52,6 +49,7 @@ class website_sale(website_sale):
 		else:
 			partner.steering_member = False
 
+	# Get the new fields from partner for to checkout
 	def checkout_values(self, data=None):
 		cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
 		orm_partner = registry.get('res.partner')
@@ -64,25 +62,10 @@ class website_sale(website_sale):
 		values['checkout']['steering_member'] = partner.steering_member
 		self.optional_billing_fields.extend(["staff_count", "member_privacy", "steering_member"])
 
-		staffs = dict(partner.fields_get(['staff_count'])['staff_count']['selection'])
-		# print staff_counts
-
+		staffs = OrderedDict(partner.fields_get(['staff_count'])['staff_count']['selection'])
 		values['staffs'] = staffs
-		print values
+
 		return values
-
-	# def checkout_parse(self, address_type, data, remove_prefix=False):
-
-	# 	self.optional_billing_fields.extend(["staff_count", "member_privacy", "steering_member"])
-	# 	print self.optional_billing_fields
-	# 	return super(website_sale, self).checkout_parse(address_type,data,remove_prefix)	
-
-
-	# def _get_mandatory_billing_fields(self):
-	# 	super(website_sale, self)._get_mandatory_billing_fields()
-	# 	self.mandatory_billing_fields.extend(["staff_count", "member_privacy", "steering_member"])
-	# 	print self.mandatory_billing_fields
-	# 	return self.mandatory_billing_fields
 
 
 	# 4. Compute and search fields, in the same order that fields declaration

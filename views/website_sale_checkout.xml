@@ -2,6 +2,7 @@
 <openerp>
 	<data>
 
+		<!-- Number of staff field before phonenumber -->
 		<template id="checkout" inherit_id="website_sale.checkout">
 			<xpath expr="//div[@class='col-md-8 oe_cart']/div/div[6]" position="before">
 				<div id="staff_count_div" t-attf-class="form-group #{error.get('staff_count') and 'has-error' or ''} col-lg-6">
@@ -10,8 +11,10 @@
 					<select name="staff_count" class="form-control">
 						<option value="">Number of staff...</option>
 						<t t-foreach="staffs or []" t-as="staff">
-							<option t-att-value="staff" t-att-selected="staff== checkout.get('staff_count')"><t t-esc="staff"/>
-						</option>
+							<option t-att-value="staff" t-att-selected="staff==
+								checkout.get('staff_count')">
+								<t t-esc="staff"/>
+							</option>
 
 						</t>
 					</select>
