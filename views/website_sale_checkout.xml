@@ -8,13 +8,12 @@
 					<label class="control-label" for="staff_count">Number of staff</label>
 
 					<select name="staff_count" class="form-control">
-						<option value="--">--</option>
-						<option value="1-9">1-9</option>
-						<option value="10-19">10-19</option>
-						<option value="20-49">20-49</option>
-						<option value="50-199">50-199</option> 
-						<option value="200-499">200-499</option>
-						<option value="500+">500+</option>
+						<option value="">Number of staff...</option>
+						<t t-foreach="staffs or []" t-as="staff">
+							<option t-att-value="staff" t-att-selected="staff== checkout.get('staff_count')"><t t-esc="staff"/>
+						</option>
+
+						</t>
 					</select>
 				</div>
 			</xpath>
@@ -24,20 +23,20 @@
 				<div id="membership_div" t-attf-class="form-group #{error.get('checkbox_membership') and 'has-error' or ''} col-lg-12">
 					<label>Membership</label>
 					<p>
-						<input type="checkbox" name="checkbox_membership"/>
+						<input type="checkbox" name="checkbox_membership" t-att-checked="checkout.get('checkbox_membership')"/>
 						I would like to be a member
 					</p>
 				</div>
 				<div id="steering_div" t-attf-class="form-group #{error.get('steering_member') and 'has-error' or ''} col-lg-12">
 					<p>
-						<input type="checkbox" name="steering_member" />
+						<input type="checkbox" name="steering_member" t-att-checked="checkout.get('steering_member')" />
 						I would like to be a steering group member
 					</p>
 				</div>
 				<div id="privacy_div" t-attf-class="form-group #{error.get('member_privacy') and 'has-error' or ''} col-lg-12">
 					<label>Privacy</label>
 					<p>
-						<input type="checkbox" name="member_privacy"/>
+						<input type="checkbox" name="member_privacy" t-att-checked="checkout.get('member_privacy')" />
 						I am willing to let COSS's members and partners use my information.
 						Details of organisation can be published in COSS's homepages memberlist. 
 					</p>

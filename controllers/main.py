@@ -52,11 +52,37 @@ class website_sale(website_sale):
 		else:
 			partner.steering_member = False
 
-	def _get_mandatory_billing_fields(self):
-		super(website_sale, self)._get_mandatory_billing_fields()
-		self.mandatory_billing_fields.extend(["staff_count", "member_privacy", "steering_member"])
-		print self.mandatory_billing_fields
-		return self.mandatory_billing_fields
+	def checkout_values(self, data=None):
+		cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
+		orm_partner = registry.get('res.partner')
+		orm_user = registry.get('res.users')
+		partner = orm_user.browse(cr, SUPERUSER_ID, request.uid, context).partner_id
+		values = super(website_sale, self).checkout_values(data)
+
+		values['checkout']['member_privacy'] = partner.member_privacy
+		values['checkout']['staff_count'] = partner.staff_count
+		values['checkout']['steering_member'] = partner.steering_member
+		self.optional_billing_fields.extend(["staff_count", "member_privacy", "steering_member"])
+
+		staffs = dict(partner.fields_get(['staff_count'])['staff_count']['selection'])
+		# print staff_counts
+
+		values['staffs'] = staffs
+		print values
+		return values
+
+	# def checkout_parse(self, address_type, data, remove_prefix=False):
+
+	# 	self.optional_billing_fields.extend(["staff_count", "member_privacy", "steering_member"])
+	# 	print self.optional_billing_fields
+	# 	return super(website_sale, self).checkout_parse(address_type,data,remove_prefix)	
+
+
+	# def _get_mandatory_billing_fields(self):
+	# 	super(website_sale, self)._get_mandatory_billing_fields()
+	# 	self.mandatory_billing_fields.extend(["staff_count", "member_privacy", "steering_member"])
+	# 	print self.mandatory_billing_fields
+	# 	return self.mandatory_billing_fields
 
 
 	# 4. Compute and search fields, in the same order that fields declaration
