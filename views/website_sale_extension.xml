@@ -10,7 +10,7 @@
             <field name="priority" eval="200"/>
             <field name="arch" type="xml">
                 <field name="website" position="before">
-                    <field name="staff_count"  />
+                    <field name="staff_count" attrs="{'invisible': [('is_company','=',False)]}" />
                     <field name="member_privacy" widget="checkbox"/>
                     <field name="steering_member" widget="checkbox"/>
                 </field>
