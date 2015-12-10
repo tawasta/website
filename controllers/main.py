@@ -36,9 +36,23 @@ class website_sale(website_sale):
 		partner = orm_user.browse(cr, SUPERUSER_ID, request.uid, context).partner_id
 		order = request.website.sale_get_order(force_create=1, context=context)
 
-		checkout['staff_count'] = request.params['staff_count']
-		checkout['member_privacy'] = request.params['member_privacy']
-		checkout['steering_member'] = request.params['steering_member']
+		if 'staff_count' in request.params:
+			checkout['staff_count'] = request.params['staff_count']
+		
+		elif 'member_privacy' in request.params:
+			checkout['member_privacy'] = request.params['member_privacy']
+		
+		elif 'steering_member' in request.params:
+			checkout['steering_member'] = request.params['steering_member']
+
+		elif 'reason1' in request.params:
+			checkout['reason1'] = request.params['reason1']
+
+		elif 'reason2' in request.params:
+			checkout['reason2'] = request.params['reason2']
+		
+		elif 'reason3' in request.params:
+			checkout['reason3'] = request.params['reason3']
 
 
 		partner_lang = request.lang if request.lang in [lang.code for lang in request.website.language_ids] else None
@@ -78,11 +92,31 @@ class website_sale(website_sale):
 		partner = orm_user.browse(cr, SUPERUSER_ID, request.uid, context).partner_id
 		values = super(website_sale, self).checkout_values(data)
 
-		# print partner.id
+		
 		values['checkout']['member_privacy'] = partner.member_privacy
 		values['checkout']['staff_count'] = partner.staff_count
 		values['checkout']['steering_member'] = partner.steering_member
-		self.optional_billing_fields.extend(["staff_count", "member_privacy", "steering_member"])
+
+		values['checkout']['reason1'] = partner.reason1
+		values['checkout']['reason2'] = partner.reason2
+		values['checkout']['reason3'] = partner.reason3
+
+		form_type = request.website.sale_get_order().product_id.id
+
+		self.mandatory_billing_fields = ["name", "email", "city"]
+
+    	# Shorter form
+		if form_type == 66:
+			values['checkout']['form_type'] = "hidden"
+			values['checkout']['shipping_style'] = "display:none"
+			values['checkout']['show_check'] = ""
+			self.optional_billing_fields.extend(["reason1", "reason2", "reason3"])
+		else:
+			values['checkout']['form_type'] = ""
+			values['checkout']['shipping_style'] = ""
+			values['checkout']['show_check'] = "hidden"
+			self.mandatory_billing_fields.extend(["street2"])
+			self.optional_billing_fields.extend(["staff_count", "member_privacy", "steering_member", "reason1", "reason2", "reason3"])
 
 		staffs = OrderedDict(partner.fields_get(['staff_count'])['staff_count']['selection'])
 		values['staffs'] = staffs

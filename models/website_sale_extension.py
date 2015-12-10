@@ -32,6 +32,11 @@ class WebsiteSaleExtension(models.Model):
 	steering_member = fields.Boolean(string="Steering group member",
 		help="Is willing to be a steering group member.",
 		default=False)
+
+	reason1 = fields.Boolean(string="Reason1", default=False)
+	reason2 = fields.Boolean(string="Reason2", default=False)
+	reason3 = fields.Boolean(string="Reason3", default=False)
+
 	# 3. Default methods
 
 	# 4. Compute and search fields, in the same order that fields declaration
