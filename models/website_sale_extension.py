@@ -33,9 +33,10 @@ class WebsiteSaleExtension(models.Model):
 		help="Is willing to be a steering group member.",
 		default=False)
 
-	reason1 = fields.Boolean(string="Reason1", default=False)
-	reason2 = fields.Boolean(string="Reason2", default=False)
-	reason3 = fields.Boolean(string="Reason3", default=False)
+	reason1 = fields.Boolean(string="Support", help="I wish to support open source communities", default=False)
+	reason2 = fields.Boolean(string="Participate", help="I want to participate in community's action", default=False)
+	reason3 = fields.Boolean(string="Networking", help="Networking", default=False)
+	reason4 = fields.Boolean(string="Something else", help="Something else", default=False)
 
 	# 3. Default methods
 

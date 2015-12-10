@@ -63,6 +63,13 @@
 						<input type="checkbox" name="reason3" t-att-checked="checkout.get('reason3')" />
 						Networking
 					</p>
+
+					<br></br>
+					<p>
+						<input type="checkbox" name="reason4" t-att-checked="checkout.get('reason4')"/>
+						Something else
+						<input type="text" name="other_reason" t-att-style="reason4 and 'display:none' or ''" placeholder="Reason"/>
+					</p>
 				</div>
 			</xpath>
 

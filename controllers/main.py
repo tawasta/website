@@ -37,23 +37,26 @@ class website_sale(website_sale):
 		order = request.website.sale_get_order(force_create=1, context=context)
 
 		if 'staff_count' in request.params:
+
 			checkout['staff_count'] = request.params['staff_count']
 		
-		elif 'member_privacy' in request.params:
+		if 'member_privacy' in request.params:
 			checkout['member_privacy'] = request.params['member_privacy']
 		
-		elif 'steering_member' in request.params:
+		if 'steering_member' in request.params:
 			checkout['steering_member'] = request.params['steering_member']
 
-		elif 'reason1' in request.params:
+		if 'reason1' in request.params:
 			checkout['reason1'] = request.params['reason1']
 
-		elif 'reason2' in request.params:
+		if 'reason2' in request.params:
 			checkout['reason2'] = request.params['reason2']
 		
-		elif 'reason3' in request.params:
+		if 'reason3' in request.params:
 			checkout['reason3'] = request.params['reason3']
 
+		if 'reason4' in request.params:
+			checkout['reason4'] = request.params['reason4']
 
 		partner_lang = request.lang if request.lang in [lang.code for lang in request.website.language_ids] else None
 
@@ -73,16 +76,13 @@ class website_sale(website_sale):
 			if not user_ids or request.website.user_id.id not in user_ids:
 				partner_id = order.partner_id.id
 
-
 		# save partner informations
 		if partner_id and request.website.partner_id.id != partner_id:
 			orm_partner.write(cr, SUPERUSER_ID, [partner_id], billing_info, context=context)
 		else:
 			# create partner
 			partner_id = orm_partner.create(cr, SUPERUSER_ID, billing_info, context=context)
-			print partner_id
-
-		
+	
 
 	# Get the new fields from partner for to checkout
 	def checkout_values(self, data=None):
@@ -100,6 +100,7 @@ class website_sale(website_sale):
 		values['checkout']['reason1'] = partner.reason1
 		values['checkout']['reason2'] = partner.reason2
 		values['checkout']['reason3'] = partner.reason3
+		values['checkout']['reason4'] = partner.reason4
 
 		form_type = request.website.sale_get_order().product_id.id
 

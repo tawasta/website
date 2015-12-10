@@ -13,6 +13,12 @@
                     <field name="staff_count" attrs="{'invisible': [('is_company','=',False)]}" />
                     <field name="member_privacy" widget="checkbox"/>
                     <field name="steering_member" widget="checkbox"/>
+                    
+                    <field name="reason1" widget="checkbox" attrs="{'invisible': [('reason1','=',False)]}"/>
+                    <field name="reason2" widget="checkbox" attrs="{'invisible': [('reason2','=',False)]}"/>
+                    <field name="reason3" widget="checkbox" attrs="{'invisible': [('reason3','=',False)]}"/>
+                    <field name="reason4" widget="checkbox" attrs="{'invisible': [('reason4','=',False)]}"/>
+
                 </field>
             </field>
         </record>
