@@ -36,8 +36,8 @@ class WebsiteSaleExtension(models.Model):
 	reason1 = fields.Boolean(string="Support", help="I wish to support open source communities", default=False)
 	reason2 = fields.Boolean(string="Participate", help="I want to participate in community's action", default=False)
 	reason3 = fields.Boolean(string="Networking", help="Networking", default=False)
-	reason4 = fields.Boolean(string="Something else", help="Something else", default=False)
-
+	# reason4 = fields.Boolean(string="Something else", help="Something else", default=False)
+	other_reason = fields.Text(string="Something else", help="Reason if something else")
 	# 3. Default methods
 
 	# 4. Compute and search fields, in the same order that fields declaration

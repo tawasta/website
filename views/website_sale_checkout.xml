@@ -21,6 +21,19 @@
 				</div>
 			</xpath>
 
+			<!-- Default value to Finland, might need fixing -->
+			<xpath expr="//div[@class='col-md-8 oe_cart']/div/div[12]" position="replace">
+				<div t-attf-class="form-group #{error.get('country_id') and 'has-error' or ''} col-lg-6">
+                      <label class="control-label" for="country_id">Country</label>
+                      <select name="country_id" class="form-control">
+                          <option value="71">Finland</option>
+                          <t t-foreach="countries or []" t-as="country">
+                              <option t-att-value="country.id" t-att-selected="country.id == checkout.get('country_id')"><t t-esc="country.name"/></option>
+                          </t>
+                      </select>
+                  </div>
+              </xpath>
+
 			<!-- Between clearfix and shipping divs -->
 			<xpath expr="//div[@class='col-md-8 oe_cart']/div/div[13]" position="after">		
 				<div id="membership_div" t-attf-class="form-group #{error.get('checkbox_membership') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-12">

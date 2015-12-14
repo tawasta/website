@@ -56,7 +56,8 @@ class website_sale(website_sale):
 			checkout['reason3'] = request.params['reason3']
 
 		if 'reason4' in request.params:
-			checkout['reason4'] = request.params['reason4']
+			# checkout['reason4'] = request.params['reason4']
+			checkout['other_reason'] = request.params['other_reason'] or ''
 
 		partner_lang = request.lang if request.lang in [lang.code for lang in request.website.language_ids] else None
 
@@ -104,14 +105,14 @@ class website_sale(website_sale):
 
 		form_type = request.website.sale_get_order().product_id.id
 
-		self.mandatory_billing_fields = ["name", "email", "city"]
+		self.mandatory_billing_fields = ["name", "email", "city", "country_id"]
 
     	# Shorter form
 		if form_type == 66:
 			values['checkout']['form_type'] = "hidden"
 			values['checkout']['shipping_style'] = "display:none"
 			values['checkout']['show_check'] = ""
-			self.optional_billing_fields.extend(["reason1", "reason2", "reason3"])
+			self.optional_billing_fields.extend(["reason1", "reason2", "reason3", "reason4", "other_reason"])
 		else:
 			values['checkout']['form_type'] = ""
 			values['checkout']['shipping_style'] = ""

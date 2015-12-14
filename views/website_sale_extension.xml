@@ -17,7 +17,7 @@
                     <field name="reason1" widget="checkbox" attrs="{'invisible': [('reason1','=',False)]}"/>
                     <field name="reason2" widget="checkbox" attrs="{'invisible': [('reason2','=',False)]}"/>
                     <field name="reason3" widget="checkbox" attrs="{'invisible': [('reason3','=',False)]}"/>
-                    <field name="reason4" widget="checkbox" attrs="{'invisible': [('reason4','=',False)]}"/>
+                    <field name="other_reason" attrs="{'invisible':[('other_reason','=', False)]}"/>
 
                 </field>
             </field>
