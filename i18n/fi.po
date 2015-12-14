@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-14 11:50+0000\n"
-"PO-Revision-Date: 2015-12-14 13:52+0200\n"
+"POT-Creation-Date: 2015-12-14 12:44+0000\n"
+"PO-Revision-Date: 2015-12-14 14:47+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,6 +26,11 @@ msgstr "#{checkout.get('shipping_style')}"
 #: selection:res.partner,staff_count:0
 msgid "--"
 msgstr "--"
+
+#. module: website_sale_extension
+#: view:website:website_sale.checkout
+msgid ". I accept the terms and the community's purpose."
+msgstr ". Hyväksyn säännöt ja yhdistyksen tarkoituksen."
 
 #. module: website_sale_extension
 #: selection:res.partner,staff_count:0
@@ -79,8 +84,8 @@ msgstr "Tietojani voidaan antaa COSSin jäsenille ja yhteistyökumppaneille. Org
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
-msgid "I have read & agreed to COSS ry's"
-msgstr "Olen tutustunut ja hyväksyn COSS ry:n"
+msgid "I have read COSS ry's"
+msgstr "Olen lukenut COSS ry:n"
 
 #. module: website_sale_extension
 #: help:res.partner,reason2:0
@@ -208,11 +213,6 @@ msgstr "Miksi haluat kannattaa COSS ry:n toimintaa?:"
 #: view:website:website_sale.checkout
 msgid "Zip / Postal Code"
 msgstr "Postinumero"
-
-#. module: website_sale_extension
-#: view:website:website_sale.checkout
-msgid "form-group #{error.get('country_id') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6"
-msgstr "form-group #{error.get('country_id') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
