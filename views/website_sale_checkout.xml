@@ -78,9 +78,9 @@
 
 					<br></br>
 					<p>
-						<input type="checkbox" name="reason4" t-att-checked="checkout.get('reason4')"/>
+						<input type="checkbox" name="reason4" id="reason4" t-att-checked="checkout.get('reason4')" onchange='javascript:document.getElementById("other_reason").hidden=!document.getElementById("reason4").checked;' />
 						Something else
-						<input type="text" name="other_reason" t-att-style="reason4 and 'display:none' or ''" placeholder="Reason"/>
+						<input type="text" name="other_reason" hidden="True" id="other_reason" placeholder="Reason"/>
 					</p>
 				</div>
 			</xpath>
