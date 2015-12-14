@@ -62,8 +62,12 @@ class website_sale(website_sale):
 		if 'website' in request.params:
 			checkout['website'] = request.params['website']
 
-		partner_lang = request.lang if request.lang in [lang.code for lang in request.website.language_ids] else None
+		# Job position
+		if 'function' in request.params:
+			checkout['function'] = request.params['function']
 
+		partner_lang = request.lang if request.lang in [lang.code for lang in request.website.language_ids] else None
+		print request.params
 		billing_info = {'customer': True}
 		if partner_lang:
 			billing_info['lang'] = partner_lang
@@ -100,13 +104,15 @@ class website_sale(website_sale):
 		values['checkout']['member_privacy'] = partner.member_privacy
 		values['checkout']['staff_count'] = partner.staff_count
 		values['checkout']['steering_member'] = partner.steering_member
-		values['checkout']['website'] = partner.website or ''
+		values['checkout']['website'] = partner.website
+		values['checkout']['function'] = partner.function or ' '
 
 		values['checkout']['reason1'] = partner.reason1
 		values['checkout']['reason2'] = partner.reason2
 		values['checkout']['reason3'] = partner.reason3
 		values['checkout']['reason4'] = partner.reason4
 
+		print values['checkout']
 		form_type = request.website.sale_get_order().product_id.id
 
 		self.mandatory_billing_fields = ["name", "email", "city", "country_id"]
@@ -121,7 +127,7 @@ class website_sale(website_sale):
 			values['checkout']['form_type'] = ""
 			values['checkout']['shipping_style'] = ""
 			values['checkout']['show_check'] = "hidden"
-			self.mandatory_billing_fields.extend(["street2", "street", "zip", "phone", "email", "agreed_box"])
+			self.mandatory_billing_fields.extend(["street2", "street", "zip", "phone", "email", "function", "agreed_box"])
 			self.optional_billing_fields.extend(["staff_count", "member_privacy", "steering_member", "website"])
 
 		staffs = OrderedDict(partner.fields_get(['staff_count'])['staff_count']['selection'])
