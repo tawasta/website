@@ -6,7 +6,7 @@
 		<template id="checkout" inherit_id="website_sale.checkout">
 			<xpath expr="//div[@class='col-md-8 oe_cart']/div/div[6]" position="before">
 				<div id="staff_count_div" t-attf-class="form-group #{error.get('staff_count') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
-					<label class="control-label" for="staff_count">Number of staff</label>
+					<label class="control-label" for="staff_count" style="font-weight:normal">Number of staff</label>
 
 					<select name="staff_count" class="form-control">
 						<option value="">Number of staff...</option>
@@ -21,17 +21,19 @@
 				</div>
 			</xpath>
 
+
+
 			<!-- Default value to Finland, might need fixing -->
 			<xpath expr="//div[@class='col-md-8 oe_cart']/div/div[12]" position="replace">
 				<div t-attf-class="form-group #{error.get('country_id') and 'has-error' or ''} col-lg-6">
-                      <label class="control-label" for="country_id">Country</label>
-                      <select name="country_id" class="form-control">
-                          <t t-foreach="countries or []" t-as="country">
-                              <option t-att-value="country.id" t-att-selected="country.id == (checkout.get('country_id') or 71)"><t t-esc="country.name"/></option>
-                          </t>
-                      </select>
-                  </div>
-              </xpath>
+					<label class="control-label" for="country_id">Country</label>
+					<select name="country_id" class="form-control">
+						<t t-foreach="countries or []" t-as="country">
+							<option t-att-value="country.id" t-att-selected="country.id == (checkout.get('country_id') or 71)"><t t-esc="country.name"/></option>
+						</t>
+					</select>
+				</div>
+			</xpath>
 
 			<!-- Between clearfix and shipping divs -->
 			<xpath expr="//div[@class='col-md-8 oe_cart']/div/div[13]" position="after">		
@@ -75,8 +77,27 @@
 						<input type="text" name="other_reason" hidden="True" id="other_reason" placeholder="Reason"/>
 					
 				</div>
+				
+				<div id="agreed_div" t-attf-class="form-group #{error.get('agreed_box') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-12">
+					<br></br>
+					<label for="agreed_box" t-attf-class="control-label">
+					<input type="checkbox" name="agreed_box" id="agreed_box"/>
+			
+						I have read &amp; agreed to COSS ry's terms. 
+					</label>
+				</div>
 			</xpath>
 
+
+			<xpath expr="//div[@class='col-md-8 oe_cart']/div/div[19]" position="after">
+				<div id="mandatory_fields" t-attf-class="col-lg-12">
+					<br></br>
+					<p>
+						Mandatory fields are bolded in the form.
+					</p>
+					<br></br>
+				</div>
+			</xpath>
 			<!-- Hide elements for the other form -->
 			<!-- Company -->
 			<xpath expr="//div[@class='col-md-8 oe_cart']/div/div[3]" position="attributes">

@@ -117,8 +117,8 @@ class website_sale(website_sale):
 			values['checkout']['form_type'] = ""
 			values['checkout']['shipping_style'] = ""
 			values['checkout']['show_check'] = "hidden"
-			self.mandatory_billing_fields.extend(["street2"])
-			self.optional_billing_fields.extend(["staff_count", "member_privacy", "steering_member", "reason1", "reason2", "reason3"])
+			self.mandatory_billing_fields.extend(["street2", "street", "zip", "phone", "email", "agreed_box"])
+			self.optional_billing_fields.extend(["staff_count", "member_privacy", "steering_member"])
 
 		staffs = OrderedDict(partner.fields_get(['staff_count'])['staff_count']['selection'])
 		values['staffs'] = staffs
