@@ -66,8 +66,7 @@
 					<label>Privacy</label>
 					<p>
 						<input type="checkbox" name="member_privacy" t-att-checked="checkout.get('member_privacy')" />
-						I am willing to let COSS's members and partners use my information.
-						Details of organisation can be published in COSS's homepages memberlist. 
+						I am willing to let COSS's members and partners use my information. Details of organisation can be published in COSS's homepages memberlist. 
 					</p>
 				</div>
 

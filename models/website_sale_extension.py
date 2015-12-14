@@ -38,6 +38,7 @@ class WebsiteSaleExtension(models.Model):
 	reason3 = fields.Boolean(string="Networking", help="Networking", default=False)
 	reason4 = fields.Boolean(string="Something else", help="Something else", default=False)
 	other_reason = fields.Text(string="Something else", help="Reason if something else")
+	agreed_box = fields.Boolean(string="Agrees to terms", default=False)
 	# 3. Default methods
 
 	# 4. Compute and search fields, in the same order that fields declaration
