@@ -19,12 +19,19 @@
 						</t>
 					</select>
 				</div>
+
+				<div id="website_div" t-attf-class="form-group #{error.get('webpage') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
+					<label class="control-label" for="website" style="font-weight:normal">Website</label>
+						<input type="text" name="website" class="form-control" t-att-value="checkout.get('website')"/>
+
+
+				</div>
 			</xpath>
 
 
 
 			<!-- Default value to Finland, might need fixing -->
-			<xpath expr="//div[@class='col-md-8 oe_cart']/div/div[12]" position="replace">
+			<xpath expr="//div[@class='col-md-8 oe_cart']/div/div[13]" position="replace">
 				<div t-attf-class="form-group #{error.get('country_id') and 'has-error' or ''} col-lg-6">
 					<label class="control-label" for="country_id">Country</label>
 					<select name="country_id" class="form-control">
@@ -109,7 +116,7 @@
 				</div>
 			</xpath>
 
-			
+
 			<!-- Hide elements for the other form -->
 			<!-- Company -->
 			<xpath expr="//div[@class='col-md-8 oe_cart']/div/div[3]" position="attributes">

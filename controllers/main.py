@@ -59,6 +59,9 @@ class website_sale(website_sale):
 			# checkout['reason4'] = request.params['reason4']
 			checkout['other_reason'] = request.params['other_reason'] or ''
 
+		if 'website' in request.params:
+			checkout['website'] = request.params['website']
+
 		partner_lang = request.lang if request.lang in [lang.code for lang in request.website.language_ids] else None
 
 		billing_info = {'customer': True}
@@ -97,6 +100,7 @@ class website_sale(website_sale):
 		values['checkout']['member_privacy'] = partner.member_privacy
 		values['checkout']['staff_count'] = partner.staff_count
 		values['checkout']['steering_member'] = partner.steering_member
+		values['checkout']['website'] = partner.website or ''
 
 		values['checkout']['reason1'] = partner.reason1
 		values['checkout']['reason2'] = partner.reason2
@@ -118,7 +122,7 @@ class website_sale(website_sale):
 			values['checkout']['shipping_style'] = ""
 			values['checkout']['show_check'] = "hidden"
 			self.mandatory_billing_fields.extend(["street2", "street", "zip", "phone", "email", "agreed_box"])
-			self.optional_billing_fields.extend(["staff_count", "member_privacy", "steering_member"])
+			self.optional_billing_fields.extend(["staff_count", "member_privacy", "steering_member", "website"])
 
 		staffs = OrderedDict(partner.fields_get(['staff_count'])['staff_count']['selection'])
 		values['staffs'] = staffs
