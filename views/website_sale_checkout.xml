@@ -78,14 +78,24 @@
 					
 				</div>
 				
+				<!-- Checkbox if user agrees to terms -->
 				<div id="agreed_div" t-attf-class="form-group #{error.get('agreed_box') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-12">
 					<br></br>
 					<label for="agreed_box" t-attf-class="control-label">
 					<input type="checkbox" name="agreed_box" id="agreed_box"/>
 			
-						I have read &amp; agreed to COSS ry's terms. 
+						I have read &amp; agreed to COSS ry's <a href="https://coss.fi/coss-ry/saannot/">terms</a>. 
 					</label>
 				</div>
+			</xpath>
+
+			<!-- Bold zip + company name to show them as mandatory -->
+			<xpath expr="//label[@for='street']" position="replace">
+
+				<label class="control-label" for="street">Company Name</label>
+			</xpath>
+			<xpath expr="//label[@for='zip']" position="replace">
+				<label class="control-label" for="zip">Zip / Postal Code</label>
 			</xpath>
 
 
@@ -98,6 +108,8 @@
 					<br></br>
 				</div>
 			</xpath>
+
+			
 			<!-- Hide elements for the other form -->
 			<!-- Company -->
 			<xpath expr="//div[@class='col-md-8 oe_cart']/div/div[3]" position="attributes">
