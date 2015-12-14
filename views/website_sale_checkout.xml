@@ -64,24 +64,18 @@
 						<input type="checkbox" name="reason1" t-att-checked="checkout.get('reason1')" />
 						I wish to support open source communities
 					</p>
-					<br></br>
 					<p>
 						<input type="checkbox" name="reason2" t-att-checked="checkout.get('reason2')" />
 						I want to participate in community's action.
 					</p>
-
-					<br></br>
 					<p>
 						<input type="checkbox" name="reason3" t-att-checked="checkout.get('reason3')" />
 						Networking
 					</p>
-
-					<br></br>
-					<p>
 						<input type="checkbox" name="reason4" id="reason4" t-att-checked="checkout.get('reason4')" onchange='javascript:document.getElementById("other_reason").hidden=!document.getElementById("reason4").checked;' />
 						Something else
 						<input type="text" name="other_reason" hidden="True" id="other_reason" placeholder="Reason"/>
-					</p>
+					
 				</div>
 			</xpath>
 
