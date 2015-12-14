@@ -41,8 +41,6 @@
 						<input type="checkbox" name="checkbox_membership" t-att-checked="checkout.get('checkbox_membership')"/>
 						I would like to be a member
 					</p>
-				</div>
-				<div id="steering_div" t-attf-class="form-group #{error.get('steering_member') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-12">
 					<p>
 						<input type="checkbox" name="steering_member" t-att-checked="checkout.get('steering_member')" />
 						I would like to be a steering group member
@@ -111,7 +109,7 @@
 			</xpath>
 
 			<!-- Shipping  -->
-			<xpath expr="//div[@class='col-md-8 oe_cart']/div/div[19]" position="attributes">
+			<xpath expr="//div[@class='col-md-8 oe_cart']/div/div[18]" position="attributes">
 				<attribute name="t-attf-style">#{checkout.get('shipping_style')}</attribute>
 			</xpath>
 
