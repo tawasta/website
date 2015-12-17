@@ -116,7 +116,7 @@ class website_sale(website_sale):
 		self.mandatory_billing_fields = ["name", "email", "city", "country_id"]
 
     	# Shorter form bind to id
-		if form_type == 66:
+		if form_type == 6:
 			values['checkout']['form_type'] = "hidden"
 			values['checkout']['show_check'] = ""
 			self.optional_billing_fields.extend(["reason1", "reason2", "reason3", "reason4", "other_reason"])
