@@ -115,15 +115,13 @@ class website_sale(website_sale):
 
 		self.mandatory_billing_fields = ["name", "email", "city", "country_id"]
 
-    	# Shorter form
+    	# Shorter form bind to id
 		if form_type == 66:
 			values['checkout']['form_type'] = "hidden"
-			values['checkout']['shipping_style'] = "display:none"
 			values['checkout']['show_check'] = ""
 			self.optional_billing_fields.extend(["reason1", "reason2", "reason3", "reason4", "other_reason"])
 		else:
 			values['checkout']['form_type'] = ""
-			values['checkout']['shipping_style'] = ""
 			values['checkout']['show_check'] = "hidden"
 			self.mandatory_billing_fields.extend(["street2", "street", "zip", "phone", "email", "function", "agreed_box"])
 			self.optional_billing_fields.extend(["staff_count", "member_privacy", "steering_member", "website"])
