@@ -127,12 +127,12 @@
 									<div id="website_div" t-attf-class="form-group #{error.get('webpage') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
 										<label class="control-label" for="website" style="font-weight:normal">Website</label>
 										<input type="text" name="website" class="form-control" t-att-value="checkout.get('website')"/>
-
 									</div>
 									<!-- Organization fields end -->
 
 									<!-- Longer form checkboxes -->
 									<div id="membership_div" t-attf-class="form-group #{error.get('checkbox_membership') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-12">
+										<br></br>
 										<label>Membership</label>
 										<p>
 											<input type="checkbox" name="checkbox_membership" t-att-checked="checkout.get('checkbox_membership')"/>
