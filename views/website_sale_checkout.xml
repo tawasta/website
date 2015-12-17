@@ -63,20 +63,20 @@
 										
 									</div>
 
-									<div t-if="has_check_vat" class="clearfix"/>
 									<div id="copany_name_div" t-attf-class="form-group #{error.get('street') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
 										<label class="control-label" for="street">Company Name</label>
 										<input type="text" name="street" class="form-control" t-att-value="checkout.get('street')"/>
 									</div>
-									<div id="vat_div" t-if="has_check_vat" t-attf-class="form-group #{error.get('vat') and 'has-error' or ''} col-lg-6">
+									<div id="vat_div" t-attf-class="form-group #{error.get('vat') and 'has-error' or ''} col-lg-6">
 										<label class="control-label" for="vat" style="font-weight: normal">VAT Number</label>
 										<input type="text" name="vat" class="form-control" t-att-value="checkout.get('vat')"/>
 									</div>
+
+									<div class="clearfix"/>
 									<div id="street_div" t-attf-class="form-group #{error.get('street2') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
 										<label class="control-label" for="street2">Street</label>
 										<input type="text" name="street2" class="form-control" t-att-value="checkout.get('street2')"/>
 									</div>
-									<div class="clearfix"/>
 
 									<div id="city_div" t-attf-class="form-group #{error.get('city') and 'has-error' or ''} col-lg-6">
 										<label class="control-label" for="city">City</label>
