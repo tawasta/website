@@ -9,16 +9,21 @@
             <field name="inherit_id" ref="membership.view_partner_form"/>
             <field name="priority" eval="200"/>
             <field name="arch" type="xml">
-                <field name="website" position="before">
-                    <field name="staff_count" attrs="{'invisible': [('is_company','=',False)]}" />
-                    <field name="member_privacy" widget="checkbox"/>
-                    <field name="steering_member" widget="checkbox"/>
-                    
-                    <field name="reason1" widget="checkbox" attrs="{'invisible': [('reason1','=',False)]}"/>
-                    <field name="reason2" widget="checkbox" attrs="{'invisible': [('reason2','=',False)]}"/>
-                    <field name="reason3" widget="checkbox" attrs="{'invisible': [('reason3','=',False)]}"/>
-                    <field name="other_reason" attrs="{'invisible':[('other_reason','=', False)]}"/>
+                <field name="member_lines" position="before">
+                    <group string="Website sale">
+                        <group>
+                            <field name="staff_count" widget="selection" attrs="{'invisible': [('is_company','=',False)]}"/>
+                            <field name="member_privacy" widget="checkbox"/>
+                            <field name="steering_member" widget="checkbox"/>
 
+                        </group>
+                        <group>
+                            <field name="reason1" widget="checkbox" />
+                            <field name="reason2" widget="checkbox" />
+                            <field name="reason3" widget="checkbox" />
+                            <field name="other_reason" />
+                        </group>
+                    </group>
                 </field>
             </field>
         </record>
