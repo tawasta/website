@@ -36,6 +36,8 @@ class website_sale(website_sale):
 		partner = orm_user.browse(cr, SUPERUSER_ID, request.uid, context).partner_id
 		order = request.website.sale_get_order(force_create=1, context=context)
 
+		billing_info = {'customer': True}
+
 		if 'staff_count' in request.params:
 
 			checkout['staff_count'] = request.params['staff_count']
@@ -65,9 +67,14 @@ class website_sale(website_sale):
 		if 'function' in request.params:
 			checkout['function'] = request.params['function']
 
+		if 'businessid' in request.params:
+			checkout['businessid'] = request.params['businessid']
+			billing_info['is_company'] = True
+			billing_info['businessid_shown'] = True
+			billing_info['vatnumber_shown'] = True
+
 		partner_lang = request.lang if request.lang in [lang.code for lang in request.website.language_ids] else None
 	
-		billing_info = {'customer': True}
 		if partner_lang:
 			billing_info['lang'] = partner_lang
 
@@ -98,18 +105,21 @@ class website_sale(website_sale):
 		orm_user = registry.get('res.users')
 		partner = orm_user.browse(cr, SUPERUSER_ID, request.uid, context).partner_id
 		values = super(website_sale, self).checkout_values(data)
-
 		
-		values['checkout']['member_privacy'] = partner.member_privacy
-		values['checkout']['staff_count'] = partner.staff_count
-		values['checkout']['steering_member'] = partner.steering_member
-		values['checkout']['website'] = partner.website
-		values['checkout']['function'] = partner.function or ' '
-
-		values['checkout']['reason1'] = partner.reason1
-		values['checkout']['reason2'] = partner.reason2
-		values['checkout']['reason3'] = partner.reason3
-		values['checkout']['reason4'] = partner.reason4
+		# This function is called when moving from checkout form to confirmation
+		# That's why we have to ensure that when we retrieve values from partner,
+		# we do not overwrite user typed data
+		if data == None:
+			values['checkout']['member_privacy'] = partner.member_privacy
+			values['checkout']['staff_count'] = partner.staff_count
+			values['checkout']['steering_member'] = partner.steering_member
+			values['checkout']['website'] = partner.website
+			values['checkout']['function'] = partner.function
+			values['checkout']['businessid'] = partner.businessid
+			values['checkout']['reason1'] = partner.reason1
+			values['checkout']['reason2'] = partner.reason2
+			values['checkout']['reason3'] = partner.reason3
+			values['checkout']['reason4'] = partner.reason4
 
 		form_type = request.website.sale_get_order().product_id.id
 
@@ -124,7 +134,7 @@ class website_sale(website_sale):
 			values['checkout']['form_type'] = ""
 			values['checkout']['show_check'] = "hidden"
 			self.mandatory_billing_fields.extend(["street2", "street", "zip", "phone", "email", "function", "agreed_box"])
-			self.optional_billing_fields.extend(["staff_count", "member_privacy", "steering_member", "website"])
+			self.optional_billing_fields.extend(["staff_count", "member_privacy", "steering_member", "website", "businessid"])
 
 		staffs = OrderedDict(partner.fields_get(['staff_count'])['staff_count']['selection'])
 		values['staffs'] = staffs
