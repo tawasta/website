@@ -31,7 +31,8 @@
     'installable': True,
     'depends': [
         'membership',
-        'website_sale'
+        'website_sale',
+        'sale_business_id'
     ],
     'data': [
         'views/website_sale_extension.xml',
