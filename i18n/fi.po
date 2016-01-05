@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-21 09:06+0000\n"
-"PO-Revision-Date: 2015-12-21 11:07+0200\n"
+"POT-Creation-Date: 2016-01-05 07:03+0000\n"
+"PO-Revision-Date: 2016-01-05 09:05+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -63,6 +63,11 @@ msgid "500+"
 msgstr "500+"
 
 #. module: website_sale_extension
+#: view:website:website_sale.checkout
+msgid "Address"
+msgstr "Osoite"
+
+#. module: website_sale_extension
 #: field:res.partner,agreed_box:0
 msgid "Agrees to terms"
 msgstr "Hyväksyy säännöt"
@@ -79,11 +84,6 @@ msgstr "Kaupunki"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
-msgid "Company Name"
-msgstr "Yrityksen nimi"
-
-#. module: website_sale_extension
-#: view:website:website_sale.checkout
 msgid "Confirm"
 msgstr "Vahvista"
 
@@ -91,11 +91,6 @@ msgstr "Vahvista"
 #: view:website:website_sale.checkout
 msgid "Confirmation"
 msgstr "Vahvistus"
-
-#. module: website_sale_extension
-#: view:website:website_sale.checkout
-msgid "Contact person"
-msgstr "Yhteyshenkilö"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
@@ -148,6 +143,11 @@ msgid "I would like to be a steering group member"
 msgstr "Haluan liittyä ohjausryhmäjäseneksi"
 
 #. module: website_sale_extension
+#: view:website:website_sale.checkout
+msgid "Info"
+msgstr "Info"
+
+#. module: website_sale_extension
 #: help:res.partner,steering_member:0
 msgid "Is willing to be a steering group member."
 msgstr "Haluaa olla ohjausryhmäjäsen"
@@ -197,11 +197,6 @@ msgstr "Henkilöstön määrä"
 #: view:website:website_sale.checkout
 msgid "Number of staff..."
 msgstr "Henkilöstön määrä..."
-
-#. module: website_sale_extension
-#: view:website:website_sale.checkout
-msgid "Organization"
-msgstr "Organisaatio"
 
 #. module: website_sale_extension
 #: field:res.partner,reason2:0
@@ -301,6 +296,11 @@ msgstr "Katuosoite"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
+msgid "Street specifier"
+msgstr "Katuosoitteen tarkenne"
+
+#. module: website_sale_extension
+#: view:website:website_sale.checkout
 msgid "Subtotal:"
 msgstr "Välisumma"
 
@@ -346,8 +346,8 @@ msgstr "Osoitteesi"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
-msgid "Your Name"
-msgstr "Nimesi"
+msgid "Your Name or Company Name"
+msgstr "Yritys tai nimi"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout

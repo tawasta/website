@@ -29,12 +29,12 @@
 									<!-- Contact person fields -->
 									<div t-attf-class="form-group #{checkout.get('form_type')} col-lg-12">
 										<h4>
-											Contact person
+											Info
 										</h4>
 									</div>
 
 									<div id="name_div" t-attf-class="form-group #{error.get('name') and 'has-error' or ''} col-lg-6">
-										<label class="control-label" for="contact_name">Your Name</label>
+										<label class="control-label" for="contact_name">Your Name or Company Name</label>
 										<input type="text" name="name" class="form-control" t-att-value="checkout.get('name')"/>
 									</div>
 
@@ -58,17 +58,17 @@
 									<div id="organisation_fields_div" t-attf-class="#{checkout.get('form_type')} col-lg-12">
 										<br></br>
 										<h4>
-											Organization
+											Address
 										</h4>
 										
 									</div>
 
 									<div id="copany_name_div" t-attf-class="form-group #{error.get('street') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
-										<label class="control-label" for="street">Company Name</label>
+										<label class="control-label" for="street">Street</label>
 										<input type="text" name="street" class="form-control" t-att-value="checkout.get('street')"/>
 									</div>
 
-									<div id="vat_div" t-if="has_check_vat" t-attf-class="form-group #{error.get('vat') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
+									<div id="vat_div" t-if="has_check_vat" t-attf-class="form-group #{error.get('vat') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6 hidden">
 										<label class="control-label" for="vat" style="font-weight: normal">VAT Number</label>
 										<input type="text" name="vat" class="form-control" t-att-value="checkout.get('vat')"/>
 									</div>
@@ -76,7 +76,7 @@
 									<div t-if="has_check_vat" t-attf-class="clearfix #{checkout.get('form_type')}"/>
 
 									<div id="street_div" t-attf-class="form-group #{error.get('street2') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
-										<label class="control-label" for="street2">Street</label>
+										<label class="control-label" for="street2">Street specifier</label>
 										<input type="text" name="street2" class="form-control" t-att-value="checkout.get('street2')"/>
 									</div>
 									
