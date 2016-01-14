@@ -137,19 +137,21 @@ class website_sale(website_sale):
 		error = super(website_sale, self).checkout_form_validate(data)
 
 		businessid = data.get('businessid')
-		
+		passed = True
 
 		if businessid: 
 
 			if registry['res.partner'].businessid_invalid_format(businessid):
+				passed = False
 				error['businessid'] = registry['res.partner'].businessid_invalid_format(businessid)
 			
 			# Is the businessid already in use?
-			try:
-				partner.businessid = businessid
-			except:
-				error['businessid'] = "Already in use"
-				pass
+			if passed: 
+				try:
+					partner.businessid = businessid
+				except:
+					error['businessid'] = "Already in use"
+					pass
 
 		return error
 
