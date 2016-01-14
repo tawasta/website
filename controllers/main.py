@@ -28,20 +28,10 @@ class website_sale(website_sale):
 	# Save the new fields to partners form
 	def checkout_form_save(self, checkout):
 
-		super(website_sale, self).checkout_form_save(checkout)
-
-		cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
-		orm_partner = registry.get('res.partner')
-		orm_user = registry.get('res.users')
-		partner = orm_user.browse(cr, SUPERUSER_ID, request.uid, context).partner_id
-		order = request.website.sale_get_order(force_create=1, context=context)
-
-		billing_info = {'customer': True}
-
 		if 'staff_count' in request.params:
 
 			checkout['staff_count'] = request.params['staff_count']
-		
+
 		if 'member_privacy' in request.params:
 			checkout['member_privacy'] = request.params['member_privacy']
 		
@@ -69,34 +59,13 @@ class website_sale(website_sale):
 
 		if 'businessid' in request.params:
 			checkout['businessid'] = request.params['businessid']
-			billing_info['is_company'] = True
-			billing_info['businessid_shown'] = True
-			billing_info['vatnumber_shown'] = True
+			del checkout['vat'] 
+			checkout['is_company'] = True
+			checkout['businessid_shown'] = True
+			checkout['vatnumber_shown'] = True
 
-		partner_lang = request.lang if request.lang in [lang.code for lang in request.website.language_ids] else None
-	
-		if partner_lang:
-			billing_info['lang'] = partner_lang
+		super(website_sale, self).checkout_form_save(checkout)
 
-		billing_info.update(self.checkout_parse('billing', checkout, True))
-
-		# set partner_id
-		partner_id = None
-		if request.uid != request.website.user_id.id:
-			partner_id = orm_user.browse(cr, SUPERUSER_ID, uid, context=context).partner_id.id
-		elif order.partner_id:
-			user_ids = request.registry['res.users'].search(cr, SUPERUSER_ID,
-				[("partner_id", "=", order.partner_id.id)], context=dict(context or {}, active_test=False))
-			if not user_ids or request.website.user_id.id not in user_ids:
-				partner_id = order.partner_id.id
-
-		# save partner informations
-		if partner_id and request.website.partner_id.id != partner_id:
-			orm_partner.write(cr, SUPERUSER_ID, [partner_id], billing_info, context=context)
-		else:
-			# create partner
-			partner_id = orm_partner.create(cr, SUPERUSER_ID, billing_info, context=context)
-	
 
 	# Get the new fields from partner for to checkout
 	def checkout_values(self, data=None):
@@ -109,13 +78,14 @@ class website_sale(website_sale):
 		# This function is called when moving from checkout form to confirmation
 		# That's why we have to ensure that when we retrieve values from partner,
 		# we do not overwrite user typed data
-		if data == None:
-			values['checkout']['member_privacy'] = partner.member_privacy
-			values['checkout']['staff_count'] = partner.staff_count
-			values['checkout']['steering_member'] = partner.steering_member
-			values['checkout']['website'] = partner.website
+		if not data:
 			values['checkout']['function'] = partner.function
+			values['checkout']['staff_count'] = partner.staff_count
 			values['checkout']['businessid'] = partner.businessid
+			values['checkout']['website'] = partner.website
+
+			values['checkout']['member_privacy'] = partner.member_privacy
+			values['checkout']['steering_member'] = partner.steering_member
 			values['checkout']['reason1'] = partner.reason1
 			values['checkout']['reason2'] = partner.reason2
 			values['checkout']['reason3'] = partner.reason3
@@ -134,13 +104,27 @@ class website_sale(website_sale):
 			values['checkout']['form_type'] = ""
 			values['checkout']['show_check'] = "hidden"
 			self.mandatory_billing_fields.extend(["street2", "street", "zip", "phone", "email", "function", "agreed_box"])
-			self.optional_billing_fields.extend(["staff_count", "member_privacy", "steering_member", "website", "businessid"])
+			self.optional_billing_fields.extend(["staff_count", 
+				"member_privacy", "steering_member", "website", 
+				"businessid", "is_company", "businessid_shown", "vatnumber_shown"])
 
 		staffs = OrderedDict(partner.fields_get(['staff_count'])['staff_count']['selection'])
 		values['staffs'] = staffs
 
 		return values
 
+	# Add businessid validation to checkout forms validate method
+	def checkout_form_validate(self, data):
+		cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
+
+		error = super(website_sale, self).checkout_form_validate(data)
+
+		businessid = data.get('businessid')
+
+		if businessid and registry['res.partner'].businessid_invalid_format(businessid):
+			error['businessid'] = registry['res.partner'].businessid_invalid_format(businessid)
+
+		return error
 
 	# 4. Compute and search fields, in the same order that fields declaration
 

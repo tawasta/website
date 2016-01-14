@@ -73,7 +73,7 @@
 										<input type="text" name="vat" class="form-control" t-att-value="checkout.get('vat')"/>
 									</div>
 
-									<div id="businessid_div" t-if="has_check_vat" t-attf-class="form-group  #{checkout.get('form_type')} col-lg-6">
+									<div id="businessid_div" t-if="has_check_vat" t-attf-class="form-group #{error.get('businessid') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
 										<label class="control-label" for="businessid" style="font-weight: normal">Business ID</label>
 										<input type="text" name="businessid" class="form-control" t-att-value="checkout.get('businessid')"/>
 									</div>
