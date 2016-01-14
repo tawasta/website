@@ -83,13 +83,27 @@ class website_sale(website_sale):
 			values['checkout']['staff_count'] = partner.staff_count
 			values['checkout']['businessid'] = partner.businessid
 			values['checkout']['website'] = partner.website
-
 			values['checkout']['member_privacy'] = partner.member_privacy
 			values['checkout']['steering_member'] = partner.steering_member
 			values['checkout']['reason1'] = partner.reason1
 			values['checkout']['reason2'] = partner.reason2
 			values['checkout']['reason3'] = partner.reason3
 			values['checkout']['reason4'] = partner.reason4
+
+			# Update checkout when moving backwards so the fills don't disappear
+			if request.uid != request.website.user_id.id:
+
+				values['checkout'].update( self.checkout_parse("billing", partner) )
+				shipping_ids = orm_partner.search(cr, SUPERUSER_ID, [("parent_id", "=", partner.id), ('type', "=", 'delivery')], context=context)
+			else:
+				order = request.website.sale_get_order(force_create=1, context=context)
+				if order.partner_id:
+
+					domain = [("partner_id", "=", order.partner_id.id)]
+					user_ids = request.registry['res.users'].search(cr, SUPERUSER_ID, domain, context=dict(context or {}, active_test=False))
+					if not user_ids or request.website.user_id.id not in user_ids:
+
+						values['checkout'].update( self.checkout_parse("billing", order.partner_id) )
 
 		form_type = request.website.sale_get_order().product_id.id
 
