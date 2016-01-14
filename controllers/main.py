@@ -130,13 +130,26 @@ class website_sale(website_sale):
 	# Add businessid validation to checkout forms validate method
 	def checkout_form_validate(self, data):
 		cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
+		
+		tmp_partner = registry['res.partner'].browse(cr, SUPERUSER_ID, uid, context=context)
+		partner = request.website.sale_get_order(force_create=1, context=context).partner_id
 
 		error = super(website_sale, self).checkout_form_validate(data)
 
 		businessid = data.get('businessid')
+		
 
-		if businessid and registry['res.partner'].businessid_invalid_format(businessid):
-			error['businessid'] = registry['res.partner'].businessid_invalid_format(businessid)
+		if businessid: 
+
+			if registry['res.partner'].businessid_invalid_format(businessid):
+				error['businessid'] = registry['res.partner'].businessid_invalid_format(businessid)
+			
+			# Is the businessid already in use?
+			try:
+				partner.businessid = businessid
+			except:
+				error['businessid'] = "Already in use"
+				pass
 
 		return error
 
