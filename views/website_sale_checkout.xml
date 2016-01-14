@@ -142,10 +142,6 @@
 										<br></br>
 										<label>Membership</label>
 										<p>
-											<input type="checkbox" name="checkbox_membership" t-att-checked="checkout.get('checkbox_membership')"/>
-											I would like to be a member
-										</p>
-										<p>
 											<input type="checkbox" name="steering_member" t-att-checked="checkout.get('steering_member')" />
 											I would like to be a steering group member
 										</p>

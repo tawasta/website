@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-14 10:38+0000\n"
-"PO-Revision-Date: 2016-01-14 12:41+0200\n"
+"POT-Creation-Date: 2016-01-14 11:30+0000\n"
+"PO-Revision-Date: 2016-01-14 13:31+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -136,11 +136,6 @@ msgstr "Haluan osallistua yhteisön toimintaan"
 #: help:res.partner,reason1:0 view:website:website_sale.checkout
 msgid "I wish to support open source communities"
 msgstr "Haluan tukea avoimen lähdekoodin yhteisöjä"
-
-#. module: website_sale_extension
-#: view:website:website_sale.checkout
-msgid "I would like to be a member"
-msgstr "Haluan liittyä jäseneksi"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
@@ -327,7 +322,7 @@ msgstr "Maksettava yhteensä:"
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
 msgid "VAT Number"
-msgstr "Verokoodi"
+msgstr "Y-tunnus"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
