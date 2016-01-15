@@ -5,7 +5,7 @@ from collections import OrderedDict
 # 2. Known third party imports (One per line sorted and splitted in python stdlib):
 
 # 3. Odoo imports (openerp):
-from openerp import SUPERUSER_ID
+from openerp import fields, SUPERUSER_ID
 from openerp.addons.website_sale.controllers.main import website_sale
 from openerp.addons.web import http
 from openerp.addons.web.http import request
@@ -106,7 +106,6 @@ class website_sale(website_sale):
 						values['checkout'].update( self.checkout_parse("billing", order.partner_id) )
 
 		form_type = request.website.sale_get_order().product_id.id
-
 		self.mandatory_billing_fields = ["name", "email", "city", "country_id"]
 
     	# Shorter form bind to id (Product variants URL id)
@@ -120,7 +119,8 @@ class website_sale(website_sale):
 			self.mandatory_billing_fields.extend(["street2", "street", "zip", "phone", "email", "function", "agreed_box"])
 			self.optional_billing_fields.extend(["staff_count", 
 				"member_privacy", "steering_member", "website", 
-				"businessid", "is_company", "businessid_shown", "vatnumber_shown"])
+				"businessid", "is_company", "businessid_shown", 
+				"vatnumber_shown", "membership_start"])
 
 		staffs = OrderedDict(partner.fields_get(['staff_count'])['staff_count']['selection'])
 		values['staffs'] = staffs
@@ -146,12 +146,14 @@ class website_sale(website_sale):
 				error['businessid'] = registry['res.partner'].businessid_invalid_format(businessid)
 			
 			# Is the businessid already in use?
+
 			if passed: 
 				try:
 					partner.businessid = businessid
 				except:
 					error['businessid'] = "Already in use"
 					pass
+				partner.businessid = None
 
 		return error
 
