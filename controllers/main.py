@@ -108,7 +108,7 @@ class website_sale(website_sale):
 
 		# All the fields written to partner has to be either in mandatory or optional fields
 		self.mandatory_billing_fields = ["name", "email", "city", "country_id"]
-
+		self.optional_billing_fields = ["membership_start"]
     	# Shorter form bind to id (Product variants URL id)
 		if form_type == 6:
 			values['checkout']['form_type'] = "hidden"
@@ -118,10 +118,9 @@ class website_sale(website_sale):
 			values['checkout']['form_type'] = ""
 			values['checkout']['show_check'] = "hidden"
 			self.mandatory_billing_fields.extend(["street2", "street", "zip", "phone", "email", "function", "agreed_box"])
-			self.optional_billing_fields = ["staff_count", 
-				"member_privacy", "steering_member", "website", 
-				"businessid", "is_company", "businessid_shown", 
-				"vatnumber_shown", "membership_start"]
+			self.optional_billing_fields.extend(["staff_count", 
+				"member_privacy", "steering_member", "website", "businessid", "is_company", 
+				"businessid_shown", "vatnumber_shown"])
 
 		staffs = OrderedDict(partner.fields_get(['staff_count'])['staff_count']['selection'])
 		values['staffs'] = staffs
@@ -137,7 +136,7 @@ class website_sale(website_sale):
 
 		error = super(website_sale, self).checkout_form_validate(data)
 
-		businessid = data.get('businessid')
+		businessid = request.params['businessid']
 		passed = True
 
 		if businessid: 
