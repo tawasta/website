@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-14 11:30+0000\n"
-"PO-Revision-Date: 2016-01-14 13:31+0200\n"
+"POT-Creation-Date: 2016-01-18 08:38+0000\n"
+"PO-Revision-Date: 2016-01-18 10:43+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -83,9 +83,19 @@ msgid "Business ID"
 msgstr "Y-tunnus"
 
 #. module: website_sale_extension
+#: field:product.template,membership_checkout_form:0
+msgid "Checkout form type"
+msgstr "Verkkokauppalomake"
+
+#. module: website_sale_extension
 #: view:website:website_sale.checkout
 msgid "City"
 msgstr "Kaupunki"
+
+#. module: website_sale_extension
+#: selection:product.template,membership_checkout_form:0
+msgid "Community"
+msgstr "Yhteisölomake"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
@@ -106,6 +116,11 @@ msgstr "Maa"
 #: view:website:website_sale.checkout
 msgid "Country..."
 msgstr "Maa..."
+
+#. module: website_sale_extension
+#: selection:product.template,membership_checkout_form:0
+msgid "Default"
+msgstr "Oletus"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
@@ -222,6 +237,16 @@ msgstr "Puhelin"
 #: field:res.partner,member_privacy:0 view:website:website_sale.checkout
 msgid "Privacy"
 msgstr "Yksityisyys"
+
+#. module: website_sale_extension
+#: model:ir.model,name:website_sale_extension.model_product_template
+msgid "Product Template"
+msgstr "Tuotemalli"
+
+#. module: website_sale_extension
+#: selection:product.template,membership_checkout_form:0
+msgid "Promote"
+msgstr "Kannatuslomake"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout

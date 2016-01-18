@@ -112,7 +112,7 @@ class website_sale(website_sale):
 		self.optional_billing_fields = ["membership_start"]
 
     	# Shorter form bind to id (Product variants URL id)
-		if product.membership_checkout_form == 'support':
+		if product.membership_checkout_form == 'promote':
 			values['checkout']['form_type'] = "hidden"
 			values['checkout']['show_check'] = ""
 			self.optional_billing_fields.extend(["reason1", "reason2", "reason3", "reason4", "other_reason"])

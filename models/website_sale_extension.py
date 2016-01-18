@@ -59,7 +59,7 @@ class MembershipProductModifications(models.Model):
 
 	# 2. Fields declaration
 	membership_checkout_form = fields.Selection([('default','Default'),
-		('community', 'Community'), ('support','Support')], 
+		('community', 'Community'), ('promote','Promote')], 
 		'Checkout form type', default='default')
 
 	# 3. Default methods
