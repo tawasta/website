@@ -59,9 +59,9 @@ class website_sale(website_sale):
 
 		if 'businessid' in request.params:
 			checkout['businessid'] = request.params['businessid']
-			checkout['is_company'] = True
-			checkout['businessid_shown'] = True
-			checkout['vatnumber_shown'] = True
+			checkout['is_company'] = (request.params['businessid'] != None)
+			checkout['businessid_shown'] = (request.params['businessid'] != None)
+			checkout['vatnumber_shown'] = (request.params['businessid'] != None)
 
 		super(website_sale, self).checkout_form_save(checkout)
 
@@ -154,7 +154,9 @@ class website_sale(website_sale):
 					error['businessid'] = "Already in use"
 					pass
 				partner.businessid = None
-
+		else:
+			request.params['businessid'] = None
+		
 		return error
 
 	# 4. Compute and search fields, in the same order that fields declaration
