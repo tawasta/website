@@ -6,7 +6,12 @@
 Website sale extension
 ======================
 
-This module was written to extend the functionality of website_sale module to modify the checkout form.
+This module was written to extend the functionality of website_sale module to modify the checkout form. It enables the use of 3 different forms: default,
+community and promote. The difference between these are that they show hide 
+some of the fields to make the form look different. Form type can be changed 
+from product.template's membership_checkout_form-field.
+
+This module have several additional fields compared to the original checkout form and some of those are saved to customers partner form. In addition to that this module also overwrites the default checkout form, so that in the future it will be easier to modify the structure.
 
 Installation
 ============
@@ -19,7 +24,7 @@ Configuration
 
 Usage
 =====
-Access eCommerce checkout form when buying something (3 checkboxes and a selection field added to the default form). 
+Access eCommerce checkout form when buying something. Checkout form differs depending which product you are buying (3 different form types).
 
 
 Known issues / Roadmap
