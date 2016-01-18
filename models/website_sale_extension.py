@@ -50,3 +50,26 @@ class WebsiteSaleExtension(models.Model):
 	# 7. Action methods
 
 	# 8. Business methods
+
+
+class MembershipProductModifications(models.Model):
+
+	# 1. Private attributes
+	_inherit = 'product.template'
+
+	# 2. Fields declaration
+	membership_checkout_form = fields.Selection([('default','Default'),
+		('community', 'Community'), ('support','Support')], 
+		'Checkout form type', default='default')
+
+	# 3. Default methods
+
+	# 4. Compute and search fields, in the same order that fields declaration
+
+	# 5. Constraints and onchanges
+
+	# 6. CRUD methods
+
+	# 7. Action methods
+
+	# 8. Business methods
