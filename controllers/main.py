@@ -104,17 +104,20 @@ class website_sale(website_sale):
 
 						values['checkout'].update( self.checkout_parse("billing", order.partner_id) )
 
-		form_type = request.website.sale_get_order().product_id.id
+		# Shorter checkout form will be regocnised with this 
+		product = request.website.sale_get_order().product_id.product_tmpl_id
 
 		# All the fields written to partner has to be either in mandatory or optional fields
 		self.mandatory_billing_fields = ["name", "email", "city", "country_id"]
 		self.optional_billing_fields = ["membership_start"]
+
     	# Shorter form bind to id (Product variants URL id)
-		if form_type == 6:
+		if product.membership_checkout_form == 'support':
 			values['checkout']['form_type'] = "hidden"
 			values['checkout']['show_check'] = ""
 			self.optional_billing_fields.extend(["reason1", "reason2", "reason3", "reason4", "other_reason"])
-		else:
+		
+		elif product.membership_checkout_form == 'community':
 			values['checkout']['form_type'] = ""
 			values['checkout']['show_check'] = "hidden"
 			self.mandatory_billing_fields.extend(["street2", "street", "zip", "phone", "email", "function", "agreed_box"])
