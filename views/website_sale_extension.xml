@@ -25,6 +25,10 @@
                         </group>
                     </group>
                 </field>
+                <!-- Job position visible to everyone -->
+                <field name="function" position="replace">
+                    <field name="function"/>
+                </field>
             </field>
         </record>
 
