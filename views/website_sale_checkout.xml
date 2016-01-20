@@ -27,7 +27,7 @@
 								<div id="form_row" class="row">
 
 									<!-- Contact person fields -->
-									<div t-attf-class="form-group #{checkout.get('form_type')} col-lg-12">
+									<div t-attf-class="form-group #{form_type.get('community')} col-lg-12">
 										<h4>
 											Info
 										</h4>
@@ -38,7 +38,7 @@
 										<input type="text" name="name" class="form-control" t-att-value="checkout.get('name')"/>
 									</div>
 
-									<div id="title_div" t-attf-class="form-group #{error.get('function') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
+									<div id="title_div" t-attf-class="form-group #{error.get('function') and 'has-error' or ''} #{form_type.get('community')} col-lg-6">
 										<label class="control-label" for="function">Job position</label>
 										<input type="text" name="function" class="form-control" t-att-value="checkout.get('function')"/>
 									</div>
@@ -48,14 +48,14 @@
 										<input type="email" name="email" class="form-control" t-att-value="checkout.get('email')"/>
 									</div>
 
-									<div id="phone_div" t-attf-class="form-group #{error.get('phone') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
+									<div id="phone_div" t-attf-class="form-group #{error.get('phone') and 'has-error' or ''} #{form_type.get('community')} col-lg-6">
 										<label class="control-label" for="phone">Phone</label>
 										<input type="tel" name="phone" class="form-control" t-att-value="checkout.get('phone')"/>
 									</div> 
 									<!-- Contact person fields end -->
 
 									<!-- Organization fields -->
-									<div id="organisation_fields_div" t-attf-class="#{checkout.get('form_type')} col-lg-12">
+									<div id="organisation_fields_div" t-attf-class="#{form_type.get('community')} col-lg-12">
 										<br></br>
 										<h4>
 											Address
@@ -63,24 +63,24 @@
 										
 									</div>
 
-									<div id="copany_name_div" t-attf-class="form-group #{error.get('street') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
+									<div id="copany_name_div" t-attf-class="form-group #{error.get('street') and 'has-error' or ''} #{form_type.get('community')} col-lg-6">
 										<label class="control-label" for="street">Street</label>
 										<input type="text" name="street" class="form-control" t-att-value="checkout.get('street')"/>
 									</div>
 
-									<div id="vat_div" t-if="has_check_vat" t-attf-class="form-group #{error.get('vat') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6 hidden">
+									<div id="vat_div" t-if="has_check_vat" t-attf-class="form-group #{error.get('vat') and 'has-error' or ''} #{form_type.get('community')} col-lg-6 hidden">
 										<label class="control-label" for="vat" style="font-weight: normal">VAT Number</label>
 										<input type="text" name="vat" class="form-control" t-att-value="checkout.get('vat')"/>
 									</div>
 
-									<div id="businessid_div" t-if="has_check_vat" t-attf-class="form-group #{error.get('businessid') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
+									<div id="businessid_div" t-if="has_check_vat" t-attf-class="form-group #{error.get('businessid') and 'has-error' or ''} #{form_type.get('community')} col-lg-6">
 										<label class="control-label" for="businessid" style="font-weight: normal">Business ID</label>
 										<input type="text" name="businessid" class="form-control" t-att-value="checkout.get('businessid')"/>
 									</div>
 
-									<div t-if="has_check_vat" t-attf-class="clearfix #{checkout.get('form_type')}"/>
+									<div t-if="has_check_vat" t-attf-class="clearfix #{form_type.get('community')}"/>
 
-									<div id="street_div" t-attf-class="form-group #{error.get('street2') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
+									<div id="street_div" t-attf-class="form-group #{error.get('street2') and 'has-error' or ''} #{form_type.get('community')} col-lg-6">
 										<label class="control-label" for="street2">Street specifier</label>
 										<input type="text" name="street2" class="form-control" t-att-value="checkout.get('street2')"/>
 									</div>
@@ -90,12 +90,12 @@
 										<input type="text" name="city" class="form-control" t-att-value="checkout.get('city')"/>
 									</div>
 
-									<div id="zip_div" t-attf-class="form-group #{error.get('zip') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
+									<div id="zip_div" t-attf-class="form-group #{error.get('zip') and 'has-error' or ''} #{form_type.get('community')} col-lg-6">
 										<label class="control-label" for="zip">Zip / Postal Code</label>
 										<input type="text" name="zip" class="form-control" t-att-value="checkout.get('zip')"/>
 									</div>
 
-									<div id="country_div" t-attf-class="form-group #{error.get('country_id') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
+									<div id="country_div" t-attf-class="form-group #{error.get('country_id') and 'has-error' or ''} #{form_type.get('community')} col-lg-6">
 										<label class="control-label" for="country_id">Country</label>
 										<select name="country_id" class="form-control">
 											<option value="">Country...</option>
@@ -104,7 +104,7 @@
 											</t>
 										</select>
 									</div>
-									<div id="state_div" t-attf-class="form-group #{error.get('state_id') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
+									<div id="state_div" t-attf-class="form-group #{error.get('state_id') and 'has-error' or ''} #{form_type.get('community')} col-lg-6">
 										<label class="control-label" for="state_id" style="font-weight: normal">State / Province</label>
 										<select name="state_id" class="form-control">
 											<option value="">select...</option>
@@ -116,7 +116,7 @@
 
 									<div class="clearfix"/>
 
-									<div id="staff_count_div" t-attf-class="form-group #{error.get('staff_count') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
+									<div id="staff_count_div" t-attf-class="form-group #{error.get('staff_count') and 'has-error' or ''} #{form_type.get('community')} col-lg-6">
 										<label class="control-label" for="staff_count" style="font-weight:normal">Number of staff</label>
 
 										<select name="staff_count" class="form-control">
@@ -131,14 +131,14 @@
 										</select>
 									</div>
 
-									<div id="website_div" t-attf-class="form-group #{error.get('webpage') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-6">
+									<div id="website_div" t-attf-class="form-group #{error.get('webpage') and 'has-error' or ''} #{form_type.get('community')} col-lg-6">
 										<label class="control-label" for="website" style="font-weight:normal">Website</label>
 										<input type="text" name="website" class="form-control" t-att-value="checkout.get('website')"/>
 									</div>
 									<!-- Organization fields end -->
 
 									<!-- Longer form checkboxes -->
-									<div id="membership_div" t-attf-class="form-group #{error.get('checkbox_membership') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-12">
+									<div id="membership_div" t-attf-class="form-group #{error.get('checkbox_membership') and 'has-error' or ''} #{form_type.get('community')} col-lg-12">
 										<br></br>
 										<label>Membership</label>
 										<p>
@@ -154,7 +154,7 @@
 									</div>
 
 									<!-- Checkbox if user agrees to terms -->
-									<div id="agreed_div" t-attf-class="form-group #{error.get('agreed_box') and 'has-error' or ''} #{checkout.get('form_type')} col-lg-12">
+									<div id="agreed_div" t-attf-class="form-group #{error.get('agreed_box') and 'has-error' or ''} #{form_type.get('community')} col-lg-12">
 										<label for="agreed_box" t-attf-class="control-label">
 											<input type="checkbox" name="agreed_box" id="agreed_box"/>
 
@@ -164,7 +164,7 @@
 									<!-- Longer form checkboxes end -->
 
 									<!-- Shorter form checkboxes -->
-									<div id="support_reason_div" t-attf-class="form-group #{error.get('reason1') and 'has-error' or ''} #{checkout.get('show_check')} col-lg-12">
+									<div id="support_reason_div" t-attf-class="form-group #{error.get('reason1') and 'has-error' or ''} #{form_type.get('promote')} col-lg-12">
 										<label>Why do you wish to promote COSS ry's actions?:</label>
 										<p>
 											<input type="checkbox" name="reason1" t-att-checked="checkout.get('reason1')" />
@@ -193,7 +193,7 @@
 									</div>
 
 									<!-- Shipping details (hidden in short form)-->
-									<div id="shipping_section_div" t-attf-class="form-group #{checkout.get('form_type')} col-lg-12">
+									<div id="shipping_section_div" t-attf-class="form-group #{form_type.get('community')} col-lg-12">
 										<label>Shipping</label>
 										<select name="shipping_id" class="form-control">
 											<option value="0">Ship to the same address</option>

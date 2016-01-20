@@ -59,9 +59,9 @@ class website_sale(website_sale):
 
 		if 'businessid' in request.params:
 			checkout['businessid'] = request.params['businessid']
-			checkout['is_company'] = (request.params['businessid'] != None)
-			checkout['businessid_shown'] = (request.params['businessid'] != None)
-			checkout['vatnumber_shown'] = (request.params['businessid'] != None)
+			checkout['is_company'] = True
+			checkout['businessid_shown'] = True
+			checkout['vatnumber_shown'] = True
 
 		super(website_sale, self).checkout_form_save(checkout)
 
@@ -74,6 +74,9 @@ class website_sale(website_sale):
 		partner = orm_user.browse(cr, SUPERUSER_ID, request.uid, context).partner_id
 		values = super(website_sale, self).checkout_values(data)
 		
+		# Different form types in this dict
+		values['form_type'] = {}
+
 		# This function is called when moving from checkout form to confirmation
 		# That's why we have to ensure that when we retrieve values from partner,
 		# we do not overwrite user typed data
@@ -113,17 +116,23 @@ class website_sale(website_sale):
 
     	# Shorter form bind to id (Product variants URL id)
 		if product.membership_checkout_form == 'promote':
-			values['checkout']['form_type'] = "hidden"
-			values['checkout']['show_check'] = ""
+			values['form_type']['community'] = "hidden"
+			values['form_type']['promote'] = ""
 			self.optional_billing_fields.extend(["reason1", "reason2", "reason3", "reason4", "other_reason"])
 		
 		elif product.membership_checkout_form == 'community':
-			values['checkout']['form_type'] = ""
-			values['checkout']['show_check'] = "hidden"
+			values['form_type']['community'] = ""
+			values['form_type']['promote'] = "hidden"
 			self.mandatory_billing_fields.extend(["street2", "street", "zip", "phone", "email", "function", "agreed_box"])
 			self.optional_billing_fields.extend(["staff_count", 
 				"member_privacy", "steering_member", "website", "businessid", "is_company", 
 				"businessid_shown", "vatnumber_shown"])
+		
+		else:
+			values['form_type']['default'] = "hidden"
+			self.optional_billing_fields.extend(["staff_count", 
+				"member_privacy", "steering_member", "website", "businessid", "is_company", 
+				"businessid_shown", "vatnumber_shown", "membership_start"])
 
 		staffs = OrderedDict(partner.fields_get(['staff_count'])['staff_count']['selection'])
 		values['staffs'] = staffs
