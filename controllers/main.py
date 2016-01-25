@@ -115,12 +115,12 @@ class website_sale(website_sale):
 		self.optional_billing_fields = ["membership_start"]
 
     	# Shorter form bind to id (Product variants URL id)
-		if product.membership_checkout_form == 'promote':
+		if product.membership_checkout_form == "promote":
 			values['form_type']['community'] = "hidden"
 			values['form_type']['promote'] = ""
 			self.optional_billing_fields.extend(["reason1", "reason2", "reason3", "reason4", "other_reason"])
 		
-		elif product.membership_checkout_form == 'community':
+		elif product.membership_checkout_form == "community":
 			values['form_type']['community'] = ""
 			values['form_type']['promote'] = "hidden"
 			self.mandatory_billing_fields.extend(["street2", "street", "zip", "phone", "email", "function", "agreed_box"])
@@ -130,9 +130,8 @@ class website_sale(website_sale):
 		
 		else:
 			values['form_type']['default'] = "hidden"
-			self.optional_billing_fields.extend(["staff_count", 
-				"member_privacy", "steering_member", "website", "businessid", "is_company", 
-				"businessid_shown", "vatnumber_shown", "membership_start"])
+			self.mandatory_billing_fields.extend(["street2", "street", "zip", "phone"])
+			self.optional_billing_fields = []
 
 		staffs = OrderedDict(partner.fields_get(['staff_count'])['staff_count']['selection'])
 		values['staffs'] = staffs
