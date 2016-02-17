@@ -21,7 +21,7 @@
 {
     'name': 'Website Large Header',
     'category': 'Theme',
-    'version': '8.0.0.1.0',
+    'version': '8.0.0.1.1',
     'author': 'Oy Tawasta OS Technologies Ltd.',
     'license': 'AGPL-3',
     'website': 'http://www.tawasta.fi',
