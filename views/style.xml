@@ -3,7 +3,7 @@
 
 		<template id="style_footer" name="Footer style" inherit_id="website.layout">
 			<xpath expr="//html/head" position="inside">
-				<link rel="stylesheet" href="/theme_simple_footer/static/src/css/style.css"/>  
+				<link rel="stylesheet" href="/website_simple_footer/static/src/css/style.css"/>
 			</xpath>
 		</template>
 
