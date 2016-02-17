@@ -8,8 +8,14 @@
 	float: none;
 }
 
+#div-logo a, #div-logo img{
+    margin: 0 auto;
+    padding: 0;
+}
+
 .navbar-brand {
     height: auto;
+    float: none;
 }
 
 header a.navbar-brand img{
