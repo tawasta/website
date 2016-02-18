@@ -3,7 +3,7 @@
 
 		<template id="style_futurality" name="Futurality style" inherit_id="website.layout">
 			<xpath expr="//html/head" position="inside">
-				<link rel="stylesheet" href="/theme_futurality/static/src/css/style.css"/>  
+				<link rel="stylesheet" href="/website_futurality/static/src/css/style.css"/>
 			</xpath>
 		</template>
 
