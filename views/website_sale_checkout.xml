@@ -26,24 +26,12 @@
 								</h3>
 								<div id="form_row" class="row">
 
-									<!-- Contact person fields -->
-									<div t-attf-class="form-group #{form_type.get('community')} col-lg-12">
-										<h4>
-											Info
-										</h4>
-									</div>
-
 									<div id="name_div" t-attf-class="form-group #{error.get('name') and 'has-error' or ''} col-lg-6">
-										<t t-if="form_type.get('community') == ''" >
-											<label class="control-label" for="name">Company Name</label>
-										</t>
-										<t t-if="form_type.get('community') != ''">
-											<label class="control-label" for="name">Your Name</label>
-										</t>
+										<label class="control-label" for="contact_name">Your Name</label>
 										<input type="text" name="name" class="form-control" t-att-value="checkout.get('name')"/>
 									</div>
 
-									<div id="title_div" t-attf-class="form-group #{error.get('function') and 'has-error' or ''} #{form_type.get('community')} #{form_type.get('default')} col-lg-6">
+									<div id="title_div" t-attf-class="form-group #{error.get('function') and 'has-error' or ''} col-lg-6">
 										<label class="control-label" for="function">Job position</label>
 										<input type="text" name="function" class="form-control" t-att-value="checkout.get('function')"/>
 									</div>
@@ -53,22 +41,12 @@
 										<input type="email" name="email" class="form-control" t-att-value="checkout.get('email')"/>
 									</div>
 
-									<div id="phone_div" t-attf-class="form-group #{error.get('phone') and 'has-error' or ''} #{form_type.get('community')} col-lg-6">
+									<div id="phone_div" t-attf-class="form-group #{error.get('phone') and 'has-error' or ''} col-lg-6">
 										<label class="control-label" for="phone">Phone</label>
 										<input type="tel" name="phone" class="form-control" t-att-value="checkout.get('phone')"/>
 									</div> 
-									<!-- Contact person fields end -->
 
-									<!-- Organization fields -->
-									<div id="organisation_fields_div" t-attf-class="#{form_type.get('community')} col-lg-12">
-										<br></br>
-										<h4>
-											Address
-										</h4>
-										
-									</div>
-
-									<div id="copany_name_div" t-attf-class="form-group #{error.get('street') and 'has-error' or ''} #{form_type.get('community')} col-lg-6">
+									<div id="company_name_div" t-attf-class="form-group #{error.get('street') and 'has-error' or ''} col-lg-6">
 										<label class="control-label" for="street">Street</label>
 										<input type="text" name="street" class="form-control" t-att-value="checkout.get('street')"/>
 									</div>
@@ -78,14 +56,14 @@
 										<input type="text" name="vat" class="form-control" t-att-value="checkout.get('vat')"/>
 									</div>
 
-									<div id="businessid_div" t-if="has_check_vat" t-attf-class="form-group #{error.get('businessid') and 'has-error' or ''} #{form_type.get('community')} #{form_type.get('default')} col-lg-6">
+									<div id="businessid_div" t-if="has_check_vat" t-attf-class="form-group #{error.get('businessid') and 'has-error' or ''} col-lg-6">
 										<label class="control-label" for="businessid" style="font-weight: normal">Business ID</label>
 										<input type="text" name="businessid" class="form-control" t-att-value="checkout.get('businessid')"/>
 									</div>
 
-									<div t-if="has_check_vat" t-attf-class="clearfix #{form_type.get('community')} #{form_type.get('default')}"/>
+									<div id="vat_spacer" t-if="has_check_vat" t-attf-class="clearfix"/>
 
-									<div id="street_div" t-attf-class="form-group #{error.get('street2') and 'has-error' or ''} #{form_type.get('community')} col-lg-6">
+									<div id="street_div" t-attf-class="form-group #{error.get('street2') and 'has-error' or ''} col-lg-6">
 										<label class="control-label" for="street2">Street specifier</label>
 										<input type="text" name="street2" class="form-control" t-att-value="checkout.get('street2')"/>
 									</div>
@@ -95,12 +73,12 @@
 										<input type="text" name="city" class="form-control" t-att-value="checkout.get('city')"/>
 									</div>
 
-									<div id="zip_div" t-attf-class="form-group #{error.get('zip') and 'has-error' or ''} #{form_type.get('community')} col-lg-6">
+									<div id="zip_div" t-attf-class="form-group #{error.get('zip') and 'has-error' or ''} col-lg-6">
 										<label class="control-label" for="zip">Zip / Postal Code</label>
 										<input type="text" name="zip" class="form-control" t-att-value="checkout.get('zip')"/>
 									</div>
 
-									<div id="country_div" t-attf-class="form-group #{error.get('country_id') and 'has-error' or ''} #{form_type.get('community')} col-lg-6">
+									<div id="country_div" t-attf-class="form-group #{error.get('country_id') and 'has-error' or ''} col-lg-6">
 										<label class="control-label" for="country_id">Country</label>
 										<select name="country_id" class="form-control">
 											<option value="">Country...</option>
@@ -109,7 +87,8 @@
 											</t>
 										</select>
 									</div>
-									<div id="state_div" t-attf-class="form-group #{error.get('state_id') and 'has-error' or ''} #{form_type.get('community')} col-lg-6">
+									
+									<div id="state_div" t-attf-class="form-group #{error.get('state_id') and 'has-error' or ''} col-lg-6">
 										<label class="control-label" for="state_id" style="font-weight: normal">State / Province</label>
 										<select name="state_id" class="form-control">
 											<option value="">select...</option>
@@ -121,74 +100,10 @@
 
 									<div class="clearfix"/>
 
-									<div id="staff_count_div" t-attf-class="form-group #{error.get('staff_count') and 'has-error' or ''} #{form_type.get('community')} #{form_type.get('default')} col-lg-6">
-										<label class="control-label" for="staff_count" style="font-weight:normal">Number of staff</label>
-
-										<select name="staff_count" class="form-control">
-											<option value="">Number of staff...</option>
-											<t t-foreach="staffs or []" t-as="staff">
-												<option t-att-value="staff" t-att-selected="staff==
-													checkout.get('staff_count')">
-													<t t-esc="staff"/>
-												</option>
-
-											</t>
-										</select>
-									</div>
-
-									<div id="website_div" t-attf-class="form-group #{error.get('webpage') and 'has-error' or ''} #{form_type.get('community')} #{form_type.get('default')} col-lg-6">
+									<div id="website_div" t-attf-class="form-group #{error.get('webpage') and 'has-error' or ''} col-lg-6">
 										<label class="control-label" for="website" style="font-weight:normal">Website</label>
 										<input type="text" name="website" class="form-control" t-att-value="checkout.get('website')"/>
 									</div>
-									<!-- Organization fields end -->
-
-									<!-- Longer form checkboxes -->
-									<div id="membership_div" t-attf-class="form-group #{error.get('checkbox_membership') and 'has-error' or ''} #{form_type.get('community')} #{form_type.get('default')} col-lg-12">
-										<br></br>
-										<label>Membership</label>
-										<p>
-											<input type="checkbox" name="steering_member" t-att-checked="checkout.get('steering_member')" />
-											I would like to be a steering group member
-										</p>
-									
-										<label>Privacy</label>
-										<p>
-											<input type="checkbox" name="member_privacy" t-att-checked="checkout.get('member_privacy')" />
-											I am willing to let COSS's members and partners use my information. Details of organisation can be published in COSS's homepages memberlist. 
-										</p>
-									</div>
-
-									<!-- Checkbox if user agrees to terms -->
-									<div id="agreed_div" t-attf-class="form-group #{error.get('agreed_box') and 'has-error' or ''} #{form_type.get('community')} #{form_type.get('default')} col-lg-12">
-										<label for="agreed_box" t-attf-class="control-label">
-											<input type="checkbox" name="agreed_box" id="agreed_box"/>
-
-											I have read COSS ry's <a href="https://coss.fi/coss-ry/saannot/">terms</a>. I accept the terms and the community's purpose.
-										</label>
-									</div>
-									<!-- Longer form checkboxes end -->
-
-									<!-- Shorter form checkboxes -->
-									<div id="support_reason_div" t-attf-class="form-group #{error.get('reason1') and 'has-error' or ''} #{form_type.get('promote')} #{form_type.get('default')} col-lg-12">
-										<label>Why do you wish to promote COSS ry's actions?:</label>
-										<p>
-											<input type="checkbox" name="reason1" t-att-checked="checkout.get('reason1')" />
-											I wish to support open source communities
-										</p>
-										<p>
-											<input type="checkbox" name="reason2" t-att-checked="checkout.get('reason2')" />
-											I want to participate in community's action.
-										</p>
-										<p>
-											<input type="checkbox" name="reason3" t-att-checked="checkout.get('reason3')" />
-											Networking
-										</p>
-										<input type="checkbox" name="reason4" id="reason4" t-att-checked="checkout.get('reason4')" onchange='javascript:document.getElementById("other_reason").hidden=!document.getElementById("reason4").checked;' />
-										Something else
-										<input type="text" name="other_reason" hidden="True" id="other_reason" placeholder="Reason"/>
-
-									</div>
-									<!-- Shorter form checkboxes end -->
 									
 									<div id="mandatory_fields" t-attf-class="col-lg-12">
 										<p>
@@ -198,7 +113,7 @@
 									</div>
 
 									<!-- Shipping details (hidden in short form)-->
-									<div id="shipping_section_div" t-attf-class="form-group #{form_type.get('community')} col-lg-12">
+									<div id="shipping_section_div" t-attf-class="form-group col-lg-12">
 										<label>Shipping</label>
 										<select name="shipping_id" class="form-control">
 											<option value="0">Ship to the same address</option>
@@ -293,9 +208,9 @@
 									</form>
 								</div>
 
-					</xpath>
+							</xpath>
 
-		</template>
+						</template>
 
-	</data>
-</openerp>
+					</data>
+				</openerp>

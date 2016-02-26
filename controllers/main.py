@@ -28,28 +28,6 @@ class website_sale(website_sale):
 	# Save the new fields to partners form
 	def checkout_form_save(self, checkout):
 
-		if 'staff_count' in request.params:
-
-			checkout['staff_count'] = request.params['staff_count']
-
-		if 'member_privacy' in request.params:
-			checkout['member_privacy'] = request.params['member_privacy']
-		
-		if 'steering_member' in request.params:
-			checkout['steering_member'] = request.params['steering_member']
-
-		if 'reason1' in request.params:
-			checkout['reason1'] = request.params['reason1']
-
-		if 'reason2' in request.params:
-			checkout['reason2'] = request.params['reason2']
-		
-		if 'reason3' in request.params:
-			checkout['reason3'] = request.params['reason3']
-
-		if 'other_reason' in request.params:
-			checkout['other_reason'] = request.params['other_reason']
-
 		if 'website' in request.params:
 			checkout['website'] = request.params['website']
 
@@ -82,15 +60,8 @@ class website_sale(website_sale):
 		# we do not overwrite user typed data
 		if not data:
 			values['checkout']['function'] = partner.function
-			values['checkout']['staff_count'] = partner.staff_count
 			values['checkout']['businessid'] = partner.businessid
 			values['checkout']['website'] = partner.website
-			values['checkout']['member_privacy'] = partner.member_privacy
-			values['checkout']['steering_member'] = partner.steering_member
-			values['checkout']['reason1'] = partner.reason1
-			values['checkout']['reason2'] = partner.reason2
-			values['checkout']['reason3'] = partner.reason3
-			values['checkout']['reason4'] = partner.reason4
 
 			# Update checkout when moving backwards so the fills don't disappear
 			if request.uid != request.website.user_id.id:
@@ -112,29 +83,7 @@ class website_sale(website_sale):
 
 		# All the fields written to partner has to be either in mandatory or optional fields
 		self.mandatory_billing_fields = ["name", "email", "city", "country_id"]
-		self.optional_billing_fields = ["membership_start"]
-
-    	# Shorter form bind to id (Product variants URL id)
-		if product.membership_checkout_form == "promote":
-			values['form_type']['community'] = "hidden"
-			values['form_type']['promote'] = ""
-			self.optional_billing_fields.extend(["reason1", "reason2", "reason3", "reason4", "other_reason"])
-		
-		elif product.membership_checkout_form == "community":
-			values['form_type']['community'] = ""
-			values['form_type']['promote'] = "hidden"
-			self.mandatory_billing_fields.extend(["street2", "street", "zip", "phone", "email", "function", "agreed_box"])
-			self.optional_billing_fields.extend(["staff_count", 
-				"member_privacy", "steering_member", "website", "businessid", "is_company", 
-				"businessid_shown", "vatnumber_shown"])
-		
-		else:
-			values['form_type']['default'] = "hidden"
-			self.mandatory_billing_fields.extend(["street2", "street", "zip", "phone"])
-			self.optional_billing_fields = []
-
-		staffs = OrderedDict(partner.fields_get(['staff_count'])['staff_count']['selection'])
-		values['staffs'] = staffs
+		self.optional_billing_fields = []
 
 		return values
 
