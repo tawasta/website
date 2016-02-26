@@ -35,6 +35,7 @@
         'sale_business_id'
     ],
     'data': [
-        'views/website_sale_checkout.xml'
+        'views/website_sale_checkout.xml',
+        'views/sale_product.xml'
     ],
 }

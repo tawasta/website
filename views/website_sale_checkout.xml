@@ -129,88 +129,91 @@
 													><t t-esc="', '.join('\n'.join(shipping.name_get()[0][1].split(',')).split('\n')[1:])"/></option>
 												</t>
 												<option value="-1" t-att-selected="error and len(error) > 0 and shipping_id == -1">-- Create a new address --</option>
-											</select>
-										</div>
-									</div>
-									<div id="shipping_information_div" class="js_shipping row mb16" t-att-style="not shipping_id and 'display:none' or ''">
-										<h3 class="oe_shipping col-lg-12 mt16">Shipping Information</h3>
-
-										<div id="shipping_name_div" t-attf-class="form-group #{error.get('shipping_name') and 'has-error' or ''} col-lg-6">
-											<label class="control-label" for="shipping_name">Name (Shipping)</label>
-											<input type="text" name="shipping_name" class="form-control" t-att-value="checkout.get('shipping_name', '')" t-att-readonly="'readonly' if shipping_id &gt;= 0 else ''"/>
-										</div>
-										<div id="shipping_phone_div" t-attf-class="form-group #{error.get('shipping_phone') and 'has-error' or ''} col-lg-6">
-											<label class="control-label" for="shipping_phone">Phone</label>
-											<input type="tel" name="shipping_phone" class="form-control" t-att-value="checkout.get('shipping_phone', '')" t-att-readonly="  'readonly' if shipping_id &gt;= 0 else ''"/>
-										</div>
-										<div id="shipping_street_div" t-attf-class="form-group #{error.get('shipping_street') and 'has-error' or ''} col-lg-6">
-											<label class="control-label" for="shipping_street">Street</label>
-											<input type="text" name="shipping_street" class="form-control" t-att-value="checkout.get('shipping_street', '')" t-att-readonly=" 'readonly' if shipping_id &gt;= 0 else ''"/>
-										</div>
-										<div class="clearfix"/>
-										<div id="shipping_city_div" t-attf-class="form-group #{error.get('shipping_city') and 'has-error' or ''} col-lg-6">
-											<label class="control-label" for="shipping_city">City</label>
-											<input type="text" name="shipping_city" class="form-control" t-att-value="checkout.get('shipping_city', '')" t-att-readonly=" 'readonly' if shipping_id &gt;= 0 else ''"/>
-										</div>
-										<div id="shipping_zip_div" t-attf-class="form-group #{error.get('shipping_zip') and 'has-error' or ''} col-lg-6">
-											<label class="control-label" for="shipping_zip" style="font-weight: normal">Zip / Postal Code</label>
-											<input type="text" name="shipping_zip" class="form-control" t-att-value="checkout.get('shipping_zip', '')" t-att-readonly=" 'readonly' if shipping_id &gt;= 0 else ''"/>
-										</div>
-										<div id="shipping_coutry_div" t-attf-class="form-group #{error.get('shipping_country_id') and 'has-error' or ''} col-lg-6">
-											<label class="control-label" for="shipping_country_id">Country</label>
-											<select name="shipping_country_id" class="form-control" t-att-disabled="  'disabled' if shipping_id &gt;= 0 else ''">
-												<option value="">Country...</option>
-												<t t-foreach="countries or []" t-as="country">
-													<option t-att-value="country.id" t-att-selected="country.id == checkout.get('shipping_country_id')"><t t-esc="country.name"/></option>
-												</t>
-											</select>
-										</div>
-										<div id="shipping_state_div" t-attf-class="form-group #{error.get('shipping_state_id') and 'has-error' or ''} col-lg-6">
-											<label class="control-label" for="shipping_state_id" style="font-weight: normal">State / Province</label>
-											<select name="shipping_state_id" class="form-control" t-att-readonly="  'readonly' if shipping_id &gt;= 0 else ''">
-												<option value="">State / Province...</option>
-												<t t-foreach="states or []" t-as="state">
-													<option t-att-value="state.id" style="display:none;" t-att-data-country_id="state.country_id.id" t-att-selected="state.id == checkout.get('shipping_state_id')"><t t-esc="state.name"/></option>
-												</t>
-											</select>
-										</div>
-									</div>
-									<div id="return_cart_div" class="clearfix">
-										<a href="/shop/cart" class="btn btn-default mb32"><span class="fa fa-long-arrow-left"/> Return to Cart</a>
-										<a class="btn btn-default btn-primary pull-right mb32 a-submit">Confirm <span class="fa fa-long-arrow-right"/></a>
+										</select>
 									</div>
 								</div>
-								<div id="order_summary_div" class="col-lg-offset-1 col-lg-3 col-md-3 text-muted">
-									<h3 class="page-header mt16">Your Order <small><a href="/shop/cart"><span class="fa fa-arrow-right"/> change</a></small></h3>
-									<t t-set="website_sale_order" t-value="website.sale_get_order()"/>
-									<div class="row">
-										<div id="subtotal_div" class="col-sm-6 text-right">Subtotal: </div>
-										<div id="subtotal_amount_div" class="col-sm-6"><span style="white-space: nowrap;" t-field="website_sale_order.amount_untaxed" t-field-options='{
-											"widget": "monetary",
-											"from_currency": "website_sale_order.pricelist_id.currency_id",
-											"display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
-											}'/></div>
-											<div id="taxes_div" class="col-sm-6 text-right">Taxes: </div>
-											<div id="taxes_amount_div" class="col-sm-6"><span style="white-space: nowrap;" t-field="website_sale_order.amount_tax" t-field-options='{
-												"widget": "monetary",
-												"from_currency": "website_sale_order.pricelist_id.currency_id",
-												"display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
-												}'/></div>
-												<div id="total_div" class="col-sm-6 text-right"><h4>Total To Pay: </h4></div>
-												<div id="total_amount_div" class="col-sm-6"><h4><span style="white-space: nowrap;" t-field="website_sale_order.amount_total" t-field-options='{
-													"widget": "monetary",
-													"from_currency": "website_sale_order.pricelist_id.currency_id",
-													"display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
-													}'/></h4></div>
-												</div>
-											</div>
-										</div>
-									</form>
+								<div id="shipping_information_div" class="js_shipping row mb16" t-att-style="not shipping_id and 'display:none' or ''">
+									<h3 class="oe_shipping col-lg-12 mt16">Shipping Information</h3>
+
+									<div id="shipping_name_div" t-attf-class="form-group #{error.get('shipping_name') and 'has-error' or ''} col-lg-6">
+										<label class="control-label" for="shipping_name">Name (Shipping)</label>
+										<input type="text" name="shipping_name" class="form-control" t-att-value="checkout.get('shipping_name', '')" t-att-readonly="'readonly' if shipping_id &gt;= 0 else ''"/>
+									</div>
+									<div id="shipping_phone_div" t-attf-class="form-group #{error.get('shipping_phone') and 'has-error' or ''} col-lg-6">
+										<label class="control-label" for="shipping_phone">Phone</label>
+										<input type="tel" name="shipping_phone" class="form-control" t-att-value="checkout.get('shipping_phone', '')" t-att-readonly="  'readonly' if shipping_id &gt;= 0 else ''"/>
+									</div>
+									<div id="shipping_street_div" t-attf-class="form-group #{error.get('shipping_street') and 'has-error' or ''} col-lg-6">
+										<label class="control-label" for="shipping_street">Street</label>
+										<input type="text" name="shipping_street" class="form-control" t-att-value="checkout.get('shipping_street', '')" t-att-readonly=" 'readonly' if shipping_id &gt;= 0 else ''"/>
+									</div>
+									<div class="clearfix"/>
+									<div id="shipping_city_div" t-attf-class="form-group #{error.get('shipping_city') and 'has-error' or ''} col-lg-6">
+										<label class="control-label" for="shipping_city">City</label>
+										<input type="text" name="shipping_city" class="form-control" t-att-value="checkout.get('shipping_city', '')" t-att-readonly=" 'readonly' if shipping_id &gt;= 0 else ''"/>
+									</div>
+									<div id="shipping_zip_div" t-attf-class="form-group #{error.get('shipping_zip') and 'has-error' or ''} col-lg-6">
+										<label class="control-label" for="shipping_zip" style="font-weight: normal">Zip / Postal Code</label>
+										<input type="text" name="shipping_zip" class="form-control" t-att-value="checkout.get('shipping_zip', '')" t-att-readonly=" 'readonly' if shipping_id &gt;= 0 else ''"/>
+									</div>
+									<div id="shipping_coutry_div" t-attf-class="form-group #{error.get('shipping_country_id') and 'has-error' or ''} col-lg-6">
+										<label class="control-label" for="shipping_country_id">Country</label>
+										<select name="shipping_country_id" class="form-control" t-att-disabled="  'disabled' if shipping_id &gt;= 0 else ''">
+											<option value="">Country...</option>
+											<t t-foreach="countries or []" t-as="country">
+												<option t-att-value="country.id" t-att-selected="country.id == checkout.get('shipping_country_id')"><t t-esc="country.name"/></option>
+											</t>
+										</select>
+									</div>
+									<div id="shipping_state_div" t-attf-class="form-group #{error.get('shipping_state_id') and 'has-error' or ''} col-lg-6">
+										<label class="control-label" for="shipping_state_id" style="font-weight: normal">State / Province</label>
+										<select name="shipping_state_id" class="form-control" t-att-readonly="  'readonly' if shipping_id &gt;= 0 else ''">
+											<option value="">State / Province...</option>
+											<t t-foreach="states or []" t-as="state">
+												<option t-att-value="state.id" style="display:none;" t-att-data-country_id="state.country_id.id" t-att-selected="state.id == checkout.get('shipping_state_id')"><t t-esc="state.name"/></option>
+											</t>
+										</select>
+									</div>
 								</div>
+								<div id="return_cart_div" class="clearfix">
+									<a href="/shop/cart" class="btn btn-default mb32"><span class="fa fa-long-arrow-left"/> Return to Cart</a>
+									<a class="btn btn-default btn-primary pull-right mb32 a-submit">Confirm <span class="fa fa-long-arrow-right"/></a>
+								</div>
+							</div>
+							<div id="order_summary_div" class="col-lg-offset-1 col-lg-3 col-md-3 text-muted">
+								<h3 class="page-header mt16">Your Order <small><a href="/shop/cart"><span class="fa fa-arrow-right"/> change</a></small></h3>
+								<t t-set="website_sale_order" t-value="website.sale_get_order()"/>
+								<div class="row">
+									<div id="subtotal_div" class="col-sm-6 text-right">Subtotal: </div>
+									<div id="subtotal_amount_div" class="col-sm-6"><span style="white-space: nowrap;" t-field="website_sale_order.amount_untaxed" t-field-options='{
+										"widget": "monetary",
+										"from_currency": "website_sale_order.pricelist_id.currency_id",
+										"display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
+										}'/>
+									</div>
+									<div id="taxes_div" class="col-sm-6 text-right">Taxes: </div>
+									<div id="taxes_amount_div" class="col-sm-6"><span style="white-space: nowrap;" t-field="website_sale_order.amount_tax" t-field-options='{
+										"widget": "monetary",
+										"from_currency": "website_sale_order.pricelist_id.currency_id",
+										"display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
+										}'/>
+									</div>
+									<div id="total_div" class="col-sm-6 text-right"><h4>Total To Pay: </h4></div>
+									<div id="total_amount_div" class="col-sm-6"><h4><span style="white-space: nowrap;" t-field="website_sale_order.amount_total" t-field-options='{
+										"widget": "monetary",
+										"from_currency": "website_sale_order.pricelist_id.currency_id",
+										"display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
+										}'/></h4>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
 
-							</xpath>
+			</xpath>
 
-						</template>
+		</template>
 
-					</data>
-				</openerp>
+	</data>
+</openerp>

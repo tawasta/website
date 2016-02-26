@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-18 08:38+0000\n"
-"PO-Revision-Date: 2016-01-25 13:03+0200\n"
+"POT-Creation-Date: 2016-02-26 12:35+0000\n"
+"PO-Revision-Date: 2016-02-26 14:37+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,11 +26,6 @@ msgstr "--"
 #: view:website:website_sale.checkout
 msgid "-- Create a new address --"
 msgstr "-- Lisää uusi osoite --"
-
-#. module: website_sale_extension
-#: view:website:website_sale.checkout
-msgid ". I accept the terms and the community's purpose."
-msgstr ". Hyväksyn säännöt ja yhdistyksen tarkoituksen."
 
 #. module: website_sale_extension
 #: selection:res.partner,staff_count:0
@@ -63,11 +58,6 @@ msgid "500+"
 msgstr "500+"
 
 #. module: website_sale_extension
-#: view:website:website_sale.checkout
-msgid "Address"
-msgstr "Osoite"
-
-#. module: website_sale_extension
 #: field:res.partner,agreed_box:0
 msgid "Agrees to terms"
 msgstr "Hyväksyy säännöt"
@@ -86,6 +76,11 @@ msgstr "Y-tunnus"
 #: field:product.template,membership_checkout_form:0
 msgid "Checkout form type"
 msgstr "Verkkokauppalomake"
+
+#. module: website_sale_extension
+#: view:website:website_sale.product
+msgid "Choose"
+msgstr "Valitse"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
@@ -108,6 +103,11 @@ msgid "Confirmation"
 msgstr "Vahvistus"
 
 #. module: website_sale_extension
+#: view:website:website_sale.cart
+msgid "Continue"
+msgstr "Jatka"
+
+#. module: website_sale_extension
 #: view:website:website_sale.checkout
 msgid "Country"
 msgstr "Maa"
@@ -128,39 +128,14 @@ msgid "Email"
 msgstr "Sähköposti"
 
 #. module: website_sale_extension
-#: view:website:website_sale.checkout
-msgid "I am willing to let COSS's members and partners use my information. Details of organisation can be published in COSS's homepages memberlist."
-msgstr "Tietojani voidaan antaa COSSin jäsenille ja yhteistyökumppaneille. Organisaation tiedot saa julkaista COSSin kotisivujen jäsenlistalla."
-
-#. module: website_sale_extension
-#: view:website:website_sale.checkout
-msgid "I have read COSS ry's"
-msgstr "Olen lukenut COSS ry:n"
-
-#. module: website_sale_extension
 #: help:res.partner,reason2:0
 msgid "I want to participate in community's action"
 msgstr "Haluan osallistua yhteisön toimintaan"
 
 #. module: website_sale_extension
-#: view:website:website_sale.checkout
-msgid "I want to participate in community's action."
-msgstr "Haluan osallistua yhteisön toimintaan"
-
-#. module: website_sale_extension
-#: help:res.partner,reason1:0 view:website:website_sale.checkout
+#: help:res.partner,reason1:0
 msgid "I wish to support open source communities"
 msgstr "Haluan tukea avoimen lähdekoodin yhteisöjä"
-
-#. module: website_sale_extension
-#: view:website:website_sale.checkout
-msgid "I would like to be a steering group member"
-msgstr "Haluan liittyä ohjausryhmäjäseneksi"
-
-#. module: website_sale_extension
-#: view:website:website_sale.checkout
-msgid "Info"
-msgstr "Info"
 
 #. module: website_sale_extension
 #: help:res.partner,steering_member:0
@@ -184,17 +159,11 @@ msgstr "Pakolliset kentät ovat lihavoituna lomakkeessa."
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
-msgid "Membership"
-msgstr "Jäsenyys"
-
-#. module: website_sale_extension
-#: view:website:website_sale.checkout
 msgid "Name (Shipping)"
 msgstr "Nimi (toimitus)"
 
 #. module: website_sale_extension
 #: field:res.partner,reason3:0 help:res.partner,reason3:0
-#: view:website:website_sale.checkout
 msgid "Networking"
 msgstr "Verkostoituminen"
 
@@ -202,16 +171,6 @@ msgstr "Verkostoituminen"
 #: field:res.partner,staff_count:0
 msgid "Number of Staff"
 msgstr "Henkilöstön määrä"
-
-#. module: website_sale_extension
-#: view:website:website_sale.checkout
-msgid "Number of staff"
-msgstr "Henkilöstön määrä"
-
-#. module: website_sale_extension
-#: view:website:website_sale.checkout
-msgid "Number of staff..."
-msgstr "Henkilöstön määrä..."
 
 #. module: website_sale_extension
 #: field:res.partner,reason2:0
@@ -234,7 +193,7 @@ msgid "Phone"
 msgstr "Puhelin"
 
 #. module: website_sale_extension
-#: field:res.partner,member_privacy:0 view:website:website_sale.checkout
+#: field:res.partner,member_privacy:0
 msgid "Privacy"
 msgstr "Yksityisyys"
 
@@ -249,14 +208,14 @@ msgid "Promote"
 msgstr "Kannatuslomake"
 
 #. module: website_sale_extension
-#: view:website:website_sale.checkout
-msgid "Reason"
-msgstr "Syy"
-
-#. module: website_sale_extension
 #: help:res.partner,other_reason:0
 msgid "Reason if something else"
 msgstr "Muu syy"
+
+#. module: website_sale_extension
+#: view:website:website_sale.cart view:website:website_sale.checkout
+msgid "Return Back"
+msgstr "Palaa takaisin"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
@@ -295,7 +254,7 @@ msgstr "Kirjaudu sisään"
 
 #. module: website_sale_extension
 #: field:res.partner,other_reason:0 field:res.partner,reason4:0
-#: help:res.partner,reason4:0 view:website:website_sale.checkout
+#: help:res.partner,reason4:0
 msgid "Something else"
 msgstr "Muu"
 
@@ -355,24 +314,14 @@ msgid "Website"
 msgstr "Verkkosivusto"
 
 #. module: website_sale_extension
-#: view:res.partner:website_sale_extension.view_partner_form
-msgid "Website sale"
-msgstr "Verkkokauppa"
-
-#. module: website_sale_extension
-#: view:website:website_sale.checkout
-msgid "Why do you wish to promote COSS ry's actions?:"
-msgstr "Miksi haluat kannattaa COSS ry:n toimintaa?:"
-
-#. module: website_sale_extension
 #: view:website:website_sale.checkout
 msgid "Your Address"
 msgstr "Osoitteesi"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
-msgid "Your Name or Company Name"
-msgstr "Yritys tai nimi"
+msgid "Your Name"
+msgstr "Nimesi"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
@@ -399,7 +348,9 @@ msgstr "tai"
 msgid "select..."
 msgstr "valitse..."
 
-#. module: website_sale_extension
-#: view:website:website_sale.checkout
-msgid "terms"
-msgstr "säännöt"
+#. module: website_sale
+#: code:addons/website_sale/controllers/main.py:654
+#: view:website:website_sale.payment
+#, python-format
+msgid "Pay Now"
+msgstr "Lähetä"
