@@ -12,6 +12,7 @@ Features
 --------
 
 * **Redefined structure for checkout-form**
+* **Finland set as the default country in checkout form**
 * **Businessid-, job title- and website-fields for checkout-form**
 * **Changed button texts (Add to cart, Continue shopping...)**
 * **Removed money back guarantee text and policies text**
