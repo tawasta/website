@@ -51,9 +51,6 @@ class website_sale(website_sale):
 		orm_user = registry.get('res.users')
 		partner = orm_user.browse(cr, SUPERUSER_ID, request.uid, context).partner_id
 		values = super(website_sale, self).checkout_values(data)
-		
-		# Different form types in this dict
-		values['form_type'] = {}
 
 		# This function is called when moving from checkout form to confirmation
 		# That's why we have to ensure that when we retrieve values from partner,
@@ -77,9 +74,6 @@ class website_sale(website_sale):
 					if not user_ids or request.website.user_id.id not in user_ids:
 
 						values['checkout'].update( self.checkout_parse("billing", order.partner_id) )
-
-		# Shorter checkout form will be regocnised with this 
-		product = request.website.sale_get_order().product_id.product_tmpl_id
 
 		# All the fields written to partner has to be either in mandatory or optional fields
 		self.mandatory_billing_fields = ["name", "email", "city", "country_id"]
