@@ -76,8 +76,8 @@ class website_sale(website_sale):
 						values['checkout'].update( self.checkout_parse("billing", order.partner_id) )
 
 		# All the fields written to partner has to be either in mandatory or optional fields
-		self.mandatory_billing_fields = ["name", "email", "city", "country_id"]
-		self.optional_billing_fields = []
+		self.mandatory_billing_fields = ["name", "email", "city", "country_id", "zip", "street", "street2", "phone", "function"]
+		self.optional_billing_fields = ["businessid", "businessid_shown", "is_company", "vatnumber_shown", "website"]
 
 		return values
 
