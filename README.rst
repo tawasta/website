@@ -11,7 +11,8 @@ This module was written to extend the functionality of website_event_register_fr
 Features
 --------
 
-* **New template for free events**
+* **New checkout template for free events**
+* **Maximum available tickets comes from event, not from ticket type**
 
 
 Installation

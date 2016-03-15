@@ -38,5 +38,13 @@
                 </div>
             </t>
 		</template>
+
+        <!-- Modify event_description_full to handle free events (max tickets available comes from event, not from ticket type)-->
+        <template id="event_description_full" inherit_id="website_event_sale.event_description_full">
+            <xpath expr="//t[@t-foreach='range(0, min((ticket.seats_available or 9) + 1, 10))']" position="replace">
+                <t t-foreach="range(0, min((event.seats_available or 9) + 1, 10))" t-as="nb"><option t-esc="nb"/></t>
+
+            </xpath>
+        </template>
 	</data>
 </openerp>
