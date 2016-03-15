@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<!-- Checkout form for free events-->
+		<template id="event_free_form" name="Free event registration">
+			<t t-call="website.layout">
+                <div id="wrap">
+                <form action="/shop/confirm_order" method="post" class="container">
+                    <h1>Your Details</h1>
+                    <hr></hr>
+                    <div class="row">
+                        <div t-attf-class="form-group col-lg-6 #{error.get('name') and 'has-error' or ''}">
+                            <label class="control-label" for="name">Your Name / Company name</label>
+                            <input type="text" name="name" class="form-control" t-att-value="checkout.get('name')" required="required" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div t-attf-class="form-group col-lg-6 #{error.get('email') and 'has-error' or ''}">
+                            <label class="control-label" for="email">Email</label>
+                            <input type="email" name="email" class="form-control" t-att-value="checkout.get('email')" required="required" />
+                        </div>
+                        <div t-attf-class="form-group col-lg-6 #{error.get('phone') and 'has-error' or ''}">
+                            <label class="control-label" for="phone">Phone</label>
+                            <input type="text" name="phone" class="form-control" t-att-value="checkout.get('phone')" />
+                        </div>
+                    </div>
+
+                    <!-- Form is validated using website_sale.checkout parse methods that require shipping_id -->
+                    <div class="form-group col-lg-12 hidden">
+                    	<label>Shipping</label>
+                    	<select name="shipping_id" class="form-control">
+                    		<option value="0">Ship to the same address</option>
+                    	</select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg pull-right">Register <span class="fa fa-long-arrow-right"/></button>
+                </form>
+                </div>
+            </t>
+		</template>
+	</data>
+</openerp>
