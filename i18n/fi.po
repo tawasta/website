@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-26 12:35+0000\n"
-"PO-Revision-Date: 2016-02-26 14:37+0200\n"
+"POT-Creation-Date: 2016-03-16 09:29+0000\n"
+"PO-Revision-Date: 2016-03-16 11:30+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,49 +18,9 @@ msgstr ""
 "X-Generator: Poedit 1.7.5\n"
 
 #. module: website_sale_extension
-#: selection:res.partner,staff_count:0
-msgid "--"
-msgstr "--"
-
-#. module: website_sale_extension
 #: view:website:website_sale.checkout
 msgid "-- Create a new address --"
 msgstr "-- Lisää uusi osoite --"
-
-#. module: website_sale_extension
-#: selection:res.partner,staff_count:0
-msgid "1-9"
-msgstr "1-9"
-
-#. module: website_sale_extension
-#: selection:res.partner,staff_count:0
-msgid "10-19"
-msgstr "10-19"
-
-#. module: website_sale_extension
-#: selection:res.partner,staff_count:0
-msgid "20-49"
-msgstr "20-49"
-
-#. module: website_sale_extension
-#: selection:res.partner,staff_count:0
-msgid "200-499"
-msgstr "200-499"
-
-#. module: website_sale_extension
-#: selection:res.partner,staff_count:0
-msgid "50-199"
-msgstr "50-199"
-
-#. module: website_sale_extension
-#: selection:res.partner,staff_count:0
-msgid "500+"
-msgstr "500+"
-
-#. module: website_sale_extension
-#: field:res.partner,agreed_box:0
-msgid "Agrees to terms"
-msgstr "Hyväksyy säännöt"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
@@ -73,11 +33,6 @@ msgid "Business ID"
 msgstr "Y-tunnus"
 
 #. module: website_sale_extension
-#: field:product.template,membership_checkout_form:0
-msgid "Checkout form type"
-msgstr "Verkkokauppalomake"
-
-#. module: website_sale_extension
 #: view:website:website_sale.product
 msgid "Choose"
 msgstr "Valitse"
@@ -88,9 +43,9 @@ msgid "City"
 msgstr "Kaupunki"
 
 #. module: website_sale_extension
-#: selection:product.template,membership_checkout_form:0
-msgid "Community"
-msgstr "Yhteisölomake"
+#: view:website:website_sale.checkout
+msgid "Company Name"
+msgstr "Yrityksen nimi"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
@@ -118,34 +73,9 @@ msgid "Country..."
 msgstr "Maa..."
 
 #. module: website_sale_extension
-#: selection:product.template,membership_checkout_form:0
-msgid "Default"
-msgstr "Oletus"
-
-#. module: website_sale_extension
 #: view:website:website_sale.checkout
 msgid "Email"
 msgstr "Sähköposti"
-
-#. module: website_sale_extension
-#: help:res.partner,reason2:0
-msgid "I want to participate in community's action"
-msgstr "Haluan osallistua yhteisön toimintaan"
-
-#. module: website_sale_extension
-#: help:res.partner,reason1:0
-msgid "I wish to support open source communities"
-msgstr "Haluan tukea avoimen lähdekoodin yhteisöjä"
-
-#. module: website_sale_extension
-#: help:res.partner,steering_member:0
-msgid "Is willing to be a steering group member."
-msgstr "Haluaa olla ohjausryhmäjäsen"
-
-#. module: website_sale_extension
-#: help:res.partner,member_privacy:0
-msgid "Is willing to give information to COSS's members"
-msgstr "Lupa antaa tietoja COSSin jäsenille ja yhteistyökumppaneille. Organisaation tiedot saa julkaista COSSin kotisivujen jäsenlistalla"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
@@ -163,54 +93,19 @@ msgid "Name (Shipping)"
 msgstr "Nimi (toimitus)"
 
 #. module: website_sale_extension
-#: field:res.partner,reason3:0 help:res.partner,reason3:0
-msgid "Networking"
-msgstr "Verkostoituminen"
-
-#. module: website_sale_extension
-#: field:res.partner,staff_count:0
-msgid "Number of Staff"
-msgstr "Henkilöstön määrä"
-
-#. module: website_sale_extension
-#: field:res.partner,reason2:0
-msgid "Participate"
-msgstr "Osallistua"
-
-#. module: website_sale_extension
-#: model:ir.model,name:website_sale_extension.model_res_partner
-msgid "Partner"
-msgstr "Kumppani"
-
-#. module: website_sale_extension
 #: view:website:website_sale.checkout
 msgid "Payment"
 msgstr "Maksaminen"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
+msgid "Personal Customer"
+msgstr "Henkilöasiakas"
+
+#. module: website_sale_extension
+#: view:website:website_sale.checkout
 msgid "Phone"
 msgstr "Puhelin"
-
-#. module: website_sale_extension
-#: field:res.partner,member_privacy:0
-msgid "Privacy"
-msgstr "Yksityisyys"
-
-#. module: website_sale_extension
-#: model:ir.model,name:website_sale_extension.model_product_template
-msgid "Product Template"
-msgstr "Tuotemalli"
-
-#. module: website_sale_extension
-#: selection:product.template,membership_checkout_form:0
-msgid "Promote"
-msgstr "Kannatuslomake"
-
-#. module: website_sale_extension
-#: help:res.partner,other_reason:0
-msgid "Reason if something else"
-msgstr "Muu syy"
 
 #. module: website_sale_extension
 #: view:website:website_sale.cart view:website:website_sale.checkout
@@ -253,12 +148,6 @@ msgid "Sign in"
 msgstr "Kirjaudu sisään"
 
 #. module: website_sale_extension
-#: field:res.partner,other_reason:0 field:res.partner,reason4:0
-#: help:res.partner,reason4:0
-msgid "Something else"
-msgstr "Muu"
-
-#. module: website_sale_extension
 #: view:website:website_sale.checkout
 msgid "State / Province"
 msgstr "Osavaltio / provinssi"
@@ -267,11 +156,6 @@ msgstr "Osavaltio / provinssi"
 #: view:website:website_sale.checkout
 msgid "State / Province..."
 msgstr "Osavaltio / provinssi..."
-
-#. module: website_sale_extension
-#: field:res.partner,steering_member:0
-msgid "Steering group member"
-msgstr "Ohjausryhmäjäsen"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
@@ -287,11 +171,6 @@ msgstr "Katuosoitteen tarkenne"
 #: view:website:website_sale.checkout
 msgid "Subtotal:"
 msgstr "Välisumma"
-
-#. module: website_sale_extension
-#: field:res.partner,reason1:0
-msgid "Support"
-msgstr "Haluaa tukea"
 
 #. module: website_sale_extension
 #: view:website:website_sale.checkout
@@ -347,10 +226,3 @@ msgstr "tai"
 #: view:website:website_sale.checkout
 msgid "select..."
 msgstr "valitse..."
-
-#. module: website_sale
-#: code:addons/website_sale/controllers/main.py:654
-#: view:website:website_sale.payment
-#, python-format
-msgid "Pay Now"
-msgstr "Lähetä"
