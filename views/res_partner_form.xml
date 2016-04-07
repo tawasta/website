@@ -14,12 +14,7 @@
                         <group string="Description">
                             <p>In the following "Event Registrations"-section all the events that user has registered to are presented.</p>
                         </group>
-
-                        <!-- Buy ticket to event -->
-<!--                         <div>
-                            <button name="%(action_event_invoice_view)d" type="action" string="Buy Event ticket" 
-                                        class="oe_link"/>
-                        </div> -->
+                        
                         <group string="Event Sale Orders">
                             <field name="event_sale_orders" string="Event sale orders" nolabel="1" readonly="True" context="{'tree_view_ref': 'sale.view_order_tree'}"/>
                         </group>
