@@ -7,7 +7,6 @@
 # 3. Odoo imports (openerp):
 from openerp import api, fields, models
 
-
 # 4. Imports from Odoo modules:
 
 # 5. Local imports in the relative form:
