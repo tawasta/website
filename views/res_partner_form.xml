@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <!-- Add page for events -->
+		<record id="view_partner_form_inherited" model="ir.ui.view">
+            <field name="name">view.partner.form.inherited</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+
+                <notebook position="inside">
+                    <page string="Events">
+                        <group string="Description">
+                            <p>In the following "Event Registrations"-section all the events that user has registered to are presented.</p>
+                        </group>
+                        <group string="Event Registrations">
+                            <field name="registrations" string="Event registrations" nolabel="1" readonly="True" 
+                                context="{'tree_view_ref': 'event.view_event_registration_tree'}"/>
+                        </group>
+                    </page>
+                </notebook>        
+            </field>
+        </record>
+
+    </data>
+</openerp>
+
