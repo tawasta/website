@@ -20,14 +20,25 @@ class ResPartner(models.Model):
     _inherit = 'res.partner'
 
     # 2. Fields declaration
-    registrations = fields.One2many(
-        string="Event registrations",
-        comodel_name='event.registration', inverse_name="partner_id")
-    
+    event_sale_orders = fields.One2many(
+    	'sale.order',
+    	'partner_id',
+    	'Sales Order',
+    	compute='compute_sale_orders'
+    )
     
     # 3. Default methods
 
     # 4. Compute and search fields, in the same order that fields declaration
+   	
+    @api.one
+    def compute_sale_orders(self):
+
+    	self.event_sale_orders = self.env['sale.order'].search([(
+    		'partner_id', '=', self.id),
+    		('order_line.event_id', '!=', False)]) 
+
+
 
     # 5. Constraints and onchanges
 

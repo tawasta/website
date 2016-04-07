@@ -22,7 +22,7 @@
 {
     'name': 'Event Extension',
     'summary': 'Changes to Event app',
-    'version': '8.0.0.1.0',
+    'version': '8.0.0.1.1',
     'category': 'Marketing',
     'website': 'http://www.tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
@@ -30,6 +30,7 @@
     'application': False,
     'installable': True,
     'depends': [
+        'sale',
         'partner_event',
     ],
     'data': [

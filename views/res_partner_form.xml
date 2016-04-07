@@ -14,6 +14,11 @@
                         <group string="Description">
                             <p>In the following "Event Registrations"-section all the events that user has registered to are presented.</p>
                         </group>
+
+                        <group string="Event Sale Orders">
+                            <field name="event_sale_orders" string="Event invoices" nolabel="1" readonly="True" context="{'tree_view_ref': 'sale.view_order_tree'}"/>
+                        </group>
+
                         <group string="Event Registrations">
                             <field name="registrations" string="Event registrations" nolabel="1" readonly="True" 
                                 context="{'tree_view_ref': 'event.view_event_registration_tree'}"/>
