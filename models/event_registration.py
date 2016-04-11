@@ -21,7 +21,9 @@ class EventRegistration(models.Model):
 
     # 2. Fields declaration
     new_origin = fields.Char(
-        string='Source', compute='compute_new_origin', translate=True)
+        string=_('Source'),
+        compute='compute_new_origin'
+    )
 
     # 3. Default methods
 
@@ -35,8 +37,7 @@ class EventRegistration(models.Model):
             sale_order = self.env['sale.order'].search(
                 [('name', '=', record.origin)])
             if sale_order:
-                record.new_origin = _(
-                    sale_order.section_id.complete_name) or _("Internal")
+                record.new_origin = sale_order.section_id.name or _("Internal")
 
     # 5. Constraints and onchanges
 

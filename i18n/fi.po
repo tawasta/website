@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-07 12:36+0000\n"
-"PO-Revision-Date: 2016-04-07 15:39+0200\n"
+"POT-Creation-Date: 2016-04-11 09:05+0000\n"
+"PO-Revision-Date: 2016-04-11 12:06+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: fi_FI\n"
 "X-Generator: Poedit 1.7.5\n"
+
+#. module: website_event_extension
+#: view:res.partner:website_event_extension.view_partner_form_inherited
+msgid "Attended the Event"
+msgstr "Osallistui tapahtumaan"
+
+#. module: website_event_extension
+#: view:res.partner:website_event_extension.view_partner_form_inherited
+msgid "Cancel Registration"
+msgstr "Peru rekisteröityminen"
+
+#. module: website_event_extension
+#: view:res.partner:website_event_extension.view_partner_form_inherited
+msgid "Confirm Registration"
+msgstr "Vahvista rekisteröityminen"
 
 #. module: website_event_extension
 #: field:event.invoice,create_uid:0
@@ -36,6 +51,11 @@ msgstr "Kuvaus"
 #: model:ir.model,name:website_event_extension.model_event_event
 msgid "Event"
 msgstr "Tapahtuma"
+
+#. module: website_event_extension
+#: model:ir.model,name:website_event_extension.model_event_registration
+msgid "Event Registration"
+msgstr "Tapahtuman rekisteröinti"
 
 #. module: website_event_extension
 #: view:res.partner:website_event_extension.view_partner_form_inherited
@@ -83,6 +103,18 @@ msgid "In the following \"Event Registrations\"-section all the events that user
 msgstr "Seuraavassa \"Tapahtuman rekisteröinnit\"-osiossa kaikki tapahtumat, joihin asiakas on rekisteröitynyt, on ilmoitettu."
 
 #. module: website_event_extension
+#: code:addons/website_event_extension/models/event_registration.py:41
+#, python-format
+msgid "Internal"
+msgstr "Sisäinen"
+
+#. module: website_event_extension
+#: code:addons/website_event_extension/models/sale_order.py:24
+#, python-format
+msgid "Invoice header"
+msgstr "Otsikko"
+
+#. module: website_event_extension
 #: field:event.invoice,write_uid:0
 msgid "Last Updated by"
 msgstr "Viimeksi päivittänyt"
@@ -93,7 +125,7 @@ msgid "Last Updated on"
 msgstr "Viimeksi päivitetty"
 
 #. module: website_event_extension
-#: code:addons/website_event_extension/models/event.py:31
+#: code:addons/website_event_extension/models/event.py:32
 #, python-format
 msgid "Minium seats aren't filled!"
 msgstr "Minimipaikkamäärää ei ole täytetty!"
@@ -102,6 +134,27 @@ msgstr "Minimipaikkamäärää ei ole täytetty!"
 #: model:ir.model,name:website_event_extension.model_res_partner
 msgid "Partner"
 msgstr "Kumppani"
+
+#. module: website_event_extension
+#: view:res.partner:website_event_extension.view_partner_form_inherited
+msgid "Registration"
+msgstr "Rekisteröinti"
+
+#. module: website_event_extension
+#: model:ir.model,name:website_event_extension.model_sale_order
+msgid "Sales Order"
+msgstr "Myyntitilaus"
+
+#. module: website_event_extension
+#: model:ir.model,name:website_event_extension.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Myyntitilausrivi"
+
+#. module: website_event_extension
+#: code:addons/website_event_extension/models/event_registration.py:24
+#, python-format
+msgid "Source"
+msgstr "Lähde"
 
 #. module: website_event_extension
 #: field:event.invoice,price:0

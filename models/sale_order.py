@@ -21,7 +21,7 @@ class SaleOrder(models.Model):
 
     # 2. Fields declaration
     new_header = fields.Char(
-        string='Invoice header', 
+        string=_('Invoice header'),
         compute='compute_new_header'
     )
 
@@ -34,9 +34,9 @@ class SaleOrder(models.Model):
         header = ""
         for record in self:
             for line in record.order_line:
-                header += line.event_id.name_get()[0][1] or ""
-                header += ("\n " + 
-                    line.event_ticket_id.name) if line.event_ticket_id.name else ""
+                header += _(line.event_id.name_get()[0][1]) or ""
+                header += ("\n " +
+                           line.event_ticket_id.name) if line.event_ticket_id.name else ""
             record.new_header = header
             header = ""
     # 5. Constraints and onchanges
