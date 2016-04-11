@@ -46,3 +46,32 @@ class ResPartner(models.Model):
     # 7. Action methods
 
     # 8. Business methods
+
+
+class SaleOrder(models.Model):
+    
+    # 1. Private attributes
+    _inherit = 'sale.order'
+
+    # 2. Fields declaration
+    new_header = fields.Char(string='Invoice header', compute='compute_new_header')
+
+    # 3. Default methods
+
+    # 4. Compute and search fields, in the same order that fields declaration
+    @api.multi
+    def compute_new_header(self):
+
+        header = ""
+        for record in self:
+            for line in record.order_line:
+                header += line.event_id.name_get()[0][1] + "\n " + line.event_ticket_id.name
+            record.new_header = header
+            header = ""
+    # 5. Constraints and onchanges
+
+    # 6. CRUD methods
+
+    # 7. Action methods
+
+    # 8. Business methods

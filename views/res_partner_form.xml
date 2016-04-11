@@ -14,9 +14,19 @@
                         <group string="Description">
                             <p>In the following "Event Registrations"-section all the events that user has registered to are presented.</p>
                         </group>
-                        
+                        <!-- context="{'tree_view_ref': 'sale.view_order_tree'}" -->
                         <group string="Event Sale Orders">
-                            <field name="event_sale_orders" string="Event sale orders" nolabel="1" readonly="True" context="{'tree_view_ref': 'sale.view_order_tree'}"/>
+                            <field name="event_sale_orders" string="Event sale orders" nolabel="1" readonly="True">
+                                <tree string='Event Sale Orders'>
+                                    <field name='name'/>
+                                    <field name='new_header'/>
+                                    <field name='date_order'/>
+                                    <field name='partner_id'/>
+                                    <field name='user_id'/>
+                                    <field name='amount_total'/>
+                                    <field name='state'/> 
+                                </tree>
+                          </field>
                         </group>
                        
                         <group string="Event Registrations">
@@ -28,6 +38,23 @@
             </field>
         </record>
 
+        <!-- <record id="" model="ir.ui.view">
+            <field name="name"></field>
+            <field name="model">sale.order</field>
+            <field name="arch" type="xml">
+
+                <tree string='Event sale orders'>
+                    <field name='name'/>
+                    <field name='header_text'/>
+                    <field name='date_order'/>
+                    <field name='partner_id'/>
+                    <field name='user_id'/>
+                    <field name='amount_total'/>
+                    <field name='state'/>
+
+                </tree>
+            </field>
+        </record> -->
     </data>
 </openerp>
 
