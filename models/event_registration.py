@@ -38,7 +38,8 @@ class EventRegistration(models.Model):
                 [('name', '=', record.origin)])
             if sale_order:
                 record.new_origin = sale_order.section_id.name or _("Internal")
-
+            else:
+                record.new_origin = _("Free ticket")
     # 5. Constraints and onchanges
 
     # 6. CRUD methods
