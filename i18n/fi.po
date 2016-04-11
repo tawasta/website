@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-11 10:34+0000\n"
-"PO-Revision-Date: 2016-04-11 13:35+0200\n"
+"POT-Creation-Date: 2016-04-11 12:14+0000\n"
+"PO-Revision-Date: 2016-04-11 15:19+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -105,8 +105,8 @@ msgstr "ID"
 
 #. module: website_event_extension
 #: view:res.partner:website_event_extension.view_partner_form_inherited
-msgid "In the following \"Event Registrations\"-section all the events that user has registered to are presented."
-msgstr "Seuraavassa \"Tapahtuman rekisteröinnit\"-osiossa kaikki tapahtumat, joihin asiakas on rekisteröitynyt, on ilmoitettu."
+msgid "In the following \"Event Sale Orders\"-section all the sale orders concerning event registrations are presented. To create sale order for event go to Quotations > Create > Select customer > Add order line > Select \"Event registration\" as product > Select the event you want to register to and the ticket. After you have confirmed the sale, the registration appears under events. Under the \"Event Sale Orders\"-section there's \"Event Registrations\"-section that shows all the events partner has registered to."
+msgstr "Seuraavassa \"Tapahtuman myyntitilaukset\"-osiossa kaikki tapahtumien ilmoittautumisia koskevat myyntitilaukset ovat esiteltynä. Luodaksesi tapahtumalle myyntitilauksen mene Myyntitarjoukset > Luo  > Valitse \"Tapahtumaan rekisteröityminen\" tuotteeksi > Valitse tapahtuma, johon haluat rekisteröityä sekä lippu.Kun olet vahvistanut myynnin, rekisteröinti tulee näkyviin tapahtumalle.  \"Tapahtuman myyntitilaukset\"-osion alla on \"Tapahtuman rekisteröinnit\"-osio, jossa on esiteltynä kaikki asiakkaan rekisteröinnit tapahtumiin."
 
 #. module: website_event_extension
 #: code:addons/website_event_extension/models/event_registration.py:40
@@ -150,11 +150,6 @@ msgstr "Rekisteröinti"
 #: model:ir.model,name:website_event_extension.model_sale_order
 msgid "Sales Order"
 msgstr "Myyntitilaus"
-
-#. module: website_event_extension
-#: model:ir.model,name:website_event_extension.model_sale_order_line
-msgid "Sales Order Line"
-msgstr "Myyntitilausrivi"
 
 #. module: website_event_extension
 #: code:addons/website_event_extension/models/event_registration.py:24

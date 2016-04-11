@@ -12,7 +12,7 @@
                 <notebook position="inside">
                     <page string="Events">
                         <group string="Description">
-                            <p>In the following "Event Registrations"-section all the events that user has registered to are presented.</p>
+                            <p>In the following "Event Sale Orders"-section all the sale orders concerning event registrations are presented. To create sale order for event go to Quotations > Create > Select customer > Add order line > Select "Event registration" as product > Select the event you want to register to and the ticket. After you have confirmed the sale, the registration appears under events. Under the "Event Sale Orders"-section there's "Event Registrations"-section that shows all the events partner has registered to.</p>
                         </group>
                         <group string="Event Sale Orders">
                             <field name="event_sale_orders" string="Event sale orders" nolabel="1" readonly="True">
