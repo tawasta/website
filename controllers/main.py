@@ -40,6 +40,9 @@ class website_sale(website_sale):
         if 'function' in request.params:
             checkout['function'] = request.params['function']
 
+        if 'personal_customer' in request.params:
+            checkout['personal_customer'] = True
+
         if 'businessid' in request.params:
             checkout['businessid'] = request.params['businessid']
             checkout['is_company'] = True
@@ -47,10 +50,11 @@ class website_sale(website_sale):
             checkout['vatnumber_shown'] = True
 
         # If partner already exists (email is in some partner)
-        partner_id = http.request.env['res.partner'].sudo().search([('email', '=ilike', request.params['email'])],limit=1)
+        partner_id = http.request.env['res.partner'].sudo().search(
+            [('email', '=ilike', request.params['email'])], limit=1)
 
         if partner_id:
-        	order.partner_id = partner_id
+            order.partner_id = partner_id
 
         super(website_sale, self).checkout_form_save(checkout)
 
@@ -70,7 +74,7 @@ class website_sale(website_sale):
             values['checkout']['function'] = partner.function
             values['checkout']['businessid'] = partner.businessid
             values['checkout']['website'] = partner.website
-
+            values['checkout']['personal_customer'] = partner.personal_customer
             # Update checkout when moving backwards so the fills don't
             # disappear
             if request.uid != request.website.user_id.id:
@@ -95,9 +99,13 @@ class website_sale(website_sale):
         # All the fields written to partner has to be either in mandatory or
         # optional fields
         self.mandatory_billing_fields = [
-            "name", "email", "city", "country_id", "zip", "street", "street2", "phone"]
+            "name", "email", "city", "country_id", 
+            "zip", "street", "street2", "phone"
+        ]
         self.optional_billing_fields = [
-            "businessid", "businessid_shown", "is_company", "vatnumber_shown", "website", "function"]
+            "businessid", "businessid_shown", "is_company", 
+            "vatnumber_shown", "website", "function", "personal_customer"
+        ]
 
         return values
 
