@@ -1,2 +1,1 @@
-import res_partner
-import event
+import res_partner, event, event_registration, sale_order
