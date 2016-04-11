@@ -1,1 +1,2 @@
-import res_partner, event
+import res_partner
+import event

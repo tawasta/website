@@ -8,35 +8,35 @@
 from openerp import api, fields, models, _
 
 # 4. Imports from Odoo modules:
-from openerp.exceptions import Warning
 
 # 5. Local imports in the relative form:
 
 # 6. Unknown third party imports:
 
 
-class Event(models.Model):
+class EventRegistration(models.Model):
 
     # 1. Private attributes
-    _inherit = 'event.event'
+    _inherit = 'event.registration'
 
     # 2. Fields declaration
-    # confirmable = fields.Boolean(string='Is event confirmable?', compute='compute_confirmable')
+    new_origin = fields.Char(
+        string='Source', compute='compute_new_origin', translate=True)
 
     # 3. Default methods
 
     # 4. Compute and search fields, in the same order that fields declaration
-    @api.one
-    def button_confirm(self):
+    @api.multi
+    def compute_new_origin(self):
 
-        msg = _("Minium seats aren't filled!")
+        sale_order = []
 
-        # If minium seats are filled, you can confirm event
-        if self.seats_reserved >= self.seats_min:
-
-            super(Event, self).button_confirm()
-        else:
-            raise Warning(msg)
+        for record in self:
+            sale_order = self.env['sale.order'].search(
+                [('name', '=', record.origin)])
+            if sale_order:
+                record.new_origin = _(
+                    sale_order.section_id.complete_name) or _("Internal")
 
     # 5. Constraints and onchanges
 
