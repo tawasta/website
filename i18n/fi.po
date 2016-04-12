@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-15 09:58+0000\n"
-"PO-Revision-Date: 2016-03-15 12:15+0200\n"
+"POT-Creation-Date: 2016-04-12 08:52+0000\n"
+"PO-Revision-Date: 2016-04-12 11:53+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,9 +18,24 @@ msgstr ""
 "X-Generator: Poedit 1.7.5\n"
 
 #. module: website_event_free_form
+#: view:website:website_event.index
+msgid ": Only"
+msgstr ": Vain"
+
+#. module: website_event_free_form
+#: view:website:website_event.index
+msgid ": Sold Out"
+msgstr ": Loppuunmyyty"
+
+#. module: website_event_free_form
 #: view:website:website_event_free_form.event_free_form
 msgid "Email"
 msgstr "Sähköposti"
+
+#. module: website_event_free_form
+#: model:ir.model,name:website_event_free_form.model_event_registration
+msgid "Event Registration"
+msgstr "Tapahtuman rekisteröinti"
 
 #. module: website_event_free_form
 #: view:website:website_event_free_form.event_free_form
@@ -33,6 +48,11 @@ msgid "Register"
 msgstr "Rekisteröidy"
 
 #. module: website_event_free_form
+#: view:website:website_event.index
+msgid "Remaining"
+msgstr "Jäljellä"
+
+#. module: website_event_free_form
 #: view:website:website_event_free_form.event_free_form
 msgid "Ship to the same address"
 msgstr "Toimita samaan osoitteeseen"
@@ -41,6 +61,11 @@ msgstr "Toimita samaan osoitteeseen"
 #: view:website:website_event_free_form.event_free_form
 msgid "Shipping"
 msgstr "Lähetys"
+
+#. module: website_event_free_form
+#: view:website:website_event.event_description_full
+msgid "Sold Out"
+msgstr "Loppuunmyyty"
 
 #. module: website_event_free_form
 #: view:website:website_event_free_form.event_free_form
