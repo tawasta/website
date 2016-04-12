@@ -54,5 +54,25 @@
                 </span>
             </xpath>
         </template>
+
+        <template id="index" inherit_id="website_event_sale.index" name="Event's Ticket">
+            <xpath expr="//li[@t-foreach='event_ids']/div/t[1]" position="replace">
+                <t t-if="event.state in ['draft', 'confirm'] and event.event_ticket_ids">
+                    <div class="pull-right" style="width:200px;">
+                        <ul class="media-list">
+                            <li t-foreach="event.event_ticket_ids" t-as="ticket" class="media">
+                                <span t-if="not ticket.seats_available and event.seats_max" class="label pull-left label-danger">
+                                    <t t-esc="ticket.name"/>: Sold Out
+                                </span>
+                                <span t-if="ticket.seats_available and ticket.seats_available &lt;= 5" class="label pull-left label-info">
+                                    <t t-esc="ticket.name"/>: Only <t t-esc="ticket.seats_available"/> Remaining
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </t>
+            </xpath>
+        </template>
+
 	</data>
 </openerp>
