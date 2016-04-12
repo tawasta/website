@@ -60,7 +60,7 @@
                 <t t-if="event.state in ['draft', 'confirm'] and event.event_ticket_ids">
                     <div class="pull-right" style="width:200px;">
                         <ul class="media-list">
-                            <li t-foreach="event.event_ticket_ids" t-as="ticket" class="media">
+                            <li t-foreach="event.event_ticket_ids" t-as="ticket" class="media mt4">
                                 <span t-if="not ticket.seats_available and event.seats_max" class="label pull-left label-danger">
                                     <t t-esc="ticket.name"/>: Sold Out
                                 </span>
