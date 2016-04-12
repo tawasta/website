@@ -2,9 +2,9 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=================
-Project Extension
-=================
+=======================
+Website Event extension
+=======================
 
 This module was written to extend the functionality of events. 
 
@@ -12,6 +12,9 @@ Features
 --------
 
 * **Events tab for partners**
+* **Created sale orders tree-view and registrations for events tab**
+* **If minium seats aren't filled, event can't be confirmed**
+* **Added a field that specifies the origin of event registration (Website/Internal/Free ticket)**
 
 Installation
 ============
@@ -25,7 +28,7 @@ Configuration
 Usage
 =====
 
-\-
+Go to partners -> Partner form > Page "Event" 
 
 Known issues / Roadmap
 ======================
