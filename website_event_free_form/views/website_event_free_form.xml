@@ -39,7 +39,7 @@
 		</template>
 
         <!-- Modify event_description_full to handle free events (max tickets available comes from event, not from ticket type)-->
-        <template id="event_description_full" inherit_id="website_event_sale.event_description_full">
+        <template id="event_description_full" inherit_id="website_event_sale.event_description_full" customize_show="True" name="Event's Ticket form">
             <xpath expr="//select[@t-if='ticket.seats_available or not ticket.seats_max']" position="replace">
                 <select t-if="(ticket.seats_available or not ticket.seats_max) and event.seats_available" t-attf-name="ticket-#{ ticket.id }" class="form-control">
                     <t t-foreach="range(0, min(ticket.seats_available + 1, min((event.seats_available or 9) + 1, 10)))" t-as="nb">
@@ -52,6 +52,24 @@
                 <span t-if="not ticket.seats_available and ticket.seats_max or not event.seats_available">
                     Sold Out
                 </span>
+            </xpath>
+
+            <!-- If deadline is passed, remove order now button -->
+            <xpath expr="//form/button[@t-if='event.seats_available or not event.seats_max']" position="replace">
+                <t t-set="ticketPresent" t-value="False"/>
+                <t t-foreach="event.event_ticket_ids" t-as="ticket">
+                    <t t-if="not ticket.is_expired">
+                        <t t-set="ticketPresent" t-value="True"/>
+                    </t>
+                </t>
+                
+                <t t-set="today" t-value="time.strftime('%%Y-%%m-%%d')" />
+                <button type="submit" class="btn btn-primary btn-lg pull-right" t-if="(event.seats_available or not event.seats_max) and (today &lt; event.date_end) and ticketPresent">Order Now</button> 
+            </xpath>
+
+            <!-- If deadline or event_end are passed, remove row -->
+            <xpath expr="//tr[@itemtype='http://data-vocabulary.org/Offer']" position="attributes">
+                <attribute name="t-if">not ticket.is_expired and (time.strftime('%%Y-%%m-%%d') &lt; event.date_end)</attribute>        
             </xpath>
         </template>
 
