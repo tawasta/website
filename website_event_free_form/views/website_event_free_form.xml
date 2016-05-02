@@ -54,6 +54,26 @@
                 </span>
             </xpath>
 
+            <!-- If all the tickets are expired or the event has passed, hide the table head -->
+            <xpath expr="//form/table[@itemprop='offers']/thead/tr" position="replace">
+                <t t-set="headPresent" t-value="False"/>
+                <t t-foreach="event.event_ticket_ids" t-as="ticket">
+                    <t t-if="not ticket.is_expired">
+                        <t t-set="headPresent" t-value="True"/>
+                    </t>
+                </t>
+                <t t-if="(event.seats_available or not event.seats_max) and (today &lt; event.date_end) and headPresent">
+                    <tr>
+                        <th>Ticket Type</th>
+                        <th style="min-width: 100px">Sales End</th>
+                        <th style="min-width: 100px">Price</th>
+                        <th></th>
+                        <th>Quantity</th>
+                    </tr>
+                </t>
+            </xpath>
+
+
             <!-- If deadline is passed, remove order now button -->
             <xpath expr="//form/button[@t-if='event.seats_available or not event.seats_max']" position="replace">
                 <t t-set="ticketPresent" t-value="False"/>
