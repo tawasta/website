@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<!-- Customize Product Page  -->
+		<template id="product_item_sheetmusic" name="Sheet music product" inherit_id="website_sale.products_item">
+
+			<!-- Add the category -->
+			<xpath expr="//div[@class='product_price']" position="after">
+                <div id="note_catalog_number">
+				    <span t-field="product.note_catalog_number" />
+                </div>
+			</xpath>
+
+		</template>
+
+	</data>
+</openerp>
+

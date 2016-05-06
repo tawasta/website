@@ -22,7 +22,7 @@
 {
     'name': 'Website sale sheetmusic',
     'summary': 'Sell sheet music (notes) in the webshop',
-    'version': '8.0.0.1.0',
+    'version': '8.0.0.1.1',
     'category': 'Website',
     'website': 'http://www.tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
@@ -34,9 +34,11 @@
         'bin': [],
     },
     'depends': [
+        'product_attributes_sheetmusic',
         'website_sale',
     ],
     'data': [
+        'views/website_sale_product.xml',
     ],
     'demo': [
     ],
