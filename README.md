@@ -12,4 +12,5 @@ Available addons
 [website_futurality](website_futurality/) | Website Futurality Theme
 [website_large_header](website_large_header/) | Website Large Header
 [website_sale_extension](website_sale_extension/) | Checkout form modifications
+[website_sale_sheetmusic](website_sale_sheetmusic/) | Sell sheet music (notes) in the webshop
 [website_simple_footer](website_simple_footer/) | Website Simple Footer
