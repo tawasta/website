@@ -6,7 +6,9 @@
 Website sale search from attributes
 ===================================
 
-Allows search field to search from attributes
+Allows search field to search from attributes.
+Search bar searches from product attributes.
+Attributes are combined with OR instead of AND.
 
 Installation
 ============
