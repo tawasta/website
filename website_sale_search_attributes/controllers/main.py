@@ -25,6 +25,10 @@ class website_sale(website_sale):
 
     # 4. Compute and search fields, in the same order that fields declaration
     def _get_search_domain(self, search, category, attrib_values):
+        # Overrides default search domain to
+        # a) search from attributes
+        # b) combine attributes with OR instead of AND
+
         domain = request.website.sale_product_domain()
 
         if search:
@@ -41,6 +45,8 @@ class website_sale(website_sale):
         if attrib_values:
             attrib = None
             ids = []
+            domain_attributes = list()
+
             for value in attrib_values:
                 if not attrib:
                     attrib = value[0]
@@ -48,11 +54,16 @@ class website_sale(website_sale):
                 elif value[0] == attrib:
                     ids.append(value[1])
                 else:
-                    domain += [('attribute_line_ids.value_ids', 'in', ids)]
+                    domain_attributes += [('attribute_line_ids.value_ids', 'in', ids)]
                     attrib = value[0]
                     ids = [value[1]]
             if attrib:
-                domain += [('attribute_line_ids.value_ids', 'in', ids)]
+                domain_attributes += [('attribute_line_ids.value_ids', 'in', ids)]
+
+            for x in xrange(len(domain_attributes)-1):
+                domain += ['|']
+
+            domain += domain_attributes
 
         return domain
 

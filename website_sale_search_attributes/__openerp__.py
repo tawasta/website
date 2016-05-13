@@ -22,8 +22,8 @@
 {
     'name': 'Website sale search from attributes',
     'summary': 'Allows search field to search from attributes',
-    'version': '8.0.0.2.0',
-    'category': 'Ecommerce',
+    'version': '8.0.0.3.0',
+    'category': 'eCommerce',
     'website': 'http://www.tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
     'license': 'AGPL-3',
