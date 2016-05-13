@@ -22,7 +22,7 @@
 {
     'name': 'Website sale search from attributes',
     'summary': 'Allows search field to search from attributes',
-    'version': '8.0.0.1.0',
+    'version': '8.0.0.2.0',
     'category': 'Ecommerce',
     'website': 'http://www.tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',

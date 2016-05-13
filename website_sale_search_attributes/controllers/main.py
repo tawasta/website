@@ -2,18 +2,17 @@
 
 # 1. Standard library imports:
 
-# 2. Known third party imports (One per line sorted and splitted in python
-# stdlib):
+# 2. Known third party imports:
 
 # 3. Odoo imports (openerp):
 from openerp.addons.website_sale.controllers.main import website_sale
+from openerp.http import request
 
-# 4. Imports from Odoo modules (rarely, and only if necessary):
+# 4. Imports from Odoo modules:
 
 # 5. Local imports in the relative form:
 
-# 6. Unknown third party imports (One per line sorted and splitted in
-# python stdlib):
+# 6. Unknown third party imports:
 
 
 class website_sale(website_sale):
@@ -25,10 +24,37 @@ class website_sale(website_sale):
     # 3. Default methods
 
     # 4. Compute and search fields, in the same order that fields declaration
-     def _get_search_domain(self, search, category, attrib_values):
-         domain = super(website_sale, self)._get_search_domain(search, category, attrib_values)
+    def _get_search_domain(self, search, category, attrib_values):
+        domain = request.website.sale_product_domain()
 
-         return domain
+        if search:
+            for srch in search.split(" "):
+                domain += [
+                    '|', '|', '|', '|', ('name', 'ilike', srch), ('description', 'ilike', srch),
+                    ('description_sale', 'ilike', srch), ('product_variant_ids.default_code', 'ilike', srch),
+                    ('attribute_line_ids.value_ids.name', 'ilike', srch)
+                ]
+
+        if category:
+            domain += [('public_categ_ids', 'child_of', int(category))]
+
+        if attrib_values:
+            attrib = None
+            ids = []
+            for value in attrib_values:
+                if not attrib:
+                    attrib = value[0]
+                    ids.append(value[1])
+                elif value[0] == attrib:
+                    ids.append(value[1])
+                else:
+                    domain += [('attribute_line_ids.value_ids', 'in', ids)]
+                    attrib = value[0]
+                    ids = [value[1]]
+            if attrib:
+                domain += [('attribute_line_ids.value_ids', 'in', ids)]
+
+        return domain
 
     # 5. Constraints and onchanges
 
