@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
-		<!-- Customize Product Page  -->
-		<template id="product_item_sheetmusic" name="Sheet music product" inherit_id="website_sale.products_item">
+		<!-- Customize All Products-Page  -->
+		<template id="product_items_sheetmusic" name="Sheet music products" inherit_id="website_sale.products_item">
 
 			<!-- Add the category -->
 			<xpath expr="//div[@class='product_price']" position="after">
@@ -13,6 +13,38 @@
                             <span t-field="variant_id.value_ids[0].name"/><br/>
                         </t>
                     </t>
+                </div>
+			</xpath>
+
+		</template>
+
+        <!-- Customize Product Page  -->
+		<template id="product_item_sheetmusic" name="Sheet music product" inherit_id="website_sale.product">
+
+			<!-- Add the category -->
+			<xpath expr="//p[@t-field='product.description_sale']" position="after">
+                <hr />
+                <div id="note_attributes">
+                    <p class="text-muted">
+                        <b>Info</b><br />
+                        <span>Catalog number: </span>
+                        <span t-field="product.note_catalog_number" /><span t-field="product.note_catalog_number" /><br/>
+
+                        <span>ISMN: </span>
+                        <span t-field="product.note_ismn" /><br/>
+
+                        <span>Publisher: </span>
+                        <span t-field="product.note_publisher" /><br/>
+
+                        <span>Length: </span>
+                        <span t-field="product.note_length" /><br/>
+                    </p>
+
+                    <p class="text-muted">
+                        <b>Samples</b><br />
+                        <a t-attf-href="product.note_url"><span t-field="product.note_url" /></a><br/>
+                        <a t-attf-href="/web/binary/saveas?model=website_downloads.files&amp;field=note_pdf&amp;note_pdf_filename=name&amp;id={{product.id}}">Download <span t-field="product.note_pdf_filename" /></a>
+                    </p>
                 </div>
 			</xpath>
 
