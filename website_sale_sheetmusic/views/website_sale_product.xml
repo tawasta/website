@@ -40,10 +40,16 @@
                         <span t-field="product.note_length" /><br/>
                     </p>
 
-                    <p class="text-muted">
+
+                    <p t-if="product.note_url or product_note_pdf" class="text-muted">
                         <b>Samples</b><br />
-                        <a t-att-href="product.note_url" target="_blank"><span t-field="product.note_url" /></a><br/>
-                        <a t-attf-href="/web/binary/saveas?model=product.template&amp;field=note_pdf&amp;filename_field=note_pdf_filename&amp;id={{product.id}}">Download a sample PDF (<span t-field="product.note_pdf_filename"/>)</a>
+                        <a t-if="product.note_url"
+                           t-att-href="product.note_url" target="_blank"><span t-field="product.note_url" />
+                        </a><br/>
+
+                        <a t-if="product.note_pdf"
+                           t-attf-href="/web/binary/saveas?model=product.template&amp;field=note_pdf&amp;filename_field=note_pdf_filename&amp;id={{product.id}}">Download a sample PDF (<span t-field="product.note_pdf_filename"/>)
+                        </a>
                     </p>
                 </div>
 			</xpath>
