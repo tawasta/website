@@ -48,7 +48,8 @@
                         </a><br/>
 
                         <a t-if="product.note_pdf"
-                           t-attf-href="/web/binary/saveas?model=product.template&amp;field=note_pdf&amp;filename_field=note_pdf_filename&amp;id={{product.id}}">Download a sample PDF (<span t-field="product.note_pdf_filename"/>)
+                           t-attf-href="/web/binary/saveas?model=product.template&amp;field=note_pdf&amp;filename_field=note_pdf_filename&amp;id={{product.id}}">
+                            Download a sample PDF
                         </a>
                     </p>
                 </div>
