@@ -28,7 +28,7 @@
                     <p class="text-muted">
                         <b>Info</b><br />
                         <span>Catalog number: </span>
-                        <span t-field="product.note_catalog_number" /><span t-field="product.note_catalog_number" /><br/>
+                        <span t-field="product.note_catalog_number" /><br/>
 
                         <span>ISMN: </span>
                         <span t-field="product.note_ismn" /><br/>
@@ -42,8 +42,8 @@
 
                     <p class="text-muted">
                         <b>Samples</b><br />
-                        <a t-attf-href="product.note_url"><span t-field="product.note_url" /></a><br/>
-                        <a t-attf-href="/web/binary/saveas?model=website_downloads.files&amp;field=note_pdf&amp;note_pdf_filename=name&amp;id={{product.id}}">Download <span t-field="product.note_pdf_filename" /></a>
+                        <a t-att-href="product.note_url" target="_blank"><span t-field="product.note_url" /></a><br/>
+                        <a t-attf-href="/web/binary/saveas?model=product.template&amp;field=note_pdf&amp;filename_field=note_pdf_filename&amp;id={{product.id}}">Download a sample PDF (<span t-field="product.note_pdf_filename") /></a>
                     </p>
                 </div>
 			</xpath>
