@@ -12,5 +12,7 @@ Available addons
 [website_futurality](website_futurality/) | Website Futurality Theme
 [website_large_header](website_large_header/) | Website Large Header
 [website_sale_extension](website_sale_extension/) | Checkout form modifications
+[website_sale_search_attributes](website_sale_search_attributes/) | Allows search field to search from attributes
 [website_sale_sheetmusic](website_sale_sheetmusic/) | Sell sheet music (notes) in the webshop
+[website_select_autocomplete_combobox](website_select_autocomplete_combobox/) | Website select autocomplete with JQuery UI combobox
 [website_simple_footer](website_simple_footer/) | Website Simple Footer
