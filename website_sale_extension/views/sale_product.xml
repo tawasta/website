@@ -17,7 +17,13 @@
 		<!-- Hide Policies and Secure payment from cart -->
 		<template id="cart_simple" name="Simple Shopping Cart" inherit_id="website_sale.cart">
 
-			<xpath expr="//div[@id='right_column']" position="replace"/>
+            <!-- Remove "Policies" from right panel -->
+			<xpath expr="//div[@id='right_column']/h4" position="replace"/>
+			<xpath expr="//div[@id='right_column']/ul" position="replace"/>
+
+            <!-- Remove "Secure payment" from right panel -->
+            <xpath expr="//div[@id='right_column']/h4" position="replace"/>
+			<xpath expr="//div[@id='right_column']/ul" position="replace"/>
 
 			<xpath expr="//a[@href='/shop']" position="replace">
 				<a href="/shop" class="btn btn-default mb32"><span class="fa fa-long-arrow-left"/> <span class="hidden-xs">Return Back</span><span class="visible-xs-inline">Return Back</span></a>

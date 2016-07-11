@@ -42,6 +42,7 @@ Contributors
 ------------
 
 * Aleksi Savijoki <aleksi.savijoki@tawasta.fi>
+* Jarmo Kortetjärvi <jarmo.kortetjarvi@tawasta.fi>
 
 Maintainer
 ----------
