@@ -16,3 +16,4 @@ Available addons
 [website_sale_sheetmusic](website_sale_sheetmusic/) | Sell sheet music (notes) in the webshop
 [website_select_autocomplete_combobox](website_select_autocomplete_combobox/) | Website select autocomplete with JQuery UI combobox
 [website_simple_footer](website_simple_footer/) | Website Simple Footer
+[website_voucher_gift](website_voucher_gift/) | Allows purchasing products as gifts that can be claimed with a voucher
