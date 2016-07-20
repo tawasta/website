@@ -52,7 +52,9 @@
                   <t t-foreach="acquirers or []" t-as="acquirer">
                       <div t-att-data-id="acquirer.id" class="oe_sale_acquirer_button hidden pull-right">
                         <br></br>
-                        <div t-raw="acquirer.button"/>
+						  	<div t-raw="acquirer.button"/>
+                            <br/>
+						  	<div t-field="acquirer.pre_msg"/>
                       </div>
                   </t>
               </div>
