@@ -99,13 +99,15 @@ class website_sale(website_sale):
         # All the fields written to partner has to be either in mandatory or
         # optional fields
         self.mandatory_billing_fields = [
-            "name", "email", "city", "country_id", 
-            "zip", "street", "street2", "phone"
+            "name", "email", "zip", "street", "city", "country_id"
         ]
         self.optional_billing_fields = [
-            "businessid", "businessid_shown", "is_company", 
+            "phone", "street2", "businessid", "businessid_shown", "is_company", 
             "vatnumber_shown", "website", "function", "personal_customer"
         ]
+        
+        # Easier to checkout which field are mandatory on website from values
+        values['mandatory'] = self.mandatory_billing_fields
 
         return values
 

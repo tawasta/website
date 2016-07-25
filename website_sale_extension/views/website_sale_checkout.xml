@@ -24,7 +24,6 @@
 										<a class='btn btn-primary' t-if="not partner" t-attf-href="/web?redirect=#{ request.httprequest.url }">Sign in</a>
 									</small>
 								</h3>
-
 								<div id="form_row" class="row">
 									<!-- Hide company fields when checked and private fields when not -->
 									<div id="personal_customer_div" t-attf-class="col-lg-12 mb16">
@@ -36,60 +35,62 @@
 									</div>
 
 									<div id="name_div" t-attf-class="form-group #{error.get('name') and 'has-error' or ''} col-lg-6">
-										<label id="contact_label" class="control-label" for="contact_name" hidden="true">Your Name</label>
-										<label id="company_label" class="control-label" for="company_name">Company Name</label>
+										<label id="contact_label" t-attf-class="control-label 'bold' if 'name' in mandatory else ''" 
+											for="contact_name" hidden="true">Your Name (Forename Surname)</label>
+										<label id="company_label" t-attf-class="control-label #{'bold' if 'name' in mandatory else ''} " 
+											for="company_name">Company Name</label>
 										<input type="text" name="name" class="form-control" t-att-value="checkout.get('name')"/>
 									</div>
 
 									<div id="title_div" t-attf-class="form-group #{error.get('function') and 'has-error' or ''} col-lg-6" hidden="true">
-										<label class="control-label" for="function">Job position</label>
+										<label t-attf-class="control-label #{'bold' if 'function' in mandatory else ''} " for="function">Job position</label>
 										<input type="text" name="function" class="form-control" t-att-value="checkout.get('function')"/>
 									</div>
 
 									<div id="email_div" t-attf-class="form-group #{error.get('email') and 'has-error' or ''} col-lg-6">
-										<label class="control-label" for="contact_name">Email</label>
+										<label t-attf-class="control-label #{'bold' if 'email' in mandatory else ''}" for="contact_name">Email</label>
 										<input type="email" name="email" class="form-control" t-att-value="checkout.get('email')"/>
 									</div>
 
 									<div id="phone_div" t-attf-class="form-group #{error.get('phone') and 'has-error' or ''} col-lg-6">
-										<label class="control-label" for="phone">Phone</label>
+										<label t-attf-class="control-label #{'bold' if 'phone' in mandatory else ''}" for="phone">Phone</label>
 										<input type="tel" name="phone" class="form-control" t-att-value="checkout.get('phone')"/>
 									</div> 
 
 									<div id="company_name_div" t-attf-class="form-group #{error.get('street') and 'has-error' or ''} col-lg-6">
-										<label class="control-label" for="street">Street</label>
+										<label t-attf-class="control-label #{'bold' if 'street' in mandatory else ''}" for="street">Street</label>
 										<input type="text" name="street" class="form-control" t-att-value="checkout.get('street')"/>
 									</div>
 
 									<div id="vat_div" t-if="has_check_vat" t-attf-class="form-group #{error.get('vat') and 'has-error' or ''} col-lg-6 hidden">
-										<label class="control-label" for="vat" style="font-weight: normal">VAT Number</label>
+										<label t-attf-class="control-label  #{'bold' if 'vat' in mandatory else ''}" for="vat" style="font-weight: normal">VAT Number</label>
 										<input type="text" name="vat" class="form-control" t-att-value="checkout.get('vat')"/>
 									</div>
 
 									<div id="businessid_div" t-if="has_check_vat" t-attf-class="form-group #{error.get('businessid') and 'has-error' or ''} col-lg-6">
-										<label class="control-label" for="businessid" style="font-weight: normal">Business ID</label>
+										<label t-attf-class="control-label  #{'bold' if 'businessid' in mandatory else ''}" for="businessid" style="font-weight: normal">Business ID</label>
 										<input type="text" name="businessid" class="form-control" t-att-value="checkout.get('businessid')"/>
 									</div>
 
 									<div id="vat_spacer" t-if="has_check_vat" t-attf-class="clearfix"/>
 
 									<div id="street_div" t-attf-class="form-group #{error.get('street2') and 'has-error' or ''} col-lg-6">
-										<label class="control-label" for="street2">Street specifier</label>
+										<label t-attf-class="control-label #{'bold' if 'street2' in mandatory else ''}" for="street2">Street specifier</label>
 										<input type="text" name="street2" class="form-control" t-att-value="checkout.get('street2')"/>
 									</div>
 									
 									<div id="city_div" t-attf-class="form-group #{error.get('city') and 'has-error' or ''} col-lg-6">
-										<label class="control-label" for="city">City</label>
+										<label t-attf-class="control-label #{'bold' if 'city' in mandatory else ''}" for="city">City</label>
 										<input type="text" name="city" class="form-control" t-att-value="checkout.get('city')"/>
 									</div>
 
 									<div id="zip_div" t-attf-class="form-group #{error.get('zip') and 'has-error' or ''} col-lg-6">
-										<label class="control-label" for="zip">Zip / Postal Code</label>
+										<label t-attf-class="control-label #{'bold' if 'zip' in mandatory else ''}" for="zip">Zip / Postal Code</label>
 										<input type="text" name="zip" class="form-control" t-att-value="checkout.get('zip')"/>
 									</div>
 
 									<div id="country_div" t-attf-class="form-group #{error.get('country_id') and 'has-error' or ''} col-lg-6">
-										<label class="control-label" for="country_id">Country</label>
+										<label t-attf-class="control-label #{'bold' if 'country_id' in mandatory else ''}" for="country_id">Country</label>
 										<select name="country_id" class="form-control">
 											<option value="">Country...</option>
 											<t t-foreach="countries or []" t-as="country">
@@ -99,7 +100,7 @@
 									</div>
 									
 									<div id="state_div" t-attf-class="form-group #{error.get('state_id') and 'has-error' or ''} col-lg-6">
-										<label class="control-label" for="state_id" style="font-weight: normal">State / Province</label>
+										<label t-attf-class="control-label #{'bold' if 'state_id' in mandatory else ''}" for="state_id" style="font-weight: normal">State / Province</label>
 										<select name="state_id" class="form-control">
 											<option value="">select...</option>
 											<t t-foreach="states or []" t-as="state">
@@ -111,7 +112,7 @@
 									<div class="clearfix"/>
 
 									<div id="website_div" t-attf-class="form-group #{error.get('webpage') and 'has-error' or ''} col-lg-6">
-										<label class="control-label" for="website" style="font-weight:normal">Website</label>
+										<label t-attf-class="control-label #{'bold' if 'website' in mandatory else ''}" for="website" style="font-weight:normal">Website</label>
 										<input type="text" name="website" class="form-control" t-att-value="checkout.get('website')"/>
 									</div>
 									
@@ -123,7 +124,7 @@
 									</div>
 
 									<!-- Shipping details (hidden in short form)-->
-									<div id="shipping_section_div" t-attf-class="form-group col-lg-12">
+									<div id="shipping_section_div" t-attf-class="form-group col-lg-12 hidden">
 										<label>Shipping</label>
 										<select name="shipping_id" class="form-control">
 											<option value="0">Ship to the same address</option>
@@ -142,7 +143,7 @@
 										</select>
 									</div>
 								</div>
-								<div id="shipping_information_div" class="js_shipping row mb16" t-att-style="not shipping_id and 'display:none' or ''">
+								<div id="shipping_information_div" class="js_shipping row mb16 hidden" t-att-style="not shipping_id and 'display:none' or ''">
 									<h3 class="oe_shipping col-lg-12 mt16">Shipping Information</h3>
 
 									<div id="shipping_name_div" t-attf-class="form-group #{error.get('shipping_name') and 'has-error' or ''} col-lg-6">
@@ -220,7 +221,7 @@
 						</div>
 					</form>
 				</div>
-
+				<link rel="stylesheet" href="/website_sale_extension/static/src/css/style.css"/>
 			</xpath>
 
 		</template>
