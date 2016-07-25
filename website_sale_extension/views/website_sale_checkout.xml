@@ -33,11 +33,12 @@
 										javascript:document.getElementById("company_label").hidden=document.getElementById("personal_customer").checked;
 										javascript:document.getElementById("title_div").hidden=!document.getElementById("personal_customer").checked;'/> Personal Customer
 									</div>
+									<t t-set="name_mandatory" t-value="'bold' if 'name' in mandatory else ''"/>
 
 									<div id="name_div" t-attf-class="form-group #{error.get('name') and 'has-error' or ''} col-lg-6">
-										<label id="contact_label" t-attf-class="control-label 'bold' if 'name' in mandatory else ''" 
+										<label id="contact_label" t-attf-class="control-label #{name_mandatory}" 
 											for="contact_name" hidden="true">Your Name (Forename Surname)</label>
-										<label id="company_label" t-attf-class="control-label #{'bold' if 'name' in mandatory else ''} " 
+										<label id="company_label" t-attf-class="control-label #{name_mandatory}" 
 											for="company_name">Company Name</label>
 										<input type="text" name="name" class="form-control" t-att-value="checkout.get('name')"/>
 									</div>
