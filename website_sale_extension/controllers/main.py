@@ -49,6 +49,9 @@ class website_sale(website_sale):
             checkout['businessid_shown'] = True
             checkout['vatnumber_shown'] = True
 
+        if 'company_name' in request.params:
+            checkout['company_name'] = request.params['company_name']
+
         # If partner already exists (email is in some partner)
         partner_id = http.request.env['res.partner'].sudo().search(
             [('email', '=ilike', request.params['email'])], limit=1)
@@ -75,6 +78,8 @@ class website_sale(website_sale):
             values['checkout']['businessid'] = partner.businessid
             values['checkout']['website'] = partner.website
             values['checkout']['personal_customer'] = partner.personal_customer
+            values['checkout']['company_name'] = partner.company_name
+
             # Update checkout when moving backwards so the fills don't
             # disappear
             if request.uid != request.website.user_id.id:
@@ -103,7 +108,7 @@ class website_sale(website_sale):
         ]
         self.optional_billing_fields = [
             "phone", "street2", "businessid", "businessid_shown", "is_company", 
-            "vatnumber_shown", "website", "function", "personal_customer"
+            "vatnumber_shown", "website", "function", "personal_customer", "company_name"
         ]
         
         # Easier to checkout which field are mandatory on website from values

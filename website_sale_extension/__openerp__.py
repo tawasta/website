@@ -22,7 +22,7 @@
 {
     'name': 'eCommerce Extension',
     'summary': 'Checkout form modifications',
-    'version': '8.0.0.7.7',
+    'version': '8.0.0.7.8',
     'category': 'Website',
     'website': 'http://www.tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
