@@ -31,7 +31,8 @@
 										javascript:document.getElementById("website_div").hidden=document.getElementById("personal_customer").checked;
 										javascript:document.getElementById("contact_label").hidden=!document.getElementById("personal_customer").checked;
 										javascript:document.getElementById("company_label").hidden=document.getElementById("personal_customer").checked;
-										javascript:document.getElementById("title_div").hidden=!document.getElementById("personal_customer").checked;'/> Personal Customer
+										javascript:document.getElementById("title_div").hidden=!document.getElementById("personal_customer").checked;
+										javascript:document.getElementById("organization_div").hidden=!document.getElementById("personal_customer").checked;'/> Personal Customer
 									</div>
 									<t t-set="name_mandatory" t-value="'bold' if 'name' in mandatory else ''"/>
 
@@ -41,6 +42,11 @@
 										<label id="company_label" t-attf-class="control-label #{name_mandatory}" 
 											for="company_name">Company Name</label>
 										<input type="text" name="name" class="form-control" t-att-value="checkout.get('name')"/>
+									</div>
+
+									<div id="organization_div" t-attf-class="form-group #{error.get('company_name') and 'has-error' or ''} col-lg-6" hidden="true">
+										<label t-attf-class="control-label #{'bold' if 'company_name' in mandatory else ''} " for="company_name">Organization</label>
+										<input type="text" name="company_name" class="form-control" t-att-value="checkout.get('company_name')"/>
 									</div>
 
 									<div id="title_div" t-attf-class="form-group #{error.get('function') and 'has-error' or ''} col-lg-6" hidden="true">
