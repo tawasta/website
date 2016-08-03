@@ -32,7 +32,7 @@
 										javascript:document.getElementById("contact_label").hidden=!document.getElementById("personal_customer").checked;
 										javascript:document.getElementById("company_label").hidden=document.getElementById("personal_customer").checked;
 										javascript:document.getElementById("title_div").hidden=!document.getElementById("personal_customer").checked;
-										javascript:document.getElementById("organization_div").hidden=!document.getElementById("personal_customer").checked;'/> Personal Customer
+										javascript:document.getElementById("organization_div").hidden=!document.getElementById("personal_customer").checked;'/> Private Customer
 									</div>
 									<t t-set="name_mandatory" t-value="'bold' if 'name' in mandatory else ''"/>
 
@@ -65,7 +65,7 @@
 									</div> 
 
 									<div id="company_name_div" t-attf-class="form-group #{error.get('street') and 'has-error' or ''} col-lg-6">
-										<label t-attf-class="control-label #{'bold' if 'street' in mandatory else ''}" for="street">Street</label>
+										<label t-attf-class="control-label #{'bold' if 'street' in mandatory else ''}" for="street">Address 1</label>
 										<input type="text" name="street" class="form-control" t-att-value="checkout.get('street')"/>
 									</div>
 
@@ -82,7 +82,7 @@
 									<div id="vat_spacer" t-if="has_check_vat" t-attf-class="clearfix"/>
 
 									<div id="street_div" t-attf-class="form-group #{error.get('street2') and 'has-error' or ''} col-lg-6">
-										<label t-attf-class="control-label #{'bold' if 'street2' in mandatory else ''}" for="street2">Street specifier</label>
+										<label t-attf-class="control-label #{'bold' if 'street2' in mandatory else ''}" for="street2">Address 2</label>
 										<input type="text" name="street2" class="form-control" t-att-value="checkout.get('street2')"/>
 									</div>
 									
