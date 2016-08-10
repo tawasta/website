@@ -73,9 +73,14 @@
 										<input type="text" name="vat" class="form-control" t-att-value="checkout.get('vat')"/>
 									</div>
 
-									<div id="businessid_div" t-if="has_check_vat" t-attf-class="form-group #{error.get('businessid') and 'has-error' or ''} col-lg-6">
+									<div id="businessid_temp_div" t-attf-class="form-group #{error.get('businessid') and 'has-error' or ''} col-lg-6">
 										<label t-attf-class="control-label  #{'bold' if 'businessid' in mandatory else ''}" for="businessid" style="font-weight: normal">Business ID</label>
 										<input type="text" name="businessid" class="form-control" t-att-value="checkout.get('businessid')"/>
+									</div>
+
+									<div id="businessid_div" t-if="has_check_vat" t-attf-class="form-group #{error.get('businessid') and 'has-error' or ''} col-lg-6 hidden">
+										<label t-attf-class="control-label  #{'bold' if 'businessid' in mandatory else ''}" for="businessid" style="font-weight: normal">Business ID</label>
+										<!--<input type="text" name="businessid" class="form-control" t-att-value="checkout.get('businessid')"/>-->
 									</div>
 
 									<div id="vat_spacer" t-if="has_check_vat" t-attf-class="clearfix"/>
