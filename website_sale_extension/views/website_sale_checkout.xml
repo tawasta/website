@@ -27,12 +27,11 @@
 								<div id="form_row" class="row">
 									<!-- Hide company fields when checked and private fields when not -->
 									<div id="personal_customer_div" t-attf-class="col-lg-12 mb16">
-										<input type="checkbox" name="personal_customer" id="personal_customer" onchange='javascript:document.getElementById("businessid_div").hidden=document.getElementById("personal_customer").checked;
-										javascript:document.getElementById("website_div").hidden=document.getElementById("personal_customer").checked;
-										javascript:document.getElementById("contact_label").hidden=!document.getElementById("personal_customer").checked;
-										javascript:document.getElementById("company_label").hidden=document.getElementById("personal_customer").checked;
-										javascript:document.getElementById("title_div").hidden=!document.getElementById("personal_customer").checked;
-										javascript:document.getElementById("organization_div").hidden=!document.getElementById("personal_customer").checked;'/> Private Customer
+										<input type="checkbox"
+											   name="personal_customer"
+											   id="personal_customer"
+                                        />
+                                        Private Customer
 									</div>
 									<t t-set="name_mandatory" t-value="'bold' if 'name' in mandatory else ''"/>
 
