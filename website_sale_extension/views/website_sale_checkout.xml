@@ -36,11 +36,17 @@
 									<t t-set="name_mandatory" t-value="'bold' if 'name' in mandatory else ''"/>
 
 									<div id="name_div" t-attf-class="form-group #{error.get('name') and 'has-error' or ''} col-lg-6">
-										<label id="contact_label" t-attf-class="control-label #{name_mandatory}" 
-											for="contact_name" hidden="true">Your Name (Forename Surname)</label>
 										<label id="company_label" t-attf-class="control-label #{name_mandatory}" 
 											for="company_name">Company Name</label>
-										<input type="text" name="name" class="form-control" t-att-value="checkout.get('name')"/>
+										<input id="name_input" type="text" name="name" class="form-control" t-att-value="checkout.get('name')"/>
+
+                                        <div id="contact_name_div">
+                                            <label for="forename" t-attf-class="control-label #{name_mandatory}">First Name</label>
+                                            <input type="text" id="forename_input" name="forename" class="form-control" />
+
+                                            <label for="forename" t-attf-class="control-label #{name_mandatory}">Last Name</label>
+                                            <input type="text" id="surname_input" name="surname" class="form-control" />
+                                        </div>
 									</div>
 
 									<div id="organization_div" t-attf-class="form-group #{error.get('company_name') and 'has-error' or ''} col-lg-6" hidden="true">
