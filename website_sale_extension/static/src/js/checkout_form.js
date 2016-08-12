@@ -41,6 +41,11 @@ $(document).ready(function(){
         $("#surname_input").val(surname);
     }
 
+    // Set correct fields on first page load
+    $("#contact_name_div").hide($('#personal_customer'.checked));
+    $("#name_input").show($('#personal_customer'.checked));
+    $("#company_label").show($('#personal_customer'.checked))
+
     $('#personal_customer').click(function() {
         // If personal customer is checked, SHOW these
         $("#contact_name_div").toggle(this.checked);
