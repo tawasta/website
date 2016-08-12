@@ -1,4 +1,4 @@
-$(document).ready(function(){
+jQuery(document).ready(function ($) {
 
     // Automatically format the name field
     $("#forename_input").keyup(function(){
@@ -23,9 +23,8 @@ $(document).ready(function(){
 
         var forename = ""
         var surname = ""
+
         jQuery.each(names, function(index, item) {
-            console.log( index );
-            console.log( item );
             if(index == 0){
                 forename = item;
                 return true;
@@ -42,9 +41,9 @@ $(document).ready(function(){
     }
 
     // Set correct fields on first page load
-    $("#contact_name_div").hide($('#personal_customer'.checked));
-    $("#name_input").show($('#personal_customer'.checked));
-    $("#company_label").show($('#personal_customer'.checked))
+    $("#contact_name_div").hide($('#personal_customer').checked);
+    $("#name_input").show($('#personal_customer').checked);
+    $("#company_label").show($('#personal_customer').checked)
 
     $('#personal_customer').click(function() {
         // If personal customer is checked, SHOW these
