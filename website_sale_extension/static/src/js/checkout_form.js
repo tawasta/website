@@ -18,26 +18,28 @@ jQuery(document).ready(function ($) {
     setNameInputs();
 
     function setNameInputs(){
-        // This splitting is pretty terrible, but will work most of the times
-        var names = $('#name_input').val().split(" ");
+        if($('#name_input').val()){
+            // This splitting is pretty terrible, but will work most of the times
+            var names = $('#name_input').val().split(" ");
 
-        var forename = ""
-        var surname = ""
+            var forename = ""
+            var surname = ""
 
-        jQuery.each(names, function(index, item) {
-            if(index == 0){
-                forename = item;
-                return true;
-            }
+            jQuery.each(names, function(index, item) {
+                if(index == 0){
+                    forename = item;
+                    return true;
+                }
 
-            if(index > 1){
-                surname += " ";
-            }
-            surname += item;
-        });
+                if(index > 1){
+                    surname += " ";
+                }
+                surname += item;
+            });
 
-        $("#forename_input").val(forename);
-        $("#surname_input").val(surname);
+            $("#forename_input").val(forename);
+            $("#surname_input").val(surname);
+        }
     }
 
     // Set correct fields on first page load
