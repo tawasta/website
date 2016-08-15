@@ -4,7 +4,17 @@ jQuery(document).ready(function ($) {
     $("#forename_input").keyup(function(){
         updateName();
     });
+
     $("#surname_input").keyup(function(){
+        updateName();
+    });
+
+    // These are for browser e.g. auto fills and other situations where keyup won't trigger
+    $("#forename_input").change(function(){
+        updateName();
+    });
+
+    $("#surname_input").change(function(){
         updateName();
     });
 
