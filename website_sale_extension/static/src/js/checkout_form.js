@@ -50,7 +50,7 @@ jQuery(document).ready(function ($) {
             $("#forename_input").val(forename);
             $("#surname_input").val(surname);
         }
-    }
+    };
 
     // Set correct fields on first page load
     $("#contact_name_div").hide($('#personal_customer').checked);
