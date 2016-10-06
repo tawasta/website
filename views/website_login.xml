@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="homepage" inherit_id="website.homepage" name="Homepage">
+        <t t-call="website.layout">
+            <t t-set="title">Homepage</t>   
+            <div id="wrap">
+                <div class="oe_structure"/>
+                <div class="container mt64">
+                    <h3 class="text-center">
+                        Sign in from navigation bar or by pressing <a href="/web/login">here.</a>
+                    </h3>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
