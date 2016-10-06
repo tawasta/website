@@ -20,8 +20,8 @@
 ##############################################################################
 
 {
-    'name': 'Website login screen',
-    'summary': 'Website login screen',
+    'name': 'Website home screen',
+    'summary': 'Website home screen',
     'version': '9.0.0.1.1',
     'category': 'Project',
     'website': 'http://www.tawasta.fi',
@@ -38,7 +38,7 @@
     ],
     'data': [
         'views/website_footer.xml',
-        'views/website_login.xml',
+        'views/website_home.xml',
     ],
     'demo': [
     ],
