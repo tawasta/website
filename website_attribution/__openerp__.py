@@ -25,6 +25,7 @@
     'author': 'Oy Tawasta OS Technologies Ltd.',
     'license': 'AGPL-3',
     'website': 'http://www.tawasta.fi',
+    'installable': False,
     'depends': [
         'website',
     ],

@@ -18,6 +18,7 @@
     'version': '0.1',
     'author': 'Oy Tawasta Technologies Ltd',
     'website': 'http://www.tawasta.fi',
+    'installable': False,
     'depends': [
         'website',
         'website_sale',
