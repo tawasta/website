@@ -10,6 +10,7 @@ Available addons
 [website_attribution](website_attribution/) | Website Attribution
 [website_disclaimer](website_disclaimer/) | Website Disclaimer
 [website_futurality](website_futurality/) | Website Futurality Theme
+[website_home_screen](website_home_screen/) | Website home screen
 [website_large_header](website_large_header/) | Website Large Header
 [website_sale_extension](website_sale_extension/) | Checkout form modifications
 [website_sale_search_attributes](website_sale_search_attributes/) | Allows search field to search from attributes
