@@ -83,7 +83,9 @@ class WebsiteUtilitiesController(http.Controller):
             if message_count == 0:
                 # No timestamp == no messages last time function was called
                 return -1
-            else:
-                # Save timestamp to prevent spam
-                request.session['messages_checked'] = time.time()
+
+        if message_count != 0:
+            # Save timestamp to prevent spam
+            request.session['messages_checked'] = time.time()
+
         return message_count
