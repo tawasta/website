@@ -3,9 +3,15 @@
     <template id="homepage_inherited" inherit_id="website.homepage" name="Homepage inherited">
 
         <xpath expr="//div[@id='wrap']" position="inside">
-            <div class="container mt64">
+            <div t-if="request.env.user.has_group('base.group_public')" class="container mt64">
                 <h3 class="text-center">
                     Sign in from navigation bar or by pressing <a href="/web/login">here.</a>
+                </h3>
+            </div>
+
+            <div t-if="not request.env.user.has_group('base.group_public')" class="container mt64">
+                <h3 class="text-center">
+                    Access your account from <a href="/my/home">here.</a>
                 </h3>
             </div>
         </xpath>
