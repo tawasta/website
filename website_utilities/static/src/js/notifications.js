@@ -3,7 +3,6 @@ odoo.define('website_utilities.notifications', function (require) {
 
     var core = require('web.core');
     var ajax = require("web.ajax");
-    var _t = core._t;
 
     // Upon page reload, check for new messages
     function checkNewMessages() {
@@ -11,31 +10,13 @@ odoo.define('website_utilities.notifications', function (require) {
         var msg = "";
 
         ajax.jsonRpc(action, "call").then(function (res) {
-            // var link_part_start = "<a href='/medical/discussion/'>";
-            // var link_part_end = "</a>";
-            var msg_parts = "";
-            if (res == 1) {
-                msg_parts += _t("You have ");
-                msg_parts += _t("a new message!");
-                // msg += link_part_start;
-                msg += msg_parts;
-                // msg += link_part_end;
-                toastr.info(msg);
-            } else if (res > 1) {
-                msg_parts += _t("You have ");
-                msg_parts += res.toString();
-                msg_parts += _t(" new messages!");
-                // msg += link_part_start;
-                msg += msg_parts;
-                // msg += link_part_end;
-                toastr.info(msg);
+            var response=JSON.parse(res);
+            var notifation = response['notification_class'];
+
+            if (notifation == 'info') {
+                toastr.info(response['msg']);
             } else {
-                if (res == -1) {
-                    return false;
-                } else {
-                    msg = _t("There aren't any new messages!");
-                    toastr.success(msg);
-                }
+                toastr.success(response['msg']);
             }
         });
     }
@@ -50,11 +31,13 @@ odoo.define('website_utilities.notifications', function (require) {
             "debug": false,
             "preventDuplicates": true,
             "onclick": null,
-            "showDuration": "300",
+            "showDuration": "100",
             "hideDuration": "1000",
-            "timeOut": 0,
-            "extendedTimeOut": 0,
-            "tapToDismiss": false
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "tapToDismiss": false,
+            "showMethod": "slideDown",
+            "hideMethod": "fadeOut",
         };
     });
 

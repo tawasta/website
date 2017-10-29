@@ -22,12 +22,13 @@
 
 # 1. Standard library imports:
 from datetime import datetime
+import json
 import time
 
 # 2. Known third party imports:
 
 # 3. Odoo imports (openerp):
-from odoo import http
+from odoo import _, http
 from odoo.http import request
 
 # 4. Imports from Odoo modules (rarely, and only if necessary):
@@ -65,6 +66,8 @@ class WebsiteUtilitiesController(http.Controller):
         partner = current_user.partner_id
         timestamp = request.session.get('messages_checked')
         message_count = partner.sudo(current_user).get_needaction_count()
+        no_messages = _("There aren't any new messages!")
+        msg = ""
 
         if timestamp:
             # Last new messages retrieved at timestamp
@@ -75,17 +78,27 @@ class WebsiteUtilitiesController(http.Controller):
             if too_soon and message_count != 0:
                 # Do not display message if message was displayed in the last
                 # 60 seconds
-                return -1
+                return False
             elif message_count == 0:
                 # State changed to 'all messages are read' -> Display message
                 request.session['messages_checked'] = None
         else:
             if message_count == 0:
                 # No timestamp == no messages last time function was called
-                return -1
+                return False
 
         if message_count != 0:
             # Save timestamp to prevent spam
             request.session['messages_checked'] = time.time()
+            msg = _("You have ")
 
-        return message_count
+            if message_count > 1:
+                msg += _("%d new messages in discussions!") % message_count
+            else:
+                msg += _("a new message in discussions!")
+        notification_class = 'info' if msg else 'success'
+        values = {
+            'msg': msg if msg else no_messages,
+            'notification_class': notification_class
+        }
+        return json.dumps(values)
