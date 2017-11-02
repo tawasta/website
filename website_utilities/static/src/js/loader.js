@@ -8,7 +8,7 @@ odoo.define('website_utilities.loader', function (require) {
     var loadingScreen = function() {
         // Block UI when adding a new vocational unit to student
         var translate_message = _t("Loading, please wait...");
-        var display_message = "<h2><i class='fa fa-spinner fa-pulse' style='color:#fff;'></i></h2><span>${translate_message}</span>";
+        var display_message = '<img src="/web/static/src/img/spin.png" style="animation: fa-spin 1s infinite steps(12);"/><br/><br/><h4>' + translate_message +'</h4>';
 
         // Loading screen
         $.blockUI({ 

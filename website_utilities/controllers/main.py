@@ -65,9 +65,14 @@ class WebsiteUtilitiesController(http.Controller):
         current_user = http.request.env.user
         partner = current_user.partner_id
         timestamp = request.session.get('messages_checked')
-        message_count = partner.sudo(current_user).get_needaction_count()
         no_messages = _("There aren't any new messages!")
         msg = ""
+
+        # Skills uses the regular needaction_count and vets uses the appointment one
+        if current_user.has_group('medical.group_medical_user'):
+            message_count = partner.sudo(current_user).get_appointment_needaction_count()
+        else:
+            message_count = partner.sudo(current_user).get_needaction_count()
 
         if timestamp:
             # Last new messages retrieved at timestamp
