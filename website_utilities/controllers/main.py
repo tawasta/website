@@ -70,7 +70,7 @@ class WebsiteUtilitiesController(http.Controller):
 
         # Skills uses the regular needaction_count and vets uses the appointment one
         if current_user.has_group('medical.group_medical_user'):
-            message_count = partner.sudo(current_user).get_appointment_needaction_count()
+            message_count, appointment_id = partner.sudo(current_user).get_appointment_needaction_count()
         else:
             message_count = partner.sudo(current_user).get_needaction_count()
 
@@ -101,6 +101,12 @@ class WebsiteUtilitiesController(http.Controller):
                 msg += _("%d new messages in discussions!") % message_count
             else:
                 msg += _("a new message in discussions!")
+                
+                # Add link to the discussion
+                if current_user.has_group('medical.group_medical_user'):
+                    discussion_href = '/medical/discussion/%s' % appointment_id
+                    msg = "<a href='%s'>%s</a>" % (discussion_href, msg)
+
         notification_class = 'info' if msg else 'success'
         values = {
             'msg': msg if msg else no_messages,
