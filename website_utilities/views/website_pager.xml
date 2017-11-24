@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Custom pager for website-->
+    <template id="custom_pager" inherit_id="website.pager">
+        <xpath expr="//ul/li[1]/a" position="replace">
+            <a t-att-href=" pager['page_previous']['url'] if pager['page']['num'] != 1 else ''">❮</a>
+        </xpath>
+        <xpath expr="//ul/li[2]/a" position="replace">
+            <a t-att-href="pager['page_next']['url'] if pager['page']['num'] != pager['page_count'] else ''">❯</a>
+        </xpath>
+    </template>
+</odoo>
