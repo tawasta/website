@@ -11,6 +11,9 @@ Adds useful utilities to wbesite, such as:
 * Toastr plugin for showing notifications
 * BlockUI plugin for loading spinner
 
+Notifications are enabled by default, but can be disabled
+through system parameters (1 = enabled, 0 = disabled).
+
 Installation
 ============
 

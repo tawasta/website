@@ -3,6 +3,7 @@ odoo.define('website_utilities.notifications', function (require) {
 
     var core = require('web.core');
     var ajax = require("web.ajax");
+    var Model = require('web.Model');
 
     // Upon page reload, check for new messages
     function checkNewMessages() {
@@ -22,7 +23,15 @@ odoo.define('website_utilities.notifications', function (require) {
     }
 
     $(function () {
-        checkNewMessages();
+
+        var Parameter = new Model("ir.config_parameter");
+        Parameter.call('get_param', ['website_utilities.icp_unread_messages_notification']).then(function (enabled) {
+            // '1' === enabled
+            // '0' === disabled
+            if (enabled === '1') {
+                checkNewMessages();
+            }
+        });        
 
         // Toastr -jQuery plugin used for notifications
         toastr.options = {
@@ -36,7 +45,7 @@ odoo.define('website_utilities.notifications', function (require) {
             "timeOut": "3000",
             "extendedTimeOut": "1000",
             "tapToDismiss": false,
-            "showMethod": "slideDown",
+            "showMethod": "fadeIn",
             "hideMethod": "fadeOut",
         };
     });

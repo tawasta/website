@@ -22,7 +22,7 @@
 {
     'name': 'Website Utilities',
     'summary': 'Useful website utilities',
-    'version': '10.0.0.1.5',
+    'version': '10.0.0.2.0',
     'category': 'Website',
     'website': 'http://www.tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
@@ -35,5 +35,6 @@
     'data': [
         'views/website_utilities_static.xml',
         'views/website_pager.xml',
+        'data/website_utilities_data.xml',
     ],
 }
