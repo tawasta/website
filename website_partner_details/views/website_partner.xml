@@ -1,0 +1,19 @@
+<odoo>
+	<!-- Customize footer  -->
+	<template id="partner_detail" name="Partner details page" inherit_id="website_partner.partner_detail">
+
+        <xpath expr="//h1" position="after" >
+            <h3 t-field="partner.function" class="col-md-12 text-center" id="partner_function" />
+        </xpath>
+
+        <xpath expr="//h1" position="before" >
+            <t t-set="left_column">
+               <!-- Left column contents -->
+            </t>
+            <t t-set="right_column">
+               <!-- Right column contents -->
+            </t>
+
+        </xpath>
+    </template>
+</odoo>
