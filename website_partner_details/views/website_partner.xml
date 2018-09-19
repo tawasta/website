@@ -1,5 +1,5 @@
 <odoo>
-	<!-- Customize footer  -->
+	<!-- Customize partner details page  -->
 	<template id="partner_detail" name="Partner details page" inherit_id="website_partner.partner_detail">
 
         <xpath expr="//h1" position="after" >
