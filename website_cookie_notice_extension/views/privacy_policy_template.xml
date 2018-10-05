@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="1">
+        <template id="website_cookie_notice_extension.privacy_policy" name="website_cookie_notice_extension.privacy_policy" page="True">
+            <t t-call="website.layout"> 
+                <div id="wrap">
+                    <div class="oe_structure"/>
+                    <div class="container mt16 mb8">
+                       <!--Your Contents-->
+                       <div class="header">
+                            <h1>Privacy Policy</h1>
+                        </div>
+                        <div class="col-12 col-md-9 content">
+                            <div class="controller">
+                                <h4>1. CONTROLLER</h4>
+                            </div>
+                            <div class="contact">
+                                <h4>2. CONTACT</h4>
+                            </div>
+                            <div class="handler">
+                                <h4>3. DATA HANDLER</h4>
+                                <p>Oy Tawasta OS Technologies Ltd.</p>
+                                <p>PL 82 (Kasarmikatu 15 B)</p>
+                                <p>13100 Hämeenlinna</p>
+                                <p>010 281 8000</p>
+                                <p>info@tawasta.fi</p>
+                            </div>
+                            <div class="registry-name">
+                                <h4>4. NAME OF THE REGISTRY</h4>
+                            </div>
+                            <div class="personal-data">
+                                <h4>5. THE PURPOSE OF USE FOR THE CUSTOMER REGISTRY AND THE GROUNDS FOR PROCESSING THE DATA</h4>
+                            </div>
+                            <div class="content-register">
+                                <h4>6. CONTENT OF THE REGISTER</h4>
+                                <p>The customer registry includes information about the customer organization that is required for delivering services. These include the following:
+                                    <ul>
+                                        <li>Company name, VAT-code (y-code), corporate structure, line of business, location and contact information</li>
+                                        <li>Customer company personnel names, job positions and contact information</li>
+                                    </ul>
+                                </p>
+                            </div>
+                            <div class="regular-sources">
+                                <h4>7. REGULAR SOURCES OF INFORMATION</h4>
+                                <p>The customer data is aqcuired regularly</p>
+                                <ul>
+                                    <li>from the customer him/herself on the phone</li>
+                                    <li>through internet, e-mail or other similar means</li>
+                                    <li>from Intellia and Markkinointirekisteri.fi decision maker register </li>
+                                    <li>other equivalent private and public registers</li>
+                                    <li>directly from company wwww pages</li>
+                                </ul>
+                                <p>The personal data has been received in the purpose defined by the personal data act §4 (section 3).</p>
+                            </div>
+                            <div class="storage">
+                                <h4>8. STORAGE TIME</h4>
+                                <p>The data in the register is removed when the purpose for their usage has ended, unless the otherwise goverend by the current law.</p>
+                            </div>
+                            <div class="transfer-data">
+                                <h4>9. TRANSFERRED DATA OUTSIDE OF EU OR ETA</h4>
+                                <p>The data is not regularily transferred outside of EU or ETA.</p>
+                            </div>
+                            <div class="principles-of-protection">
+                                <h4>10. THE GENERAL PRINCIPLES OF PROTECTING THE REGISTRY </h4>
+                                <p>Only the employees whose job description entitles them to handle customer data have the right to access to the customer registry. Each user has their own user ID and password for the system.</p>
+
+                                <p>The data is stored in databases that are protected with firewalls, passwords and other technical means. The databases and their backup copies are stored in locked facilities and the data can be accessed by people that are assigned to do that.</p>
+
+                                <p>The data protection and the principles in the implementing the protection have been audited. Physical precence in the workplace is monitored.</p>
+
+                                <p>The registry is not stored manually.</p>
+                            </div>
+                            <div class="registeres-rights">
+                                <h4>11. THE RIGHTS OF THE DATA SUBJECT </h4>
+                                <p>The data subject has the right to check his/her personal data.</p>
+                                <p>The  data subject has the right to ask for correction on incorrect data about him/herself.</p>
+                                <p>The  data subject has the right to as for removal of his/her personal data from the registry.</p>
+                                <p>The  data subject has the right to move his/her data to another system.</p>
+                                <p>The  data subject has the right to oppose handling the personal data, automatic decision making and profiling.</p>
+                                <p>The  data subject has the right to get notified by data breach on his/her own personal data.</p>
+                                <p>The requests of the data have to be directed to the person responsible for the registry in writing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

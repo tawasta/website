@@ -1,23 +1,227 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* website_cookie_notice_extension
+#	* website_cookie_notice_extension
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 9.0c\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-25 12:56+0000\n"
-"PO-Revision-Date: 2018-05-25 15:56+0300\n"
+"POT-Creation-Date: 2018-10-05 11:41+0000\n"
+"PO-Revision-Date: 2018-10-05 11:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"Language: en\n"
-"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "010 281 8000"
+msgstr "010 281 8000"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "1. CONTROLLER"
+msgstr "1. REKISTERINPITÄJÄ"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "10. THE GENERAL PRINCIPLES OF PROTECTING THE REGISTRY"
+msgstr "10. REKISTERIN SUOJAUKSEN PERIAATTEET"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "11. THE RIGHTS OF THE DATA SUBJECT"
+msgstr "11. REKISTERÖIDYN OIKEUDET"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "13100 Hämeenlinna"
+msgstr "13100 Hämeenlinna"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "2. CONTACT"
+msgstr "2. YHTEYSHENKILÖ"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "3. DATA HANDLER"
+msgstr "3. KÄSITTELIJÄ"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "4. NAME OF THE REGISTRY"
+msgstr "4. REKISTERIN NIMI"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "5. THE PURPOSE OF USE FOR THE CUSTOMER REGISTRY AND THE GROUNDS FOR PROCESSING THE DATA"
+msgstr "5. HENKILÖTIETOJEN KÄSITTELYN TARKOITUS"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "6. CONTENT OF THE REGISTER"
+msgstr "6. REKISTERIN TIETOSISÄLTÖ"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "7. REGULAR SOURCES OF INFORMATION"
+msgstr "7. SÄÄNNÖNMUKAISET TIETOLÄHTEET"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "8. STORAGE TIME"
+msgstr "8. TIETORYHMIEN POISTAMISEN SUUNNITELLUT MÄÄRÄAJAT"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "9. TRANSFERRED DATA OUTSIDE OF EU OR ETA"
+msgstr "9. TIETOJEN SIIRTO EU:N TAI ETA:N ULKOPUOLELLE"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "Company name, VAT-code (y-code), corporate structure, line of business, location and contact information"
+msgstr "Yrityksen nimi, Y-tunnus, yhtiömuoto, toimiala, kotipaikka ja yhteystiedot"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "Customer company personnel names, job positions and contact information"
+msgstr "Yrityksessä toimivien henkilöiden nimet, asemat ja yhteystiedot"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "Only the employees whose job description entitles them to handle customer data have the right to access to the customer registry. Each user has their own user ID and password for the system."
+msgstr "Asiakastietoja sisältävän järjestelmän käyttöön ovat oikeutettuja vain ne työntekijät, joilla työnsä puolesta on oikeus käsitellä asiakastietoja. Kullakin käyttäjällä on oma käyttäjätunnus ja salasana järjestelmään."
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "Oy Tawasta OS Technologies Ltd."
+msgstr "Oy Tawasta OS Technologies Ltd."
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "PL 82 (Kasarmikatu 15 B)"
+msgstr "PL 82 (Kasarmikatu 15 B)"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "Privacy Policy"
+msgstr "REKISTERISELOSTE"
 
 #. module: website_cookie_notice_extension
 #: model:ir.ui.view,arch_db:website_cookie_notice_extension.message
-msgid "We use cookies in this website. By using this website, you are accepting those."
+msgid "Privacy policy"
+msgstr "Rekisteriseloste"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "The  data subject has the right to as for removal of his/her personal data from the registry."
+msgstr "Rekisteröidyllä on oikeus pyytää tietojensa poistamista rekisteristä."
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "The  data subject has the right to ask for correction on incorrect data about him/herself."
+msgstr "Rekisteröity voi pyytää häntä koskevien virheellisten tietojen oikaisemista."
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "The  data subject has the right to get notified by data breach on his/her own personal data."
+msgstr "Rekisteröidyllä on oikeus saada ilmoitus häntä koskevien henkilötietojen tietoturvaloukkauksesta."
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "The  data subject has the right to move his/her data to another system."
+msgstr "Rekisteröidyllä on oikeus siirtää tietonsa järjestelmästä toiseen."
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "The  data subject has the right to oppose handling the personal data, automatic decision making and profiling."
+msgstr "Rekisteröidyllä on oikeus vastustaa henkilötietojen käsittelyä, automaattista päätöksentekoa ja profilointia."
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "The customer data is aqcuired regularly"
+msgstr "Asiakasta koskevat tiedot saadaan säännönmukaisesti:"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "The customer registry includes information about the customer organization that is required for delivering services. These include the following:"
+msgstr "Asiakasrekisteri sisältää sellaisia tietoja asiakasorganisaatioista, jotka ovat välttämättömiä palveluiden ja palvelun toimittamisen kannalta. Näitä ovat muun muassa seuraavat tiedot."
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "The data in the register is removed when the purpose for their usage has ended, unless the otherwise goverend by the current law."
+msgstr "Rekisterin sisältämät tiedot poistetaan, kun niiden käyttötarkoitus on päättynyt, ellei kulloinkin voimassa oleva lainsäädäntö määrää toisin."
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "The data is not regularily transferred outside of EU or ETA."
+msgstr "Tietoja ei säännönmukaisesti siirretä tai luovuteta EU:n tai Euroopan talousalueen ulkopuolelle."
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "The data is stored in databases that are protected with firewalls, passwords and other technical means. The databases and their backup copies are stored in locked facilities and the data can be accessed by people that are assigned to do that."
+msgstr "Tiedot kerätään tietokantoihin, jotka ovat palomuurein, salasanoin ja muilla teknisillä keinoilla suojattuja. Tietokannat ja niiden varmuuskopiot sijaitsevat lukituissa tiloissa ja tietoihin pääsevät käsiksi vain tietyt ennalta nimetyt henkilöt."
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "The data protection and the principles in the implementing the protection have been audited. Physical precence in the workplace is monitored."
+msgstr "Tietojärjestelmien suojauksesta ja niihin liittyviin käytön periaatteisiin on toteutettu auditointi. Työtiloissa liikkumista valvotaan."
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "The data subject has the right to check his/her personal data."
+msgstr "Rekisteröidyllä on oikeus tarkastaa omat tietonsa."
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "The personal data has been received in the purpose defined by the personal data act §4 (section 3)."
+msgstr "Henkilötietoja on saatu luovutuksena henkilötietolain 4. luvun 19 pykälän (kohta 3) mukaisessa käyttötarkoituksessa."
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "The registry is not stored manually."
+msgstr "Rekisteristä ei ole manuaalista aineistoa."
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "The requests of the data have to be directed to the person responsible for the registry in writing."
+msgstr "Tietoja koskevat pyynnöt tulee osoittaa rekisteriasioita hoitavalle henkilölle kirjallisesti."
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.message
+msgid "We use cookies in this website. By using this website, you are accepting those.<br/>"
 msgstr "Käytämme evästeitä verkkosivustolla. Jatkamalla käyttöä hyväksyt evästeiden käytön."
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "directly from company wwww pages"
+msgstr "hakemalla suoraan yritysten www-sivuilta"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "from Intellia and Markkinointirekisteri.fi decision maker register"
+msgstr "Intellia- ja Markkinointirekisteri.fi:n päättäjätietorekistereistä"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "from the customer him/herself on the phone"
+msgstr "asiakkaalta itseltään puhelimitse"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "info@tawasta.fi"
+msgstr "info@tawasta.fi"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "other equivalent private and public registers"
+msgstr "muista vastaavista yksityisistä ja julkisista rekistereistä"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "through internet, e-mail or other similar means"
+msgstr "internetin kautta, sähköpostilla tai muulla vastaavalla tavalla,"
+
