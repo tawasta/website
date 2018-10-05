@@ -35,6 +35,7 @@ Contributors
 ------------
 
 * Aleksi Savijoki <aleksi.savijoki@tawasta.fi>
+* Valtteri Lattu <valtteri.lattu@tawasta.fi>
 
 Maintainer
 ----------
