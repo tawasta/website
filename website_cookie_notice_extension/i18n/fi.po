@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-05 11:41+0000\n"
-"PO-Revision-Date: 2018-10-05 11:41+0000\n"
+"POT-Creation-Date: 2018-10-18 13:09+0000\n"
+"PO-Revision-Date: 2018-10-18 13:09+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -27,12 +27,17 @@ msgstr "1. REKISTERINPITÄJÄ"
 
 #. module: website_cookie_notice_extension
 #: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
-msgid "10. THE GENERAL PRINCIPLES OF PROTECTING THE REGISTRY"
+msgid "10. STORAGE TIME"
+msgstr "8. TIETORYHMIEN POISTAMISEN SUUNNITELLUT MÄÄRÄAJAT"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "11. THE GENERAL PRINCIPLES OF PROTECTING THE REGISTRY"
 msgstr "10. REKISTERIN SUOJAUKSEN PERIAATTEET"
 
 #. module: website_cookie_notice_extension
 #: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
-msgid "11. THE RIGHTS OF THE DATA SUBJECT"
+msgid "12. THE RIGHTS OF THE DATA SUBJECT"
 msgstr "11. REKISTERÖIDYN OIKEUDET"
 
 #. module: website_cookie_notice_extension
@@ -47,33 +52,33 @@ msgstr "2. YHTEYSHENKILÖ"
 
 #. module: website_cookie_notice_extension
 #: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
-msgid "3. DATA HANDLER"
+msgid "3. DATA PROTECTION OFFICER"
+msgstr "3. TIETOSUOJAVASTAAVA"
+
+#. module: website_cookie_notice_extension
+#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
+msgid "4. DATA HANDLER"
 msgstr "3. KÄSITTELIJÄ"
 
 #. module: website_cookie_notice_extension
 #: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
-msgid "4. NAME OF THE REGISTRY"
+msgid "5. NAME OF THE REGISTRY"
 msgstr "4. REKISTERIN NIMI"
 
 #. module: website_cookie_notice_extension
 #: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
-msgid "5. THE PURPOSE OF USE FOR THE CUSTOMER REGISTRY AND THE GROUNDS FOR PROCESSING THE DATA"
+msgid "6. THE PURPOSE OF USE FOR THE CUSTOMER REGISTRY AND THE GROUNDS FOR PROCESSING THE DATA"
 msgstr "5. HENKILÖTIETOJEN KÄSITTELYN TARKOITUS"
 
 #. module: website_cookie_notice_extension
 #: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
-msgid "6. CONTENT OF THE REGISTER"
+msgid "7. CONTENT OF THE REGISTER"
 msgstr "6. REKISTERIN TIETOSISÄLTÖ"
 
 #. module: website_cookie_notice_extension
 #: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
-msgid "7. REGULAR SOURCES OF INFORMATION"
+msgid "8. REGULAR SOURCES OF INFORMATION"
 msgstr "7. SÄÄNNÖNMUKAISET TIETOLÄHTEET"
-
-#. module: website_cookie_notice_extension
-#: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
-msgid "8. STORAGE TIME"
-msgstr "8. TIETORYHMIEN POISTAMISEN SUUNNITELLUT MÄÄRÄAJAT"
 
 #. module: website_cookie_notice_extension
 #: model:ir.ui.view,arch_db:website_cookie_notice_extension.privacy_policy
