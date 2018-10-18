@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data noupdate="0">
+    <data noupdate="1">
 
-        <!-- Possibility to turn of unread messages -->
+        <!-- Possibility to turn of unread messages notifications (Toasts) -->
         <record id="icp_unread_messages_notification" model="ir.config_parameter">
             <field name="key">website_utilities.icp_unread_messages_notification</field>
+            <field name="value">1</field>
+        </record>
+
+        <!-- Possibility to turn of unread messages page -->
+        <record id="icp_unread_messages_page" model="ir.config_parameter">
+            <field name="key">website_utilities.icp_unread_messages_page</field>
             <field name="value">1</field>
         </record>
     </data>
