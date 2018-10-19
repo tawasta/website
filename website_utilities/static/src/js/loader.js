@@ -33,10 +33,6 @@ odoo.define('website_utilities.loader', function (require) {
         $.unblockUI();
     });
 
-    $(window).on("pageshow", function() {
-        $.unblockUI();
-    });
-
     return {
         loadingScreen: loadingScreen
     }

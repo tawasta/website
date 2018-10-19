@@ -6,37 +6,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-18 09:45+0000\n"
-"PO-Revision-Date: 2018-03-18 11:46+0200\n"
+"POT-Creation-Date: 2017-10-29 16:44+0000\n"
+"PO-Revision-Date: 2017-10-29 18:46+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: fi\n"
+"Language: en\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
 #. module: website_utilities
-#: code:addons/website_utilities/controllers/main.py:98
+#: code:addons/website_utilities/controllers/main.py:96
 #, python-format
 msgid "%d new messages in discussions!"
 msgstr "%d uutta viestiä keskusteluissa!"
-
-#. module: website_utilities
-#: model:ir.ui.view,arch_db:website_utilities.header
-msgid "<span class=\"sr-only\">Unread messages</span>"
-msgstr "<span class=\"sr-only\">Lukemattomat viestit</span>"
-
-#. module: website_utilities
-#: model:ir.ui.view,arch_db:website_utilities.unread_messages
-msgid "Author of the message"
-msgstr "Viestin kirjoittaja"
-
-#. module: website_utilities
-#: model:ir.ui.view,arch_db:website_utilities.unread_messages
-msgid "By whom"
-msgstr "Keneltä"
 
 #. module: website_utilities
 #. openerp-web
@@ -46,78 +31,19 @@ msgid "Loading, please wait..."
 msgstr "Ladataan, odota hetki..."
 
 #. module: website_utilities
-#: model:ir.model,name:website_utilities.model_mail_message
-msgid "Message"
-msgstr "Viesti"
-
-#. module: website_utilities
-#: model:ir.ui.view,arch_db:website_utilities.header
-msgid "Messages"
-msgstr "Viestit"
-
-#. module: website_utilities
-#: model:ir.model,name:website_utilities.model_res_partner
-msgid "Partner"
-msgstr "Kumppani"
-
-#. module: website_utilities
-#: code:addons/website_utilities/controllers/main.py:68
+#: code:addons/website_utilities/controllers/main.py:69
 #, python-format
 msgid "There aren't any new messages!"
 msgstr "Ei uusia viestejä!"
 
 #. module: website_utilities
-#: model:ir.model.fields,help:website_utilities.field_mail_compose_message_website_url
-#: model:ir.model.fields,help:website_utilities.field_mail_mail_website_url
-#: model:ir.model.fields,help:website_utilities.field_mail_message_website_url
-msgid "URL on website"
-msgstr "URL-osoite verkkosivustolla"
-
-#. module: website_utilities
-#: model:ir.ui.view,arch_db:website_utilities.unread_messages
-msgid "URL where the message is"
-msgstr "URL-osoite, missä viesti sijaitsee verkkosivustolla"
-
-#. module: website_utilities
-#: model:ir.ui.view,arch_db:website_utilities.unread_messages
-msgid "Unread messages"
-msgstr "Lukemattomat viestit"
-
-#. module: website_utilities
-#: model:ir.model.fields,field_description:website_utilities.field_mail_compose_message_website_url
-#: model:ir.model.fields,field_description:website_utilities.field_mail_mail_website_url
-#: model:ir.model.fields,field_description:website_utilities.field_mail_message_website_url
-msgid "Website URL"
-msgstr "Verkkosivuston osoite"
-
-#. module: website_utilities
-#: model:ir.ui.view,arch_db:website_utilities.unread_messages
-msgid "When"
-msgstr "Milloin"
-
-#. module: website_utilities
-#: model:ir.ui.view,arch_db:website_utilities.unread_messages
-msgid "Where"
-msgstr "Missä"
-
-#. module: website_utilities
-#: model:ir.ui.view,arch_db:website_utilities.unread_messages
-msgid "You don't have any unread messages!<br/>Well done!"
-msgstr "Sinulla ei ole yhtään lukematonta viestiä!<br/>Hienoa!"
-
-#. module: website_utilities
-#: code:addons/website_utilities/controllers/main.py:95
+#: code:addons/website_utilities/controllers/main.py:93
 #, python-format
 msgid "You have "
 msgstr "Sinulla on "
 
 #. module: website_utilities
-#: code:addons/website_utilities/controllers/main.py:100
+#: code:addons/website_utilities/controllers/main.py:98
 #, python-format
 msgid "a new message in discussions!"
 msgstr "uusi viesti keskusteluissa!"
-
-#. module: website_utilities
-#: model:ir.ui.view,arch_db:website_utilities.unread_messages
-msgid "pull-right"
-msgstr "pull-right"

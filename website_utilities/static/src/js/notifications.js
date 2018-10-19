@@ -12,11 +12,11 @@ odoo.define('website_utilities.notifications', function (require) {
 
         ajax.jsonRpc(action, "call").then(function (res) {
             var response=JSON.parse(res);
-            var notification = response['notification_class'];
+            var notifation = response['notification_class'];
 
-            if (notification == 'info' && response['msg'] != "") {
+            if (notifation == 'info') {
                 toastr.info(response['msg']);
-            } else if (notification == 'success' && response['msg'] != "") {
+            } else {
                 toastr.success(response['msg']);
             }
         });
