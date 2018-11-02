@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="address" inherit_id="website_sale.address">
+        <!-- Slider to show whether customer is private or company -->
+        <xpath expr="//div[contains(@t-attf-class, 'div_name')]" position="before">
+            <div id="private_customer_div" class="col-lg-12 slider-div">
+                <label for="private_customer" id="private_customer_label_false" class="switch-label text-muted">Company / Organization</label>
+                <label class="switch">
+                    <input type="checkbox" name="private_customer" id="private_customer" 
+                        t-att-checked="checkout.get('private_customer')"/>
+                    <div class="slider round"></div>
+                </label>
+
+                <label for="private_customer" id="private_customer_label_true" class="switch-label text-muted">Private customer</label>
+
+                <div id="private_customer_label_div" class="alert alert-success">
+                    <div id="private_customer_label_false_info">My company/organization is paying for the ticket(s)</div>
+                    <div id="private_customer_label_true_info" class="hidden">I am paying for the ticket(s) myself</div>
+                </div>
+            </div>
+            <link rel="stylesheet" href="/website_sale_company_slider/static/src/css/style.css"/>
+        </xpath>
+    </template>
+</odoo>
