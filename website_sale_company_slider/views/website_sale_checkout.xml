@@ -3,22 +3,22 @@
     <template id="address" inherit_id="website_sale.address">
         <!-- Slider to show whether customer is private or company -->
         <xpath expr="//div[contains(@t-attf-class, 'div_name')]" position="before">
-            <div id="private_customer_div" class="col-lg-12 slider-div">
-                <label for="private_customer" id="private_customer_label_false" class="switch-label text-muted">Company / Organization</label>
+            <div id="is_company_div" class="col-lg-12 slider-div">
+                <label for="is_company" id="is_company_label_false" class="switch-label text-muted">Private customer</label>
                 <label class="switch">
-                    <input type="checkbox" name="private_customer" id="private_customer" 
-                        t-att-checked="checkout.get('private_customer')"/>
+                    <input type="checkbox" name="is_company" id="is_company" 
+                        t-att-checked="'is_company' in checkout and checkout['is_company']"/>
                     <div class="slider round"></div>
                 </label>
-
-                <label for="private_customer" id="private_customer_label_true" class="switch-label text-muted">Private customer</label>
-
+                <label for="is_company" id="is_company_label_true" class="switch-label text-muted">Company / Organization</label>
+                
                 <div id="private_customer_label_div" class="alert alert-success">
-                    <div id="private_customer_label_false_info">My company/organization is paying for the ticket(s)</div>
-                    <div id="private_customer_label_true_info" class="hidden">I am paying for the ticket(s) myself</div>
+                    <div id="is_company_info" t-att-class="'hidden' if 'is_company' not in checkout else ''">My company/organization is paying for the ticket(s)</div>
+                    <div id="not_is_company_info" t-att-class="'hidden' if 'is_company' in checkout else ''">I am paying for the ticket(s) myself</div>
                 </div>
             </div>
             <link rel="stylesheet" href="/website_sale_company_slider/static/src/css/style.css"/>
+            <script type="text/javascript" src="/website_sale_company_slider/static/src/js/checkout.js?v002"></script>
         </xpath>
     </template>
 </odoo>
