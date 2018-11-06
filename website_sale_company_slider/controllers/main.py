@@ -38,4 +38,10 @@ from odoo.addons.website_sale.controllers.main import WebsiteSale
 
 class WebsiteSale(WebsiteSale):
 
-# TODO
+    def _checkout_form_save(self, mode, checkout, all_values):
+        """
+        Add business_id to saved values
+        """
+        checkout['is_company'] = all_values.get('is_company', False)
+        checkout['business_id'] = all_values.get('business_id', False)
+        return super(WebsiteSale, self)._checkout_form_save(mode, checkout, all_values)
