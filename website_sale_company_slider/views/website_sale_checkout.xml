@@ -17,6 +17,7 @@
                     <div id="not_is_company_info" t-att-class="'hidden' if 'is_company' in checkout else ''">I am paying for the ticket(s) myself</div>
                 </div>
             </div>
+            <div class="clearfix"/>
             <link rel="stylesheet" href="/website_sale_company_slider/static/src/css/style.css"/>
             <script type="text/javascript" src="/website_sale_company_slider/static/src/js/checkout.js?v002"></script>
         </xpath>
