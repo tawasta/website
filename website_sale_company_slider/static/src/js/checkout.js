@@ -14,20 +14,20 @@ odoo.define('website_sale_company_slider.checkout', function (require) {
 
         function showFields() {
             var is_company = $('#is_company').is(':checked');
+            $("input[name='field_required']").val(REQUIRED_FIELDS_DEFAULT);
             if (is_company === true) {
-                $('#is_company_info').removeClass('hidden');
-                $('#not_is_company_info').addClass('hidden');
                 $("label[for='company_name']").removeClass('label-optional');
                 $("label[for='vat']").removeClass('label-optional');
                 $('#is_company').attr("checked", "checked");
                 $("input[name='field_required']").val($("input[name='field_required']").val() + ',company_name,vat');
+                $('.show-company').show();
+                $('.hide-company').hide();
             } else {
-                $('#is_company_info').addClass('hidden');
-                $('#not_is_company_info').removeClass('hidden');
                 $("label[for='company_name']").addClass('label-optional');
                 $("label[for='vat']").addClass('label-optional');
                 $('#is_company').removeAttr("checked");
-                $("input[name='field_required']").val(REQUIRED_FIELDS_DEFAULT);
+                $('.show-company').hide();
+                $('.hide-company').show();
             }
         }
         showFields();

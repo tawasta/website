@@ -13,13 +13,13 @@
                 <label for="is_company" id="is_company_label_true" class="switch-label text-muted">Company / Organization</label>
                 
                 <div id="private_customer_label_div" class="alert alert-success">
-                    <div id="is_company_info" t-att-class="'hidden' if 'is_company' not in checkout else ''">My company/organization is paying for the ticket(s)</div>
-                    <div id="not_is_company_info" t-att-class="'hidden' if 'is_company' in checkout else ''">I am paying for the ticket(s) myself</div>
+                    <div id="is_company_info" class="show-company">My company/organization is paying for the ticket(s)</div>
+                    <div id="not_is_company_info" class="hide-company">I am paying for the ticket(s) myself</div>
                 </div>
             </div>
             <div class="clearfix"/>
             <link rel="stylesheet" href="/website_sale_company_slider/static/src/css/style.css"/>
-            <script type="text/javascript" src="/website_sale_company_slider/static/src/js/checkout.js?v002"></script>
+            <script type="text/javascript" src="/website_sale_company_slider/static/src/js/checkout.js?v003"></script>
         </xpath>
     </template>
 </odoo>

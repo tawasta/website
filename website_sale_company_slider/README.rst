@@ -10,6 +10,11 @@ Adds to website sale checkout form:
 * Slider to choose whether user is private person or company
 * Finnish business ID saved along with VAT (if country is Finland)
 
+Slider hides/shows automatically elements on checkout page with the following classes:
+* show-company = Show element for company customers (hide for private customers)
+* hide-company = Hide element for company customers (show for private customers)
+
+
 Installation
 ============
 
