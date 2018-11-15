@@ -21,6 +21,7 @@
 
 
 # 1. Standard library imports:
+import re
 
 # 2. Known third party imports:
 
@@ -44,6 +45,10 @@ class WebsiteSale(WebsiteSale):
         """
         checkout['is_company'] = all_values.get('is_company', False)
         checkout['business_id'] = all_values.get('business_id', False)
-        print "TULEE!!!"
-        print checkout
+        # Change VAT-field format to correct vat-format
+        # Parse everything else except numbers and add country code in front
+        country_code = request.env['res.country'].search([
+            ('id', '=', int(checkout.get('country_id')))
+        ]).code
+        checkout['vat'] = country_code + re.sub('[^0-9]', '', checkout['vat'])
         return super(WebsiteSale, self)._checkout_form_save(mode, checkout, all_values)
