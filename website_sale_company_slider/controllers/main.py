@@ -43,6 +43,41 @@ class WebsiteSale(WebsiteSale):
         """
         Add business_id to saved values
         """
-        checkout['is_company'] = all_values.get('is_company', False)
-        checkout['business_id'] = all_values.get('business_id', False)
+        is_company = all_values.get('is_company', False)
+        business_id = all_values.get('business_id', False)
+        country_id = checkout.get('country_id', False)
+        vat = checkout.get('vat', False)
+        country_code = 'FI'
+        if is_company:
+            checkout['is_company'] = is_company
+        if business_id:
+            checkout['business_id'] = business_id
+        if country_id:
+            # Change VAT-field format to correct vat-format
+            # Parse everything else except numbers and add country code in front
+            country_code = request.env['res.country'].search([
+                ('id', '=', int(checkout.get('country_id')))
+            ]).code
+        if vat:
+            checkout['vat'] = country_code + re.sub('[^0-9]', '', checkout['vat'])
         return super(WebsiteSale, self)._checkout_form_save(mode, checkout, all_values)
+
+    def checkout_form_validate(self, mode, all_form_values, data):
+        """
+        Change vat to correct format to accept business id format
+        """
+        country_code = 'FI'
+        if data.get('vat'):
+            if data.get('country_id'):
+                country_code = request.env['res.country'].search([
+                    ('id', '=', int(data.get('country_id')))
+                ]).code
+            data['vat'] = country_code + re.sub('[^0-9]', '', data['vat'])
+        res = super(WebsiteSale, self).checkout_form_validate(mode, all_form_values, data)
+        if data.get('vat') and data.get('country_id') and country_code == 'FI':
+            # Change back to business ID format if country FI
+            vat_stripped = re.sub('[^0-9]', '', data['vat'])
+            all_form_values.update({
+                'vat': vat_stripped[:7] + '-' + vat_stripped[7:]
+            })
+        return res
