@@ -33,8 +33,14 @@ odoo.define('website_sale_company_slider.checkout', function (require) {
 
         $('.oe_website_sale .a-submit, #comment .a-submit').off('click').on('click', function (event) {
             if (!event.isDefaultPrevented() && !$(this).is(".disabled")) {
-                // If country is Finland and VAT is inserted, make business id
                 var form = $(this).closest('form');
+                var is_company = $('#is_company').is(':checked');
+                if (is_company === false) {
+                    // Empty company related fields
+                    $('.show-company').val('');
+                    $('input[name="vat"]').val('');
+                }
+                // If country is Finland and VAT is inserted, make business id
                 var vat = $(form).find("input[name='vat']").val();
                 var country_id = $('#country_id').val();
 
