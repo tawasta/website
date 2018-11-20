@@ -48,8 +48,8 @@ class WebsiteSale(WebsiteSale):
         country_id = checkout.get('country_id', False)
         vat = checkout.get('vat', False)
         country_code = 'FI'
-        if is_company:
-            checkout['is_company'] = is_company
+        # Save is_company always, so that private_customer status is updated
+        checkout['is_company'] = is_company
         if business_id:
             checkout['business_id'] = business_id
         if country_id:
