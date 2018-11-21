@@ -21,7 +21,7 @@
                 t-att-value="request.env['res.country'].search([('code', '=', 'FI')]).id"/>
             <div class="clearfix"/>
             <link rel="stylesheet" href="/website_sale_company_slider/static/src/css/style.css"/>
-            <script type="text/javascript" src="/website_sale_company_slider/static/src/js/checkout.js?v004"></script>
+            <script type="text/javascript" src="/website_sale_company_slider/static/src/js/checkout.js?v005"></script>
         </xpath>
     </template>
 </odoo>
