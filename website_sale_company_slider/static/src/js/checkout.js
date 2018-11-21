@@ -10,21 +10,27 @@ odoo.define('website_sale_company_slider.checkout', function (require) {
 
         function showFields() {
             var is_company = $('#is_company').is(':checked');
-            $("input[name='field_required']").val(REQUIRED_FIELDS_DEFAULT);
+            var required_fields = $("input[name='field_required']");
+            // Reset required fields set
+            required_fields.val(REQUIRED_FIELDS_DEFAULT);
             if (is_company === true) {
                 $("label[for='company_name']").removeClass('label-optional');
                 $("label[for='vat']").removeClass('label-optional');
-                $('#is_company').attr("checked", "checked");
-                $("input[name='field_required']").val($("input[name='field_required']").val() + ',company_name,vat');
+                $('#is_company').attr('checked', 'checked');
+                if (required_fields.val().indexOf(',company_name,vat') < 0) {
+                    required_fields.val(required_fields.val() + ',company_name,vat');
+                }
                 $('.show-company').show();
                 $('.hide-company').hide();
             } else {
                 $("label[for='company_name']").addClass('label-optional');
                 $("label[for='vat']").addClass('label-optional');
-                $('#is_company').removeAttr("checked");
+                $('#is_company').removeAttr('checked');
                 $('.show-company').hide();
                 $('.hide-company').show();
+                required_fields.val(required_fields.val().replace(',company_name,vat', ''));
             }
+            console.log(required_fields.val());
         }
         showFields();
         $('#is_company').click(function() {
