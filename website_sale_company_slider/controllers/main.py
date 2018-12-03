@@ -60,7 +60,13 @@ class WebsiteSale(WebsiteSale):
             ]).code
         if vat:
             checkout['vat'] = country_code + re.sub('[^0-9]', '', checkout['vat'])
-        return super(WebsiteSale, self)._checkout_form_save(mode, checkout, all_values)
+        partner_id = super(WebsiteSale, self)._checkout_form_save(mode, checkout, all_values)
+        partner = request.env['res.partner'].sudo().browse(partner_id)
+        if not is_company:
+            # For some reason partners are created as companies - change it afterwards
+            # Update partner to be private customer
+            partner.is_company = False
+        return partner
 
     def checkout_form_validate(self, mode, all_form_values, data):
         """

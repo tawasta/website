@@ -22,7 +22,7 @@
 {
     'name': 'Website Sale Company Slider',
     'summary': 'Slider to checkout',
-    'version': '10.0.1.5.1',
+    'version': '10.0.1.5.2',
     'category': 'Website',
     'website': 'http://www.tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
