@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2018 Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
+#    Copyright 2019- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -38,7 +38,7 @@ from odoo.http import request
 # 6. Unknown third party imports (One per line sorted and splitted in
 
 
-class WebsiteUtilitiesController(http.Controller):
+class WebsiteUnreadMessagesController(http.Controller):
 
     @http.route(
         ['/new_messages/'],
@@ -68,7 +68,7 @@ class WebsiteUtilitiesController(http.Controller):
         no_messages = _("There aren't any new messages!")
         msg = ""
         page_enabled = request.env['ir.config_parameter'].get_param(
-            'website_utilities.icp_unread_messages_page')
+            'website_unread_messages.icp_unread_messages_page')
 
         # Count unread portal messages 
         message_count = partner.sudo(current_user).get_portal_needaction_count()
@@ -126,7 +126,7 @@ class WebsiteUtilitiesController(http.Controller):
         partner_id = current_user.partner_id.id
         message_model = http.request.env['mail.message']
         page_enabled = request.env['ir.config_parameter'].get_param(
-            'website_utilities.icp_unread_messages_page')
+            'website_unread_messages.icp_unread_messages_page')
 
         if page_enabled != '1' or not partner_id:
             # Hide page if it's not enabled
@@ -159,4 +159,4 @@ class WebsiteUtilitiesController(http.Controller):
             'messages': messages,
             'pager': pager,
         }
-        return request.render('website_utilities.unread_messages', values)
+        return request.render('website_unread_messages.unread_messages', values)

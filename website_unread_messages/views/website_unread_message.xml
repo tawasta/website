@@ -7,7 +7,7 @@
             <t t-set="partner" t-value="request.env.user.partner_id"/>
             <t t-if="request.env.ref('base.public_partner').id != partner.id">
                 <t t-set="unread_messages_count" t-value="partner.sudo(request.env.user).get_portal_needaction_count()" />
-                <t t-set="is_enabled" t-value="request.env['ir.config_parameter'].get_param('website_utilities.icp_unread_messages_page')"/>
+                <t t-set="is_enabled" t-value="request.env['ir.config_parameter'].get_param('website_unread_messages.icp_unread_messages_page')"/>
                 <li t-att-class="'' if is_enabled == '1' else 'hidden'">
                     <a href="/unread_messages">
                         Messages <sup class="label label-primary" t-esc="unread_messages_count or '0'" />
