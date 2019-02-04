@@ -28,8 +28,10 @@
                     <h1 t-if="messages" class="mt32">
                         Unread messages
                     </h1>
-                    <t t-call="website_utilities.custom_pager">
-                        <t t-set="classname">pull-right</t>
+                    <t t-if="pager">
+                        <t t-call="website_utilities.custom_pager">
+                            <t t-set="classname">pull-right</t>
+                        </t>
                     </t>
                     <!-- Create a list of unread messages that have a link to page where the message can be read -->
                     <div class="mt32">
@@ -54,8 +56,10 @@
                             </t>
                         </table>
                     </div>
-                    <t t-call="website_utilities.custom_pager">
-                        <t t-set="classname">pull-right</t>
+                    <t t-if="pager">
+                        <t t-call="website_utilities.custom_pager">
+                            <t t-set="classname">pull-right</t>
+                        </t>
                     </t>
                     <t t-if="not messages">
                         <div class="mt64">

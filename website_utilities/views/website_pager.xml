@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Custom pager for website -->
-    <template id="custom_pager">
+    <template id="custom_pager" name="Pager">
         <!-- When calling this template, query parameter is optional and contains query string -->
         <t t-set="query" t-value="query if query else ''"/><br/>
         <ul t-if="pager['page_count'] > 1" t-attf-class="#{ classname or '' } pagination" t-att-style="style or ''">

@@ -22,7 +22,7 @@
 {
     'name': 'Website Utilities',
     'summary': 'Useful website utilities',
-    'version': '10.0.1.0.0',
+    'version': '10.0.1.0.1',
     'category': 'Website',
     'website': 'http://www.tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
