@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Custom pager for website-->
-    <template id="custom_pager" inherit_id="website.pager">
-        <xpath expr="//ul/li[1]/a" position="replace">
-            <a t-att-href=" pager['page_previous']['url'] if pager['page']['num'] != 1 else ''">❮</a>
-        </xpath>
-        <xpath expr="//ul/li[2]/a" position="replace">
-            <a t-att-href="pager['page_next']['url'] if pager['page']['num'] != pager['page_count'] else ''">❯</a>
-        </xpath>
+    <!-- Custom pager for website -->
+    <template id="custom_pager" name="Pager">
+        <!-- When calling this template, query parameter is optional and contains query string -->
+        <t t-set="query" t-value="query if query else ''"/><br/>
+        <ul t-if="pager['page_count'] > 1" t-attf-class="#{ classname or '' } pagination" t-att-style="style or ''">
+            <li t-att-class=" 'disabled' if pager['page']['num'] == 1 else '' ">
+                <t t-set="url_query" t-value="'%s%s' % (pager['page_previous']['url'], query)"/>
+                <a t-att-href="url_query">❮</a>
+            </li>
+            <t t-foreach="pager['pages']" t-as="page">
+                <t t-set="url_query" t-value="'%s%s' % (page['url'], query)"/>
+                <li t-att-class="'active' if page['num'] == pager['page']['num'] else '' "> <a t-att-href="url_query" t-raw="page['num']"></a></li>
+            </t>
+            <li t-att-class=" 'disabled' if pager['page']['num'] == pager['page_count'] else '' ">
+                <t t-set="url_query" t-value="'%s%s' % (pager['page_next']['url'], query)"/>
+                <a t-att-href="url_query">❯</a>
+            </li>
+        </ul>
     </template>
 </odoo>

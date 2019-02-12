@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2017 Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
+#    Copyright 2019- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,9 +20,9 @@
 ##############################################################################
 
 {
-    'name': 'Website Utilities',
-    'summary': 'Useful website utilities',
-    'version': '10.0.1.0.1',
+    'name': 'Website Unread Messages',
+    'summary': 'Unread messages for website',
+    'version': '10.0.1.0.0',
     'category': 'Website',
     'website': 'http://www.tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
@@ -31,9 +31,13 @@
     'installable': True,
     'depends': [
         'website',
+        'website_utilities',
     ],
     'data': [
-        'views/website_utilities_static.xml',
-        'views/website_pager.xml',
+        'views/website_unread_messages_static.xml',
+        'views/website_unread_message.xml',
+        'views/unread_message.xml',
+        'data/website_unread_messages_data.xml',
+        'security/ir.model.access.csv',
     ],
 }

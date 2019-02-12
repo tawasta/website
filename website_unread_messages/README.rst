@@ -2,13 +2,13 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=================
-Website Utilities
-=================
+=======================
+Website Unread Messages
+=======================
 
-Adds useful utilities to wbesite, such as:
-* Toastr plugin for showing notifications
-* BlockUI plugin for loading spinner
+Adds unread messages feature to website.
+Notifications are enabled by default, but can be disabled
+through system parameters (1 = enabled, 0 = disabled).
 
 Installation
 ============

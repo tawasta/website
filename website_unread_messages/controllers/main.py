@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2017 Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
+#    Copyright 2019- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -38,7 +38,7 @@ from odoo.http import request
 # 6. Unknown third party imports (One per line sorted and splitted in
 
 
-class WebsiteUtilitiesController(http.Controller):
+class WebsiteUnreadMessagesController(http.Controller):
 
     @http.route(
         ['/new_messages/'],
@@ -67,12 +67,11 @@ class WebsiteUtilitiesController(http.Controller):
         timestamp = request.session.get('messages_checked')
         no_messages = _("There aren't any new messages!")
         msg = ""
+        page_enabled = request.env['ir.config_parameter'].get_param(
+            'website_unread_messages.icp_unread_messages_page')
 
-        # Skills uses the regular needaction_count and vets uses the appointment one
-        if current_user.has_group('medical.group_medical_user'):
-            message_count, appointment_id = partner.sudo(current_user).get_appointment_needaction_count()
-        else:
-            message_count = partner.sudo(current_user).get_needaction_count()
+        # Count unread portal messages 
+        message_count = partner.sudo(current_user).get_portal_needaction_count()
 
         if timestamp:
             # Last new messages retrieved at timestamp
@@ -101,11 +100,9 @@ class WebsiteUtilitiesController(http.Controller):
                 msg += _("%d new messages in discussions!") % message_count
             else:
                 msg += _("a new message in discussions!")
-                
-                # Add link to the discussion
-                if current_user.has_group('medical.group_medical_user'):
-                    discussion_href = '/medical/discussion/%s' % appointment_id
-                    msg = "<a href='%s'>%s</a>" % (discussion_href, msg)
+            if page_enabled == '1':
+                # If unread messages page is enabled (system parameters)
+                msg = "<a href='%s'>%s</a>" % ('/unread_messages', msg)
 
         notification_class = 'info' if msg else 'success'
         values = {
@@ -113,3 +110,53 @@ class WebsiteUtilitiesController(http.Controller):
             'notification_class': notification_class
         }
         return json.dumps(values)
+
+
+    @http.route(
+        ['/unread_messages/', '/unread_messages/page/<int:page>'],
+        type='http',
+        auth='user',
+        website=True,
+    )
+    def unread_messages(self, page=1, **post):
+        """
+        Route to show list of unread messages
+        """
+        current_user = http.request.env.user
+        partner_id = current_user.partner_id.id
+        message_model = http.request.env['mail.message']
+        page_enabled = request.env['ir.config_parameter'].get_param(
+            'website_unread_messages.icp_unread_messages_page')
+
+        if page_enabled != '1' or not partner_id:
+            # Hide page if it's not enabled
+            return request.render('website.404')
+
+        # Recordset of unread messages
+        domain = [
+            ('needaction_partner_ids', '=', partner_id),
+            ('website_url', '!=', False),
+        ]
+        messages_count = message_model.search_count(domain)
+        url = '/unread_messages'
+        total_count = messages_count
+        pager_limit = 50
+        pager = request.website.pager(
+            url=url,
+            total=total_count,
+            page=page,
+            step=pager_limit,
+            scope=7,
+            url_args=post
+        )
+        messages = message_model.sudo().search(
+            domain,
+            order="id DESC",
+            limit=pager_limit,
+            offset=pager['offset']
+        )
+        values = {
+            'messages': messages,
+            'pager': pager,
+        }
+        return request.render('website_unread_messages.unread_messages', values)
