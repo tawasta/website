@@ -7,10 +7,9 @@ Available addons
 ----------------
 **Addon** | **Version** | **Summary**
 --- | --- | ---
-[theme_skills](theme_skills/) | 10.0.0.1.0 | Themes for the Skills product
-[website_header_language_selector](website_header_language_selector/) | 10.0.1.0.0 | Language selector for website header
-[website_home_screen](website_home_screen/) | 10.0.0.3.0 | Website home screen
-[website_utilities](website_utilities/) | 10.0.0.1.5 | Useful website utilities
+[website_utilities](website_utilities/) | 12.0.0.1.0 | Useful website utilities
+[website_cookie_notice_extension](website_cookie_notice_extension/) | 12.0.0.1.0 | Modified cookie
+
 
 Unported addons
 ----------------
@@ -25,3 +24,6 @@ Unported addons
 [website_select_autocomplete_combobox](website_select_autocomplete_combobox/) | 8.0.0.1.0 (unported) | Website select autocomplete with JQuery UI combobox
 [website_simple_footer](website_simple_footer/) | 8.0.0.1.1 (unported) | Website Simple Footer
 [website_voucher_gift](website_voucher_gift/) | 8.0.0.4.4 (unported) | Allows purchasing products as gifts that can be claimed with a voucher
+[theme_skills](theme_skills/) | 10.0.0.1.0 | Themes for the Skills product
+[website_header_language_selector](website_header_language_selector/) | 10.0.1.0.0 | Language selector for website header
+[website_home_screen](website_home_screen/) | 10.0.0.3.0 | Website home screen

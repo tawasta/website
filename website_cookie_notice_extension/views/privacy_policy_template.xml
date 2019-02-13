@@ -1,7 +1,6 @@
-<?xml version="1.0"?>
-<odoo>
-    <data noupdate="1">
-        <template id="website_cookie_notice_extension.privacy_policy" name="website_cookie_notice_extension.privacy_policy" page="True">
+<?xml version="1.0" encoding="utf-8"?>
+    <odoo>
+        <template id="website_cookie_notice_extension.privacy_policy" name="website_cookie_notice_extension.privacy_policy">
             <t t-call="website.layout"> 
                 <div id="wrap">
                     <div class="oe_structure"/>
@@ -89,5 +88,4 @@
                 </div>
             </t>
         </template>
-    </data>
 </odoo>
