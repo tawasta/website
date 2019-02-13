@@ -41,11 +41,11 @@
             </xpath>
 
             <xpath expr="//div[@id='website_cookie_notice']" position="attributes">
-                <attribute name="t-attf-style">#{request.env['ir.config_parameter'].get_param('website_cookie_notice_extension.icp_cookie_container_styles')}</attribute>
+                <attribute name="t-attf-style">#{request.env['ir.config_parameter'].sudo().get_param('website_cookie_notice_extension.icp_cookie_container_styles')}</attribute>
             </xpath>
 
             <xpath expr="//a[@class='btn btn-primary']" position="attributes">
-                <attribute name="t-attf-style">#{request.env['ir.config_parameter'].get_param('website_cookie_notice_extension.icp_cookie_btn_styles')}</attribute>
+                <attribute name="t-attf-style">#{request.env['ir.config_parameter'].sudo().get_param('website_cookie_notice_extension.icp_cookie_btn_styles')}</attribute>
             </xpath>
 
         </template>
