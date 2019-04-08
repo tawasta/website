@@ -9,6 +9,7 @@ Available addons
 --- | --- | ---
 [website_utilities](website_utilities/) | 12.0.0.1.0 | Useful website utilities
 [website_cookie_notice_extension](website_cookie_notice_extension/) | 12.0.0.1.0 | Modified cookie
+[website_unread_messages](website_unread_messages/) | 12.0.1.0.0 |
 
 
 Unported addons
