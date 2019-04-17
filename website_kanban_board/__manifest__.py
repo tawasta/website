@@ -30,10 +30,11 @@
     'application': False,
     'installable': True,
     'depends': [
+        'project',
 
     ],
     'data': [
-        'views/templates.xml',
+        'views/kanban_board.xml',
 
         'security/ir.model.access.csv'
     ],

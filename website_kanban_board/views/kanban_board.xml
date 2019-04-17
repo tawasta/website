@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="kanban_board" name="Custom Kanban Board">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <t t-foreach="states" t-as="state">
+                                <th scope="col">
+                                    <h2 class="text-center"><t t-esc="state.name" /></h2>
+                                </th>
+                            </t>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="states" t-as="state">
+                            <td class="">
+                                <t t-foreach='objects' t-as='object'>
+                                    <t t-if="object.stage_id.id == state.id">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><t t-esc="object.name"/></h5>
+                                                <div class="pull-right">
+                                                    <span title="Unread Messages"><i class="fa fa-comment"/></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </t>
+                            </td>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </template>
+    </data>
+</odoo>
