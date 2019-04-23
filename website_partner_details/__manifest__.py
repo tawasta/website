@@ -21,7 +21,7 @@
 {
     'name': 'Partner details in partner page',
     'summary': 'Partner details in partner page',
-    'version': '10.0.1.0.0',
+    'version': '1.0.0',
     'category': 'Website',
     'website': 'https://github.com/Tawasta/website',
     'author': 'Oy Tawasta Technologies Ltd',

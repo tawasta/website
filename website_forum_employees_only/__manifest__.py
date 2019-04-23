@@ -22,7 +22,7 @@
 {
     'name': 'Website Forum for Employees',
     'summary': 'Restricts access to forum to employees',
-    'version': '10.0.1.0.0',
+    'version': '1.0.0',
     'category': 'Website',
     'website': 'http://www.tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
