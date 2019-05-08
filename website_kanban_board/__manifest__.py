@@ -22,7 +22,7 @@
 {
     'name': 'Website Kanban Board',
     'summary': 'Website Kanban Board',
-    'version': '12.0.1.0.0',
+    'version': '12.0.1.0.1',
     'category': 'Website',
     'website': 'http://www.tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
@@ -30,12 +30,9 @@
     'application': False,
     'installable': True,
     'depends': [
-        'project',
-
+        'portal',
     ],
     'data': [
         'views/kanban_board.xml',
-
-        'security/ir.model.access.csv'
     ],
 }

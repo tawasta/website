@@ -5,13 +5,21 @@
 ====================
 Website Kanban Board
 ====================
-\-
+This module adds the possibility to create kanban board on a website/portal page.
+You can use it like this:
 
+.. code-block:: qweb
+
+    <t t-call="website_skills_qualification.kanban_board">
+        <t t-set="objects" t-value="<objects>"/>
+        <t t-set="stages" t-value="<stages>"/>
+    </t>
+
+where **objects** are the records that are dropped into board (cards) and **stages** are the columns of the board.
 
 Features
 --------
 \-
-
 
 
 Installation
@@ -31,8 +39,6 @@ Known issues / Roadmap
 ======================
 \-
 
-Bug Tracker
-
 Credits
 =======
 
@@ -40,6 +46,7 @@ Contributors
 ------------
 
 * Valtteri Lattu <valtteri.lattu@tawasta.fi>
+* Aleksi Savijoki <aleksi.savijoki@tawasta.fi>
 
 Maintainer
 ----------
