@@ -1,38 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
-        <template id="kanban_board" name="Custom Kanban Board">
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <t t-foreach="states" t-as="state">
-                                <th scope="col">
-                                    <h2 class="text-center"><t t-esc="state.name" /></h2>
-                                </th>
-                            </t>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <t t-foreach="states" t-as="state">
-                            <td class="">
-                                <t t-foreach='objects' t-as='object'>
-                                    <t t-if="object.stage_id.id == state.id">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h5 class="card-title"><t t-esc="object.name"/></h5>
-                                                <div class="pull-right">
-                                                    <span title="Unread Messages"><i class="fa fa-comment"/></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </t>
-                                </t>
-                            </td>
+    <template id="assets_frontend" inherit_id="web.assets_frontend">
+        <xpath expr="link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/website_kanban_board/static/src/scss/kanban_board.scss"></link>
+        </xpath>
+    </template>
+
+    <template id="kanban_board" name="Kanban Board on website">
+        <div class="table-responsive fs-whatwg">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <t t-foreach="stages" t-as="stage">
+                            <th scope="col">
+                                <h2 class="text-center"><t t-esc="stage.name" /></h2>
+                            </th>
                         </t>
-                    </tbody>
-                </table>
-            </div>
-        </template>
-    </data>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="stages" t-as="stage">
+                        <td class="column">
+                            <t t-foreach='objects' t-as='object'>
+                                <t t-if="object.stage_id.id == stage.id">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                <t t-esc="object.vocational_competence_id.name"/>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </t>
+                            </t>
+                        </td>
+                    </t>
+                </tbody>
+            </table>
+        </div>
+        <script type="text/javascript"
+            src="/website_kanban_board/static/src/js/floatingscroll.min.js?v=001"></script>
+        <script type="text/javascript"
+            src="/website_kanban_board/static/src/js/scrollbar.js?v=001"></script>
+    </template>
 </odoo>
