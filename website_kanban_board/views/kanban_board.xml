@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <template id="assets_frontend" inherit_id="web.assets_frontend">
+    <template id="assets_frontend" inherit_id="portal.assets_frontend">
         <xpath expr="link[last()]" position="after">
             <link rel="stylesheet" type="text/scss" href="/website_kanban_board/static/src/scss/kanban_board.scss"></link>
         </xpath>
@@ -26,7 +26,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <h5 class="card-title">
-                                                <t t-esc="object.vocational_competence_id.name"/>
+                                                <t t-esc="object.name"/>
                                             </h5>
                                         </div>
                                     </div>
