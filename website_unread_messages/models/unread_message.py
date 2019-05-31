@@ -23,8 +23,8 @@
 
 # 2. Known third party imports:
 
-# 3. Odoo imports (openerp):
-from odoo import api, fields, models, _
+# 3. Odoo imports:
+from odoo import fields, models, _
 
 # 4. Imports from Odoo modules:
 
@@ -39,7 +39,8 @@ class UnreadMessage(models.Model):
     _name = 'unread.message'
 
     _sql_constraints = [
-        ('res_model', 'unique(res_model)', _('This model already has a format.'))
+        ('res_model', 'unique(res_model)',
+         _('This model already has a format.'))
     ]
 
     # 2. Fields declaration
