@@ -6,6 +6,8 @@
         <field name="sequence" type="int">50</field>
     </record>
 
+    <!--<delete id="website_slides.website_menu_slides" model="website.menu"></delete>-->
+
     <record model="slide.channel" id="filebank_public">
         <field name="name">Public Filebank</field>
         <field name="promote_strategy">most_viewed</field>

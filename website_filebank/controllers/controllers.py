@@ -7,8 +7,12 @@ class WebsiteFilebank(WebsiteSlides):
     @http.route('/filebank', type='http', auth='public', website=True)
     def filebank_index(self, *args, **post):
         # domain = request.website.website_domain()
+        filebank_ids = [
+            request.env.ref("website_filebank.filebank_public").id,
+            request.env.ref("website_filebank.filebank_partial").id
+        ]
         channels = request.env['slide.channel']\
-            .search([('name', '=like', '% Filebank')], order='sequence, id')
+            .search([('id', 'in', filebank_ids)], order='sequence, id')
         if not channels:
             return request.render("website_slides.channel_not_found")
         elif len(channels) == 1:
@@ -26,8 +30,13 @@ class WebsiteFilebank(WebsiteSlides):
         redirects directly to its slides
         """
         # domain = request.website.website_domain()
+        filebank_ids = [
+            request.env.ref("website_filebank.filebank_public").id,
+            request.env.ref("website_filebank.filebank_partial").id
+        ]
         channels = request.env['slide.channel']\
-            .search([('name', 'not like', '% Filebank')], order='sequence, id')
+            .search([('id', 'not in', filebank_ids)], order='sequence, id')
+
         if not channels:
             return request.render("website_slides.channel_not_found")
         elif len(channels) == 1:

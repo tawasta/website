@@ -1,26 +1,15 @@
 <odoo>
     <data>
         <template id="filebank_listing" inherit_id="website_slides.channels">
+            <xpath expr="//h1" position="replace"></xpath>
         </template>
-        <!--<template id="filebank_listing" inherit_id="website_slides.channels">
-        </template>-->
-        <!--<template id="listing"> -->
-        <!--   <ul> -->
-        <!--     <li t-foreach="objects" t-as="object"> -->
-        <!--       <a t-attf-href="#{ root }/objects/#{ object.id }"> -->
-        <!--         <t t-esc="object.display_name"/> -->
-        <!--       </a> -->
-        <!--     </li> -->
-        <!--   </ul> -->
-        <!-- </template> -->
-        <!-- <template id="object"> -->
-        <!--   <h1><t t-esc="object.display_name"/></h1> -->
-        <!--   <dl> -->
-        <!--     <t t-foreach="object._fields" t-as="field"> -->
-        <!--       <dt><t t-esc="field"/></dt> -->
-        <!--       <dd><t t-esc="object[field]"/></dd> -->
-        <!--     </t> -->
-        <!--   </dl> -->
-        <!-- </template> -->
+
+        <template id="filebank_assets" inherit_id="website_slides.assets_frontend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/website_filebank/static/src/js/allow_all_files.js"/>
+                <script type="text/javascript" src="/website_filebank/static/src/js/slides_upload_override.js"/>
+            </xpath>
+        </template>
+
     </data>
 </odoo>
