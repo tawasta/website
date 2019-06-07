@@ -1,15 +1,26 @@
 <odoo>
     <data>
-        <template id="filebank_listing" inherit_id="website_slides.channels">
-            <xpath expr="//h1" position="replace"></xpath>
-        </template>
-
         <template id="filebank_assets" inherit_id="website_slides.assets_frontend">
-            <xpath expr="." position="inside">
+            <xpath expr="//script[last()]" position="after">
                 <script type="text/javascript" src="/website_filebank/static/src/js/allow_all_files.js"/>
                 <script type="text/javascript" src="/website_filebank/static/src/js/slides_upload_override.js"/>
             </xpath>
         </template>
 
+        <template id="filebank_detailed_view" inherit_id="website_slides.slide_detail_view">
+            <xpath expr="." position="inside">
+                <p>Hello</p>
+            </xpath>
+            <xpath expr="//div[@class='mt8 mb32']" position="replace">
+                <a t-attf-href="/slides/slide/#{slug(slide)}/download">
+                    Lataa
+                </a>
+            </xpath>
+            <xpath expr="//div[@class='col-xl-4 col-lg-4 col-md-12 col-12']" position="replace"></xpath>
+        </template>
+
+        <template id="filebank_listing" inherit_id="website_slides.channels">
+            <xpath expr="//h1" position="replace"></xpath>
+        </template>
     </data>
 </odoo>

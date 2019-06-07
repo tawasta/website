@@ -1,9 +1,36 @@
+import werkzeug
+import base64
+import mimetypes
 from odoo import http
 from odoo.http import request
 from odoo.addons.website_slides.controllers.main import WebsiteSlides
+import logging
+_logger = logging.getLogger(__name__)
 
 
 class WebsiteFilebank(WebsiteSlides):
+    @http.route('''/slides/slide/<model("slide.slide"):slide>/download''',
+                type='http', auth="public", website=True)
+    def slide_download(self, slide, **kw):
+        slide = slide.sudo()
+        if slide.download_security == 'public'\
+            or (slide.download_security == 'user'
+                and request.env.user
+                and request.env.user != request.website.user_id):
+            filecontent = base64.b64decode(slide.datas)
+            disposition = 'attachment; filename={}.{}'\
+                .format(werkzeug.urls.url_quote(slide.name),
+                        mimetypes.guess_all_extensions(slide.mime_type)[0]\
+                        .replace(".", ""))
+            return request.make_response(
+                filecontent,
+                [('Content-Type', slide.mime_type),
+                 ('Content-Length', len(filecontent)),
+                 ('Content-Disposition', disposition)])
+        elif not request.session.uid and slide.download_security == 'user':
+            return request.redirect('/web/login?redirect=/slides/slide/%s' % (slide.id))
+        return request.render("website.403")
+
     @http.route('/filebank', type='http', auth='public', website=True)
     def filebank_index(self, *args, **post):
         # domain = request.website.website_domain()

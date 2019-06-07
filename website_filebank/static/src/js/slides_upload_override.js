@@ -322,6 +322,16 @@ var SlideDialog = Widget.extend({
                 'mime_type': this.file.type,
                 'datas': this.file.data
             });
+            alert("hello1");
+        } else {
+            alert("hello2");
+            _.extend(values, {
+                'image': "",
+                'index_content': this.index_content,
+                'slide_type': "document",
+                'mime_type': this.file.type,
+                'datas': this.file.data
+            });
         }
         if (/^image\/.*/.test(this.file.type)) {
             _.extend(values, {
