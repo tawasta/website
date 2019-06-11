@@ -59,7 +59,7 @@
         <template id="filebank_listing" inherit_id="website_slides.channels">
 
             <!--<xpath expr="//h1" position="replace"></xpath>-->
-            <xpath expr="." position="inside"></xpath>
+            <xpath expr="//h1" position="replace"></xpath>
 
         </template>
     </data>
