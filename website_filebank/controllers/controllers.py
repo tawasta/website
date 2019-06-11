@@ -20,7 +20,7 @@ class WebsiteFilebank(WebsiteSlides):
             filecontent = base64.b64decode(slide.datas)
             disposition = 'attachment; filename={}.{}'\
                 .format(werkzeug.urls.url_quote(slide.name),
-                        mimetypes.guess_all_extensions(slide.mime_type)[0]\
+                        mimetypes.guess_all_extensions(slide.mime_type)[0]
                         .replace(".", ""))
             return request.make_response(
                 filecontent,
@@ -28,7 +28,8 @@ class WebsiteFilebank(WebsiteSlides):
                  ('Content-Length', len(filecontent)),
                  ('Content-Disposition', disposition)])
         elif not request.session.uid and slide.download_security == 'user':
-            return request.redirect('/web/login?redirect=/slides/slide/%s' % (slide.id))
+            return request.redirect('/web/login?redirect=/slides/slide/%s' %
+                                    (slide.id))
         return request.render("website.403")
 
     @http.route('/filebank', type='http', auth='public', website=True)
