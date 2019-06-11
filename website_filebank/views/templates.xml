@@ -17,7 +17,7 @@
 
             <xpath expr="(//div[@class='row'])[3]" position="replace">
                 <a t-attf-class="btn btn-alpha btn-lg" t-attf-href="/slides/slide/#{slug(slide)}/download">
-                    Lataa
+                    Download
                 </a>
             </xpath>
 
