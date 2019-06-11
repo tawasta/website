@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2019- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2017 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -17,26 +17,21 @@
 #    along with this program. If not, see http://www.gnu.org/licenses/agpl.html
 #
 ##############################################################################
-
 {
-    'name': 'Website Unread Messages',
-    'summary': 'Unread messages for website',
-    'version': '12.0.1.0.0',
-    'category': 'Website',
-    'website': 'https://github.com/Tawasta/website',
+    'name': 'Filebank',
+    'summary': 'Bank for files',
+    'description': '',
     'author': 'Oy Tawasta Technologies Ltd.',
+    'website': 'https://github.com/Tawasta/website',
     'license': 'AGPL-3',
-    'application': False,
-    'installable': True,
+    'category': 'Website',
+    'version': '12.0.1.0.0',
     'depends': [
-        'website',
-        'website_utilities',
+        'website_slides',
     ],
     'data': [
-        'views/website_unread_messages_static.xml',
-        'views/website_unread_message.xml',
-        'views/unread_message.xml',
-        'data/website_unread_messages_data.xml',
-        'security/ir.model.access.csv',
+        'views/templates.xml',
+        'data/filebank.xml',
     ],
+    'demo': [],
 }

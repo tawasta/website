@@ -1,0 +1,112 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* website_filebank
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-11 05:45+0000\n"
+"PO-Revision-Date: 2019-06-11 05:45+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_filebank
+#. openerp-web
+#: code:addons/addons/development/website/website_filebank/static/src/js/slides_upload_override.js:249
+#: code:addons/website/website_filebank/static/src/js/slides_upload_override.js:249
+#: code:addons/website_filebank/static/src/js/slides_upload_override.js:249
+#, python-format
+msgid "Category"
+msgstr ""
+
+#. module: website_filebank
+#. openerp-web
+#: code:addons/addons/development/website/website_filebank/static/src/js/slides_upload_override.js:169
+#: code:addons/website/website_filebank/static/src/js/slides_upload_override.js:169
+#: code:addons/website_filebank/static/src/js/slides_upload_override.js:169
+#, python-format
+msgid "Channel contains the given title, please change before Save or Publish."
+msgstr ""
+
+#. module: website_filebank
+#. openerp-web
+#: code:addons/addons/development/website/website_filebank/static/src/js/slides_upload_override.js:218
+#: code:addons/website/website_filebank/static/src/js/slides_upload_override.js:218
+#: code:addons/website_filebank/static/src/js/slides_upload_override.js:218
+#, python-format
+msgid "Create new tag '%s'"
+msgstr ""
+
+#. module: website_filebank
+#: model_terms:slide.channel,description:website_filebank.filebank_public
+msgid "Default channel for files, all public users can access content of this channel."
+msgstr ""
+
+#. module: website_filebank
+#: model_terms:ir.ui.view,arch_db:website_filebank.filebank_detailed_view
+msgid "Download"
+msgstr ""
+
+#. module: website_filebank
+#. openerp-web
+#: code:addons/addons/development/website/website_filebank/static/src/js/slides_upload_override.js:86
+#: code:addons/website/website_filebank/static/src/js/slides_upload_override.js:86
+#: code:addons/website_filebank/static/src/js/slides_upload_override.js:86
+#, python-format
+msgid "File is too big. File size cannot exceed 25MB"
+msgstr ""
+
+#. module: website_filebank
+#: model:website.menu,name:website_filebank.website_menu_filebank
+msgid "Filebank"
+msgstr ""
+
+#. module: website_filebank
+#: model_terms:ir.ui.view,arch_db:website_filebank.filebank_detailed_view
+msgid "Hello"
+msgstr ""
+
+#. module: website_filebank
+#: model:slide.channel,name:website_filebank.filebank_partial
+msgid "Partner Filebank"
+msgstr ""
+
+#. module: website_filebank
+#: model:slide.channel,name:website_filebank.filebank_public
+msgid "Public Filebank"
+msgstr ""
+
+#. module: website_filebank
+#. openerp-web
+#: code:addons/addons/development/website/website_filebank/static/src/js/slides_upload_override.js:272
+#: code:addons/website/website_filebank/static/src/js/slides_upload_override.js:272
+#: code:addons/website_filebank/static/src/js/slides_upload_override.js:272
+#, python-format
+msgid "Tags"
+msgstr ""
+
+#. module: website_filebank
+#: model_terms:slide.channel,access_error_msg:website_filebank.filebank_partial
+#: model_terms:slide.channel,access_error_msg:website_filebank.filebank_public
+msgid "This channel is private and its content is restricted to some users."
+msgstr ""
+
+#. module: website_filebank
+#: model_terms:slide.channel,description:website_filebank.filebank_partial
+msgid "Used to publish files in partner network privately."
+msgstr ""
+
+#. module: website_filebank
+#. openerp-web
+#: code:addons/addons/development/website/website_filebank/static/src/js/slides_upload_override.js:111
+#: code:addons/website/website_filebank/static/src/js/slides_upload_override.js:111
+#: code:addons/website_filebank/static/src/js/slides_upload_override.js:111
+#, python-format
+msgid "You can not upload password protected file."
+msgstr ""
+

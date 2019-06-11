@@ -51,7 +51,7 @@ class WebsiteUnreadMessagesController(http.Controller):
         """
         Route to return info about how many new messages partner has in
         the appointments.
-        
+
         Use cases:
             Hide "No new messages" if the message has been displayed once
             Show message if state changes
@@ -70,8 +70,9 @@ class WebsiteUnreadMessagesController(http.Controller):
         page_enabled = request.env['ir.config_parameter'].get_param(
             'website_unread_messages.icp_unread_messages_page')
 
-        # Count unread portal messages 
-        message_count = partner.sudo(current_user).get_portal_needaction_count()
+        # Count unread portal messages
+        message_count = partner.sudo(current_user)\
+            .get_portal_needaction_count()
 
         if timestamp:
             # Last new messages retrieved at timestamp
@@ -110,7 +111,6 @@ class WebsiteUnreadMessagesController(http.Controller):
             'notification_class': notification_class
         }
         return json.dumps(values)
-
 
     @http.route(
         ['/unread_messages/', '/unread_messages/page/<int:page>'],
@@ -159,4 +159,6 @@ class WebsiteUnreadMessagesController(http.Controller):
             'messages': messages,
             'pager': pager,
         }
-        return request.render('website_unread_messages.unread_messages', values)
+        return request.render(
+            'website_unread_messages.unread_messages',
+            values)

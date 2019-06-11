@@ -1,0 +1,28 @@
+<odoo noupdate="0">
+    <record id="website_menu_filebank" model="website.menu">
+        <field name="name">Filebank</field>
+        <field name="url">/filebank</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">50</field>
+    </record>
+
+    <!--<delete id="website_slides.website_menu_slides" model="website.menu"></delete>-->
+
+    <record model="slide.channel" id="filebank_public">
+        <field name="name">Public Filebank</field>
+        <field name="promote_strategy">most_viewed</field>
+        <field name="website_published" eval="True"/>
+        <field name="visibility">public</field>
+        <field name="description">Default channel for files, all public users can access content of this channel.</field>
+    </record>
+
+    <record model="slide.channel" id="filebank_partial">
+        <field name="name">Partner Filebank</field>
+        <field name="website_published" eval="True"/>
+        <field name="group_ids" eval="[(4, ref('base.group_portal')), (4, ref('base.group_user'))]"/>
+        <field name="upload_group_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="visibility">partial</field>
+        <field name="description">Used to publish files in partner network privately.</field>
+    </record>
+
+</odoo>

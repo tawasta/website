@@ -21,13 +21,11 @@
 
 # 1. Standard library imports:
 import logging
-import re
-import operator
 
 # 2. Known third party imports:
 
-# 3. Odoo imports (openerp):
-from odoo import api, fields, models
+# 3. Odoo imports:
+from odoo import api, models
 
 # 4. Imports from Odoo modules:
 
@@ -66,8 +64,13 @@ class ResPartner(models.Model):
 
             self.env.cr.execute("""
                 SELECT count(*) as needaction_count
-                FROM mail_message_res_partner_needaction_rel R RIGHT JOIN mail_message M ON (M.id = R.mail_message_id)
-                WHERE R.res_partner_id = %s AND M.model IN (%s) """, (self.env.user.partner_id.id, ",".join(map(str, model_list))))
+                FROM mail_message_res_partner_needaction_rel
+                R RIGHT JOIN mail_message
+                M ON (M.id = R.mail_message_id)
+                WHERE R.res_partner_id = %s
+                AND M.model IN (%s) """,
+                                (self.env.user.partner_id.id,
+                                 ",".join(map(str, model_list))))
             return (self.env.cr.dictfetchall()[0].get('needaction_count'))
         _logger.error('Call to needaction_count without partner_id')
         return 0

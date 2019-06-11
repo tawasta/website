@@ -21,11 +21,10 @@
 
 # 1. Standard library imports:
 import re
-import operator
 
 # 2. Known third party imports:
 
-# 3. Odoo imports (openerp):
+# 3. Odoo imports:
 from odoo import api, fields, models
 
 # 4. Imports from Odoo modules:
@@ -55,7 +54,8 @@ class MailMessage(models.Model):
     def _compute_website_url(self):
         """
         Get website url with the help of system parameters.
-        email_from field is used to trigger with mass_editing module this function
+        email_from field is used to trigger with mass_editing
+        module this function
         so the url's are calculated (for better performance)
         """
         website_url = str()
@@ -69,8 +69,10 @@ class MailMessage(models.Model):
             if rec:
                 # URL format in system parameters is following this format
                 # /<string>/:<name_of_field>
-                # We can retrieve the fields and construct the real URL using those
-                # For presenting the res_id object's parent in URL format, we are using
+                # We can retrieve the fields and construct the real
+                # URL using those
+                # For presenting the res_id object's parent in URL
+                # format, we are using
                 # res_parent_id (not a field that is used on mail.message)
                 website_url = rec.url_format
                 parts = re.findall(r':\w+', website_url)
@@ -78,12 +80,12 @@ class MailMessage(models.Model):
                     field_name = re.sub(':', '', part)
                     if part == ':res_parent_id':
                         # Special case: get res_id object's parent's id
-                        field_value = self.env[record.model].sudo().browse(record.res_id).project_id.id
+                        field_value = self.env[record.model]\
+                            .sudo().browse(record.res_id).project_id.id
                     else:
                         field_value = getattr(record, field_name)
                     website_url = website_url.replace(part, str(field_value))
             record.website_url = website_url
-
 
     # 5. Constraints and onchanges
 
