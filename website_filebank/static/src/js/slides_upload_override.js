@@ -1,5 +1,5 @@
 odoo.define('website_slides.upload', function (require) {
-"use strict";
+    "use strict";
 
     var ajax = require('web.ajax');
     var core = require('web.core');
