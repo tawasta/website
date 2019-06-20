@@ -41,9 +41,6 @@
             <xpath expr="//section[@class='oe_slides_promote_box']" position="replace">
             </xpath>
 
-            <xpath expr="//div[contains(@class, 'col-xl-12') and contains(@class, 'oe_slides_bottom_border')]" position="replace">
-            </xpath>
-
         </template>
 
         <template id="filebank_channel_header" inherit_id="website_slides.slides_channel_header">
