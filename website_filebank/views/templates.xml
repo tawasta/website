@@ -32,6 +32,22 @@
 
         </template>
 
+        <template id="filebank_grid_view" inherit_id="website_slides.slides_grid_view">
+            <xpath expr="//img" position="replace"></xpath>
+            <xpath expr="//small" position="replace">
+
+            </xpath>
+
+            <xpath expr="//div[hasclass('col-xl-3')]" position="attributes">
+                <attribute name="class">col-xl-4 col-lg-4 col-md-6 col-12 mt16 mb16</attribute>
+            </xpath>
+
+            <xpath expr="//h4" position="replace">
+                <h4 class="mt4 mb8 oe_slides_ellipsis">
+                    <a t-att-title="slide.name" t-attf-href="/slides/slide/#{slug(slide)}/download" t-esc="slide.name"/>
+                </h4>
+            </xpath>
+        </template>
         <template id="filebank_channels" inherit_id="website_slides.home">
 
             <xpath expr="//section[@class='oe_slides_promote_box']" position="replace">
