@@ -31,6 +31,7 @@
     ],
     'data': [
         'views/templates.xml',
+        'views/slide_form.xml',
         'data/filebank.xml',
     ],
     'demo': [],

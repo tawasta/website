@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <template id="assets_frontend" inherit_id="portal.assets_frontend">
+    <template id="assets_frontend" inherit_id="web.assets_frontend">
         <xpath expr="link[last()]" position="after">
             <link rel="stylesheet" type="text/scss" href="/website_kanban_board/static/src/scss/kanban_board.scss"></link>
         </xpath>
@@ -12,8 +12,8 @@
                 <thead>
                     <tr>
                         <t t-foreach="stages" t-as="stage">
-                            <th scope="col">
-                                <h2 class="text-center"><t t-esc="stage.name" /></h2>
+                            <th t-attf-class="col-head col-{{int(12 / len(stages))}} text-center" scope="col">
+                                <span class="h3"><t t-esc="stage.name" /></span>
                             </th>
                         </t>
                     </tr>
