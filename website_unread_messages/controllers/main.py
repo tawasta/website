@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
@@ -62,53 +61,56 @@ class WebsiteUnreadMessagesController(http.Controller):
             0 if no messages and message WILL BE displayed
             > 0 if new messages
         """
-        current_user = http.request.env.user
+        current_user = request.env.user
         partner = current_user.partner_id
         timestamp = request.session.get('messages_checked')
         no_messages = _("There aren't any new messages!")
         msg = ""
-        page_enabled = request.env['ir.config_parameter'].get_param(
-            'website_unread_messages.icp_unread_messages_page')
+        is_enabled = request.env['ir.config_parameter'].sudo().get_param(
+            'website_unread_messages.icp_unread_messages_notification')
+        if is_enabled:
+            page_enabled = request.env['ir.config_parameter'].sudo().get_param(
+                'website_unread_messages.icp_unread_messages_page')
+            # Count unread portal messages
+            message_count = partner.sudo(current_user)\
+                .get_portal_needaction_count()
 
-        # Count unread portal messages
-        message_count = partner.sudo(current_user)\
-            .get_portal_needaction_count()
+            if timestamp:
+                # Last new messages retrieved at timestamp
+                timestamp_date = datetime.fromtimestamp(timestamp)
+                difference = (datetime.now() - timestamp_date).seconds
+                too_soon = True if difference < 60 else False
 
-        if timestamp:
-            # Last new messages retrieved at timestamp
-            timestamp_date = datetime.fromtimestamp(timestamp)
-            difference = (datetime.now() - timestamp_date).seconds
-            too_soon = True if difference < 60 else False
-
-            if too_soon and message_count != 0:
-                # Do not display message if message was displayed in the last
-                # 60 seconds
-                return False
-            elif message_count == 0:
-                # State changed to 'all messages are read' -> Display message
-                request.session['messages_checked'] = None
-        else:
-            if message_count == 0:
-                # No timestamp == no messages last time function was called
-                return False
-
-        if message_count != 0:
-            # Save timestamp to prevent spam
-            request.session['messages_checked'] = time.time()
-            msg = _("You have ")
-
-            if message_count > 1:
-                msg += _("%d new messages in discussions!") % message_count
+                if too_soon and message_count != 0:
+                    # Do not display message if message was displayed
+                    # in the last 60 seconds
+                    return False
+                elif message_count == 0:
+                    # State changed to 'all messages are read'
+                    request.session['messages_checked'] = None
             else:
-                msg += _("a new message in discussions!")
-            if page_enabled == '1':
-                # If unread messages page is enabled (system parameters)
-                msg = "<a href='%s'>%s</a>" % ('/unread_messages', msg)
+                if message_count == 0:
+                    # No timestamp == no messages, so state didn't change
+                    return False
+
+            if message_count != 0:
+                # Save timestamp to prevent spam
+                request.session['messages_checked'] = time.time()
+                msg = _("You have ")
+
+                if message_count > 1:
+                    msg += _("%d new messages in discussions!") % message_count
+                else:
+                    msg += _("a new message in discussions!")
+                if page_enabled == '1':
+                    # If unread messages page is enabled (system parameters)
+                    msg = "<a href='%s'>%s</a>" % ('/unread_messages', msg)
 
         notification_class = 'info' if msg else 'success'
         values = {
             'msg': msg if msg else no_messages,
-            'notification_class': notification_class
+            'notification_class': notification_class,
+            'is_enabled': is_enabled,
         }
         return json.dumps(values)
 
@@ -118,14 +120,11 @@ class WebsiteUnreadMessagesController(http.Controller):
         auth='user',
         website=True,
     )
-    def unread_messages(self, page=1, **post):
-        """
-        Route to show list of unread messages
-        """
-        current_user = http.request.env.user
-        partner_id = current_user.partner_id.id
-        message_model = http.request.env['mail.message']
-        page_enabled = request.env['ir.config_parameter'].get_param(
+    def unread_messages(self, search='', page=1, **post):
+        """ Route to show list of unread messages """
+        partner_id = request.env.user.partner_id.id
+        message_model = request.env['mail.message']
+        page_enabled = request.env['ir.config_parameter'].sudo().get_param(
             'website_unread_messages.icp_unread_messages_page')
 
         if page_enabled != '1' or not partner_id:
@@ -136,6 +135,12 @@ class WebsiteUnreadMessagesController(http.Controller):
         domain = [
             ('needaction_partner_ids', '=', partner_id),
             ('website_url', '!=', False),
+            '|',
+            ('author_id', 'ilike', search),
+            ('record_name', 'ilike', search),
+            '&',
+            ('notification_ids.res_partner_id', '=', partner_id),
+            ('notification_ids.is_read', '=', False),
         ]
         messages_count = message_model.search_count(domain)
         url = '/unread_messages'
@@ -155,10 +160,14 @@ class WebsiteUnreadMessagesController(http.Controller):
             limit=pager_limit,
             offset=pager['offset']
         )
+        search_url = ('/unread_messages?%s' % (search))
         values = {
             'messages': messages,
             'pager': pager,
+            'search_url': search_url,
+            'current_search': search,
         }
         return request.render(
             'website_unread_messages.unread_messages',
-            values)
+            values
+        )
