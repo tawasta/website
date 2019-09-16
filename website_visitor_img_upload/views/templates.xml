@@ -1,0 +1,16 @@
+<odoo>
+
+    <template id="visitor_gallery">
+        <t t-call="website.layout">
+                <t t-foreach="images" t-as="i">
+                    <img t-attf-src="{{ i }}"></img>
+                </t>
+            <form action="/visitor_gallery/add_image" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                <input type="file"  class="file" multiple="false" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" name="image"></input>
+                <input type="submit" value="Submit"></input>
+            </form>
+        </t>
+    </template>
+
+</odoo>
