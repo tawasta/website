@@ -4,6 +4,8 @@
 Allow website visitors to upload images to website visitor gallery.
     """,
     'description': """
+- Allow website visitors to upload pictures
+- Curate pictures before publishing
     """,
     'website': 'http://www.tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
