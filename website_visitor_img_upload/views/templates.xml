@@ -1,8 +1,8 @@
 <odoo>
 
-    <template id="visitor_gallery">
+    <template id="visitor_gallery" name="Visitor Gallery">
+        <t t-set="pageName" t-value="'Visitor Gallery'"/>
         <t t-call="website.layout">
-            <t t-set="pageName" t-value="'Visitor Gallery'"/>
             <div id="wrap" class="oe_structure oe_empty">
                 <section class="o_gallery s_image_gallery o_grid o_spc-medium" data-columns="3" style="overflow: hidden;">
                     <div class="container">
