@@ -54,6 +54,7 @@
                                 data-show-caption="true"
                                 data-show-preview="true"
                                 name="image"
+                                required="true"
                                 accept="image/*">
                             </input>
                             <div class="o_website_form_recaptcha"></div>
