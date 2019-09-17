@@ -9,7 +9,7 @@ class WebsiteVisitorImage(models.Model):
     active = fields.Boolean(default=True)
     image_url = fields.Char(string="Image URL")
     filename = fields.Char(string="Filename")
-    attachment = fields.Many2one(string="Attachment Image", comodel_name="ir.attachment")
+    attachment = fields.Many2one(string="Attachment Image", comodel_name="ir.attachment", ondelete="cascade")
     attachment_image = fields.Binary(related="attachment.datas")
 
     @api.model
@@ -25,3 +25,7 @@ class WebsiteVisitorImage(models.Model):
     @api.model
     def create(self, vals):
         super(WebsiteVisitorImage, self).create(vals)
+
+    def unlink(self):
+        self.attachment.unlink()
+        super(WebsiteVisitorImage, self).unlink()
