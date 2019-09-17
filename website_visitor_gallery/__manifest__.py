@@ -1,7 +1,7 @@
 {
-    'name': "Website Visitor Image Upload",
+    'name': "Website Visitor Gallery",
     'summary': """
-Allow website visitors to upload images to website gallery.
+Allow website visitors to upload images to website visitor gallery.
     """,
     'description': """
     """,
@@ -12,6 +12,7 @@ Allow website visitors to upload images to website gallery.
     'version': '12.0.1.0.0',
     'depends': [
         'website',
+        'website_form_recaptcha',
         'website_gallery_mobile_fix',
     ],
     'data': [

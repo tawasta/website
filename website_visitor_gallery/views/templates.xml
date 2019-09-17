@@ -1,7 +1,32 @@
 <odoo>
 
+    <template id="visitor_gallery_error" name="Visitor Gallery Error">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure oe_empty">
+                <section class="o_gallery s_image_gallery o_grid o_spc-medium" data-columns="3" style="overflow: hidden;">
+                    <div class="container">
+                        <h2>Something went wrong!</h2>
+                        <p>Please try again.</p>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+
+    <template id="visitor_gallery_thank_you" name="Visitor Gallery Thank You">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure oe_empty">
+                <section class="o_gallery s_image_gallery o_grid o_spc-medium" data-columns="3" style="overflow: hidden;">
+                    <div class="container">
+                        <h2>Thank you</h2>
+                        <p>Your image will undergo checking and if approved will be shown on our web page.</p>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+
     <template id="visitor_gallery" name="Visitor Gallery">
-        <t t-set="pageName" t-value="'Visitor Gallery'"/>
         <t t-call="website.layout">
             <div id="wrap" class="oe_structure oe_empty">
                 <section class="o_gallery s_image_gallery o_grid o_spc-medium" data-columns="3" style="overflow: hidden;">
@@ -21,7 +46,17 @@
                         <form action="/visitor_gallery/add_image" method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                             <label for="image">Image</label>
-                            <input type="file"  class="file" multiple="false" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" name="image"></input>
+                            <input
+                                type="file"
+                                class="file"
+                                multiple="false"
+                                data-show-upload="true"
+                                data-show-caption="true"
+                                data-show-preview="true"
+                                name="image"
+                                accept="image/*">
+                            </input>
+                            <div class="o_website_form_recaptcha"></div>
                             <input type="submit" value="Submit" class="btn btn-primary"></input>
                         </form>
                     </div>
