@@ -57,7 +57,7 @@
                                 accept="image/*">
                             </input>
                             <div class="o_website_form_recaptcha"></div>
-                            <input type="submit" value="Submit" class="btn btn-primary"></input>
+                            <button class="btn btn-primary" type="submit">Submit</button>
                         </form>
                     </div>
                 </section>
