@@ -43,9 +43,17 @@
                 <section>
                     <div class="container">
                         <h2>Send us your picture</h2>
-                        <form action="/visitor_gallery/add_image" method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-                            <label for="image">Image</label>
+                        <form
+                            action="/visitor_gallery/add_image"
+                            method="POST"
+                            enctype="multipart/form-data">
+                            <input
+                                type="hidden"
+                                name="csrf_token"
+                                t-att-value="request.csrf_token()"/>
+                            <label for="image">
+                                Image
+                            </label>
                             <input
                                 type="file"
                                 class="file"
@@ -57,6 +65,18 @@
                                 required="true"
                                 accept="image/*">
                             </input>
+                            <fieldset>
+                                <label
+                                    for="i_accept">
+                                    I have rights to the image and I allow its publishing.
+                                </label>
+                                <input
+                                    type="checkbox"
+                                    required="true"
+                                    name="i_accept">
+                                </input>
+                            </fieldset>
+
                             <div class="o_website_form_recaptcha"></div>
                             <button class="btn btn-primary" type="submit">Submit</button>
                         </form>
