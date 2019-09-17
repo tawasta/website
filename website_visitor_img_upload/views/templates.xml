@@ -2,8 +2,8 @@
 
     <template id="visitor_gallery">
         <t t-call="website.layout">
-                <t t-foreach="images" t-as="i">
-                    <img t-attf-src="{{ i }}"></img>
+                <t t-foreach="image_urls" t-as="url">
+                    <img t-attf-src="{{ url }}"></img>
                 </t>
             <form action="/visitor_gallery/add_image" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>

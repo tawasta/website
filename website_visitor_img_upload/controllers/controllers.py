@@ -8,26 +8,35 @@ class VisitorImgUpload(http.Controller):
 
     @http.route('/visitor_gallery', auth='public', type='http', website=True)
     def visitor_gallery(self, **kw):
-        images = http.request.env['visitor.image'].get_published()
+        image_urls = http.request.env['visitor.image'].get_published_urls()
         return http.request.render('website_visitor_img_upload.visitor_gallery', {
-            'images': images
+            'image_urls': image_urls
         })
 
     @http.route(['/visitor_gallery/add_image'], type='http', auth='public', methods=['POST'], website=True)
     def create_slide(self, *args, **post):
         if post.get('image'):
+            Attachment = http.request.env['ir.attachment'].sudo()
+            VisitorImage = http.request.env['visitor.image'].sudo()
+
             attach = post.get('image').stream
             f = attach.getvalue()
-            f = base64.b64encode(f)
-            vals = {
-                'image': f
-            }
-            try:
-                http.request.env['visitor.image'].create(vals)
-            except Exception as e:
-                print("ERROR:")
-                print(e)
+            filename = post.get('image').filename
 
+            attachment = Attachment.create({
+                'name': filename,
+                'datas': base64.b64encode(f),
+                'type': 'binary',
+                'datas_fname': filename,
+                'public': True,
+            })
+
+            VisitorImage.create({
+                'name': filename,
+                'filename': post.get('image').filename,
+                'attachment': attachment.id,
+                'image_url': "/web/image/" + str(attachment.id) + "/" + filename,
+            })
             return http.request.render('website_visitor_img_upload.visitor_gallery', {})
         else:
             return http.request.render('website_visitor_img_upload.visitor_gallery', {})

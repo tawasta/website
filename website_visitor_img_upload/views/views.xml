@@ -5,18 +5,12 @@
             <field name="name">visitor.image.form</field>
             <field name="model">visitor.image</field>
             <field name="arch" type="xml">
-                <form>
+                <form string="Visitor Image">
                     <sheet>
-                        <group>
-                            <field name="date"/>
-                        </group>
-
                         <group>
                             <field name="website_published"/>
+                            <field name="attachment_image" widget="image"/>
                         </group>
-                    </sheet>
-                    <sheet>
-                        <field name="image" nolabel="1" widget="image"/>
                     </sheet>
                 </form>
             </field>
