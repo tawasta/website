@@ -19,6 +19,9 @@ class WebsiteVisitorImage(models.Model):
             image_urls.append(image.image_url)
         return image_urls
 
+    def toggle_website_published(self):
+        self.website_published = not self.website_published
+
     @api.model
     def create(self, vals):
         super(WebsiteVisitorImage, self).create(vals)

@@ -19,13 +19,12 @@ class VisitorImgUpload(http.Controller):
             Attachment = http.request.env['ir.attachment'].sudo()
             VisitorImage = http.request.env['visitor.image'].sudo()
 
-            attach = post.get('image').stream
-            f = attach.getvalue()
+            datas = base64.b64encode(post.get('image').read())
             filename = post.get('image').filename
 
             attachment = Attachment.create({
                 'name': filename,
-                'datas': base64.b64encode(f),
+                'datas': datas,
                 'type': 'binary',
                 'datas_fname': filename,
                 'public': True,

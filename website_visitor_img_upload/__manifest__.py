@@ -12,6 +12,7 @@ Allow website visitors to upload images to website gallery.
     'version': '12.0.1.0.0',
     'depends': [
         'website',
+        'website_gallery_mobile_fix',
     ],
     'data': [
         'views/views.xml',
