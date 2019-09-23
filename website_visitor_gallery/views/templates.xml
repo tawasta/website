@@ -66,6 +66,18 @@
                                 accept="image/*">
                             </input>
                             <fieldset>
+                                <label for="category">
+                                    Category
+                                </label>
+                                <select name="category">
+                                    <t t-foreach="categories" t-as="category">
+                                        <option t-attf-value="{{ category }}">
+                                            <t t-esc="category"></t>
+                                        </option>
+                                    </t>
+                                </select>
+                            </fieldset>
+                            <fieldset>
                                 <label
                                     for="i_accept">
                                     I have rights to the image and I allow its publishing.

@@ -11,9 +11,15 @@ class VisitorImgUpload(http.Controller):
 
     @http.route('/visitor_gallery', auth='public', type='http', website=True)
     def visitor_gallery(self, **kw):
+        categories = http.request.env['visitor.image'].get_category_list()
         image_urls = http.request.env['visitor.image'].get_published_urls()
+        image_urls_by_category = \
+            http.request.env['visitor.image'].get_image_urls_by_category()
+        print(image_urls_by_category)
         return http.request.render('website_visitor_gallery.visitor_gallery', {
-            'image_urls': image_urls
+            'categories': categories,
+            'image_urls': image_urls,
+            'image_urls_by_category': image_urls_by_category,
         })
 
     @http.route(['/visitor_gallery/add_image'], type='http', auth='public', methods=['POST'], website=True)
@@ -27,6 +33,8 @@ class VisitorImgUpload(http.Controller):
                 img_optimized = self.optimize_img(img)
                 datas = base64.b64encode(img_optimized)
                 filename = post.get('image').filename
+                category = http.request.env['vimage.category'].search(
+                    [('name', '=', post.get('category'))])
 
                 attachment = Attachment.create({
                     'name': filename,
@@ -41,6 +49,7 @@ class VisitorImgUpload(http.Controller):
                     'filename': post.get('image').filename,
                     'attachment': attachment.id,
                     'image_url': "/web/image/" + str(attachment.id) + "/" + filename,
+                    'category': category.id,
                 })
                 return http.request.render('website_visitor_gallery.visitor_gallery_thank_you', {})
             except Exception as e:

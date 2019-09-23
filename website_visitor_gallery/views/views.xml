@@ -7,9 +7,14 @@
             <field name="arch" type="xml">
                 <form string="Visitor Image">
                     <sheet>
-                        <button class="oe_stat_button oe_right" name="toggle_website_published" type="object" icon="fa-globe">
-                            <field name="website_published" widget="website_button"/>
-                        </button>
+                        <group>
+                            <field name="category"/>
+                        </group>
+                        <group>
+                            <button class="oe_stat_button oe_left" name="toggle_website_published" type="object" icon="fa-globe">
+                                <field name="website_published" widget="website_button"/>
+                            </button>
+                        </group>
                         <field name="attachment_image" widget="image"/>
                     </sheet>
                 </form>
