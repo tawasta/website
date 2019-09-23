@@ -46,6 +46,7 @@ class WebsiteVisitorImage(models.Model):
     def create(self, vals):
         super(WebsiteVisitorImage, self).create(vals)
 
-    def unlink(self):
-        self.attachment.unlink()
-        super(WebsiteVisitorImage, self).unlink()
+    def unlink(selfs):
+        for self in selfs:
+            self.attachment.unlink()
+            super(WebsiteVisitorImage, self).unlink()
