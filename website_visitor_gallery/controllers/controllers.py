@@ -12,7 +12,6 @@ class VisitorImgUpload(http.Controller):
     @http.route('/visitor_gallery', auth='public', type='http', website=True)
     def visitor_gallery(self, **kw):
         categories = http.request.env['visitor.image'].get_category_list()
-        print(categories)
         image_urls = http.request.env['visitor.image'].get_published_urls()
         image_urls_by_category = \
             http.request.env['visitor.image'].get_image_urls_by_category()
