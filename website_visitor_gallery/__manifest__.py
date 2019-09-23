@@ -12,6 +12,7 @@ Allow website visitors to upload images to website visitor gallery.
     'license': 'AGPL-3',
     'category': 'Website',
     'version': '10.0.1.0.0',
+    'application': True,
     'depends': [
         'website',
         'website_form_recaptcha',
