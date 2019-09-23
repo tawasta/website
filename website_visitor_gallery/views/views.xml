@@ -22,11 +22,11 @@
         </record>
 
         <record model="ir.actions.act_window" id="visitor_gallery_img_approval">
-            <field name="name">Visitor Gallery</field>
+            <field name="name">Image Bank</field>
             <field name="res_model">visitor.image</field>
         </record>
 
-        <menuitem id="menu_visitor_gallery" parent="website.menu_website_configuration" name="Visitor Gallery" sequence="10"
+        <menuitem id="menu_visitor_gallery" parent="website.menu_website_configuration" name="Image Bank" sequence="10"
             action="visitor_gallery_img_approval"/>
     </data>
 </odoo>
