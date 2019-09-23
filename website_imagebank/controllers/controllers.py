@@ -15,7 +15,7 @@ class VisitorImgUpload(http.Controller):
         image_urls = http.request.env['imagebank.image'].get_published_urls()
         image_urls_by_category = \
             http.request.env['imagebank.image'].get_image_urls_by_category()
-        return http.request.render('website_visitor_gallery.imagebank_gallery', {
+        return http.request.render('website_imagebank.imagebank_gallery', {
             'categories': categories,
             'image_urls': image_urls,
             'image_urls_by_category': image_urls_by_category,
@@ -53,15 +53,15 @@ class VisitorImgUpload(http.Controller):
                         'category': category.id,
                     })
 
-                return http.request.render('website_visitor_gallery.imagebank_gallery_thank_you', {})
+                return http.request.render('website_imagebank.imagebank_gallery_thank_you', {})
             except Exception as e:
                 print(e)
-                return http.request.render('website_visitor_gallery.imagebank_gallery_error', {
+                return http.request.render('website_imagebank.imagebank_gallery_error', {
                     'message': ""
                 })
 
         else:
-            return http.request.render('website_visitor_gallery.imagebank_gallery_error', {
+            return http.request.render('website_imagebank.imagebank_gallery_error', {
                 'message': _('Image file missign.')
             })
 
