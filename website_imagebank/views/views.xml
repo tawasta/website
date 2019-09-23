@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="imagebank_image_form" model="ir.ui.view">
+            <field name="name">imagebank.image.form</field>
+            <field name="model">imagebank.image</field>
+            <field name="arch" type="xml">
+                <form string="Image Bank Image">
+                    <sheet>
+                        <group>
+                            <field name="category"/>
+                        </group>
+                        <group>
+                            <button class="oe_stat_button oe_left" name="toggle_website_published" type="object" icon="fa-globe">
+                                <field name="website_published" widget="website_button"/>
+                            </button>
+                        </group>
+                        <field name="attachment_image" widget="image"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="visitor_gallery_img_approval">
+            <field name="name">Image Bank</field>
+            <field name="res_model">imagebank.image</field>
+        </record>
+
+        <menuitem id="menu_visitor_gallery" parent="website.menu_website_configuration" name="Image Bank" sequence="10"
+            action="visitor_gallery_img_approval"/>
+    </data>
+</odoo>

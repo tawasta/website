@@ -1,0 +1,5 @@
+<odoo>
+    <record id="imagebank_category" model="imagebank.category">
+        <field name="name">Default</field>
+    </record>
+</odoo>
