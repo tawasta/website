@@ -22,7 +22,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="visitor_gallery_img_approval">
-            <field name="name">Image BanImage Bankk</field>
+            <field name="name">Image Bank</field>
             <field name="res_model">visitor.image</field>
         </record>
 
