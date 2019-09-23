@@ -7,7 +7,7 @@
     'license': 'AGPL-3',
     'website': 'http://www.tawasta.fi',
     'category': 'Website',
-    'version': '12.0.1.0.0',
+    'version': '10.0.1.0.0',
     'depends': [
         'website',
     ],
