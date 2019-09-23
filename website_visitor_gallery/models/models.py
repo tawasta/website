@@ -21,16 +21,15 @@ class WebsiteVisitorImage(models.Model):
         categories = []
         for category in self.env['vimage.category'].search([]):
             categories.append(category.name)
-        print(categories)
         return categories
 
     def get_image_urls_by_category(self):
-        ret = {}
+        ret = []
         for category in self.env['vimage.category'].search([]):
-            image_urls = []
+            image_urls = [category.name]
             for image in self.search([('category.id', '=', category.id), ('website_published', '=', True)]):
                 image_urls.append(image.image_url)
-            ret[category.name] = image_urls
+            ret.append(image_urls)
         return ret
 
     @api.model

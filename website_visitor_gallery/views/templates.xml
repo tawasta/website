@@ -31,11 +31,20 @@
             <div id="wrap" class="oe_structure oe_empty">
                 <section class="o_gallery s_image_gallery o_grid o_spc-medium" data-columns="3" style="overflow: hidden;">
                     <div class="container">
-                        <div class="row">
-                            <t t-foreach="image_urls" t-as="url">
-                                <div class="col-lg-3" style="padding-bottom: 8px;">
-                                    <img t-attf-src="{{ url }}" t-attf-class="img img-fluid" t-attf-data-index="{{ url_index }}"></img>
-                                </div>
+                        <div t-foreach="image_urls_by_category" t-as="category_list" t-attf-class="row">
+                            <t t-foreach="category_list" t-as="url">
+                                <t t-if="url_index == 0">
+                                    <div class="row col-lg-12">
+                                        <h2>
+                                            <t t-esc="url"></t>
+                                        </h2>
+                                    </div>
+                                </t>
+                                <t t-else="">
+                                    <div class="col-lg-3" style="padding-bottom: 8px;">
+                                        <img t-attf-src="{{ url }}" t-attf-class="img img-fluid" t-attf-data-index="{{ url_index }}"></img>
+                                    </div>
+                                </t>
                             </t>
                         </div>
                     </div>

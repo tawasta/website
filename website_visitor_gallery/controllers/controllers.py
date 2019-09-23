@@ -15,7 +15,6 @@ class VisitorImgUpload(http.Controller):
         image_urls = http.request.env['visitor.image'].get_published_urls()
         image_urls_by_category = \
             http.request.env['visitor.image'].get_image_urls_by_category()
-        print(image_urls_by_category)
         return http.request.render('website_visitor_gallery.visitor_gallery', {
             'categories': categories,
             'image_urls': image_urls,
