@@ -1,4 +1,4 @@
-<odoo noupdate="0">
+<odoo>
     <record id="website_menu_visitor_img_upload" model="website.menu">
         <field name="name">Visitor Gallery</field>
         <field name="url">/visitor_gallery</field>

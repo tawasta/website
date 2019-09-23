@@ -23,6 +23,7 @@ Allow website visitors to upload images to website visitor gallery.
         'views/templates.xml',
         'data/menu.xml',
         'security/ir.model.access.csv',
+        'data/data.xml',
     ],
     'demo': [],
 }
