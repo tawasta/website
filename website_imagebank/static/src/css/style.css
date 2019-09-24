@@ -1,0 +1,9 @@
+.imagebank-wrap img {
+    image-orientation: from-image;
+}
+
+.modal-dialog .img-fluid {
+    image-orientation: from-image;
+}
+
+

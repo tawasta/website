@@ -19,6 +19,7 @@ Allow website visitors to upload images to website gallery.
         'website_gallery_mobile_fix',
     ],
     'data': [
+        'views/assets.xml',
         'views/views.xml',
         'views/templates.xml',
         'data/menu.xml',
