@@ -80,7 +80,6 @@ class VisitorImgUpload(http.Controller):
                         'type': 'binary',
                         'datas_fname': filename,
                         'public': True,
-                        'thumbnail': tools.image_resize_image_small(datas_compressed),
                     })
 
                     VisitorImage.create({
