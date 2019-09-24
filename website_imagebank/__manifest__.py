@@ -11,7 +11,7 @@ Allow website visitors to upload images to website gallery.
     'author': 'Oy Tawasta Technologies Ltd.',
     'license': 'AGPL-3',
     'category': 'Website',
-    'version': '12.0.1.0.0',
+    'version': '10.0.1.0.0',
     'application': True,
     'depends': [
         'website',
