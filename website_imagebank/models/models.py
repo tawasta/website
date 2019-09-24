@@ -16,6 +16,7 @@ class WebsiteVisitorImage(models.Model):
     filename = fields.Char(string="Filename")
     attachment = fields.Many2one(string="Attachment Image", comodel_name="ir.attachment", ondelete="cascade")
     attachment_image = fields.Binary(related="attachment.datas", attachment=True)
+    attachment_thumbnail = fields.Binary(related="attachment.thumbnail", attachment=True)
 
     def get_category_list(self):
         categories = []

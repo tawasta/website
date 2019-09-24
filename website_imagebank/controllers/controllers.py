@@ -2,44 +2,30 @@ from odoo import http, _, tools
 import base64
 from PIL import Image, ExifTags
 from io import BytesIO
+import traceback
 
 class VisitorImgUpload(http.Controller):
 
-    def compress_image(self, image):
-        """
-        Function to compress image accordingly.
-                    This function uses image_save_for_web-utility from tools.
-                        Max dimensions can be set on system parameters.
-                            Process of compressing image:
-                                    - Calculate new image dimensions according to MAX_WIDTH and MAX_HEIGHT
-                                        - Resize image with new dimensions
-                                            - Compress using image_save_for_web -utility
+    def fix_img_orientation(self, img, exif):
+        try:
+            if exif:
+                orientation = dict(img._getexif().items())[274]
+                if orientation == 3:
+                    img = img.rotate(180, expand=True)
+                elif orientation == 6:
+                    img = img.rotate(270, expand=True)
+                elif orientation == 8:
+                    img = img.rotate(90, expand=True)
+        except Exception as e:
+            print(e)
+        return img
 
-        :param image: Image data in binary
-            :return: Compressed and resized image data in binary
-        """
-        #max_width_key = 'website_skills_qualification.image_max_width'
-        #max_height_key = 'website_skills_qualification.image_max_height'
-        MAX_WIDTH = 1024 #int(http.request.env['ir.config_parameter'].sudo().get_param(max_width_key))
-        MAX_HEIGHT = 1024 #int(http.request.env['ir.config_parameter'].sudo().get_param(max_height_key))
+    def compress_image(self, image):
         img = Image.open(BytesIO(image))
         if 'exif' in img.info:
             exif = img.info['exif']
         else:
             exif = False
-        (width, height) = img.size
-        #_logger.debug("Image starting size: (%s, %s)" % (width, height))
-        if width > MAX_WIDTH or height > MAX_HEIGHT:
-            if width > height:
-                if width > MAX_WIDTH:
-                    new_height = int(round((MAX_WIDTH / float(width)) * height))
-                    new_width = MAX_WIDTH
-            else:
-                if height > MAX_HEIGHT:
-                    new_width = int(round((MAX_HEIGHT / float(height)) * width))
-                    new_height = MAX_HEIGHT
-            img.thumbnail((new_width, new_height), Image.ANTIALIAS)
-            #_logger.debug("Compressed size: (%s, %s)" % (new_width, new_height))
 
         opt = dict(format=img.format or format)
         if img.format == 'PNG':
@@ -50,13 +36,11 @@ class VisitorImgUpload(http.Controller):
         elif img.format == 'JPEG':
             opt.update(optimize=True, quality=80)
 
-
         img_save = BytesIO()
-        if exif:
-            img.save(img_save, exif=exif, **opt)
-        else:
-            img.save(img_save, **opt)
 
+        img = self.fix_img_orientation(img, exif)
+
+        img.save(img_save, **opt)
         return img_save.getvalue()
 
     #return tools.image_save_for_web(img)
@@ -85,7 +69,8 @@ class VisitorImgUpload(http.Controller):
                     img = img_filestorage.read()
                     filename = img_filestorage.filename
                     datas = base64.b64encode(img)
-                    datas_compressed = base64.b64encode(self.compress_image(img))
+                    img_compressed = self.compress_image(img)
+                    datas_compressed = base64.b64encode(img_compressed)
                     category = http.request.env['imagebank.category'].search(
                         [('name', '=', post.get('category'))])
 
@@ -95,6 +80,7 @@ class VisitorImgUpload(http.Controller):
                         'type': 'binary',
                         'datas_fname': filename,
                         'public': True,
+                        'thumbnail': tools.image_resize_image_small(datas_compressed),
                     })
 
                     VisitorImage.create({
@@ -107,6 +93,7 @@ class VisitorImgUpload(http.Controller):
 
                 return http.request.render('website_imagebank.imagebank_gallery_thank_you', {})
             except Exception as e:
+                traceback.print_exc()
                 print(e)
                 return http.request.render('website_imagebank.imagebank_gallery_error', {
                     'message': ""
