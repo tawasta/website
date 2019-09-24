@@ -59,6 +59,7 @@
                     <div class="container">
                         <h2>Send us your picture</h2>
                         <form
+                            style="padding-bottom: 16px;"
                             action="/imagebank/add_image"
                             method="POST"
                             enctype="multipart/form-data">
@@ -66,46 +67,67 @@
                                 type="hidden"
                                 name="csrf_token"
                                 t-att-value="request.csrf_token()"/>
-                            <label for="image">
-                                Image
-                            </label>
-                            <input
-                                type="file"
-                                class="file"
-                                multiple="true"
-                                data-show-upload="true"
-                                data-show-caption="true"
-                                data-show-preview="true"
-                                name="image"
-                                required="true"
-                                accept="image/*">
-                            </input>
-                            <fieldset>
-                                <label for="category">
+
+                            <div class="form-group row">
+                                <label
+                                    class="col-sm-2 col-form-label"
+                                    for="image">
+                                    Image
+                                </label>
+                                <div class="col-sm-10">
+                                    <input
+                                        class="form-control-file"
+                                        type="file"
+                                        multiple="true"
+                                        data-show-upload="true"
+                                        data-show-caption="true"
+                                        data-show-preview="true"
+                                        name="image"
+                                        required="true"
+                                        accept="image/*">
+                                    </input>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label
+                                    class="col-sm-2 col-form-label"
+                                    for="category">
                                     Category
                                 </label>
-                                <select name="category">
-                                    <t t-foreach="categories" t-as="category">
-                                        <option t-attf-value="{{ category }}">
-                                            <t t-esc="category"></t>
-                                        </option>
-                                    </t>
-                                </select>
-                            </fieldset>
-                            <fieldset>
+                                <div class="col-sm-4">
+                                    <select
+                                        class="form-control"
+                                        name="category">
+                                        <t t-foreach="categories" t-as="category">
+                                            <option t-attf-value="{{ category }}">
+                                                <t t-esc="category"></t>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-check">
                                 <label
+                                    class="col-sm-6"
                                     for="i_accept">
                                     I have rights to the image and I allow its publishing.
                                 </label>
                                 <input
+                                    class="form-check-input"
                                     type="checkbox"
                                     required="true"
                                     name="i_accept">
                                 </input>
-                            </fieldset>
+                            </div>
 
-                            <div class="o_website_form_recaptcha"></div>
-                            <button class="btn btn-primary" type="submit">Submit</button>
+                            <button
+                                style="margin-top: 16px;"
+                                class="btn btn-primary"
+                                type="submit">
+                                Submit
+                            </button>
                         </form>
                     </div>
                 </section>
