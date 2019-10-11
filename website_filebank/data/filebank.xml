@@ -16,6 +16,7 @@
         <field name="description">Default channel for files, all public users can access content of this channel.</field>
     </record>
 
+    <!--
     <record model="slide.channel" id="filebank_partial">
         <field name="name">Partner Filebank</field>
         <field name="website_published" eval="True"/>
@@ -24,5 +25,6 @@
         <field name="visibility">partial</field>
         <field name="description">Used to publish files in partner network privately.</field>
     </record>
+    -->
 
 </odoo>

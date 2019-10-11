@@ -1,0 +1,5 @@
+<odoo>
+    <record id="visitor_image_category" model="vimage.category">
+        <field name="name">Default</field>
+    </record>
+</odoo>
