@@ -2,11 +2,11 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=======================
-Website Unread Messages
-=======================
+====================
+Website All Messages
+====================
 
-Adds unread messages feature to website.
+Adds all messages -feature to website.
 Notifications are enabled by default, but can be disabled under website settings (Website > Configuration > Settings). The configuration is located below "Website messages" -heading.
 
 Installation
@@ -33,7 +33,6 @@ Contributors
 ------------
 
 * Aleksi Savijoki <aleksi.savijoki@tawasta.fi>
-* Valtteri Lattu <valtteri.lattu@tawasta.fi>
 
 Maintainer
 ----------

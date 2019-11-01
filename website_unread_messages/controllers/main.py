@@ -40,7 +40,7 @@ from odoo.http import request
 class WebsiteUnreadMessagesController(http.Controller):
 
     @http.route(
-        ['/new_messages/'],
+        ['/new_messages'],
         type='json',
         auth='user',
         website=True,
@@ -67,10 +67,10 @@ class WebsiteUnreadMessagesController(http.Controller):
         no_messages = _("There aren't any new messages!")
         msg = ""
         is_enabled = request.env['ir.config_parameter'].sudo().get_param(
-            'website_unread_messages.icp_unread_messages_notification')
+            'website_unread_messages.notifications')
         if is_enabled:
             page_enabled = request.env['ir.config_parameter'].sudo().get_param(
-                'website_unread_messages.icp_unread_messages_page')
+                'website_unread_messages.page')
             # Count unread portal messages
             message_count = partner.sudo(current_user)\
                 .get_portal_needaction_count()
@@ -102,7 +102,7 @@ class WebsiteUnreadMessagesController(http.Controller):
                     msg += _("%d new messages in discussions!") % message_count
                 else:
                     msg += _("a new message in discussions!")
-                if page_enabled == '1':
+                if page_enabled:
                     # If unread messages page is enabled (system parameters)
                     msg = "<a href='%s'>%s</a>" % ('/unread_messages', msg)
 
@@ -115,7 +115,7 @@ class WebsiteUnreadMessagesController(http.Controller):
         return json.dumps(values)
 
     @http.route(
-        ['/unread_messages/', '/unread_messages/page/<int:page>'],
+        ['/unread_messages', '/unread_messages/page/<int:page>'],
         type='http',
         auth='user',
         website=True,
@@ -125,9 +125,9 @@ class WebsiteUnreadMessagesController(http.Controller):
         partner_id = request.env.user.partner_id.id
         message_model = request.env['mail.message']
         page_enabled = request.env['ir.config_parameter'].sudo().get_param(
-            'website_unread_messages.icp_unread_messages_page')
+            'website_unread_messages.page')
 
-        if page_enabled != '1' or not partner_id:
+        if not page_enabled or not partner_id:
             # Hide page if it's not enabled
             return request.render('website.404')
 
@@ -162,9 +162,15 @@ class WebsiteUnreadMessagesController(http.Controller):
             offset=pager['offset']
         )
         search_url = ('/unread_messages?%s' % (search))
+
+        message_start = abs(50 - page * pager_limit) + 1
+        message_end = total_count if total_count < page * pager_limit else page * pager_limit
+        visible = "{} - {} / {}".format(message_start, message_end, total_count)
+
         values = {
             'messages': messages,
             'pager': pager,
+            'visible_messages': visible,
             'search_url': search_url,
             'current_search': search,
         }
