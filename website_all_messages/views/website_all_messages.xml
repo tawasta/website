@@ -1,43 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <!-- Add link to navigation bar when user has unread messages -->
-    <template id="header" inherit_id="website.layout" name="Unread Messages Link">
-        <xpath expr="//header//ul[@id='top_menu']/li" position="before">
+    <!-- Add link to navigation bar -->
+    <template id="header" inherit_id="website_unread_messages.header">
+        <xpath expr="//a[@href='/unread_messages']/.." position="after">
             <t t-set="partner" t-value="request.env.user.partner_id"/>
             <t t-if="request.env.ref('base.public_partner').id != partner.id">
-                <t t-set="unread_messages_count" t-value="partner.sudo(request.env.user).get_portal_needaction_count()" />
-                <t t-set="is_enabled" t-value="request.env['ir.config_parameter'].sudo().get_param('website_unread_messages.page', False)"/>
-                <li t-att-class="'nav-item dropdown' if is_enabled else 'd-none'">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                        <span>Messages <sup class="messages_quantity badge badge-primary" t-esc="unread_messages_count or '0'" /></span>
-                        <span class="sr-only">Unread messages</span>
+                <t t-set="is_enabled" t-value="request.env['ir.config_parameter'].sudo().get_param('website_all_messages.page')"/>
+                <li t-att-class="'' if is_enabled else 'd-none'">
+                    <a class="dropdown-item" href="/all_messages">
+                        <span>All</span>
+                        <span class="sr-only">All messages</span>
                     </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <a class="dropdown-item" href="/unread_messages">
-                                <span>Unread</span>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
             </t>
         </xpath>
     </template>
 
-    <!-- Page for showing the unread messages and links to the pages -->
-    <template id="unread_messages" name="Unread messages">
+    <!-- Page for showing all messages and links to the pages -->
+    <template id="all_messages" name="All messages">
         <t t-call="website.layout">
-            <t t-set="title">Unread messages</t>
+            <t t-set="title">All messages</t>
             <div id="wrap">
                 <div class="oe_structure"/>
                 <div class="container">
                     <t t-if="messages or current_search">
                         <h1 class="mt-5">
-                            Unread messages
+                            All messages
                         </h1>
-                        <div class="row mt-4 mb-3">
-                            <div class="col-8">
+                        <div class="row mt-4 mb-4">
+                            <div class="col-12">
                                 <!-- Search messages with author-->
                                 <form t-att-action="search_url" method="get" class="form-inline">
                                     <t t-call="website.website_search_box"/>
@@ -48,14 +40,6 @@
                                         <t t-esc="current_search"/>
                                         <span aria-label="Close">&amp;times;</span>
                                     </a>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="pull-right">
-                                    <button id="mark_all_read" type="button"
-                                        class="btn btn-primary" data-toggle="modal"
-                                        data-target="#mark_all_read_confirm"
-                                        title="Mark all messages read"><i class="fa fa-envelope-open"/></button>
                                 </div>
                             </div>
                         </div>
@@ -70,10 +54,9 @@
                                     </t>
                                 </div>
                             </div>
-
-                            <!-- Create a list of unread messages that have a link to page where the message can be read -->
                             <div class="row">
                                 <div class="col-12">
+                                    <!-- Create a list of messages that have a link to page where the message can be read -->
                                     <table class="table table-hover status_table">
                                         <thead>
                                             <tr class="active">
@@ -103,7 +86,7 @@
                     </t>
                     <t t-if="not messages and not current_search">
                         <div class="mt-5">
-                            <h2 class="text-center">You don't have any unread messages!<br/>Well done!</h2>
+                            <h2 class="text-center">You don't have any messages!</h2>
                         </div>
                     </t>
                     <t t-if="not messages and current_search">
@@ -118,36 +101,6 @@
                     </t>
                 </div>
             </div>
-            <t t-call="website_unread_messages.mark_all_read"/>
         </t>
-    </template>
-
-    <template id="mark_all_read" name="Mark all messages read">
-        <div id="mark_all_read_confirm" class="modal fade" tabindex="-1" role="dialog"
-            aria-labelledby="Disqualification modal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Mark all messages read</h5>
-                        <button type="button" class="close"
-                            data-dismiss="modal" aria-label="Close">
-                            <span aria-label="Close">&amp;times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container">
-                            <p>You are about to <b>mark all messages as read</b>, not only the search results of your current search. You can't undo this afterwards.</p>
-                            <p>Are you sure you want to continue?</p>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default"
-                            data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-danger read-confirm"
-                            data-dismiss="modal">Confirm</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </template>
 </odoo>
