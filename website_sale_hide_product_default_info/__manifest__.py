@@ -1,7 +1,11 @@
 {
     'name': "Website sale product hide default info",
     'summary': """ """,
-    'description': """ """,
+    'description': """
+        Hides the:
+        30-day money-back guarantee Free Shipping in U.S. Buy now, get in 2 days
+        - text
+    """,
     'website': 'http://www.tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
     'license': 'AGPL-3',
