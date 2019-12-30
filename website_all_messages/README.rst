@@ -10,6 +10,7 @@ Adds all messages -feature to website.
 Notifications are enabled by default, but can be disabled under website settings (Website > Configuration > Settings).
 The configuration is located below "Website messages" -heading.
 
+
 Installation
 ============
 
