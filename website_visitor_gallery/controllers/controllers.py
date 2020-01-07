@@ -1,7 +1,8 @@
 from odoo import http, _, tools
-import base64
 from PIL import Image
 from io import BytesIO
+import base64
+
 
 class VisitorImgUpload(http.Controller):
     def optimize_img(self, img):
@@ -35,7 +36,7 @@ class VisitorImgUpload(http.Controller):
                     Attachment = http.request.env['ir.attachment'].sudo()
                     VisitorImage = http.request.env['visitor.image'].sudo()
 
-                    img = img_filestorage.read() #post.get('image').read()
+                    img = img_filestorage.read() # post.get('image').read()
                     img_optimized = self.optimize_img(img)
                     datas = base64.b64encode(img_optimized)
                     filename = img_filestorage.filename
@@ -75,6 +76,3 @@ class VisitorImgUpload(http.Controller):
                 'website_visitor_gallery.visitor_gallery_error', {
                 'message': _('Image file missign.')
             })
-
-
-
