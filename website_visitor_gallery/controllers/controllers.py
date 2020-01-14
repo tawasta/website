@@ -36,7 +36,7 @@ class VisitorImgUpload(http.Controller):
                     Attachment = http.request.env['ir.attachment'].sudo()
                     VisitorImage = http.request.env['visitor.image'].sudo()
 
-                    img = img_filestorage.read() # post.get('image').read()
+                    img = img_filestorage.read()  # post.get('image').read()
                     img_optimized = self.optimize_img(img)
                     datas = base64.b64encode(img_optimized)
                     filename = img_filestorage.filename
@@ -55,10 +55,10 @@ class VisitorImgUpload(http.Controller):
                         'name': filename,
                         'filename': filename,
                         'attachment': attachment.id,
-                        'image_url': "/web/image/"
-                            + str(attachment.id)
-                            + "/"
-                            + filename,
+                        'image_url': "/web/image/" +
+                            str(attachment.id) +
+                            "/" +
+                            filename,
                         'category': category.id,
                     })
 
