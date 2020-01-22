@@ -56,9 +56,9 @@ class VisitorImgUpload(http.Controller):
                         'filename': filename,
                         'attachment': attachment.id,
                         'image_url': "/web/image/" +
-                            str(attachment.id) +
-                            "/" +
-                            filename,
+                        str(attachment.id) +
+                        "/" +
+                        filename,
                         'category': category.id,
                     })
 
@@ -68,11 +68,11 @@ class VisitorImgUpload(http.Controller):
                 print(e)
                 return http.request.render(
                     'website_visitor_gallery.visitor_gallery_error', {
-                    'message': ""
-                })
+                        'message': ""
+                    })
 
         else:
             return http.request.render(
                 'website_visitor_gallery.visitor_gallery_error', {
-                'message': _('Image file missign.')
-            })
+                    'message': _('Image file missign.')
+                })
