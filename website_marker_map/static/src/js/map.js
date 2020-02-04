@@ -15,7 +15,7 @@ function initMap() {
             settings = data.settings;
         }
 
-        var map = new google.maps.Map(document.getElementById('map'), settings);
+        var map = new google.maps.Map(document.getElementById('marker_map'), settings);
 
         data.markers.forEach(function(marker_data) {
 
