@@ -38,6 +38,7 @@
     },
     'depends': [
         'website',
+        'base_google_map',
     ],
     'data': [
         'views/assets.xml',
