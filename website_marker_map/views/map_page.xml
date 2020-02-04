@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="map_page" name="Marker Map Page">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure oe_empty map_wrap">
+                <section class="s_picture pt0 pb0 bg-white oe_custom_bg" style="">
+                    <div class="container">
+                        <div class="row s_nb_column_fixed header-image-row">
+                            <div class="pb0 col-lg-6">
+                                <div id="map"></div>
+                            </div>
+                            <div class="pb0 col-lg-6">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>
