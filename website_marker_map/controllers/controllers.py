@@ -1,12 +1,8 @@
 from odoo import http
-from odoo.http import request
-from odoo.http import route
+from odoo.http import request, route
 import json
 
-import logging
-_logger = logging.getLogger(__name__)
-
-class MarkerMapExample(http.Controller):
+class Example(http.Controller):
     @route('/example', auth='public')
     def state_example_handler(self):
         map_data = {
