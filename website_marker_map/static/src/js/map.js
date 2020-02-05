@@ -1,6 +1,6 @@
 /* global: google:false */
 
-}(function markerMap () {
+(function markerMap () {
     'use strict';
     function initMap () {
 
@@ -54,7 +54,7 @@
     $(document).ready(function () {
         initMap();
     });
-});
+})();
 
 
 
