@@ -1,6 +1,6 @@
 from odoo import http
-from odoo.http import request, route
 import json
+
 
 class your_class(http.Controller):
     @http.route('/marker_map', type='http', auth='public', website=True)
@@ -8,8 +8,9 @@ class your_class(http.Controller):
         return http.request.render(
             'website_marker_map.marker_map_page', {})
 
+
 class Example(http.Controller):
-    @route('/marker_map_api/example', auth='public')
+    @http.route('/marker_map_api/example', auth='public')
     def state_example_handler(self):
         map_data = {
             'settings': {
