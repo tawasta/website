@@ -1,7 +1,6 @@
 {
     'name': 'Website Top Menu Social Icons',
     'summary': 'Adds social links to web site top menu',
-    'description': '',
     'author': 'Oy Tawasta OS Technologies Ltd.',
     'license': 'AGPL-3',
     'website': 'http://www.tawasta.fi',
