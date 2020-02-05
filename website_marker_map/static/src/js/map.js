@@ -1,4 +1,4 @@
-/* Global: google:false */
+/*global google:false*/
 
 (function markerMap () {
     'use strict';
@@ -35,7 +35,7 @@
                 if (marker_data.show_infowindow === true) {
 
                     var infowindow = new google.maps.InfoWindow({
-                        content: marker_data.infowindow_text
+                        content: marker_data.infowindow_text,
                     });
 
                     marker.addListener('click', function () {
