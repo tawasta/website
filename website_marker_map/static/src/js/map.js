@@ -1,4 +1,4 @@
-/* global: google:false */
+/* Global: google:false */
 
 (function markerMap () {
     'use strict';
@@ -24,7 +24,8 @@
                 settings = parsed_data.settings;
             }
 
-            var map = new google.maps.Map(document.getElementById('marker_map'), settings);
+            var map = new google.maps.Map(
+                document.getElementById('marker_map'), settings);
 
             parsed_data.markers.forEach(function (marker_data) {
 
