@@ -41,7 +41,7 @@
                         infowindow.open(map, marker);
                     });
 
-                    if (marker_data.infowindow_open_start ==== true) {
+                    if (marker_data.infowindow_open_start === true) {
                         infowindow.open(map, marker);
                     }
                 }
