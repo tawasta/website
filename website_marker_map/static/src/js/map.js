@@ -26,12 +26,12 @@
 
             var map = new google.maps.Map(document.getElementById('marker_map'), settings);
 
-            data.markers.forEach(function (marker_data) {
+            parsed_data.markers.forEach(function (marker_data) {
 
                 marker_data.map = map;
                 var marker = new google.maps.Marker(marker_data);
 
-                if (marker_data.show_infowindow == true) {
+                if (marker_data.show_infowindow === true) {
 
                     var infowindow = new google.maps.InfoWindow({
                         content: marker_data.infowindow_text
@@ -41,7 +41,7 @@
                         infowindow.open(map, marker);
                     });
 
-                    if (marker_data.infowindow_open_start == true) {
+                    if (marker_data.infowindow_open_start ==== true) {
                         infowindow.open(map, marker);
                     }
                 }
@@ -54,7 +54,4 @@
     $(document).ready(function () {
         initMap();
     });
-})();
-
-
-
+}());
