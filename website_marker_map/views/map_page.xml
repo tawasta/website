@@ -9,7 +9,7 @@
                             <div class="pb0 col-lg-6">
                                 <div id="marker_map"></div>
                             </div>
-                            <div class="pb0 col-lg-6">
+                            <div id="map_ui" class="pb0 col-lg-6">
                             </div>
                         </div>
                     </div>
