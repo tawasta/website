@@ -1,5 +1,9 @@
 function initMap() {
-    $.get("/marker_map_api/" + window.location.hash.replace("#", ""), function(data){
+
+    var api_url = "/marker_map_api/" + window.location.hash.replace("#", "");
+
+    console.log(api_url);
+    $.get(api_url, function(data){
 
         data = JSON.parse(data);
 
