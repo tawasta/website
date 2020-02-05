@@ -3,7 +3,7 @@
     <data>
         <menuitem
             id="menu_visitor_gallery"
-            name="Image Bank"
+            name="Image Bankk"
             parent="website.menu_website_configuration"
             />
 

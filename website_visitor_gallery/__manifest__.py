@@ -2,13 +2,11 @@
     'name': "Website Visitor Gallery",
     'summary': """
 Allow website visitors to upload images to website visitor gallery.
-    """,
-    'description': """
 - Allow website visitors to upload pictures
 - Curate pictures before publishing
     """,
     'website': 'http://www.tawasta.fi',
-    'author': 'Tawasta',
+    'author': 'Oy Tawasta Technologies Ltd.',
     'license': 'AGPL-3',
     'category': 'Website',
     'version': '12.0.1.0.0',

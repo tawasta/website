@@ -2,7 +2,7 @@ from odoo import http
 import json
 
 
-class your_class(http.Controller):
+class MapPage(http.Controller):
     @http.route('/marker_map', type='http', auth='public', website=True)
     def show_custom_webpage(self, **kw):
         return http.request.render(
