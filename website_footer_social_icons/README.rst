@@ -2,11 +2,11 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=======================================
-Adds social media icons to the top menu
-=======================================
+=====================================
+Adds social media icons to the footer
+=====================================
 
-Adds social media icons to the top menu
+Adds social media icons to the footer
 
 
 Configuration
