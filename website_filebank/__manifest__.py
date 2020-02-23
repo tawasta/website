@@ -26,7 +26,7 @@
     "license": "AGPL-3",
     "category": "Website",
     "version": "12.0.1.0.0",
-    "depends": ["website_slides",],
+    "depends": ["website_slides"],
     "data": ["views/templates.xml", "views/slide_form.xml", "data/filebank.xml"],
     "demo": [],
 }
