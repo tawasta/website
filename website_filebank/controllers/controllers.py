@@ -20,7 +20,8 @@ class WebsiteFilebank(WebsiteSlides):
     def slide_download(self, slide, **kw):
         slide = slide.sudo()
         if slide.download_security == "public" or (
-            slide.download_security == "user" and request.env.user and request.env.user != request.website.user_id
+            slide.download_security == "user" and
+            request.env.user and request.env.user != request.website.user_id
         ):
             filecontent = base64.b64decode(slide.datas)
             disposition = "attachment; filename={}.{}".format(
