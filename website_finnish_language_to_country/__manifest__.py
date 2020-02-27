@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
@@ -20,18 +19,14 @@
 ##############################################################################
 
 {
-    'name': 'Country is Finland if Website Language is Finnish',
-    'summary': 'Country is Finland if Website Language is Finnish',
-    'version': '10.0.1.0.0',
-    'category': 'Website',
-    'website': 'https://tawasta.fi',
-    'author': 'Oy Tawasta Technologies Ltd.',
-    'license': 'AGPL-3',
-    'application': False,
-    'installable': True,
-    'depends': [
-        'website_portal',
-        'website_sale',
-        'website',
-    ],
+    "name": "Country is Finland if Website Language is Finnish",
+    "summary": "Country is Finland if Website Language is Finnish",
+    "version": "12.0.1.0.0",
+    "category": "Website",
+    "website": "https://tawasta.fi",
+    "author": "Tawasta",
+    "license": "AGPL-3",
+    "application": False,
+    "installable": True,
+    "depends": ["website_portal", "website_sale", "website"],
 }
