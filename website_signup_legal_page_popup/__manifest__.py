@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    'name': 'Webiste Signup Legal Page Pop-up',
+    'name': 'Website Signup Legal Page Pop-up',
     'summary': 'Links work as pop-ups',
     'version': '12.0.1.0.0',
     'category': 'Website',
