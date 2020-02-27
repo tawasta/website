@@ -28,5 +28,5 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["website_portal", "website_sale", "website"],
+    "depends": ["website_sale", "website"],
 }
