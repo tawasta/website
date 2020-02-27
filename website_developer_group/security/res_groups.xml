@@ -5,7 +5,7 @@
         <field name="group">website</field>
         <field name="name">Website Admin</field>
         <field name="category_id" ref="base.module_category_website"/>
-        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
     </record>
 
 </odoo>
