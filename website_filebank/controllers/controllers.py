@@ -21,7 +21,8 @@ class WebsiteFilebank(WebsiteSlides):
         slide = slide.sudo()
         if slide.download_security == "public" or (
             slide.download_security == "user" and
-            request.env.user and request.env.user != request.website.user_id
+            request.env.user and
+            request.env.user != request.website.user_id
         ):
             filecontent = base64.b64decode(slide.datas)
             disposition = "attachment; filename={}.{}".format(
@@ -69,7 +70,7 @@ class WebsiteFilebank(WebsiteSlides):
         # domain = request.website.website_domain()
         filebank_ids = [
             request.env.ref("website_filebank.filebank_public").id,
-            request.env.ref("website_filebank.filebank_partial").id,
+            # request.env.ref("website_filebank.filebank_partial").id
         ]
         channels = request.env["slide.channel"].search(
             [("id", "not in", filebank_ids)], order="sequence, id"
