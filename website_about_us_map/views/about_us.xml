@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="about_us_map" name="About Us Map" inherit_id="website.aboutus">
+        <xpath expr="//section[last()]" position="after">
+
+            <t
+                t-set="GMAPS_API_KEY"
+                t-value="request.env['res.config.settings'].sudo().search([('google_maps_api_key', '=like', '%')], limit=1).google_maps_api_key"/>
+
+            <t
+                t-set="COMPANY_ID"
+                t-value="request.env['res.config.settings'].sudo().search([('google_maps_api_key', '=like', '%')], limit=1).website_company_id"/>
+
+            <t
+                t-set="COMPANY_STREET"
+                t-value="request.env['res.company'].sudo().search([('id', '=', COMPANY_ID.id)], limit=1).street"/>
+
+            <t
+                t-set="COMPANY_CITY"
+                t-value="request.env['res.company'].sudo().search([('id', '=', COMPANY_ID.id)], limit=1).city"/>
+
+            <t
+                t-set="COMPANY_COUNTRY"
+                t-value="request.env['res.company'].sudo().search([('id', '=', COMPANY_ID.id)], limit=1).country_id.name"/>
+
+            <t t-if="GMAPS_API_KEY">
+                <section
+                    t-if="COMPANY_STREET"
+                    id="about_us_map"
+                    style="text-align: center;">
+                    <img
+                        class="img"
+                        alt="Google Maps"
+                        style="margin-left: auto; margin-right: auto;"
+                        t-attf-src="https://maps.googleapis.com/maps/api/staticmap?center={{COMPANY_STREET}}%2C+{{COMPANY_CITY}}%2C+{{COMPANY_COUNTRY}}&amp;sensor=false&amp;size=450x450&amp;zoom=17&amp;markers=color:red%7Clabel:Remoran%7C{{COMPANY_STREET}}&amp;key={{GMAPS_API_KEY}}"/>
+                </section>
+            </t>
+        </xpath>
+    </template>
+</odoo>
