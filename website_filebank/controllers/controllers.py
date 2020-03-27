@@ -46,7 +46,7 @@ class WebsiteFilebank(WebsiteSlides):
         # domain = request.website.website_domain()
         filebank_ids = [
             request.env.ref("website_filebank.filebank_public").id,
-            request.env.ref("website_filebank.filebank_partial").id,
+            # request.env.ref("website_filebank.filebank_partial").id,
         ]
         channels = request.env["slide.channel"].search(
             [("id", "in", filebank_ids)], order="sequence, id"
