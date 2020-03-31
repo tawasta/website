@@ -18,14 +18,13 @@
 #
 ##############################################################################
 {
-    "name": "Filebank",
-    "summary": "Bank for files",
-    "description": "",
+    "name": "Website Filebank",
+    "summary": "Extends Slides-module to better suite for all files",
     "author": "Tawasta",
     "website": "https://github.com/Tawasta/website",
     "license": "AGPL-3",
     "category": "Website",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.0.1",
     "depends": ["website_slides"],
     "data": ["views/templates.xml", "views/slide_form.xml", "data/filebank.xml"],
     "demo": [],

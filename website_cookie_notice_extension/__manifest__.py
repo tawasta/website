@@ -33,5 +33,6 @@
         "views/website.xml",
         "views/privacy_policy_template.xml",
         "data/website_cookie_data.xml",
+        "views/assets.xml",
     ],
 }
