@@ -1,52 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <template id="message" inherit_id="website_cookie_notice.message">
-            <xpath expr="//div[@id='website_cookie_notice']" position="inside">
-                <style type="text/css">
-                    #website_cookie_notice {
-                        position: fixed;
-                        bottom: 0;
-                        right: 0;
-                        left: 0;
-                        padding: 5px 0;
-                        background-color: rgb(35, 122, 252);
-                        color: #fff;
-                        opacity: 1;
-                        z-index: 9999;
-                    }
-                    #website_cookie_notice .col-sm-10 {
-                        padding: 10px;
-                    }
-                    #website_cookie_notice a {
-                        color: #fff;
-                        text-decoration: underline;
-                        padding-left: 20px;
-                    }
-                    #website_cookie_notice a.btn {
-                        color: #fff;
-                        border: 2px solid #fff;
-                        background-color: transparent;
-                        display: block;
-                        font-weight: 700;
-                        font-size: .9em;
-                        text-align: center;
-                        white-space: nowrap;
-                        text-decoration: none;
-                    }
-                </style>
-            </xpath>
+    <template id="message" inherit_id="website_cookie_notice.message">
 
-            <xpath expr="//div[@id='website_cookie_notice']/div/div/div[@class='col-sm-10']" position="replace">
-                <div class="col-sm-10">We use cookies in this website. By using this website, you are accepting those.<br /><a href="/privacy-policy">Privacy policy</a></div>
-            </xpath>
+        <xpath expr="//div[@id='website_cookie_notice']/div/div/div[@class='col-sm-10']" position="replace">
+            <div class="col-sm-10">We use cookies in this website. By using this website, you are accepting those.<br /><a href="/legal/privacy-policy">Privacy policy</a></div>
+        </xpath>
 
-            <xpath expr="//div[@id='website_cookie_notice']" position="attributes">
-                <attribute name="t-attf-style">#{request.env['ir.config_parameter'].sudo().get_param('website_cookie_notice_extension.icp_cookie_container_styles')}</attribute>
-            </xpath>
+        <xpath expr="//div[@id='website_cookie_notice']" position="attributes">
+            <attribute name="t-attf-style">#{request.env['ir.config_parameter'].sudo().get_param('website_cookie_notice_extension.icp_cookie_container_styles')}</attribute>
+        </xpath>
 
-            <xpath expr="//a[@class='btn btn-primary']" position="attributes">
-                <attribute name="t-attf-style">#{request.env['ir.config_parameter'].sudo().get_param('website_cookie_notice_extension.icp_cookie_btn_styles')}</attribute>
-            </xpath>
+        <xpath expr="//a[@class='btn btn-primary']" position="attributes">
+            <attribute name="t-attf-style">#{request.env['ir.config_parameter'].sudo().get_param('website_cookie_notice_extension.icp_cookie_btn_styles')}</attribute>
+        </xpath>
 
-        </template>
+    </template>
 </odoo>
