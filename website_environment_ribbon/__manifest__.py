@@ -1,6 +1,6 @@
 {
     "name": "Website Environment Ribbon",
-    "summary": "Show environment ribbon on website also",
+    "summary": "Show environment ribbon on website also. Only shows text 'TEST' on website side.",
     "description": "",
     "author": "Tawasta",
     "license": "AGPL-3",
