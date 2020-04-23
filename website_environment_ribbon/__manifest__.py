@@ -1,8 +1,7 @@
 {
-    "name": "website_gallery_mobile_fix",
-    "summary": "Fixes odoo website gallery mobile view",
-    "description": """
-        - Fix images having nospace between in gallery grid mode in mobile""",
+    "name": "Website Environment Ribbon",
+    "summary": "Show environment ribbon on website also",
+    "description": "",
     "author": "Tawasta",
     "license": "AGPL-3",
     "website": "http://www.tawasta.fi",
