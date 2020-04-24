@@ -19,7 +19,8 @@
 ##############################################################################
 {
     "name": "Website Environment Ribbon",
-    "summary": "Show environment ribbon on website also. Only shows text 'TEST' on website side.",
+    "summary": "Show environment ribbon on website also. "
+               "Only shows text 'TEST' on website side.",
     "author": "Tawasta",
     "license": "AGPL-3",
     "website": "https://github.com/Tawasta/website",
