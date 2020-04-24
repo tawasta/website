@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2018- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2020 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -17,17 +17,16 @@
 #    along with this program. If not, see http://www.gnu.org/licenses/agpl.html
 #
 ##############################################################################
-
 {
-    "name": "Website header language selector",
-    "summary": "Language selector for website header",
-    "version": "12.0.1.1.0",
-    "category": "Website",
-    "website": "https://github.com/Tawasta/website",
+    "name": "Website Environment Ribbon",
+    "summary": "Show environment ribbon on website also. "
+               "Only shows text 'TEST' on website side.",
     "author": "Tawasta",
     "license": "AGPL-3",
-    "application": False,
-    "installable": True,
-    "depends": ["website"],
-    "data": ["views/website_footer.xml", "views/website_header.xml"],
+    "website": "https://github.com/Tawasta/website",
+    "category": "Website",
+    "version": "12.0.1.0.0",
+    "depends": ["web", "website", "web_environment_ribbon"],
+    "data": ["views/assets_frontend.xml"],
+    "demo": [],
 }
