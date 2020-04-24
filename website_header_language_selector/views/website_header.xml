@@ -5,7 +5,7 @@
         <xpath expr="//header//ul[@id='top_menu']/li" position="before">
             <li class="nav-item dropdown" t-ignore="true">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                    <span><i class="fa fa-language"/></span>
+                    <span><i id="nav-selected-language" class="fa fa-language"/></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
                     <t t-foreach="languages" t-as="lg">
@@ -22,4 +22,12 @@
             </li>
         </xpath>
     </template>
+
+    <!-- Show language code in language selector -->
+    <template id="header-language-code" inherit_id="header" active="False" customize_show="True" name="Language selector: show code">
+        <xpath expr="//i[@id='nav-selected-language']" position="replace">
+            <span id="nav-selected-language" t-esc="request.httprequest.cookies.get('frontend_lang').upper()[0:2]" />
+        </xpath>
+    </template>
+
 </odoo>
