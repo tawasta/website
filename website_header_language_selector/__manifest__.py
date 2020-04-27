@@ -21,7 +21,7 @@
 {
     "name": "Website header language selector",
     "summary": "Language selector for website header",
-    "version": "12.0.1.1.1",
+    "version": "12.0.1.1.2",
     "category": "Website",
     "website": "https://github.com/Tawasta/website",
     "author": "Tawasta",

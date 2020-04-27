@@ -26,7 +26,7 @@
     <!-- Show language code in language selector -->
     <template id="header-language-code" inherit_id="header" active="False" customize_show="True" name="Language selector: show code">
         <xpath expr="//i[@id='nav-selected-language']" position="replace">
-            <span id="nav-selected-language" t-esc="request.httprequest.cookies and request.httprequest.cookies.get('frontend_lang').upper()[0:2] or 'EN'" />
+            <span id="nav-selected-language" t-esc="request.httprequest.cookies.get('frontend_lang') and request.httprequest.cookies.get('frontend_lang').upper()[0:2] or 'EN'" />
         </xpath>
     </template>
 
