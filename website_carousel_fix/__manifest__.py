@@ -19,8 +19,8 @@
 ##############################################################################
 
 {
-    "name": "Website Carousel_Mobile Fix",
-    "summary": "Fixes odoo website carousel mobile view",
+    "name": "Website Carousel Fix",
+    "summary": "Fixes odoo website carousel",
     "author": "Tawasta",
     "license": "AGPL-3",
     "website": "http://www.tawasta.fi",
