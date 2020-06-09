@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="platform_icons_website_layout"
+        name="platform_icons_website_layout"
+        inherit_id="website.layout">
+        <xpath expr="//t[@t-set='head_website'"
+            position="inside">
+            <!-- TODO -->
+        </xpath>
+
+    </template>
+</odoo>

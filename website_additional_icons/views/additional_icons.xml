@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="additional_icons_website_layout"
+        name="platform_icons_website_layout"
+        inherit_id="website.layout">
+        <xpath expr="//t[@t-set='head_website']/meta"
+            position="before">
+
+            <t t-set="website_instance"
+                t-value="request.env['website'].browse([website.id])"></t>
+
+            <!-- general -->
+            <t t-if="website_instance.favicon_svg">
+                <link rel="icon"
+                    type="image/svg+xml"
+                    sizes="any"
+                    t-att-href="'/web/image/website/%s/favicon_svg/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_16">
+                <link rel="icon"
+                    type="image/png"
+                    sizes="16x16"
+                    t-att-href="'/web/image/website/%s/favicon_16/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_32">
+                <link rel="icon"
+                    type="image/png"
+                    sizes="32x32"
+                    t-att-href="'/web/image/website/%s/favicon_32/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_thumbnail_150">
+                <link rel="thumbnail"
+                    content="'/web/image/website/%s/favicon_thumbnail/' % website.id"/>
+            </t>
+
+            <!-- Google -->
+            <t t-if="website_instance.favicon_48">
+                <link rel="icon"
+                    type="image/png"
+                    sizes="48x48"
+                    t-att-href="'/web/image/website/%s/favicon_48/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_96">
+                <link rel="icon"
+                    type="image/png"
+                    sizes="96x96"
+                    t-att-href="'/web/image/website/%s/favicon_96/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_144">
+                <link rel="icon"
+                    type="image/png"
+                    sizes="144x144"
+                    t-att-href="'/web/image/website/%s/favicon_144/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_192">
+                <link rel="icon"
+                    type="image/png"
+                    sizes="192x192"
+                    t-att-href="'/web/image/website/%s/favicon_192/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_256">
+                <link rel="icon"
+                    type="image/png"
+                    sizes="256x256"
+                    t-att-href="'/web/image/website/%s/favicon_256/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_384">
+                <link rel="icon"
+                    type="image/png"
+                    sizes="384x384"
+                    t-att-href="'/web/image/website/%s/favicon_384/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_512">
+                <link rel="icon"
+                    type="image/png"
+                    sizes="512x512"
+                    t-att-href="'/web/image/website/%s/favicon_512/' % website.id"/>
+            </t>
+
+            <!-- Microsoft -->
+            <t t-if="website_instance.favicon_ico">
+                <link rel="icon"
+                    type="image/vnd.microsoft.icon"
+                    t-att-href="'/web/image/website/%s/favicon_ico/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_ms_tile_126">
+                <meta name="msapplication-TileImage"
+                    t-att-content="'/web/image/website/%s/favicon_ms_tile_126/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_ms_tile_126">
+                <meta name="msapplication-TileImage"
+                    t-att-content="'/web/image/website/%s/favicon_ms_tile_126/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_ms_tile_144">
+                <meta name="msapplication-TileImage"
+                    t-att-content="'/web/image/website/%s/favicon_ms_tile_144/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_ms_tile_270">
+                <meta name="msapplication-TileImage"
+                    t-att-content="'/web/image/website/%s/favicon_ms_tile_270/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_ms_tile_558_270">
+                <meta name="msapplication-TileImage"
+                    t-att-content="'/web/image/website/%s/favicon_ms_tile_558_270/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_ms_tile_558">
+                <meta name="msapplication-TileImage"
+                    t-att-content="'/web/image/website/%s/favicon_ms_tile_558/' % website.id"/>
+            </t>
+
+            <!-- Apple -->
+            <t t-if="website_instance.favicon_safari_pinned_svg">
+                <link rel="mask-icon"
+                    t-att-href="'/web/image/website/%s/favicon_safari_pinned_svg/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_57">
+                <link rel="appple-touch-icon"
+                    sizes="57x57"
+                    t-att-href="'/web/image/website/%s/favicon_57/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_60">
+                <link rel="appple-touch-icon"
+                    sizes="60x60"
+                    t-att-href="'/web/image/website/%s/favicon_60/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_72">
+                <link rel="appple-touch-icon"
+                    sizes="72x72"
+                    t-att-href="'/web/image/website/%s/favicon_72/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_76">
+                <link rel="appple-touch-icon"
+                    sizes="76x76"
+                    t-att-href="'/web/image/website/%s/favicon_76/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_114">
+                <link rel="appple-touch-icon"
+                    sizes="114x114"
+                    t-att-href="'/web/image/website/%s/favicon_114/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_120">
+                <link rel="appple-touch-icon"
+                    sizes="120x120"
+                    t-att-href="'/web/image/website/%s/favicon_120/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_152">
+                <link rel="appple-touch-icon"
+                    sizes="152x152"
+                    t-att-href="'/web/image/website/%s/favicon_152/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_167">
+                <link rel="appple-touch-icon"
+                    sizes="167x167"
+                    t-att-href="'/web/image/website/%s/favicon_167/' % website.id"/>
+            </t>
+
+            <t t-if="website_instance.favicon_180">
+                <link rel="appple-touch-icon"
+                    sizes="180x180"
+                    t-att-href="'/web/image/website/%s/favicon_180/' % website.id"/>
+                <link rel="apple-touch-icon-precomposed"
+                    t-att-href="'/web/image/website/%s/favicon_180/' % website.id"/>
+            </t>
+
+            <!-- Core -->
+            <link rel="icon"
+                t-att-href="'/web/image/website/%s/favicon/' % website.id"/>
+        </xpath>
+    </template>
+</odoo>
