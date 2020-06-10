@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.additional.icons</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="100"/>
+        <field name="inherit_id" ref="website.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='domain_setting']//div[@class='content-group']"
+                position="inside">
+
+
+                <details>
+                    <summary>Additional Icons</summary>
+
+                    <div>
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_svg"/>
+                            <field name="favicon_svg"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_16"/>
+                            <field name="favicon_16"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_32"/>
+                            <field name="favicon_32"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <h3>
+                            Google
+                        </h3>
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_48"/>
+                            <field name="favicon_48"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_96"/>
+                            <field name="favicon_96"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_144"/>
+                            <field name="favicon_144"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_192"/>
+                            <field name="favicon_192"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_256"/>
+                            <field name="favicon_256"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_384"/>
+                            <field name="favicon_384"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_512"/>
+                            <field name="favicon_512"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_thumbnail_150"/>
+                            <field name="favicon_thumbnail_150"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <h3>
+                            Microsoft
+                        </h3>
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_ico"/>
+                            <field name="favicon_ico"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_ms_tile_126"/>
+                            <field name="favicon_ms_tile_126"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_ms_tile_144"/>
+                            <field name="favicon_ms_tile_144"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_ms_tile_270"/>
+                            <field name="favicon_ms_tile_270"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_ms_tile_558_270"/>
+                            <field name="favicon_ms_tile_558_270"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_ms_tile_558"/>
+                            <field name="favicon_ms_tile_558"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <h3>
+                            Apple
+                        </h3>
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_safari_pinned_svg"/>
+                            <field name="favicon_safari_pinned_svg"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_57"/>
+                            <field name="favicon_57"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_60"/>
+                            <field name="favicon_60"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_72"/>
+                            <field name="favicon_72"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_76"/>
+                            <field name="favicon_76"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_114"/>
+                            <field name="favicon_114"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_120"/>
+                            <field name="favicon_120"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_152"/>
+                            <field name="favicon_152"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_167"/>
+                            <field name="favicon_167"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-lg-3 o_light_label"
+                                for="favicon_180"/>
+                            <field name="favicon_180"
+                                widget="image"
+                                class="float-left oe_avatar"/>
+                        </div>
+                    </div>
+                </details>
+            </xpath>
+        </field>
+    </record>
+</odoo>
