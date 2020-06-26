@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="website_slick_carousel_assets"
-        name="website_slic_carousel_assets"
+        name="website_slick_carousel_assets"
         inherit_id="website.assets_frontend">
         <xpath expr="//link[last()]"
             position="after">
@@ -9,9 +9,14 @@
                 type="text/css"
                 href="/website_slick_carousel/static/src/css/slick.css"></link>
         </xpath>
+    </template>
 
-        <xpath expr="//script[last()]"
-            position="after">
+    <template id="website_slick_carousel_js_assets"
+        name="website_slick_carousels_js_assets"
+        inherit_id="web.layout">
+
+        <xpath expr="//body"
+            position="inside">
             <script src="/website_slick_carousel/static/src/js/slick.min.js">
             </script>
         </xpath>
