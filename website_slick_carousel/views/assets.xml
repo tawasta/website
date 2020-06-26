@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="website_slick_carousel_assets"
+        name="website_slic_carousel_assets"
+        inherit_id="website.assets_frontend">
+        <xpath expr="//link[last()]"
+            position="after">
+            <link rel="stylesheet"
+                type="text/css"
+                href="/website_slick_carousel/static/src/css/slick.css"></link>
+        </xpath>
+
+        <xpath expr="//script[last()]"
+            position="after">
+            <script src="/website_slick_carousel/static/src/js/slick.min.js">
+            </script>
+        </xpath>
+
+    </template>
+</odoo>
