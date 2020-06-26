@@ -8,6 +8,9 @@
             <link rel="stylesheet"
                 type="text/css"
                 href="/website_slick_carousel/static/src/css/slick.css"></link>
+            <link rel="stylesheet"
+                type="text/css"
+                href="/website_slick_carousel/static/src/css/slick-theme.css"></link>
         </xpath>
     </template>
 
