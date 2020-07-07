@@ -35,8 +35,8 @@
 
             <input
                 class="form-control col-md-10"
-                name="tags"
-                id="tags"
+                name="tags-search"
+                id="tags-search"
                 type="hidden"
                 t-att-value="last_chosen_tags">
             </input>
@@ -44,22 +44,6 @@
             <script type="text/javascript"
                 src="/website_slides_tags_search/static/src/js/tags.js">
             </script>
-
-            <!--
-            <div class="input-group pt8">
-                <label for="search_tags"
-                    class="col-form-label col-md-2">
-                    Tags:
-                </label>
-                <input
-                    class="form-control col-md-10"
-                    name="tags"
-                    id="tags"
-                    type="text"
-                    t-att-value="tags">
-                </input>
-            </div>
-            -->
         </xpath>
     </template>
 </odoo>
