@@ -2,14 +2,11 @@ from odoo import http
 from odoo.addons.website_slides.controllers.main import WebsiteSlides
 
 
-def slide_filter(response, tags):
+def slide_filter(response, filter_tags):
     # Remove any slides without any given tags
     def tag_filter(slide):
-        in_tag_ids = False
-        for tag in slide.tag_ids:
-            if tag.name in tags:
-                in_tag_ids = True
-        return in_tag_ids
+        slides_tags = slide.tag_ids.mapped("name")
+        return all(tag in slides_tags for tag in filter_tags)
 
     response.qcontext['slides'] = list(filter(
         tag_filter,
@@ -30,12 +27,8 @@ class SlidesSearchExtended(WebsiteSlides):
         if not search:
             search_tags = None
 
-        print("====")
-        print(search)
-        print("====")
-
         if search_tags:
             response.qcontext['last_chosen_tags'] = search_tags
-            response = slide_filter(response, search_tags)
+            response = slide_filter(response, search_tags.split(","))
 
         return response
