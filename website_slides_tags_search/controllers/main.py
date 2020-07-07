@@ -30,6 +30,10 @@ class SlidesSearchExtended(WebsiteSlides):
         if not search:
             search_tags = None
 
+        print("====")
+        print(search)
+        print("====")
+
         if search_tags:
             response.qcontext['last_chosen_tags'] = search_tags
             response = slide_filter(response, search_tags)
