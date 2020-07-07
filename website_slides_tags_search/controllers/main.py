@@ -25,10 +25,13 @@ class SlidesSearchExtended(WebsiteSlides):
 
         response = super(SlidesSearchExtended, self).channel(*args, **kw)
 
-        search_tags = kw.get('search-tags')
+        search_tags = kw.get('tags_search')
+        search = kw.get('search')
+        if not search:
+            search_tags = None
 
         if search_tags:
-            response.qcontext['last_chosen_tags'] = list(search_tags.split(","))
+            response.qcontext['last_chosen_tags'] = search_tags
             response = slide_filter(response, search_tags)
 
         return response
