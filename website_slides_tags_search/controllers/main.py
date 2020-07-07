@@ -20,42 +20,12 @@ def slide_filter(response, tags):
 
 
 class SlidesSearchExtended(WebsiteSlides):
-    @http.route(
-        [
-            '/slides/<model("slide.channel"):channel>',
-            '/slides/<model("slide.channel"):channel>/page/<int:page>',
-            '/slides/<model("slide.channel"):channel>/tag/<model("slide.tag"):tag>',
-            '/slides/<model("slide.channel"):channel>/tag/<model("slide.tag"):tag>/page/<int:page>',
-            '/slides/<model("slide.channel"):channel>/category/<model("slide.slide"):category>',
-            '/slides/<model("slide.channel"):channel>/category/<model("slide.slide"):category>/page/<int:page>'
-        ],
-        type='http',
-        auth="public",
-        website=True)
-    # sitemap=sitemap_slide)
-    def channel(self,
-                channel,
-                category=None,
-                tag=None,
-                page=1,
-                slide_type=None,
-                uncategorized=False,
-                sorting=None,
-                search=None,
-                search_tags=None,
-                **kw):
+    @http.route()
+    def channel(self, *args, **kw):
 
-        response = super(SlidesSearchExtended, self).channel(
-            channel,
-            category=category,
-            tag=tag,
-            page=page,
-            slide_type=slide_type,
-            uncategorized=uncategorized,
-            sorting=sorting,
-            search=search,
-            search_tags=search_tags,
-            **kw)
+        response = super(SlidesSearchExtended, self).channel(*args, **kw)
+
+        search_tags = kw.get('tags')
 
         if search_tags:
             response.qcontext['last_chosen_tags'] = list(search_tags.split(","))
