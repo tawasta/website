@@ -20,48 +20,18 @@ def slide_filter(response, tags):
 
 
 class SlidesSearchExtended(WebsiteSlides):
-    @http.route(
-        [
-            '/slides/<model("slide.channel"):channel>',
-            '/slides/<model("slide.channel"):channel>/page/<int:page>',
-            '/slides/<model("slide.channel"):channel>/tag/<model("slide.tag"):tag>',
-            '/slides/<model("slide.channel"):channel>/tag/<model("slide.tag"):tag>/page/<int:page>',
-            '/slides/<model("slide.channel"):channel>/category/<model("slide.slide"):category>',
-            '/slides/<model("slide.channel"):channel>/category/<model("slide.slide"):category>/page/<int:page>'
-        ],
-        type='http',
-        auth="public",
-        website=True)
-    # sitemap=sitemap_slide)
-    def channel(self,
-                channel,
-                category=None,
-                tag=None,
-                page=1,
-                slide_type=None,
-                uncategorized=False,
-                sorting=None,
-                search=None,
-                tags=None,
-                **kw):
+    @http.route()
+    def channel(self, *args, **kw):
 
-        response = super(SlidesSearchExtended, self).channel(
-            channel,
-            category=category,
-            tag=tag,
-            page=page,
-            slide_type=slide_type,
-            uncategorized=uncategorized,
-            sorting=sorting,
-            search=search,
-            tags=tags,
-            **kw)
+        response = super(SlidesSearchExtended, self).channel(*args, **kw)
 
-        if tags:
-            response.qcontext['last_chosen_tags'] = list(tags.split(","))
-            response = slide_filter(response, tags)
+        search_tags = kw.get('tags_search')
+        search = kw.get('search')
+        if not search:
+            search_tags = None
 
-        print("=====")
-        print(tags)
-        print("=====")
+        if search_tags:
+            response.qcontext['last_chosen_tags'] = search_tags
+            response = slide_filter(response, search_tags)
+
         return response

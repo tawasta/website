@@ -2,25 +2,30 @@
     <template id="about_us_map"
         name="About Us Map"
         inherit_id="website_slides.slides_channel_header">
+        <xpath expr="//div[@class='col-lg-4 col-md-12 col-12 pul-right mt16 mb8']//form//input[@name='search']"
+            position="attributes">
+            <attribute name="required"
+                value="True"></attribute>
+        </xpath>
         <xpath expr="//div[@class='col-lg-4 col-md-12 col-12 pul-right mt16 mb8']//form"
             position="inside">
 
             <t t-set="taglist"
-                t-value="request.env['slide.tag'].search([])"></t>
+                t-value="request.env['slide.tag'].sudo().search([])"></t>
 
             <div class="input-group pt8">
-                <label for="search_tags"
+                <label for="tags_select"
                     class="col-form-label col-md-2">
                     Tags:
                 </label>
                 <select
                     class="form-control"
-                    id="tags-select"
+                    id="tags_select"
                     multiple="multiple">
                     <t t-foreach="taglist"
                         t-as="tag">
                         <t t-if="last_chosen_tags and tag.name in last_chosen_tags">
-                            <option t-att-value="tag.name" selected="">
+                            <option t-att-value="tag.name" selected="selected">
                                 <t t-esc="tag.name"></t>
                             </option>
                         </t>
@@ -35,8 +40,8 @@
 
             <input
                 class="form-control col-md-10"
-                name="tags"
-                id="tags"
+                name="tags_search"
+                id="tags_search"
                 type="hidden"
                 t-att-value="last_chosen_tags">
             </input>
@@ -44,22 +49,6 @@
             <script type="text/javascript"
                 src="/website_slides_tags_search/static/src/js/tags.js">
             </script>
-
-            <!--
-            <div class="input-group pt8">
-                <label for="search_tags"
-                    class="col-form-label col-md-2">
-                    Tags:
-                </label>
-                <input
-                    class="form-control col-md-10"
-                    name="tags"
-                    id="tags"
-                    type="text"
-                    t-att-value="tags">
-                </input>
-            </div>
-            -->
         </xpath>
     </template>
 </odoo>
