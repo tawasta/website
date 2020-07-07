@@ -25,7 +25,7 @@ class SlidesSearchExtended(WebsiteSlides):
 
         response = super(SlidesSearchExtended, self).channel(*args, **kw)
 
-        search_tags = kw.get('tags')
+        search_tags = kw.get('search-tags')
 
         if search_tags:
             response.qcontext['last_chosen_tags'] = list(search_tags.split(","))
