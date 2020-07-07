@@ -10,7 +10,12 @@ odoo.define('website_slides_tags_search.multiple_select', function (require) {
         });
 
         $('#tags_select').on('change', function() {
-            $('#tags_search').val($('#tags_select').val().toString());
+            const newVal = $('#tags_select').val();
+            if(newVal) {
+                $('#tags_search').val(newVal.toString());
+            } else {
+                $('#tags_search').val("");
+            }
         });
     });
 });
