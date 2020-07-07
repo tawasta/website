@@ -42,7 +42,7 @@ class SlidesSearchExtended(WebsiteSlides):
                 uncategorized=False,
                 sorting=None,
                 search=None,
-                tags=None,
+                search_tags=None,
                 **kw):
 
         response = super(SlidesSearchExtended, self).channel(
@@ -54,14 +54,11 @@ class SlidesSearchExtended(WebsiteSlides):
             uncategorized=uncategorized,
             sorting=sorting,
             search=search,
-            tags=tags,
+            search_tags=search_tags,
             **kw)
 
-        if tags:
-            response.qcontext['last_chosen_tags'] = list(tags.split(","))
-            response = slide_filter(response, tags)
+        if search_tags:
+            response.qcontext['last_chosen_tags'] = list(search_tags.split(","))
+            response = slide_filter(response, search_tags)
 
-        print("=====")
-        print(tags)
-        print("=====")
         return response
