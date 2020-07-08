@@ -47,7 +47,7 @@
             </input>
 
             <script type="text/javascript"
-                src="/website_slides_tags_search/static/src/js/tags.js">
+                src="/website_slides_tags_search/static/src/js/tags.js?v1">
             </script>
         </xpath>
     </template>
