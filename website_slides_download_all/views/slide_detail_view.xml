@@ -4,7 +4,7 @@
         name="slide_detail_view_download_button"
         inherit_id="website_slides.slide_detail_view">
         <xpath expr="//div[@class='row'][2]/div[2]/div" position="before">
-            <div>
+            <div t-if="slide.slide_type != 'video'">
                 <a t-if="slide.download_security != 'none' and not is_embedded"
                     target="_top"
                     t-attf-href="/web/content?model=slide.slide&amp;field=datas&amp;filename_field=name&amp;id={{ slide.id }}&amp;download=1"
