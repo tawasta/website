@@ -18,8 +18,8 @@
 #
 ##############################################################################
 {
-    "name": "Allow disabling menu items",
-    "summary": "Allow disabling menu items",
+    "name": "Slides - Allow re-uploading file",
+    "summary": "Re-upload slide file from backend",
     "version": "12.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/Tawasta/website",
@@ -28,7 +28,7 @@
     "application": False,
     "installable": True,
     "external_dependencies": {"python": [], "bin": []},
-    "depends": ["website"],
-    "data": ["views/website_menu.xml"],
+    "depends": ["website_slides"],
+    "data": ["views/slide.xml"],
     "demo": [],
 }
