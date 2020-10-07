@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_translation_form" model="ir.ui.view">
+        <field name="name">Translation form product</field>
+        <field name="model">ir.translation</field>
+        <field name="inherit_id" ref="base.view_translation_form"/>
+        <field name="arch" type="xml">
+            <field name="res_id" position="after">
+                <field name="product_template_id" attrs="{'invisible': [('product_template_id', '=', False)]}" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_translation_tree" model="ir.ui.view">
+        <field name="model">ir.translation</field>
+        <field name="arch" type="xml">
+            <tree string="Translations" editable="top">
+                <field name="product_template_id"/>
+                <field name="source"/>
+                <field name="value"/>
+                <field name="name" invisible="1"/>
+                <field name="lang"/>
+                <field name="type" invisible="1"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_website_translations" model="ir.actions.act_window">
+        <field name="name">Translations</field>
+        <field name="res_model">ir.translation</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('name', 'in', ['ir.ui.view,arch_db', 'product.template,website_description']),('type', 'in', ['model', 'model_terms']), ('source', '!=', '')]</field>
+        <field name="context">{}</field>
+        <field name="view_id" ref="view_translation_tree"/>
+    </record>
+
+    <menuitem id="website_translations"
+        name="Translations"
+        action="action_website_translations"
+        parent="website.menu_website_configuration"/>
+
+</odoo>
