@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="slide_detail_view"
+        name="Slides website description"
+        inherit_id="website_slides.slide_detail_view">
+
+        <xpath expr="//div[@t-field='slide.description']" position="after">
+            <div t-field="slide.website_description" itemprop="description"  class="oe_structure mt16 slide-description"/>
+        </xpath>
+    </template>
+</odoo>

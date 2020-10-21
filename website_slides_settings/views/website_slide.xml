@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Hide "Share"-tab -->
+    <template id="slide_detail_view_hide_share"
+              inherit_id="website_slides.slide_detail_view"
+              active="False"
+              customize_show="True"
+              name="Hide 'Share'-tab">
+
+        <xpath expr="//a[@href='#share']/.." position="replace" />
+    </template>
+
+    <!-- Hide "Comments"-tab -->
+    <template id="slide_detail_view_hide_comments"
+              inherit_id="website_slides.slide_detail_view"
+              active="False"
+              customize_show="True"
+              name="Hide 'Comments'-tab">
+
+        <xpath expr="//a[@href='#discuss']/.." position="replace" />
+    </template>
+
+    <!-- Hide "Transcript"-tab -->
+    <template id="slide_detail_view_hide_transcript"
+              inherit_id="website_slides.slide_detail_view"
+              active="False"
+              customize_show="True"
+              name="Hide 'Transcript'-tab">
+
+        <xpath expr="//a[@href='#transcript']/.." position="replace" />
+    </template>
+
+    <!-- Hide "Statistic"-tab -->
+    <template id="slide_detail_view_hide_statistic"
+              inherit_id="website_slides.slide_detail_view"
+              active="False"
+              customize_show="True"
+              name="Hide 'Statistic'-tab">
+
+        <xpath expr="//a[@href='#statistic']/.." position="replace" />
+    </template>
+
+</odoo>
