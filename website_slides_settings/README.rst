@@ -2,19 +2,16 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-===========================
-Slides - Hide frontend tabs
-===========================
+==========================
+Slides - Frontend settings
+==========================
 
-Allow hiding tabs (share, comments, transcript, statistics)
-
-Configuration
-=============
-\-
+- Allow hiding tabs (share, comments, transcript, statistics)
+- Allow moving the right column after the left
 
 Usage
 =====
-\-
+Go to slides in frontend and hide elements from "Customize"-menu
 
 Known issues / Roadmap
 ======================

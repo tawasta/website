@@ -18,9 +18,9 @@
 #
 ##############################################################################
 {
-    "name": "Slides - Hide frontend tabs",
+    "name": "Slides - Frontend settings",
     "summary": "Allow hiding tabs (share, comments, transcript, statistics)",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.1.0",
     "category": "Website",
     "website": "https://github.com/Tawasta/website",
     "author": "Tawasta",
