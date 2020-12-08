@@ -11,7 +11,7 @@
     "author": "Tawasta",
     "license": "AGPL-3",
     "category": "Website",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.0.1",
     "depends": ["website", "base_automation", "website_crm"],
     "data": ["data/email_template.xml", "data/automation_rule.xml"],
     "demo": [],
