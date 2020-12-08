@@ -20,7 +20,7 @@
 {
     "name": "Slides - Allow re-uploading file",
     "summary": "Re-upload slide file from backend",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.1.0",
     "category": "Website",
     "website": "https://github.com/Tawasta/website",
     "author": "Tawasta",
