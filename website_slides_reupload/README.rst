@@ -16,10 +16,6 @@ Usage
 =====
 \-
 
-Known issues / Roadmap
-======================
-- This will r
-
 Credits
 =======
 
