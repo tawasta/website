@@ -3,7 +3,7 @@
     <template id="slides_grid_view" inherit_id="website_slides.slides_grid_view">
 
         <xpath expr="//div[@class='row']" position="replace">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-12 mb16">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-12 mb16 row">
                 <div class="col-xl-3 col-lg-4 col-md-6 col-12 mt16 mb16" t-foreach="slides" t-as="slide">
                     <div class="card card-body">
                         <a t-attf-href="/slides/slide/#{slug(slide)}">
