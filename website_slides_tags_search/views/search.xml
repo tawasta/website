@@ -14,10 +14,12 @@
                 t-value="request.env['slide.tag'].sudo().search([])"></t>
 
             <div class="input-group pt8">
+                <!--
                 <label for="tags_select"
                     class="col-form-label col-md-2">
                     Tags:
                 </label>
+                -->
                 <select
                     class="form-control"
                     id="tags_select"
