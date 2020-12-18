@@ -31,4 +31,8 @@ class SlidesSearchExtended(WebsiteSlides):
             response.qcontext["last_chosen_tags"] = search_tags
             response = slide_filter(response, search_tags.split(","))
 
+        print(args)
+        print(kw)
+        print(response.qcontext)
+
         return response
