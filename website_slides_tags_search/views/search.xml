@@ -7,6 +7,11 @@
             <attribute name="required"
                 value="True"></attribute>
         </xpath>
+
+        <xpath expr="//div[@t-if='not search']" position="attributes">
+            <attribute name="t-if">not search and not last_chosen_tags</attribute>
+        </xpath>
+
         <xpath expr="//div[@class='col-lg-4 col-md-12 col-12 pul-right mt16 mb8']//form"
             position="inside">
 
@@ -49,7 +54,7 @@
             </input>
 
             <script type="text/javascript"
-                src="/website_slides_tags_search/static/src/js/tags.js?v1">
+                src="/website_slides_tags_search/static/src/js/tags.js?v101">
             </script>
         </xpath>
     </template>
