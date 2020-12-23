@@ -7,33 +7,30 @@
             <attribute name="required"
                 value="True"></attribute>
         </xpath>
+
+        <xpath expr="//div[@t-if='not search']" position="attributes">
+            <attribute name="t-if">not search and not tag_ids</attribute>
+        </xpath>
+
         <xpath expr="//div[@class='col-lg-4 col-md-12 col-12 pul-right mt16 mb8']//form"
             position="inside">
 
-            <t t-set="taglist"
-                t-value="request.env['slide.tag'].sudo().search([])"></t>
-
             <div class="input-group pt8">
+                <!--
                 <label for="tags_select"
                     class="col-form-label col-md-2">
                     Tags:
                 </label>
+                -->
                 <select
                     class="form-control"
                     id="tags_select"
                     multiple="multiple">
-                    <t t-foreach="taglist"
+                    <t t-foreach="request.env['slide.tag'].sudo().search([])"
                         t-as="tag">
-                        <t t-if="last_chosen_tags and tag.name in last_chosen_tags">
-                            <option t-att-value="tag.name" selected="selected">
-                                <t t-esc="tag.name"></t>
-                            </option>
-                        </t>
-                        <t t-else="">
-                            <option t-att-value="tag.name">
-                                <t t-esc="tag.name"></t>
-                            </option>
-                        </t>
+                        <option t-att-value="tag.id" t-att-tags="tag_ids" t-att-tag="tag" t-att-selected="tag_ids and tag in tag_ids">
+                            <t t-esc="tag.name" />
+                        </option>
                     </t>
                 </select>
             </div>
@@ -43,12 +40,13 @@
                 name="tags_search"
                 id="tags_search"
                 type="hidden"
-                t-att-value="last_chosen_tags">
+                t-att-value="tags_search">
             </input>
 
             <script type="text/javascript"
-                src="/website_slides_tags_search/static/src/js/tags.js?v1">
+                src="/website_slides_tags_search/static/src/js/tags.js?v101">
             </script>
         </xpath>
     </template>
+
 </odoo>

@@ -2,11 +2,11 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-================================
-Slides - Allow re-uploading file
-================================
+=====================
+Website Slides search
+=====================
 
-Re-upload slide file from backend
+Fix search result template structure
 
 Configuration
 =============
@@ -16,13 +16,17 @@ Usage
 =====
 \-
 
+Known issues / Roadmap
+======================
+\-
+
 Credits
 =======
 
 Contributors
 ------------
 
-* Jarmo Kortetjärvi <jarmo.kortetjarvi@tawasta.fi>
+* Valtteri Lattu <valtteri.lattu@tawasta.fi>
 
 Maintainer
 ----------

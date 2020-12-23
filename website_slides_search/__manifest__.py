@@ -17,17 +17,18 @@
 #    along with this program. If not, see http://www.gnu.org/licenses/agpl.html
 #
 ##############################################################################
-
 {
-    "name": "Website Slides - Tag Search",
-    "summary": "Allow searching slides by tags",
-    "version": "12.0.1.2.0",
+    "name": "Website Slides Search",
+    "summary": "Website Slides Search",
+    "version": "12.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/Tawasta/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["website", "website_slides"],
-    "data": ["views/search.xml"],
+    "external_dependencies": {"python": [], "bin": []},
+    "depends": ["website_slides"],
+    "data": ["views/website_slide.xml"],
+    "demo": [],
 }

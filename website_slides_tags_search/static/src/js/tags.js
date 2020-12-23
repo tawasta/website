@@ -16,6 +16,9 @@ odoo.define('website_slides_tags_search.multiple_select', function (require) {
             } else {
                 $('#tags_search').val("");
             }
+
+            // Auto-submit search on tag change
+            $(this).closest('form').submit();
         });
     });
 });
