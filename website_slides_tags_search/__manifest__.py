@@ -21,7 +21,7 @@
 {
     "name": "Website Slides - Tag Search",
     "summary": "Allow searching slides by tags",
-    "version": "12.0.1.1.1",
+    "version": "12.0.1.2.0",
     "category": "Website",
     "website": "https://github.com/Tawasta/website",
     "author": "Tawasta",
