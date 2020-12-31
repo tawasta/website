@@ -18,7 +18,8 @@ Usage
 
 Known issues / Roadmap
 ======================
-\-
+This overrides the whole channel route, so it is not compatible with other
+changes to the channel controller
 
 Credits
 =======
