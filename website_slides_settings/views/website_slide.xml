@@ -11,6 +11,26 @@
         <xpath expr="//a[@href='#share']/.." position="replace" />
     </template>
 
+    <!-- Hide subscription -->
+    <template id="slide_detail_view_hide_field"
+              inherit_id="website_slides.opt_subscription_on_channels"
+              active="False"
+              customize_show="True"
+              name="Hide 'Subscription'-tab">
+
+        <xpath expr="//t[@t-if='channel.can_see_full']" position="replace" />
+    </template>
+
+    <!-- Hide subscription -->
+    <template id="slide_detail_view_hide_detail_subscription"
+              inherit_id="website_slides.slide_detail_view"
+              active="False"
+              customize_show="True"
+              name="Hide 'Detail view subscription'-tab">
+
+        <xpath expr="//t[@t-call='website_mail.follow']" position="replace" />
+    </template>
+
     <!-- Hide "Comments"-tab -->
     <template id="slide_detail_view_hide_comments"
               inherit_id="website_slides.slide_detail_view"
