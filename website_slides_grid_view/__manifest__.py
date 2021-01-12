@@ -28,7 +28,7 @@
     "application": False,
     "installable": True,
     "external_dependencies": {"python": [], "bin": []},
-    "depends": ["website_slides_search"],
+    "depends": ["website_slides"],
     "data": ["views/website_slide.xml"],
     "demo": [],
 }
