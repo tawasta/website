@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="slides_grid_view" inherit_id="website_slides_search.slides_grid_view">
+        <xpath expr="//div[@class='text-muted clearfix']" position="replace">
+            <div class="text-muted clearfix">
+                <small class="float-left"><t t-esc="slide.total_views"/> Views</small>
+                <small class="float-right"><timeago class="timeago" t-att-datetime="slide.date_published"></timeago></small>
+            </div>
+        </xpath>
+    </template>
+</odoo>
