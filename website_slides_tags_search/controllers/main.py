@@ -1,5 +1,5 @@
 import werkzeug
-from odoo import http
+from odoo import http, _
 from odoo.http import request
 from odoo.addons.website_slides.controllers.main import WebsiteSlides
 
