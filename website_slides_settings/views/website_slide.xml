@@ -84,6 +84,16 @@
         <xpath expr="//a[@href='#statistic']/.." position="replace" />
     </template>
 
+    <!-- Hide "Social icon on promote box"-tab -->
+    <template id="slide_detail_view_hide_social_icon_box"
+              inherit_id="website_slides.home"
+              active="False"
+              customize_show="True"
+              name="Hide Social icons on promote box">
+
+        <xpath expr="//p[@class='row mt8']" position="replace" />
+    </template>
+
     <!-- Right column to after the left column -->
     <template id="slide_detail_view_right_column_to_down"
               inherit_id="website_slides.slide_detail_view"
