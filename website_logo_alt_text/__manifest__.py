@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Tawasta
-#    Copyright 2020- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
+#    Copyright 2021- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,9 +21,9 @@
 {
     "name": "Website Logo Alt Text",
     "summary": """
-Sets website logo alt text to be '<company name> logo'
+Sets website logo alt text to be 'Logo of <website name>'
     """,
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.1.0",
     "category": "Website",
     "website": "http://www.tawasta.fi",
     "author": "Tawasta",
@@ -31,7 +31,7 @@ Sets website logo alt text to be '<company name> logo'
     "application": False,
     "installable": True,
     "external_dependencies": {"python": [], "bin": []},
-    "depends": ["website"],
+    "depends": ["website", "website_logo"],
     "data": ["views/layout_logo_show.xml"],
     "demo": [],
 }
