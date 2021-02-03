@@ -20,7 +20,7 @@
 {
     "name": "Slides - Allow re-uploading file",
     "summary": "Re-upload slide file from backend",
-    "version": "12.0.1.1.0",
+    "version": "12.0.1.2.0",
     "category": "Website",
     "website": "https://github.com/Tawasta/website",
     "author": "Tawasta",
@@ -29,6 +29,6 @@
     "installable": True,
     "external_dependencies": {"python": [], "bin": []},
     "depends": ["website_slides"],
-    "data": ["views/slide.xml"],
+    "data": ["views/slide_detail_view.xml", "views/slide.xml"],
     "demo": [],
 }
