@@ -8,7 +8,7 @@
         <xpath expr="//h4[@t-field='slide.name']/.." position="after">
             <div t-if="download_only" class="row mb32">
                 <div class="col-6">
-                    <a class="btn btn-primary" t-attf-href="/web/content?model=slide.slide&amp;field=datas&amp;filename_field=datas_filename&amp;id={{ slide.id }}&amp;download=1"><i class="fa fa-download" /> Download <span t-esc="slide.datas_filename or ''" /></a>
+                    <a class="btn btn-info" t-attf-href="/web/content?model=slide.slide&amp;field=datas&amp;filename_field=datas_filename&amp;id={{ slide.id }}&amp;download=1"><i class="fa fa-download" /> Download <span t-esc="slide.datas_filename or ''" /></a>
                 </div>
                 <div class="col-6">
 
