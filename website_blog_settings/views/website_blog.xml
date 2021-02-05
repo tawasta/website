@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <!-- Hide blog subtitle -->
+  <template id="blog_post_short_hide_subtitle" inherit_id="website_blog.blog_post_short" active="False" customize_show="True" name="Hide blog subtitle">
+    <xpath expr="//h3[@class='text-muted'][@t-field='blog.subtitle']" position="replace" />
+  </template>
+
+  <!-- Hide social media links -->
+  <template id="blog_post_short_hide_social" inherit_id="website_blog.blog_post_short" active="False" customize_show="True" name="Hide social media links">
+
+    <xpath expr="//div[@class='o_sharing_links']//a[@class='fa fa-twitter-square o_twitter']" position="replace" />
+    <xpath expr="//div[@class='o_sharing_links']//a[@class='fa fa-facebook-square o_facebook']" position="replace" />
+    <xpath expr="//div[@class='o_sharing_links']//a[@class='fa fa-linkedin-square o_linkedin']" position="replace" />
+    <xpath expr="//div[@class='o_sharing_links']//a[@class='fa fa-google-plus-square o_google']" position="replace" />
+  </template>
+
+  <!-- Hide social media links -->
+  <template id="blog_post_complete_hide_social" inherit_id="website_blog.blog_post_complete" active="False" customize_show="True" name="Hide social media links">
+    <xpath expr="//div[@class='o_blog_post_complete o_sharing_links']//a[@id='o_twitter_complete']" position="replace" />
+    <xpath expr="//div[@class='o_blog_post_complete o_sharing_links']//a[@id='o_facebook_complete']" position="replace" />
+    <xpath expr="//div[@class='o_blog_post_complete o_sharing_links']//a[@id='o_linkedin_complete']" position="replace" />
+    <xpath expr="//div[@class='o_blog_post_complete o_sharing_links']//a[@id='o_google_complete']" position="replace" />
+  </template>
+</odoo>
