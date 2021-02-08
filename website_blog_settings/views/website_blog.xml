@@ -16,9 +16,6 @@
 
   <!-- Hide social media links -->
   <template id="blog_post_complete_hide_social" inherit_id="website_blog.blog_post_complete" active="False" customize_show="True" name="Hide social media links">
-    <xpath expr="//div[@class='o_blog_post_complete o_sharing_links']//a[@id='o_twitter_complete']" position="replace" />
-    <xpath expr="//div[@class='o_blog_post_complete o_sharing_links']//a[@id='o_facebook_complete']" position="replace" />
-    <xpath expr="//div[@class='o_blog_post_complete o_sharing_links']//a[@id='o_linkedin_complete']" position="replace" />
-    <xpath expr="//div[@class='o_blog_post_complete o_sharing_links']//a[@id='o_google_complete']" position="replace" />
+    <xpath expr="//div[@class='o_blog_post_complete o_sharing_links']" position="replace" />
   </template>
 </odoo>
