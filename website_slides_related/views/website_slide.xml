@@ -7,5 +7,13 @@
       </small>
     </xpath>
   </template>
-</odoo>
 
+  <template id="slide_detail_view_fix_related" inherit_id="website_slides.slide_detail_view">
+    <xpath expr="//li[@class='nav-item']//a[@href='#related']" position="attributes">
+      <attribute name="class">nav-link active show</attribute>
+    </xpath>
+    <xpath expr="//li[@class='nav-item']//a[@href='#most_viewed']" position="attributes">
+      <attribute name="class">nav-link</attribute>
+    </xpath>
+  </template>
+</odoo>
