@@ -20,7 +20,7 @@
 {
     "name": "Website Slides Related",
     "summary": "Website Slides Related",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.0.1",
     "category": "Website",
     "website": "https://github.com/Tawasta/website",
     "author": "Tawasta",
