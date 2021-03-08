@@ -39,11 +39,7 @@ class IrTranslation(models.Model):
         for record in self:
             if record.type == "model_terms" and not record.module:
                 view = view_model.search(
-                    [
-                        ("id", "=", record.res_id),
-                        ("type", "=", "qweb"),
-                        ("first_page_id", "!=", False),
-                    ]
+                    [("id", "=", record.res_id), ("type", "=", "qweb"),]
                 )
 
                 if view and len(view) == 1:
