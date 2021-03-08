@@ -47,6 +47,8 @@ class IrTranslation(models.Model):
                 )
 
                 if view and len(view) == 1:
-                    record.website_page_id = view.first_page_id.id
+                    record.first_page_id = self.env["website.page"].search(
+                        [("view_id", "=", view.id)], limit=1
+                    )
             else:
                 record.website_page_id = False
