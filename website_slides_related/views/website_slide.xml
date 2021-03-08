@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <template id="related_remove_views_and_modify_date" inherit_id="website_slides.related_slides">
-        <xpath expr="//small[@class='text-muted']" position="replace">
-            <small class="text-muted">
-                <timeago class="timeago" t-att-datetime="slide.date_published"></timeago>
-            </small>
-        </xpath>
-    </template>
+  <template id="related_remove_views_and_modify_date" inherit_id="website_slides.related_slides">
+    <xpath expr="//small[@class='text-muted']" position="replace">
+      <small class="text-muted">
+        <timeago class="timeago" t-att-datetime="slide.date_published"></timeago>
+      </small>
+    </xpath>
+  </template>
+
+  <template id="slide_detail_view_fix_related" inherit_id="website_slides.slide_detail_view">
+    <xpath expr="//li[@class='nav-item']//a[@href='#related']" position="attributes">
+      <attribute name="class">nav-link active show</attribute>
+    </xpath>
+    <xpath expr="//li[@class='nav-item']//a[@href='#most_viewed']" position="attributes">
+      <attribute name="class">nav-link</attribute>
+    </xpath>
+  </template>
 </odoo>

@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Tawasta
-#    Copyright 2020 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2021- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,17 +18,15 @@
 #
 ##############################################################################
 {
-    "name": "Website Slides Related",
-    "summary": "Website Slides Related",
-    "version": "12.0.1.0.1",
+    "name": "Blog - Frontend settings",
+    "summary": "Allow hiding elements",
+    "version": "12.0.1.0.2",
     "category": "Website",
     "website": "https://github.com/Tawasta/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "external_dependencies": {"python": [], "bin": []},
-    "depends": ["website_slides"],
-    "data": ["views/website_slide.xml"],
-    "demo": [],
+    "depends": ["website_blog"],
+    "data": ["views/website_blog.xml"],
 }

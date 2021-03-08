@@ -2,9 +2,11 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-======================
-Website Slides Related
-======================
+=================
+Website hide info
+=================
+
+Hide website info page "/website/info"
 
 
 Configuration
@@ -26,13 +28,12 @@ Contributors
 ------------
 
 * Valtteri Lattu <valtteri.lattu@tawasta.fi>
-* Miika Nissi <miika.nissi@tawasta.fi>
 
 Maintainer
 ----------
 
-.. image:: https://tawasta.fi/templates/tawastrap/images/logo.png
+.. image:: http://tawasta.fi/templates/tawastrap/images/logo.png
    :alt: Oy Tawasta OS Technologies Ltd.
-   :target: https://tawasta.fi/
+   :target: http://tawasta.fi/
 
 This module is maintained by Oy Tawasta OS Technologies Ltd.

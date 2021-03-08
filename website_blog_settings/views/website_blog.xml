@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <!-- Hide blog subtitle -->
+  <template id="blog_post_short_hide_subtitle" inherit_id="website_blog.blog_post_short" active="False" customize_show="True" name="Hide blog subtitle">
+    <xpath expr="//h3[@class='text-muted'][@t-field='blog.subtitle']" position="replace" />
+  </template>
+
+  <!-- Hide social media links -->
+  <template id="blog_post_short_hide_social" inherit_id="website_blog.blog_post_short" active="False" customize_show="True" name="Hide social media links">
+
+    <xpath expr="//div[@class='o_sharing_links']//a[@class='fa fa-twitter-square o_twitter']" position="replace" />
+    <xpath expr="//div[@class='o_sharing_links']//a[@class='fa fa-facebook-square o_facebook']" position="replace" />
+    <xpath expr="//div[@class='o_sharing_links']//a[@class='fa fa-linkedin-square o_linkedin']" position="replace" />
+    <xpath expr="//div[@class='o_sharing_links']//a[@class='fa fa-google-plus-square o_google']" position="replace" />
+  </template>
+
+  <!-- Hide social media links -->
+  <template id="blog_post_complete_hide_social" inherit_id="website_blog.blog_post_complete" active="False" customize_show="True" name="Hide social media links">
+    <xpath expr="//div[@class='o_blog_post_complete o_sharing_links']" position="replace" />
+  </template>
+
+  <!-- Add read more button -->
+  <template id="blog_post_short_add_read_more" inherit_id="website_blog.blog_post_short" active="False" customize_show="True" name="Add read more button">
+    <xpath expr="//div[@t-field='blog_post.teaser']" position="after">
+      <div class="float-right">
+        <a t-attf-href="/blog/#{ slug(blog_post.blog_id) }/post/#{ slug(blog_post) }" class="btn btn-primary o_default_snippet_text">
+          Read more
+        </a>
+      </div>
+    </xpath>
+  </template>
+</odoo>

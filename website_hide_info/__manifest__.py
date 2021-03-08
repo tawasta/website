@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Tawasta
-#    Copyright 2020 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2018 Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -17,18 +17,21 @@
 #    along with this program. If not, see http://www.gnu.org/licenses/agpl.html
 #
 ##############################################################################
+
 {
-    "name": "Website Slides Related",
-    "summary": "Website Slides Related",
-    "version": "12.0.1.0.1",
+    "name": "Website hide info",
+    "summary": """
+    Hide info page
+    """,
+    "version": "12.0.1.0.0",
     "category": "Website",
-    "website": "https://github.com/Tawasta/website",
+    "website": "http://www.tawasta.fi",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
     "external_dependencies": {"python": [], "bin": []},
-    "depends": ["website_slides"],
-    "data": ["views/website_slide.xml"],
+    "depends": ["website"],
+    "data": [],
     "demo": [],
 }

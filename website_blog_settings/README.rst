@@ -2,18 +2,16 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-======================
-Website Slides Related
-======================
+========================
+Blog - Frontend settings
+========================
 
-
-Configuration
-=============
-\-
+- Allows hiding social media links
+- Allows hiding subheading for a blog
 
 Usage
 =====
-\-
+Go to blogs in frontend and hide elements from "Customize"-menu
 
 Known issues / Roadmap
 ======================
@@ -25,7 +23,6 @@ Credits
 Contributors
 ------------
 
-* Valtteri Lattu <valtteri.lattu@tawasta.fi>
 * Miika Nissi <miika.nissi@tawasta.fi>
 
 Maintainer
