@@ -21,7 +21,7 @@
 {
     "name": "Website translations list",
     "summary": "Website translations in backend",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.1.0",
     "category": "Website",
     "website": "https://github.com/Tawasta/website",
     "author": "Tawasta",
