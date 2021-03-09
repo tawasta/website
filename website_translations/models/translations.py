@@ -18,6 +18,7 @@ class IrTranslation(models.Model):
         compute="_compute_website_page_id",
         store=True,
     )
+    website_page_updated = fields.Datetime(string="Website page updated")
 
     def _compute_product_template_id(self):
         product_template = self.env["product.template"]
@@ -37,14 +38,18 @@ class IrTranslation(models.Model):
     def _compute_website_page_id(self):
         view_model = self.env["ir.ui.view"]
         for record in self:
-            if record.type == "model_terms" and not record.module:
+            website_page_id = False
+            if record.type == "model_terms" and record.name == "ir.ui.view,arch_db":
                 view = view_model.search(
-                    [("id", "=", record.res_id), ("type", "=", "qweb"),]
+                    [("id", "=", record.res_id), ("type", "=", "qweb")]
                 )
 
                 if view and len(view) == 1:
-                    record.first_page_id = self.env["website.page"].search(
+                    first_page = self.env["website.page"].search(
                         [("view_id", "=", view.id)], limit=1
                     )
-            else:
-                record.website_page_id = False
+                    if first_page:
+                        website_page_id = first_page.id
+
+            record.website_page_updated = fields.Datetime.now()
+            record.website_page_id = website_page_id
