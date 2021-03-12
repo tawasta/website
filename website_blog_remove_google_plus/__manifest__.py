@@ -1,7 +1,7 @@
 ##############################################################################
 #
-#    Author: Tawasta
-#    Copyright 2021- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Author: Oy Tawasta OS Technologies Ltd.
+#    Copyright 2021- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -17,10 +17,11 @@
 #    along with this program. If not, see http://www.gnu.org/licenses/agpl.html
 #
 ##############################################################################
+
 {
-    "name": "Blog - Frontend settings",
-    "summary": "Allow hiding elements",
-    "version": "12.0.1.0.2",
+    "name": "Website Blog Remove Google Plus",
+    "summary": "Remove obsolete Google Plus share button.",
+    "version": "12.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/Tawasta/website",
     "author": "Tawasta",
@@ -28,10 +29,9 @@
     "application": False,
     "installable": True,
     "depends": [
-        "website_blog",
-        "website_blog_remove_google_plus",
+        "website_blog"
     ],
     "data": [
-        "views/website_blog.xml",
+        "views/website_blog.xml"
     ],
 }

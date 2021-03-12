@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Remove google plus from blog list -->
+    <template id="blog_post_short_remove_google" inherit_id="website_blog.blog_post_short">
+        <xpath expr="//div[@class='o_sharing_links']//a[@class='fa fa-google-plus-square o_google']" position="replace" />
+    </template>
+    <!-- Remove google plus from blog post -->
+    <!-- <template id="blog_post_complete_remove_google" inherit_id="website_blog.blog_post_complete"> -->
+    <!--     <xpath expr="//div[@class='o_blog_post_complete o_sharing_links']//a[@id='o_google_complete']" position="replace" /> -->
+    <!-- </template> -->
+</odoo>
