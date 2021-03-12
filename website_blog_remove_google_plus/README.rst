@@ -17,7 +17,7 @@ Usage
 
 Known issues / Roadmap
 ======================
-\-
+- Removing Google Plus from blog post complete causes an error on https://futural.fi as it was previously removed by hand.
 
 Credits
 =======
