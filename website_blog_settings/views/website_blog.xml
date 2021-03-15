@@ -11,7 +11,6 @@
     <xpath expr="//div[@class='o_sharing_links']//a[@class='fa fa-twitter-square o_twitter']" position="replace" />
     <xpath expr="//div[@class='o_sharing_links']//a[@class='fa fa-facebook-square o_facebook']" position="replace" />
     <xpath expr="//div[@class='o_sharing_links']//a[@class='fa fa-linkedin-square o_linkedin']" position="replace" />
-    <xpath expr="//div[@class='o_sharing_links']//a[@class='fa fa-google-plus-square o_google']" position="replace" />
   </template>
 
   <!-- Hide social media links -->
