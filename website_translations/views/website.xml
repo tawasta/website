@@ -55,7 +55,13 @@
         <field name="model">ir.translation</field>
         <field name="inherit_id" ref="base.view_translation_search"/>
         <field name="arch" type="xml">
+            <filter name="untranslated" position="after">
+                <filter name="product-related" string="Related product" domain="[('product_template_id', '!=', False)]"/>
+                <filter name="website-related" string="Related website" domain="[('website_page_id', '!=', False)]"/>
+            </filter>
+
             <field name="lang" position="before">
+                <field name="product_template_id" />
                 <field name="website_page_id" />
             </field>
         </field>

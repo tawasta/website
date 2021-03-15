@@ -10,6 +10,7 @@ class IrTranslation(models.Model):
         string="Related product",
         comodel_name="product.template",
         compute="_compute_product_template_id",
+        store=True,
     )
 
     website_page_id = fields.Many2one(
@@ -20,6 +21,7 @@ class IrTranslation(models.Model):
     )
     website_page_updated = fields.Datetime(string="Website page updated")
 
+    @api.depends("res_id")
     def _compute_product_template_id(self):
         product_template = self.env["product.template"]
         for record in self:
