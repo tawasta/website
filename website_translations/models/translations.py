@@ -12,6 +12,7 @@ class IrTranslation(models.Model):
         compute="_compute_product_template_id",
         store=True,
     )
+    product_template_updated = fields.Datetime(string="Product template updated")
 
     website_page_id = fields.Many2one(
         string="Website page",
