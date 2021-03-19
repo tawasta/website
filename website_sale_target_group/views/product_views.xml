@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="website_sale.product_template_form_view"/>
         <field name="arch" type="xml">
             <field name="public_categ_ids" position="after">
-                <field name="target_group" widget="many2many_tags" string="Target group" />
+                <field name="target_group" widget="many2many_tags" string="Target Group" />
             </field>
         </field>
     </record>
