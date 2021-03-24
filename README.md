@@ -1,3 +1,5 @@
+# MIGRATED TO https://gitlab.com/tawasta/odoo/website !
+
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Build Status](https://travis-ci.org/Tawasta/website.svg?branch=12.0)](https://travis-ci.org/Tawasta/website)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1f97df93cec14cda8b8f1b7523a1b632)](https://www.codacy.com/app/Tawasta/website?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Tawasta/website&amp;utm_campaign=Badge_Grade)
