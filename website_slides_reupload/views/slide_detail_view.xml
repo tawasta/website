@@ -2,7 +2,7 @@
 <odoo>
     <template id="slide_detail_view" inherit_id="website_slides.slide_detail_view">
         <xpath expr="//t[@t-raw='slide.embed_code']/.." position="attributes">
-            <attribute name="t-if">not download_only</attribute>
+            <attribute name="t-if">not download_only and slide.slide_type in ('presentation', 'document')</attribute>
         </xpath>
 
         <xpath expr="//h4[@t-field='slide.name']/.." position="after">
