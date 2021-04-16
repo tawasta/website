@@ -27,6 +27,8 @@ class SlidesSearchExtended(WebsiteSlides):
         domain = [("channel_id", "=", channel.id)]
         pager_url = "/slides/%s" % (channel.id)
         pager_args = {}
+        tags_search = kw.get("tags_search")
+        tag_ids = {}
 
         if search:
             domain += [
@@ -41,28 +43,26 @@ class SlidesSearchExtended(WebsiteSlides):
             if category:
                 domain += [("category_id", "=", category.id)]
                 pager_url += "/category/%s" % category.id
-            elif tag:
-                domain += [("tag_ids.id", "=", tag.id)]
-                pager_url += "/tag/%s" % tag.id
+            if tags_search:
+                tag_ids = request.env["slide.tag"].browse(
+                    [int(i) for i in tags_search.split(",")]
+                )
+                tag_list = []
+                for tag in tag_ids:
+                    tag_list.append(str(tag.id))
+                    # Search tags with AND operator
+                    domain.append(("tag_ids", "=", tag.id))
+                # list into a comma seperated string for url arg
+                tag_string = ",".join(tag_list)
+                pager_args["tags_search"] = tag_string
             if slide_type:
                 domain += [("slide_type", "=", slide_type)]
-                pager_url += "/%s" % slide_type
-
-        tags_search = kw.get("tags_search")
-        tag_ids = {}
-        if tags_search:
-            tag_ids = request.env["slide.tag"].browse(
-                [int(i) for i in tags_search.split(",")]
-            )
-            for tag in tag_ids:
-                # Search tags with AND operator
-                domain.append(("tag_ids", "=", tag.id))
+                # pager_url += "/%s" % slide_type
 
         if not sorting or sorting not in self._order_by_criterion:
             sorting = "date"
         order = self._order_by_criterion[sorting]
         pager_args["sorting"] = sorting
-
         pager_count = Slide.search_count(domain)
         pager = request.website.pager(
             url=pager_url,
@@ -72,7 +72,6 @@ class SlidesSearchExtended(WebsiteSlides):
             scope=self._slides_per_page,
             url_args=pager_args,
         )
-
         slides = Slide.search(
             domain, limit=self._slides_per_page, offset=pager["offset"], order=order
         )
