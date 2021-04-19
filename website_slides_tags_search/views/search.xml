@@ -1,11 +1,11 @@
 <odoo>
     <template id="about_us_map"
-        name="About Us Map"
-        inherit_id="website_slides.slides_channel_header">
+              name="About Us Map"
+              inherit_id="website_slides.slides_channel_header">
         <xpath expr="//div[@class='col-lg-4 col-md-12 col-12 pul-right mt16 mb8']//form//input[@name='search']"
-            position="attributes">
+               position="attributes">
             <attribute name="required"
-                value="True"></attribute>
+                       value="True"></attribute>
         </xpath>
 
         <xpath expr="//div[@t-if='not search']" position="attributes">
@@ -13,28 +13,21 @@
         </xpath>
 
         <xpath expr="//div[@class='col-lg-4 col-md-12 col-12 pul-right mt16 mb8']//form"
-            position="inside">
+               position="inside">
 
             <div class="input-group pt8">
-                <!--
-                <label for="tags_select"
-                    class="col-form-label col-md-2">
-                    Tags:
-                </label>
-                -->
                 <select
                     class="form-control"
                     id="tags_select"
                     multiple="multiple">
                     <t t-foreach="request.env['slide.tag'].sudo().search([])"
-                        t-as="tag">
+                       t-as="tag">
                         <option t-att-value="tag.id" t-att-tags="tag_ids" t-att-tag="tag" t-att-selected="tag_ids and tag in tag_ids">
                             <t t-esc="tag.name" />
                         </option>
                     </t>
                 </select>
             </div>
-
             <input
                 class="form-control col-md-10"
                 name="tags_search"
@@ -44,9 +37,21 @@
             </input>
 
             <script type="text/javascript"
-                src="/website_slides_tags_search/static/src/js/tags.js?v101">
+                    src="/website_slides_tags_search/static/src/js/tags.js?v101">
             </script>
         </xpath>
     </template>
 
-</odoo>
+    <!-- Channel main template -->
+    <template id='home' name="Odoo Slides" inherit_id="website_slides.home">
+        <xpath expr="//div[@class='alert alert-success mb0']" position="replace">
+            <div class="alert alert-success mb0" role="status" t-if="tag_ids">
+                Results for
+                <t t-foreach="tag_ids" t-as="tagi">
+                    <strong><t t-esc="tagi.name"/></strong>
+                </t>
+            </div>
+        </xpath>
+    </template>
+
+    </odoo>
