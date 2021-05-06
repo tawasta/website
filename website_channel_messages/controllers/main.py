@@ -146,6 +146,24 @@ def process_message(user, record, data):
 
 
 class WebsiteChannelMessagesController(http.Controller):
+
+    def get_recipient_domain(self):
+        """
+        Get domain for possible recipients for new channel.
+        Extend this if needed.
+
+        :return: list, domain for user search
+        """
+        current_user = request.env.user
+        protected_user_ids = request.env.ref(
+            "website_channel_messages.group_protected_channel_recipients").with_context(
+            active_test=False).users.ids
+        protected_user_ids.append(current_user.id)
+        recipient_domain = [
+            ("id", "not in", protected_user_ids),
+        ]
+        return recipient_domain
+
     @http.route(
         ["/website_channel", "/website_channel/page/<int:page>"],
         type="http",
@@ -199,10 +217,11 @@ class WebsiteChannelMessagesController(http.Controller):
         )
         visible = "{} - {} / {}".format(message_start, message_end, total_count)
 
+        recipient_domain = self.get_recipient_domain()
         partners = (
             request.env["res.users"]
             .sudo()
-            .search([("partner_id", "!=", partner_id)])
+            .search(recipient_domain)
             .mapped("partner_id")
         )
         values = {
