@@ -47,31 +47,10 @@ class MailMessage(models.Model):
         compute="_compute_website_url",
         store=True,
     )
-    user_agent_browser = fields.Char(
-        string="Browser user agent",
-        compute="_compute_user_agent",
-        store=False,
-    )
-    user_agent_os = fields.Char(
-        string="OS user agent",
-        compute="_compute_user_agent",
-        store=False,
-    )
 
     # 3. Default methods
 
     # 4. Compute and search fields, in the same order that fields declaration
-    def _compute_user_agent(self):
-        """
-        Get operating system and browser user agent.
-        As Odoo doesn't support http byte-range requests
-        Safari and iOS can't play videos from Odoo server.
-        The user agent is used to offer those users with download instead.
-        """
-        for rec in self:
-            rec.user_agent_browser = request.httprequest.user_agent.browser
-            rec.user_agent_os = request.httprequest.user_agent.platform
-
     @api.depends("email_from")
     def _compute_website_url(self):
         """

@@ -272,7 +272,7 @@
                                 </audio>
                             </t>
                             <t t-else="">
-                                <t t-if="message.user_agent_browser == 'safari' or message.user_agent_os == 'iphone'">
+                                <t t-if="disable_video">
                                     <div class="attachment-mime-image col-4 col-md-2 text-center">
                                         <a target="_blank" t-att-title="attachment.name" t-attf-href="/web/content/{{attachment.id}}/{{attachment.datas_fname}}?download=1">
                                             <div class='oe_attachment_embedded o_image o_image_small' t-att-title="attachment.name" t-att-data-mimetype="attachment.mimetype" t-attf-data-src="/web/image/#{attachment.id}/38x38" />
