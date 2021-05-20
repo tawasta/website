@@ -258,12 +258,16 @@ class WebsiteChannelMessagesController(http.Controller):
             )
         )
 
+        disable_video = False
+        if request.httprequest.user_agent.browser == 'safari' or request.httprequest.user_agent.platform == 'iphone':
+            disable_video = True
         if not channel:
             return request.render("website.404")
 
         channel.sudo(user).mark_portal_messages_read()
         # TODO: Fix static sizes to be fetched from ir.config_parameter
         values = {
+            "disable_video": disable_video,
             "channel": channel,
             "maxsize": 20,
             "maxwidth": 1080,
