@@ -70,7 +70,6 @@ class MailMessage(models.Model):
         """
         for rec in self:
             rec.user_agent_browser = request.httprequest.user_agent.browser
-            # rec.user_agent_os = request.httprequest.environ.get('HTTP_USER_AGENT')
             rec.user_agent_os = request.httprequest.user_agent.platform
 
     @api.depends("email_from")
