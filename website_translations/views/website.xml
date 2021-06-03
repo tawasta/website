@@ -57,6 +57,7 @@
         <field name="arch" type="xml">
             <filter name="untranslated" position="after">
                 <filter name="product-related" string="Related product" domain="[('product_template_id', '!=', False)]"/>
+                <filter name="product-published" string="Product published" domain="[('product_template_published', '=', True)]"/>
                 <filter name="website-related" string="Related website" domain="[('website_page_id', '!=', False)]"/>
             </filter>
 
