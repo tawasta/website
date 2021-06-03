@@ -23,6 +23,7 @@ import re
 from odoo import api
 from odoo import fields
 from odoo import models
+from odoo.http import request
 
 # 2. Known third party imports:
 # 3. Odoo imports:

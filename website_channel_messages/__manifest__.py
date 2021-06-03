@@ -21,7 +21,7 @@
 {
     "name": "Website Channel Messages",
     "summary": "Channelmessages for website",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.1.1",
     "category": "Website",
     "website": "https://github.com/Tawasta/website",
     "author": "Tawasta",
@@ -32,6 +32,7 @@
     "data": [
         "data/website_message_format.xml",
         "security/ir.model.access.csv",
+        "security/res_groups.xml",
         "views/website_channel_messages.xml",
     ],
 }

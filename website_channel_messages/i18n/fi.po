@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-13 11:57+0000\n"
-"PO-Revision-Date: 2019-12-13 14:01+0200\n"
+"POT-Creation-Date: 2021-04-16 06:46+0000\n"
+"PO-Revision-Date: 2021-04-16 13:15+0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #. module: website_channel_messages
 #. openerp-web
-#: code:addons/website_channel_messages/static/src/js/files.js:15
+#: code:addons/website_channel_messages/static/src/js/files.js:13
 #, python-format
 msgid " file(s) selected:"
 msgstr " tiedosto(a) valittu:"
@@ -99,21 +99,21 @@ msgstr "Luo keskustelu"
 
 #. module: website_channel_messages
 #. openerp-web
-#: code:addons/website_channel_messages/static/src/js/files.js:16
+#: code:addons/website_channel_messages/static/src/js/files.js:14
 #, python-format
 msgid "File name: "
 msgstr "Tiedoston nimi: "
 
 #. module: website_channel_messages
 #. openerp-web
-#: code:addons/website_channel_messages/static/src/js/files.js:18
+#: code:addons/website_channel_messages/static/src/js/files.js:16
 #, python-format
 msgid "File size too big! Max size for file is "
 msgstr "Tiedoston koko on liian suuri! Maksimikoko tiedostolle on "
 
 #. module: website_channel_messages
 #. openerp-web
-#: code:addons/website_channel_messages/static/src/js/files.js:17
+#: code:addons/website_channel_messages/static/src/js/files.js:15
 #, python-format
 msgid "File size: "
 msgstr "Tiedoston koko: "
@@ -140,7 +140,7 @@ msgstr "Omat keskustelut"
 
 #. module: website_channel_messages
 #. openerp-web
-#: code:addons/website_channel_messages/static/src/js/thread.js:29
+#: code:addons/website_channel_messages/static/src/js/thread.js:28
 #, python-format
 msgid "New message arrived!"
 msgstr "Uusi viesti saapui!"
@@ -159,6 +159,11 @@ msgstr "Henkilön kuva"
 #: model_terms:ir.ui.view,arch_db:website_channel_messages.my_channels
 msgid "Please try again."
 msgstr "Ole hyvä ja yritä uudelleen."
+
+#. module: website_channel_messages
+#: model:res.groups,name:website_channel_messages.group_protected_channel_recipients
+msgid "Protected channel recipients"
+msgstr "Keskusteluilta suojatut käyttäjät"
 
 #. module: website_channel_messages
 #: model_terms:ir.ui.view,arch_db:website_channel_messages.submission_section

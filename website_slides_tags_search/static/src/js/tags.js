@@ -8,7 +8,6 @@ odoo.define('website_slides_tags_search.multiple_select', function (require) {
             placeholder: _t("Tags:"),
             allowClear: true,
         });
-
         $('#tags_select').on('change', function() {
             const newVal = $('#tags_select').val();
             if(newVal) {
@@ -16,10 +15,8 @@ odoo.define('website_slides_tags_search.multiple_select', function (require) {
             } else {
                 $('#tags_search').val("");
             }
-
             // Auto-submit search on tag change
             $(this).closest('form').submit();
         });
     });
 });
-
