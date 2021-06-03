@@ -12,6 +12,12 @@ class IrTranslation(models.Model):
         compute="_compute_product_template_id",
         store=True,
     )
+    product_template_published = fields.Boolean(
+        string="Product published",
+        compute="_compute_product_template_id",
+        store=True,
+    )
+
     product_template_updated = fields.Datetime(string="Product template updated")
 
     website_page_id = fields.Many2one(
@@ -33,6 +39,7 @@ class IrTranslation(models.Model):
                     product = product_template.browse(record.res_id)
                     if product:
                         record.product_template_id = product.id
+                        record.product_template_published = product.website_published
             except ValueError:
                 # Skip translations with incomplete data
                 continue

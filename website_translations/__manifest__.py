@@ -21,13 +21,13 @@
 {
     "name": "Website translations list",
     "summary": "Website translations in backend",
-    "version": "12.0.1.3.1",
+    "version": "12.0.1.4.0",
     "category": "Website",
     "website": "https://github.com/Tawasta/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["website", "product"],
+    "depends": ["website_sale", "product"],
     "data": ["views/website.xml"],
 }
