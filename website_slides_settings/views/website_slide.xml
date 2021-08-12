@@ -1,113 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
+    <template id="slide_detail_view_sort" inherit_id="website_slides.slides_channel_header" name="Slides Sort">
+        <xpath expr="//span[@class='float-right']/span[@class='text-muted'][1]" position="attributes">
+            <attribute name="id">first-sort</attribute>
+        </xpath>
+        <xpath expr="//span[@class='float-right']/span[@class='text-muted'][2]" position="attributes">
+            <attribute name="id">second-sort</attribute>
+        </xpath>
+        <xpath expr="//span[@class='float-right']/span[@class='text-muted'][3]" position="attributes">
+            <attribute name="id">third-sort</attribute>
+        </xpath>
+    </template>
     <!-- Hide "Share"-tab -->
-    <template id="slide_detail_view_hide_share"
-              inherit_id="website_slides.slide_detail_view"
-              active="False"
-              customize_show="True"
-              name="Hide 'Share'-tab">
-
-        <xpath expr="//a[@href='#share']/.." position="replace" />
+    <template id="slide_detail_view_hide_share" inherit_id="website_slides.slide_detail_view" active="False" customize_show="True" name="Hide 'Share'-tab">
+        <xpath expr="//a[@href='#share']/.." position="replace"/>
     </template>
-
     <!-- Hide subscription -->
-    <template id="slide_detail_view_hide_field"
-              inherit_id="website_slides.opt_subscription_on_channels"
-              active="False"
-              customize_show="True"
-              name="Hide 'Subscription'-tab">
-
-        <xpath expr="//t[@t-if='channel.can_see_full']" position="replace" />
+    <template id="slide_detail_view_hide_field" inherit_id="website_slides.opt_subscription_on_channels" active="False" customize_show="True" name="Hide 'Subscription'-tab">
+        <xpath expr="//t[@t-if='channel.can_see_full']" position="replace"/>
     </template>
-
     <!-- Hide subscription -->
-    <template id="slide_detail_view_hide_detail_subscription"
-              inherit_id="website_slides.slide_detail_view"
-              active="False"
-              customize_show="True"
-              name="Hide 'Detail view subscription'-tab">
-
-        <xpath expr="//t[@t-call='website_mail.follow']" position="replace" />
+    <template id="slide_detail_view_hide_detail_subscription" inherit_id="website_slides.slide_detail_view" active="False" customize_show="True" name="Hide 'Detail view subscription'-tab">
+        <xpath expr="//t[@t-call='website_mail.follow']" position="replace"/>
     </template>
-
     <!-- Hide "Comments"-tab -->
-    <template id="slide_detail_view_hide_comments"
-              inherit_id="website_slides.slide_detail_view"
-              active="False"
-              customize_show="True"
-              name="Hide 'Comments'-tab">
-
-        <xpath expr="//a[@href='#discuss']/.." position="replace" />
+    <template id="slide_detail_view_hide_comments" inherit_id="website_slides.slide_detail_view" active="False" customize_show="True" name="Hide 'Comments'-tab">
+        <xpath expr="//a[@href='#discuss']/.." position="replace"/>
     </template>
-
     <!-- Hide "Most voted"-link -->
-    <template id="slide_detail_view_hide_most_voted"
-              inherit_id="website_slides.slides_channel_header"
-              active="False"
-              customize_show="True"
-              name="Hide 'Most voted'-link ">
-
-        <xpath expr="//span[@class='float-right']/a[3]" position="replace" />
-        <xpath expr="//span[@class='float-right']/span[@class='text-muted'][3]" position="replace" />
-
+    <template id="slide_detail_view_hide_most_voted" inherit_id="website_slides_settings.slide_detail_view_sort" active="False" customize_show="True" name="Hide 'Most voted'-link ">
+        <xpath expr="//span[@class='float-right']/a[@href='?sorting=vote']" position="attributes">
+            <attribute name="class">d-none</attribute>
+        </xpath>
+        <xpath expr="//span[@class='float-right']/span[@id='third-sort']" position="attributes">
+            <attribute name="class">d-none</attribute>
+        </xpath>
     </template>
-
     <!-- Hide "Most viewed"-link -->
-    <template id="slide_detail_view_hide_most_viewed"
-              inherit_id="website_slides.slides_channel_header"
-              active="False"
-              customize_show="True"
-              name="Hide 'Most viewed'-link ">
-
-        <xpath expr="//span[@class='float-right']/a[2]" position="replace" />
-        <xpath expr="//span[@class='float-right']/span[@class='text-muted'][2]" position="replace" />
+    <template id="slide_detail_view_hide_most_viewed" inherit_id="website_slides_settings.slide_detail_view_sort" active="False" customize_show="True" name="Hide 'Most viewed'-link ">
+        <xpath expr="//span[@class='float-right']/a[@href='?sorting=view']" position="attributes">
+            <attribute name="class">d-none</attribute>
+        </xpath>
+        <xpath expr="//span[@class='float-right']/span[@id='second-sort']" position="attributes">
+            <attribute name="class">d-none</attribute>
+        </xpath>
     </template>
-
     <!-- Hide "Transcript"-tab -->
-    <template id="slide_detail_view_hide_transcript"
-              inherit_id="website_slides.slide_detail_view"
-              active="False"
-              customize_show="True"
-              name="Hide 'Transcript'-tab">
-
-        <xpath expr="//a[@href='#transcript']/.." position="replace" />
+    <template id="slide_detail_view_hide_transcript" inherit_id="website_slides.slide_detail_view" active="False" customize_show="True" name="Hide 'Transcript'-tab">
+        <xpath expr="//a[@href='#transcript']/.." position="replace"/>
     </template>
-
     <!-- Hide "Statistic"-tab -->
-    <template id="slide_detail_view_hide_statistic"
-              inherit_id="website_slides.slide_detail_view"
-              active="False"
-              customize_show="True"
-              name="Hide 'Statistic'-tab">
-
-        <xpath expr="//a[@href='#statistic']/.." position="replace" />
+    <template id="slide_detail_view_hide_statistic" inherit_id="website_slides.slide_detail_view" active="False" customize_show="True" name="Hide 'Statistic'-tab">
+        <xpath expr="//a[@href='#statistic']/.." position="replace"/>
     </template>
-
     <!-- Hide "Social icon on promote box"-tab -->
-    <template id="slide_detail_view_hide_social_icon_box"
-              inherit_id="website_slides.home"
-              active="False"
-              customize_show="True"
-              name="Hide Social icons on promote box">
-
-        <xpath expr="//p[@class='row mt8']" position="replace" />
+    <template id="slide_detail_view_hide_social_icon_box" inherit_id="website_slides.home" active="False" customize_show="True" name="Hide Social icons on promote box">
+        <xpath expr="//p[@class='row mt8']" position="replace"/>
     </template>
-
     <!-- Right column to after the left column -->
-    <template id="slide_detail_view_right_column_to_down"
-              inherit_id="website_slides.slide_detail_view"
-              active="False"
-              customize_show="True"
-              name="Right column after the content">
-
+    <template id="slide_detail_view_right_column_to_down" inherit_id="website_slides.slide_detail_view" active="False" customize_show="True" name="Right column after the content">
         <xpath expr="//div[@class='col-xl-8 col-lg-8 col-md-12 col-12']" position="attributes">
             <attribute name="class">col-12</attribute>
         </xpath>
-
         <xpath expr="//div[@class='col-xl-4 col-lg-4 col-md-12 col-12']" position="attributes">
             <attribute name="class">col-12</attribute>
         </xpath>
     </template>
-
+    <!-- Hide channel tabs -->
+    <template id="slides_channel_header_hide_tabs" inherit_id="website_slides.slides_channel_header" active="False" customize_show="True" name="Hide all tabs">
+        <xpath expr="//ul[@class='nav nav-tabs nav-tabs-border']" position="attributes">
+            <attribute name="class">nav nav-tabs nav-tabs-border d-none</attribute>
+        </xpath>
+    </template>
 </odoo>
