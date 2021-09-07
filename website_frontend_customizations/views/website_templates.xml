@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
+        <!-- Hide Sign in button from menu -->
         <template id="hide_signin_button" inherit_id="website.template_header_default" name="Hide Sign In button" active="False" customize_show="True">
             <xpath expr="//t[@t-call='portal.placeholder_user_sign_in']" position="replace">
             </xpath>
