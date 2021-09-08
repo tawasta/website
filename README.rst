@@ -17,9 +17,8 @@ Addons
    * - addon
      - version
      - summary
-   * - `website_slides_content_search <website_slides_content_search/>`_
+   * - `website_frontend_customizations <website_frontend_customization/>`_
      - 14.0.1.0.0
-     - Search through slide contents instead of channels
      - Frontend customizations under "Customize" menu
 
 Configuration
