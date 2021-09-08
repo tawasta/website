@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="website_contactus_email_automation_rule" model="base.automation">
+            <field name="name">Contact form email auto</field>
+            <field name="model_id" ref="crm.model_crm_lead"/>
+            <field name="trigger">on_create</field>
+            <field name="state">email</field>
+            <field name="template_id" ref="website_contactus_email_template"/>
+            <field name="filter_domain">[["medium_id.name","=","Website"]]</field>
+        </record>
+    </data>
+</odoo>
