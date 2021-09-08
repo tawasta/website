@@ -5,7 +5,9 @@
 ===============================
 Website Frontend Customizations
 ===============================
-* Customizations under "customize" menu
+* Customizations under "customize" menu:
+   - Hide Sign In Button
+   - Add Social Media Icons to Top Menu
 
 Configuration
 =============
