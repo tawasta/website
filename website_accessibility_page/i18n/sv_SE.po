@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 11:31+0000\n"
-"PO-Revision-Date: 2021-09-09 14:43+0300\n"
+"POT-Creation-Date: 2021-09-09 12:29+0000\n"
+"PO-Revision-Date: 2021-09-09 15:29+0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,8 +26,8 @@ msgstr "Tillgänglighet"
 #. module: website_accessibility_page
 #: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
 #: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
-msgid "Accessibility in Futural"
-msgstr "Tillgänglighet i Futural"
+msgid "Accessibility in"
+msgstr "Tillgänglighet i"
 
 #. module: website_accessibility_page
 #: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
@@ -74,6 +74,12 @@ msgstr "Värderingsmetoder"
 #. module: website_accessibility_page
 #: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
 #: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "CSS"
+msgstr ""
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
 msgid "Chrome"
 msgstr ""
 
@@ -105,7 +111,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
 #: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
 msgid "Email: info@tawasta.fi"
-msgstr "Email: info@tawasta.fi"
+msgstr "Email"
 
 #. module: website_accessibility_page
 #: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
@@ -122,14 +128,8 @@ msgstr ""
 #. module: website_accessibility_page
 #: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
 #: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
-msgid "Futural aims to meet the AA-level of WCAG 2.1. The current content compliance status is partially compliant. Some content does not fully comply with the accessibility standard."
-msgstr "Futural syftar att fylla krav på WCAG 2.1, AA-nivå. Det nuvarande situation på tillmötesgående förverkligas delvis. En del av innehållet inte följer tillgänglighetsdirektiv perfekt."
-
-#. module: website_accessibility_page
-#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
-#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
-msgid "Futural is based on the open source enterprice resource planning system (ERP) called Odoo. Odoo is designed to provide same functionalities and information for all people. This means that regardless of personal limitations, assistive programs, different screen sizes or various input devices (such as mouse, keyboard or touch screen), there should be no issues in using the web service."
-msgstr "Futural är baserat på open source Odoo ERP-system. Odoo är designat för att ge alla människor likadana funktionaliteter och samma information. Det betyder att oavsett personens förhinder, assisterande teknik, skärmstorlek eller inmatningsverktyg (t.ex. mus, tangentbord eller pekskärm) det borde inte vara några hinder i webservice."
+msgid "HTML"
+msgstr ""
 
 #. module: website_accessibility_page
 #: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
@@ -141,6 +141,12 @@ msgstr "I April 2019 trädde i kraft tillgänglighetsdirektivet. Det och den nat
 #: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
 #: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
 msgid "Internet Explorer 11"
+msgstr ""
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Javascript"
 msgstr ""
 
 #. module: website_accessibility_page
@@ -260,6 +266,12 @@ msgstr "Vi tar gärna emot feedback på tillgängligheten av detta website. Vi k
 #. module: website_accessibility_page
 #: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
 #: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "aims to meet the AA-level of WCAG 2.1. The current content compliance status is partially compliant. Some content does not fully comply with the accessibility standard."
+msgstr "Futural syftar att fylla krav på WCAG 2.1, AA-nivå. Det nuvarande situation på tillmötesgående förverkligas delvis. En del av innehållet inte följer tillgänglighetsdirektiv perfekt."
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
 msgid "color contrasts need enhancement"
 msgstr "det finns förbättringsmöjligheter i färg kontrast"
 
@@ -268,6 +280,12 @@ msgstr "det finns förbättringsmöjligheter i färg kontrast"
 #: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
 msgid "https://www.saavutettavuusvaatimukset.fi/saavutettavuus/"
 msgstr ""
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "is based on the open source enterprice resource planning system (ERP) called Odoo. Odoo is designed to provide same functionalities and information for all people. This means that regardless of personal limitations, assistive programs, different screen sizes or various input devices (such as mouse, keyboard or touch screen), there should be no issues in using the web service."
+msgstr "Futural är baserat på open source Odoo ERP-system. Odoo är designat för att ge alla människor likadana funktionaliteter och samma information. Det betyder att oavsett personens förhinder, assisterande teknik, skärmstorlek eller inmatningsverktyg (t.ex. mus, tangentbord eller pekskärm) det borde inte vara några hinder i webservice."
 
 #. module: website_accessibility_page
 #: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility

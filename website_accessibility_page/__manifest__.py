@@ -27,6 +27,7 @@
     "author": "Tawasta",
     "license": "AGPL-3",
     "data": [
+        "data/ir_config_parameter.xml",
         "views/website_accessibility.xml",
     ],
     "depends": [

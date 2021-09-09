@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 11:30+0000\n"
-"PO-Revision-Date: 2021-09-09 14:30+0300\n"
+"POT-Creation-Date: 2021-09-09 12:28+0000\n"
+"PO-Revision-Date: 2021-09-09 15:28+0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,8 +26,8 @@ msgstr "Saavutettavuus"
 #. module: website_accessibility_page
 #: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
 #: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
-msgid "Accessibility in Futural"
-msgstr "Saavutettavuus Futuralissa"
+msgid "Accessibility in"
+msgstr "Saavutettavuus järjestelmässä"
 
 #. module: website_accessibility_page
 #: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
@@ -70,6 +70,12 @@ msgstr "Saavutettavuusvaatimusten soveltaminen käynnistyy portaittain ja lain v
 #: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
 msgid "Assessment methods"
 msgstr "Arviointimenetelmät"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "CSS"
+msgstr ""
 
 #. module: website_accessibility_page
 #: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
@@ -122,14 +128,8 @@ msgstr ""
 #. module: website_accessibility_page
 #: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
 #: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
-msgid "Futural aims to meet the AA-level of WCAG 2.1. The current content compliance status is partially compliant. Some content does not fully comply with the accessibility standard."
-msgstr "Futural pyrkii täyttämään WCAG 2.1, AA-tason. Nykyinen sisällön ohjeidenmukaisuustilanne on osittain ohjeidenmukainen. Osa sisällöstä ei noudata saavutettavuusstandardia täydellisesti."
-
-#. module: website_accessibility_page
-#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
-#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
-msgid "Futural is based on the open source enterprice resource planning system (ERP) called Odoo. Odoo is designed to provide same functionalities and information for all people. This means that regardless of personal limitations, assistive programs, different screen sizes or various input devices (such as mouse, keyboard or touch screen), there should be no issues in using the web service."
-msgstr "Futural Skills pohjautuu avoimen lähdekoodin Odoo-toiminnanohjausjärjestelmään. Odoo on suunniteltu tarjoamaan kaikille ihmisille samanlaiset toiminnallisuudet ja samat tiedot. Tämä tarkoittaa sitä, että riippumatta henkilöiden rajoitteista, avustavista ohjelmista, näyttöjen koosta tai eri syöttölaitteista (esim. hiiri, näppäimistö tai kosketusnäyttö) verkkopalvelussa ei tulisi olla käytön esteitä."
+msgid "HTML"
+msgstr ""
 
 #. module: website_accessibility_page
 #: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
@@ -141,6 +141,12 @@ msgstr "Huhtikuussa 2019 voimaan tullut saavutettavuusdirektiivi määrää, ett
 #: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
 #: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
 msgid "Internet Explorer 11"
+msgstr ""
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Javascript"
 msgstr ""
 
 #. module: website_accessibility_page
@@ -260,6 +266,12 @@ msgstr "Otamme mielellämme vastaan palautetta tämän sivuston saavutettavuudes
 #. module: website_accessibility_page
 #: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
 #: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "aims to meet the AA-level of WCAG 2.1. The current content compliance status is partially compliant. Some content does not fully comply with the accessibility standard."
+msgstr "Futural pyrkii täyttämään WCAG 2.1, AA-tason. Nykyinen sisällön ohjeidenmukaisuustilanne on osittain ohjeidenmukainen. Osa sisällöstä ei noudata saavutettavuusstandardia täydellisesti."
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
 msgid "color contrasts need enhancement"
 msgstr "värien kontrastissa parannettavaa"
 
@@ -268,6 +280,12 @@ msgstr "värien kontrastissa parannettavaa"
 #: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
 msgid "https://www.saavutettavuusvaatimukset.fi/saavutettavuus/"
 msgstr ""
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "is based on the open source enterprice resource planning system (ERP) called Odoo. Odoo is designed to provide same functionalities and information for all people. This means that regardless of personal limitations, assistive programs, different screen sizes or various input devices (such as mouse, keyboard or touch screen), there should be no issues in using the web service."
+msgstr "Futural Skills pohjautuu avoimen lähdekoodin Odoo-toiminnanohjausjärjestelmään. Odoo on suunniteltu tarjoamaan kaikille ihmisille samanlaiset toiminnallisuudet ja samat tiedot. Tämä tarkoittaa sitä, että riippumatta henkilöiden rajoitteista, avustavista ohjelmista, näyttöjen koosta tai eri syöttölaitteista (esim. hiiri, näppäimistö tai kosketusnäyttö) verkkopalvelussa ei tulisi olla käytön esteitä."
 
 #. module: website_accessibility_page
 #: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
