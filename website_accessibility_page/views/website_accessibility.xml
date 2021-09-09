@@ -58,13 +58,9 @@
                                 </ul>
                                 <p>The accessiblity of the site depends on the following technologies:</p>
                                 <ul>
-                                    <li>Internet Explorer 11</li>
-                                    <li>Edge</li>
-                                    <li>Firefox</li>
-                                    <li>Chrome</li>
-                                    <li>Safari</li>
-                                    <li>Safari on mobile devices</li>
-                                    <li>Chrome on mobile devices</li>
+                                    <li>HTML</li>
+                                    <li>CSS</li>
+                                    <li>Javascript</li>
                                 </ul>
 
                                 <h3 class="mb-2 mt-3">Actions to support accessibility</h3>
