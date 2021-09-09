@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="accessibility" name="Accessibility">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <section data-snippet-id="title" class="pt8 pb8">
+                        <div class="container">
+                            <div class="row s_nb_column_fixed">
+                                <div class="col-lg-12 s_title pt16 pb16">
+                                    <h1>Accessibility statement</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 mb16 mt16">
+                            <div class="mb-5">
+                                <h2>Accessibility</h2>
+                                <p>Accessibility means that the web service is designed for all people despite of their diversities in hearing, movement, sight and cognitive abilities. Web service must provide equal access to all people with diverse abilities. Accessible web service is technically flawless, has a clear user interface and its contents are understandable.</p>
+                                <div class="text-center">
+                                    <t t-if="lang == 'sv_SE'">
+                                        <img src="/website_accessibility_page/static/src/img/accessibility_sv.png"
+                                            class="img img-fluid shadow" alt="Tillgänglighet"/>
+                                    </t>
+                                    <t t-else="">
+                                        <img src="/website_accessibility_page/static/src/img/accessibility_fi.png"
+                                            class="img img-fluid shadow" alt="Accessibility"/>
+                                    </t>                                           
+                                </div>
+                                <div class="mt-3">
+                                    <span>Source: <a href="https://www.saavutettavuusvaatimukset.fi/saavutettavuus/" target="_blank" rel="noopener noreferrer">https://www.saavutettavuusvaatimukset.fi/saavutettavuus/</a></span>
+                                </div>
+                            </div>
+
+                            <div class="mb-5">
+                                <h2>The Accessibility Directive</h2>
+                                <p>In April 2019 EU's Accessibility Directive entered into force that requires mobile services and websites on public sector to be accessible. The directive applies also to organizations that receive more than half of their funding from public institutions.</p>
+                                <p>Applying the accessibility directive's requirements will start in stages. In Finland, compliance with the requirements is supervised by the Regional Administration of Southern Finland. Legal requirements and guidance related to accessibility will be published on saavutetavuusvaatimukset.fi -website.</p>
+                                <p>The Act on Provision of Digital Services declares a minimum level for accessibility to web services. The law is based on the WCAG 2.1 (Level AA) Web Content Accessibility Guidelines developed by the Worl Wide Web Consortium.</p>
+                            </div>
+
+                            <div class="mb-5">
+                                <h2>Accessibility in Futural</h2>
+                                <h3 class="mb-2 mt-3">Technical implementation</h3>
+                                <p>Futural is based on the open source enterprice resource planning system (ERP) called Odoo. Odoo is designed to provide same functionalities and information for all people. This means that regardless of personal limitations, assistive programs, different screen sizes or various input devices (such as mouse, keyboard or touch screen), there should be no issues in using the web service.</p>
+                                <p>The site is designed to be compatible with the following browsers:</p>
+                                <ul>
+                                    <li>Internet Explorer 11</li>
+                                    <li>Edge</li>
+                                    <li>Firefox</li>
+                                    <li>Chrome</li>
+                                    <li>Safari</li>
+                                    <li>Safari on mobile devices</li>
+                                    <li>Chrome on mobile devices</li>
+                                </ul>
+                                <p>The accessiblity of the site depends on the following technologies:</p>
+                                <ul>
+                                    <li>Internet Explorer 11</li>
+                                    <li>Edge</li>
+                                    <li>Firefox</li>
+                                    <li>Chrome</li>
+                                    <li>Safari</li>
+                                    <li>Safari on mobile devices</li>
+                                    <li>Chrome on mobile devices</li>
+                                </ul>
+
+                                <h3 class="mb-2 mt-3">Actions to support accessibility</h3>
+                                <p>Oy Tawasta OS Technologies Ltd. ensures the accessibility with the following principles:</p>
+                                <ul>
+                                    <li>Accessibility is part of our mission.</li>
+                                    <li>Accessibility is part of our internal policies.</li>
+                                    <li>We continuously provide accessibility training to our employees.</li>
+                                    <li>Our organization has clear goals and levels of responsibility in accessibility.</li>
+                                </ul>
+
+                                <h3 class="mb-2 mt-3">Compliance status</h3>
+                                <p>Futural aims to meet the AA-level of WCAG 2.1. The current content compliance status is partially compliant. Some content does not fully comply with the accessibility standard.</p>
+                                <p>Deficiencies that need improving:</p>
+                                <ul>
+                                    <li>some images lack alternative text description (alt-attribute)</li>
+                                    <li>some input fields lack label</li>
+                                    <li>navigation: nesting should be improved to make navigation easier for h1, h2, h3 and h4 elements</li>
+                                    <li>color contrasts need enhancement</li>
+                                </ul>
+                                <p>We are constantly improving the accessibility for our product.</p>
+
+                                <h3>Assessment methods</h3>
+                                <p>Oy Tawasta OS Technologies Ltd. evaluated the accessiblity of this site using the following methods:</p>
+                                <ul>
+                                    <li>Self-assesment: organization evaluated accessibility internally.</li>
+                                </ul>
+
+                                <h3 class="mb-2 mt-3">Feedback</h3>
+                                <p>We welcome any feedback on the accessibility of this site. You can contact us in the following ways:</p>
+                                <ul>
+                                    <li>Phone: +358 10 281 8060</li>
+                                    <li>Email: info@tawasta.fi</li>
+                                    <li>Street address: Kasarmikatu 15 B, 13100 Hämeenlinna</li>
+                                </ul>
+                                <p>Our target time is five (5) business days to respond to your feedback.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oe_structure"/>
+            </div>
+        </t>
+    </template>
+
+    <record id="accessibility_page" model="website.page">
+        <field name="website_published">True</field>
+        <field name="url">/accessibility</field>
+        <field name="view_id" ref="accessibility"/>
+    </record>
+</odoo>

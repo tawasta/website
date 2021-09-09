@@ -1,0 +1,288 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_accessibility_page
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-09 11:31+0000\n"
+"PO-Revision-Date: 2021-09-09 14:43+0300\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: sv\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Accessibility"
+msgstr "Tillgänglighet"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Accessibility in Futural"
+msgstr "Tillgänglighet i Futural"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Accessibility is part of our internal policies."
+msgstr "Tillgängligheten hör till våra interna processer."
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Accessibility is part of our mission."
+msgstr "Tillgängligheten hör till vår verksamhetside."
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Accessibility means that the web service is designed for all people despite of their diversities in hearing, movement, sight and cognitive abilities. Web service must provide equal access to all people with diverse abilities. Accessible web service is technically flawless, has a clear user interface and its contents are understandable."
+msgstr "Tillgänglighet betyder att webservice är designat för alla. Det är webvärlden utan begränsningar. Det betyder att innehållet är tillgänglig till så många olika slags människor som möjligt. En tillgänglig webservice är tekniskt felfri, användargränssnitt är klar och innehållet är fattbart."
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Accessibility statement"
+msgstr "Tillgänglighetsförklarning"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Actions to support accessibility"
+msgstr "Aktiviteter för att stödja tillgänglighet"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Applying the accessibility directive's requirements will start in stages. In Finland, compliance with the requirements is supervised by the Regional Administration of Southern Finland. Legal requirements and guidance related to accessibility will be published on saavutetavuusvaatimukset.fi -website."
+msgstr "Tillämpningen av tillgänglighetskraven inleds stegvist. Regionförvaltningsverket i Södra Finland svarar för rådgivningen och tillgänglighetstillsynen. Lagkraven och deras instruktioner ska publiceras på tillgnglighetskrav.fi."
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Assessment methods"
+msgstr "Värderingsmetoder"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Chrome"
+msgstr ""
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Chrome on mobile devices"
+msgstr "Chrome på mobil"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Compliance status"
+msgstr "Situationen på tillmötesgående"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Deficiencies that need improving:"
+msgstr "Befinnade brister:"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Edge"
+msgstr ""
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Email: info@tawasta.fi"
+msgstr "Email: info@tawasta.fi"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Feedback"
+msgstr "Feedback process"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Firefox"
+msgstr ""
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Futural aims to meet the AA-level of WCAG 2.1. The current content compliance status is partially compliant. Some content does not fully comply with the accessibility standard."
+msgstr "Futural syftar att fylla krav på WCAG 2.1, AA-nivå. Det nuvarande situation på tillmötesgående förverkligas delvis. En del av innehållet inte följer tillgänglighetsdirektiv perfekt."
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Futural is based on the open source enterprice resource planning system (ERP) called Odoo. Odoo is designed to provide same functionalities and information for all people. This means that regardless of personal limitations, assistive programs, different screen sizes or various input devices (such as mouse, keyboard or touch screen), there should be no issues in using the web service."
+msgstr "Futural är baserat på open source Odoo ERP-system. Odoo är designat för att ge alla människor likadana funktionaliteter och samma information. Det betyder att oavsett personens förhinder, assisterande teknik, skärmstorlek eller inmatningsverktyg (t.ex. mus, tangentbord eller pekskärm) det borde inte vara några hinder i webservice."
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "In April 2019 EU's Accessibility Directive entered into force that requires mobile services and websites on public sector to be accessible. The directive applies also to organizations that receive more than half of their funding from public institutions."
+msgstr "I April 2019 trädde i kraft tillgänglighetsdirektivet. Det och den nationella lagstiftning som följer av det förutsätter att myndigheterna gör sina digitala tjänster tillgängliga. Laget gäller också offentliga företag på vatten- och energiservice, trafik och postservice samt operatörer på finansområde. Det ska också gälla organisationer som får mer än hälften av sin inkomst från offentliga operatörer."
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Internet Explorer 11"
+msgstr ""
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Our organization has clear goals and levels of responsibility in accessibility."
+msgstr "Vår organisation har klara tillgänglighetsmål och -ansvarsnivåer."
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Our target time is five (5) business days to respond to your feedback."
+msgstr "Vår syfte är att svara inom fem arbetsdagar."
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Oy Tawasta OS Technologies Ltd. ensures the accessibility with the following principles:"
+msgstr "Oy Tawasta OS Technologies Ltd. försäkrar tillgängligheten med de följande aktiviteter:"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Oy Tawasta OS Technologies Ltd. evaluated the accessiblity of this site using the following methods:"
+msgstr "Oy Tawasta OS Technologies Ltd. värderar tillgängligheten av detta website med de följande metoder:"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Phone: +358 10 281 8060"
+msgstr "Telefon: +358 10 281 8060"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Safari"
+msgstr ""
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Safari on mobile devices"
+msgstr "Safari på mobil"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Self-assesment: organization evaluated accessibility internally."
+msgstr "Självvärdering: företaget eller organisationen har värderat website internt."
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Source:"
+msgstr "Källa:"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Street address: Kasarmikatu 15 B, 13100 Hämeenlinna"
+msgstr "Address: Kasarmikatu 15 B, 13100 Tavastehus"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Technical implementation"
+msgstr "Det tekniska föverkligandet"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "The Accessibility Directive"
+msgstr "Tillgänglighetsdirektivet"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "The Act on Provision of Digital Services declares a minimum level for accessibility to web services. The law is based on the WCAG 2.1 (Level AA) Web Content Accessibility Guidelines developed by the Worl Wide Web Consortium."
+msgstr "Lagen om tillhandahållande av digitala tjänster definierar minimumnivån for webservice tillgänglighet. Bakgrunden till lagen är webbinnehållets tillgänglighetsisntuktionerna WCAG 2.1 (nivå AA) producerat av World Wide Web Consortium."
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "The accessiblity of the site depends on the following technologies:"
+msgstr "Kompatibilitet beror på funktionalitetet av de följande tekniker:"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "The site is designed to be compatible with the following browsers:"
+msgstr "Webbsidan är designat för att vara kompatibel med de följande webbläsarna:"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "Tillgänglighet"
+msgstr ""
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "We are constantly improving the accessibility for our product."
+msgstr "Vi utvecklar tillgängligheten på vår produkt jämnt."
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "We continuously provide accessibility training to our employees."
+msgstr "Vi ger vår personal beständigt utbildning på tillgängligheten."
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "We welcome any feedback on the accessibility of this site. You can contact us in the following ways:"
+msgstr "Vi tar gärna emot feedback på tillgängligheten av detta website. Vi kan nås pä:"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "color contrasts need enhancement"
+msgstr "det finns förbättringsmöjligheter i färg kontrast"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "https://www.saavutettavuusvaatimukset.fi/saavutettavuus/"
+msgstr ""
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "navigation: nesting should be improved to make navigation easier for h1, h2, h3 and h4 elements"
+msgstr "navigering: h1, h2, h3 ja h4 -elementer, order och elementer inom elementer (s.k. nesting) borde förbättras för att underlätta navigering"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "some images lack alternative text description (alt-attribute)"
+msgstr "en del av bilder saknas textbeskrivning (s.k. alt-attribut)"
+
+#. module: website_accessibility_page
+#: model_terms:ir.ui.view,arch_db:website_accessibility_page.accessibility
+#: model_terms:website.page,arch_db:website_accessibility_page.accessibility_page
+msgid "some input fields lack label"
+msgstr "en del av inmatningsfält saknas namn (s.k. label-information)"
