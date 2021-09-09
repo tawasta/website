@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
+        <!-- Replace a banner which can't be replaced otherwise -->
+        <template id="courses_all_banner" inherit_id="website_slides.courses_all">
+            <xpath expr="//section[@class='s_banner bg-900']" position="attributes">
+                <attribute name="t-attf-style">
+                    background-image: url(#{website.image_url(website, 'slides_banner_image')}); background-size: cover; background-position: 80% 20%
+                </attribute>
+            </xpath>
+        </template>
         <!-- Hide channel/course sidebar -->
         <template id="hide_course_sidebar" inherit_id="website_slides.course_main" name="Hide Course Sidebar" active="False" customize_show="True">
             <xpath expr="//div[@class='o_wslides_course_main']//div//div//div[@class='col-12 col-md-4 col-lg-3 mt-3 mt-md-0']//t" position="replace">
