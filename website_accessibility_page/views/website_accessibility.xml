@@ -3,6 +3,7 @@
     <template id="accessibility" name="Accessibility">
         <t t-call="website.layout">
             <div id="wrap">
+                <t t-set="product_name" t-value="request.env['ir.config_parameter'].sudo().get_param('accessibility.product_name', 'Futural')"/>
                 <div class="oe_structure">
                     <section data-snippet-id="title" class="pt8 pb8">
                         <div class="container">
@@ -43,9 +44,9 @@
                             </div>
 
                             <div class="mb-5">
-                                <h2>Accessibility in Futural</h2>
+                                <h2>Accessibility in <t t-esc="product_name"/></h2>
                                 <h3 class="mb-2 mt-3">Technical implementation</h3>
-                                <p>Futural is based on the open source enterprice resource planning system (ERP) called Odoo. Odoo is designed to provide same functionalities and information for all people. This means that regardless of personal limitations, assistive programs, different screen sizes or various input devices (such as mouse, keyboard or touch screen), there should be no issues in using the web service.</p>
+                                <p><t t-esc="product_name"/> is based on the open source enterprice resource planning system (ERP) called Odoo. Odoo is designed to provide same functionalities and information for all people. This means that regardless of personal limitations, assistive programs, different screen sizes or various input devices (such as mouse, keyboard or touch screen), there should be no issues in using the web service.</p>
                                 <p>The site is designed to be compatible with the following browsers:</p>
                                 <ul>
                                     <li>Internet Explorer 11</li>
@@ -73,7 +74,7 @@
                                 </ul>
 
                                 <h3 class="mb-2 mt-3">Compliance status</h3>
-                                <p>Futural aims to meet the AA-level of WCAG 2.1. The current content compliance status is partially compliant. Some content does not fully comply with the accessibility standard.</p>
+                                <p><t t-esc="product_name"/> aims to meet the AA-level of WCAG 2.1. The current content compliance status is partially compliant. Some content does not fully comply with the accessibility standard.</p>
                                 <p>Deficiencies that need improving:</p>
                                 <ul>
                                     <li>some images lack alternative text description (alt-attribute)</li>
