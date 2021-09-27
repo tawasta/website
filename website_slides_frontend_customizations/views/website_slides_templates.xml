@@ -47,5 +47,14 @@
                 <attribute name="class">tab-pane fade d-none</attribute>
             </xpath>
         </template>
+        <!-- Hide statistics tab on Slide -->
+        <template id="hide_statistics_tab" inherit_id="website_slides.slide_content_detailed" name="Hide Statistics Tab" active="False" customize_show="True">
+            <xpath expr="//a[@href='#statistic']//.." position="attributes">
+                <attribute name="class">nav-item d-none</attribute>
+            </xpath>
+            <xpath expr="//div[@id='statistic']" position="attributes">
+                <attribute name="class">tab-pane fade d-none</attribute>
+            </xpath>
+        </template>
     </data>
 </odoo>
