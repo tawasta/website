@@ -19,9 +19,9 @@
 ##############################################################################
 
 {
-    "name": "Website Slides Frontend Customizations",
-    "summary": 'Website Slides customizations under "customize" menu',
-    "version": "14.0.1.0.1",
+    "name": "Website Slides Content Search",
+    "summary": "Search through website slides contents on the website",
+    "version": "14.0.1.0.0",
     "category": "Website/eLearning",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
@@ -29,8 +29,5 @@
     "application": False,
     "installable": True,
     "depends": ["website_slides"],
-    "data": [
-        "views/website_slides_templates.xml",
-        "views/res_config_settings_views.xml",
-    ],
+    "data": ["views/website_slides_templates.xml"],
 }
