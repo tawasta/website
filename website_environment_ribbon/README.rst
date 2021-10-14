@@ -6,7 +6,7 @@
 Website Environment Ribbon
 ==========================
 
-Show environment ribbon on website also. Only shows text 'TEST' on website side.
+Show environment ribbon on website also. Takes its value from the same parameter as the backend side property.
 
 Configuration
 =============
@@ -26,6 +26,7 @@ Credits
 Contributors
 ------------
 
+* Valtteri Lattu <valtteri.lattu@tawasta.fi>
 * Joona Isoaho <joona.isoaho@tawasta.fi>
 
 Maintainer

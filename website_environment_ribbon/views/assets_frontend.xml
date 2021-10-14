@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="website_envinronment_ribbon_assets_frontend" inherit_id="website.assets_frontend">
-        <xpath expr="//link[last()]" position="after">
-            <link rel="stylesheet" type="text/css" href="/web_environment_ribbon/static/src/css/ribbon.css"></link>
+    <template id="layout" inherit_id="website.layout">
+        <xpath expr="//script[@id='tracking_code']" position="after">
+            <t t-set="ribbon" t-value="request.env['ir.config_parameter'].sudo().get_param('ribbon.name')"/>
+            <t t-if="ribbon">
+                <div class="web-ribbon">
+                    <div class="web-ribbon-text">
+                        <t t-raw="ribbon"/>
+                    </div>
+                </div>
+            </t>
+            <link rel="stylesheet"
+                type="text/css"
+                href="/website_environment_ribbon/static/src/css/ribbon.css"></link>
         </xpath>
-
-        <xpath expr="//script[last()]" position="after">
-            <script src="/website_environment_ribbon/static/src/js/ribbon.js"></script>
-        </xpath>
-
     </template>
 </odoo>
