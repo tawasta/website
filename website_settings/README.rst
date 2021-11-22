@@ -2,15 +2,12 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-======================================
-Website Slides Frontend Customizations
-======================================
-* Customizations under "customize" menu:
-   - Hide All views on slide
-   - Hide Total views on slide
-   - Hide Public views on slide
-   - Hide Member views on slide
-   - Hide Share tab on slide
+================
+Website Settings
+================
+* Toggleable settings/customizations under "customize" menu:
+   - Hide Sign In Button
+   - Add Social Media Icons to Top Menu
 
 Configuration
 =============

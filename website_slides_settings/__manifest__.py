@@ -19,9 +19,9 @@
 ##############################################################################
 
 {
-    "name": "Website Slides Frontend Customizations",
-    "summary": 'Website Slides customizations under "customize" menu',
-    "version": "14.0.1.0.1",
+    "name": "Website Slides Settings",
+    "summary": "Website Slides toggleable settings under website customize menu",
+    "version": "14.0.1.0.2",
     "category": "Website/eLearning",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
