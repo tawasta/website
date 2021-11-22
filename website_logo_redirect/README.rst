@@ -2,12 +2,10 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-===============================
-Website Frontend Customizations
-===============================
-* Customizations under "customize" menu:
-   - Hide Sign In Button
-   - Add Social Media Icons to Top Menu
+=====================
+Website Logo Redirect
+=====================
+* Redirects website logo to a custom URL.  
 
 Configuration
 =============

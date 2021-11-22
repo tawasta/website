@@ -2,15 +2,17 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-======================================
-Website Slides Frontend Customizations
-======================================
-* Customizations under "customize" menu:
+=======================
+Website Slides Settings
+=======================
+* Toggleable Settings under website customize menu:
    - Hide All views on slide
    - Hide Total views on slide
    - Hide Public views on slide
    - Hide Member views on slide
    - Hide Share tab on slide
+
+* Add banner image from backend to '/slides/all' view. This fixes a bug in Odoo editor which does not allow changing the banner.
 
 Configuration
 =============

@@ -19,15 +19,18 @@
 ##############################################################################
 
 {
-    "name": "Website Frontend Customizations",
-    "summary": 'Website customizations under "customize" menu',
-    "version": "14.0.1.0.0",
-    "category": "Website",
+    "name": "Website Slides Settings",
+    "summary": "Website Slides toggleable settings under website customize menu",
+    "version": "14.0.1.0.2",
+    "category": "Website/eLearning",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["website", "portal"],
-    "data": ["views/website_templates.xml", "views/assets.xml"],
+    "depends": ["website_slides"],
+    "data": [
+        "views/website_slides_templates.xml",
+        "views/res_config_settings_views.xml",
+    ],
 }

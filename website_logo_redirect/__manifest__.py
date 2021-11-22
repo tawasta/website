@@ -19,18 +19,15 @@
 ##############################################################################
 
 {
-    "name": "Website Slides Frontend Customizations",
-    "summary": 'Website Slides customizations under "customize" menu',
-    "version": "14.0.1.0.1",
-    "category": "Website/eLearning",
+    "name": "Website Logo Redirect",
+    "summary": "Redirects website logo to a custom URL",
+    "version": "14.0.1.0.0",
+    "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["website_slides"],
-    "data": [
-        "views/website_slides_templates.xml",
-        "views/res_config_settings_views.xml",
-    ],
+    "depends": ["website"],
+    "data": ["views/res_config_settings_views.xml", "views/website_templates.xml"],
 }
