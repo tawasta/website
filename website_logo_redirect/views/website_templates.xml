@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="option_header_brand_logo_url_redirect" inherit_id="website.layout_logo_show">
+        <xpath expr="//header//a[@class='navbar-brand logo']" position="attributes">
+            <attribute name="t-attf-href">#{website.logo_url or '/'}</attribute>
+            <attribute name="t-attf-target">#{'_blank' if website.open_in_new_tab else ''}</attribute>
+        </xpath>
+    </template>
+</odoo>
