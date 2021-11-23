@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="frontend_layout_inherit" inherit_id="portal.frontend_layout" name="Main Frontend Layout">
+        <xpath expr="//a[@id='o_logout']" position="attributes">
+            <attribute name="t-attf-href">/web/session/logout?redirect=/web/login</attribute>
+        </xpath>
+    </template>
+</odoo>
