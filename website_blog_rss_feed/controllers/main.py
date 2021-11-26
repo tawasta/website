@@ -37,19 +37,27 @@ from odoo.addons.website_blog.controllers.main import WebsiteBlog
 
 
 def split_css_url(attribute):
-    return attribute.split("'")[1]
+    if attribute != "none":
+        return attribute[attribute.find("(") + 1 : attribute.find(")")].replace("'", "")
+    return False
 
 
 def get_filesize_from_url(url):
-    path = urllib.request.urlopen(url)
-    meta = path.info()
-    return meta.get(name="Content-Length")
+    try:
+        path = urllib.request.urlopen(url)
+        meta = path.info()
+        return meta.get(name="Content-Length")
+    finally:
+        return ""
 
 
 def get_filetype_from_url(url):
-    path = urllib.request.urlopen(url)
-    meta = path.info()
-    return meta.get(name="Content-Type")
+    try:
+        path = urllib.request.urlopen(url)
+        meta = path.info()
+        return meta.get(name="Content-Type")
+    finally:
+        return ""
 
 
 class WebsiteBlogRssFeed(WebsiteBlog):

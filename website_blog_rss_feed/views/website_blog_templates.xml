@@ -3,12 +3,15 @@
     <!-- Atom Feed -->
     <template id="blog_feed_rss_feed" inherit_id="website_blog.blog_feed">
         <xpath expr="//summary" position="after">
-            <t t-set="_cp" t-value="json.loads(blog.cover_properties)"/>
-            <t t-set="banner_image_url" t-value="base_url + split_css_url(_cp.get('background-image'))"/>
-            <t t-set="banner_length" t-value="get_filesize_from_url(banner_image_url)"/>
-            <t t-set="banner_type" t-value="get_filetype_from_url(banner_image_url)"/>
+            <t t-set="_cp" t-value="json.loads(post.cover_properties)"/>
+            <t t-set="banner_image_url_end" t-value="split_css_url(_cp.get('background-image'))"/>
+            <t t-if="banner_image_url_end">
+                <t t-set="banner_image_url" t-value="base_url + banner_image_url_end"/>
+                <t t-set="banner_length" t-value="get_filesize_from_url(banner_image_url)"/>
+                <t t-set="banner_type" t-value="get_filetype_from_url(banner_image_url)"/>
+                <enclosure t-attf-url="#{banner_image_url}" t-attf-length="#{banner_length}" t-attf-type="#{banner_type}"/>
+            </t>
             <content t-esc="post.content"/>
-            <enclosure t-attf-url="#{banner_image_url}" t-attf-length="#{banner_length}" t-attf-type="#{banner_type}"/>
             <published t-esc="str(post.post_date).replace(' ', 'T') + 'Z'"/>
         </xpath>
     </template>
