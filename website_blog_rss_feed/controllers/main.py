@@ -19,7 +19,8 @@
 ##############################################################################
 
 # 1. Standard library imports:
-import urllib.request, io
+import urllib.request
+import logging
 
 # 2. Known third party imports:
 
@@ -35,29 +36,24 @@ from odoo.addons.website_blog.controllers.main import WebsiteBlog
 
 # 6. Unknown third party imports:
 
-
-def split_css_url(attribute):
-    if attribute != "none":
-        return attribute[attribute.find("(") + 1 : attribute.find(")")].replace("'", "")
-    return False
+_logger = logging.getLogger(__name__)
 
 
-def get_filesize_from_url(url):
+def get_attachment_from_url(url):
     try:
-        path = urllib.request.urlopen(url)
-        meta = path.info()
-        return meta.get(name="Content-Length")
-    finally:
-        return ""
-
-
-def get_filetype_from_url(url):
-    try:
-        path = urllib.request.urlopen(url)
-        meta = path.info()
-        return meta.get(name="Content-Type")
-    finally:
-        return ""
+        split = url.split("/")
+        attachment_id = split[3].split("-")[0]
+        name = split[4]
+    except IndexError:
+        attachment_id = False
+        name = False
+        _logger.error("Index out of range trying to split image url.")
+    return (
+        request.env["ir.attachment"]
+        .sudo()
+        .search([["id", "=", attachment_id], ["name", "=", name]])
+        .ensure_one()
+    )
 
 
 class WebsiteBlogRssFeed(WebsiteBlog):
@@ -78,9 +74,7 @@ class WebsiteBlogRssFeed(WebsiteBlog):
             order="post_date DESC",
         )
         v["html2plaintext"] = html2plaintext
-        v["split_css_url"] = split_css_url
-        v["get_filesize_from_url"] = get_filesize_from_url
-        v["get_filetype_from_url"] = get_filetype_from_url
+        v["get_attachment_from_url"] = get_attachment_from_url
         r = request.render(
             "website_blog.blog_feed",
             v,
