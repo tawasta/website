@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="sidebar_blog_index_customize_show" name="Hide about us" inherit_id="website_blog.sidebar_blog_index" active="False" customize_show="True">
+        <xpath expr="//div[@class='o_wblog_sidebar_block pb-5'][1]" position="attributes">
+            <attribute name="class">d-none</attribute>
+        </xpath>
+    </template>
+</odoo>
