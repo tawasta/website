@@ -8,6 +8,8 @@ Website Settings
 * Toggleable settings/customizations under "customize" menu:
    - Hide Sign In Button
    - Add Social Media Icons to Top Menu
+* Define landing page for logging in
+   - Go to Website > Settings and add url to Landing Page
 
 Configuration
 =============
