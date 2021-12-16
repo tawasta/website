@@ -10,6 +10,7 @@ Website Settings
    - Add Social Media Icons to Top Menu
 * Define landing page for logging in
    - Go to Website > Settings and add url to Landing Page
+* Ability to edit website login screen before and after login block
 
 Configuration
 =============
