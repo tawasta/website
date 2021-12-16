@@ -23,4 +23,4 @@ msgstr "Etunimi"
 #. module: portal_details_firstname
 #: model_terms:ir.ui.view,arch_db:portal_details_firstname.portal_my_details_firstname
 msgid "Last name"
-msgstr "Sukunimi
+msgstr "Sukunimi"
