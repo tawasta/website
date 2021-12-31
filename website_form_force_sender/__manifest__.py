@@ -21,7 +21,7 @@
 {
     "name": "Website forms static sender for all emails",
     "summary": "Override the form sender to company email to avoid being marked as spam",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.1.0",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
