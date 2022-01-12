@@ -8,6 +8,5 @@ class MailMessage(models.Model):
     @api.model_create_multi
     def create(self, values):
         res = super().create(values)
-        print(values)
 
         return res
