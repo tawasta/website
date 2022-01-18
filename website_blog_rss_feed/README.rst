@@ -17,7 +17,9 @@ Configuration
 
 Usage
 =====
-\-
+1. Navigate to Website > Configuration > Blog > Feeds
+2. Create a custom feed and select blogs to use for the custom feed
+3. Navigate to feed URL to view the feed.
 
 Known issues / Roadmap
 ======================
