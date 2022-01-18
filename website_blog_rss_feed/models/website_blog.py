@@ -52,8 +52,7 @@ class BlogFeed(models.Model):
     def _compute_feed_url(self):
         base_url = self.env["ir.config_parameter"].sudo().get_param("web.base.url")
         for feed in self:
-            feed_id = "-".join(feed.name.split()).lower() + "-%s" % feed.id
-            feed.feed_url = urls.url_join(base_url, "/feed/%s" % feed_id)
+            feed.feed_url = urls.url_join(base_url, "/feed/%s" % feed.id)
 
     # 5. Constraints and onchanges
 
