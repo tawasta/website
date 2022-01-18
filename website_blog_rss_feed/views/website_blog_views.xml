@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Blog Rss Feed Views -->
+    <record id="view_blog_feed_tree" model="ir.ui.view">
+        <field name="name">blog.feed.tree</field>
+        <field name="model">blog.feed</field>
+        <field name="arch" type="xml">
+            <tree string="Feeds">
+                <field name="name"/>
+                <field name="description" optional="hide"/>
+                <field name="feed_url" widget="url" optional="show"/>
+                <field name="blog_ids" optional="show"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_blog_feed_form" model="ir.ui.view">
+        <field name="name">blog.feed.form</field>
+        <field name="model">blog.feed</field>
+        <field name="arch" type="xml">
+            <form string="Feed">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="feed_url" widget="url" attrs="{'invisible': [('feed_url', '=', False)]}"/>
+                    </group>
+                    <field name="blog_ids"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_feeds" model="ir.actions.act_window">
+        <field name="name">Blog Feeds</field>
+        <field name="res_model">blog.feed</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_blog_feed_tree"/>
+    </record>
+    <menuitem id="menu_website_blog_feed_global" parent="website_blog.menu_website_blog_root_global" name="Feeds" action="action_feeds" sequence="60"/>
+</odoo>

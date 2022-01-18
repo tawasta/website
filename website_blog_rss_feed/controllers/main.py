@@ -81,3 +81,30 @@ class WebsiteBlogRssFeed(WebsiteBlog):
             headers=[("Content-Type", "application/atom+xml")],
         )
         return r
+
+    @http.route(
+        ["""/feed/<model("blog.feed"):feed>"""],
+        type="http",
+        auth="public",
+        website=True,
+        sitemap=True,
+    )
+    def blog_custom_feed(self, feed, limit="15", **kwargs):
+        v = {}
+        v["feed"] = feed
+        v["base_url"] = (
+            request.env["ir.config_parameter"].sudo().get_param("web.base.url")
+        )
+        v["posts"] = request.env["blog.post"].search(
+            [("blog_id", "in", feed.blog_ids.ids)],
+            limit=min(int(limit), 50),
+            order="post_date DESC",
+        )
+        v["html2plaintext"] = html2plaintext
+        v["get_attachment_from_url"] = get_attachment_from_url
+        r = request.render(
+            "website_blog_rss_feed.blog_custom_feed",
+            v,
+            headers=[("Content-Type", "application/atom+xml")],
+        )
+        return r
