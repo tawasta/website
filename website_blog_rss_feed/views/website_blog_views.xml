@@ -9,7 +9,7 @@
                 <field name="name"/>
                 <field name="description" optional="hide"/>
                 <field name="feed_url" widget="url" optional="show"/>
-                <field name="blog_ids" optional="show"/>
+                <field name="blog_ids" widget="many2many_tags" optional="show"/>
             </tree>
         </field>
     </record>
