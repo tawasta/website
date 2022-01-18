@@ -5,10 +5,11 @@
 =====================
 Website Blog RSS Feed
 =====================
-* Improves Website Blog RSS feed with full content and background-image
-* Uses atom rss 1.0 specification for content.
-* Uses atom rss 2.0 specification for image enclosure:
-  - https://www.rssboard.org/rss-specification#ltenclosuregtSubelementOfLtitemgt
+* Ability to create custom RSS Feeds with multiple blogs.
+* Improves Website Blog RSS feed generation
+   - Uses atom rss 1.0 specification for content.
+   - Uses atom rss 2.0 specification for image enclosure:
+      - https://www.rssboard.org/rss-specification#ltenclosuregtSubelementOfLtitemgt
 
 Configuration
 =============

@@ -20,8 +20,8 @@
 
 {
     "name": "Website Blog RSS Feed",
-    "summary": "Improves Website Blog RSS Feeds with full content and image",
-    "version": "14.0.1.0.0",
+    "summary": "Ability to create custom RSS Feeds with multiple blogs. Improves default RSS generation.",
+    "version": "14.0.1.1.0",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
@@ -29,5 +29,9 @@
     "application": False,
     "installable": True,
     "depends": ["website_blog"],
-    "data": ["views/website_blog_templates.xml"],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/website_blog_templates.xml",
+        "views/website_blog_views.xml",
+    ],
 }
