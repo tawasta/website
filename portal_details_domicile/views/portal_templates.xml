@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="portal_my_details_domicile" inherit_id="portal.portal_my_details">
+        <xpath expr="//input[@name='zipcode']//.." position="after">
+            <div t-attf-class="form-group #{error.get('domicile') and 'o_has_error' or ''} col-xl-6">
+                <label class="col-form-label label-optional" for="domicile">Domicile</label>
+                <input type="text" name="domicile" t-attf-class="form-control #{error.get('domicile') and 'is-invalid' or ''}" t-att-value="domicile or partner.domicile"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>
