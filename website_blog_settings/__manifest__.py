@@ -29,5 +29,9 @@
     "application": False,
     "installable": True,
     "depends": ["website_blog"],
-    "data": ["views/website_blog_components.xml", "views/snippets/s_latest_posts.xml"],
+    "data": [
+        "views/website_blog_components.xml",
+        "views/website_blog_templates.xml",
+        "views/snippets/s_latest_posts.xml",
+    ],
 }
