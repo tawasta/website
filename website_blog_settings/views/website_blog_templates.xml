@@ -7,5 +7,7 @@
     <template id="opt_blog_post_regular_cover_hide_comment" name="Hide cover comments" inherit_id="website_blog.opt_blog_post_regular_cover" active="False" customize_show="True">
         <xpath expr="//a[@href='#discussion']//.." position="replace">
         </xpath>
+        <xpath expr="//span[@t-elif=&quot;is_view_active('website_blog.opt_blog_post_comment')&quot;]" position="replace">
+        </xpath>
     </template>
 </odoo>
