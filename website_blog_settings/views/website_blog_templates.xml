@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <template id="opt_blog_post_regular_cover" name="Hide cover author" inherit_id="website_blog.opt_blog_post_regular_cover" active="False" customize_show="True">
+    <template id="opt_blog_post_regular_cover_hide_author" name="Hide cover author" inherit_id="website_blog.opt_blog_post_regular_cover" active="False" customize_show="True">
         <xpath expr="//t[@t-call='website_blog.post_author']//.." position="replace">
+        </xpath>
+    </template>
+    <template id="opt_blog_post_regular_cover_hide_comment" name="Hide cover comments" inherit_id="website_blog.opt_blog_post_regular_cover" active="False" customize_show="True">
+        <xpath expr="//a[@href='#discussion']//.." position="replace">
         </xpath>
     </template>
 </odoo>
