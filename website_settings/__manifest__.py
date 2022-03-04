@@ -33,6 +33,5 @@
         "views/website_templates.xml",
         "views/assets.xml",
         "views/res_config_settings.xml",
-        # "views/webclient_templates.xml",
     ],
 }
