@@ -37,6 +37,20 @@ class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
 
     # 2. Fields declaration
+
+    landing_page_group_id = fields.Many2one(
+        string="Group",
+        comodel_name="res.groups",
+        config_parameter='group.landing.page',
+    )
+
+    landing_page_group_text = fields.Char(
+        "Group Landing Page URL",
+        related="website_id.landing_page_group_text",
+        readonly=False,
+        placeholder="/my/home",
+    )
+
     landing_page = fields.Char(
         "Landing Page URL",
         related="website_id.landing_page",
