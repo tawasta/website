@@ -21,7 +21,7 @@
 {
     "name": "Website Blog RSS Feed",
     "summary": "Ability to create custom RSS Feeds with multiple blogs. Improves default RSS generation.",
-    "version": "14.0.1.1.0",
+    "version": "14.0.1.1.1",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
