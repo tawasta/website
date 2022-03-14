@@ -51,7 +51,7 @@ def get_attachment_from_url(url):
     return (
         request.env["ir.attachment"]
         .sudo()
-        .search([["id", "=", attachment_id], ["name", "=", name]])
+        .search([["id", "=", attachment_id]])
         .ensure_one()
     )
 
