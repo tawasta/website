@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<odoo>
-    <template id="login_landing_page" inherit_id="web.login">
-        <xpath expr="//input[@name='redirect']" position="attributes">
-            <attribute name="t-attf-value">#{request.website.sudo().landing_page or False}</attribute>
-        </xpath>
-    </template>
-</odoo>

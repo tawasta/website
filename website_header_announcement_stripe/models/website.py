@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2021- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2022- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -32,30 +32,16 @@ from odoo import fields, models
 # 6. Unknown third party imports:
 
 
-class ResConfigSettings(models.TransientModel):
+class Website(models.Model):
     # 1. Private attributes
-    _inherit = "res.config.settings"
+    _inherit = "website"
 
     # 2. Fields declaration
-
-    landing_page_group_id = fields.Many2one(
-        string="Group",
-        comodel_name="res.groups",
-        config_parameter='group.landing.page',
+    header_announcement_stripe_show = fields.Boolean(
+        "Show Header Announcement Stripe", readonly=False
     )
-
-    landing_page_group_text = fields.Char(
-        "Group Landing Page URL",
-        related="website_id.landing_page_group_text",
-        readonly=False,
-        placeholder="/my/home",
-    )
-
-    landing_page = fields.Char(
-        "Landing Page URL",
-        related="website_id.landing_page",
-        readonly=False,
-        placeholder="/my/home",
+    header_announcement_stripe_text = fields.Html(
+        "Header Announcement Stripe Text", readonly=False, translate=True
     )
 
     # 3. Default methods

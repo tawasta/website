@@ -39,6 +39,8 @@ class Website(models.Model):
     # 2. Fields declaration
     landing_page = fields.Char("Landing Page URL", readonly=False, store=True)
 
+    landing_page_group_text = fields.Char("Group Landing Page URL", readonly=False, store=True)
+
     # 3. Default methods
 
     # 4. Compute and search fields, in the same order that fields declaration

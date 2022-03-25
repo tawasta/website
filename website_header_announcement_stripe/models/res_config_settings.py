@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2021- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2022- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -37,25 +37,16 @@ class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
 
     # 2. Fields declaration
-
-    landing_page_group_id = fields.Many2one(
-        string="Group",
-        comodel_name="res.groups",
-        config_parameter='group.landing.page',
-    )
-
-    landing_page_group_text = fields.Char(
-        "Group Landing Page URL",
-        related="website_id.landing_page_group_text",
+    website_header_announcement_stripe_show = fields.Boolean(
+        "Show Website Header Announcement Stripe",
+        related="website_id.header_announcement_stripe_show",
         readonly=False,
-        placeholder="/my/home",
     )
-
-    landing_page = fields.Char(
-        "Landing Page URL",
-        related="website_id.landing_page",
+    website_header_announcement_stripe_text = fields.Html(
+        "Website Header Announcement Stripe Text",
+        related="website_id.header_announcement_stripe_text",
         readonly=False,
-        placeholder="/my/home",
+        translate=True,
     )
 
     # 3. Default methods
