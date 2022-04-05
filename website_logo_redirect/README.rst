@@ -5,7 +5,7 @@
 =====================
 Website Logo Redirect
 =====================
-* Redirects website logo to a custom URL.  
+* Redirects website logo to a custom URL.
 
 Configuration
 =============

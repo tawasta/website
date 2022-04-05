@@ -1,15 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <template id="option_header_brand_logo_url_redirect" inherit_id="website.option_header_brand_logo">
+    <template
+        id="option_header_brand_logo_url_redirect"
+        inherit_id="website.option_header_brand_logo"
+    >
         <xpath expr="//a" position="attributes">
             <attribute name="t-attf-href">#{website.logo_url or '/'}</attribute>
-            <attribute name="t-attf-target">#{'_blank' if website.open_in_new_tab else ''}</attribute>
+            <attribute
+                name="t-attf-target"
+            >#{'_blank' if website.open_in_new_tab else ''}</attribute>
         </xpath>
     </template>
-    <template id="option_header_brand_name_url_redirect" inherit_id="website.option_header_brand_name">
+    <template
+        id="option_header_brand_name_url_redirect"
+        inherit_id="website.option_header_brand_name"
+    >
         <xpath expr="//a" position="attributes">
             <attribute name="t-attf-href">#{website.logo_url or '/'}</attribute>
-            <attribute name="t-attf-target">#{'_blank' if website.open_in_new_tab else ''}</attribute>
+            <attribute
+                name="t-attf-target"
+            >#{'_blank' if website.open_in_new_tab else ''}</attribute>
         </xpath>
     </template>
 </odoo>

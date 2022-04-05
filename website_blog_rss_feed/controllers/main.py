@@ -18,11 +18,7 @@
 #
 ##############################################################################
 
-# 1. Standard library imports:
-import urllib.request
 import logging
-
-# 2. Known third party imports:
 
 # 3. Odoo imports (openerp):
 from odoo import http
@@ -31,6 +27,12 @@ from odoo.tools import html2plaintext
 
 # 4. Imports from Odoo modules:
 from odoo.addons.website_blog.controllers.main import WebsiteBlog
+
+# 1. Standard library imports:
+
+
+# 2. Known third party imports:
+
 
 # 5. Local imports in the relative form:
 
@@ -43,10 +45,8 @@ def get_attachment_from_url(url):
     try:
         split = url.split("/")
         attachment_id = split[3].split("-")[0]
-        name = split[4]
     except IndexError:
         attachment_id = False
-        name = False
         _logger.error("Index out of range trying to split image url.")
     return (
         request.env["ir.attachment"]

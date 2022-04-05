@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
         <!-- Replace a banner which can't be replaced otherwise -->
@@ -10,36 +10,87 @@
             </xpath>
         </template>
         <!-- Hide channel/course sidebar -->
-        <template id="hide_course_sidebar" inherit_id="website_slides.course_main" name="Hide Course Sidebar" active="False" customize_show="True">
-            <xpath expr="//div[@class='o_wslides_course_main']//div//div//div[@class='col-12 col-md-4 col-lg-3 mt-3 mt-md-0']//t" position="replace">
+        <template
+            id="hide_course_sidebar"
+            inherit_id="website_slides.course_main"
+            name="Hide Course Sidebar"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//div[@class='o_wslides_course_main']//div//div//div[@class='col-12 col-md-4 col-lg-3 mt-3 mt-md-0']//t"
+                position="replace"
+            >
             </xpath>
         </template>
         <!-- Hide All Views on Slide -->
-        <template id="hide_all_views" inherit_id="website_slides.slide_content_detailed" name="Hide All Views" active="False" customize_show="True">
-            <xpath expr="//div[@id='statistic']//div[@class='row']//div[1]" position="attributes">
+        <template
+            id="hide_all_views"
+            inherit_id="website_slides.slide_content_detailed"
+            name="Hide All Views"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//div[@id='statistic']//div[@class='row']//div[1]"
+                position="attributes"
+            >
                 <attribute name="class">d-none</attribute>
             </xpath>
         </template>
         <!-- Hide Total Views on Slide -->
-        <template id="hide_total_views" inherit_id="website_slides.slide_content_detailed" name="Hide Total Views" active="False" customize_show="True">
-            <xpath expr="//div[@id='statistic']//div[@class='row']//div[1]//table//tbody//tr[2]" position="attributes">
+        <template
+            id="hide_total_views"
+            inherit_id="website_slides.slide_content_detailed"
+            name="Hide Total Views"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//div[@id='statistic']//div[@class='row']//div[1]//table//tbody//tr[2]"
+                position="attributes"
+            >
                 <attribute name="class">border-top-0 d-none</attribute>
             </xpath>
         </template>
         <!-- Hide Member Views on Slide -->
-        <template id="hide_member_views" inherit_id="website_slides.slide_content_detailed" name="Hide Member Views" active="False" customize_show="True">
-            <xpath expr="//div[@id='statistic']//div[@class='row']//div[1]//table//tbody//tr[3]" position="attributes">
+        <template
+            id="hide_member_views"
+            inherit_id="website_slides.slide_content_detailed"
+            name="Hide Member Views"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//div[@id='statistic']//div[@class='row']//div[1]//table//tbody//tr[3]"
+                position="attributes"
+            >
                 <attribute name="class">d-none</attribute>
             </xpath>
         </template>
         <!-- Hide Public Views on Slide -->
-        <template id="hide_public_views" inherit_id="website_slides.slide_content_detailed" name="Hide Public Views" active="False" customize_show="True">
-            <xpath expr="//div[@id='statistic']//div[@class='row']//div[1]//table//tbody//tr[4]" position="attributes">
+        <template
+            id="hide_public_views"
+            inherit_id="website_slides.slide_content_detailed"
+            name="Hide Public Views"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//div[@id='statistic']//div[@class='row']//div[1]//table//tbody//tr[4]"
+                position="attributes"
+            >
                 <attribute name="class">d-none</attribute>
             </xpath>
         </template>
         <!-- Hide share tab on Slide -->
-        <template id="hide_share_tab" inherit_id="website_slides.slide_content_detailed" name="Hide Share Tab" active="False" customize_show="True">
+        <template
+            id="hide_share_tab"
+            inherit_id="website_slides.slide_content_detailed"
+            name="Hide Share Tab"
+            active="False"
+            customize_show="True"
+        >
             <xpath expr="//a[@href='#share']//.." position="attributes">
                 <attribute name="class">nav-item d-none</attribute>
             </xpath>
@@ -48,7 +99,13 @@
             </xpath>
         </template>
         <!-- Hide statistics tab on Slide -->
-        <template id="hide_statistics_tab" inherit_id="website_slides.slide_content_detailed" name="Hide Statistics Tab" active="False" customize_show="True">
+        <template
+            id="hide_statistics_tab"
+            inherit_id="website_slides.slide_content_detailed"
+            name="Hide Statistics Tab"
+            active="False"
+            customize_show="True"
+        >
             <xpath expr="//a[@href='#statistic']//.." position="attributes">
                 <attribute name="class">nav-item d-none</attribute>
             </xpath>

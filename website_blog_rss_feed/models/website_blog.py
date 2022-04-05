@@ -21,10 +21,11 @@
 # 1. Standard library imports:
 from werkzeug import urls
 
-# 2. Known third party imports:
-
 # 3. Odoo imports (openerp):
 from odoo import fields, models
+
+# 2. Known third party imports:
+
 
 # 4. Imports from Odoo modules:
 
