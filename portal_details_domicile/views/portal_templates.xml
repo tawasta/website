@@ -3,12 +3,10 @@
     <template id="portal_my_details_domicile" inherit_id="portal.portal_my_details">
         <xpath expr="//input[@name='zipcode']//.." position="after">
             <div
-                t-attf-class="form-group #{error.get('domicile') and 'o_has_error' or ''} col-xl-6"
-            >
+                t-attf-class="form-group #{error.get('domicile') and 'o_has_error' or ''} col-xl-6">
                 <label
                     class="col-form-label label-optional"
-                    for="domicile"
-                >Domicile</label>
+                    for="domicile">Domicile</label>
                 <input
                     type="text"
                     name="domicile"
