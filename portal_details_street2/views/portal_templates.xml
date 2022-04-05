@@ -1,10 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <template id="portal_my_details_street2" inherit_id="portal.portal_my_details">
         <xpath expr="//input[@name='street']//.." position="after">
-            <div t-attf-class="form-group #{error.get('street2') and 'o_has_error' or ''} col-xl-6">
-                <label class="col-form-label label-optional" for="street2">Street 2</label>
-                <input type="text" name="street2" t-attf-class="form-control #{error.get('street2') and 'is-invalid' or ''}" t-att-value="street2 or partner.street2"/>
+            <div
+                t-attf-class="form-group #{error.get('street2') and 'o_has_error' or ''} col-xl-6">
+                <label
+                    class="col-form-label label-optional"
+                    for="street2">Street 2</label>
+                <input
+                    type="text"
+                    name="street2"
+                    t-attf-class="form-control #{error.get('street2') and 'is-invalid' or ''}"
+                    t-att-value="street2 or partner.street2"
+                />
             </div>
         </xpath>
     </template>

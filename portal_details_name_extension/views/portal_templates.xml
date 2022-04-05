@@ -1,10 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <template id="portal_my_details_name_extension" inherit_id="portal.portal_my_details">
+    <template
+        id="portal_my_details_name_extension"
+        inherit_id="portal.portal_my_details">
         <xpath expr="//input[@name='email']//.." position="before">
-            <div t-attf-class="form-group #{error.get('name_extension') and 'o_has_error' or ''} col-xl-6">
-                <label class="col-form-label label-optional" for="name_extension">Name Extension</label>
-                <input type="text" name="name_extension" t-attf-class="form-control #{error.get('name_extension') and 'is-invalid' or ''}" t-att-value="name_extension or partner.name_extension"/>
+            <div
+                t-attf-class="form-group #{error.get('name_extension') and 'o_has_error' or ''} col-xl-6">
+                <label
+                    class="col-form-label label-optional"
+                    for="name_extension">Name Extension</label>
+                <input
+                    type="text"
+                    name="name_extension"
+                    t-attf-class="form-control #{error.get('name_extension') and 'is-invalid' or ''}"
+                    t-att-value="name_extension or partner.name_extension"
+                />
             </div>
         </xpath>
     </template>

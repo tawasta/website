@@ -1,5 +1,6 @@
-from odoo.addons.website_form.controllers.main import WebsiteForm
 from odoo import _
+
+from odoo.addons.website_form.controllers.main import WebsiteForm
 
 
 class WebsiteFormSender(WebsiteForm):
@@ -8,7 +9,8 @@ class WebsiteFormSender(WebsiteForm):
 
         if model_name == "mail.mail" and request.env.company.email:
             sender = _(f"Sent by: {values.get('email_from')}")
-            # Static from company mail. This could also be fetched from e.g. system parameters for more control
+            # Static from company mail.
+            # This could also be fetched from e.g. system parameters for more control
             values.update({"email_from": request.env.company.email})
             custom = f"{sender}\n{custom}"
 

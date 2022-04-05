@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <template id="user_navbar" name="Website Developer Manager" inherit_id="website.user_navbar">
+    <template
+        id="user_navbar"
+        name="Website Developer Manager"
+        inherit_id="website.user_navbar">
         <xpath expr="//li[@id='customize-menu']" position="attributes">
-            <attribute name="groups">website_manager_group.group_website_manager</attribute>
+            <attribute
+                name="groups">website_manager_group.group_website_manager</attribute>
         </xpath>
     </template>
 </odoo>

@@ -1,14 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <template id="portal_my_details_firstname" inherit_id="portal.portal_my_details">
         <xpath expr="//input[@name='name']//.." position="after">
-            <div t-attf-class="form-group #{error.get('firstname') and 'o_has_error' or ''} col-xl-6">
+            <div
+                t-attf-class="form-group #{error.get('firstname') and 'o_has_error' or ''} col-xl-6">
                 <label class="col-form-label" for="firstname">First name</label>
-                <input type="text" name="firstname" t-attf-class="form-control #{error.get('firstname') and 'is-invalid' or ''}" t-att-value="firstname or partner.firstname"/>
+                <input
+                    type="text"
+                    name="firstname"
+                    t-attf-class="form-control #{error.get('firstname') and 'is-invalid' or ''}"
+                    t-att-value="firstname or partner.firstname"
+                />
             </div>
-            <div t-attf-class="form-group #{error.get('lastname') and 'o_has_error' or ''} col-xl-6">
+            <div
+                t-attf-class="form-group #{error.get('lastname') and 'o_has_error' or ''} col-xl-6">
                 <label class="col-form-label" for="lastname">Last name</label>
-                <input type="text" name="lastname" t-attf-class="form-control #{error.get('lastname') and 'is-invalid' or ''}" t-att-value="lastname or partner.lastname"/>
+                <input
+                    type="text"
+                    name="lastname"
+                    t-attf-class="form-control #{error.get('lastname') and 'is-invalid' or ''}"
+                    t-att-value="lastname or partner.lastname"
+                />
             </div>
         </xpath>
         <!-- Have to use replace, otherwise form breaks -->
