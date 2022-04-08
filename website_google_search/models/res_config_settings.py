@@ -40,11 +40,11 @@ class ResConfigSettings(models.TransientModel):
     has_google_search = fields.Boolean(
         "Google Search", related="website_id.has_google_search", readonly=False
     )
-    google_search_api_key = fields.Char(
-        "Google Search API Key",
-        related="website_id.google_search_api_key",
+    google_search_engine_id = fields.Char(
+        "Google Search Engine ID",
+        related="website_id.google_search_engine_id",
         readonly=False,
-        help="Google Search API key is the key in the source script url after "
+        help="Google Search Engine ID is the id in the source script url after "
         "`https://cse.google.com/cse.js?cx=`",
     )
 

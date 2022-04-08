@@ -2,7 +2,7 @@
 <odoo>
     <template id="snippets_google_search" inherit_id="website.snippets">
         <xpath
-            expr="//div[@id='snippet_feature']/div[hasclass('o_panel_body')]"
+            expr="//div[@id='snippet_effect']/div[hasclass('o_panel_body')]"
             position="inside">
             <t
                 t-snippet="website_google_search.s_google_search"

@@ -19,8 +19,8 @@
 ##############################################################################
 {
     "name": "Website Google Search",
-    "summary": "Global site search with Google search",
-    "description": "Global site search with Google search",
+    "summary": "Global site search with Google Search",
+    "description": "Global site search with Google Search",
     "version": "14.0.1.0.0",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",

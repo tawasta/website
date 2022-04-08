@@ -38,9 +38,9 @@ class Website(models.Model):
 
     # 2. Fields declaration
     has_google_search = fields.Boolean("Google Search", readonly=False)
-    google_search_api_key = fields.Char(
-        "Google Search API Key",
-        help="Google Search API key is the key in the source script url after "
+    google_search_engine_id = fields.Char(
+        "Google Search Engine ID",
+        help="Google Search Engine ID is the id in the source script url after "
         "`https://cse.google.com/cse.js?cx=`",
         readonly=False,
     )
