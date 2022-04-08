@@ -9,7 +9,12 @@ Website Google Search
 
 Configuration
 =============
-\-
+1. Create a new Programmable Search at https://cse.google.com/cse/create/new
+2. Set layout as "Two page" from "Look and Feel" in Google CSE settings.
+3. Optionally customize other options such as autocomplete, theme, promotions, refinements, synonyms etc. in Google CSE settings.
+4. Get the Search engine ID from Google CSE and add it to Odoo in General Settings > Website > Google Search.
+5. Using the Website Editor click on the Navbar and enable Google Search from the Style > Navbar tab.
+6. Optionally drag the separate Google Search snippet to the website from the website editor Blocks > Features tab.
 
 Usage
 =====
