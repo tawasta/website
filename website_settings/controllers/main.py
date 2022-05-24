@@ -18,12 +18,7 @@ class SocietyHome(home):
                 is_in_group = (
                     request.env["res.groups"]
                     .sudo()
-                    .search(
-                        [
-                            ("id", "=", group_param),
-                            ("users", "in", request.uid),
-                        ]
-                    )
+                    .search([("id", "=", group_param), ("users", "in", request.uid)])
                 )
                 if is_in_group and request.website.sudo().landing_page_group_text:
                     redirect = request.website.sudo().landing_page_group_text
@@ -35,7 +30,9 @@ class SocietyHome(home):
         return response
 
     def _login_redirect(self, uid, redirect=None):
-        if (
+        if redirect:
+            return redirect
+        elif (
             request.website.sudo().landing_page_group_text
             or request.website.sudo().landing_page
         ):
@@ -44,12 +41,7 @@ class SocietyHome(home):
             is_in_group = (
                 request.env["res.groups"]
                 .sudo()
-                .search(
-                    [
-                        ("id", "=", group_param),
-                        ("users", "in", request.uid),
-                    ]
-                )
+                .search([("id", "=", group_param), ("users", "in", request.uid)])
             )
             if is_in_group and request.website.sudo().landing_page_group_text:
                 redirect = request.website.sudo().landing_page_group_text
