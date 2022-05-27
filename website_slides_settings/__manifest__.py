@@ -23,7 +23,7 @@
     "summary": "Website Slides toggleable settings under website customize menu",
     "version": "14.0.1.0.2",
     "category": "Website/eLearning",
-    "website": "https://gitlab.com/tawasta/odoo/event",
+    "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,

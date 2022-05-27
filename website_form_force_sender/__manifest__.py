@@ -23,7 +23,7 @@
     "summary": "Override the form sender to company email to avoid being marked as spam",
     "version": "14.0.1.1.0",
     "category": "Website",
-    "website": "https://gitlab.com/tawasta/odoo/event",
+    "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,

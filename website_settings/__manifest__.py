@@ -23,7 +23,7 @@
     "summary": "Website toggleable settings under customize menu and other setting options",
     "version": "14.0.1.0.3",
     "category": "Website",
-    "website": "https://gitlab.com/tawasta/odoo/event",
+    "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
