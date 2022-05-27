@@ -23,7 +23,7 @@
     "summary": "new Website Permission Group to limit access for designers & editors",
     "version": "14.0.1.0.0",
     "category": "Website",
-    "website": "https://gitlab.com/tawasta/odoo/website/",
+    "website": "https://gitlab.com/tawasta/odoo/event",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,

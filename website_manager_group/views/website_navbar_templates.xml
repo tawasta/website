@@ -3,10 +3,12 @@
     <template
         id="user_navbar"
         name="Website Developer Manager"
-        inherit_id="website.user_navbar">
+        inherit_id="website.user_navbar"
+    >
         <xpath expr="//li[@id='customize-menu']" position="attributes">
             <attribute
-                name="groups">website_manager_group.group_website_manager</attribute>
+                name="groups"
+            >website_manager_group.group_website_manager</attribute>
         </xpath>
     </template>
 </odoo>

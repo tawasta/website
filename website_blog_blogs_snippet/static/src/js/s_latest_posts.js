@@ -20,8 +20,8 @@ odoo.define(
                 var self = this;
                 const data = self.$target[0].dataset;
                 const promoted = data.promoted === "true" || false;
-                const limit = parseInt(data.postsLimit) || 4;
-                const blogID = parseInt(data.filterByBlogId);
+                const limit = parseInt(data.postsLimit, 10) || 4;
+                const blogID = parseInt(data.filterByBlogId, 10);
                 // Compatibility with old template xml id
                 if (
                     data.template &&
@@ -34,8 +34,10 @@ odoo.define(
                 const loading = data.loading === "true";
                 const order = data.order || "published_date desc";
 
-                this.$target.empty(); // Compatibility with db that saved content inside by mistake
-                this.$target.attr("contenteditable", "False"); // Prevent user edition
+                // Compatibility with db that saved content inside by mistake
+                this.$target.empty();
+                // Prevent user edition
+                this.$target.attr("contenteditable", "False");
 
                 var domain = [];
                 if (blogID) {
@@ -106,12 +108,13 @@ odoo.define(
                 this._super.apply(this, arguments);
             },
 
-            //--------------------------------------------------------------------------
+            // --------------------------------------------------------------------------
             // Private
-            //--------------------------------------------------------------------------
+            // --------------------------------------------------------------------------
 
             /**
              * @private
+             * @param {Object} $posts
              */
             _showLoading: function ($posts) {
                 var self = this;
@@ -125,7 +128,7 @@ odoo.define(
                             .css("background-image")
                             .replace("url(", "")
                             .replace(")", "")
-                            .replace(/\"/gi, "") || "none";
+                            .replace(/"/gi, "") || "none";
 
                     // Append $post to the snippet, regardless by the loading state.
                     $post.appendTo(self.$target);

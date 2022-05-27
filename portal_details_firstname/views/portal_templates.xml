@@ -3,7 +3,8 @@
     <template id="portal_my_details_firstname" inherit_id="portal.portal_my_details">
         <xpath expr="//input[@name='name']//.." position="after">
             <div
-                t-attf-class="form-group #{error.get('firstname') and 'o_has_error' or ''} col-xl-6">
+                t-attf-class="form-group #{error.get('firstname') and 'o_has_error' or ''} col-xl-6"
+            >
                 <label class="col-form-label" for="firstname">First name</label>
                 <input
                     type="text"
@@ -13,7 +14,8 @@
                 />
             </div>
             <div
-                t-attf-class="form-group #{error.get('lastname') and 'o_has_error' or ''} col-xl-6">
+                t-attf-class="form-group #{error.get('lastname') and 'o_has_error' or ''} col-xl-6"
+            >
                 <label class="col-form-label" for="lastname">Last name</label>
                 <input
                     type="text"

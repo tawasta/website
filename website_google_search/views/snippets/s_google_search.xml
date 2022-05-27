@@ -6,7 +6,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <t
-                            t-if="request.env['website'].get_current_website().has_google_search">
+                            t-if="request.env['website'].get_current_website().has_google_search"
+                        >
                             <div
                                 class="gcse-searchbox-only"
                                 data-resultsUrl="/search"
@@ -14,7 +15,8 @@
                         </t>
                         <t t-else="">
                             <div
-                                class="alert alert-warning alert-dismissible text-center">Google Search is not enabled on this website. </div>
+                                class="alert alert-warning alert-dismissible text-center"
+                            >Google Search is not enabled on this website. </div>
                         </t>
                     </div>
                 </div>

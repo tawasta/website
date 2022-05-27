@@ -8,12 +8,14 @@
                 <section
                     class="s_banner bg-900"
                     style="background-image: url(&quot;/website_slides/static/src/img/banner_default_all.svg&quot;); background-size: cover; background-position: 80% 20%"
-                    data-snippet="s_banner">
+                    data-snippet="s_banner"
+                >
                     <div class="container py-5">
                         <h1 t-if="search_my" class="display-3 mb-0">My Courses</h1>
                         <h1
                             t-elif="search_slide_type=='certification'"
-                            class="display-3 mb-0">Certifications</h1>
+                            class="display-3 mb-0"
+                        >Certifications</h1>
                         <h1 t-else="" class="display-3 mb-0">All Courses</h1>
                     </div>
                 </section>
@@ -21,7 +23,8 @@
                     <!-- Navbar dynamically composed using displayed channel tag groups. -->
                     <nav
                         class="navbar navbar-expand-md navbar-light shadow-sm pl-0"
-                        style="background: white!important">
+                        style="background: white!important"
+                    >
                         <div class="navbar-nav border-right">
                             <a class="nav-link nav-item px-3" href="/slides">
                                 <i class="fa fa-chevron-left" />
@@ -30,20 +33,21 @@
                         <!-- Clear filtering (mobile)-->
                         <div
                             class="form-inline text-nowrap ml-auto d-md-none"
-                            t-if="search_slide_type or search_my or search_tags or search_channel_tag_id">
+                            t-if="search_slide_type or search_my or search_tags or search_channel_tag_id"
+                        >
                             <a
                                 href="/slides/all"
                                 class="btn btn-info mr-2"
                                 role="button"
-                                title="Clear filters"><i
-                                    class="fa fa-eraser"
-                                /> Clear filters
+                                title="Clear filters"
+                            ><i class="fa fa-eraser" /> Clear filters
                         </a>
                         </div>
                         <form
                             t-else=""
                             method="GET"
-                            class="form-inline o_wslides_nav_navbar_right d-md-none">
+                            class="form-inline o_wslides_nav_navbar_right d-md-none"
+                        >
                             <!-- Search box (mobile)-->
                             <div class="input-group">
                                 <input
@@ -77,7 +81,8 @@
                                         class="btn border border-left-0 oe_search_button"
                                         type="submit"
                                         aria-label="Search"
-                                        title="Search">
+                                        title="Search"
+                                    >
                                         <i class="fa fa-search" />
                                     </button>
                                 </div>
@@ -90,7 +95,8 @@
                             data-target="#navbarTagGroups"
                             aria-controls="navbarTagGroups"
                             aria-expanded="false"
-                            aria-label="Toggle navigation">
+                            aria-label="Toggle navigation"
+                        >
                             <span class="navbar-toggler-icon small" />
                         </button>
                         <div class="collapse navbar-collapse" id="navbarTagGroups">
@@ -101,7 +107,8 @@
                             <ul class="navbar-nav flex-grow-1">
                                 <t t-foreach="tag_groups" t-as="tag_group">
                                     <li
-                                        t-att-class="'nav-item dropdown ml16 %s' % ('active' if tag_group in search_tag_groups else '')">
+                                        t-att-class="'nav-item dropdown ml16 %s' % ('active' if tag_group in search_tag_groups else '')"
+                                    >
                                         <a
                                             class="nav-link dropdown-toggle"
                                             href="/slides/all"
@@ -114,7 +121,8 @@
                                         />
                                         <div
                                             class="dropdown-menu"
-                                            t-att-id="'navToogleTagGroup%s' % tag_group.id">
+                                            t-att-id="'navToogleTagGroup%s' % tag_group.id"
+                                        >
                                             <t t-foreach="tag_group.tag_ids" t-as="tag">
                                                 <a
                                                     rel="nofollow"
@@ -130,20 +138,21 @@
                             <!-- Clear filtering (desktop)-->
                             <div
                                 class="form-inline ml-auto d-none d-md-flex"
-                                t-if="search_slide_type or search_my or search_tags or search_channel_tag_id">
+                                t-if="search_slide_type or search_my or search_tags or search_channel_tag_id"
+                            >
                                 <a
                                     href="/slides/all"
                                     class="btn btn-info text-nowrap mr-2"
                                     role="button"
-                                    title="Clear filters"><i
-                                        class="fa fa-eraser"
-                                    /> Clear filters
+                                    title="Clear filters"
+                                ><i class="fa fa-eraser" /> Clear filters
                             </a>
                             </div>
                             <!-- Search box (desktop) -->
                             <form
                                 method="GET"
-                                class="form-inline o_wslides_nav_navbar_right d-none d-md-flex">
+                                class="form-inline o_wslides_nav_navbar_right d-none d-md-flex"
+                            >
                                 <div class="input-group">
                                     <input
                                         type="search"
@@ -176,7 +185,8 @@
                                             class="btn border border-left-0 oe_search_button"
                                             type="submit"
                                             aria-label="Search"
-                                            title="Search">
+                                            title="Search"
+                                        >
                                             <i class="fa fa-search" />
                                         </button>
                                     </div>
@@ -188,54 +198,63 @@
                         <t t-call="website_profile.email_validation_banner">
                             <t t-set="redirect_url" t-value="'/slides'" />
                             <t
-                                t-set="send_validation_email_message">Click here to send a verification email allowing you to participate at the eLearning.</t>
+                                t-set="send_validation_email_message"
+                            >Click here to send a verification email allowing you to participate at the eLearning.</t>
                             <t
-                                t-set="additional_validated_email_message"> You may now participate in our eLearning.</t>
+                                t-set="additional_validated_email_message"
+                            > You may now participate in our eLearning.</t>
                         </t>
                     </div>
                     <!-- Display tags -->
                     <t t-if="search_my">
                         <span
-                            class="align-items-baseline border d-inline-flex pl-2 rounded mb-2"><i
-                                class="fa fa-tag mr-2 text-muted"
-                            />
+                            class="align-items-baseline border d-inline-flex pl-2 rounded mb-2"
+                        ><i class="fa fa-tag mr-2 text-muted" />
                       My Courses
                       <a
                                 t-att-href="'/slides/all?%s' % keep_query('*', my=None)"
-                                class="btn border-0 py-1">&#xD7;</a>
+                                class="btn border-0 py-1"
+                            >&#xD7;</a>
                     </span>
                     </t>
                     <t t-if="search_term">
                         <span
-                            class="align-items-baseline border d-inline-flex pl-2 rounded mb-2">
+                            class="align-items-baseline border d-inline-flex pl-2 rounded mb-2"
+                        >
                             <i class="fa fa-tag mr-2 text-muted" />
                             <t t-esc="search_term" />
                             <a
                                 t-att-href="'/slides/all?%s' % keep_query('*', search=None)"
-                                class="btn border-0 py-1">&#xD7;</a>
+                                class="btn border-0 py-1"
+                            >&#xD7;</a>
                         </span>
                     </t>
                     <t t-foreach="search_tags" t-as="tag">
                         <span
-                            class="align-items-baseline border d-inline-flex pl-2 rounded mb-2">
+                            class="align-items-baseline border d-inline-flex pl-2 rounded mb-2"
+                        >
                             <i class="fa fa-tag mr-2 text-muted" />
                             <t t-esc="tag.display_name" />
                             <a
                                 t-att-href="'/slides/all?%s' % keep_query('*', tags=str((search_tags - tag).ids))"
-                                class="btn border-0 py-1">&#xD7;</a>
+                                class="btn border-0 py-1"
+                            >&#xD7;</a>
                         </span>
                     </t>
                 </div>
                 <div class="container o_wslides_home_main pb-5">
                     <div
-                        t-if="not channels and not search_term and not search_slide_type and not search_my and not search_tags and not search_channel_tag_id">
+                        t-if="not channels and not search_term and not search_slide_type and not search_my and not search_tags and not search_channel_tag_id"
+                    >
                         <p class="h2">No Course created yet.</p>
                         <p
-                            groups="website_slides.group_website_slides_officer">Click on "New" in the top-right corner to write your first course.</p>
+                            groups="website_slides.group_website_slides_officer"
+                        >Click on "New" in the top-right corner to write your first course.</p>
                     </div>
                     <div
                         t-elif="search_term and not channels"
-                        class="alert alert-info mb-5">
+                        class="alert alert-info mb-5"
+                    >
                     No course was found matching your search <code><t
                                 t-esc="search_term"
                             /></code>.
@@ -246,7 +265,8 @@
                     <div t-else="" class="row mx-n2">
                         <t t-foreach="channels" t-as="channel">
                             <div
-                                class="col-12 col-sm-6 col-md-4 col-lg-3 px-2 d-flex flex-grow-1">
+                                class="col-12 col-sm-6 col-md-4 col-lg-3 px-2 d-flex flex-grow-1"
+                            >
                                 <t t-call="website_slides.course_card" />
                             </div>
                         </t>

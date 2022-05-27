@@ -20,11 +20,10 @@
 {
     "name": "Website Google Search",
     "summary": "Global site search with Google Search",
-    "description": "Global site search with Google Search",
     "version": "14.0.1.0.0",
     "category": "Website",
-    "website": "https://gitlab.com/tawasta/odoo/website",
-    "author": "Miika Nissi",
+    "website": "https://gitlab.com/tawasta/odoo/event",
+    "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,

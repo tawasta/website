@@ -5,7 +5,8 @@
         name="Hide cover author"
         inherit_id="website_blog.opt_blog_post_regular_cover"
         active="False"
-        customize_show="True">
+        customize_show="True"
+    >
         <xpath expr="//t[@t-call='website_blog.post_author']//.." position="replace">
         </xpath>
     </template>
@@ -14,12 +15,14 @@
         name="Hide cover comments"
         inherit_id="website_blog.opt_blog_post_regular_cover"
         active="False"
-        customize_show="True">
+        customize_show="True"
+    >
         <xpath expr="//a[@href='#discussion']//.." position="replace">
         </xpath>
         <xpath
             expr="//span[@t-elif=&quot;is_view_active('website_blog.opt_blog_post_comment')&quot;]"
-            position="replace">
+            position="replace"
+        >
         </xpath>
     </template>
 </odoo>

@@ -23,7 +23,7 @@
     "Only shows text 'TEST' on website side.",
     "author": "Tawasta",
     "license": "AGPL-3",
-    "website": "https://github.com/Tawasta/website",
+    "website": "https://gitlab.com/tawasta/odoo/event",
     "category": "Website",
     "version": "14.0.1.0.0",
     "depends": ["web", "website", "web_environment_ribbon"],

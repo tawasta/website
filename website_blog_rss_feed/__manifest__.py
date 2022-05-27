@@ -23,7 +23,7 @@
     "summary": "Ability to create custom RSS Feeds with multiple blogs.",
     "version": "14.0.1.1.1",
     "category": "Website",
-    "website": "https://gitlab.com/tawasta/odoo/website",
+    "website": "https://gitlab.com/tawasta/odoo/event",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,

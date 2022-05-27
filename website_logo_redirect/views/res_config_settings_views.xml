@@ -8,7 +8,8 @@
             <xpath expr="//div[@id='domain_settings']" position="after">
                 <div
                     class="col-12 col-lg-6 o_setting_box"
-                    id="url_logo_redirect_settings">
+                    id="url_logo_redirect_settings"
+                >
                     <div class="o_setting_right_pane">
                         <label string="Logo URL" for="logo_url" />
                         <div class="text-muted">

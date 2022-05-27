@@ -3,7 +3,8 @@
     <template id="snippet_options_footer_empty" inherit_id="website.snippet_options">
         <xpath
             expr="//we-button[@data-customize-website-views='website.template_footer_headline']"
-            position="after">
+            position="after"
+        >
             <we-button
                 title="Empty"
                 data-customize-website-views="website_footer_empty_template.template_footer_empty"

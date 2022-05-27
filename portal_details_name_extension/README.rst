@@ -5,8 +5,9 @@
 =============================
 Portal Details Name Extension
 =============================
-* Portal details (/my/account/) add name extension from connector_netvisor
-* NOTE: Requires connector_netvisor
+Portal details (/my/account/) add name extension from connector_netvisor
+*NOTE: Requires connector_netvisor*
+
 Configuration
 =============
 \-
