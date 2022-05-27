@@ -9,12 +9,10 @@
                 <h2>Website Header Announcement Stripe</h2>
                 <div
                     class="row mt16 o_settings_container"
-                    id="website_header_announcement_stripe"
-                >
+                    id="website_header_announcement_stripe">
                     <div
                         class="col-12 col-lg-12 o_setting_box"
-                        id="website_header_announcement_stripe_settings"
-                    >
+                        id="website_header_announcement_stripe_settings">
                         <div class="o_setting_left_pane">
                             <field name="website_header_announcement_stripe_show" />
                         </div>
@@ -22,8 +20,7 @@
                             <label for="website_header_announcement_stripe_show" />
                             <div
                                 class="content-group"
-                                attrs="{'invisible': [('website_header_announcement_stripe_show', '=', False)]}"
-                            >
+                                attrs="{'invisible': [('website_header_announcement_stripe_show', '=', False)]}">
                             <div class="text-muted">
                                 Website Header Announcement Stripe Text
                             </div>

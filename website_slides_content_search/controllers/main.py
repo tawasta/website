@@ -21,8 +21,6 @@
 # 1. Standard library imports:
 from collections import defaultdict
 
-# 2. Known third party imports:
-
 # 3. Odoo imports (openerp):
 from odoo import http
 from odoo.http import request
@@ -30,6 +28,9 @@ from odoo.osv import expression
 
 # 4. Imports from Odoo modules:
 from odoo.addons.website_slides.controllers.main import WebsiteSlides
+
+# 2. Known third party imports:
+
 
 # 5. Local imports in the relative form:
 
@@ -39,9 +40,7 @@ from odoo.addons.website_slides.controllers.main import WebsiteSlides
 class WebsiteSlidesContentSearch(WebsiteSlides):
     @http.route("/slides/all", type="http", auth="public", website=True, sitemap=True)
     def slides_channel_all(self, slide_type=None, my=False, **post):
-        """
-
-        """
+        """ """
         domain = request.website.website_domain()
         domain = self._build_channel_domain(
             domain, slide_type=slide_type, my=my, **post

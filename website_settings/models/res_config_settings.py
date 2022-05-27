@@ -41,7 +41,7 @@ class ResConfigSettings(models.TransientModel):
     landing_page_group_id = fields.Many2one(
         string="Group",
         comodel_name="res.groups",
-        config_parameter='group.landing.page',
+        config_parameter="group.landing.page",
     )
 
     landing_page_group_text = fields.Char(

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Squares layout -->
+    <template id="s_latest_posts_square_template">
+        <div
+            t-foreach="posts"
+            t-as="p"
+            class="col-md-6 col-lg-3 s_latest_posts_post pb32">
+            <div class="card">
+                <a
+                    class="s_latest_posts_post_cover"
+                    t-attf-href="/blog/#{p.blog_id.id}/#{p.id}">
+                    <t t-call="website.record_cover">
+                        <t t-set="_record" t-value="p" />
+                       <t
+                            t-set="additionnal_classes"
+                            t-value="'loading_container thumb'"
+                        />
+                    </t>
+                </a>
+                <div class="card-body text-center">
+                    <span t-field="p.post_date" t-options='{"format": "dd.MM.yyyy"}' />
+                    <h4 class="card-title">
+                        <t t-esc="p.name" />
+                        <t t-if="p.subtitle">
+                            <span> (<t t-esc="p.subtitle" />)</span>
+                        </t>
+                    </h4>
+                    <p class="card-text" t-field="p.teaser" />
+                </div>
+                <div class="card-footer text-center">
+                    <a
+                        t-attf-href="/blog/#{p.blog_id.id}/#{p.id}"
+                        class="btn-link">Read more <span
+                            class="fa fa-angle-double-right"
+                        /></a>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- Options -->
+    <template
+        id="s_latest_posts_options_inherit"
+        inherit_id="website_blog.s_latest_posts_options">
+        <xpath
+            expr="//we-button[@data-select-data-attribute='website_blog.s_latest_posts_card_template']"
+            position="after">
+            <we-button
+                data-select-data-attribute="website_blog_blogs_snippet.s_latest_posts_square_template"
+                data-select-class="s_latest_posts_square"
+                data-name="square_opt">Squares</we-button>
+        </xpath>
+        <xpath expr="//we-select[@name='blog_selection']" position="after">
+            <we-select
+                string="Only show promoted posts"
+                data-no-preview="true"
+                name="blog_promoted_posts"
+                data-attribute-name="promoted">
+                <we-button data-select-data-attribute="true">Yes</we-button>
+                <we-button data-select-data-attribute="false">No</we-button>
+            </we-select>
+        </xpath>
+    </template>
+    <!-- Assets -->
+    <template
+        id="assets_snippet_s_latest_posts_css_001_inherit"
+        inherit_id="website_blog.assets_snippet_s_latest_posts_css_001">
+        <xpath expr="//link[last()]" position="after">
+            <link
+                rel="stylesheet"
+                type="text/scss"
+                href="/website_blog_blogs_snippet/static/src/scss/s_latest_posts.scss"
+            />
+        </xpath>
+    </template>
+    <template
+        id="assets_snippet_s_latest_posts_js_000_inherit"
+        inherit_id="website_blog.assets_snippet_s_latest_posts_js_000">
+        <xpath expr="//script[last()]" position="after">
+            <script
+                type="text/javascript"
+                src="/website_blog_blogs_snippet/static/src/js/s_latest_posts.js"
+            />
+        </xpath>
+    </template>
+</odoo>
