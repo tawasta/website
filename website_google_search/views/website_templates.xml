@@ -8,11 +8,13 @@
         id="header_google_search"
         inherit_id="website_google_search.placeholder_header_google_search"
         name="Header Google Search"
-        active="False">
+        active="False"
+    >
         <xpath expr="." position="inside">
             <li
                 id="header_google_search_box"
-                t-attf-class="js_google_search o_no_autohide_item #{_div_classes}">
+                t-attf-class="js_google_search o_no_autohide_item #{_div_classes}"
+            >
                 <div class="gcse-searchbox-only" data-resultsUrl="/search" />
             </li>
         </xpath>
@@ -51,7 +53,8 @@
     </template>
     <template
         id="template_header_hamburger"
-        inherit_id="website.template_header_hamburger">
+        inherit_id="website.template_header_hamburger"
+    >
         <xpath expr="//t[@t-call='portal.user_dropdown']" position="after">
             <t t-call="website_google_search.placeholder_header_google_search">
                 <t t-set="_div_classes" t-value="'nav-item'" />
@@ -60,7 +63,8 @@
     </template>
     <template
         id="template_header_vertical"
-        inherit_id="website.template_header_vertical">
+        inherit_id="website.template_header_vertical"
+    >
         <xpath expr="//t[@t-call='portal.user_dropdown']" position="after">
             <t t-call="website_google_search.placeholder_header_google_search">
                 <t t-set="_div_classes" t-value="'nav-item ml-lg-3'" />
@@ -90,7 +94,8 @@
     </template>
     <template
         id="template_header_minimalist"
-        inherit_id="website.template_header_minimalist">
+        inherit_id="website.template_header_minimalist"
+    >
         <xpath expr="//t[@t-call='portal.user_dropdown']" position="after">
             <t t-call="website_google_search.placeholder_header_google_search">
                 <t t-set="_div_classes" t-value="'nav-item ml-auto'" />
@@ -106,7 +111,8 @@
     </template>
     <template
         id="template_header_centered_logo"
-        inherit_id="website.template_header_centered_logo">
+        inherit_id="website.template_header_centered_logo"
+    >
         <xpath expr="//t[@t-call='portal.user_dropdown']" position="after">
             <t t-call="website_google_search.placeholder_header_google_search">
                 <t t-set="_div_classes" t-value="'nav-item ml-3'" />
@@ -122,7 +128,8 @@
     </template>
     <template
         id="template_header_hamburger_full"
-        inherit_id="website.template_header_hamburger_full">
+        inherit_id="website.template_header_hamburger_full"
+    >
         <xpath expr="//t[@t-call='portal.user_dropdown']" position="after">
             <t t-call="website_google_search.placeholder_header_google_search">
                 <t t-set="_div_classes" t-value="'nav-item'" />
@@ -131,7 +138,8 @@
     </template>
     <template
         id="template_header_magazine"
-        inherit_id="website.template_header_magazine">
+        inherit_id="website.template_header_magazine"
+    >
         <xpath expr="//t[@t-call='portal.user_dropdown']" position="after">
             <t t-call="website_google_search.placeholder_header_google_search">
                 <t t-set="_div_classes" t-value="'nav-item'" />

@@ -3,7 +3,8 @@
     <template id="snippets_google_search" inherit_id="website.snippets">
         <xpath
             expr="//div[@id='snippet_effect']/div[hasclass('o_panel_body')]"
-            position="inside">
+            position="inside"
+        >
             <t
                 t-snippet="website_google_search.s_google_search"
                 t-thumbnail="/website_google_search/static/src/img/icon.png"
@@ -13,14 +14,17 @@
     <template id="snippet_options_google_search" inherit_id="website.snippet_options">
         <xpath
             expr="//we-button[@data-name='header_language_selector_none_opt']//.."
-            position="after">
+            position="after"
+        >
             <t t-if="request.env['website'].get_current_website().has_google_search">
                 <we-select string="Google Search" data-reload="/">
                     <we-button
                         data-name="header_google_search_none_opt"
-                        data-customize-website-views="">None</we-button>
+                        data-customize-website-views=""
+                    >None</we-button>
                     <we-button
-                        data-customize-website-views="website_google_search.header_google_search">Visible</we-button>
+                        data-customize-website-views="website_google_search.header_google_search"
+                    >Visible</we-button>
                 </we-select>
             </t>
         </xpath>

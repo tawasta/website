@@ -20,11 +20,10 @@
 {
     "name": "Website Google Analytics 4",
     "summary": "Enables Google Analytics 4 Global Site Tag (gtag.js)",
-    "description": "Enables Google Analytics 4 Global Site Tag (gtag.js)",
     "version": "14.0.1.0.0",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
-    "author": "Miika Nissi",
+    "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,

@@ -3,7 +3,8 @@
     <template id="portal_layout_membership_ref" inherit_id="portal.portal_layout">
         <xpath
             expr="//div[@class='o_portal_my_details']//div[@t-field='user_id.partner_id']"
-            position="after">
+            position="after"
+        >
             <t t-if="user_id.partner_id.ref">
                 <div style="margin-top: 0.5em;">
                     <i

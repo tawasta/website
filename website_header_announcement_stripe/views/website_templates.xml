@@ -3,7 +3,8 @@
     <template
         id="template_header_announcement_stripe"
         inherit_id="website.layout"
-        active="True">
+        active="True"
+    >
         <xpath expr="//header[@id='top']" position="before">
             <t t-if="website.header_announcement_stripe_show">
                 <div class="o_header_announcement_stripe">
@@ -15,7 +16,8 @@
     <template
         id="template_header_announcement_stripe_assets"
         inherit_id="website.assets_frontend"
-        active="True">
+        active="True"
+    >
         <xpath expr="//link[last()]" position="after">
             <link
                 rel="stylesheet"

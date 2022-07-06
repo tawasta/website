@@ -57,11 +57,6 @@ class WebsiteSlidesContentSearch(WebsiteSlides):
         search_tags = self._extract_channel_tag_search(**post)
 
         values = self._prepare_user_values(**post)
-        print(channels)
-        print(tag_groups)
-        print(slide_type)
-        print(search_tags)
-        print(post.get("search"))
         values.update(
             {
                 "channels": channels,
@@ -78,9 +73,6 @@ class WebsiteSlidesContentSearch(WebsiteSlides):
         return request.render("website_slides.courses_all", values)
 
     def _build_channel_domain(self, base_domain, slide_type=None, my=False, **post):
-        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        print("DEBUG")
-        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         search_term = post.get("search")
         tags = self._extract_channel_tag_search(**post)
 
@@ -118,5 +110,4 @@ class WebsiteSlidesContentSearch(WebsiteSlides):
             domain = expression.AND(
                 [domain, [("partner_ids", "=", request.env.user.partner_id.id)]]
             )
-        print(domain)
         return domain

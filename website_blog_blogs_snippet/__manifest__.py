@@ -20,11 +20,10 @@
 {
     "name": "Website Blog Blogs Snippet",
     "summary": "Improved Blogs Snippet",
-    "description": "Improved Blogs Snippet",
     "version": "14.0.1.0.0",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
-    "author": "Miika Nissi",
+    "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
