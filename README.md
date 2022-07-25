@@ -30,7 +30,7 @@ addon | version | maintainers | summary
 [website_logout_redirect_login](website_logout_redirect_login/) | 14.0.1.0.0 |  | Redirect to Login view after Logout
 [website_manager_group](website_manager_group/) | 14.0.1.0.0 |  | new Website Permission Group to limit access for designers & editors
 [website_marker_map](website_marker_map/) | 14.0.1.0.0 |  | Map thats shows markers and info windows on google maps that it gets from the backend
-[website_settings](website_settings/) | 14.0.1.0.3 |  | Website toggleable settings under customize menu and other setting options
+[website_settings](website_settings/) | 14.0.1.0.4 |  | Website toggleable settings under customize menu and other setting options
 [website_slides_content_search](website_slides_content_search/) | 14.0.1.0.0 |  | Search through website slides contents on the website
 [website_slides_settings](website_slides_settings/) | 14.0.1.0.2 |  | Website Slides toggleable settings under website customize menu
 

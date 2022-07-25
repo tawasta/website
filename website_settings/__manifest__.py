@@ -21,7 +21,7 @@
 {
     "name": "Website Settings",
     "summary": "Website toggleable settings under customize menu and other setting options",
-    "version": "14.0.1.0.3",
+    "version": "14.0.1.0.4",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
