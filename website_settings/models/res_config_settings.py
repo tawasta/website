@@ -48,14 +48,12 @@ class ResConfigSettings(models.TransientModel):
         "Group Landing Page URL",
         related="website_id.landing_page_group_text",
         readonly=False,
-        placeholder="/my/home",
     )
 
     landing_page = fields.Char(
         "Landing Page URL",
         related="website_id.landing_page",
         readonly=False,
-        placeholder="/my/home",
     )
 
     # 3. Default methods
