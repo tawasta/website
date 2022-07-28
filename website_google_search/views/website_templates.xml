@@ -14,6 +14,7 @@
             <li
                 id="header_google_search_box"
                 t-attf-class="js_google_search o_no_autohide_item #{_div_classes}"
+                style="min-width: 250px;"
             >
                 <div class="gcse-searchbox-only" data-resultsUrl="/search" />
             </li>
@@ -86,9 +87,9 @@
         </xpath>
     </template>
     <template id="template_header_contact" inherit_id="website.template_header_contact">
-        <xpath expr="//t[@t-call='portal.user_dropdown']" position="after">
+        <xpath expr="//t[@t-call='portal.user_dropdown']" position="before">
             <t t-call="website_google_search.placeholder_header_google_search">
-                <t t-set="_div_classes" t-value="'nav-item ml-lg-auto'" />
+                <t t-set="_div_classes" t-value="'nav-item ml-lg-3'" />
             </t>
         </xpath>
     </template>
