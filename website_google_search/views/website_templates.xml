@@ -89,7 +89,7 @@
     <template id="template_header_contact" inherit_id="website.template_header_contact">
         <xpath expr="//t[@t-call='portal.user_dropdown']" position="before">
             <t t-call="website_google_search.placeholder_header_google_search">
-                <t t-set="_div_classes" t-value="'nav-item ml-lg-3'" />
+                <t t-set="_div_classes" t-value="'nav-item ml-lg-auto'" />
             </t>
         </xpath>
     </template>
