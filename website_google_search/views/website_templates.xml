@@ -33,7 +33,13 @@
     <!-- </template> -->
     <template id="google_search_results" name="Google Search Results">
         <t t-call="website.layout">
-            <div class="gcse-searchresults-only" />
+            <div id="wrap" class="oe_structure oe_empty">
+                <section class="s_google_search pt32 pb32">
+                    <div class="container">
+                        <div class="gcse-searchresults-only" />
+                    </div>
+                </section>
+            </div>
         </t>
     </template>
     <!-- <template id="template_header_default" inherit_id="website.template_header_default"> -->
