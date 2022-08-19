@@ -19,6 +19,7 @@ addon | version | maintainers | summary
 [website_blog_blogs_snippet](website_blog_blogs_snippet/) | 14.0.1.0.0 |  | Improved Blogs Snippet
 [website_blog_rss_feed](website_blog_rss_feed/) | 14.0.1.1.1 |  | Ability to create custom RSS Feeds with multiple blogs.
 [website_blog_settings](website_blog_settings/) | 14.0.1.0.0 |  | Customization settings under website frontend customize menu
+[website_blog_teaser](website_blog_teaser/) | 14.0.1.0.0 |  | Edit blog post teaser from backend
 [website_contactus_email](website_contactus_email/) | 14.0.1.0.0 |  | Contact Us form sents by email
 [website_environment_ribbon](website_environment_ribbon/) | 14.0.1.0.0 |  | Show environment ribbon on website also. Only shows text 'TEST' on website side.
 [website_footer_empty_template](website_footer_empty_template/) | 14.0.1.0.0 |  | Empty footer template for non inner content blocks
