@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <template id="website.show_website_info" inherit_id="website.show_website_info">
-    </template>
+    <record id="website.show_website_info" model="ir.ui.view">
+        <field name="active" eval="False" />
+    </record>
 </odoo>
