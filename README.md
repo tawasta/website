@@ -27,6 +27,7 @@ addon | version | maintainers | summary
 [website_google_analytics_4](website_google_analytics_4/) | 14.0.1.0.0 |  | Enables Google Analytics 4 Global Site Tag (gtag.js)
 [website_google_search](website_google_search/) | 14.0.1.0.0 |  | Global site search with Google Search
 [website_header_announcement_stripe](website_header_announcement_stripe/) | 14.0.1.0.0 |  | Announcement Stripe to Website header
+[website_hide_info](website_hide_info/) | 14.0.1.0.0 |  | Hides Odoo System Information on at /website/info
 [website_logo_redirect](website_logo_redirect/) | 14.0.1.0.0 |  | Redirects website logo to a custom URL
 [website_logout_redirect_login](website_logout_redirect_login/) | 14.0.1.0.0 |  | Redirect to Login view after Logout
 [website_manager_group](website_manager_group/) | 14.0.1.0.0 |  | new Website Permission Group to limit access for designers & editors
