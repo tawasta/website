@@ -20,7 +20,7 @@
 {
     "name": "Website Google Search",
     "summary": "Global site search with Google Search",
-    "version": "14.0.1.0.2",
+    "version": "14.0.2.0.0",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
