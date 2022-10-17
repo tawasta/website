@@ -21,6 +21,9 @@ odoo.define(
                 const data = self.$target[0].dataset;
                 const promoted = data.promoted === "true" || false;
                 const limit = parseInt(data.postsLimit, 10) || 4;
+                console.log("ERROR");
+                const columns = parseInt(data.postsColumns, 10) || 3;
+                console.log("ERROR?");
                 const blogID = parseInt(data.filterByBlogId, 10);
                 // Compatibility with old template xml id
                 if (
@@ -58,6 +61,7 @@ odoo.define(
                             domain: domain,
                             limit: limit,
                             order: order,
+                            columns: columns,
                         },
                     })
                         .then(function (posts) {

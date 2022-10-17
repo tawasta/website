@@ -20,7 +20,7 @@
 {
     "name": "Website Blog Blogs Snippet",
     "summary": "Improved Blogs Snippet",
-    "version": "14.0.1.0.0",
+    "version": "14.0.2.0.0",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
