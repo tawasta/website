@@ -5,7 +5,9 @@
 ==========================
 Website Blog Blogs Snippet
 ==========================
-* Improved Snippet for Blog Posts
+* New Improved Snippet for Blog Posts "Squares"
+* Ability to select number of columns per row for each layout
+* Ability to only show promoted blog posts in snippets
 
 Configuration
 =============
