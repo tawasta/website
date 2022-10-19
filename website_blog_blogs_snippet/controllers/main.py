@@ -38,7 +38,7 @@ from odoo.addons.website_blog.controllers.main import WebsiteBlog
 class WebsiteBlogSnippet(WebsiteBlog):
     @http.route(["/blog/render_latest_posts"], type="json", auth="public", website=True)
     def render_latest_posts(
-        self, template, domain, limit=None, columns=3, order="published_date desc"
+        self, template, domain, limit=None, columns=None, order="published_date desc"
     ):
         """Override the entire function as we are adding a 6th argument"""
         dom = expression.AND(

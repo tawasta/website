@@ -4,15 +4,11 @@ odoo.define(
         "use strict";
 
         var core = require("web.core");
-        var wUtils = require("website.utils");
         var publicWidget = require("web.public.widget");
-
+        require("website_blog.s_latest_posts_frontend");
         var _t = core._t;
 
-        publicWidget.registry.js_get_posts = publicWidget.Widget.extend({
-            selector: ".js_get_posts",
-            disabledInEditableMode: false,
-
+        publicWidget.registry.js_get_posts.include({
             /**
              * @override
              */
@@ -21,9 +17,7 @@ odoo.define(
                 const data = self.$target[0].dataset;
                 const promoted = data.promoted === "true" || false;
                 const limit = parseInt(data.postsLimit, 10) || 4;
-                console.log("ERROR");
                 const columns = parseInt(data.postsColumns, 10) || 3;
-                console.log("ERROR?");
                 const blogID = parseInt(data.filterByBlogId, 10);
                 // Compatibility with old template xml id
                 if (
@@ -102,71 +96,7 @@ odoo.define(
                             resolve();
                         });
                 });
-                return Promise.all([this._super.apply(this, arguments), prom]);
-            },
-            /**
-             * @override
-             */
-            destroy: function () {
-                this.$target.empty();
-                this._super.apply(this, arguments);
-            },
-
-            // --------------------------------------------------------------------------
-            // Private
-            // --------------------------------------------------------------------------
-
-            /**
-             * @private
-             * @param {Object} $posts
-             */
-            _showLoading: function ($posts) {
-                var self = this;
-
-                _.each($posts, function (post, i) {
-                    var $post = $(post);
-                    var $progress = $post.find(".s_latest_posts_loader");
-                    var bgUrl =
-                        $post
-                            .find(".o_record_cover_image")
-                            .css("background-image")
-                            .replace("url(", "")
-                            .replace(")", "")
-                            .replace(/"/gi, "") || "none";
-
-                    // Append $post to the snippet, regardless by the loading state.
-                    $post.appendTo(self.$target);
-
-                    // No cover-image found. Add a 'flag' class and exit.
-                    if (bgUrl === "none") {
-                        $post.addClass("s_latest_posts_loader_no_cover");
-                        $progress.remove();
-                        return;
-                    }
-
-                    // Cover image found. Show the spinning icon.
-                    $progress
-                        .find("> div")
-                        .removeClass("d-none")
-                        .css("animation-delay", i * 200 + "ms");
-                    var $dummyImg = $("<img/>", {src: bgUrl});
-
-                    // If the image is not loaded in 10 sec, remove loader and provide a fallback bg-color to the container.
-                    // Hopefully one day the image will load, covering the bg-color...
-                    var timer = setTimeout(function () {
-                        $post.find(".o_record_cover_image").addClass("bg-200");
-                        $progress.remove();
-                    }, 10000);
-
-                    wUtils.onceAllImagesLoaded($dummyImg).then(function () {
-                        $progress.fadeOut(500, function () {
-                            $progress.removeClass("d-flex");
-                        });
-
-                        $dummyImg.remove();
-                        clearTimeout(timer);
-                    });
-                });
+                return Promise.all([prom]);
             },
         });
     }

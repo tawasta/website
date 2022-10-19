@@ -41,13 +41,55 @@
     </template>
     <!-- Big picture layout -->
     <template
-        id="s_latest_posts_big_picture_template"
+        id="s_latest_posts_big_picture_template_columns"
         inherit_id="website_blog.s_latest_posts_big_picture_template"
     >
         <xpath expr="//figure[@t-as='p']" position="attributes">
             <attribute
                 name="t-attf-class"
             >#{'col-lg-12' if columns == 1 else 'col-md-6 col-lg-6' if columns == 2 else 'col-md-6 col-lg-4' if columns == 3 else 'col-md-6 col-lg-3' if columns == 4 else 'col-md-6 col-lg-4'} s_latest_posts_post my-3</attribute>
+        </xpath>
+    </template>
+    <!-- Horizontal layout -->
+    <template
+        id="s_latest_posts_horizontal_template_columns"
+        inherit_id="website_blog.s_latest_posts_horizontal_template"
+    >
+        <xpath expr="//figure[@t-as='p']" position="attributes">
+            <attribute
+                name="t-attf-class"
+            >#{'col-lg-12' if columns == 1 else 'col-md-6 col-lg-6' if columns == 2 else 'col-md-6 col-lg-4' if columns == 3 else 'col-md-6 col-lg-3' if columns == 4 else 'col-md-6 col-lg-4'} post s_latest_posts_post</attribute>
+        </xpath>
+    </template>
+    <!-- Card layout -->
+    <template
+        id="s_latest_posts_card_template_columns"
+        inherit_id="website_blog.s_latest_posts_card_template"
+    >
+        <xpath expr="//div[@t-as='p']" position="attributes">
+            <attribute
+                name="t-attf-class"
+            >#{'col-lg-12' if columns == 1 else 'col-md-6 col-lg-6' if columns == 2 else 'col-md-6 col-lg-4' if columns == 3 else 'col-md-6 col-lg-3' if columns == 4 else 'col-md-6 col-lg-4'} s_latest_posts_post pb32</attribute>
+        </xpath>
+    </template>
+    <!-- List layout -->
+    <template
+        id="s_latest_posts_list_template_columns"
+        inherit_id="website_blog.s_latest_posts_list_template"
+    >
+        <xpath expr="//div[@t-as='p']" position="attributes">
+            <attribute
+                name="t-attf-class"
+            >#{'col-lg-12' if columns == 1 else 'col-md-6 col-lg-6' if columns == 2 else 'col-md-6 col-lg-4' if columns == 3 else 'col-md-6 col-lg-3' if columns == 4 else 'col-12'} s_latest_posts_post mt-3 d-flex</attribute>
+        </xpath>
+    </template>
+    <template
+        id="s_latest_posts_columns"
+        inherit_id="website_blog.s_latest_posts"
+        name="Blog Posts"
+    >
+        <xpath expr="//div[hasclass('js_get_posts')]" position="attributes">
+            <attribute name="data-posts-columns">3</attribute>
         </xpath>
     </template>
     <!-- Options -->
