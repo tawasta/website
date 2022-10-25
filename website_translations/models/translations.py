@@ -40,7 +40,7 @@ class IrTranslation(models.Model):
                     if product:
                         record.product_template_id = product.id
                         record.product_template_updated = fields.Datetime.now()
-                        record.product_template_published = product.website_published
+                        record.product_template_published = product.website_published and product.active
             except ValueError:
                 # Skip translations with incomplete data
                 continue
