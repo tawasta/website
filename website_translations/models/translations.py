@@ -36,7 +36,7 @@ class IrTranslation(models.Model):
                 model, field = record.name.split(",")
 
                 if model == "product.template":
-                    product = product_template.browse(record.res_id)
+                    product = product_template.with_context(active_test=False).browse(record.res_id)
                     if product:
                         record.product_template_id = product.id
                         record.product_template_updated = fields.Datetime.now()
