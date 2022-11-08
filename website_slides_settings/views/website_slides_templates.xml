@@ -2,6 +2,7 @@
 <odoo>
     <data>
         <!-- Replace a banner which can't be replaced otherwise -->
+        <!-- This has been fixed in core. Remove in next migration -->
         <template id="courses_all_banner" inherit_id="website_slides.courses_all">
             <xpath expr="//section[@class='s_banner bg-900']" position="attributes">
                 <attribute name="t-attf-style">
@@ -111,6 +112,30 @@
             </xpath>
             <xpath expr="//div[@id='statistic']" position="attributes">
                 <attribute name="class">tab-pane fade d-none</attribute>
+            </xpath>
+        </template>
+        <!-- Hide user profile on homepage -->
+        <template
+            id="hide_slides_home_user_profile_small"
+            inherit_id="website_slides.slides_home_user_profile_small"
+            name="Hide User Profile"
+            active="False"
+            customize_show="True"
+        >
+            <xpath expr="//div[hasclass('o_wslides_home_aside')]" position="attributes">
+                <attribute name="class" separator=" " add="d-none" />
+            </xpath>
+        </template>
+        <!-- Hide user achievements on homepage -->
+        <template
+            id="hide_slides_home_user_achievements_small"
+            inherit_id="website_slides.slides_home_user_achievements_small"
+            name="Hide User Achievements"
+            active="False"
+            customize_show="True"
+        >
+            <xpath expr="//div[hasclass('o_wslides_home_aside')]" position="attributes">
+                <attribute name="class" separator=" " add="d-none" />
             </xpath>
         </template>
     </data>

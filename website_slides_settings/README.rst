@@ -11,8 +11,12 @@ Website Slides Settings
    - Hide Public views on slide
    - Hide Member views on slide
    - Hide Share tab on slide
+   - Hide User Profile on slide homepage
+   - Hide User Achievenemts on slide homepage
 
-* Add banner image from backend to '/slides/all' view. This fixes a bug in Odoo editor which does not allow changing the banner.
+* Add banner image from backend to '/slides/all' view. This fixes a bug in Odoo editor 
+  which does not allow changing the banner. NOTE: Remove this in migration as this is 
+  fixed upstream. Keep for v14 as deprecated feature as removing field is risky.
 
 Configuration
 =============
@@ -24,7 +28,9 @@ Usage
 
 Known issues / Roadmap
 ======================
-\-
+* Add banner image from backend to '/slides/all' view. This fixes a bug in Odoo editor 
+  which does not allow changing the banner. NOTE: Remove this in migration as this is 
+  fixed upstream. Keep for v14 as deprecated feature as removing field is risky.
 
 Credits
 =======

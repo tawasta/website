@@ -1,7 +1,7 @@
 ##############################################################################
 #
-#    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2021- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
+#    Author: Tawasta
+#    Copyright 2019- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,18 +19,20 @@
 ##############################################################################
 
 {
-    "name": "Website Slides Settings",
-    "summary": "Website Slides toggleable settings under website customize menu",
-    "version": "14.0.1.0.3",
-    "category": "Website/eLearning",
+    "name": "Website Messages Base",
+    "summary": "Base for website messages features",
+    "version": "14.0.0.1.1",
+    "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
-    "installable": True,
-    "depends": ["website_slides"],
+    "installable": False,
+    "depends": ["mail", "website_utilities"],
     "data": [
-        "views/website_slides_templates.xml",
+        "security/ir.model.access.csv",
         "views/res_config_settings_views.xml",
+        "views/website_message_format.xml",
+        "views/website_message_templates.xml",
     ],
 }

@@ -34,6 +34,15 @@ addon | version | maintainers | summary
 [website_marker_map](website_marker_map/) | 14.0.1.0.0 |  | Map thats shows markers and info windows on google maps that it gets from the backend
 [website_settings](website_settings/) | 14.0.1.0.4 |  | Website toggleable settings under customize menu and other setting options
 [website_slides_content_search](website_slides_content_search/) | 14.0.1.0.0 |  | Search through website slides contents on the website
-[website_slides_settings](website_slides_settings/) | 14.0.1.0.2 |  | Website Slides toggleable settings under website customize menu
+[website_slides_settings](website_slides_settings/) | 14.0.1.0.3 |  | Website Slides toggleable settings under website customize menu
+[website_utilities](website_utilities/) | 14.0.1.0.0 |  | Useful website utilities
+
+
+Unported addons
+---------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[website_messages_base](website_messages_base/) | 14.0.0.1.1 (unported) |  | Base for website messages features
+[website_unread_messages](website_unread_messages/) | 14.0.1.0.0 (unported) |  | Unread messages for website
 
 [//]: # (end addons)
