@@ -23,7 +23,7 @@
     "summary": "Base for website messages features",
     "version": "14.0.0.1.1",
     "category": "Website",
-    "website": "https://github.com/Tawasta/website",
+    "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,

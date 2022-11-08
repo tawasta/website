@@ -23,7 +23,7 @@
     "summary": "Unread messages for website",
     "version": "14.0.1.0.0",
     "category": "Website",
-    "website": "https://github.com/Tawasta/website",
+    "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
