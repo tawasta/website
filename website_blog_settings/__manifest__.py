@@ -21,7 +21,7 @@
 {
     "name": "Website Blog Settings",
     "summary": "Customization settings under website frontend customize menu",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",

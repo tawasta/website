@@ -7,6 +7,8 @@ Website Blog Settings
 =====================
 * Blog settings under website frontend customize menu:
   - Disable sidebar blog index
+  - Hide regular cover comments
+  - Hide regular cover image
 
 Configuration
 =============
