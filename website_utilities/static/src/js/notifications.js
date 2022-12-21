@@ -3,6 +3,7 @@ odoo.define("website_utilities.notifications", function () {
 
     $(function () {
         // Toastr -jQuery plugin used for notifications
+        // eslint-disable-next-line no-undef
         toastr.options = {
             positionClass: "toast-bottom-center",
             closeButton: true,
@@ -20,6 +21,7 @@ odoo.define("website_utilities.notifications", function () {
     });
 
     return {
+        // eslint-disable-next-line no-undef
         toastr: toastr,
     };
 });

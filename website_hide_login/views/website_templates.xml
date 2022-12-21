@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Hide Sign in button -->
+    <template
+        id="login"
+        inherit_id="web.login"
+        name="Hide native login"
+        active="True"
+        customize_show="True"
+    >
+        <xpath expr="//div[@class='form-group field-login']" position="attributes">
+            <attribute name="t-if">debug</attribute>
+        </xpath>
+        <xpath expr="//div[@class='form-group field-password']" position="attributes">
+            <attribute name="t-if">debug</attribute>
+        </xpath>
+        <xpath
+            expr="//button[@class='btn btn-primary btn-block']"
+            position="attributes"
+        >
+            <attribute name="t-if">debug</attribute>
+        </xpath>
+    </template>
+
+    <template
+        id="providers"
+        inherit_id="auth_oauth.providers"
+        name="Hide 'or' from oauth'"
+        active="True"
+        customize_show="True"
+    >
+        <xpath expr="//em" position="attributes">
+            <attribute name="t-if">debug</attribute>
+        </xpath>
+    </template>
+
+    <template
+        id="signup_login"
+        inherit_id="auth_signup.login"
+        name="Hide 'reset password'"
+        active="True"
+        customize_show="True"
+    >
+        <xpath expr="//a[@t-if='reset_password_enabled']" position="attributes">
+            <attribute name="class">d-none</attribute>
+        </xpath>
+    </template>
+
+</odoo>
