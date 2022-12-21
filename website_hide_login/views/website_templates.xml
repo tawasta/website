@@ -14,7 +14,10 @@
         <xpath expr="//div[@class='form-group field-password']" position="attributes">
             <attribute name="t-if">debug</attribute>
         </xpath>
-        <xpath expr="//button[@class='btn btn-primary btn-block']" position="attributes">
+        <xpath
+            expr="//button[@class='btn btn-primary btn-block']"
+            position="attributes"
+        >
             <attribute name="t-if">debug</attribute>
         </xpath>
     </template>
