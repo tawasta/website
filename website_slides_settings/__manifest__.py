@@ -21,7 +21,7 @@
 {
     "name": "Website Slides Settings",
     "summary": "Website Slides toggleable settings under website customize menu",
-    "version": "14.0.1.0.3",
+    "version": "14.0.1.1.0",
     "category": "Website/eLearning",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
@@ -32,5 +32,6 @@
     "data": [
         "views/website_slides_templates.xml",
         "views/res_config_settings_views.xml",
+        "views/assets.xml",
     ],
 }
