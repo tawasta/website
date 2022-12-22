@@ -138,5 +138,25 @@
                 <attribute name="class" separator=" " add="d-none" />
             </xpath>
         </template>
+        <!-- Disable default fullscreen -->
+        <template
+            id="course_slides_list_slide_disable_default_fullscreen"
+            inherit_id="website_slides.course_slides_list_slide"
+            name="Disable Default Fullscreen"
+            active="True"
+            customize_show="True"
+        >
+            <xpath
+                expr="//a[hasclass('o_wslides_js_slides_list_slide_link')]"
+                position="attributes"
+            >
+                <attribute
+                    name="class"
+                    separator=" "
+                    add="o_wslides_js_slides_list_slide_link_disable"
+                />
+            </xpath>
+        </template>
+
     </data>
 </odoo>
