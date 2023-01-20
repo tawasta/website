@@ -1,4 +1,35 @@
 .s_latest_posts[data-vcss="001"] {
+    .s_latest_posts_list_box {
+        .o_record_cover_container {
+            display: none !important;
+        }
+        .s_latest_posts_post {
+            background: $primary none repeat scroll 0 0;
+            padding: 0px;
+            min-height: 100px;
+        }
+
+        .s_latest_posts_list_box_category {
+            margin-top: 10px;
+            padding: 7px;
+            position: absolute;
+            text-transform: uppercase;
+            background: #000000 none repeat scroll 0 0;
+            color: white;
+        }
+        .s_latest_posts_list_box_link {
+            color: white;
+            .s_latest_posts_post_title {
+                margin-left: 20px;
+                margin-top: 55px;
+                max-width: 370px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                color: white;
+            }
+        }
+    }
     .s_latest_posts_square {
         .card {
             height: 100%;
