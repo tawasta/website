@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+    <!-- List box layout -->
+    <template id="s_latest_posts_list_box_template">
+        <div
+            t-foreach="posts"
+            t-as="p"
+            t-attf-class="#{'col-lg-12' if columns == 1 else 'col-md-6 col-lg-6' if columns == 2 else 'col-md-6 col-lg-4' if columns == 3 else 'col-md-6 col-lg-3' if columns == 4 else 'col-12'} s_latest_posts_post mt-3 d-flex"
+        >
+            <div>
+                <span
+                    class="s_latest_posts_list_box_category"
+                    t-field="p.blog_id.name"
+                />
+                <a
+                    class="s_latest_posts_list_box_link s_latest_posts_post_cover flex-grow-0 flex-shrink-0 align-self-baseline position-relative"
+                    t-att-title="'Read' + p.name"
+                    t-attf-href="/blog/#{p.blog_id.id}/#{p.id}"
+                >
+<t t-call="website.record_cover">
+                    <t t-set="_record" t-value="p" />
+                        <t
+                            t-set="additionnal_classes"
+                            t-value="'w-100 h-100 bg-200 position-absolute d-none'"
+                        />
+                        <div
+                            class="s_latest_posts_loader d-flex d-none align-items-center justify-content-center bg-200"
+                        >
+                            <div class="d-none rounded-circle bg-black-25 w-25 h-25" />
+                        </div>
+                    </t>
+                    <div class="s_latest_posts_post_title mb-1" t-field="p.name" />
+                </a>
+            </div>
+        </div>
+    </template>
     <!-- Squares layout -->
     <template id="s_latest_posts_square_template">
         <div
@@ -106,6 +140,11 @@
                 data-select-class="s_latest_posts_square"
                 data-name="square_opt"
             >Squares</we-button>
+            <we-button
+                data-select-data-attribute="website_blog_blogs_snippet.s_latest_posts_list_box_template"
+                data-select-class="s_latest_posts_list_box"
+                data-name="list_box_opt"
+            >List box</we-button>
         </xpath>
         <xpath expr="//we-select[@name='blog_selection']" position="after">
             <we-select
