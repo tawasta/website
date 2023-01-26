@@ -26,7 +26,7 @@ addon | version | maintainers | summary
 [website_form_force_sender](website_form_force_sender/) | 14.0.1.1.0 |  | Override the form sender to company email to avoid being marked as spam
 [website_google_analytics_4](website_google_analytics_4/) | 14.0.1.0.0 |  | Enables Google Analytics 4 Global Site Tag (gtag.js)
 [website_google_search](website_google_search/) | 14.0.2.0.0 |  | Global site search with Google Search
-[website_header_announcement_stripe](website_header_announcement_stripe/) | 14.0.1.0.0 |  | Announcement Stripe to Website header
+[website_header_announcement_stripe](website_header_announcement_stripe/) | 14.0.1.1.0 |  | Announcement Stripe to Website header
 [website_hide_info](website_hide_info/) | 14.0.1.0.1 |  | Hides Odoo System Information on at /website/info
 [website_hide_login](website_hide_login/) | 14.0.1.0.0 |  | Hide Odoo native login, but show oAuth-logins
 [website_logo_redirect](website_logo_redirect/) | 14.0.1.0.0 |  | Redirects website logo to a custom URL

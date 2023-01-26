@@ -21,7 +21,7 @@
 {
     "name": "Website Header Announcement Stripe",
     "summary": "Announcement Stripe to Website header",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.1.0",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
@@ -29,5 +29,5 @@
     "application": False,
     "installable": True,
     "depends": ["website"],
-    "data": ["views/res_config_settings_views.xml", "views/website_templates.xml"],
+    "data": ["views/website_views.xml", "views/website_templates.xml"],
 }

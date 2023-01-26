@@ -5,13 +5,14 @@
 ==================================
 Website Header Announcement Stripe
 ==================================
-* Adds an announcement stripe to Website header.
+* Adds an announcement stripe to website header - This can be used to display 
+  information and it is always visible at the top of the website. 
 
 Configuration
 =============
-* Go to settings > website
-* Toggle "Show Website Header Announcement Stripe"
-* Edit "Website Header Announcement Stripe Text"
+* Go to Website > Settings > Websites > Choose website
+* Toggle "Show Header Announcement Stripe"
+* Edit "Header Announcement Stripe Text"
 
 Usage
 =====
@@ -19,7 +20,8 @@ Usage
 
 Known issues / Roadmap
 ======================
-\-
+- Header text is written as html field so care needs to be taken to not add breaking 
+  html code or other elements such as images. 
 
 Credits
 =======
