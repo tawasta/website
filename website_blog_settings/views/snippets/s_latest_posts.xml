@@ -30,6 +30,16 @@
                 <we-button data-select-data-attribute="8">8</we-button>
                 <we-button data-select-data-attribute="9">9</we-button>
                 <we-button data-select-data-attribute="10">10</we-button>
+                <we-button data-select-data-attribute="11">11</we-button>
+                <we-button data-select-data-attribute="12">12</we-button>
+                <we-button data-select-data-attribute="13">13</we-button>
+                <we-button data-select-data-attribute="14">14</we-button>
+                <we-button data-select-data-attribute="15">15</we-button>
+                <we-button data-select-data-attribute="16">16</we-button>
+                <we-button data-select-data-attribute="17">17</we-button>
+                <we-button data-select-data-attribute="18">18</we-button>
+                <we-button data-select-data-attribute="19">19</we-button>
+                <we-button data-select-data-attribute="20">20</we-button>
             </we-select>
         </xpath>
     </template>
