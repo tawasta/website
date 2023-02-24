@@ -42,7 +42,7 @@ class WebsiteMessageFormat(models.Model):
 
     # 2. Fields declaration
     res_model = fields.Many2one(
-        "ir.model",
+        comodel_name="ir.model",
         string="Resources model",
         help="For what model the format is valid",
         required=True,

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <template id="header" inherit_id="website.layout">
-        <xpath expr="//header//ul[@id='top_menu']/li" position="before">
+    <template id="header" inherit_id="portal.frontend_layout">
+        <xpath expr="//ul[@id='top_menu']" position="inside">
             <t t-set="partner" t-value="request.env.user.partner_id"/>
             <t t-if="request.env.ref('base.public_partner').id != partner.id">
                 <li id="website_messages_dropdown" class="nav-item dropdown">

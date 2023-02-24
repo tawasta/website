@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Tawasta
-#    Copyright 2019- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2016 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,20 +19,15 @@
 ##############################################################################
 
 {
-    "name": "Website Messages Base",
-    "summary": "Base for website messages features",
-    "version": "14.0.0.1.1",
+    "name": "Website Kanban Board",
+    "summary": "Website Kanban Board",
+    "version": "14.0.1.0.0",
     "category": "Website",
-    "website": "https://gitlab.com/tawasta/odoo/website",
+    "website": "https://github.com/Tawasta/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["mail", "website_utilities", "portal"],
-    "data": [
-        "security/ir.model.access.csv",
-        "views/res_config_settings_views.xml",
-        #"views/website_message_format.xml",
-        #"views/website_message_templates.xml",
-    ],
+    "depends": ["portal"],
+    "data": ["views/kanban_board.xml"],
 }
