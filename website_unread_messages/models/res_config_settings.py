@@ -49,6 +49,10 @@ class ResConfigSettings(models.TransientModel):
     unread_messages_page = fields.Boolean(
         string="Unread messages' page", help="Enable unread messages' page on website",
     )
+    email_notification = fields.Boolean(
+        string="Notification if email",
+        help="Enable notifications for messages that are send to email as well",
+    )
 
     # 3. Default methods
 
@@ -70,8 +74,15 @@ class ResConfigSettings(models.TransientModel):
             .sudo()
             .get_param("website_unread_messages.page", False)
         )
+        email_notification = (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("website_unread_messages.email_notification", False)
+        )
         res.update(
-            unread_messages_notifications=notifications, unread_messages_page=page,
+            unread_messages_notifications=notifications,
+            unread_messages_page=page,
+            email_notification=email_notification,
         )
         return res
 
@@ -83,6 +94,9 @@ class ResConfigSettings(models.TransientModel):
         )
         self.env["ir.config_parameter"].sudo().set_param(
             "website_unread_messages.page", self.unread_messages_page
+        )
+        self.env["ir.config_parameter"].sudo().set_param(
+            "website_unread_messages.email_notification", self.email_notification
         )
 
     # 7. Action methods
