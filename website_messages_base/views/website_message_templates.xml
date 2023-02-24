@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <template id="header" inherit_id="portal.frontend_layout">
+    <template id="header" inherit_id="website.navbar_nav">
         <xpath expr="//ul[@id='top_menu']" position="inside">
             <t t-set="partner" t-value="request.env.user.partner_id"/>
             <t t-if="request.env.ref('base.public_partner').id != partner.id">
