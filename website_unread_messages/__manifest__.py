@@ -27,7 +27,7 @@
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
-    "installable": False,
+    "installable": True,
     "depends": ["website_messages_base"],
     "data": [
         "data/website_unread_messages_data.xml",

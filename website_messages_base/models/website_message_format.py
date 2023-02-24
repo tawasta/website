@@ -45,7 +45,6 @@ class WebsiteMessageFormat(models.Model):
         comodel_name="ir.model",
         string="Resources model",
         help="For what model the format is valid",
-        required=True,
     )
     url_format = fields.Char(
         string="URL format of the model",
