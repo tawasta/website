@@ -28,9 +28,9 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["mail", "website_utilities", "portal"],
+    "depends": ["mail", "website_utilities", "website"],
     "data": [
-        #"security/ir.model.access.csv",
+        "security/ir.model.access.csv",
         "views/res_config_settings_views.xml",
         "views/website_message_format.xml",
         "views/website_message_templates.xml",
