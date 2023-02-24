@@ -13,5 +13,11 @@
             <field name="key">website_unread_messages.page</field>
             <field name="value" eval="True"/>
         </record>
+
+        <!-- If enabled, messages that are sent as email require needaction from partner (is_read = False) -->
+        <record id="website_unread_messages_email_notification" model="ir.config_parameter" forcecreate="False">
+            <field name="key">website_unread_messages.email_notification</field>
+            <field name="value" eval="True"/>
+        </record>
     </data>
 </odoo>
