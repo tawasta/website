@@ -25,6 +25,7 @@ from datetime import datetime
 from io import BytesIO
 
 from odoo import http
+from odoo import _
 from odoo.http import request
 from odoo.tools import image_save_for_web
 from PIL import Image
@@ -97,7 +98,7 @@ def process_file(file):
     return too_big
 
 
-def process_message(user, record, data):
+def process_message(user, record, data, **kwargs):
     """
     Process message posted to record:
     - Compress and resize image
@@ -112,6 +113,9 @@ def process_message(user, record, data):
     file = data.get("file")
     attachment_list = list()
     error = False
+    website_enable_reply = request.env["ir.config_parameter"].sudo().get_param(
+        "website_enable_reply", False
+    )
     if comment:
         if image:
             if data.get("resized"):
@@ -135,13 +139,19 @@ def process_message(user, record, data):
             notified_partner_ids = record.channel_last_seen_partner_ids.mapped(
                 "partner_id"
             ).ids
+            message_reply_id = data.get("reply_to_msg")
+            if website_enable_reply and message_reply_id:
+                kwargs["message_reply_id"] = int(message_reply_id)
+
             record.sudo().message_post(
+                subject=_("New message from {}").format(user.name),
                 author_id=user.partner_id.id,
                 body=comment,
                 message_type="comment",
                 subtype="mail.mt_comment",
                 attachments=attachment_list,
                 partner_ids=notified_partner_ids,
+                **kwargs
             )
 
 
@@ -259,12 +269,16 @@ class WebsiteChannelMessagesController(http.Controller):
         )
 
         disable_video = False
-        if request.httprequest.user_agent.browser == 'safari' or request.httprequest.user_agent.platform == 'iphone':
+        if request.httprequest.user_agent.browser == 'safari' or \
+                request.httprequest.user_agent.platform == 'iphone':
             disable_video = True
         if not channel:
             return request.render("website.404")
 
         channel.sudo(user).mark_portal_messages_read()
+        website_enable_reply = request.env["ir.config_parameter"].sudo().get_param(
+            "website_enable_reply", False
+        )
         # TODO: Fix static sizes to be fetched from ir.config_parameter
         values = {
             "disable_video": disable_video,
@@ -272,6 +286,8 @@ class WebsiteChannelMessagesController(http.Controller):
             "maxsize": 20,
             "maxwidth": 1080,
             "maxheight": 1080,
+            "reply_enabled": website_enable_reply,
+            "user": user,
         }
         return request.render("website_channel_messages.channel", values)
 
