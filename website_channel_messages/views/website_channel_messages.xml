@@ -266,7 +266,7 @@
                     <t t-esc="message.author_id.name" />
                     <small t-field="message.date" t-options='{"format": "dd.MM.yyyy HH:mm:ss"}' />
                 </h5>
-                <t t-if="reply_enabled and message.author_id.id != user.partner_id.id">
+                <t t-if="reply_enabled">
                     <div class="reply-to-submission pull-right">
                         <button type="button" class="btn btn-link btn-reply"
                             t-att-data-msg="message.id"><i class="fa fa-reply"/> Reply</button>
