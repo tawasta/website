@@ -8,7 +8,7 @@
                     <span><i id="nav-selected-language" class="fa fa-language"/></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
-                    <t t-foreach="languages" t-as="lg">
+                    <!-- <t t-foreach="languages" t-as="lg">
                         <li>
                             <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
                                t-att-data-default-lang="(editable or translatable) and 'true' if website and lg[0] == website.default_lang_code else None"
@@ -17,7 +17,7 @@
                                 <t t-esc="lg[1].split('/').pop()"/>
                             </a>
                         </li>
-                    </t>
+                    </t> -->
                 </ul>
             </li>
         </xpath>
