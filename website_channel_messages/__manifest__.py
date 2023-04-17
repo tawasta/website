@@ -21,7 +21,7 @@
 {
     "name": "Website Channel Messages",
     "summary": "Channelmessages for website",
-    "version": "12.0.1.1.1",
+    "version": "12.0.1.2.0",
     "category": "Website",
     "website": "https://github.com/Tawasta/website",
     "author": "Tawasta",

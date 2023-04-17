@@ -183,6 +183,7 @@
             <script type="text/javascript" src="/website_channel_messages/static/src/js/submission.js?v=001"></script>
             <script type="text/javascript" src="/website_channel_messages/static/src/js/thread.js?v=001"></script>
             <script type="text/javascript" src="/website_channel_messages/static/src/js/files.js?v=001"></script>
+            <script t-if="reply_enabled" type="text/javascript" src="/website_channel_messages/static/src/js/reply.js?v=001"/>
         </t>
     </template>
 
@@ -191,6 +192,15 @@
             <form id="submission_form" method="post" enctype="multipart/form-data" t-attf-action="{{request.httprequest.path}}/message">
                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
                 <input type="hidden" name="redirect_url" t-att-value="request.httprequest.path" />
+                <div t-if="reply_enabled" id="reply_to_container" class="row mb-3 d-none">
+                    <div class="col-12">
+                        Reply to:
+                        <button type="button" id="reply_badge" class="badge badge-secondary">
+                            <span id="reply_msg_badge"/> <span aria-label="Close">&amp;times;</span>
+                        </button>
+                        <input type="hidden" name="reply_to_msg" id="reply_to_msg"/>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-12 comment-container">
                         <textarea id="comment" name="comment" class="d-none" placeholder="Write a message..." />
@@ -249,14 +259,20 @@
     </template>
 
     <template id="single_message" name="Single message template">
-        <div class="media message mb16">
+        <div class="media message mb16" t-att-data-thread-id="message.website_thread_id">
             <img class="img-fluid rounded-circle mr-3" alt="Partner image" title="Partner image" t-attf-src="/web/image/res.partner/{{message.author_id.id}}/image_small" />
             <div class="media-body">
                 <h5 class="d-inline-block mt-0">
                     <t t-esc="message.author_id.name" />
                     <small t-field="message.date" t-options='{"format": "dd.MM.yyyy HH:mm:ss"}' />
                 </h5>
-                <h4 t-if="message.subject" t-esc="message.subject" class="message-subject" />
+                <t t-if="reply_enabled">
+                    <div class="reply-to-submission pull-right">
+                        <button type="button" class="btn btn-link btn-reply"
+                            t-att-data-msg="message.id"><i class="fa fa-reply"/> Reply</button>
+                    </div>
+                </t>
+                <h4 t-if="message.subject" t-esc="message.subject" class="message-subject d-none" />
                 <p t-raw="message.body" />
                 <t t-foreach="message.attachment_ids" t-as="attachment">
                     <t t-set="attachment_type" t-value="attachment.mimetype.split('/')[0]" />
