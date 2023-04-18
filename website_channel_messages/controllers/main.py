@@ -139,9 +139,11 @@ def process_message(user, record, data, **kwargs):
             notified_partner_ids = record.channel_last_seen_partner_ids.mapped(
                 "partner_id"
             ).ids
-            message_reply_id = data.get("reply_to_msg")
-            if website_enable_reply and message_reply_id:
-                kwargs["message_reply_id"] = int(message_reply_id)
+            thread_id = data.get("reply_to_msg")
+            if website_enable_reply and thread_id:
+                kwargs.update({
+                    "website_thread_id": thread_id
+                })
 
             record.sudo().message_post(
                 subject=_("New message from {}").format(user.name),

@@ -9,12 +9,9 @@ odoo.define("website_channel_messages.reply", function (require) {
         var msgInfo = $(this).closest(".media-body").children("h5").text();
 
         // Hide other messages than the thread
-        var threadId = $(this).closest(".media").data("thread-id");
-        if (threadId) {
-            $(".message[data-thread-id='" + threadId + "']").addClass("thread-indent");
-            $(".message[data-thread-id='" + threadId + "']:last").removeClass("thread-indent");
-            $(".message:not([data-thread-id='" + threadId + "'])").slideUp(200);
-        }
+        $(".message[data-thread-id='" + msgId + "']").addClass("thread-indent");
+        $(".message[data-thread-id='" + msgId + "']:last").removeClass("thread-indent");
+        $(".message:not([data-thread-id='" + msgId + "'])").slideUp(200);
 
         // Add badge to show which it is a reply to (and possibility to remove it)
         $("#reply_msg_badge").text(msgInfo);
