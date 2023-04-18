@@ -183,7 +183,7 @@
             <script type="text/javascript" src="/website_channel_messages/static/src/js/submission.js?v=001"></script>
             <script type="text/javascript" src="/website_channel_messages/static/src/js/thread.js?v=001"></script>
             <script type="text/javascript" src="/website_channel_messages/static/src/js/files.js?v=001"></script>
-            <script t-if="reply_enabled" type="text/javascript" src="/website_channel_messages/static/src/js/reply.js?v=001"/>
+            <script t-if="reply_enabled" type="text/javascript" src="/website_channel_messages/static/src/js/reply.js?v=002"/>
         </t>
     </template>
 
@@ -269,7 +269,7 @@
                 <t t-if="reply_enabled">
                     <div class="reply-to-submission pull-right">
                         <button type="button" class="btn btn-link btn-reply"
-                            t-att-data-msg="message.id"><i class="fa fa-reply"/> Reply</button>
+                            t-att-data-msg="message.website_thread_id"><i class="fa fa-reply"/> Reply</button>
                     </div>
                 </t>
                 <h4 t-if="message.subject" t-esc="message.subject" class="message-subject d-none" />
