@@ -1,0 +1,113 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_messages_email
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-18 12:25+0000\n"
+"PO-Revision-Date: 2023-04-18 15:26+0300\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fi\n"
+"X-Generator: Poedit 2.3\n"
+
+#. module: website_messages_email
+#: model_terms:ir.ui.view,arch_db:website_messages_email.website_email_footer
+msgid ", All rights reserved."
+msgstr ", Kaikki oikeudet pidätetään."
+
+#. module: website_messages_email
+#: model:ir.model,name:website_messages_email.model_res_config_settings
+msgid "Config Settings"
+msgstr "Konfiguraatio-asetukset"
+
+#. module: website_messages_email
+#: model_terms:ir.ui.view,arch_db:website_messages_email.website_email_footer
+msgid "Copyright ©"
+msgstr ""
+
+#. module: website_messages_email
+#: model:ir.model,name:website_messages_email.model_mail_thread
+msgid "Email Thread"
+msgstr "Sähköpostiviestiketju"
+
+#. module: website_messages_email
+#: model:ir.model.fields,field_description:website_messages_email.field_res_config_settings__message_email_model_ids
+#: model:ir.model.fields,field_description:website_messages_email.field_website__message_email_model_ids
+msgid "Email message models"
+msgstr "Sähköpostien viestien mallit"
+
+#. module: website_messages_email
+#: model:ir.model.fields,field_description:website_messages_email.field_res_config_settings__message_email_subject
+#: model:ir.model.fields,field_description:website_messages_email.field_website__message_email_subject
+msgid "Email subject"
+msgstr "Sähköpostin aihe"
+
+#. module: website_messages_email
+#: model_terms:ir.ui.view,arch_db:website_messages_email.website_message_notification
+msgid "New message from"
+msgstr "Uusi viesti käyttäjältä"
+
+#. module: website_messages_email
+#: model:ir.model.fields,field_description:website_messages_email.field_res_config_settings__message_email_from
+#: model:ir.model.fields,field_description:website_messages_email.field_website__message_email_from
+msgid "Sender of emails"
+msgstr "Sähköpostien lähettäjä"
+
+#. module: website_messages_email
+#: model_terms:ir.ui.view,arch_db:website_messages_email.website_email_header
+msgid "This email is a notification, please don't reply to this directly."
+msgstr "Tämä sähköposti on ilmoitus, joten älä vastaa tähän sähköpostiin."
+
+#. module: website_messages_email
+#: model:ir.model.fields,help:website_messages_email.field_res_config_settings__message_email_subject
+#: model:ir.model.fields,help:website_messages_email.field_website__message_email_subject
+#: model_terms:ir.ui.view,arch_db:website_messages_email.res_config_settings_view_form
+msgid "Use static subject for emails"
+msgstr "Käytä stattista aihetta sähköposteille"
+
+#. module: website_messages_email
+#: model:ir.model,name:website_messages_email.model_website
+msgid "Website"
+msgstr "Verkkosivu"
+
+#. module: website_messages_email
+#: model:ir.model.fields,field_description:website_messages_email.field_res_config_settings__message_email_mail_server_id
+#: model:ir.model.fields,field_description:website_messages_email.field_website__message_email_mail_server_id
+msgid "Website message mail server"
+msgstr "Verkkoviestien lähtevä sähköpostipalvelin"
+
+#. module: website_messages_email
+#: model_terms:ir.ui.view,arch_db:website_messages_email.res_config_settings_view_form
+msgid "Which email address is used as sender"
+msgstr "Mitä sähköpostiosoitetta käytetään sähköpostien lähettäjänä"
+
+#. module: website_messages_email
+#: model:ir.model.fields,help:website_messages_email.field_res_config_settings__message_email_from
+#: model:ir.model.fields,help:website_messages_email.field_website__message_email_from
+msgid "Which email address is used for sending the emails"
+msgstr "Mitä sähköpostiosoitetta käytetään sähköpostien lähettäjänä"
+
+#. module: website_messages_email
+#: model:ir.model.fields,help:website_messages_email.field_res_config_settings__message_email_mail_server_id
+#: model:ir.model.fields,help:website_messages_email.field_website__message_email_mail_server_id
+#: model_terms:ir.ui.view,arch_db:website_messages_email.res_config_settings_view_form
+msgid "Which mail server is used for website message emails"
+msgstr "Mitä sähköpostien lähettävää palvelinta käytetään verkkoviestien lähettämiseen"
+
+#. module: website_messages_email
+#: model:ir.model.fields,help:website_messages_email.field_res_config_settings__message_email_model_ids
+#: model:ir.model.fields,help:website_messages_email.field_website__message_email_model_ids
+msgid "Which models are taken into account when sending emails"
+msgstr "Mitkä tietomallit huomioidaan kun ollaan lähettämässä viesteistä sähköposteja"
+
+#. module: website_messages_email
+#: model_terms:ir.ui.view,arch_db:website_messages_email.res_config_settings_view_form
+msgid "Which models use the email template created for website messages"
+msgstr "Mitkä tietomallit huomioidaan kun ollaan lähettämässä viesteistä sähköposteja"
