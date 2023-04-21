@@ -27,7 +27,7 @@ from io import BytesIO
 from odoo import http
 from odoo import _
 from odoo.http import request
-from odoo.tools import image_save_for_web
+#from odoo.tools import image_save_for_web
 from PIL import Image
 
 # 2. Known third party imports:
@@ -42,38 +42,38 @@ from PIL import Image
 _logger = logging.getLogger(__name__)
 
 
-def compress_image(image):
-    """
-    Function to compress image accordingly.
-    This function uses image_save_for_web-utility from tools.
-    Max dimensions can be set on system parameters.
-    Process of compressing image:
-    - Calculate new image dimensions according to MAX_WIDTH and MAX_HEIGHT
-    - Resize image with new dimensions
-    - Compress using image_save_for_web -utility
+# def compress_image(image):
+#     """
+#     Function to compress image accordingly.
+#     This function uses image_save_for_web-utility from tools.
+#     Max dimensions can be set on system parameters.
+#     Process of compressing image:
+#     - Calculate new image dimensions according to MAX_WIDTH and MAX_HEIGHT
+#     - Resize image with new dimensions
+#     - Compress using image_save_for_web -utility
 
-    TODO: Fix MAX_WIDTH and MAX_HEIGHT to be fetched from ir.config_parameter
+#     TODO: Fix MAX_WIDTH and MAX_HEIGHT to be fetched from ir.config_parameter
 
-    :param image: Image data in binary
-    :return: Compressed and resized image data in binary
-    """
-    MAX_WIDTH = 1080
-    MAX_HEIGHT = 1080
-    img = Image.open(BytesIO(image))
-    (width, height) = img.size
-    _logger.debug("Image starting size: (%s, %s)" % (width, height))
-    if width > MAX_WIDTH or height > MAX_HEIGHT:
-        if width > height:
-            if width > MAX_WIDTH:
-                new_height = int(round((MAX_WIDTH / float(width)) * height))
-                new_width = MAX_WIDTH
-        else:
-            if height > MAX_HEIGHT:
-                new_width = int(round((MAX_HEIGHT / float(height)) * width))
-                new_height = MAX_HEIGHT
-        img.thumbnail((new_width, new_height), Image.ANTIALIAS)
-        _logger.debug("Compressed size: (%s, %s)" % (new_width, new_height))
-    return image_save_for_web(img)
+#     :param image: Image data in binary
+#     :return: Compressed and resized image data in binary
+#     """
+#     MAX_WIDTH = 1080
+#     MAX_HEIGHT = 1080
+#     img = Image.open(BytesIO(image))
+#     (width, height) = img.size
+#     _logger.debug("Image starting size: (%s, %s)" % (width, height))
+#     if width > MAX_WIDTH or height > MAX_HEIGHT:
+#         if width > height:
+#             if width > MAX_WIDTH:
+#                 new_height = int(round((MAX_WIDTH / float(width)) * height))
+#                 new_width = MAX_WIDTH
+#         else:
+#             if height > MAX_HEIGHT:
+#                 new_width = int(round((MAX_HEIGHT / float(height)) * width))
+#                 new_height = MAX_HEIGHT
+#         img.thumbnail((new_width, new_height), Image.ANTIALIAS)
+#         _logger.debug("Compressed size: (%s, %s)" % (new_width, new_height))
+#     return image_save_for_web(img)
 
 
 def process_file(file):
