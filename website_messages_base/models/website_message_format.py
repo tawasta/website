@@ -20,9 +20,7 @@
 # 1. Standard library imports:
 # 2. Known third party imports:
 # 3. Odoo imports:
-from odoo import _
-from odoo import fields
-from odoo import models
+from odoo import _, fields, models
 
 # 4. Imports from Odoo modules:
 
@@ -42,10 +40,9 @@ class WebsiteMessageFormat(models.Model):
 
     # 2. Fields declaration
     res_model = fields.Many2one(
-        "ir.model",
+        comodel_name="ir.model",
         string="Resources model",
         help="For what model the format is valid",
-        required=True,
     )
     url_format = fields.Char(
         string="URL format of the model",

@@ -27,8 +27,8 @@
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
-    "installable": False,
-    "depends": ["mail", "website_utilities"],
+    "installable": True,
+    "depends": ["mail", "website_utilities", "website"],
     "data": [
         "security/ir.model.access.csv",
         "views/res_config_settings_views.xml",

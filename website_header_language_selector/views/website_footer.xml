@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Footer customizations:
+        - Removed language selector (moved to header)
+     -->
+    <template
+        id="language_selector"
+        active="False"
+        customize_show="True"
+        name="Hide footer language select"
+        inherit_id="website.language_selector"
+    >
+        <xpath expr="//ul" position="attributes">
+            <attribute name="class">d-none</attribute>
+        </xpath>
+    </template>
+</odoo>
