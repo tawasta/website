@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2019- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2019- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,10 +18,14 @@
 #
 ##############################################################################
 # 1. Standard library imports:
-# 2. Known third party imports:
-# 3. Odoo imports:
+import logging
+
 from odoo import api
+from odoo import fields
 from odoo import models
+
+# 2. Known third party imports:
+# 3. Odoo imports (openerp):
 
 # 4. Imports from Odoo modules:
 
@@ -29,13 +33,39 @@ from odoo import models
 
 # 6. Unknown third party imports:
 
+_logger = logging.getLogger(__name__)
 
-class MailThread(models.AbstractModel):
+
+class ResConfigSettings(models.TransientModel):
 
     # 1. Private attributes
-    _inherit = "mail.thread"
+    _inherit = "res.config.settings"
 
     # 2. Fields declaration
+    message_email_model_ids = fields.Many2many(
+        related="website_id.message_email_model_ids",
+        string="Email message models",
+        help="Which models are taken into account when sending emails",
+        readonly=False,
+    )
+    message_email_mail_server_id = fields.Many2one(
+        related="website_id.message_email_mail_server_id",
+        string="Website message mail server",
+        help="Which mail server is used for website message emails",
+        readonly=False,
+    )
+    message_email_from = fields.Char(
+        related="website_id.message_email_from",
+        string="Sender of emails",
+        help="Which email address is used for sending the emails",
+        readonly=False,
+    )
+    message_email_subject = fields.Char(
+        related="website_id.message_email_subject",
+        string="Email subject",
+        help="Use static subject for emails",
+        readonly=False,
+    )
 
     # 3. Default methods
 
@@ -44,34 +74,10 @@ class MailThread(models.AbstractModel):
     # 5. Constraints and onchanges
 
     # 6. CRUD methods
+    @api.model
+    def get_values(self):
+        return super(ResConfigSettings, self).get_values()
 
     # 7. Action methods
 
     # 8. Business methods
-    def mark_portal_messages_read(self):
-        """
-        Mark messages read for the current partner.
-
-        :return: list of message IDs
-        """
-        partner_id = self.env.user.partner_id.id
-        domain = [
-            ("model", "=", self._name),
-            ("res_id", "in", self.ids),
-            ("notification_ids.res_partner_id", "=", partner_id),
-            ("notification_ids.is_read", "=", False),
-        ]
-        messages = self.env["mail.message"].sudo().search(domain)
-        notifications = (
-            self.env["mail.notification"]
-            .sudo()
-            .search(
-                [
-                    ("mail_message_id", "in", messages.ids),
-                    ("res_partner_id", "=", partner_id),
-                    ("is_read", "=", False),
-                ]
-            )
-        )
-        notifications.write({"is_read": True})
-        return messages.ids

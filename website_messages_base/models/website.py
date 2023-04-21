@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2019- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2019- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,10 +18,11 @@
 #
 ##############################################################################
 # 1. Standard library imports:
-# 2. Known third party imports:
-# 3. Odoo imports:
-from odoo import api
+from odoo import fields
 from odoo import models
+
+# 2. Known third party imports:
+# 3. Odoo imports (openerp):
 
 # 4. Imports from Odoo modules:
 
@@ -30,12 +31,17 @@ from odoo import models
 # 6. Unknown third party imports:
 
 
-class MailThread(models.AbstractModel):
+class Website(models.Model):
 
     # 1. Private attributes
-    _inherit = "mail.thread"
+    _inherit = "website"
 
     # 2. Fields declaration
+    message_thread_model_ids = fields.Many2many(
+        comodel_name="ir.model",
+        string="Message thread models",
+        help="Which models are taken into account when calculating threads",
+    )
 
     # 3. Default methods
 
@@ -48,30 +54,3 @@ class MailThread(models.AbstractModel):
     # 7. Action methods
 
     # 8. Business methods
-    def mark_portal_messages_read(self):
-        """
-        Mark messages read for the current partner.
-
-        :return: list of message IDs
-        """
-        partner_id = self.env.user.partner_id.id
-        domain = [
-            ("model", "=", self._name),
-            ("res_id", "in", self.ids),
-            ("notification_ids.res_partner_id", "=", partner_id),
-            ("notification_ids.is_read", "=", False),
-        ]
-        messages = self.env["mail.message"].sudo().search(domain)
-        notifications = (
-            self.env["mail.notification"]
-            .sudo()
-            .search(
-                [
-                    ("mail_message_id", "in", messages.ids),
-                    ("res_partner_id", "=", partner_id),
-                    ("is_read", "=", False),
-                ]
-            )
-        )
-        notifications.write({"is_read": True})
-        return messages.ids

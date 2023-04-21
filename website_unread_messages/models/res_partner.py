@@ -20,7 +20,8 @@
 # 1. Standard library imports:
 import logging
 
-from odoo import api, models
+from odoo import api
+from odoo import models
 
 # 2. Known third party imports:
 # 3. Odoo imports:

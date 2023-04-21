@@ -42,16 +42,15 @@ class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
 
     # 2. Fields declaration
-    unread_messages_notifications = fields.Boolean(
-        string="Unread messages' notifications",
-        help="Enable unread messages' notifications on website",
+    message_thread_model_ids = fields.Many2many(
+        related="website_id.message_thread_model_ids",
+        string="Message thread models",
+        help="Which models are taken into account when calculating threads",
+        readonly=False,
     )
-    unread_messages_page = fields.Boolean(
-        string="Unread messages' page", help="Enable unread messages' page on website",
-    )
-    email_notification = fields.Boolean(
-        string="Notification if email",
-        help="Enable notifications for messages that are send to email as well",
+    website_enable_reply = fields.Boolean(
+        string="Enable replies",
+        help="If selected, users can reply to other users' messages on website",
     )
 
     # 3. Default methods
@@ -64,41 +63,22 @@ class ResConfigSettings(models.TransientModel):
     @api.model
     def get_values(self):
         res = super(ResConfigSettings, self).get_values()
-        notifications = (
-            self.env["ir.config_parameter"]
-            .sudo()
-            .get_param("website_unread_messages.notifications", False)
-        )
-        page = (
-            self.env["ir.config_parameter"]
-            .sudo()
-            .get_param("website_unread_messages.page", False)
-        )
-        email_notification = (
-            self.env["ir.config_parameter"]
-            .sudo()
-            .get_param("website_unread_messages.email_notification", False)
+        website_enable_reply = self.env["ir.config_parameter"].sudo().get_param(
+            "website_enable_reply", False
         )
         res.update(
-            unread_messages_notifications=notifications,
-            unread_messages_page=page,
-            email_notification=email_notification,
+            website_enable_reply=bool(website_enable_reply),
         )
         return res
 
-    @api.multi
     def set_values(self):
         super(ResConfigSettings, self).set_values()
         self.env["ir.config_parameter"].sudo().set_param(
-            "website_unread_messages.notifications", self.unread_messages_notifications
-        )
-        self.env["ir.config_parameter"].sudo().set_param(
-            "website_unread_messages.page", self.unread_messages_page
-        )
-        self.env["ir.config_parameter"].sudo().set_param(
-            "website_unread_messages.email_notification", self.email_notification
+            "website_enable_reply", bool(self.website_enable_reply)
         )
 
     # 7. Action methods
+    def action_calculate_website_thread_id(self):
+        return self.env["mail.message"].action_calculate_website_thread_id()
 
     # 8. Business methods

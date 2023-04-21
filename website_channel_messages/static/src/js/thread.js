@@ -8,8 +8,8 @@ odoo.define("website_channel_messages.thread", function (require) {
 
     require("web.dom_ready");
 
-    function updateMessages() {
-        var record = parseInt($("#maincontent").attr("data-record-id"), 10) || 0;
+    function updateMessages () {
+        var record = parseInt($("#maincontent").attr("data-record-id"), 10) || 0;
         var route = "/website_channel/update_messages";
         var timestamp = $("#maincontent").attr("data-timestamp");
         var payload = {

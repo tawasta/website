@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#   * website_unread_messages
+# 	* website_unread_messages
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-05 10:56+0000\n"
-"PO-Revision-Date: 2019-12-30 15:55+0200\n"
+"POT-Creation-Date: 2023-02-24 04:29+0000\n"
+"PO-Revision-Date: 2023-02-24 06:29+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,10 +15,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 "Language: fi\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.3\n"
 
 #. module: website_unread_messages
-#: code:addons/website_unread_messages/controllers/main.py:102
+#: code:addons/website_unread_messages/controllers/main.py:101
 #, python-format
 msgid "%d new messages in discussions!"
 msgstr "%d uutta viestiä keskusteluissa!"
@@ -84,6 +84,12 @@ msgid "Contact"
 msgstr "Kontakti"
 
 #. module: website_unread_messages
+#: model:ir.model.fields,help:website_unread_messages.field_res_config_settings__email_notification
+#: model_terms:ir.ui.view,arch_db:website_unread_messages.res_config_settings_view_form
+msgid "Enable notifications for messages that are send to email as well"
+msgstr "Salli ilmoitukset myös niistä viesteistä, jotka lähetetään sähköpostilla"
+
+#. module: website_unread_messages
 #: model_terms:ir.ui.view,arch_db:website_unread_messages.res_config_settings_view_form
 msgid "Enable unread messages' notifications"
 msgstr "Lukemattomien viestien ilmoitukset"
@@ -115,6 +121,11 @@ msgid "Message"
 msgstr "Viesti"
 
 #. module: website_unread_messages
+#: model:ir.model,name:website_unread_messages.model_mail_notification
+msgid "Message Notifications"
+msgstr "Viestien ilmoitukset"
+
+#. module: website_unread_messages
 #: model_terms:ir.ui.view,arch_db:website_unread_messages.header
 msgid "Messages"
 msgstr "Viestit"
@@ -123,6 +134,11 @@ msgstr "Viestit"
 #: model_terms:ir.ui.view,arch_db:website_unread_messages.unread_messages
 msgid "Move to message"
 msgstr "Siirry viestiin"
+
+#. module: website_unread_messages
+#: model:ir.model.fields,field_description:website_unread_messages.field_res_config_settings__email_notification
+msgid "Notification if email"
+msgstr "Ilmoitus jos viesti sähköpostilla"
 
 #. module: website_unread_messages
 #: model_terms:ir.ui.view,arch_db:website_unread_messages.unread_messages
@@ -135,7 +151,7 @@ msgid "Subject"
 msgstr "Aihe"
 
 #. module: website_unread_messages
-#: code:addons/website_unread_messages/controllers/main.py:67
+#: code:addons/website_unread_messages/controllers/main.py:61
 #, python-format
 msgid "There aren't any new messages!"
 msgstr "Ei uusia viestejä!"
@@ -171,7 +187,7 @@ msgid "You don't have any unread messages!<br/>Well done!"
 msgstr "Sinulla ei ole lukemattomia viestejä!<br/>Hienoa!"
 
 #. module: website_unread_messages
-#: code:addons/website_unread_messages/controllers/main.py:99
+#: code:addons/website_unread_messages/controllers/main.py:98
 #, python-format
 msgid "You have "
 msgstr "Sinulla on "
@@ -182,7 +198,7 @@ msgid "Your current search didn't match any authors or subjects."
 msgstr "Nykyinen hakusi ei vastannut kirjoittajia tai aiheita."
 
 #. module: website_unread_messages
-#: code:addons/website_unread_messages/controllers/main.py:104
+#: code:addons/website_unread_messages/controllers/main.py:103
 #, python-format
 msgid "a new message in discussions!"
 msgstr "lukematon viesti keskusteluissa!"

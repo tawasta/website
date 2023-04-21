@@ -22,11 +22,13 @@ import base64
 import logging
 import os
 from datetime import datetime
+from io import BytesIO
 
 from odoo import http
+from odoo import _
 from odoo.http import request
-
-# from odoo.tools import image_save_for_web
+from odoo.tools import image_save_for_web
+from PIL import Image
 
 # 2. Known third party imports:
 # 3. Odoo imports (openerp):
@@ -40,38 +42,38 @@ from odoo.http import request
 _logger = logging.getLogger(__name__)
 
 
-# def compress_image(image):
-#     """
-#     Function to compress image accordingly.
-#     This function uses image_save_for_web-utility from tools.
-#     Max dimensions can be set on system parameters.
-#     Process of compressing image:
-#     - Calculate new image dimensions according to MAX_WIDTH and MAX_HEIGHT
-#     - Resize image with new dimensions
-#     - Compress using image_save_for_web -utility
+def compress_image(image):
+    """
+    Function to compress image accordingly.
+    This function uses image_save_for_web-utility from tools.
+    Max dimensions can be set on system parameters.
+    Process of compressing image:
+    - Calculate new image dimensions according to MAX_WIDTH and MAX_HEIGHT
+    - Resize image with new dimensions
+    - Compress using image_save_for_web -utility
 
-#     TODO: Fix MAX_WIDTH and MAX_HEIGHT to be fetched from ir.config_parameter
+    TODO: Fix MAX_WIDTH and MAX_HEIGHT to be fetched from ir.config_parameter
 
-#     :param image: Image data in binary
-#     :return: Compressed and resized image data in binary
-#     """
-#     MAX_WIDTH = 1080
-#     MAX_HEIGHT = 1080
-#     img = Image.open(BytesIO(image))
-#     (width, height) = img.size
-#     _logger.debug("Image starting size: (%s, %s)" % (width, height))
-#     if width > MAX_WIDTH or height > MAX_HEIGHT:
-#         if width > height:
-#             if width > MAX_WIDTH:
-#                 new_height = int(round((MAX_WIDTH / float(width)) * height))
-#                 new_width = MAX_WIDTH
-#         else:
-#             if height > MAX_HEIGHT:
-#                 new_width = int(round((MAX_HEIGHT / float(height)) * width))
-#                 new_height = MAX_HEIGHT
-#         img.thumbnail((new_width, new_height), Image.ANTIALIAS)
-#         _logger.debug("Compressed size: (%s, %s)" % (new_width, new_height))
-#     return image_save_for_web(img)
+    :param image: Image data in binary
+    :return: Compressed and resized image data in binary
+    """
+    MAX_WIDTH = 1080
+    MAX_HEIGHT = 1080
+    img = Image.open(BytesIO(image))
+    (width, height) = img.size
+    _logger.debug("Image starting size: (%s, %s)" % (width, height))
+    if width > MAX_WIDTH or height > MAX_HEIGHT:
+        if width > height:
+            if width > MAX_WIDTH:
+                new_height = int(round((MAX_WIDTH / float(width)) * height))
+                new_width = MAX_WIDTH
+        else:
+            if height > MAX_HEIGHT:
+                new_width = int(round((MAX_HEIGHT / float(height)) * width))
+                new_height = MAX_HEIGHT
+        img.thumbnail((new_width, new_height), Image.ANTIALIAS)
+        _logger.debug("Compressed size: (%s, %s)" % (new_width, new_height))
+    return image_save_for_web(img)
 
 
 def process_file(file):
@@ -96,7 +98,7 @@ def process_file(file):
     return too_big
 
 
-def process_message(user, record, data):
+def process_message(user, record, data, **kwargs):
     """
     Process message posted to record:
     - Compress and resize image
@@ -111,6 +113,9 @@ def process_message(user, record, data):
     file = data.get("file")
     attachment_list = list()
     error = False
+    website_enable_reply = request.env["ir.config_parameter"].sudo().get_param(
+        "website_enable_reply", False
+    )
     if comment:
         if image:
             if data.get("resized"):
@@ -134,17 +139,26 @@ def process_message(user, record, data):
             notified_partner_ids = record.channel_last_seen_partner_ids.mapped(
                 "partner_id"
             ).ids
+            thread_id = data.get("reply_to_msg")
+            if website_enable_reply and thread_id:
+                kwargs.update({
+                    "website_thread_id": thread_id
+                })
+
             record.sudo().message_post(
+                subject=_("New message from {}").format(user.name),
                 author_id=user.partner_id.id,
                 body=comment,
                 message_type="comment",
                 subtype="mail.mt_comment",
                 attachments=attachment_list,
                 partner_ids=notified_partner_ids,
+                **kwargs
             )
 
 
 class WebsiteChannelMessagesController(http.Controller):
+
     def get_recipient_domain(self):
         """
         Get domain for possible recipients for new channel.
@@ -153,13 +167,9 @@ class WebsiteChannelMessagesController(http.Controller):
         :return: list, domain for user search
         """
         current_user = request.env.user
-        protected_user_ids = (
-            request.env.ref(
-                "website_channel_messages.group_protected_channel_recipients"
-            )
-            .with_context(active_test=False)
-            .users.ids
-        )
+        protected_user_ids = request.env.ref(
+            "website_channel_messages.group_protected_channel_recipients").with_context(
+            active_test=False).users.ids
         protected_user_ids.append(current_user.id)
         recipient_domain = [
             ("id", "not in", protected_user_ids),
@@ -237,10 +247,7 @@ class WebsiteChannelMessagesController(http.Controller):
         return request.render("website_channel_messages.my_channels", values)
 
     @http.route(
-        ["/website_channel/<int:channel_id>"],
-        type="http",
-        auth="user",
-        website=True,
+        ["/website_channel/<int:channel_id>"], type="http", auth="user", website=True,
     )
     def channel_messages(self, channel_id=None, **post):
         """
@@ -264,15 +271,16 @@ class WebsiteChannelMessagesController(http.Controller):
         )
 
         disable_video = False
-        if (
-            request.httprequest.user_agent.browser == "safari"
-            or request.httprequest.user_agent.platform == "iphone"
-        ):
+        if request.httprequest.user_agent.browser == 'safari' or \
+                request.httprequest.user_agent.platform == 'iphone':
             disable_video = True
         if not channel:
             return request.render("website.404")
 
         channel.sudo(user).mark_portal_messages_read()
+        website_enable_reply = request.env["ir.config_parameter"].sudo().get_param(
+            "website_enable_reply", False
+        )
         # TODO: Fix static sizes to be fetched from ir.config_parameter
         values = {
             "disable_video": disable_video,
@@ -280,6 +288,8 @@ class WebsiteChannelMessagesController(http.Controller):
             "maxsize": 20,
             "maxwidth": 1080,
             "maxheight": 1080,
+            "reply_enabled": website_enable_reply,
+            "user": user,
         }
         return request.render("website_channel_messages.channel", values)
 
@@ -318,9 +328,7 @@ class WebsiteChannelMessagesController(http.Controller):
         return request.redirect(redirect_url)
 
     @http.route(
-        ["/website_channel/update_messages"],
-        type="json",
-        auth="user",
+        ["/website_channel/update_messages"], type="json", auth="user",
     )
     def channel_update_messages(self, channel_id, timestamp, csrf_token):
         """
@@ -352,8 +360,7 @@ class WebsiteChannelMessagesController(http.Controller):
                     messages_html += (
                         request.env["ir.ui.view"]
                         .render_template(
-                            "website_channel_messages.single_message",
-                            render_values,
+                            "website_channel_messages.single_message", render_values,
                         )
                         .decode("UTF-8")
                     )

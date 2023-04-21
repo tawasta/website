@@ -15,21 +15,27 @@
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program. If not, see http://www.gnu.org/licenses/agpl.html
-#
 ##############################################################################
 # 1. Standard library imports:
 import re
-
-from odoo import api, fields, models
+import logging
+from uuid import uuid4
 
 # 2. Known third party imports:
+
 # 3. Odoo imports:
+from odoo import api
+from odoo import fields
+from odoo import models
 
 # 4. Imports from Odoo modules:
 
 # 5. Local imports in the relative form:
 
 # 6. Unknown third party imports:
+
+
+_logger = logging.getLogger(__name__)
 
 
 class MailMessage(models.Model):
@@ -44,6 +50,10 @@ class MailMessage(models.Model):
         compute="_compute_website_url",
         store=True,
     )
+    website_thread_id = fields.Char(
+        string="Website thread ID",
+        help="Thread ID to identify message threads",
+    )
 
     # 3. Default methods
 
@@ -54,7 +64,7 @@ class MailMessage(models.Model):
         Get website url with the help of system parameters.
         email_from field is used to trigger with mass_editing
         module this function
-        so the url's are calculated (for better performance)
+        so the urls are calculated (for better performance)
         """
         website_url = str()
         for record in self:
@@ -92,6 +102,24 @@ class MailMessage(models.Model):
     # 5. Constraints and onchanges
 
     # 6. CRUD methods
+    @api.model
+    def create(self, vals):
+        """
+        Save thread ID logic
+
+        :param vals: dict:
+        :return: super
+        """
+        msg_model = vals.get("model")
+        website = self.env["website"].search([
+            ("company_id", "=", self.env.ref("base.main_company").id)
+        ], limit=1)
+        if msg_model in website.message_thread_model_ids.mapped("model"):
+            thread_id = vals.get("website_thread_id")
+            if not thread_id:
+                thread_id = str(uuid4())
+            vals["website_thread_id"] = thread_id
+        return super().create(vals)
 
     # 7. Action methods
 

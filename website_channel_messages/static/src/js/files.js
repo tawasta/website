@@ -13,8 +13,7 @@ odoo.define("website_channel_messages.files", function (require) {
         var fileCount = files.length.toString() + _t(" file(s) selected:");
         var fileNameLabel = _t("File name: ");
         var fileSizeLabel = _t("File size: ");
-        var fileTooBigLabel =
-            _t("File size too big! Max size for file is ") + maxSize + "MB";
+        var fileTooBigLabel = _t("File size too big! Max size for file is ") + maxSize + "MB";
         var fileTooBig = false;
 
         $(info_div).addClass("d-none");
@@ -24,26 +23,17 @@ odoo.define("website_channel_messages.files", function (require) {
         for (var i = 0; i < files.length; ++i) {
             var file = files[i];
             if (file.size > 1024 * 1024) {
-                size =
-                    (Math.round((file.size * 10) / (1000 * 1000)) / 10).toString() +
-                    "MB";
+                size = (Math.round(file.size * 10 / (1000 * 1000)) / 10).toString() + "MB";
             } else {
-                size = (Math.round((file.size * 10) / 1000) / 10).toString() + "KB";
+                size = (Math.round(file.size * 10 / 1000) / 10).toString() + "KB";
             }
             // If file is larger than max_size, clear the element and give notifications
-            if (file.size > maxSize * 1000 * 1000) {
+            if (file.size > (maxSize * 1000 * 1000)) {
                 fileTooBig = true;
                 elements += "<strong>" + fileTooBigLabel + "</strong><br/>";
-                elements +=
-                    fileNameLabel +
-                    file.name +
-                    ", " +
-                    fileSizeLabel +
-                    size +
-                    "<br/><br/>";
+                elements += fileNameLabel + file.name + ", " + fileSizeLabel + size + "<br/><br/>";
             } else {
-                elements +=
-                    fileNameLabel + file.name + ", " + fileSizeLabel + size + "<br/>";
+                elements += fileNameLabel + file.name + ", " + fileSizeLabel + size + "<br/>";
             }
         }
         elements += "</p>";

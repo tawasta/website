@@ -21,9 +21,9 @@
 {
     "name": "Website Channel Messages",
     "summary": "Channelmessages for website",
-    "version": "14.0.1.1.1",
+    "version": "14.0.1.0.0",
     "category": "Website",
-    "website": "https://gitlab.com/tawasta/odoo/website",
+    "website": "https://github.com/Tawasta/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,

@@ -1,7 +1,7 @@
 ##############################################################################
 #
-#    Author: Tawasta
-#    Copyright 2019- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Author: Oy Tawasta OS Technologies Ltd.
+#    Copyright 2019- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,20 +19,20 @@
 ##############################################################################
 
 {
-    "name": "Website Messages Base",
-    "summary": "Base for website messages features",
-    "version": "12.0.1.0.1",
+    "name": "Website Messages Email",
+    "summary": "Email template for website messages",
+    "version": "12.0.1.0.0",
     "category": "Website",
-    "website": "https://github.com/Tawasta/website",
+    "website": "https://gitlab.com/tawasta/odoo/website/",
     "author": "Tawasta",
     "license": "AGPL-3",
+    "data": [
+        "data/mail_template_data.xml",
+        "views/res_config_settings_views.xml",
+    ],
+    "depends": [
+        "website_messages_base",
+    ],
     "application": False,
     "installable": True,
-    "depends": ["mail", "website_utilities"],
-    "data": [
-        "security/ir.model.access.csv",
-        "views/res_config_settings_views.xml",
-        "views/website_message_format.xml",
-        "views/website_message_templates.xml",
-    ],
 }

@@ -18,10 +18,13 @@
 #
 ##############################################################################
 # 1. Standard library imports:
-# 2. Known third party imports:
-# 3. Odoo imports:
+import logging
+
 from odoo import api
 from odoo import models
+
+# 2. Known third party imports:
+# 3. Odoo imports:
 
 # 4. Imports from Odoo modules:
 
@@ -30,10 +33,13 @@ from odoo import models
 # 6. Unknown third party imports:
 
 
-class MailThread(models.AbstractModel):
+_logger = logging.getLogger(__name__)
+
+
+class MailNotification(models.Model):
 
     # 1. Private attributes
-    _inherit = "mail.thread"
+    _inherit = "mail.notification"
 
     # 2. Fields declaration
 
@@ -44,34 +50,18 @@ class MailThread(models.AbstractModel):
     # 5. Constraints and onchanges
 
     # 6. CRUD methods
+    def write(self, vals):
+        """ Odoo inbox + email notification if sysparam True """
+        email_notification = (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("website_unread_messages.email_notification", False)
+        )
+        if email_notification:
+            if vals.get("is_read") and vals.get("is_email"):
+                vals["is_read"] = False
+        return super().write(vals)
 
     # 7. Action methods
 
     # 8. Business methods
-    def mark_portal_messages_read(self):
-        """
-        Mark messages read for the current partner.
-
-        :return: list of message IDs
-        """
-        partner_id = self.env.user.partner_id.id
-        domain = [
-            ("model", "=", self._name),
-            ("res_id", "in", self.ids),
-            ("notification_ids.res_partner_id", "=", partner_id),
-            ("notification_ids.is_read", "=", False),
-        ]
-        messages = self.env["mail.message"].sudo().search(domain)
-        notifications = (
-            self.env["mail.notification"]
-            .sudo()
-            .search(
-                [
-                    ("mail_message_id", "in", messages.ids),
-                    ("res_partner_id", "=", partner_id),
-                    ("is_read", "=", False),
-                ]
-            )
-        )
-        notifications.write({"is_read": True})
-        return messages.ids
