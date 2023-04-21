@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <!-- Header customizations -->
     <template id="header" inherit_id="website.navbar_nav">
         <xpath expr="//ul[@id='top_menu']" position="before">
             <li class="nav-item dropdown" t-ignore="true">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                    <span><i id="nav-selected-language" class="fa fa-language"/></span>
+                    <span><i id="nav-selected-language" class="fa fa-language" /></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
                     <!-- <t t-foreach="languages" t-as="lg">
@@ -24,9 +24,18 @@
     </template>
 
     <!-- Show language code in language selector -->
-    <template id="header-language-code" inherit_id="header" active="False" customize_show="True" name="Language selector: show code">
+    <template
+        id="header-language-code"
+        inherit_id="header"
+        active="False"
+        customize_show="True"
+        name="Language selector: show code"
+    >
         <xpath expr="//i[@id='nav-selected-language']" position="replace">
-            <span id="nav-selected-language" t-esc="request.httprequest.cookies.get('frontend_lang') and request.httprequest.cookies.get('frontend_lang').upper()[0:2] or 'EN'" />
+            <span
+                id="nav-selected-language"
+                t-esc="request.httprequest.cookies.get('frontend_lang') and request.httprequest.cookies.get('frontend_lang').upper()[0:2] or 'EN'"
+            />
         </xpath>
     </template>
 

@@ -8,7 +8,7 @@ Website Kanban Board
 This module adds the possibility to create kanban board on a website/portal page.
 You can use it like this:
 
-.. code-block:: qweb
+.. code-block:: xml
 
     <t t-call="website_skills_qualification.kanban_board">
         <t t-set="objects" t-value="<objects>"/>

@@ -15,9 +15,16 @@ odoo.define("website_channel_messages.submission", function (require) {
     ClassicEditor.create(document.querySelector("#comment"), {
         language: lang,
         toolbar: [
-            "heading", "|", "bold", "italic",
-            "link", "bulletedList", "numberedList",
-            "blockQuote", "undo", "redo",
+            "heading",
+            "|",
+            "bold",
+            "italic",
+            "link",
+            "bulletedList",
+            "numberedList",
+            "blockQuote",
+            "undo",
+            "redo",
         ],
     }).then(function (editor) {
         editor.model.document.on("change:data", function () {
@@ -26,7 +33,7 @@ odoo.define("website_channel_messages.submission", function (require) {
         });
     });
 
-    function resizeMe (img) {
+    function resizeMe(img) {
         var canvas = document.createElement("canvas");
         var width = img.width;
         var height = img.height;
@@ -48,8 +55,8 @@ odoo.define("website_channel_messages.submission", function (require) {
         return canvas.toDataURL("image/jpeg");
     }
 
-    function processfile (file) {
-        if (!(/image/i).test(file.type)) {
+    function processfile(file) {
+        if (!/image/i.test(file.type)) {
             // Not an image, prevent this
             return false;
         }

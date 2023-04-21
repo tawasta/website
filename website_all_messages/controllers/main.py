@@ -60,8 +60,8 @@ class WebsiteAllMessagesController(http.Controller):
 
         # Recordset of read messages
         domain = [
-            #("website_published", "=", True),
-            #("needaction_partner_ids", "=", partner_id),
+            # ("website_published", "=", True),
+            # ("needaction_partner_ids", "=", partner_id),
             ("notified_partner_ids", "=", partner_id),
             ("website_url", "!=", False),
             "|",

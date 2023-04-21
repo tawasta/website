@@ -32,8 +32,10 @@
         inherit_id="website_blog.s_latest_posts_card_template"
     >
         <xpath expr="//span[@t-field='p.post_date']" position="attributes">
-            <t t-set="finnish_enabled"
-                t-value="request.env.ref('website_blog_settings.post_info_customize_finnish_date_format')"/>
+            <t
+                t-set="finnish_enabled"
+                t-value="request.env.ref('website_blog_settings.post_info_customize_finnish_date_format')"
+            />
             <t t-if="finnish_enabled and finnish_enabled.active">
                 <attribute name="t-options">{"format": "dd.MM.yyyy"}</attribute>
             </t>

@@ -1,13 +1,13 @@
-odoo.define('website_kanban_board.kanban_board', function (require) {
+odoo.define("website_kanban_board.kanban_board", function (require) {
     "use strict";
 
-    var core = require('web.core');
+    var core = require("web.core");
 
-    $(function(){
+    $(function () {
         // Plugin initialization
         $(".fs-whatwg").floatingScroll();
 
-        //Force scrollbar update programmatically
+        // Force scrollbar update programmatically
         $(".fs-whatwg").floatingScroll("update");
     });
 });

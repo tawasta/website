@@ -22,12 +22,11 @@ import base64
 import logging
 import os
 from datetime import datetime
-from io import BytesIO
 
 from odoo import http
 from odoo.http import request
-#from odoo.tools import image_save_for_web
-from PIL import Image
+
+# from odoo.tools import image_save_for_web
 
 # 2. Known third party imports:
 # 3. Odoo imports (openerp):
@@ -146,7 +145,6 @@ def process_message(user, record, data):
 
 
 class WebsiteChannelMessagesController(http.Controller):
-
     def get_recipient_domain(self):
         """
         Get domain for possible recipients for new channel.
@@ -155,9 +153,13 @@ class WebsiteChannelMessagesController(http.Controller):
         :return: list, domain for user search
         """
         current_user = request.env.user
-        protected_user_ids = request.env.ref(
-            "website_channel_messages.group_protected_channel_recipients").with_context(
-            active_test=False).users.ids
+        protected_user_ids = (
+            request.env.ref(
+                "website_channel_messages.group_protected_channel_recipients"
+            )
+            .with_context(active_test=False)
+            .users.ids
+        )
         protected_user_ids.append(current_user.id)
         recipient_domain = [
             ("id", "not in", protected_user_ids),
@@ -235,7 +237,10 @@ class WebsiteChannelMessagesController(http.Controller):
         return request.render("website_channel_messages.my_channels", values)
 
     @http.route(
-        ["/website_channel/<int:channel_id>"], type="http", auth="user", website=True,
+        ["/website_channel/<int:channel_id>"],
+        type="http",
+        auth="user",
+        website=True,
     )
     def channel_messages(self, channel_id=None, **post):
         """
@@ -259,7 +264,10 @@ class WebsiteChannelMessagesController(http.Controller):
         )
 
         disable_video = False
-        if request.httprequest.user_agent.browser == 'safari' or request.httprequest.user_agent.platform == 'iphone':
+        if (
+            request.httprequest.user_agent.browser == "safari"
+            or request.httprequest.user_agent.platform == "iphone"
+        ):
             disable_video = True
         if not channel:
             return request.render("website.404")
@@ -310,7 +318,9 @@ class WebsiteChannelMessagesController(http.Controller):
         return request.redirect(redirect_url)
 
     @http.route(
-        ["/website_channel/update_messages"], type="json", auth="user",
+        ["/website_channel/update_messages"],
+        type="json",
+        auth="user",
     )
     def channel_update_messages(self, channel_id, timestamp, csrf_token):
         """
@@ -342,7 +352,8 @@ class WebsiteChannelMessagesController(http.Controller):
                     messages_html += (
                         request.env["ir.ui.view"]
                         .render_template(
-                            "website_channel_messages.single_message", render_values,
+                            "website_channel_messages.single_message",
+                            render_values,
                         )
                         .decode("UTF-8")
                     )

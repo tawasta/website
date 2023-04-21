@@ -20,9 +20,7 @@
 # 1. Standard library imports:
 # 2. Known third party imports:
 # 3. Odoo imports:
-from odoo import _
-from odoo import fields
-from odoo import models
+from odoo import _, fields, models
 
 # 4. Imports from Odoo modules:
 

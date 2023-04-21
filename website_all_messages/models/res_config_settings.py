@@ -20,9 +20,7 @@
 # 1. Standard library imports:
 import logging
 
-from odoo import api
-from odoo import fields
-from odoo import models
+from odoo import api, fields, models
 
 # 2. Known third party imports:
 # 3. Odoo imports (openerp):
@@ -43,7 +41,8 @@ class ResConfigSettings(models.TransientModel):
 
     # 2. Fields declaration
     all_messages_page = fields.Boolean(
-        string="All messages' page", help="Enable all messages' page on website",
+        string="All messages' page",
+        help="Enable all messages' page on website",
     )
 
     # 3. Default methods
@@ -61,7 +60,9 @@ class ResConfigSettings(models.TransientModel):
             .sudo()
             .get_param("website_all_messages.page", False)
         )
-        res.update(all_messages_page=all_messages_page,)
+        res.update(
+            all_messages_page=all_messages_page,
+        )
         return res
 
     def set_values(self):

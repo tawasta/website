@@ -4,25 +4,24 @@ odoo.define("website_channel_messages.channels", function (require) {
     var ajax = require("web.ajax");
     var core = require("web.core");
     var _t = core._t;
-    var toastr = require('website_utilities.notifications').toastr;
+    var toastr = require("website_utilities.notifications").toastr;
 
     $(function () {
-
         $(".select2").select2();
 
         toastr.options = {
-            "positionClass": "toast-bottom-center",
-            "closeButton": true,
-            "debug": false,
-            "preventDuplicates": true,
-            "onclick": null,
-            "showDuration": "100",
-            "hideDuration": "1000",
-            "timeOut": "0",
-            "extendedTimeOut": "1000",
-            "tapToDismiss": false,
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut",
+            positionClass: "toast-bottom-center",
+            closeButton: true,
+            debug: false,
+            preventDuplicates: true,
+            onclick: null,
+            showDuration: "100",
+            hideDuration: "1000",
+            timeOut: "0",
+            extendedTimeOut: "1000",
+            tapToDismiss: false,
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut",
         };
 
         $(document).on("click", "#create_channel_confirm", function () {

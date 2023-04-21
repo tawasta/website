@@ -23,12 +23,11 @@
     "summary": "Language selector for website header",
     "version": "14.0.1.0.0",
     "category": "Website",
-    "website": "https://github.com/Tawasta/website",
+    "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
     "depends": ["website"],
-    "data": [#"views/website_footer.xml", "views/website_header.xml"
-    ],
+    "data": [],  # "views/website_footer.xml", "views/website_header.xml"
 }
