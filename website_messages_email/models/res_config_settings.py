@@ -42,15 +42,29 @@ class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
 
     # 2. Fields declaration
-    message_thread_model_ids = fields.Many2many(
-        related="website_id.message_thread_model_ids",
-        string="Message thread models",
-        help="Which models are taken into account when calculating threads",
+    message_email_model_ids = fields.Many2many(
+        related="website_id.message_email_model_ids",
+        string="Email message models",
+        help="Which models are taken into account when sending emails",
         readonly=False,
     )
-    website_enable_reply = fields.Boolean(
-        string="Enable replies",
-        help="If selected, users can reply to other users' messages on website",
+    message_email_mail_server_id = fields.Many2one(
+        related="website_id.message_email_mail_server_id",
+        string="Website message mail server",
+        help="Which mail server is used for website message emails",
+        readonly=False,
+    )
+    message_email_from = fields.Char(
+        related="website_id.message_email_from",
+        string="Sender of emails",
+        help="Which email address is used for sending the emails",
+        readonly=False,
+    )
+    message_email_subject = fields.Char(
+        related="website_id.message_email_subject",
+        string="Email subject",
+        help="Use static subject for emails",
+        readonly=False,
     )
 
     # 3. Default methods
@@ -62,23 +76,8 @@ class ResConfigSettings(models.TransientModel):
     # 6. CRUD methods
     @api.model
     def get_values(self):
-        res = super(ResConfigSettings, self).get_values()
-        website_enable_reply = self.env["ir.config_parameter"].sudo().get_param(
-            "website_enable_reply", False
-        )
-        res.update(
-            website_enable_reply=bool(website_enable_reply),
-        )
-        return res
-
-    def set_values(self):
-        super(ResConfigSettings, self).set_values()
-        self.env["ir.config_parameter"].sudo().set_param(
-            "website_enable_reply", bool(self.website_enable_reply)
-        )
+        return super(ResConfigSettings, self).get_values()
 
     # 7. Action methods
-    def action_message_thread_init(self):
-        return self.env["mail.message"].action_message_thread_init()
 
     # 8. Business methods

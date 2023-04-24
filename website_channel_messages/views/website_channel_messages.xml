@@ -183,7 +183,7 @@
             <script type="text/javascript" src="/website_channel_messages/static/src/js/submission.js?v=001"></script>
             <script type="text/javascript" src="/website_channel_messages/static/src/js/thread.js?v=001"></script>
             <script type="text/javascript" src="/website_channel_messages/static/src/js/files.js?v=001"></script>
-            <script t-if="reply_enabled" type="text/javascript" src="/website_channel_messages/static/src/js/reply.js?v=002"/>
+            <script t-if="reply_enabled" type="text/javascript" src="/website_channel_messages/static/src/js/reply.js?v=003"/>
         </t>
     </template>
 
@@ -266,6 +266,9 @@
                     <t t-esc="message.author_id.name" />
                     <small t-field="message.date" t-options='{"format": "dd.MM.yyyy HH:mm:ss"}' />
                 </h5>
+                <span class="ml-2 thread-message-container d-none">
+                    <i class="fa fa-comments"/> <span class="thread-message-counter"/>
+                </span>
                 <t t-if="reply_enabled">
                     <div class="reply-to-submission pull-right">
                         <button type="button" class="btn btn-link btn-reply"

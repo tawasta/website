@@ -18,9 +18,6 @@
 #
 ##############################################################################
 # 1. Standard library imports:
-import logging
-
-from odoo import api
 from odoo import fields
 from odoo import models
 
@@ -33,24 +30,31 @@ from odoo import models
 
 # 6. Unknown third party imports:
 
-_logger = logging.getLogger(__name__)
 
-
-class ResConfigSettings(models.TransientModel):
+class Website(models.Model):
 
     # 1. Private attributes
-    _inherit = "res.config.settings"
+    _inherit = "website"
 
     # 2. Fields declaration
-    message_thread_model_ids = fields.Many2many(
-        related="website_id.message_thread_model_ids",
-        string="Message thread models",
-        help="Which models are taken into account when calculating threads",
-        readonly=False,
+    message_email_model_ids = fields.Many2many(
+        comodel_name="ir.model",
+        string="Email message models",
+        help="Which models are taken into account when sending emails",
+        relation="message_email_model_rel",
     )
-    website_enable_reply = fields.Boolean(
-        string="Enable replies",
-        help="If selected, users can reply to other users' messages on website",
+    message_email_mail_server_id = fields.Many2one(
+        comodel_name="ir.mail_server",
+        string="Website message mail server",
+        help="Which mail server is used for website message emails",
+    )
+    message_email_from = fields.Char(
+        string="Sender of emails",
+        help="Which email address is used for sending the emails",
+    )
+    message_email_subject = fields.Char(
+        string="Email subject",
+        help="Use static subject for emails",
     )
 
     # 3. Default methods
@@ -60,25 +64,7 @@ class ResConfigSettings(models.TransientModel):
     # 5. Constraints and onchanges
 
     # 6. CRUD methods
-    @api.model
-    def get_values(self):
-        res = super(ResConfigSettings, self).get_values()
-        website_enable_reply = self.env["ir.config_parameter"].sudo().get_param(
-            "website_enable_reply", False
-        )
-        res.update(
-            website_enable_reply=bool(website_enable_reply),
-        )
-        return res
-
-    def set_values(self):
-        super(ResConfigSettings, self).set_values()
-        self.env["ir.config_parameter"].sudo().set_param(
-            "website_enable_reply", bool(self.website_enable_reply)
-        )
 
     # 7. Action methods
-    def action_message_thread_init(self):
-        return self.env["mail.message"].action_message_thread_init()
 
     # 8. Business methods
