@@ -20,9 +20,7 @@
 # 1. Standard library imports:
 import logging
 
-from odoo import api
-from odoo import fields
-from odoo import models
+from odoo import api, fields, models
 
 # 2. Known third party imports:
 # 3. Odoo imports (openerp):
@@ -63,8 +61,10 @@ class ResConfigSettings(models.TransientModel):
     @api.model
     def get_values(self):
         res = super(ResConfigSettings, self).get_values()
-        website_enable_reply = self.env["ir.config_parameter"].sudo().get_param(
-            "website_enable_reply", False
+        website_enable_reply = (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("website_enable_reply", False)
         )
         res.update(
             website_enable_reply=bool(website_enable_reply),

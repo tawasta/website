@@ -30,8 +30,11 @@ odoo.define("website_channel_messages.reply", function (require) {
         var msgId = $(this).data("target");
         $(".pulse").removeClass("pulse");
         $("#" + msgId).addClass("pulse");
-        $([document.documentElement, document.body]).animate({
-            scrollTop: $("#" + msgId).offset().top - 70
-        }, 1000);
+        $([document.documentElement, document.body]).animate(
+            {
+                scrollTop: $("#" + msgId).offset().top - 70,
+            },
+            1000
+        );
     });
 });

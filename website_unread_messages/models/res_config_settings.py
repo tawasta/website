@@ -20,9 +20,7 @@
 # 1. Standard library imports:
 import logging
 
-from odoo import api
-from odoo import fields
-from odoo import models
+from odoo import api, fields, models
 
 # 2. Known third party imports:
 # 3. Odoo imports (openerp):
@@ -47,7 +45,8 @@ class ResConfigSettings(models.TransientModel):
         help="Enable unread messages' notifications on website",
     )
     unread_messages_page = fields.Boolean(
-        string="Unread messages' page", help="Enable unread messages' page on website",
+        string="Unread messages' page",
+        help="Enable unread messages' page on website",
     )
     email_notification = fields.Boolean(
         string="Notification if email",

@@ -20,7 +20,6 @@
 # 1. Standard library imports:
 import logging
 
-from odoo import api
 from odoo import models
 
 # 2. Known third party imports:
@@ -51,7 +50,7 @@ class MailNotification(models.Model):
 
     # 6. CRUD methods
     def write(self, vals):
-        """ Odoo inbox + email notification if sysparam True """
+        """Odoo inbox + email notification if sysparam True"""
         email_notification = (
             self.env["ir.config_parameter"]
             .sudo()

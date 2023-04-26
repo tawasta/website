@@ -21,9 +21,9 @@
 {
     "name": "Website Messages Base",
     "summary": "Base for website messages features",
-    "version": "12.0.1.0.1",
+    "version": "14.0.1.0.1",
     "category": "Website",
-    "website": "https://github.com/Tawasta/website",
+    "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,

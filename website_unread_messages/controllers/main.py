@@ -22,8 +22,7 @@ import json
 import time
 from datetime import datetime
 
-from odoo import _
-from odoo import http
+from odoo import _, http
 from odoo.http import request
 
 # 2. Known third party imports:
@@ -38,7 +37,11 @@ from odoo.http import request
 
 class WebsiteUnreadMessagesController(http.Controller):
     @http.route(
-        ["/new_messages"], type="json", auth="user", website=True, csrf=False,
+        ["/new_messages"],
+        type="json",
+        auth="user",
+        website=True,
+        csrf=False,
     )
     def new_messages(self, **post):
         """
@@ -120,7 +123,7 @@ class WebsiteUnreadMessagesController(http.Controller):
         website=True,
     )
     def unread_messages(self, search="", page=1, **post):
-        """ Route to show list of unread messages """
+        """Route to show list of unread messages"""
         partner_id = request.env.user.partner_id.id
         message_model = request.env["mail.message"]
         page_enabled = (

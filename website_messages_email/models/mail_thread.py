@@ -20,8 +20,7 @@
 # 1. Standard library imports:
 # 2. Known third party imports:
 # 3. Odoo imports:
-from odoo import api
-from odoo import models
+from odoo import api, models
 
 # 4. Imports from Odoo modules:
 
@@ -63,19 +62,21 @@ class MailThread(models.AbstractModel):
         """
         values = kwargs
         msg_model = self._name
-        website = self.env["website"].search([
-            ("company_id", "=", self.env.ref("base.main_company").id)
-        ], limit=1)
+        website = self.env["website"].search(
+            [("company_id", "=", self.env.ref("base.main_company").id)], limit=1
+        )
         if msg_model in website.message_email_model_ids.mapped("model"):
-            website = self.env["website"].search([
-                ("company_id", "=", self.env.ref("base.main_company").id)
-            ], limit=1)
-            values.update({
-                "mail_server_id": website.message_email_mail_server_id.id,
-                "notif_layout": "website_messages_email.website_message_notification",
-                "add_sign": False,
-                "email_from": website.message_email_from,
-            })
+            website = self.env["website"].search(
+                [("company_id", "=", self.env.ref("base.main_company").id)], limit=1
+            )
+            values.update(
+                {
+                    "mail_server_id": website.message_email_mail_server_id.id,
+                    "notif_layout": "website_messages_email.website_message_notification",
+                    "add_sign": False,
+                    "email_from": website.message_email_from,
+                }
+            )
             if website.message_email_subject:
                 values["subject"] = website.message_email_subject
 

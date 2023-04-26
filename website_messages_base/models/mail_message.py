@@ -17,16 +17,15 @@
 #    along with this program. If not, see http://www.gnu.org/licenses/agpl.html
 ##############################################################################
 # 1. Standard library imports:
-import re
 import logging
+import re
 from uuid import uuid4
+
+# 3. Odoo imports:
+from odoo import api, fields, models
 
 # 2. Known third party imports:
 
-# 3. Odoo imports:
-from odoo import api
-from odoo import fields
-from odoo import models
 
 # 4. Imports from Odoo modules:
 
@@ -111,9 +110,9 @@ class MailMessage(models.Model):
         :return: super
         """
         msg_model = vals.get("model")
-        website = self.env["website"].search([
-            ("company_id", "=", self.env.ref("base.main_company").id)
-        ], limit=1)
+        website = self.env["website"].search(
+            [("company_id", "=", self.env.ref("base.main_company").id)], limit=1
+        )
         if msg_model in website.message_thread_model_ids.mapped("model"):
             thread_id = vals.get("website_thread_id")
             if not thread_id:

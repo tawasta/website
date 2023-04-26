@@ -22,13 +22,11 @@ import base64
 import logging
 import os
 from datetime import datetime
-from io import BytesIO
 
-from odoo import http
-from odoo import _
+from odoo import _, http
 from odoo.http import request
-#from odoo.tools import image_save_for_web
-from PIL import Image
+
+# from odoo.tools import image_save_for_web
 
 # 2. Known third party imports:
 # 3. Odoo imports (openerp):
@@ -113,16 +111,18 @@ def process_message(user, record, data, **kwargs):
     file = data.get("file")
     attachment_list = list()
     error = False
-    website_enable_reply = request.env["ir.config_parameter"].sudo().get_param(
-        "website_enable_reply", False
+    website_enable_reply = (
+        request.env["ir.config_parameter"]
+        .sudo()
+        .get_param("website_enable_reply", False)
     )
     if comment:
         if image:
             if data.get("resized"):
                 img_string = data.get("resized").split(",")[1]
-                image_data = base64.b64decode(img_string)
+                base64.b64decode(img_string)
             else:
-                image_data = image.read()
+                image.read()
             resized = compress_image(image_data)
             mimetype = data.get("image").mimetype
             filename = (
@@ -141,9 +141,7 @@ def process_message(user, record, data, **kwargs):
             ).ids
             thread_id = data.get("reply_to_msg")
             if website_enable_reply and thread_id:
-                kwargs.update({
-                    "website_thread_id": thread_id
-                })
+                kwargs.update({"website_thread_id": thread_id})
 
             record.sudo().message_post(
                 subject=_("New message from {}").format(user.name),
@@ -158,7 +156,6 @@ def process_message(user, record, data, **kwargs):
 
 
 class WebsiteChannelMessagesController(http.Controller):
-
     def get_recipient_domain(self):
         """
         Get domain for possible recipients for new channel.
@@ -167,9 +164,13 @@ class WebsiteChannelMessagesController(http.Controller):
         :return: list, domain for user search
         """
         current_user = request.env.user
-        protected_user_ids = request.env.ref(
-            "website_channel_messages.group_protected_channel_recipients").with_context(
-            active_test=False).users.ids
+        protected_user_ids = (
+            request.env.ref(
+                "website_channel_messages.group_protected_channel_recipients"
+            )
+            .with_context(active_test=False)
+            .users.ids
+        )
         protected_user_ids.append(current_user.id)
         recipient_domain = [
             ("id", "not in", protected_user_ids),
@@ -247,7 +248,10 @@ class WebsiteChannelMessagesController(http.Controller):
         return request.render("website_channel_messages.my_channels", values)
 
     @http.route(
-        ["/website_channel/<int:channel_id>"], type="http", auth="user", website=True,
+        ["/website_channel/<int:channel_id>"],
+        type="http",
+        auth="user",
+        website=True,
     )
     def channel_messages(self, channel_id=None, **post):
         """
@@ -271,15 +275,19 @@ class WebsiteChannelMessagesController(http.Controller):
         )
 
         disable_video = False
-        if request.httprequest.user_agent.browser == 'safari' or \
-                request.httprequest.user_agent.platform == 'iphone':
+        if (
+            request.httprequest.user_agent.browser == "safari"
+            or request.httprequest.user_agent.platform == "iphone"
+        ):
             disable_video = True
         if not channel:
             return request.render("website.404")
 
         channel.sudo(user).mark_portal_messages_read()
-        website_enable_reply = request.env["ir.config_parameter"].sudo().get_param(
-            "website_enable_reply", False
+        website_enable_reply = (
+            request.env["ir.config_parameter"]
+            .sudo()
+            .get_param("website_enable_reply", False)
         )
         # TODO: Fix static sizes to be fetched from ir.config_parameter
         values = {
@@ -328,7 +336,9 @@ class WebsiteChannelMessagesController(http.Controller):
         return request.redirect(redirect_url)
 
     @http.route(
-        ["/website_channel/update_messages"], type="json", auth="user",
+        ["/website_channel/update_messages"],
+        type="json",
+        auth="user",
     )
     def channel_update_messages(self, channel_id, timestamp, csrf_token):
         """
@@ -360,7 +370,8 @@ class WebsiteChannelMessagesController(http.Controller):
                     messages_html += (
                         request.env["ir.ui.view"]
                         .render_template(
-                            "website_channel_messages.single_message", render_values,
+                            "website_channel_messages.single_message",
+                            render_values,
                         )
                         .decode("UTF-8")
                     )
