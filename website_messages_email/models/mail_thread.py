@@ -47,7 +47,6 @@ class MailThread(models.AbstractModel):
     # 7. Action methods
 
     # 8. Business methods
-    @api.multi
     @api.returns("mail.message", lambda value: value.id)
     def message_post(self, *args, **kwargs):
         """
@@ -81,32 +80,3 @@ class MailThread(models.AbstractModel):
                 values["subject"] = website.message_email_subject
 
         return super().message_post(*args, **values)
-
-    # @api.multi
-    # def message_post_with_template(self, template_id, **kwargs):
-    #     """
-    #     Enable some of the messages to go through to email and block others.
-    #     This is done by using two mail servers:
-    #     1. Default mail server, doesn't allow emails
-    #     2. Smaller priority server, that allows emails to go through
-
-    #     In this method we check if we should allow it to go into email (certain models)
-    #     and if it is allowed, we set explicitely the mail server (2.)
-    #     and set the notification layout.
-    #     """
-    #     values = kwargs
-    #     msg_model = self._name
-    #     website = self.env["website"].search([
-    #         ("company_id", "=", self.env.ref("base.main_company").id)
-    #     ], limit=1)
-    #     if msg_model in website.message_email_model_ids.mapped("model"):
-    #         website = self.env["website"].search([
-    #             ("company_id", "=", self.env.ref("base.main_company").id)
-    #         ], limit=1)
-    #         values.update({
-    #             "mail_server_id": website.message_email_mail_server_id.id,
-    #             "notif_layout": "website_messages_email.website_message_notification",
-    #             "add_sign": False
-    #         })
-
-    #     return super().message_post_with_template(template_id, **values)
