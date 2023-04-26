@@ -26,15 +26,16 @@ odoo.define("website_channel_messages.reply", function (require) {
         $(".message").removeClass("thread-indent").slideDown(100);
     });
 
-    $(document).on("click", ".reply-ref-container .card", function () {
-        var msgId = $(this).data("target");
-        $(".pulse").removeClass("pulse");
-        $("#" + msgId).addClass("pulse");
-        $([document.documentElement, document.body]).animate(
-            {
-                scrollTop: $("#" + msgId).offset().top - 70,
-            },
-            1000
-        );
+    // Count thread messages for every thread
+    $(".media[data-thread-id]").each(function (key, el) {
+        let threadId = $(el).data("thread-id");
+        let msgCount = $(".media[data-thread-id=" + threadId + "]").length;
+        $(el).find(".thread-message-counter").text(msgCount);
+
+        if (msgCount > 1) {
+            $(el).find(".thread-message-container").removeClass("d-none");
+        } else {
+            $(el).find(".thread-message-container").addClass("d-none");
+        }
     });
 });

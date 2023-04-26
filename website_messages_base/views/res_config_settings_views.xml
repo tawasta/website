@@ -47,7 +47,7 @@
                             >
                                 <button
                                     string="Calculate thread IDs"
-                                    name="action_calculate_website_thread_id"
+                                    name="action_message_thread_init"
                                     type="object"
                                     class="btn-primary"
                                 />

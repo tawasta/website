@@ -78,7 +78,7 @@ class ResConfigSettings(models.TransientModel):
         )
 
     # 7. Action methods
-    def action_calculate_website_thread_id(self):
-        return self.env["mail.message"].action_calculate_website_thread_id()
+    def action_message_thread_init(self):
+        return self.env["mail.message"].action_message_thread_init()
 
     # 8. Business methods
