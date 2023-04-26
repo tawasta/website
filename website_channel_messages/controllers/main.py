@@ -283,7 +283,7 @@ class WebsiteChannelMessagesController(http.Controller):
         if not channel:
             return request.render("website.404")
 
-        channel.sudo(user).mark_portal_messages_read()
+        channel.with_user(user).mark_portal_messages_read()
         website_enable_reply = (
             request.env["ir.config_parameter"]
             .sudo()

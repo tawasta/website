@@ -4,7 +4,7 @@
         <xpath expr="//span[@id='website_messages_menu']" position="replace">
             <t
                 t-set="unread_messages_count"
-                t-value="partner.sudo(request.env.user).get_portal_needaction_count()"
+                t-value="partner.with_user(request.env.user).get_portal_needaction_count()"
             />
             <span id="website_messages_menu">Messages <sup
                     class="messages_quantity badge badge-primary"
