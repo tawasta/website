@@ -1,6 +1,6 @@
 ##############################################################################
 #
-#    Author: Tawasta
+#    Author: Oy Tawasta OS Technologies Ltd.
 #    Copyright 2019- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -15,24 +15,43 @@
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program. If not, see http://www.gnu.org/licenses/agpl.html
-#
 ##############################################################################
+# 1. Standard library imports:
+import logging
 
-{
-    "name": "Website Channel Messages",
-    "summary": "Channelmessages for website",
-    "version": "14.0.1.0.0",
-    "category": "Website",
-    "website": "https://gitlab.com/tawasta/odoo/website",
-    "author": "Tawasta",
-    "license": "AGPL-3",
-    "application": False,
-    "installable": True,
-    "depends": ["website_messages_base", "mail_bot"],
-    "data": [
-        "data/website_message_format.xml",
-        "security/ir.model.access.csv",
-        "security/res_groups.xml",
-        "views/website_channel_messages.xml",
-    ],
-}
+# 2. Known third party imports:
+
+# 3. Odoo imports:
+from odoo import models
+
+# 4. Imports from Odoo modules:
+
+# 5. Local imports in the relative form:
+
+# 6. Unknown third party imports:
+
+
+_logger = logging.getLogger(__name__)
+
+
+class MailBot(models.AbstractModel):
+
+    # 1. Private attributes
+    _inherit = "mail.bot"
+
+    # 2. Fields declaration
+
+    # 3. Default methods
+
+    # 4. Compute and search fields, in the same order that fields declaration
+
+    # 5. Constraints and onchanges
+
+    # 6. CRUD methods
+
+    # 7. Action methods
+    def _get_answer(self, record, body, values, command=False):
+        """ Disable odoobot """
+        return False
+
+    # 8. Business methods

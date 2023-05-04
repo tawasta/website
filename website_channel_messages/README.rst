@@ -8,6 +8,7 @@ Website Channel Messages
 
 Adds channels messaging -feature to website.
 Uses CKEditor as RTE to post messages to channels.
+Disables Odoobot from channels completely (no autoreplies).
 
 TODO:
 * Finish the generic message processing module for portal/website to get
