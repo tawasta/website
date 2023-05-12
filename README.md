@@ -18,6 +18,7 @@ addon | version | maintainers | summary
 [portal_details_street2](portal_details_street2/) | 14.0.1.0.0 |  | Portal details add optional field street 2
 [website_all_messages](website_all_messages/) | 14.0.1.0.0 |  | All messages for website
 [website_blog_blogs_snippet](website_blog_blogs_snippet/) | 14.0.3.0.0 |  | Improved Blogs Snippets
+[website_blog_latest_post_tags](website_blog_latest_post_tags/) | 14.0.3.0.0 |  | Website Blog Latest Post Tags
 [website_blog_rss_feed](website_blog_rss_feed/) | 14.0.1.1.1 |  | Ability to create custom RSS Feeds with multiple blogs.
 [website_blog_settings](website_blog_settings/) | 14.0.1.1.0 |  | Customization settings under website frontend customize menu
 [website_blog_teaser](website_blog_teaser/) | 14.0.1.0.0 |  | Edit blog post teaser from backend

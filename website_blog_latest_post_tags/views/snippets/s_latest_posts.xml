@@ -6,11 +6,14 @@
         id="s_latest_posts_list_box_template"
         inherit_id="website_blog_blogs_snippet.s_latest_posts_list_box_template"
     >
-        <xpath expr="//span[@class='s_latest_posts_list_box_category']" position="replace">
+        <xpath
+            expr="//span[@class='s_latest_posts_list_box_category']"
+            position="replace"
+        >
             <span
-                    class="s_latest_posts_list_box_category"
-                    t-field="p.tag_ids[0].name"
-                />
+                class="s_latest_posts_list_box_category"
+                t-field="p.tag_ids[0].name"
+            />
         </xpath>
     </template>
 </odoo>
