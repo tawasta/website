@@ -38,8 +38,6 @@
                 <we-button data-select-data-attribute="16">16</we-button>
                 <we-button data-select-data-attribute="17">17</we-button>
                 <we-button data-select-data-attribute="18">18</we-button>
-                <we-button data-select-data-attribute="19">19</we-button>
-                <we-button data-select-data-attribute="20">20</we-button>
             </we-select>
         </xpath>
     </template>
