@@ -57,7 +57,6 @@ class MailThread(models.AbstractModel):
         domain = [
             ("model", "=", self._name),
             ("res_id", "in", self.ids),
-            ("website_published", "=", True),
             ("notification_ids.res_partner_id", "=", partner_id),
             ("notification_ids.is_read", "=", False),
         ]

@@ -21,14 +21,14 @@
 {
     "name": "Website Channel Messages",
     "summary": "Channelmessages for website",
-    "version": "14.0.1.1.1",
+    "version": "14.0.1.0.0",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["website_messages_base"],
+    "depends": ["website_messages_base", "mail_bot"],
     "data": [
         "data/website_message_format.xml",
         "security/ir.model.access.csv",

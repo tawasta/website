@@ -10,7 +10,6 @@
             </li>
         </xpath>
     </template>
-
     <template id="my_channels_assets" name="My Channels assets">
         <script
             type="text/javascript"
@@ -170,6 +169,7 @@
                 t-call-assets="website_channel_messages.my_channels_assets"
                 lazy_load="True"
             />
+
         </t>
     </template>
 
@@ -254,7 +254,13 @@
             type="text/javascript"
             src="/website_channel_messages/static/src/js/files.js"
         />
+        <script
+            t-if="reply_enabled"
+            type="text/javascript"
+            src="/website_channel_messages/static/src/js/reply.js"
+        />
     </template>
+
 
     <template id="channel" name="Channel">
         <t t-call="website.layout">
@@ -311,6 +317,25 @@
                     name="redirect_url"
                     t-att-value="request.httprequest.path"
                 />
+                <div
+                    t-if="reply_enabled"
+                    id="reply_to_container"
+                    class="row mb-3 d-none"
+                >
+                    <div class="col-12">
+                        Reply to:
+                        <button
+                            type="button"
+                            id="reply_badge"
+                            class="badge badge-secondary"
+                        >
+                            <span id="reply_msg_badge" /> <span
+                                aria-label="Close"
+                            >&amp;times;</span>
+                        </button>
+                        <input type="hidden" name="reply_to_msg" id="reply_to_msg" />
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-12 comment-container">
                         <textarea
@@ -400,7 +425,10 @@
     </template>
 
     <template id="single_message" name="Single message template">
-        <div class="media message mb16">
+        <div
+            class="media message mb16"
+            t-att-data-thread-id="message.website_thread_id"
+        >
             <img
                 class="img-fluid rounded-circle mr-3"
                 alt="Partner image"
@@ -415,10 +443,22 @@
                         t-options='{"format": "dd.MM.yyyy HH:mm:ss"}'
                     />
                 </h5>
+                <span class="ml-2 thread-message-container d-none">
+                    <i class="fa fa-comments" /> <span class="thread-message-counter" />
+                </span>
+                <t t-if="reply_enabled">
+                    <div class="reply-to-submission pull-right">
+                        <button
+                            type="button"
+                            class="btn btn-link btn-reply"
+                            t-att-data-msg="message.website_thread_id"
+                        ><i class="fa fa-reply" /> Reply</button>
+                    </div>
+                </t>
                 <h4
                     t-if="message.subject"
                     t-esc="message.subject"
-                    class="message-subject"
+                    class="message-subject d-none"
                 />
                 <p t-raw="message.body" />
                 <t t-foreach="message.attachment_ids" t-as="attachment">

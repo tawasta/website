@@ -21,14 +21,14 @@
 {
     "name": "Website Messages Base",
     "summary": "Base for website messages features",
-    "version": "14.0.0.1.1",
+    "version": "14.0.1.0.1",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["mail", "website_utilities", "website"],
+    "depends": ["mail", "website_utilities"],
     "data": [
         "security/ir.model.access.csv",
         "views/res_config_settings_views.xml",

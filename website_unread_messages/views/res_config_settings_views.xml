@@ -28,6 +28,15 @@
                             Enable unread messages' notifications
                         </div>
                     </div>
+                    <div class="o_setting_left_pane">
+                        <field name="email_notification" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="email_notification" />
+                        <div class="text-muted">
+                            Enable notifications for messages that are send to email as well
+                        </div>
+                    </div>
                 </div>
             </xpath>
         </field>

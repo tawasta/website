@@ -21,10 +21,10 @@
                 class="o_we_inline"
             >
                 <we-button data-select-data-attribute="1">1</we-button>
+                <we-button data-select-data-attribute="1">1</we-button>
                 <we-button data-select-data-attribute="2">2</we-button>
                 <we-button data-select-data-attribute="3">3</we-button>
                 <we-button data-select-data-attribute="4">4</we-button>
-                <we-button data-select-data-attribute="5">5</we-button>
                 <we-button data-select-data-attribute="6">6</we-button>
                 <we-button data-select-data-attribute="7">7</we-button>
                 <we-button data-select-data-attribute="8">8</we-button>
@@ -43,4 +43,5 @@
             </we-select>
         </xpath>
     </template>
+
 </odoo>

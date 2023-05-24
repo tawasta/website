@@ -16,7 +16,8 @@ odoo.define(
                 var self = this;
                 const data = self.$target[0].dataset;
                 const promoted = data.promoted === "true" || false;
-                const limit = parseInt(data.postsLimit, 20) || 4;
+                const limit = parseInt(data.postsLimit);
+                console.log(limit);
                 const columns = parseInt(data.postsColumns, 20) || 3;
                 const blogID = parseInt(data.filterByBlogId, 20);
                 // Compatibility with old template xml id
@@ -61,6 +62,7 @@ odoo.define(
                         .then(function (posts) {
                             var $posts = $(posts).filter(".s_latest_posts_post");
                             if (!$posts.length) {
+                                console.log();
                                 self.$target.append(
                                     $("<div/>", {class: "col-md-6 offset-md-3"}).append(
                                         $("<div/>", {

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="0">
+    <!-- Template for email notifications -->
+    <!-- This is derivated from mail.message_notification_email  -->
+    <template id="website_message_notification">
+        <div>
+            <t t-call="website_messages_email.website_email_header" />
+
+            <h3>
+                New message from <t t-esc="message.author_id.name" />
+            </h3>
+            <div t-raw="message.body" />
+
+            <ul t-if="tracking_values">
+                <t t-foreach="tracking_values" t-as="tracking">
+                    <li><t t-esc="tracking[0]" />:
+                        <t t-esc="tracking[1]" />
+                        -&gt;
+                        <t t-esc="tracking[2]" />
+                    </li>
+                </t>
+            </ul>
+
+            <t t-call="website_messages_email.website_email_footer" />
+        </div>
+    </template>
+
+    <!-- Template for email header -->
+    <template id="website_email_header" name="Email header for website messages">
+        <div
+            id="website_message_header"
+            class="website-message-header"
+            style="text-align: center; border-bottom: 1px solid #d4d4d4; padding: 2em 0 0 0; width: 100%;margin-bottom:100px;"
+        >
+            <a t-att-href="website_url" style="color:#f26321" target="_blank">
+                <img
+                    t-att-alt="company.name"
+                    style="border: none; padding: 0px; margin: 0px; height: auto; max-width: 200px; max-height: 200px;"
+                    t-att-src="'/logo.png?company=%s' % company.id"
+                />
+            </a>
+            <p
+                style="color: #222;"
+            >This email is a notification, please don't reply to this directly.</p>
+        </div>
+    </template>
+
+    <!-- Template for email footer -->
+    <template id="website_email_footer" name="Email footer for website messages">
+        <table
+            style="border-top:1px solid #d4d4d4;text-align:center;padding:1em 2em;color:#b8b8b8;margin-top: 100px;"
+            width="100%"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+        >
+            <tbody style="font-size: 13px;">
+                <tr>
+                    <td>
+                        <div>Copyright © <span t-esc="message.create_date.year" /> <t
+                                t-esc="request.env.ref('base.main_company').name"
+                            />, All rights reserved.</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+</odoo>

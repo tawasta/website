@@ -75,7 +75,9 @@ class WebsiteUnreadMessagesController(http.Controller):
                 .get_param("website_unread_messages.page")
             )
             # Count unread portal messages
-            message_count = partner.sudo(current_user).get_portal_needaction_count()
+            message_count = partner.with_user(
+                current_user
+            ).get_portal_needaction_count()
 
             if timestamp:
                 # Last new messages retrieved at timestamp
