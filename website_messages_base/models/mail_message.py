@@ -122,14 +122,16 @@ class MailMessage(models.Model):
 
     # 7. Action methods
     def action_message_thread_init(self):
-        """ Set thread id for all models that require it """
-        website = self.env["website"].search([
-            ("company_id", "=", self.env.ref("base.main_company").id)
-        ], limit=1)
-        messages = self.search([
-            ("website_thread_id", "=", False),
-            ("model", "in", website.message_thread_model_ids.mapped("model")),
-        ])
+        """Set thread id for all models that require it"""
+        website = self.env["website"].search(
+            [("company_id", "=", self.env.ref("base.main_company").id)], limit=1
+        )
+        messages = self.search(
+            [
+                ("website_thread_id", "=", False),
+                ("model", "in", website.message_thread_model_ids.mapped("model")),
+            ]
+        )
         for msg in messages:
             msg.website_thread_id = str(uuid4())
 

@@ -444,7 +444,7 @@
                     />
                 </h5>
                 <span class="ml-2 thread-message-container d-none">
-                    <i class="fa fa-comments"/> <span class="thread-message-counter"/>
+                    <i class="fa fa-comments" /> <span class="thread-message-counter" />
                 </span>
                 <t t-if="reply_enabled">
                     <div class="reply-to-submission pull-right">

@@ -22,11 +22,12 @@
 
 # 2. Known third party imports:
 
+import logging
+
 # 3. Odoo imports (openerp):
 from odoo import fields, http
 from odoo.http import request
 from odoo.osv import expression
-import logging
 
 # 4. Imports from Odoo modules:
 from odoo.addons.website_blog.controllers.main import WebsiteBlog
@@ -53,9 +54,9 @@ class WebsiteBlogSnippet(WebsiteBlog):
         )
         if domain:
             dom = expression.AND([dom, domain])
-        logging.info(limit);
+        logging.info(limit)
         posts = request.env["blog.post"].search(dom, limit=limit, order=order)
-        logging.info(posts);
+        logging.info(posts)
         return request.website.viewref(template)._render(
             {"posts": posts, "columns": columns}
         )

@@ -28,8 +28,8 @@ odoo.define("website_channel_messages.reply", function (require) {
 
     // Count thread messages for every thread
     $(".media[data-thread-id]").each(function (key, el) {
-        let threadId = $(el).data("thread-id");
-        let msgCount = $(".media[data-thread-id=" + threadId + "]").length;
+        const threadId = $(el).data("thread-id");
+        const msgCount = $(".media[data-thread-id=" + threadId + "]").length;
         $(el).find(".thread-message-counter").text(msgCount);
 
         if (msgCount > 1) {

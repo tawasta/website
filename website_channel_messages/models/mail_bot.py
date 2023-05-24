@@ -19,10 +19,11 @@
 # 1. Standard library imports:
 import logging
 
-# 2. Known third party imports:
-
 # 3. Odoo imports:
 from odoo import models
+
+# 2. Known third party imports:
+
 
 # 4. Imports from Odoo modules:
 
@@ -51,7 +52,7 @@ class MailBot(models.AbstractModel):
 
     # 7. Action methods
     def _get_answer(self, record, body, values, command=False):
-        """ Disable odoobot """
+        """Disable odoobot"""
         return False
 
     # 8. Business methods
