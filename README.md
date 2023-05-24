@@ -44,7 +44,7 @@ addon | version | maintainers | summary
 [website_slides_content_search](website_slides_content_search/) | 14.0.1.0.0 |  | Search through website slides contents on the website
 [website_slides_settings](website_slides_settings/) | 14.0.1.1.0 |  | Website Slides toggleable settings under website customize menu
 [website_translations](website_translations/) | 14.0.1.4.2 |  | Website translations in backend
-[website_unread_messages](website_unread_messages/) | 12.0.3.1.0 |  | Unread messages for website
+[website_unread_messages](website_unread_messages/) | 14.0.3.1.0 |  | Unread messages for website
 [website_utilities](website_utilities/) | 14.0.1.0.0 |  | Useful website utilities
 
 [//]: # (end addons)
