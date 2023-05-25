@@ -67,7 +67,7 @@ class IrTranslation(models.Model):
                     )
                     if first_page:
                         website_page_id = first_page.id
-                    else:
+                    elif "website" in view.key:
                         website_page_id = homepage.id
 
             record.website_page_updated = fields.Datetime.now()

@@ -21,7 +21,7 @@
 {
     "name": "Website translations list",
     "summary": "Website translations in backend",
-    "version": "14.0.1.4.2",
+    "version": "14.0.1.4.3",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
