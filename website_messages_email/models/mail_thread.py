@@ -64,14 +64,14 @@ class MailThread(models.AbstractModel):
         website = self.env["website"].search(
             [("company_id", "=", self.env.ref("base.main_company").id)], limit=1
         )
-        if msg_model in website.message_email_model_ids.mapped("model"):
+        if msg_model in website.sudo().message_email_model_ids.mapped("model"):
             website = self.env["website"].search(
                 [("company_id", "=", self.env.ref("base.main_company").id)], limit=1
             )
             values.update(
                 {
-                    "mail_server_id": website.message_email_mail_server_id.id,
-                    "notif_layout": "website_messages_email.website_message_notification",
+                    "mail_server_id": website.sudo().message_email_mail_server_id.id,
+                    "email_layout_xmlid": "website_messages_email.website_message_notification",
                     "add_sign": False,
                     "email_from": website.message_email_from,
                 }
