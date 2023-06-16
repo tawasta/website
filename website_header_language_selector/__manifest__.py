@@ -29,5 +29,5 @@
     "application": False,
     "installable": True,
     "depends": ["website"],
-    "data": [],  # "views/website_footer.xml", "views/website_header.xml"
+    "data": ["views/website_footer.xml", "views/website_header.xml"],
 }
