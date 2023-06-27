@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <template id="assets_frontend" inherit_id="website.assets_frontend" name="Website Utilities assets">
+
         <xpath expr="//link[last()]" position="after">
             <!-- Plugins from cdn -->
             <link
                 rel="stylesheet"
                 type="text/css"
-                href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+                href="/website_utilities/static/src/css/toast.css"
             />
+        </xpath>
+
+        <xpath expr="//script[last()]" position="after">
+            <!-- Plugins from cdn -->
             <script
                 type="text/javascript"
-                src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"
+                src="/website_utilities/static/src/js/toast.js"
             />
 
             <!-- Plugin initializing -->
