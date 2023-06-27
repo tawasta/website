@@ -433,7 +433,7 @@
                 class="img-fluid rounded-circle mr-3"
                 alt="Partner image"
                 title="Partner image"
-                t-attf-src="/web/image/res.partner/{{message.author_id.id}}/image_small"
+                t-attf-src="/web/image/res.partner/{{message.author_id.id}}/image_64"
             />
             <div class="media-body">
                 <h5 class="d-inline-block mt-0">
