@@ -3,7 +3,6 @@ odoo.define("website_unread_messages.unread_messages", function (require) {
 
     var ajax = require("web.ajax");
     var _t = require("web.core")._t;
-    //var toastr = require("website_utilities.notifications").toastr;
 
     // Upon page reload, check for new messages
     function checkNewMessages() {
@@ -23,7 +22,6 @@ odoo.define("website_unread_messages.unread_messages", function (require) {
                     dismissible: true
                 });
             } else if (isEnabled && notification === "success" && response.msg !== "") {
-                //toastr.success(response.msg);
                 console.log(response.msg);
                 $.toast({
                     title: _t("Success!"),

@@ -4,7 +4,6 @@ odoo.define("website_channel_messages.thread", function (require) {
     var core = require("web.core");
     var ajax = require("web.ajax");
     var _t = core._t;
-    // var toastr = require("website_utilities.notifications").toastr;
 
     require("web.dom_ready");
 
@@ -27,7 +26,14 @@ odoo.define("website_channel_messages.thread", function (require) {
                     $("#channel_messages").prepend(cleaned);
                     msg = _t("New message arrived!");
                     console.log(msg);
-                    // toastr.info(msg);
+                    $.toast({
+                        title: _t("Notice!"),
+                        subtitle: _t("Messages"),
+                        content: msg,
+                        type: "info",
+                        delay: 5000,
+                        dismissible: true
+                    });
                 }
             });
         }
