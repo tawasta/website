@@ -4,11 +4,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 14.0-20230517\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-24 04:29+0000\n"
-"PO-Revision-Date: 2023-02-24 06:29+0200\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2023-06-28 07:13+0000\n"
+"PO-Revision-Date: 2023-06-28 10:14+0300\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Poedit 2.3\n"
 
 #. module: website_unread_messages
-#: code:addons/website_unread_messages/controllers/main.py:101
+#: code:addons/website_unread_messages/controllers/main.py:0
 #, python-format
 msgid "%d new messages in discussions!"
 msgstr "%d uutta viestiä keskusteluissa!"
@@ -84,10 +84,18 @@ msgid "Contact"
 msgstr "Kontakti"
 
 #. module: website_unread_messages
+#: model:ir.model.fields,field_description:website_unread_messages.field_mail_notification__display_name
+#: model:ir.model.fields,field_description:website_unread_messages.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:website_unread_messages.field_res_partner__display_name
+msgid "Display Name"
+msgstr "Näyttönimi"
+
+#. module: website_unread_messages
 #: model:ir.model.fields,help:website_unread_messages.field_res_config_settings__email_notification
 #: model_terms:ir.ui.view,arch_db:website_unread_messages.res_config_settings_view_form
 msgid "Enable notifications for messages that are send to email as well"
-msgstr "Salli ilmoitukset myös niistä viesteistä, jotka lähetetään sähköpostilla"
+msgstr ""
+"Salli ilmoitukset myös niistä viesteistä, jotka lähetetään sähköpostilla"
 
 #. module: website_unread_messages
 #: model_terms:ir.ui.view,arch_db:website_unread_messages.res_config_settings_view_form
@@ -110,15 +118,24 @@ msgid "Enable unread messages' page on website"
 msgstr "Ota käyttöön lukemattomien viestien sivu verkkosivuilla"
 
 #. module: website_unread_messages
+#: model:ir.model.fields,field_description:website_unread_messages.field_mail_notification__id
+#: model:ir.model.fields,field_description:website_unread_messages.field_res_config_settings__id
+#: model:ir.model.fields,field_description:website_unread_messages.field_res_partner__id
+msgid "ID"
+msgstr "Tunniste (ID)"
+
+#. module: website_unread_messages
+#: model:ir.model.fields,field_description:website_unread_messages.field_mail_notification____last_update
+#: model:ir.model.fields,field_description:website_unread_messages.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:website_unread_messages.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr "Viimeksi muokattu"
+
+#. module: website_unread_messages
 #: model_terms:ir.ui.view,arch_db:website_unread_messages.mark_all_read
 #: model_terms:ir.ui.view,arch_db:website_unread_messages.unread_messages
 msgid "Mark all messages read"
 msgstr "Merkitse viestit luetuiksi"
-
-#. module: website_unread_messages
-#: model:ir.model,name:website_unread_messages.model_mail_message
-msgid "Message"
-msgstr "Viesti"
 
 #. module: website_unread_messages
 #: model:ir.model,name:website_unread_messages.model_mail_notification
@@ -136,6 +153,20 @@ msgid "Move to message"
 msgstr "Siirry viestiin"
 
 #. module: website_unread_messages
+#. openerp-web
+#: code:addons/website_unread_messages/static/src/js/unread_messages.js:0
+#, python-format
+msgid "New messages"
+msgstr "Uudet viestit"
+
+#. module: website_unread_messages
+#. openerp-web
+#: code:addons/website_unread_messages/static/src/js/unread_messages.js:0
+#, python-format
+msgid "Notice!"
+msgstr "Ilmoitus!"
+
+#. module: website_unread_messages
 #: model:ir.model.fields,field_description:website_unread_messages.field_res_config_settings__email_notification
 msgid "Notification if email"
 msgstr "Ilmoitus jos viesti sähköpostilla"
@@ -151,7 +182,14 @@ msgid "Subject"
 msgstr "Aihe"
 
 #. module: website_unread_messages
-#: code:addons/website_unread_messages/controllers/main.py:61
+#. openerp-web
+#: code:addons/website_unread_messages/static/src/js/unread_messages.js:0
+#, python-format
+msgid "Success!"
+msgstr "Onnistunut!"
+
+#. module: website_unread_messages
+#: code:addons/website_unread_messages/controllers/main.py:0
 #, python-format
 msgid "There aren't any new messages!"
 msgstr "Ei uusia viestejä!"
@@ -178,8 +216,12 @@ msgstr "Milloin"
 
 #. module: website_unread_messages
 #: model_terms:ir.ui.view,arch_db:website_unread_messages.mark_all_read
-msgid "You are about to <b>mark all messages as read</b>, not only the search results of your current search. You can't undo this afterwards."
-msgstr "Olet  <b>merkitsemässä kaikki viestit luetuiksi</b>, et vain nykyisen hakusi tuloksia. Tätä toimintoa ei voi jälkikäteen kumota."
+msgid ""
+"You are about to <b>mark all messages as read</b>, not only the search "
+"results of your current search. You can't undo this afterwards."
+msgstr ""
+"Olet  <b>merkitsemässä kaikki viestit luetuiksi</b>, et vain nykyisen "
+"hakusi tuloksia. Tätä toimintoa ei voi jälkikäteen kumota."
 
 #. module: website_unread_messages
 #: model_terms:ir.ui.view,arch_db:website_unread_messages.unread_messages
@@ -187,7 +229,7 @@ msgid "You don't have any unread messages!<br/>Well done!"
 msgstr "Sinulla ei ole lukemattomia viestejä!<br/>Hienoa!"
 
 #. module: website_unread_messages
-#: code:addons/website_unread_messages/controllers/main.py:98
+#: code:addons/website_unread_messages/controllers/main.py:0
 #, python-format
 msgid "You have "
 msgstr "Sinulla on "
@@ -198,7 +240,7 @@ msgid "Your current search didn't match any authors or subjects."
 msgstr "Nykyinen hakusi ei vastannut kirjoittajia tai aiheita."
 
 #. module: website_unread_messages
-#: code:addons/website_unread_messages/controllers/main.py:103
+#: code:addons/website_unread_messages/controllers/main.py:0
 #, python-format
 msgid "a new message in discussions!"
 msgstr "lukematon viesti keskusteluissa!"
