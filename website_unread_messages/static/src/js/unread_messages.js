@@ -2,6 +2,7 @@ odoo.define("website_unread_messages.unread_messages", function (require) {
     "use strict";
 
     var ajax = require("web.ajax");
+    var _t = require("web.core")._t;
     //var toastr = require("website_utilities.notifications").toastr;
 
     // Upon page reload, check for new messages
@@ -14,23 +15,24 @@ odoo.define("website_unread_messages.unread_messages", function (require) {
             var notification = response.notification_class;
             if (isEnabled && notification === "info" && response.msg !== "") {
                 $.toast({
-                    title: 'Notice!',
-                    subtitle: '11 mins ago',
+                    title: _t("Notice!"),
+                    subtitle: _t("New messages"),
                     content: response.msg,
-                    type: 'info',
-                    delay: 50000,
-                    dismissible: true,
-                    img: {
-                        src: 'image.png',
-                        class: 'rounded',
-                        title: '<a href="https://www.jqueryscript.net/tags.php?/Thumbnail/">Thumbnail</a> Title',
-                        alt: 'Alternative'
-                    }
+                    type: "info",
+                    delay: 5000,
+                    dismissible: true
                 });
-                console.log(response.msg);
             } else if (isEnabled && notification === "success" && response.msg !== "") {
                 //toastr.success(response.msg);
                 console.log(response.msg);
+                $.toast({
+                    title: _t("Success!"),
+                    subtitle: _t("New messages"),
+                    content: response.msg,
+                    type: "success",
+                    delay: 5000,
+                    dismissible: true
+                });
             }
         });
     }
