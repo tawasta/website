@@ -148,7 +148,7 @@ def process_message(user, record, data, **kwargs):
                 author_id=user.partner_id.id,
                 body=comment,
                 message_type="comment",
-                subtype_xmlid="mail.mt_comment",
+                subtype="mail.mt_comment",
                 attachments=attachment_list,
                 partner_ids=notified_partner_ids,
                 **kwargs
@@ -231,10 +231,12 @@ class WebsiteChannelMessagesController(http.Controller):
         visible = "{} - {} / {}".format(message_start, message_end, total_count)
 
         recipient_domain = self.get_recipient_domain()
-        not_allowed_users = request.env.ref("website_channel_messages.group_protected_channel_recipients").users.ids
-        not_allowed_users.append(request.env.user.id)
-        partners = request.env["res.users"].sudo().search([('id', 'not in', not_allowed_users)]).mapped("partner_id")
-
+        partners = (
+            request.env["res.users"]
+            .sudo()
+            .search(recipient_domain)
+            .mapped("partner_id")
+        )
         values = {
             "channels": channels,
             "pager": pager,
@@ -243,7 +245,6 @@ class WebsiteChannelMessagesController(http.Controller):
             "current_search": search,
             "partners": partners,
         }
-
         return request.render("website_channel_messages.my_channels", values)
 
     @http.route(
