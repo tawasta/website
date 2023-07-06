@@ -192,6 +192,7 @@ class WebsiteChannelMessagesController(http.Controller):
         :param post: kwargs
         :return: rendered object
         """
+        logging.info("======WEBSITE CHANNEL==========");
         partner_id = request.env.user.partner_id.id
         channel_model = request.env["mail.channel"]
 
@@ -231,12 +232,14 @@ class WebsiteChannelMessagesController(http.Controller):
         visible = "{} - {} / {}".format(message_start, message_end, total_count)
 
         recipient_domain = self.get_recipient_domain()
+        logging.info(recipient_domain);
         partners = (
             request.env["res.users"]
             .sudo()
             .search(recipient_domain)
             .mapped("partner_id")
         )
+        logging.info(partners);
         values = {
             "channels": channels,
             "pager": pager,
@@ -245,6 +248,7 @@ class WebsiteChannelMessagesController(http.Controller):
             "current_search": search,
             "partners": partners,
         }
+        logging.info(values);
         return request.render("website_channel_messages.my_channels", values)
 
     @http.route(
