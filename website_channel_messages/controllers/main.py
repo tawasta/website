@@ -148,7 +148,7 @@ def process_message(user, record, data, **kwargs):
                 author_id=user.partner_id.id,
                 body=comment,
                 message_type="comment",
-                subtype="mail.mt_comment",
+                subtype_xmlid="mail.mt_comment",
                 attachments=attachment_list,
                 partner_ids=notified_partner_ids,
                 **kwargs
