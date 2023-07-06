@@ -233,6 +233,8 @@ class WebsiteChannelMessagesController(http.Controller):
 
         recipient_domain = self.get_recipient_domain()
         logging.info(recipient_domain);
+        test_partners = request.env["res.users"].sudo().search([]).mapped("partner_id")
+        logging.info(test_partners);
         partners = (
             request.env["res.users"]
             .sudo()
