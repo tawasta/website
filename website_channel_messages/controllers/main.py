@@ -26,7 +26,7 @@ from datetime import datetime
 from odoo import _, http
 from odoo.http import request
 
-from odoo.tools import image_quality
+#from odoo.tools import image_quality
 
 # 2. Known third party imports:
 # 3. Odoo imports (openerp):
