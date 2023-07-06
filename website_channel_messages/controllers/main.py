@@ -192,7 +192,6 @@ class WebsiteChannelMessagesController(http.Controller):
         :param post: kwargs
         :return: rendered object
         """
-        logging.info("======WEBSITE CHANNEL==========");
         partner_id = request.env.user.partner_id.id
         channel_model = request.env["mail.channel"]
 
@@ -232,13 +231,10 @@ class WebsiteChannelMessagesController(http.Controller):
         visible = "{} - {} / {}".format(message_start, message_end, total_count)
 
         recipient_domain = self.get_recipient_domain()
-        logging.info(recipient_domain);
         not_allowed_users = request.env.ref("website_channel_messages.group_protected_channel_recipients").users.ids
         not_allowed_users.append(request.env.user.id)
-        logging.info(not_allowed_users);
         partners = request.env["res.users"].sudo().search([('id', 'not in', not_allowed_users)]).mapped("partner_id")
 
-        logging.info(partners);
         values = {
             "channels": channels,
             "pager": pager,
@@ -247,7 +243,7 @@ class WebsiteChannelMessagesController(http.Controller):
             "current_search": search,
             "partners": partners,
         }
-        logging.info(values);
+
         return request.render("website_channel_messages.my_channels", values)
 
     @http.route(
