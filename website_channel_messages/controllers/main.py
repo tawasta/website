@@ -236,14 +236,8 @@ class WebsiteChannelMessagesController(http.Controller):
         not_allowed_users = request.env.ref("website_channel_messages.group_protected_channel_recipients").users.ids
         not_allowed_users.append(request.env.user.id)
         logging.info(not_allowed_users);
-        test_partners = request.env["res.users"].sudo().search([('id', 'not in', not_allowed_users)]).mapped("partner_id")
-        logging.info(test_partners);
-        partners = (
-            request.env["res.users"]
-            .sudo()
-            .search(recipient_domain)
-            .mapped("partner_id")
-        )
+        partners = request.env["res.users"].sudo().search([('id', 'not in', not_allowed_users)]).mapped("partner_id")
+
         logging.info(partners);
         values = {
             "channels": channels,
