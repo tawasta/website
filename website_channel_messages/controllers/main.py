@@ -26,7 +26,7 @@ from datetime import datetime
 from odoo import _, http
 from odoo.http import request
 
-# from odoo.tools import image_save_for_web
+from odoo.tools import image_quality
 
 # 2. Known third party imports:
 # 3. Odoo imports (openerp):
@@ -123,12 +123,12 @@ def process_message(user, record, data, **kwargs):
                 base64.b64decode(img_string)
             else:
                 image.read()
-            resized = compress_image(image_data)
+            #resized = compress_image(image_data)
             mimetype = data.get("image").mimetype
             filename = (
                 data.get("image").filename if "png" not in mimetype else "image.jpg"
             )
-            attachment_list.append((filename, resized))
+            attachment_list.append((filename))
         if file:
             too_big = process_file(file)
             if too_big:
