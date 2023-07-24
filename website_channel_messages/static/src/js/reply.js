@@ -5,6 +5,7 @@ odoo.define("website_channel_messages.reply", function (require) {
 
     $(document).on("click", ".btn-reply", function () {
         // Get reply msg ID from data, add it to submission form
+        console.log("Replying to message...");
         var msgId = $(this).data("msg");
         var msgInfo = $(this).closest(".media-body").children("h5").text();
 
@@ -12,6 +13,7 @@ odoo.define("website_channel_messages.reply", function (require) {
         $(".message[data-thread-id='" + msgId + "']").addClass("thread-indent");
         $(".message[data-thread-id='" + msgId + "']:last").removeClass("thread-indent");
         $(".message:not([data-thread-id='" + msgId + "'])").slideUp(200);
+        console.log("Hid other messages...");
 
         // Add badge to show which it is a reply to (and possibility to remove it)
         $("#reply_msg_badge").text(msgInfo);

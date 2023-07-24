@@ -19,11 +19,13 @@
 ##############################################################################
 # 1. Standard library imports:
 import logging
+import datetime
 
-from odoo import models
 
 # 2. Known third party imports:
+
 # 3. Odoo imports:
+from odoo import api, models
 
 # 4. Imports from Odoo modules:
 
@@ -49,6 +51,25 @@ class MailNotification(models.Model):
     # 5. Constraints and onchanges
 
     # 6. CRUD methods
+    @api.model_create_multi
+    def create(self, vals_list):
+        """Odoo inbox + email notification if sysparam True"""
+        email_notification = (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("website_unread_messages.email_notification", False)
+        )
+        if email_notification:
+            for vals in vals_list:
+                message = self.env["mail.message"].browse(vals["mail_message_id"])
+                just_sent = (
+                    (datetime.datetime.now() - message.create_date)
+                    < datetime.timedelta(seconds=1)
+                )
+                if vals["notification_type"] == "email" and vals.get("is_read") and just_sent:
+                    vals["is_read"] = False
+        return super().create(vals_list)
+
     def write(self, vals):
         """Odoo inbox + email notification if sysparam True"""
         email_notification = (
@@ -57,8 +78,13 @@ class MailNotification(models.Model):
             .get_param("website_unread_messages.email_notification", False)
         )
         if email_notification:
-            if vals.get("is_read") and vals.get("is_email"):
-                vals["is_read"] = False
+            for rec in self:
+                just_sent = (
+                    (datetime.datetime.now() - rec.mail_message_id.create_date)
+                    < datetime.timedelta(seconds=1)
+                )
+                if rec.notification_type == "email" and vals.get("is_read") and just_sent:
+                    vals["is_read"] = False
         return super().write(vals)
 
     # 7. Action methods

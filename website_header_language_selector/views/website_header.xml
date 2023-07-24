@@ -2,8 +2,8 @@
 <odoo>
     <!-- Header customizations -->
     <template id="header" inherit_id="website.navbar_nav">
-        <xpath expr="//ul[@id='top_menu']" position="before">
-            <li class="nav-item dropdown" t-ignore="true">
+        <xpath expr="//ul[@id='top_menu']" position="after">
+            <li class="nav-item dropdown list-unstyled" t-ignore="true">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                     <span><i id="nav-selected-language" class="fa fa-language" /></span>
                 </a>
@@ -18,6 +18,16 @@
                             </a>
                         </li>
                     </t> -->
+                    <t t-foreach="languages" t-as="lg">
+                        <li>
+                            <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang_code=lg[0])"
+                            class="dropdown-item js_change_lang"
+                            t-att-data-url_code="lg[1]">
+                                <span t-if="not no_text"
+                                      t-esc="lg[2].split('/').pop()"/>
+                            </a>
+                        </li>
+                    </t>
                 </ul>
             </li>
         </xpath>

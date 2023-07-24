@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2018- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2019- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,15 +19,20 @@
 ##############################################################################
 
 {
-    "name": "Website header language selector",
-    "summary": "Language selector for website header",
+    "name": "Website Accessibility Page",
+    "summary": "Adds accessibility page",
     "version": "14.0.1.0.0",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
+    "data": [
+        "data/ir_config_parameter.xml",
+        "views/website_accessibility.xml",
+    ],
+    "depends": [
+        "website",
+    ],
     "application": False,
     "installable": True,
-    "depends": ["website"],
-    "data": ["views/website_footer.xml", "views/website_header.xml"],
 }

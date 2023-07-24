@@ -21,7 +21,7 @@
 {
     "name": "Website Unread Messages",
     "summary": "Unread messages for website",
-    "version": "14.0.3.1.0",
+    "version": "14.0.3.1.1",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",

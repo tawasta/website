@@ -4,24 +4,35 @@ odoo.define("website_utilities.notifications", function () {
     $(function () {
         // Toastr -jQuery plugin used for notifications
         // eslint-disable-next-line no-undef
-        toastr.options = {
-            positionClass: "toast-bottom-center",
-            closeButton: true,
-            debug: false,
-            preventDuplicates: true,
-            onclick: null,
-            showDuration: "100",
-            hideDuration: "1000",
-            timeOut: "3000",
-            extendedTimeOut: "1000",
-            tapToDismiss: false,
-            showMethod: "fadeIn",
-            hideMethod: "fadeOut",
+        $.toastDefaults = {
+            position: "bottom-center",
+            delay: 5000,
+            dismissible: true,
+            stackable: true,
+            pauseDelayOnHover: true,
+            style: {
+                toast: "",
+                info: "",
+                success: "",
+                warning: "",
+                error: "",
+            }
         };
-    });
 
-    return {
-        // eslint-disable-next-line no-undef
-        toastr: toastr,
-    };
+        // You can call the toast with the following syntax:
+        // $.toast({
+        //     title: "Notice!",
+        //     subtitle: "11 mins ago",
+        //     content: "Message content",
+        //     type: "info",
+        //     delay: 50000,
+        //     dismissible: true,
+        //     img: {
+        //         src: "image.png",
+        //         class: "rounded",
+        //         title: "<a href="https://www.jqueryscript.net/tags.php?/Thumbnail/">Thumbnail</a> Title",
+        //         alt: "Alternative"
+        //     }
+        // });
+    });
 });

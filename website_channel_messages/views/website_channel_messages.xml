@@ -254,8 +254,10 @@
             type="text/javascript"
             src="/website_channel_messages/static/src/js/files.js"
         />
+    </template>
+
+    <template id="channel_reply_assets" name="Channel reply assets">
         <script
-            t-if="reply_enabled"
             type="text/javascript"
             src="/website_channel_messages/static/src/js/reply.js"
         />
@@ -294,6 +296,11 @@
             </div>
             <t
                 t-call-assets="website_channel_messages.channel_assets"
+                lazy_load="True"
+            />
+            <t
+                t-if="reply_enabled"
+                t-call-assets="website_channel_messages.channel_reply_assets"
                 lazy_load="True"
             />
         </t>
@@ -433,7 +440,7 @@
                 class="img-fluid rounded-circle mr-3"
                 alt="Partner image"
                 title="Partner image"
-                t-attf-src="/web/image/res.partner/{{message.author_id.id}}/image_small"
+                t-attf-src="/web/image/res.partner/{{message.author_id.id}}/image_128/64x64"
             />
             <div class="media-body">
                 <h5 class="d-inline-block mt-0">

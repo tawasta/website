@@ -4,11 +4,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 14.0-20230517\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 12:24+0000\n"
-"PO-Revision-Date: 2023-03-08 14:25+0200\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2023-06-28 07:05+0000\n"
+"PO-Revision-Date: 2023-06-28 10:07+0300\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #. module: website_channel_messages
 #. openerp-web
-#: code:addons/website_channel_messages/static/src/js/files.js:13
+#: code:addons/website_channel_messages/static/src/js/files.js:0
 #, python-format
 msgid " file(s) selected:"
 msgstr " tiedosto(a) valittu:"
@@ -85,7 +85,7 @@ msgstr "Peruuta"
 #. module: website_channel_messages
 #: model_terms:ir.ui.view,arch_db:website_channel_messages.channel
 msgid "Channel"
-msgstr "Kanava"
+msgstr "Keskustelu"
 
 #. module: website_channel_messages
 #: model_terms:ir.ui.view,arch_db:website_channel_messages.channel
@@ -94,7 +94,7 @@ msgstr "Keskustelun osallistujat"
 
 #. module: website_channel_messages
 #. openerp-web
-#: code:addons/website_channel_messages/static/src/js/channels.js:46
+#: code:addons/website_channel_messages/static/src/js/channels.js:0
 #, python-format
 msgid "Click here to open channel"
 msgstr "Klikkaa tästä avataksesi keskustelun"
@@ -110,31 +110,56 @@ msgid "Create"
 msgstr "Luo"
 
 #. module: website_channel_messages
+#. openerp-web
+#: code:addons/website_channel_messages/static/src/js/channels.js:0
 #: model_terms:ir.ui.view,arch_db:website_channel_messages.create_channel
 #: model_terms:ir.ui.view,arch_db:website_channel_messages.my_channels
+#, python-format
 msgid "Create channel"
 msgstr "Luo keskustelu"
 
 #. module: website_channel_messages
+#: model:ir.model.fields,field_description:website_channel_messages.field_mail_bot__display_name
+msgid "Display Name"
+msgstr "Näyttönimi"
+
+#. module: website_channel_messages
 #. openerp-web
-#: code:addons/website_channel_messages/static/src/js/files.js:14
+#: code:addons/website_channel_messages/static/src/js/channels.js:0
+#, python-format
+msgid "Error!"
+msgstr "Virhe!"
+
+#. module: website_channel_messages
+#. openerp-web
+#: code:addons/website_channel_messages/static/src/js/files.js:0
 #, python-format
 msgid "File name: "
 msgstr "Tiedoston nimi: "
 
 #. module: website_channel_messages
 #. openerp-web
-#: code:addons/website_channel_messages/static/src/js/files.js:16
+#: code:addons/website_channel_messages/static/src/js/files.js:0
 #, python-format
 msgid "File size too big! Max size for file is "
 msgstr "Tiedosto on liian suuri! Maksimikoko tiedostolle on "
 
 #. module: website_channel_messages
 #. openerp-web
-#: code:addons/website_channel_messages/static/src/js/files.js:15
+#: code:addons/website_channel_messages/static/src/js/files.js:0
 #, python-format
 msgid "File size: "
 msgstr "Tiedoston koko: "
+
+#. module: website_channel_messages
+#: model:ir.model.fields,field_description:website_channel_messages.field_mail_bot__id
+msgid "ID"
+msgstr "Tunniste (ID)"
+
+#. module: website_channel_messages
+#: model:ir.model.fields,field_description:website_channel_messages.field_mail_bot____last_update
+msgid "Last Modified on"
+msgstr "Viimeksi muokattu"
 
 #. module: website_channel_messages
 #: model_terms:ir.ui.view,arch_db:website_channel_messages.my_channels
@@ -147,7 +172,15 @@ msgid "Last message sent"
 msgstr "Viimeksi päivitetty"
 
 #. module: website_channel_messages
+#: model:ir.model,name:website_channel_messages.model_mail_bot
+msgid "Mail Bot"
+msgstr ""
+
+#. module: website_channel_messages
+#. openerp-web
+#: code:addons/website_channel_messages/static/src/js/thread.js:0
 #: model_terms:ir.ui.view,arch_db:website_channel_messages.channel_message_thread
+#, python-format
 msgid "Messages"
 msgstr "Viestit"
 
@@ -158,16 +191,24 @@ msgstr "Omat keskustelut"
 
 #. module: website_channel_messages
 #. openerp-web
-#: code:addons/website_channel_messages/static/src/js/thread.js:28
+#: code:addons/website_channel_messages/static/src/js/thread.js:0
 #, python-format
 msgid "New message arrived!"
-msgstr "Uusi viesti saapu!"
+msgstr "Uusi viesti saapui!"
 
 #. module: website_channel_messages
-#: code:addons/website_channel_messages/controllers/main.py:149
+#: code:addons/website_channel_messages/controllers/main.py:0
 #, python-format
 msgid "New message from {}"
 msgstr "Uusi viesti käyttäjältä {}"
+
+#. module: website_channel_messages
+#. openerp-web
+#: code:addons/website_channel_messages/static/src/js/channels.js:0
+#: code:addons/website_channel_messages/static/src/js/thread.js:0
+#, python-format
+msgid "Notice!"
+msgstr "Ilmoitus!"
 
 #. module: website_channel_messages
 #: model_terms:ir.ui.view,arch_db:website_channel_messages.my_channels
@@ -201,7 +242,7 @@ msgstr "Kirjoita viesti..."
 
 #. module: website_channel_messages
 #. openerp-web
-#: code:addons/website_channel_messages/static/src/js/channels.js:44
+#: code:addons/website_channel_messages/static/src/js/channels.js:0
 #, python-format
 msgid "You already have a chat with these recipients."
 msgstr "Sinulla on jo keskustelu näiden vastaanottajien kanssa."
@@ -213,7 +254,7 @@ msgstr "Sinulla ei ole vielä yhtään keskustelua."
 
 #. module: website_channel_messages
 #. openerp-web
-#: code:addons/website_channel_messages/static/src/js/channels.js:36
+#: code:addons/website_channel_messages/static/src/js/channels.js:0
 #, python-format
 msgid "You must select recipient!"
 msgstr "Sinun tulee valita vähintään yksi osallistuja!"
