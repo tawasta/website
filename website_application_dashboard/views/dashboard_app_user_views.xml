@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="dashboard_app_user_form_view" model="ir.ui.view">
+        <field name="name">dashboard.app.user.form</field>
+        <field name="model">dashboard.app.user</field>
+        <field name="arch" type="xml">
+            <form string="Application user data">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="application_id" placeholder="Application" />
+                        </h1>
+                    </div>
+                    <notebook colspan="4">
+                        <page string="General" name="general">
+                            <group>
+                                <field name="sequence" />
+                                <field name="user_id" />
+                                <field name="visible" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="dashboard_app_user_tree_view" model="ir.ui.view">
+        <field name="name">dashboard.app.user.tree</field>
+        <field name="model">dashboard.app.user</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle" />
+                <field name="create_date" />
+                <field name="application_id" />
+                <field name="user_id" />
+                <field name="visible" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="dashboard_app_user_action" model="ir.actions.act_window">
+        <field name="name">Application user data</field>
+        <field name="res_model">dashboard.app.user</field>
+        <field name="domain">[]</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="dashboard_app_user_tree_view" />
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                Create a new application user data
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        name="Application user data"
+        id="dashboard_app_user_menu"
+        parent="website.menu_content"
+        action="dashboard_app_user_action"
+        sequence="910"
+    />
+</odoo>

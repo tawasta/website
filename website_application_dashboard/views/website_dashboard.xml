@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="application_dashboard" name="Application Dashboard">
+        <t t-call="portal.portal_layout">
+            <t t-set="title">Application Dashboard</t>
+            <div>
+                <div class="oe_structure" />
+                <div class="container" id="app_dashboard">
+                    <h1 class="mt-3 mb-5 text-center">
+                        Application Dashboard
+                    </h1>
+                    <div class="row">
+                        <div class="col-12">
+                            <button
+                                type="button"
+                                id="app_dashboard_edit"
+                                class="btn btn-secondary float-end"
+                            >
+                                <i class="fa fa-pencil" title="Edit" />
+                            </button>
+                            <button
+                                type="button"
+                                id="app_dashboard_save"
+                                class="btn btn-primary float-end d-none"
+                            >
+                                <i class="fa fa-floppy-o" title="Save" />
+                            </button>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <t t-foreach="apps" t-as="app">
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 app-card">
+                                <!-- TODO: Edit visibility as well -->
+                                <div
+                                    class="card h-100"
+                                    t-att-app-id="app.id"
+                                    t-att-data-href="app.url"
+                                >
+                                    <i
+                                        class="fa fa-info-circle fa-2x p-1 position-absolute top-0 end-0"
+                                        t-att-data-tooltip="app.info"
+                                    />
+                                    <img
+                                        class="img img-fluid mw-50 mx-auto mt-3"
+                                        t-attf-src="/web/image?model=dashboard.app&amp;id={{app.id}}&amp;field=logo"
+                                    />
+                                    <div class="card-body p-3 d-flex flex-column">
+                                        <h5
+                                            class="card-title mt-3 text-center"
+                                            t-field="app.name"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,12 @@
+// Emphasize which app is currently being edited
+// and possible positions where to move
+#app_dashboard {
+    .editing-app .card {
+        border: 3px solid #000;
+        transform: scale(1.1);
+    }
+    .droppable .card {
+        opacity: 0.7;
+        border: 3px solid #f4f;
+    }
+}
