@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="references_snippets" inherit_id="website.snippets" name="References Snippets">
+        <xpath expr="//div[@id='snippet_structure']" position="before">
+            <div id="snippet_structure" class="o_panel">
+                <div class="o_panel_header">References</div>
+                <div class="o_panel_body">
+                    <t t-snippet="website_references_snippet.show_references">
+                        <keywords>references</keywords>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

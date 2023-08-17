@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="res_references_form_view" model="ir.ui.view">
+            <field name="name">res.references.form.view</field>
+            <field name="model">res.references</field>
+            <field name="arch" type="xml">
+                <form string="References">
+                    <sheet>
+                        <field name="image" widget="image" class="oe_avatar"/>
+                        <group>
+                            <field name="name" />
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="res_references_tree_view" model="ir.ui.view">
+            <field name="name">res.references.tree.view</field>
+            <field name="model">res.references</field>
+            <field name="arch" type="xml">
+                <tree string="References">
+                    <field name="name" />
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="res_references_action" model="ir.actions.act_window">
+            <field name="name">References</field>
+            <field name="res_model">res.references</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="res_references_menu"
+            name="References"
+            parent="website.menu_website_pages_list"
+            action="res_references_action"/>
+
+    </data>
+</odoo>
