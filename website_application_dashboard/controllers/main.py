@@ -48,7 +48,7 @@ class ApplicationDashboardController(http.Controller):
     )
     def dashboard(self, **post):
         """Render dashboard page"""
-        apps = request.env["dashboard.app"].sudo().search([])
+        apps = request.env["dashboard.app.user"].get_user_apps(request.env.user.id)
         render_values = {
             "no_breadcrumbs": True,
             "apps": apps,
@@ -66,6 +66,15 @@ class ApplicationDashboardController(http.Controller):
         auth="user",
     )
     def dashboard_save(self, **post):
-        """Save dashboard page"""
-        _logger.info(post)
-        return request.redirect("/dashboard")
+        """Save dashboard page - positions and visibility"""
+        for app_id in post.get("data"):
+            sequence = post.get("data").get(app_id).get("position")
+            hidden = post.get("data").get(app_id).get("hidden")
+            data = request.env["dashboard.app.user"].browse(int(app_id))
+            data.write(
+                {
+                    "sequence": sequence,
+                    "visible": not hidden,
+                }
+            )
+            data.sequence = sequence

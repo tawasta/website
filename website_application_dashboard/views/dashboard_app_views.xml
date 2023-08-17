@@ -18,6 +18,7 @@
                                 <field name="url" widget="url" />
                                 <field name="description" />
                                 <field name="info" />
+                                <field name="application_api_id" />
                             </group>
                         </page>
                         <page string="User data" name="user_data">

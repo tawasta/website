@@ -2,6 +2,8 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
     "use strict";
 
     const publicWidget = require("web.public.widget");
+    // Const _t = require("web.core")._t;
+
     publicWidget.registry.dashboard = publicWidget.Widget.extend({
         selector: "#app_dashboard",
         events: {
@@ -9,6 +11,25 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
             "click #app_dashboard_save": "_saveDashboardClick",
             "click .app-card:not(.droppable)": "_editAppPosition",
             "click .app-card.droppable": "_setAppPosition",
+            "click .app-btn-hide": "_toggleVisiblityApp",
+            "click .app-card": "_openApp",
+            "click .app-info": "_openInfo",
+        },
+
+        /**
+         * @class
+         */
+        init: function () {
+            this._super.apply(this, arguments);
+            // Check if editing
+            const url = new URL(window.location);
+            if (url.searchParams.has("editing")) {
+                $("#app_dashboard_edit").addClass("d-none");
+                $("#app_dashboard_save").removeClass("d-none");
+                $("#editing_info").removeClass("d-none");
+                $(".app-btn-hide").removeClass("d-none");
+                $("#app_dashboard").addClass("editing-dashboard");
+            }
         },
 
         // --------------------------------------------------------------------------
@@ -25,6 +46,9 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
             ev.preventDefault();
             $(ev.currentTarget).addClass("d-none");
             $("#app_dashboard_save").removeClass("d-none");
+            $("#editing_info").removeClass("d-none");
+            $(".app-btn-hide").removeClass("d-none");
+            $("#app_dashboard").addClass("editing-dashboard");
             const url = new URL(window.location);
             url.searchParams.set("editing", 1);
             window.history.replaceState(null, null, url.toString());
@@ -40,20 +64,29 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
             ev.preventDefault();
             $("#app_dashboard_save").addClass("d-none");
             $("#app_dashboard_edit").removeClass("d-none");
+            $("#editing_info").addClass("d-none");
+            $(".app-btn-hide").addClass("d-none");
+            $("#app_dashboard").removeClass("editing-dashboard");
+            const url = new URL(window.location);
+            url.searchParams.delete("editing");
+            window.history.replaceState(null, null, url.toString());
             // Calculate card positions, submit and save in controller
-            const positions = {};
+            const data = {};
             const self = this;
             $(".card")
                 .each(function (el) {
-                    positions[$(this).attr("app-id")] = el;
+                    const card = $(this).closest(".app-card");
+                    data[$(this).attr("app-id")] = {
+                        position: el,
+                        hidden: $(card).hasClass("app-hidden"),
+                    };
                 })
                 .promise()
                 .done(function () {
                     return self._rpc({
                         route: "/dashboard/save",
                         params: {
-                            positions: positions,
-                            // TODO: Visibility
+                            data: data,
                         },
                     });
                 });
@@ -88,6 +121,57 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
             $(".editing-app").insertBefore(target);
             // Clean up
             $(".app-card").removeClass("editing-app").removeClass("droppable");
+        },
+
+        /**
+         * Hide/show application from user
+         *
+         * @private
+         * @param {Event} ev
+         */
+        _toggleVisiblityApp: function (ev) {
+            ev.preventDefault();
+            ev.stopPropagation();
+            const target = $(ev.target).closest(".app-card");
+            $(target).toggleClass("app-hidden");
+            const hideText = $(target).find(".app-hide-text");
+            const showText = $(target).find(".app-show-text");
+            $(target).find(".app-btn-hide > span").addClass("d-none");
+            if ($(target).hasClass("app-hidden")) {
+                $(showText).removeClass("d-none");
+            } else {
+                $(hideText).removeClass("d-none");
+            }
+        },
+
+        /**
+         * Open application
+         *
+         * @private
+         * @param {Event} ev
+         */
+        _openApp: function (ev) {
+            // Check that we are not editing
+            if (!$("#app_dashboard").hasClass("editing-dashboard")) {
+                ev.preventDefault();
+                ev.stopPropagation();
+                const card = $(ev.target).closest(".card");
+                window.open($(card).data("href"), "_blank").focus();
+            }
+        },
+
+        /**
+         * Open info
+         *
+         * @private
+         * @param {Event} ev
+         */
+        _openInfo: function (ev) {
+            ev.preventDefault();
+            ev.stopPropagation();
+            const info = $(ev.target).data("info");
+            $("#application_info_text").text(info);
+            $("#modal_application_info").modal("show");
         },
     });
 });

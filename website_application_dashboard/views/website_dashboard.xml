@@ -6,10 +6,10 @@
             <div>
                 <div class="oe_structure" />
                 <div class="container" id="app_dashboard">
-                    <h1 class="mt-3 mb-5 text-center">
+                    <h1 class="mt-3 mb-3 text-center">
                         Application Dashboard
                     </h1>
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="col-12">
                             <button
                                 type="button"
@@ -27,33 +27,88 @@
                             </button>
                         </div>
                     </div>
-                    <hr />
+                    <!-- <hr /> -->
                     <div class="row">
+                        <div id="editing_info" class="col-12 d-none">
+                            <p class="alert alert-info">
+                                You can now edit the order of applications by selecting the application you want to reorder than clicking the desired position.
+                            </p>
+                        </div>
                         <t t-foreach="apps" t-as="app">
-                            <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 app-card">
-                                <!-- TODO: Edit visibility as well -->
+                            <div
+                                t-attf-class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 app-card {{'app-hidden' if not app.visible else ''}}"
+                            >
                                 <div
                                     class="card h-100"
                                     t-att-app-id="app.id"
-                                    t-att-data-href="app.url"
+                                    t-att-data-href="app.application_id.url"
                                 >
                                     <i
-                                        class="fa fa-info-circle fa-2x p-1 position-absolute top-0 end-0"
-                                        t-att-data-tooltip="app.info"
+                                        class="fa fa-info-circle fa-2x p-1 position-absolute top-0 end-0 app-info"
+                                        t-att-data-info="app.application_id.info"
                                     />
-                                    <img
-                                        class="img img-fluid mw-50 mx-auto mt-3"
-                                        t-attf-src="/web/image?model=dashboard.app&amp;id={{app.id}}&amp;field=logo"
-                                    />
+                                    <div class="card-header bg-transparent border-0">
+                                        <img
+                                            class="img img-fluid mx-auto card-logo mh-100"
+                                            t-attf-src="/web/image?model=dashboard.app&amp;id={{app.application_id.id}}&amp;field=logo"
+                                        />
+                                    </div>
                                     <div class="card-body p-3 d-flex flex-column">
                                         <h5
-                                            class="card-title mt-3 text-center"
-                                            t-field="app.name"
+                                            class="card-title mt-2 text-center"
+                                            t-field="app.application_id.name"
                                         />
+                                        <span
+                                            class="small mt-3"
+                                            t-field="app.application_id.description"
+                                        />
+                                    </div>
+                                    <div
+                                        class="card-footer text-center bg-transparent border-0"
+                                    >
+                                        <!-- Edit visibility as well -->
+                                        <button
+                                            class="btn btn-primary btn-sm app-btn-hide d-none"
+                                            type="button"
+                                        >
+                                            <span
+                                                t-att-class="'app-hide-text' if app.visible else 'app-hide-text d-none'"
+                                            >Hide</span>
+                                            <span
+                                                t-att-class="'app-show-text d-none' if app.visible else 'app-show-text'"
+                                            >Show</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </t>
+                    </div>
+                </div>
+            </div>
+            <div
+                id="modal_application_info"
+                class="modal fade"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="Application info"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Application info</h4>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            />
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <p id="application_info_text" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

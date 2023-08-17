@@ -22,9 +22,11 @@ import base64
 
 # 1. Standard library imports:
 import logging
+import timeit
 
 # 3. Odoo imports (openerp):
-from odoo import fields, models, tools
+from odoo import _, fields, models, tools
+from odoo.exceptions import UserError
 from odoo.modules.module import get_resource_path
 
 # 2. Known third party imports:
@@ -56,6 +58,7 @@ class DashboardApp(models.Model):
 
     name = fields.Char(
         help="Name of the application",
+        required=True,
     )
     logo = fields.Binary(
         default=_default_logo,
@@ -69,12 +72,17 @@ class DashboardApp(models.Model):
     )
     url = fields.Char(
         help="URL for the application",
+        required=True,
     )
     app_user_ids = fields.One2many(
         comodel_name="dashboard.app.user",
         inverse_name="application_id",
         string="Application user datas",
         help="User datas related to this application",
+    )
+    application_api_id = fields.Integer(
+        string="API ID",
+        help="Application ID in API",
     )
 
     # 3. Default methods
@@ -86,5 +94,83 @@ class DashboardApp(models.Model):
     # 6. CRUD methods
 
     # 7. Action methods
+    def _get_applications(self):
+        """Get applications from API"""
+        try:
+            result = [
+                {
+                    "name": "Iltasanomat",
+                    "info": "Tässä infoa iltasanomiin liittyen",
+                    "description": "Sovelluksen kuvausta...",
+                    "url": "https://is.fi",
+                    "application_api_id": 53,
+                },
+                {
+                    "name": "Google",
+                    "info": "Tässä infoa Googleen liittyen",
+                    "description": "Sovelluksen kuvausta...",
+                    "url": "https://google.com",
+                    "application_api_id": 87,
+                },
+            ]
+            self.create(result)
+            # endpoint_url = (
+            #     self.env["ir.config_parameter"]
+            #     .sudo()
+            #     .get_param("website_application_dashboard.endpoint", "")
+            # )
+            # api_key = (
+            #     self.env["ir.config_parameter"]
+            #     .sudo()
+            #     .get_param("website_application_dashboard.endpoint", "")
+            # )
+
+            # if endpoint_url and api_key:
+            #     Create headers and send request
+            #     headers = {
+            #         "Authorization": "{}".format(api_key),
+            #         "Accept": "application/json",
+            #         "Content-Type": "application/json",
+            #     }
+            #     res = requests.get(endpoint_url, headers=headers)
+            #     _logger.info("Response: {}".format(res.json()))
+        except Exception:
+            msg = _("Error occured when fetching user data")
+            _logger.error(msg)
+            raise UserError(msg) from None
+
+    def action_cron_update_applications(self):
+        """Cron to update user data from API"""
+        _logger.info("Dashboard cron: Update applications...")
+        try:
+            start = timeit.default_timer()
+
+            self._get_applications()
+            exec_time = timeit.default_timer() - start
+            _logger.info(
+                "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)
+            )
+        except Exception:
+            # Send to mattermost
+            pass
+            # hook = (
+            #     self.env["mattermost.hook"]
+            #     .sudo()
+            #     .search(
+            #         [
+            #             ("res_model", "=", "dashboard.app.user"),
+            #             ("function", "=", "get_user_app_data"),
+            #             ("hook", "!=", False),
+            #         ],
+            #         limit=1,
+            #     )
+            # )
+            # if hook:
+            #     msg = (
+            #         "### :school: Dashboard data"
+            #         "\n Failed to fetch dashboard data!"
+            #     ).format(len(self))
+            #     hook.post_mattermost(msg)
+            raise
 
     # 8. Business methods

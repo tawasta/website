@@ -24,6 +24,10 @@ import logging
 # 3. Odoo imports (openerp):
 from odoo import _, fields, models
 
+# import requests
+# import timeit
+
+
 # 2. Known third party imports:
 
 
@@ -82,5 +86,90 @@ class DashboardAppUser(models.Model):
     # 6. CRUD methods
 
     # 7. Action methods
+    def get_user_apps(self, user_id):
+        """
+        Get user apps in specific order
+        :param user_id: ID
+        :return: recordset
+        """
+        all_apps = self.env["dashboard.app"].search([])
+        user_datas = self.search([("user_id", "=", user_id)])
+        user_apps = user_datas.mapped("application_id")
+
+        for app in all_apps:
+            if app not in user_apps:
+                user_datas |= self.create(
+                    {
+                        "application_id": app.id,
+                        "user_id": user_id,
+                    }
+                )
+        return user_datas
+
+    # def _get_user_data(self):
+    #     """Update user data from API"""
+    #     try:
+    #         # endpoint_url = (
+    #         #     self.env["ir.config_parameter"]
+    #         #     .sudo()
+    #         #     .get_param("website_application_dashboard.endpoint", "")
+    #         # )
+    #         # api_key = (
+    #         #     self.env["ir.config_parameter"]
+    #         #     .sudo()
+    #         #     .get_param("website_application_dashboard.endpoint", "")
+    #         # )
+
+    #         # if endpoint_url and api_key:
+    #         #     Create headers and send request
+    #         #     headers = {
+    #         #         "Authorization": "{}".format(api_key),
+    #         #         "Accept": "application/json",
+    #         #         "Content-Type": "application/json",
+    #         #     }
+    #         #     res = requests.get(endpoint_url, headers=headers)
+    #         #     _logger.info("Response: {}".format(res.json()))
+    #         pass
+    #     except Exception:
+    #         msg = _("Error occured when fetching user data")
+    #         _logger.error(msg)
+    #         raise UserError(msg) from None
+
+    # def action_cron_update_user_data(self):
+    #     """Cron to update user data from API"""
+    #     _logger.info("Dashboard cron: Update user data...")
+    #     try:
+    #         start = timeit.default_timer()
+
+    #         self._get_user_data()
+    #         exec_time = timeit.default_timer() - start
+    #         _logger.info(
+    #             "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)
+    #         )
+    #     except Exception:
+    #         # Send to mattermost
+    #         pass
+    #         # hook = (
+    #         #     self.env["mattermost.hook"]
+    #         #     .sudo()
+    #         #     .search(
+    #         #         [
+    #         #             ("res_model", "=", "dashboard.app.user"),
+    #         #             ("function", "=", "get_user_app_data"),
+    #         #             ("hook", "!=", False),
+    #         #         ],
+    #         #         limit=1,
+    #         #     )
+    #         # )
+    #         # if hook:
+    #         #     msg = (
+    #         #         "### :school: Dashboard data"
+    #         #         "\n Failed to fetch dashboard data!"
+    #         #     ).format(len(self))
+    #         #     hook.post_mattermost(msg)
+    #         raise
+    #     _logger.info(
+    #         "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)
+    #     )
 
     # 8. Business methods

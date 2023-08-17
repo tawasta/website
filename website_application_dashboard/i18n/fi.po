@@ -1,0 +1,284 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_application_dashboard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0-20230807\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-17 07:24+0000\n"
+"PO-Revision-Date: 2023-08-17 10:25+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fi\n"
+"X-Generator: Poedit 2.3\n"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid "<i class=\"fa fa-floppy-o\" title=\"Save\"/>"
+msgstr "<i class=\"fa fa-floppy-o\" title=\"Tallenna\"/>"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid "<i class=\"fa fa-pencil\" title=\"Edit\"/>"
+msgstr "<i class=\"fa fa-pencil\" title=\"Muokkaa\"/>"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__application_api_id
+msgid "API ID"
+msgstr "Sovelluksen tunniste"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__application_id
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_form_view
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_user_form_view
+msgid "Application"
+msgstr "Sovellus"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid "Application Dashboard"
+msgstr "Työpöytä"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__application_api_id
+msgid "Application ID in API"
+msgstr "Sovelluksen tunniste rajapinnasta"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid "Application info"
+msgstr "Sovelluksen ohjeet"
+
+#. module: website_application_dashboard
+#: model:ir.actions.act_window,name:website_application_dashboard.dashboard_app_user_action
+#: model:ir.ui.menu,name:website_application_dashboard.dashboard_app_user_menu
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_user_form_view
+msgid "Application user data"
+msgstr "Sovelluksen käyttäjän tiedot"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__app_user_ids
+msgid "Application user datas"
+msgstr "Sovellusksen käyttäjien tiedot"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_form_view
+msgid "Application's name"
+msgstr "Sovelluksen nimi"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid "Close"
+msgstr "Sulje"
+
+#. module: website_application_dashboard
+#: model_terms:ir.actions.act_window,help:website_application_dashboard.dashboard_app_action
+msgid "Create a new application"
+msgstr "Luo uusi sovellus"
+
+#. module: website_application_dashboard
+#: model_terms:ir.actions.act_window,help:website_application_dashboard.dashboard_app_user_action
+msgid "Create a new application user data"
+msgstr "Luo uuden käyttäjän tiedot sovellukseen liittyen"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__create_uid
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__create_uid
+msgid "Created by"
+msgstr "Luonut"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__create_date
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__create_date
+msgid "Created on"
+msgstr "Luotu"
+
+#. module: website_application_dashboard
+#: model:ir.model,name:website_application_dashboard.model_dashboard_app
+#: model:ir.model,name:website_application_dashboard.model_dashboard_app_user
+msgid "Dashboard Application"
+msgstr "Työpöydän sovellus"
+
+#. module: website_application_dashboard
+#: model:ir.actions.act_window,name:website_application_dashboard.dashboard_app_action
+#: model:ir.ui.menu,name:website_application_dashboard.dashboard_app_menu
+msgid "Dashboard applications"
+msgstr "Työpöydän sovellukset"
+
+#. module: website_application_dashboard
+#: model:ir.actions.server,name:website_application_dashboard.ir_cron_dashboard_update_applications_ir_actions_server
+#: model:ir.cron,cron_name:website_application_dashboard.ir_cron_dashboard_update_applications
+msgid "Dashboard: Update applications"
+msgstr "Työpöytä: Päivitä sovellukset"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__description
+msgid "Description"
+msgstr "Kuvaus"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__description
+msgid "Description for the application"
+msgstr "Sovelluksen kuvaus"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__display_name
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__display_name
+msgid "Display Name"
+msgstr "Näyttönimi"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__logo
+msgid "Display this logo for the application."
+msgstr "Näytä tämä logo sovellukselle."
+
+#. module: website_application_dashboard
+#. odoo-python
+#: code:addons/website_application_dashboard/models/dashboard_app.py:0
+#: code:addons/website_application_dashboard/models/dashboard_app_user.py:0
+#, python-format
+msgid "Error occured when fetching user data"
+msgstr "Tapahtui virhe, kun päivitettiin käyttäjätietoja sovelluksille"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_form_view
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_user_form_view
+msgid "General"
+msgstr "Yleistä"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid "Hide"
+msgstr "Piilota"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__id
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__id
+msgid "ID"
+msgstr "Tunniste"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__info
+msgid "Info"
+msgstr "Ohjeet"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__info
+msgid "Info for the application"
+msgstr "Sovelluksen ohjeet"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app_user__visible
+msgid "Is this application visible to the user"
+msgstr "Onko sovellus näkyvissä käyttäjälle"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app____last_update
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user____last_update
+msgid "Last Modified on"
+msgstr "Viimeksi muokattu"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__write_uid
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__write_uid
+msgid "Last Updated by"
+msgstr "Viimeksi muokannut"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__write_date
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__write_date
+msgid "Last Updated on"
+msgstr "Viimeksi muokattu"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__logo
+msgid "Logo"
+msgstr ""
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__name
+msgid "Name"
+msgstr "Nimi"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__name
+msgid "Name of the application"
+msgstr "Sovelluksen nimi"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__sequence
+msgid "Sequence"
+msgstr "Järjestys"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid "Show"
+msgstr "Näytä"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__url
+msgid "URL for the application"
+msgstr "Sovelluksen verkko-osoite"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__url
+msgid "Url"
+msgstr "Verkko-osoite"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app_user__sequence
+msgid "Used to order dashboard application for user"
+msgstr "Käytetään järjestämään sovellukset käyttäjän toiveen mukaan"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__user_id
+msgid "User"
+msgstr "Käyttäjä"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_form_view
+msgid "User data"
+msgstr "Käyttäjätiedot"
+
+#. module: website_application_dashboard
+#. odoo-python
+#: code:addons/website_application_dashboard/models/dashboard_app_user.py:0
+#: model:ir.model.constraint,message:website_application_dashboard.constraint_dashboard_app_user_user_app_uniq
+#, python-format
+msgid "User data for this application already exists!"
+msgstr ""
+"Käyttäjätiedot tähän sovellukseen liittyen on jo olemassa tälle käyttäjälle!"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__app_user_ids
+msgid "User datas related to this application"
+msgstr "Tähän sovellukseen liittyvät käyttäjätiedot"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__visible
+msgid "Visible"
+msgstr "Näkyvissä"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app_user__application_id
+msgid "What application this user info is related to"
+msgstr "Mihin sovellukseen nämä käyttäjätiedot liittyvät"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app_user__user_id
+msgid "What user this application info is related to"
+msgstr "Mihin käyttäjään nämä sovelluksen tiedot liittyvät"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid ""
+"You can now edit the order of applications by selecting the application you "
+"want to reorder than clicking the desired position."
+msgstr ""
+"Voit nyt muokata sovellusten järjestystä klikkaamalla ensin sovellusta, "
+"jota haluat siirtää ja sen jälkeen haluttua uutta sijaintia."

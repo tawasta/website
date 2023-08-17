@@ -31,6 +31,7 @@
         "views/dashboard_app_views.xml",
         "views/dashboard_app_user_views.xml",
         "views/website_dashboard.xml",
+        "data/ir_cron.xml",
     ],
     "depends": [
         "website",
