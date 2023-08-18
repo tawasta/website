@@ -32,7 +32,7 @@ odoo.define("website_channel_messages.thread", function (require) {
                         content: msg,
                         type: "info",
                         delay: 5000,
-                        dismissible: true
+                        dismissible: true,
                     });
                 }
             });

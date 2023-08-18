@@ -18,14 +18,14 @@
 #
 ##############################################################################
 # 1. Standard library imports:
-import logging
 import datetime
-
-
-# 2. Known third party imports:
+import logging
 
 # 3. Odoo imports:
 from odoo import api, models
+
+# 2. Known third party imports:
+
 
 # 4. Imports from Odoo modules:
 
@@ -63,10 +63,13 @@ class MailNotification(models.Model):
             for vals in vals_list:
                 message = self.env["mail.message"].browse(vals["mail_message_id"])
                 just_sent = (
-                    (datetime.datetime.now() - message.create_date)
-                    < datetime.timedelta(seconds=1)
-                )
-                if vals["notification_type"] == "email" and vals.get("is_read") and just_sent:
+                    datetime.datetime.now() - message.create_date
+                ) < datetime.timedelta(seconds=1)
+                if (
+                    vals["notification_type"] == "email"
+                    and vals.get("is_read")
+                    and just_sent
+                ):
                     vals["is_read"] = False
         return super().create(vals_list)
 
@@ -80,10 +83,13 @@ class MailNotification(models.Model):
         if email_notification:
             for rec in self:
                 just_sent = (
-                    (datetime.datetime.now() - rec.mail_message_id.create_date)
-                    < datetime.timedelta(seconds=1)
-                )
-                if rec.notification_type == "email" and vals.get("is_read") and just_sent:
+                    datetime.datetime.now() - rec.mail_message_id.create_date
+                ) < datetime.timedelta(seconds=1)
+                if (
+                    rec.notification_type == "email"
+                    and vals.get("is_read")
+                    and just_sent
+                ):
                     vals["is_read"] = False
         return super().write(vals)
 

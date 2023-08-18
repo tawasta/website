@@ -16,7 +16,7 @@ odoo.define("website_utilities.notifications", function () {
                 success: "",
                 warning: "",
                 error: "",
-            }
+            },
         };
 
         // You can call the toast with the following syntax:
