@@ -19,7 +19,7 @@ odoo.define("website_unread_messages.unread_messages", function (require) {
                     content: response.msg,
                     type: "info",
                     delay: 5000,
-                    dismissible: true
+                    dismissible: true,
                 });
             } else if (isEnabled && notification === "success" && response.msg !== "") {
                 console.log(response.msg);
@@ -29,7 +29,7 @@ odoo.define("website_unread_messages.unread_messages", function (require) {
                     content: response.msg,
                     type: "success",
                     delay: 5000,
-                    dismissible: true
+                    dismissible: true,
                 });
             }
         });

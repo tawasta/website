@@ -28,5 +28,10 @@
     "application": False,
     "installable": True,
     "depends": ["website"],
-    "data": ["security/ir.model.access.csv","views/snippets/references_snippet.xml", "views/snippets/snippets.xml", "views/reference.xml"],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/snippets/references_snippet.xml",
+        "views/snippets/snippets.xml",
+        "views/reference.xml",
+    ],
 }

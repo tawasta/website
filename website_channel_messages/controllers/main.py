@@ -23,12 +23,12 @@ import logging
 import os
 from datetime import datetime
 
-
-# 2. Known third party imports:
-
 # 3. Odoo imports (openerp):
 from odoo import _, http
 from odoo.http import request
+
+# 2. Known third party imports:
+
 
 # 4. Imports from Odoo modules (rarely, and only if necessary):
 
@@ -92,7 +92,7 @@ def process_message(user, record, data, **kwargs):
             filename = (
                 data.get("image").filename if "png" not in mimetype else "image.jpg"
             )
-            attachment_list.append((filename))
+            attachment_list.append(filename)
         if file:
             too_big = process_file(file)
             if too_big:
@@ -331,14 +331,11 @@ class WebsiteChannelMessagesController(http.Controller):
             if new_messages:
                 for message in new_messages:
                     render_values = {"message": message}
-                    messages_html += (
-                        request.render(
-                            "website_channel_messages.single_message",
-                            render_values,
-                            lazy=False,
-                        )
-                        .decode("UTF-8")
-                    )
+                    messages_html += request.render(
+                        "website_channel_messages.single_message",
+                        render_values,
+                        lazy=False,
+                    ).decode("UTF-8")
         return messages_html
 
     @http.route(["/website_channel/create"], type="json", auth="user")

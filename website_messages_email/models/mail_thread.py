@@ -64,8 +64,10 @@ class MailThread(models.AbstractModel):
         website = self.env["website"].search(
             [("company_id", "=", self.env.ref("base.main_company").id)], limit=1
         )
-        if msg_model in website.sudo().message_email_model_ids.mapped("model") \
-                and "mail_auto_delete" not in values:
+        if (
+            msg_model in website.sudo().message_email_model_ids.mapped("model")
+            and "mail_auto_delete" not in values
+        ):
             website = self.env["website"].search(
                 [("company_id", "=", self.env.ref("base.main_company").id)], limit=1
             )

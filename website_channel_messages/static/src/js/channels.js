@@ -23,7 +23,7 @@ odoo.define("website_channel_messages.channels", function (require) {
                     content: _t("You must select recipient!"),
                     type: "error",
                     delay: 5000,
-                    dismissible: true
+                    dismissible: true,
                 });
             } else {
                 ajax.jsonRpc(route, "call", payload).then(function (res) {
@@ -42,7 +42,7 @@ odoo.define("website_channel_messages.channels", function (require) {
                             content: msg,
                             type: "info",
                             delay: 5000,
-                            dismissible: true
+                            dismissible: true,
                         });
                         $("#modal_create_channel").modal("hide");
                     }
