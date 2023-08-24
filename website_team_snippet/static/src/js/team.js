@@ -15,7 +15,7 @@ odoo.define("website_team_snippet.team", function (require) {
                 }).then((data) => {
                     let html = ``;
                     data.forEach((team) => {
-                        html += `<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                        html += `<div class="col-lg-4 col-md-6 mb-4 mb-lg-0 mt-3">
                         <div class="card rounded shadow">
         <div class="card-body p-4"><img src="data:image/png;base64,${team.image}" alt="" class="img-fluid d-block mx-auto mb-3">
           <div class="p-3">
