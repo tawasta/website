@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="res_team_form_view" model="ir.ui.view">
+            <field name="name">res.team.form.view</field>
+            <field name="model">res.team</field>
+            <field name="arch" type="xml">
+                <form string="team">
+                    <sheet>
+                        <field name="image" widget="image" class="oe_avatar" />
+                        <group>
+                            <field name="name" />
+                            <field name="professional_title" />
+                            <field name="description" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="res_team_tree_view" model="ir.ui.view">
+            <field name="name">res.team.tree.view</field>
+            <field name="model">res.team</field>
+            <field name="arch" type="xml">
+                <tree string="team">
+                    <field name="name" />
+                    <field name="professional_title" />
+                    <field name="description" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="res_team_action" model="ir.actions.act_window">
+            <field name="name">team</field>
+            <field name="res_model">res.team</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="res_team_menu"
+            name="team"
+            parent="website.menu_website_pages_list"
+            action="res_team_action"
+        />
+
+    </data>
+</odoo>
