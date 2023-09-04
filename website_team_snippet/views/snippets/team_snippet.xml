@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- template for our snippet -->
+    <template id="show_team" name="Team - Dynamic">
+        <section class="team">
+            <div class="container">
+                <div class="text-center py-5">
+                    <h2 class="h1">Team</h2>
+                </div>
+
+                <div class="row pb-5 mb-4" id="res-team-row" />
+            </div>
+        </section>
+    </template>
+
+    <template
+        id="assets_frontend"
+        inherit_id="website.assets_frontend"
+        name="team Front-end assets"
+    >
+        <xpath expr="." position="inside">
+
+            <script
+                type="text/javascript"
+                src="/website_team_snippet/static/src/js/team.js"
+            />
+            <link
+                rel="stylesheet"
+                type="text/scss"
+                href="/website_team_snippet/static/src/scss/team.scss"
+            />
+        </xpath>
+    </template>
+</odoo>
