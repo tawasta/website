@@ -11,7 +11,7 @@ odoo.define("website_references_snippet.references", function (require) {
             if (referencesRow) {
                 console.log(referencesRow);
                 this._rpc({
-                    route: "/references/",
+                    route: "/get_references/",
                     params: {},
                 }).then((data) => {
                     let html = ``;
