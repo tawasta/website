@@ -3,7 +3,7 @@ odoo.define("website_team_snippet.team", function (require) {
 
     var core = require("web.core");
     var publicWidget = require("web.public.widget");
-    publicWidget.registry.ResReferences = publicWidget.Widget.extend({
+    publicWidget.registry.ResTeams = publicWidget.Widget.extend({
         selector: ".team",
         start() {
             const teamRow = this.el.querySelector("#res-team-row");
