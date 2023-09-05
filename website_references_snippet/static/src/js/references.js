@@ -7,7 +7,8 @@ odoo.define("website_references_snippet.references", function (require) {
         selector: ".references",
         start() {
             const referencesRow = this.el.querySelector("#res-references-row");
-
+            console.log("========TEST=======");
+            console.log(referencesRow);
             if (referencesRow) {
                 console.log(referencesRow);
                 this._rpc({
