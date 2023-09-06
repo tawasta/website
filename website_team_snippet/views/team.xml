@@ -23,6 +23,7 @@
             <field name="model">res.team</field>
             <field name="arch" type="xml">
                 <tree string="team">
+                    <field name="sequence" widget="handle" />
                     <field name="name" />
                     <field name="professional_title" />
                     <field name="description" />
