@@ -58,7 +58,7 @@
                 <tr>
                     <td>
                         <div>Copyright © <span t-esc="message.create_date.year" /> <t
-                                t-esc="request.env.ref('base.main_company').name"
+                                t-esc="request.env.ref('base.main_company').sudo().name"
                             />, All rights reserved.</div>
                     </td>
                 </tr>
