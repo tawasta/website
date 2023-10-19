@@ -76,6 +76,10 @@ class DashboardAppUser(models.Model):
         help="Is this application visible to the user",
         default=True,
     )
+    notification_count = fields.Integer(
+        string="Notifications",
+        help="How many notifications user has",
+    )
 
     # 3. Default methods
 
@@ -92,7 +96,15 @@ class DashboardAppUser(models.Model):
         :param user_id: ID
         :return: recordset
         """
-        all_apps = self.env["dashboard.app"].search([])
+        # TODO: User defined not included, new field user_defined
+        all_apps = self.env["dashboard.app"].search(
+            [
+                "|",
+                ("user_id", "=", False),
+                ("user_id", "=", self.env.uid),
+            ]
+        )
+        _logger.info("Found {} applications".format(len(all_apps)))
         user_datas = self.search([("user_id", "=", user_id)])
         user_apps = user_datas.mapped("application_id")
 

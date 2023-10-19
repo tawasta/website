@@ -15,10 +15,13 @@
                     <notebook colspan="4">
                         <page string="General" name="general">
                             <group>
+                                <field name="category_id" />
                                 <field name="url" widget="url" />
                                 <field name="description" />
                                 <field name="info" />
                                 <field name="application_api_id" />
+                                <field name="user_id" />
+                                <field name="color" />
                             </group>
                         </page>
                         <page string="User data" name="user_data">
@@ -41,12 +44,27 @@
         <field name="name">dashboard.app.tree</field>
         <field name="model">dashboard.app</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree multi_edit="1">
                 <field name="name" />
                 <field name="create_date" />
                 <field name="create_uid" />
                 <field name="url" widget="url" />
+                <field name="category_id" />
             </tree>
+        </field>
+    </record>
+
+    <record id="dashboard_app_search_view" model="ir.ui.view">
+        <field name="name">dashboard.app.search</field>
+        <field name="model">dashboard.app</field>
+        <field name="arch" type="xml">
+           <search string="Applications">
+                <field name="name" />
+                <field name="url" />
+                <field name="category_id" />
+                <field name="user_id" />
+                <field name="application_api_id" />
+            </search>
         </field>
     </record>
 
@@ -56,6 +74,7 @@
         <field name="domain">[]</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" eval="dashboard_app_tree_view" />
+        <field name="search_view_id" ref="dashboard_app_search_view" />
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_empty_folder">
@@ -65,10 +84,17 @@
     </record>
 
     <menuitem
+        id="website_dashboard_menu"
+        parent="website.menu_site"
+        sequence="100"
+        name="Dashboard"
+    />
+
+    <menuitem
         name="Dashboard applications"
         id="dashboard_app_menu"
-        parent="website.menu_content"
+        parent="website_dashboard_menu"
         action="dashboard_app_action"
-        sequence="900"
+        sequence="10"
     />
 </odoo>

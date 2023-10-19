@@ -27,11 +27,14 @@
     "author": "Tawasta",
     "license": "AGPL-3",
     "data": [
+        "data/ir_cron.xml",
+        "data/dashboard_app_category_data.xml",
+        "data/website_data.xml",
         "security/ir.model.access.csv",
         "views/dashboard_app_views.xml",
         "views/dashboard_app_user_views.xml",
+        "views/dashboard_app_category_views.xml",
         "views/website_dashboard.xml",
-        "data/ir_cron.xml",
     ],
     "depends": [
         "website",

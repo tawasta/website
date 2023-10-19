@@ -47,11 +47,27 @@ class ApplicationDashboardController(http.Controller):
         website=True,
     )
     def dashboard(self, **post):
-        """Render dashboard page"""
+        """
+        Render dashboard page
+
+
+        {
+            <category_id>: [app_user, ...],
+            <category_id>: [app_user, ...],
+        }
+        """
+        categories = request.env["dashboard.app.category"].search([])
         apps = request.env["dashboard.app.user"].get_user_apps(request.env.user.id)
+        category_data = {}
+        for categ in categories:
+            category_data[categ.id] = apps.filtered(
+                lambda r: r.application_id.category_id.id == categ.id
+            )
+
         render_values = {
             "no_breadcrumbs": True,
-            "apps": apps,
+            "categories": categories,
+            "category_data": category_data,
         }
         return request.render(
             "website_application_dashboard.application_dashboard",
@@ -78,3 +94,30 @@ class ApplicationDashboardController(http.Controller):
                 }
             )
             data.sequence = sequence
+
+    @http.route(
+        [
+            "/dashboard/create",
+        ],
+        type="http",
+        auth="user",
+        methods=["POST"],
+        website=True,
+    )
+    def dashboard_create(self, **post):
+        """Create new application"""
+        if post:
+            name = post.get("name")
+            url = post.get("url")
+            categ_id = request.env.ref(
+                "website_application_dashboard.dashboard_app_category_personal"
+            ).id
+            request.env["dashboard.app"].sudo().create(
+                {
+                    "name": name,
+                    "url": url,
+                    "user_id": request.env.uid,
+                    "category_id": categ_id,
+                }
+            )
+        return request.redirect("/dashboard")

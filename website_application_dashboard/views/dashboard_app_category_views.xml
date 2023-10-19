@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="dashboard_app_category_form_view" model="ir.ui.view">
+        <field name="name">dashboard.app.category.form</field>
+        <field name="model">dashboard.app.category</field>
+        <field name="arch" type="xml">
+            <form string="Application category">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field
+                                name="name"
+                                placeholder="Application category's name"
+                            />
+                        </h1>
+                    </div>
+                    <notebook colspan="4">
+                        <page string="General" name="general">
+                            <group>
+                                <field name="sequence" />
+                                <field name="category_api_id" />
+                            </group>
+                            <group string="Applications">
+                                <field
+                                    name="application_ids"
+                                    nolabel="1"
+                                    colspan="2"
+                                    readonly="1"
+                                >
+                                    <tree>
+                                        <field name="name" />
+                                        <field name="url" />
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="dashboard_app_category_tree_view" model="ir.ui.view">
+        <field name="name">dashboard.app.category.tree</field>
+        <field name="model">dashboard.app.category</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field name="create_date" />
+                <field name="create_uid" />
+                <field name="application_ids" widget="one2many" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="dashboard_app_category_search_view" model="ir.ui.view">
+        <field name="name">dashboard.app.category.search</field>
+        <field name="model">dashboard.app.category</field>
+        <field name="arch" type="xml">
+           <search string="Categories">
+                <field name="name" />
+                <field name="application_ids" />
+                <field name="category_api_id" />
+            </search>
+        </field>
+    </record>
+
+    <record id="dashboard_app_category_action" model="ir.actions.act_window">
+        <field name="name">Application categories</field>
+        <field name="res_model">dashboard.app.category</field>
+        <field name="domain">[]</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="dashboard_app_category_tree_view" />
+        <field name="search_view_id" ref="dashboard_app_category_search_view" />
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                Create a new application category
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        name="Application categories"
+        id="dashboard_app_category_menu"
+        parent="website_dashboard_menu"
+        action="dashboard_app_category_action"
+        sequence="20"
+    />
+</odoo>

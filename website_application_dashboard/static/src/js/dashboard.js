@@ -2,7 +2,6 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
     "use strict";
 
     const publicWidget = require("web.public.widget");
-    // Const _t = require("web.core")._t;
 
     publicWidget.registry.dashboard = publicWidget.Widget.extend({
         selector: "#app_dashboard",
@@ -49,6 +48,7 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
             $("#editing_info").removeClass("d-none");
             $(".app-btn-hide").removeClass("d-none");
             $("#app_dashboard").addClass("editing-dashboard");
+            $(".app-card-create").removeClass("d-none");
             const url = new URL(window.location);
             url.searchParams.set("editing", 1);
             window.history.replaceState(null, null, url.toString());
@@ -73,7 +73,7 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
             // Calculate card positions, submit and save in controller
             const data = {};
             const self = this;
-            $(".card")
+            $(".card:not(.create-card)")
                 .each(function (el) {
                     const card = $(this).closest(".app-card");
                     data[$(this).attr("app-id")] = {
@@ -102,9 +102,14 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
             ev.preventDefault();
             // Check we are in editing mode
             const url = new URL(window.location);
-            if (url.searchParams.has("editing")) {
-                $(ev.target).closest(".app-card").addClass("editing-app");
-                $(".app-card:not(.editing-app)").addClass("droppable");
+            const card = $(ev.target).closest(".app-card");
+            if (url.searchParams.has("editing") && !$(card).hasClass("not-droppable")) {
+                $(card).addClass("editing-app");
+                // Droppable only in same category
+                const categId = $(card).data("category");
+                const selector = `.app-card[data-category='${categId}']:not(.editing-app)`;
+                $(".app-card:not(.editing-app)").addClass("not-droppable");
+                $(selector).removeClass("not-droppable").addClass("droppable");
             }
         },
 
@@ -118,9 +123,13 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
         _setAppPosition: function (ev) {
             ev.preventDefault();
             const target = $(ev.target).closest(".app-card");
+            // TODO: If selected app is after, insertAfter?
             $(".editing-app").insertBefore(target);
             // Clean up
-            $(".app-card").removeClass("editing-app").removeClass("droppable");
+            $(".app-card")
+                .removeClass("editing-app")
+                .removeClass("droppable")
+                .removeClass("not-droppable");
         },
 
         /**
@@ -169,8 +178,8 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
         _openInfo: function (ev) {
             ev.preventDefault();
             ev.stopPropagation();
-            const info = $(ev.target).data("info");
-            $("#application_info_text").text(info);
+            const info = $(ev.target).data("info") || "";
+            $("#application_info_text").html(info);
             $("#modal_application_info").modal("show");
         },
     });
