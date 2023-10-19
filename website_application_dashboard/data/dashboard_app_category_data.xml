@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record
+        id="dashboard_app_category_personal"
+        model="dashboard.app.category"
+        forcecreate="True"
+    >
+        <field name="sequence">9999</field>
+        <field name="name">Omat kuvakkeet</field>
+    </record>
+</odoo>

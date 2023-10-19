@@ -1,88 +1,130 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <template id="application_dashboard" name="Application Dashboard">
-        <t t-call="portal.portal_layout">
+        <t t-call="website.layout">
             <t t-set="title">Application Dashboard</t>
             <div>
                 <div class="oe_structure" />
-                <div class="container" id="app_dashboard">
-                    <h1 class="mt-3 mb-3 text-center">
-                        Application Dashboard
-                    </h1>
-                    <div class="row mb-3">
+                <div class="container mt-2" id="app_dashboard">
+                    <div class="row">
                         <div class="col-12">
                             <button
                                 type="button"
                                 id="app_dashboard_edit"
-                                class="btn btn-secondary float-end"
-                            >
-                                <i class="fa fa-pencil" title="Edit" />
+                                class="btn btn-secondary float-end rounded-0"
+                            >Edit view <i class="fa fa-gear" title="Edit" />
                             </button>
                             <button
                                 type="button"
                                 id="app_dashboard_save"
-                                class="btn btn-primary float-end d-none"
-                            >
-                                <i class="fa fa-floppy-o" title="Save" />
+                                class="btn btn-primary float-end rounded-0 d-none"
+                            >Save <i class="fa fa-floppy-o" title="Save" />
                             </button>
                         </div>
                     </div>
-                    <!-- <hr /> -->
                     <div class="row">
-                        <div id="editing_info" class="col-12 d-none">
+                        <div id="editing_info" class="col-12 mt-3 d-none">
                             <p class="alert alert-info">
                                 You can now edit the order of applications by selecting the application you want to reorder than clicking the desired position.
                             </p>
                         </div>
-                        <t t-foreach="apps" t-as="app">
-                            <div
-                                t-attf-class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 app-card {{'app-hidden' if not app.visible else ''}}"
-                            >
+                    </div>
+                    <t t-foreach="categories" t-as="category">
+                        <div class="row mb-3">
+                            <h3 t-field="category.name" />
+                            <t t-foreach="category_data.get(category.id)" t-as="app">
                                 <div
-                                    class="card h-100"
-                                    t-att-app-id="app.id"
-                                    t-att-data-href="app.application_id.url"
+                                    t-attf-class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 app-card {{'app-hidden' if not app.visible else ''}} categ-{{category.id}}"
+                                    t-att-data-category="category.id"
                                 >
-                                    <i
-                                        class="fa fa-info-circle fa-2x p-1 position-absolute top-0 end-0 app-info"
-                                        t-att-data-info="app.application_id.info"
-                                    />
-                                    <div class="card-header bg-transparent border-0">
-                                        <img
-                                            class="img img-fluid mx-auto card-logo mh-100"
-                                            t-attf-src="/web/image?model=dashboard.app&amp;id={{app.application_id.id}}&amp;field=logo"
-                                        />
-                                    </div>
-                                    <div class="card-body p-3 d-flex flex-column">
-                                        <h5
-                                            class="card-title mt-2 text-center"
-                                            t-field="app.application_id.name"
-                                        />
-                                        <span
-                                            class="small mt-3"
-                                            t-field="app.application_id.description"
-                                        />
-                                    </div>
                                     <div
-                                        class="card-footer text-center bg-transparent border-0"
+                                        class="card"
+                                        t-att-app-id="app.id"
+                                        t-att-data-href="app.application_id.url"
                                     >
-                                        <!-- Edit visibility as well -->
-                                        <button
-                                            class="btn btn-primary btn-sm app-btn-hide d-none"
-                                            type="button"
+                                        <img
+                                            t-if="app.application_id.info"
+                                            src="/website_application_dashboard/static/src/img/info_icon.svg"
+                                            class="app-icon app-info"
+                                            t-att-data-info="app.application_id.info"
+                                        />
+<!--                                         <div class="card-header bg-transparent border-0">
+                                            <img
+                                                class="img img-fluid mx-auto card-logo mh-100"
+                                                t-attf-src="/web/image?model=dashboard.app&amp;id={{app.application_id.id}}&amp;field=logo"
+                                            />
+                                        </div> -->
+                                        <div
+                                            class="card-body p-3 d-flex flex-column"
+                                            t-att-style="'background-image: {};'.format(app.application_id.color) if app.application_id.color else ''"
                                         >
+                                            <h5
+                                                class="card-title m-auto"
+                                                t-field="app.application_id.name"
+                                            />
+<!--                                             <span
+                                                class="small mt-3"
+                                                t-field="app.application_id.description"
+                                            /> -->
                                             <span
-                                                t-att-class="'app-hide-text' if app.visible else 'app-hide-text d-none'"
-                                            >Hide</span>
-                                            <span
-                                                t-att-class="'app-show-text d-none' if app.visible else 'app-show-text'"
-                                            >Show</span>
-                                        </button>
+                                                t-if="app.notification_count"
+                                                t-field="app.notification_count"
+                                                class="app-icon app-nofitication"
+                                            />
+                                            <div
+                                                class="text-center bg-transparent border-0"
+                                            >
+                                                <!-- Edit visibility as well -->
+                                                <button
+                                                    class="btn btn-primary btn-sm app-btn-hide d-none"
+                                                    type="button"
+                                                >
+                                                    <span
+                                                        t-att-class="'app-hide-text' if app.visible else 'app-hide-text d-none'"
+                                                    ><img
+                                                            class="app-icon-small"
+                                                            src="/website_application_dashboard/static/src/img/minus_icon.svg"
+                                                        /> Hide</span>
+                                                    <span
+                                                        t-att-class="'app-show-text d-none' if app.visible else 'app-show-text'"
+                                                    ><img
+                                                            class="app-icon-small"
+                                                            src="/website_application_dashboard/static/src/img/plus_icon.svg"
+                                                        />  Show</span>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </t>
-                    </div>
+                                <t
+                                    t-if="category_index == (len(categories) - 1) and app_index == (len(category_data.get(category.id)) - 1)"
+                                >
+                                    <!-- Last category and last card, add new -card in edit mode -->
+                                    <div
+                                        t-attf-class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3 app-card-create d-none"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modal_application_create"
+                                    >
+                                        <div class="card create-card">
+                                            <div
+                                                class="card-body p-3 d-flex flex-column"
+                                            >
+                                                <h5
+                                                    class="card-title mx-auto mt-4 mb-3"
+                                                >Create new</h5>
+                                                <div class="text-center">
+                                                    <img
+                                                        class="app-icon"
+                                                        src="/website_application_dashboard/static/src/img/plus_icon.svg"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </t>
+                        </div>
+                    </t>
                 </div>
             </div>
             <div
@@ -109,6 +151,77 @@
                                 <p id="application_info_text" />
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                id="modal_application_create"
+                class="modal fade"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="Create application"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Create application</h4>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            />
+                        </div>
+                        <form
+                            action="/dashboard/create"
+                            method="post"
+                            enctype="multipart/form-data"
+                        >
+                            <input
+                                type="hidden"
+                                name="csrf_token"
+                                t-att-value="request.csrf_token()"
+                            />
+                            <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label
+                                        for="name"
+                                        class="col-form-label"
+                                    >Name:</label>
+                                        <input
+                                        type="text"
+                                        class="form-control"
+                                        id="name"
+                                        name="name"
+                                        required="required"
+                                    />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                        for="url"
+                                        class="col-form-label"
+                                    >Url:</label>
+                                        <input
+                                        type="text"
+                                        class="form-control"
+                                        id="url"
+                                        name="url"
+                                        required="required"
+                                    />
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    data-bs-dismiss="modal"
+                                >Close</button>
+                                <button
+                                    class="btn btn-primary app-create"
+                                >Submit</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

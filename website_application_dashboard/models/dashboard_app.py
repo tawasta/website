@@ -64,8 +64,10 @@ class DashboardApp(models.Model):
         default=_default_logo,
         help="Display this logo for the application.",
     )
-    info = fields.Text(
+    info = fields.Html(
         help="Info for the application",
+        translate=True,
+        sanitize=False,
     )
     description = fields.Text(
         help="Description for the application",
@@ -83,6 +85,21 @@ class DashboardApp(models.Model):
     application_api_id = fields.Integer(
         string="API ID",
         help="Application ID in API",
+    )
+    category_id = fields.Many2one(
+        comodel_name="dashboard.app.category",
+        string="Category",
+        help="To what category this application belongs to",
+        required=True,
+    )
+    user_id = fields.Many2one(
+        comodel_name="res.users",
+        string="Created user",
+        help="User created this personal dashboard application",
+    )
+    color = fields.Char(
+        string="Color code",
+        help="Color code for cards styling",
     )
 
     # 3. Default methods

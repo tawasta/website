@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0-20230807\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-17 07:24+0000\n"
-"PO-Revision-Date: 2023-08-17 10:25+0300\n"
+"POT-Creation-Date: 2023-10-19 10:18+0000\n"
+"PO-Revision-Date: 2023-10-19 13:19+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,17 +18,8 @@ msgstr ""
 "X-Generator: Poedit 2.3\n"
 
 #. module: website_application_dashboard
-#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
-msgid "<i class=\"fa fa-floppy-o\" title=\"Save\"/>"
-msgstr "<i class=\"fa fa-floppy-o\" title=\"Tallenna\"/>"
-
-#. module: website_application_dashboard
-#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
-msgid "<i class=\"fa fa-pencil\" title=\"Edit\"/>"
-msgstr "<i class=\"fa fa-pencil\" title=\"Muokkaa\"/>"
-
-#. module: website_application_dashboard
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__application_api_id
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_category__category_api_id
 msgid "API ID"
 msgstr "Sovelluksen tunniste"
 
@@ -48,6 +39,35 @@ msgstr "Työpöytä"
 #: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__application_api_id
 msgid "Application ID in API"
 msgstr "Sovelluksen tunniste rajapinnasta"
+
+#. module: website_application_dashboard
+#: model:ir.actions.act_window,name:website_application_dashboard.dashboard_app_category_action
+#: model:ir.ui.menu,name:website_application_dashboard.dashboard_app_category_menu
+msgid "Application categories"
+msgstr "Sovellusten kategoriat"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_category_form_view
+msgid "Application category"
+msgstr "Sovelluksen kategoria"
+
+#. module: website_application_dashboard
+#. odoo-python
+#: code:addons/website_application_dashboard/models/dashboard_app_category.py:0
+#: model:ir.model.constraint,message:website_application_dashboard.constraint_dashboard_app_category_dashboard_category_uniq
+#, python-format
+msgid "Application category already exists!"
+msgstr "Sovelluksen kategoria on jo olemassa!"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_category_form_view
+msgid "Application category's name"
+msgstr "Sovelluksen kategorian nimi"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_user_search_view
+msgid "Application datas"
+msgstr "Sovelluksen tiedot"
 
 #. module: website_application_dashboard
 #: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
@@ -72,9 +92,51 @@ msgid "Application's name"
 msgstr "Sovelluksen nimi"
 
 #. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_category__application_ids
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_category_form_view
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_search_view
+msgid "Applications"
+msgstr "Sovellukset"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app_category__application_ids
+msgid "Applications belonging to this category"
+msgstr "Sovellukset, jotka kuuluvat tähän kategoriaan"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_category_search_view
+msgid "Categories"
+msgstr "Kategoriat"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__category_id
+msgid "Category"
+msgstr "Kategoria"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app_category__category_api_id
+msgid "Category ID in API"
+msgstr "Kategorian tunniste rajapinnassa"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app_category__name
+msgid "Category name for different applications"
+msgstr "Kategorian nimi"
+
+#. module: website_application_dashboard
 #: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
 msgid "Close"
 msgstr "Sulje"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__color
+msgid "Color code"
+msgstr "Värikoodi"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__color
+msgid "Color code for cards styling"
+msgstr "Värikoodi sovelluskortin tyyliksi"
 
 #. module: website_application_dashboard
 #: model_terms:ir.actions.act_window,help:website_application_dashboard.dashboard_app_action
@@ -82,27 +144,60 @@ msgid "Create a new application"
 msgstr "Luo uusi sovellus"
 
 #. module: website_application_dashboard
+#: model_terms:ir.actions.act_window,help:website_application_dashboard.dashboard_app_category_action
+msgid "Create a new application category"
+msgstr "Luo uusi kategoria"
+
+#. module: website_application_dashboard
 #: model_terms:ir.actions.act_window,help:website_application_dashboard.dashboard_app_user_action
 msgid "Create a new application user data"
 msgstr "Luo uuden käyttäjän tiedot sovellukseen liittyen"
 
 #. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid "Create application"
+msgstr "Luo sovellus"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid "Create new"
+msgstr "Luo uusi"
+
+#. module: website_application_dashboard
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__create_uid
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_category__create_uid
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__create_uid
 msgid "Created by"
 msgstr "Luonut"
 
 #. module: website_application_dashboard
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__create_date
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_category__create_date
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__create_date
 msgid "Created on"
 msgstr "Luotu"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__user_id
+msgid "Created user"
+msgstr "Luonut"
+
+#. module: website_application_dashboard
+#: model:ir.ui.menu,name:website_application_dashboard.website_dashboard_menu
+#: model:website.menu,name:website_application_dashboard.menu_dashboard
+msgid "Dashboard"
+msgstr "Työpöytä"
 
 #. module: website_application_dashboard
 #: model:ir.model,name:website_application_dashboard.model_dashboard_app
 #: model:ir.model,name:website_application_dashboard.model_dashboard_app_user
 msgid "Dashboard Application"
 msgstr "Työpöydän sovellus"
+
+#. module: website_application_dashboard
+#: model:ir.model,name:website_application_dashboard.model_dashboard_app_category
+msgid "Dashboard Application Category"
+msgstr "Työpöydän sovellusten kategoriat"
 
 #. module: website_application_dashboard
 #: model:ir.actions.act_window,name:website_application_dashboard.dashboard_app_action
@@ -128,6 +223,7 @@ msgstr "Sovelluksen kuvaus"
 
 #. module: website_application_dashboard
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__display_name
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_category__display_name
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__display_name
 msgid "Display Name"
 msgstr "Näyttönimi"
@@ -138,14 +234,19 @@ msgid "Display this logo for the application."
 msgstr "Näytä tämä logo sovellukselle."
 
 #. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid "Edit view <i class=\"fa fa-gear\" title=\"Edit\"/>"
+msgstr "Muokkaa näkymää <i class=\"fa fa-gear\" title=\"Muokkaa\"/>"
+
+#. module: website_application_dashboard
 #. odoo-python
 #: code:addons/website_application_dashboard/models/dashboard_app.py:0
-#: code:addons/website_application_dashboard/models/dashboard_app_user.py:0
 #, python-format
 msgid "Error occured when fetching user data"
 msgstr "Tapahtui virhe, kun päivitettiin käyttäjätietoja sovelluksille"
 
 #. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_category_form_view
 #: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_form_view
 #: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_user_form_view
 msgid "General"
@@ -157,7 +258,13 @@ msgid "Hide"
 msgstr "Piilota"
 
 #. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app_user__notification_count
+msgid "How many notifications user has"
+msgstr "Kuinka monta ilmoitusta käyttäjällä on"
+
+#. module: website_application_dashboard
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__id
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_category__id
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__id
 msgid "ID"
 msgstr "Tunniste"
@@ -179,18 +286,21 @@ msgstr "Onko sovellus näkyvissä käyttäjälle"
 
 #. module: website_application_dashboard
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app____last_update
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_category____last_update
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user____last_update
 msgid "Last Modified on"
 msgstr "Viimeksi muokattu"
 
 #. module: website_application_dashboard
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__write_uid
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_category__write_uid
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__write_uid
 msgid "Last Updated by"
 msgstr "Viimeksi muokannut"
 
 #. module: website_application_dashboard
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__write_date
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_category__write_date
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__write_date
 msgid "Last Updated on"
 msgstr "Viimeksi muokattu"
@@ -202,6 +312,7 @@ msgstr ""
 
 #. module: website_application_dashboard
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__name
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_category__name
 msgid "Name"
 msgstr "Nimi"
 
@@ -211,6 +322,22 @@ msgid "Name of the application"
 msgstr "Sovelluksen nimi"
 
 #. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid "Name:"
+msgstr "Nimi:"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__notification_count
+msgid "Notifications"
+msgstr "Ilmoitukset"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid "Save <i class=\"fa fa-floppy-o\" title=\"Save\"/>"
+msgstr "Tallenna <i class=\"fa fa-floppy-o\" title=\"Tallenna\"/>"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_category__sequence
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__sequence
 msgid "Sequence"
 msgstr "Järjestys"
@@ -219,6 +346,16 @@ msgstr "Järjestys"
 #: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
 msgid "Show"
 msgstr "Näytä"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid "Submit"
+msgstr "Lähetä"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__category_id
+msgid "To what category this application belongs to"
+msgstr "Mihin kategoriaan tämä sovellus kuuluu"
 
 #. module: website_application_dashboard
 #: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__url
@@ -231,6 +368,16 @@ msgid "Url"
 msgstr "Verkko-osoite"
 
 #. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid "Url:"
+msgstr "Verkko-osoite:"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app_category__sequence
+msgid "Used to order categories for applications"
+msgstr "Käytetään järjestämään kategorioita"
+
+#. module: website_application_dashboard
 #: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app_user__sequence
 msgid "Used to order dashboard application for user"
 msgstr "Käytetään järjestämään sovellukset käyttäjän toiveen mukaan"
@@ -239,6 +386,11 @@ msgstr "Käytetään järjestämään sovellukset käyttäjän toiveen mukaan"
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__user_id
 msgid "User"
 msgstr "Käyttäjä"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__user_id
+msgid "User created this personal dashboard application"
+msgstr "Käyttäjä loi tämän henkilökohtaisen sovelluksen"
 
 #. module: website_application_dashboard
 #: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_form_view

@@ -17,6 +17,7 @@
                                 <field name="sequence" />
                                 <field name="user_id" />
                                 <field name="visible" />
+                                <field name="notification_count" />
                             </group>
                         </page>
                     </notebook>
@@ -39,12 +40,24 @@
         </field>
     </record>
 
+    <record id="dashboard_app_user_search_view" model="ir.ui.view">
+        <field name="name">dashboard.app.user.search</field>
+        <field name="model">dashboard.app.user</field>
+        <field name="arch" type="xml">
+           <search string="Application datas">
+                <field name="application_id" />
+                <field name="user_id" />
+            </search>
+        </field>
+    </record>
+
     <record id="dashboard_app_user_action" model="ir.actions.act_window">
         <field name="name">Application user data</field>
         <field name="res_model">dashboard.app.user</field>
         <field name="domain">[]</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" eval="dashboard_app_user_tree_view" />
+        <field name="search_view_id" ref="dashboard_app_user_search_view" />
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_empty_folder">
@@ -56,8 +69,8 @@
     <menuitem
         name="Application user data"
         id="dashboard_app_user_menu"
-        parent="website.menu_content"
+        parent="website_dashboard_menu"
         action="dashboard_app_user_action"
-        sequence="910"
+        sequence="30"
     />
 </odoo>
