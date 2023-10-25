@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="group_website_dashboard_admin" model="res.groups">
+        <field name="name">Dashboard applications admin</field>
+        <field name="category_id" ref="base.module_category_website_website" />
+    </record>
+
+    <data noupdate="1">
+        <record id="base.group_system" model="res.groups">
+            <field
+                name="implied_ids"
+                eval="[(4, ref('website_application_dashboard.group_website_dashboard_admin'))]"
+            />
+        </record>
+    </data>
+</odoo>

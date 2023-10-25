@@ -141,7 +141,30 @@ class DashboardAppUser(models.Model):
     #         #     }
     #         #     res = requests.get(endpoint_url, headers=headers)
     #         #     _logger.info("Response: {}".format(res.json()))
-    #         pass
+
+    #         test_data = [
+    #             {
+    #                 "email": "aleksi.savijoki@tawasta.fi",
+    #                 "application_id": 1,
+    #                 "notification_count": 3,
+    #             },
+    #             {
+    #                 "email": "aleksi.savijoki@tawasta.fi",
+    #                 "application_id": 2,
+    #                 "notification_count": 4,
+    #             }
+    #         ]
+    #         for el in test_data:
+    #             user = self.env["res.users"].search([
+    #                 ("email", "=", el.get("email")),
+    #             ], limit=1)
+    #             if user:
+    #                 user_data = self.env["dashboard.app.user"].search([
+    #                     ("user_id", "=", user.id),
+    #                     ("application_id", "=", el.get("application_id")),
+    #                 ])
+    #                 if user_data:
+    #                     user_data.notification_count = el.get("notification_count")
     #     except Exception:
     #         msg = _("Error occured when fetching user data")
     #         _logger.error(msg)
