@@ -18,16 +18,13 @@
 #
 ##############################################################################
 
-import base64
-
 # 1. Standard library imports:
 import logging
 import timeit
 
 # 3. Odoo imports (openerp):
-from odoo import _, fields, models, tools
+from odoo import _, fields, models
 from odoo.exceptions import UserError
-from odoo.modules.module import get_resource_path
 
 # 2. Known third party imports:
 
@@ -49,13 +46,6 @@ class DashboardApp(models.Model):
     _rec_name = "name"
 
     # 2. Fields declaration
-    def _default_logo(self):
-        image_path = get_resource_path(
-            "website_application_dashboard", "static/description", "icon.png"
-        )
-        with tools.file_open(image_path, "rb") as f:
-            return base64.b64encode(f.read())
-
     name = fields.Char(
         help="Name of the application",
         required=True,
