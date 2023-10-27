@@ -22,12 +22,14 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
             this._super.apply(this, arguments);
             // Check if editing
             const url = new URL(window.location);
+            $("#position_before").select2();
             if (url.searchParams.has("editing")) {
                 $("#app_dashboard_edit").addClass("d-none");
                 $("#app_dashboard_save").removeClass("d-none");
                 $("#editing_info").removeClass("d-none");
                 $(".app-btn-hide").removeClass("d-none");
                 $("#app_dashboard").addClass("editing-dashboard");
+                $(".app-card-create").removeClass("d-none");
             }
         },
 

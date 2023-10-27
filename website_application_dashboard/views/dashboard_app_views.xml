@@ -6,7 +6,6 @@
         <field name="arch" type="xml">
             <form string="Application">
                 <sheet>
-                    <field name="logo" widget="image" class="oe_avatar" />
                     <div class="oe_title">
                         <h1>
                             <field name="name" placeholder="Application's name" />
@@ -17,7 +16,6 @@
                             <group>
                                 <field name="category_id" />
                                 <field name="url" widget="url" />
-                                <field name="description" />
                                 <field name="info" />
                                 <field name="application_api_id" />
                                 <field name="user_id" />

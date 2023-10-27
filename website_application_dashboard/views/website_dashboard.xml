@@ -40,7 +40,8 @@
                                     <div
                                         class="card"
                                         t-att-app-id="app.id"
-                                        t-att-data-href="app.application_id.url"
+                                        t-att-data-href="app.url or app.application_id.url"
+                                        t-att-title="app.url or app.application_id.url"
                                     >
                                         <img
                                             t-if="app.application_id.info"
@@ -48,12 +49,6 @@
                                             class="app-icon app-info"
                                             t-att-data-info="app.application_id.info"
                                         />
-<!--                                         <div class="card-header bg-transparent border-0">
-                                            <img
-                                                class="img img-fluid mx-auto card-logo mh-100"
-                                                t-attf-src="/web/image?model=dashboard.app&amp;id={{app.application_id.id}}&amp;field=logo"
-                                            />
-                                        </div> -->
                                         <div
                                             class="card-body p-3 d-flex flex-column"
                                             t-att-style="'background-image: {};'.format(app.application_id.color) if app.application_id.color else ''"
@@ -62,10 +57,6 @@
                                                 class="card-title m-auto"
                                                 t-field="app.application_id.name"
                                             />
-<!--                                             <span
-                                                class="small mt-3"
-                                                t-field="app.application_id.description"
-                                            /> -->
                                             <span
                                                 t-if="app.notification_count"
                                                 t-field="app.notification_count"
@@ -209,6 +200,35 @@
                                         name="url"
                                         required="required"
                                     />
+                                    </div>
+                                    <!-- Card location -->
+                                    <div class="mb-3">
+                                        <label
+                                        for="position_before"
+                                        class="col-form-label"
+                                    >Position before card:</label>
+                                        <select
+                                        type="text"
+                                        class="form-control"
+                                        id="position_before"
+                                        name="position_before"
+                                        required="required"
+                                    >
+                                            <option value="">Select...</option>
+                                            <t
+                                            t-foreach="category_data.get(categories[-1].id)"
+                                            t-as="app"
+                                        >
+                                                <option
+                                                t-att-value="app.application_id.id"
+                                            >
+                                                    <t
+                                                    t-esc="app.application_id.name"
+                                                />
+                                                </option>
+                                            </t>
+                                            <option value="-1">Last</option>
+                                        </select>
                                     </div>
                             </div>
                             <div class="modal-footer">

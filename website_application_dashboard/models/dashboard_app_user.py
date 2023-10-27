@@ -66,6 +66,12 @@ class DashboardAppUser(models.Model):
         help="What application this user info is related to",
         required=True,
     )
+    category_id = fields.Many2one(
+        comodel_name="dashboard.app.category",
+        string="Category",
+        help="To what category this application belongs to",
+        related="application_id.category_id",
+    )
     user_id = fields.Many2one(
         comodel_name="res.users",
         string="User",
@@ -79,6 +85,9 @@ class DashboardAppUser(models.Model):
     notification_count = fields.Integer(
         string="Notifications",
         help="How many notifications user has",
+    )
+    url = fields.Char(
+        help="User specific URL",
     )
 
     # 3. Default methods

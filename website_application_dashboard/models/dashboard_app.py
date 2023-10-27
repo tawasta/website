@@ -60,17 +60,10 @@ class DashboardApp(models.Model):
         help="Name of the application",
         required=True,
     )
-    logo = fields.Binary(
-        default=_default_logo,
-        help="Display this logo for the application.",
-    )
     info = fields.Html(
         help="Info for the application",
         translate=True,
         sanitize=False,
-    )
-    description = fields.Text(
-        help="Description for the application",
     )
     url = fields.Char(
         help="URL for the application",
@@ -97,6 +90,8 @@ class DashboardApp(models.Model):
         string="Created user",
         help="User created this personal dashboard application",
     )
+    # TODO: Do we need border color as well? Or use predefined classnames with
+    # ready made styles (3-5 pcs)?
     color = fields.Char(
         string="Color code",
         help="Color code for cards styling",

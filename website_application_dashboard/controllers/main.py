@@ -106,18 +106,52 @@ class ApplicationDashboardController(http.Controller):
     )
     def dashboard_create(self, **post):
         """Create new application"""
+        current_user = request.env.user
         if post:
             name = post.get("name")
             url = post.get("url")
+            position_before = int(post.get("position_before"))
             categ_id = request.env.ref(
                 "website_application_dashboard.dashboard_app_category_personal"
             ).id
-            request.env["dashboard.app"].sudo().create(
+            # Take category cards, set new positions
+            user_cards = request.env["dashboard.app.user"].search(
+                [
+                    ("application_id.category_id", "=", categ_id),
+                    ("user_id", "=", current_user.id),
+                ]
+            )
+            pos = 1
+            create_card_pos = 0
+            for card in user_cards:
+                if card.application_id.id == position_before:
+                    create_card_pos = pos
+                    pos += 1
+
+                if create_card_pos != 0:
+                    card.sequence = pos
+                pos += 1
+
+            new_card = (
+                request.env["dashboard.app"]
+                .sudo()
+                .create(
+                    {
+                        "name": name,
+                        "url": url,
+                        "user_id": request.env.uid,
+                        "category_id": categ_id,
+                    }
+                )
+            )
+            if create_card_pos == 0:
+                create_card_pos = len(user_cards)
+
+            request.env["dashboard.app.user"].create(
                 {
-                    "name": name,
-                    "url": url,
-                    "user_id": request.env.uid,
-                    "category_id": categ_id,
+                    "application_id": new_card.id,
+                    "user_id": current_user.id,
+                    "sequence": create_card_pos,
                 }
             )
         return request.redirect("/dashboard")

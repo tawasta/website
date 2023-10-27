@@ -14,10 +14,12 @@
                     <notebook colspan="4">
                         <page string="General" name="general">
                             <group>
+                                <field name="category_id" />
                                 <field name="sequence" />
                                 <field name="user_id" />
                                 <field name="visible" />
                                 <field name="notification_count" />
+                                <field name="url" />
                             </group>
                         </page>
                     </notebook>
@@ -47,6 +49,7 @@
            <search string="Application datas">
                 <field name="application_id" />
                 <field name="user_id" />
+                <field name="category_id" />
             </search>
         </field>
     </record>
