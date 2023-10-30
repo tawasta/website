@@ -6,7 +6,21 @@ $dashboard-white: #fff;
 //$dashboard-font: ""
 
 // Standard blue
-$dashboard-card-gradient: linear-gradient(0deg, rgb(10, 46, 89), rgb(47, 77, 115));
+$dashboard-card-gradient: linear-gradient(
+    0deg,
+    rgba(10, 46, 89, 1),
+    rgba(47, 77, 115, 1)
+);
+$dashboard-card-gradient-reverse: linear-gradient(
+    180deg,
+    rgba(10, 46, 89, 1),
+    rgba(47, 77, 115, 1)
+);
+$dashboard-card-gradient-dimmed: linear-gradient(
+    0deg,
+    rgba(10, 46, 89, 0.3),
+    rgba(47, 77, 115, 0.3)
+);
 // Light blue
 $dashboard-card-create-gradient: linear-gradient(
     0deg,
@@ -35,10 +49,14 @@ $dashboard-card-min-height: 167px;
         cursor: not-allowed;
     }
 
+    .app-card:nth-child(odd) .card-body {
+        background-image: $dashboard-card-gradient;
+    }
+    .app-card:nth-child(even) .card-body {
+        background-image: $dashboard-card-gradient-reverse;
+    }
+
     .card {
-        // .card-header {
-        //     height: 10vh;
-        // }
         border-radius: 0px;
 
         .app-icon {
@@ -52,6 +70,8 @@ $dashboard-card-min-height: 167px;
             background-color: $dashboard-white;
             color: $dashboard-blue;
             border: none;
+            padding: 3px 5px;
+            font-size: 0.9rem;
         }
 
         .app-info {
@@ -65,13 +85,7 @@ $dashboard-card-min-height: 167px;
 
         .card-body {
             background-color: none !important;
-            background-image: $dashboard-card-gradient;
             border-radius: 0;
-            // &:nth-child(odd) {
-            // }
-            // &:nth-child(even) {
-            // }
-            // // background-color: #0a2e59 !important;
             .card-title {
                 color: $dashboard-white;
             }
@@ -127,7 +141,13 @@ $dashboard-card-min-height: 167px;
 
     &.editing-dashboard {
         .app-hidden {
-            opacity: 0.6;
+            .card-body {
+                background-image: $dashboard-card-gradient-dimmed;
+            }
+
+            .app-btn-hide {
+                background-color: rgba(237, 232, 213, 0.7);
+            }
         }
     }
     &:not(.editing-dashboard) {
