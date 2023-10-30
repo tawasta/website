@@ -11,7 +11,7 @@
                             <button
                                 type="button"
                                 id="app_dashboard_edit"
-                                class="btn btn-secondary float-end rounded-0"
+                                class="btn btn-primary float-end rounded-0"
                             >Edit view <i class="fa fa-gear" title="Edit" />
                             </button>
                             <button
