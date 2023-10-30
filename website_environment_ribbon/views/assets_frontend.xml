@@ -6,7 +6,7 @@
                 t-set="ribbon"
                 t-value="request.env['ir.config_parameter'].sudo().get_param('ribbon.name')"
             />
-            <t t-if="ribbon">
+            <t t-if="ribbon and ribbon != 'False'">
                 <div class="web-ribbon">
                     <div class="web-ribbon-text">
                         <t t-raw="ribbon.split('(')[0]" />
