@@ -29,4 +29,9 @@
     "depends": ["web", "website", "web_environment_ribbon"],
     "data": ["views/assets_frontend.xml"],
     "demo": [],
+    "assets": {
+        "web.assets_frontend": [
+            "website_environment_ribbon/static/src/css/ribbon.css",
+        ],
+    },
 }

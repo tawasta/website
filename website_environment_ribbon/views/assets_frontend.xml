@@ -9,15 +9,10 @@
             <t t-if="ribbon">
                 <div class="web-ribbon">
                     <div class="web-ribbon-text">
-                        <t t-out="ribbon.split('(')[0]" />
+                        <t t-raw="ribbon.split('(')[0]" />
                     </div>
                 </div>
             </t>
-            <link
-                rel="stylesheet"
-                type="text/css"
-                href="/website_environment_ribbon/static/src/css/ribbon.css"
-            />
         </xpath>
     </template>
 </odoo>

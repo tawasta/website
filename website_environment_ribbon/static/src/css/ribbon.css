@@ -20,4 +20,5 @@
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     background-color: rgba(208, 53, 53, 0.7);
     pointer-events: none;
+    font-size: 0.9rem;
 }
