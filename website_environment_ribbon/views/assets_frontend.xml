@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="layout" inherit_id="website.layout">
+        <xpath expr="//html" position="inside">
+            <t
+                t-set="ribbon"
+                t-value="request.env['ir.config_parameter'].sudo().get_param('ribbon.name')"
+            />
+            <t t-if="ribbon">
+                <div class="web-ribbon">
+                    <div class="web-ribbon-text">
+                        <t t-out="ribbon.split('(')[0]" />
+                    </div>
+                </div>
+            </t>
+            <link
+                rel="stylesheet"
+                type="text/css"
+                href="/website_environment_ribbon/static/src/css/ribbon.css"
+            />
+        </xpath>
+    </template>
+</odoo>
