@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 odoo.define("website_team_snippet.team", function (require) {
     "use strict";
 

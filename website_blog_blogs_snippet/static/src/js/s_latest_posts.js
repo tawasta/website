@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 odoo.define(
     "website_blog_blogs_snippet.s_latest_posts_frontend_inherit",
     function (require) {

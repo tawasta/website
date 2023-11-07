@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 odoo.define("website_kanban_board.kanban_board", function (require) {
     "use strict";
 
