@@ -1,3 +1,4 @@
+/* eslint-disable no-undef, no-negated-condition */
 odoo.define("website_slides_settings.course.slides.list", function (require) {
     "use strict";
 

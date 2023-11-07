@@ -40,12 +40,14 @@ addon | version | maintainers | summary
 [website_manager_group](website_manager_group/) | 14.0.1.0.0 |  | new Website Permission Group to limit access for designers & editors
 [website_marker_map](website_marker_map/) | 14.0.1.0.0 |  | Map thats shows markers and info windows on google maps that it gets from the backend
 [website_messages_base](website_messages_base/) | 14.0.1.0.1 |  | Base for website messages features
-[website_messages_email](website_messages_email/) | 14.0.1.0.0 |  | Email template for website messages
+[website_messages_email](website_messages_email/) | 14.0.1.0.1 |  | Email template for website messages
 [website_references_snippet](website_references_snippet/) | 14.0.1.0.0 |  | Website References Snippet
+[website_sale_hide_product_default_info](website_sale_hide_product_default_info/) | 14.0.1.0.0 |  | Website sale product hide default info
 [website_settings](website_settings/) | 14.0.1.0.4 |  | Website toggleable settings under customize menu and other setting options
 [website_slides_content_search](website_slides_content_search/) | 14.0.1.0.0 |  | Search through website slides contents on the website
 [website_slides_settings](website_slides_settings/) | 14.0.1.1.0 |  | Website Slides toggleable settings under website customize menu
-[website_translations](website_translations/) | 14.0.1.4.3 |  | Website translations in backend
+[website_team_snippet](website_team_snippet/) | 14.0.1.0.0 |  | Website team Snippet
+[website_translations](website_translations/) | 14.0.1.4.4 |  | Website translations in backend
 [website_unread_messages](website_unread_messages/) | 14.0.3.1.1 |  | Unread messages for website
 [website_utilities](website_utilities/) | 14.0.1.0.0 |  | Useful website utilities
 

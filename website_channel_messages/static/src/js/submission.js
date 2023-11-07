@@ -1,3 +1,4 @@
+/* eslint-disable no-undef, no-alert */
 odoo.define("website_channel_messages.submission", function (require) {
     "use strict";
 

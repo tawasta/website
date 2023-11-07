@@ -1,13 +1,8 @@
 {
     "name": "Website sale product hide default info",
-    "summary": """ """,
-    "description": """
-        Hides the:
-        30-day money-back guarantee Free Shipping in U.S. Buy now, get in 2 days
-        - text
-    """,
-    "website": "http://www.tawasta.fi",
-    "author": "Oy Tawasta Technologies Ltd.",
+    "summary": """Website sale product hide default info""",
+    "website": "https://gitlab.com/tawasta/odoo/website",
+    "author": "Tawasta",
     "license": "AGPL-3",
     "category": "Website",
     "version": "14.0.1.0.0",
