@@ -1,3 +1,4 @@
+/* eslint-disable valid-jsdoc, strict, complexity, no-negated-condition, radix */
 /**
  * @author Script47 (https://github.com/Script47/Toast)
  * @description Toast - A Bootstrap 4.2+ jQuery plugin for the toast component

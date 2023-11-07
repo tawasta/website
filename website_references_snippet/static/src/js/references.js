@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 odoo.define("website_references_snippet.references", function (require) {
     "use strict";
 
