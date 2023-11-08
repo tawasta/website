@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "UnitedSansSemiCondHeavy";
+    src: url("/website_application_dashboard/static/src/fonts/UnitedSansSmCdHv.otf")
+        format("opentype");
+}
+
+$o-theme-font-configs: map-merge(
+    $o-theme-font-configs,
+    (
+        "UnitedSansSemiCondHeavy": (
+            "family": (
+                "UnitedSansSemiCondHeavy",
+            ),
+        ),
+    )
+);

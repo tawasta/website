@@ -41,6 +41,9 @@
         "website",
     ],
     "assets": {
+        "web._assets_primary_variables": [
+            "website_application_dashboard/static/src/scss/primary_variable.scss",
+        ],
         "web.assets_frontend": [
             "website_application_dashboard/static/src/scss/dashboard.scss",
             "website_application_dashboard/static/src/js/dashboard.js",
