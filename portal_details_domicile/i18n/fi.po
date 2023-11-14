@@ -18,4 +18,4 @@ msgstr ""
 #. module: portal_details_domicile
 #: model_terms:ir.ui.view,arch_db:portal_details_domicile.portal_my_details_domicile
 msgid "Domicile"
-msgstr "Kotipaikkakunta"
+msgstr "Kotikunta"
