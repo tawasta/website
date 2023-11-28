@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0-20230807\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-27 12:26+0000\n"
-"PO-Revision-Date: 2023-10-27 15:28+0300\n"
+"POT-Creation-Date: 2023-11-28 10:38+0000\n"
+"PO-Revision-Date: 2023-11-28 12:41+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -41,6 +41,14 @@ msgid "Application"
 msgstr "Sovellus"
 
 #. module: website_application_dashboard
+#. odoo-python
+#: code:addons/website_application_dashboard/models/dashboard_app.py:0
+#: model:ir.model.constraint,message:website_application_dashboard.constraint_dashboard_app_dashboard_application_api_id_uniq
+#, python-format
+msgid "Application API ID already exists!"
+msgstr "Sovelluksen rajapintatunniste on jo käytössä!"
+
+#. module: website_application_dashboard
 #: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
 msgid "Application Dashboard"
 msgstr "Työpöytä"
@@ -64,6 +72,14 @@ msgstr "Sovelluksen kategoria"
 #. module: website_application_dashboard
 #. odoo-python
 #: code:addons/website_application_dashboard/models/dashboard_app_category.py:0
+#: model:ir.model.constraint,message:website_application_dashboard.constraint_dashboard_app_category_dashboard_category_api_id_uniq
+#, python-format
+msgid "Application category API id already exists!"
+msgstr "Sovelluskategorian rajapintatunniste on jo käytössä!"
+
+#. module: website_application_dashboard
+#. odoo-python
+#: code:addons/website_application_dashboard/models/dashboard_app_category.py:0
 #: model:ir.model.constraint,message:website_application_dashboard.constraint_dashboard_app_category_dashboard_category_uniq
 #, python-format
 msgid "Application category already exists!"
@@ -83,6 +99,13 @@ msgstr "Sovelluksen tiedot"
 #: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
 msgid "Application info"
 msgstr "Sovelluksen ohjeet"
+
+#. module: website_application_dashboard
+#. odoo-python
+#: code:addons/website_application_dashboard/models/dashboard_app_user.py:0
+#, python-format
+msgid "Application not found with ID {}"
+msgstr "Sovellusta ei löydetty tunnisteella {}"
 
 #. module: website_application_dashboard
 #: model:ir.actions.act_window,name:website_application_dashboard.dashboard_app_user_action
@@ -228,10 +251,26 @@ msgid "Dashboard: Update applications"
 msgstr "Työpöytä: Päivitä sovellukset"
 
 #. module: website_application_dashboard
+#: model:ir.actions.server,name:website_application_dashboard.ir_cron_dashboard_update_categories_ir_actions_server
+#: model:ir.cron,cron_name:website_application_dashboard.ir_cron_dashboard_update_categories
+msgid "Dashboard: Update categories"
+msgstr "Työpöytä: Päivitä sovelluskategoriat"
+
+#. module: website_application_dashboard
 #: model:ir.actions.server,name:website_application_dashboard.ir_cron_dashboard_update_user_data_ir_actions_server
 #: model:ir.cron,cron_name:website_application_dashboard.ir_cron_dashboard_update_user_data
 msgid "Dashboard: Update user data"
 msgstr "Työpöytä: Päivitä käyttäjien sovellustiedot"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__description
+msgid "Description"
+msgstr "Kuvaus"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__description
+msgid "Description for the application"
+msgstr "Sovelluksen kuvaus"
 
 #. module: website_application_dashboard
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__display_name
@@ -249,8 +288,22 @@ msgstr "Muokkaa näkymää <i class=\"fa fa-gear\" title=\"Muokkaa\"/>"
 #. odoo-python
 #: code:addons/website_application_dashboard/models/dashboard_app.py:0
 #, python-format
+msgid "Error occured when fetching application data"
+msgstr "Virhe tapahtui haettaessa sovelluksien tietoja"
+
+#. module: website_application_dashboard
+#. odoo-python
+#: code:addons/website_application_dashboard/models/dashboard_app_category.py:0
+#, python-format
+msgid "Error occured when fetching category data"
+msgstr "Virhe tapahtui haettaessa sovelluskategorioiden tietoja"
+
+#. module: website_application_dashboard
+#. odoo-python
+#: code:addons/website_application_dashboard/models/dashboard_app_user.py:0
+#, python-format
 msgid "Error occured when fetching user data"
-msgstr "Tapahtui virhe, kun päivitettiin käyttäjätietoja sovelluksille"
+msgstr "Virhe tapahtui haettaessa sovelluksien käyttäjätietoja"
 
 #. module: website_application_dashboard
 #: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_category_form_view
@@ -274,7 +327,7 @@ msgstr "Kuinka monta ilmoitusta käyttäjällä on"
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_category__id
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__id
 msgid "ID"
-msgstr ""
+msgstr " "
 
 #. module: website_application_dashboard
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__info
@@ -419,6 +472,13 @@ msgstr ""
 #: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__app_user_ids
 msgid "User datas related to this application"
 msgstr "Tähän sovellukseen liittyvät käyttäjätiedot"
+
+#. module: website_application_dashboard
+#. odoo-python
+#: code:addons/website_application_dashboard/models/dashboard_app_user.py:0
+#, python-format
+msgid "User not found with email {}"
+msgstr "Käyttäjää ei löydetty sähköpostilla {}"
 
 #. module: website_application_dashboard
 #: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app_user__url

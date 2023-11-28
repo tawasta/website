@@ -20,13 +20,15 @@
 
 # 1. Standard library imports:
 import logging
+import sys
+import timeit
+import traceback
+
+import requests
 
 # 3. Odoo imports (openerp):
 from odoo import _, fields, models
-
-# import requests
-# import timeit
-
+from odoo.exceptions import UserError
 
 # 2. Known third party imports:
 
@@ -105,7 +107,6 @@ class DashboardAppUser(models.Model):
         :param user_id: ID
         :return: recordset
         """
-        # TODO: User defined not included, new field user_defined
         all_apps = self.env["dashboard.app"].search(
             [
                 "|",
@@ -127,93 +128,129 @@ class DashboardAppUser(models.Model):
                 )
         return user_datas
 
-    # def _get_user_data(self):
-    #     """Update user data from API"""
-    #     try:
-    #         # endpoint_url = (
-    #         #     self.env["ir.config_parameter"]
-    #         #     .sudo()
-    #         #     .get_param("website_application_dashboard.endpoint", "")
-    #         # )
-    #         # api_key = (
-    #         #     self.env["ir.config_parameter"]
-    #         #     .sudo()
-    #         #     .get_param("website_application_dashboard.endpoint", "")
-    #         # )
+    def _get_user_data(self):
+        """Update user data from API"""
+        try:
+            endpoint_url = (
+                self.env["ir.config_parameter"]
+                .sudo()
+                .get_param("website_application_dashboard.user_endpoint", "")
+            )
+            api_key = (
+                self.env["ir.config_parameter"]
+                .sudo()
+                .get_param("website_application_dashboard.api_key", "")
+            )
 
-    #         # if endpoint_url and api_key:
-    #         #     Create headers and send request
-    #         #     headers = {
-    #         #         "Authorization": "{}".format(api_key),
-    #         #         "Accept": "application/json",
-    #         #         "Content-Type": "application/json",
-    #         #     }
-    #         #     res = requests.get(endpoint_url, headers=headers)
-    #         #     _logger.info("Response: {}".format(res.json()))
+            if not (endpoint_url and api_key):
+                _logger.error("Endpoint or API key missing")
+                raise Exception
 
-    #         test_data = [
-    #             {
-    #                 "email": "aleksi.savijoki@tawasta.fi",
-    #                 "application_id": 1,
-    #                 "notification_count": 3,
-    #             },
-    #             {
-    #                 "email": "aleksi.savijoki@tawasta.fi",
-    #                 "application_id": 2,
-    #                 "notification_count": 4,
-    #             }
-    #         ]
-    #         for el in test_data:
-    #             user = self.env["res.users"].search([
-    #                 ("email", "=", el.get("email")),
-    #             ], limit=1)
-    #             if user:
-    #                 user_data = self.env["dashboard.app.user"].search([
-    #                     ("user_id", "=", user.id),
-    #                     ("application_id", "=", el.get("application_id")),
-    #                 ])
-    #                 if user_data:
-    #                     user_data.notification_count = el.get("notification_count")
-    #     except Exception:
-    #         msg = _("Error occured when fetching user data")
-    #         _logger.error(msg)
-    #         raise UserError(msg) from None
+            # Create headers and send request
+            headers = {
+                "Authorization": "Bearer {}".format(api_key),
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+            }
+            res = requests.get(endpoint_url, headers=headers, timeout=10)
+            _logger.info("Response status code {}".format(res.status_code))
+            if res.ok:
+                data = res.json()
+                _logger.info(
+                    "Received {} user datas, update user datas".format(len(data))
+                )
 
-    # def action_cron_update_user_data(self):
-    #     """Cron to update user data from API"""
-    #     _logger.info("Dashboard cron: Update user data...")
-    #     try:
-    #         start = timeit.default_timer()
+                for el in data:
+                    email = el.get("user_uid")
+                    user = self.env["res.users"].search(
+                        [
+                            ("email", "=", email),
+                        ],
+                        limit=1,
+                    )
+                    application = self.env["dashboard.app"].search(
+                        [
+                            ("application_api_id", "=", el.get("application_id")),
+                        ],
+                        limit=1,
+                    )
+                    if not user:
+                        msg = _("User not found with email {}").format(el.get("email"))
+                        _logger.error(msg)
+                        continue
 
-    #         self._get_user_data()
-    #         exec_time = timeit.default_timer() - start
-    #         _logger.info(
-    #             "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)
-    #         )
-    #     except Exception:
-    #         # Send to mattermost
-    #         pass
-    #         # hook = (
-    #         #     self.env["mattermost.hook"]
-    #         #     .sudo()
-    #         #     .search(
-    #         #         [
-    #         #             ("res_model", "=", "dashboard.app.user"),
-    #         #             ("function", "=", "get_user_app_data"),
-    #         #             ("hook", "!=", False),
-    #         #         ],
-    #         #         limit=1,
-    #         #     )
-    #         # )
-    #         # if hook:
-    #         #     msg = (
-    #         #         "### :school: Dashboard data"
-    #         #         "\n Failed to fetch dashboard data!"
-    #         #     ).format(len(self))
-    #         #     hook.post_mattermost(msg)
-    #         raise
-    #     _logger.info(
-    #         "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)
-    #     )
+                    if not application:
+                        msg = _("Application not found with ID {}").format(
+                            el.get("application_id")
+                        )
+                        _logger.error(msg)
+                        continue
+
+                    vals = {}
+                    if el.get("notification_count"):
+                        vals["notification_count"] = el.get("notification_count")
+                    if el.get("url"):
+                        vals["url"] = el.get("url")
+
+                    user_data = self.env["dashboard.app.user"].search(
+                        [
+                            ("user_id", "=", user.id),
+                            ("application_id", "=", application.id),
+                        ]
+                    )
+                    if user_data:
+                        user_data.update(vals)
+                    else:
+                        vals.update(
+                            {
+                                "user_id": user.id,
+                                "application_id": application.id,
+                            }
+                        )
+                        self.create(vals)
+        except Exception:
+            msg = _("Error occured when fetching user data")
+            _logger.error(msg)
+            info = sys.exc_info()
+            formatted_info = "".join(traceback.format_exception(*info))
+            _logger.error(formatted_info)
+            raise UserError(msg) from None
+
+    def action_cron_update_user_data(self):
+        """Cron to update user data from API"""
+        _logger.info("Dashboard cron: Update user data...")
+        try:
+            start = timeit.default_timer()
+
+            self._get_user_data()
+            exec_time = timeit.default_timer() - start
+            _logger.info(
+                "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)
+            )
+        except Exception:
+            # Send to mattermost
+            pass
+            # hook = (
+            #     self.env["mattermost.hook"]
+            #     .sudo()
+            #     .search(
+            #         [
+            #             ("res_model", "=", "dashboard.app.user"),
+            #             ("function", "=", "get_user_app_data"),
+            #             ("hook", "!=", False),
+            #         ],
+            #         limit=1,
+            #     )
+            # )
+            # if hook:
+            #     msg = (
+            #         "### :school: Dashboard data user"
+            #         "\n Failed to fetch dashboard data!"
+            #     ).format(len(self))
+            #     hook.post_mattermost(msg)
+            raise
+        _logger.info(
+            "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)
+        )
 
     # 8. Business methods

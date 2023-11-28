@@ -30,6 +30,7 @@
         "data/ir_cron.xml",
         "data/dashboard_app_category_data.xml",
         "data/website_data.xml",
+        "data/ir_config_parameter_data.xml",
         "security/res_groups.xml",
         "security/ir.model.access.csv",
         "views/dashboard_app_views.xml",

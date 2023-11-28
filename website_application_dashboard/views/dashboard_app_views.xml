@@ -16,6 +16,7 @@
                             <group>
                                 <field name="category_id" />
                                 <field name="url" widget="url" />
+                                <field name="description" />
                                 <field name="info" />
                                 <field name="application_api_id" />
                                 <field name="user_id" />

@@ -18,10 +18,17 @@
 #
 ##############################################################################
 
+import logging
+import sys
+import timeit
+import traceback
+
 # 1. Standard library imports:
+import requests
 
 # 3. Odoo imports (openerp):
 from odoo import _, fields, models
+from odoo.exceptions import UserError
 
 # 2. Known third party imports:
 
@@ -31,6 +38,8 @@ from odoo import _, fields, models
 # 5. Local imports in the relative form:
 
 # 6. Unknown third party imports:
+
+_logger = logging.getLogger(__name__)
 
 
 class DashboardAppCategory(models.Model):
@@ -44,7 +53,12 @@ class DashboardAppCategory(models.Model):
             "dashboard_category_uniq",
             "unique (name)",
             _("Application category already exists!"),
-        )
+        ),
+        (
+            "dashboard_category_api_id_uniq",
+            "unique (category_api_id)",
+            _("Application category API id already exists!"),
+        ),
     ]
 
     # 2. Fields declaration
@@ -75,5 +89,94 @@ class DashboardAppCategory(models.Model):
     # 6. CRUD methods
 
     # 7. Action methods
+    def _get_category_data(self):
+        """Update category data from API"""
+        try:
+            endpoint_url = (
+                self.env["ir.config_parameter"]
+                .sudo()
+                .get_param("website_application_dashboard.category_endpoint", "")
+            )
+            api_key = (
+                self.env["ir.config_parameter"]
+                .sudo()
+                .get_param("website_application_dashboard.api_key", "")
+            )
+            if not (endpoint_url and api_key):
+                _logger.error("Endpoint or API key missing")
+                raise Exception
+
+            # Create headers and send request
+            headers = {
+                "Authorization": "Bearer {}".format(api_key),
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+            }
+            res = requests.get(endpoint_url, headers=headers, timeout=10)
+            _logger.info("Response status code {}".format(res.status_code))
+            if res.ok:
+                data = res.json()
+                _logger.info(
+                    "Received {} categories, create missing ones".format(len(data))
+                )
+                current = self.search(
+                    [
+                        ("category_api_id", "=", True),
+                    ]
+                ).mapped("category_api_id")
+                new_recs = []
+                for category in data:
+                    if category.get("category_id") not in current:
+                        category["category_api_id"] = category.pop("category_id")
+                        new_recs.append(category)
+
+                if new_recs:
+                    _logger.info("Creating {} new categories".format(len(new_recs)))
+                    self.create(new_recs)
+
+        except Exception:
+            msg = _("Error occured when fetching category data")
+            _logger.error(msg)
+            info = sys.exc_info()
+            formatted_info = "".join(traceback.format_exception(*info))
+            _logger.error(formatted_info)
+            raise UserError(msg) from None
+
+    def action_cron_update_category_data(self):
+        """Cron to update category data from API"""
+        _logger.info("Dashboard cron: Update category data...")
+        try:
+            start = timeit.default_timer()
+
+            self._get_category_data()
+            exec_time = timeit.default_timer() - start
+            _logger.info(
+                "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)
+            )
+        except Exception:
+            # Send to mattermost
+            pass
+            # hook = (
+            #     self.env["mattermost.hook"]
+            #     .sudo()
+            #     .search(
+            #         [
+            #             ("res_model", "=", "dashboard.app.user"),
+            #             ("function", "=", "get_user_app_data"),
+            #             ("hook", "!=", False),
+            #         ],
+            #         limit=1,
+            #     )
+            # )
+            # if hook:
+            #     msg = (
+            #         "### :school: Dashboard data user"
+            #         "\n Failed to fetch dashboard data!"
+            #     ).format(len(self))
+            #     hook.post_mattermost(msg)
+            raise
+        _logger.info(
+            "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)
+        )
 
     # 8. Business methods

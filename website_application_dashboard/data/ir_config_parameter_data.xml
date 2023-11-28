@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record id="dashboard_app_endpoint" model="ir.config_parameter" forcecreate="True">
+        <field name="key">website_application_dashboard.app_endpoint</field>
+        <field name="value">https://testendpoint.tawasta.fi/app</field>
+    </record>
+
+    <record
+        id="dashboard_category_endpoint"
+        model="ir.config_parameter"
+        forcecreate="True"
+    >
+        <field name="key">website_application_dashboard.category_endpoint</field>
+        <field name="value">https://testendpoint.tawasta.fi/category</field>
+    </record>
+
+    <record id="dashboard_user_endpoint" model="ir.config_parameter" forcecreate="True">
+        <field name="key">website_application_dashboard.user_endpoint</field>
+        <field name="value">https://testendpoint.tawasta.fi/user</field>
+    </record>
+
+    <record id="dashboard_user_api_key" model="ir.config_parameter" forcecreate="True">
+        <field name="key">website_application_dashboard.api_key</field>
+        <field name="value">3d55d133-ea01-42ff-bc40-17fd246e7d58</field>
+    </record>
+</odoo>
