@@ -175,7 +175,7 @@ class DashboardAppUser(models.Model):
                         limit=1,
                     )
                     if not user:
-                        msg = _("User not found with email {}").format(el.get("email"))
+                        msg = _("User not found with email {}").format(email)
                         _logger.error(msg)
                         continue
 
