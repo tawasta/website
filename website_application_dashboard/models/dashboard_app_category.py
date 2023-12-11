@@ -121,7 +121,7 @@ class DashboardAppCategory(models.Model):
                 )
                 current = self.search(
                     [
-                        ("category_api_id", "=", True),
+                        ("category_api_id", "!=", False),
                     ]
                 ).mapped("category_api_id")
                 new_recs = []
@@ -145,14 +145,9 @@ class DashboardAppCategory(models.Model):
     def action_cron_update_category_data(self):
         """Cron to update category data from API"""
         _logger.info("Dashboard cron: Update category data...")
+        start = timeit.default_timer()
         try:
-            start = timeit.default_timer()
-
             self._get_category_data()
-            exec_time = timeit.default_timer() - start
-            _logger.info(
-                "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)
-            )
         except Exception:
             # Send to mattermost
             pass
@@ -175,6 +170,8 @@ class DashboardAppCategory(models.Model):
             #     ).format(len(self))
             #     hook.post_mattermost(msg)
             raise
+
+        exec_time = timeit.default_timer() - start
         _logger.info(
             "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)
         )

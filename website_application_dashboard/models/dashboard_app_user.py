@@ -219,14 +219,9 @@ class DashboardAppUser(models.Model):
     def action_cron_update_user_data(self):
         """Cron to update user data from API"""
         _logger.info("Dashboard cron: Update user data...")
+        start = timeit.default_timer()
         try:
-            start = timeit.default_timer()
-
             self._get_user_data()
-            exec_time = timeit.default_timer() - start
-            _logger.info(
-                "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)
-            )
         except Exception:
             # Send to mattermost
             pass
@@ -249,6 +244,8 @@ class DashboardAppUser(models.Model):
             #     ).format(len(self))
             #     hook.post_mattermost(msg)
             raise
+
+        exec_time = timeit.default_timer() - start
         _logger.info(
             "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)
         )

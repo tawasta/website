@@ -178,14 +178,9 @@ class DashboardApp(models.Model):
     def action_cron_update_applications(self):
         """Cron to update user data from API"""
         _logger.info("Dashboard cron: Update applications...")
+        start = timeit.default_timer()
         try:
-            start = timeit.default_timer()
-
             self._get_applications()
-            exec_time = timeit.default_timer() - start
-            _logger.info(
-                "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)
-            )
         except Exception:
             # Send to mattermost
             pass
@@ -208,5 +203,9 @@ class DashboardApp(models.Model):
             #     ).format(len(self))
             #     hook.post_mattermost(msg)
             raise
+        exec_time = timeit.default_timer() - start
+        _logger.info(
+            "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)
+        )
 
     # 8. Business methods
