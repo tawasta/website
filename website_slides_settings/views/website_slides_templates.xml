@@ -39,6 +39,48 @@
                 <attribute name="class">d-none</attribute>
             </xpath>
         </template>
+        <!-- Hide Search Courses on Slide -->
+        <template
+            id="course_nav"
+            inherit_id="website_slides.course_nav"
+            name="Hide search courses"
+            active="False"
+            customize_show="True"
+        >
+            <xpath expr="//form[@t-attf-action='/slides/all']" position="attributes">
+                <!-- Lisää tähän muutokset, jotka haluat tehdä kyseiselle form-elementille -->
+                <attribute name="class">d-none</attribute>
+            </xpath>
+
+        </template>
+        <!-- Hide breadcrumbs on Slide -->
+        <template
+            id="hide_breadcrumbs"
+            inherit_id="website_slides.course_nav"
+            name="Hide breadcrumbs"
+            active="False"
+            customize_show="True"
+        >
+            <xpath expr="//nav[@class='col-md-8 d-none d-md-flex']" position="attributes">
+                <!-- Lisää tähän muutokset, jotka haluat tehdä kyseiselle form-elementille -->
+                <attribute name="class">d-none</attribute>
+            </xpath>
+
+        </template>
+        <!-- Hide profile_extra_info_tablist on Slide -->
+        <template
+            id="hide_profile_extra_info_tablist"
+            inherit_id="website_slides.course_main"
+            name="Hide tablist"
+            active="False"
+            customize_show="True"
+        >
+            <xpath expr="//ul[@id='profile_extra_info_tablist']" position="attributes">
+                <!-- Lisää tähän muutokset, jotka haluat tehdä kyseiselle form-elementille -->
+                <attribute name="class">d-none</attribute>
+            </xpath>
+
+        </template>
         <!-- Hide Total Views on Slide -->
         <template
             id="hide_total_views"
