@@ -63,8 +63,6 @@ class DashboardApp(models.Model):
     )
     info = fields.Html(
         help="Info for the application",
-        translate=True,
-        sanitize=False,
     )
     description = fields.Text(
         help="Description for the application",
@@ -140,32 +138,56 @@ class DashboardApp(models.Model):
                 _logger.info(
                     "Received {} applications, create missing ones".format(len(data))
                 )
-                current_applications = self.search(
+                current_apps = self.search(
                     [
                         ("user_id", "=", False),
                     ]
-                ).mapped("application_api_id")
+                )
+                current_api_ids = current_apps.mapped("application_api_id")
                 new_apps = []
+                handled_apps = self.env["dashboard.app"]
                 for app in data:
-                    if app.get("application_id") not in current_applications:
-                        # Find category with ID
-                        category_id = app.pop("category_id")
-                        category = self.env["dashboard.app.category"].search(
-                            [("category_api_id", "=", category_id)], limit=1
-                        )
-                        if not category:
-                            _logger.error(
-                                "No category found with {}".format(category_id)
-                            )
-                            raise Exception
+                    category_id = app.pop("category_id")
+                    # Find category with ID
+                    category = self.env["dashboard.app.category"].search(
+                        [("category_api_id", "=", category_id)], limit=1
+                    )
+                    if not category:
+                        _logger.error("No category found with {}".format(category_id))
+                        raise Exception
 
-                        app["application_api_id"] = app.pop("application_id")
-                        app["category_id"] = category.id
+                    application_id = app.pop("application_id")
+                    if not application_id:
+                        _logger.error(
+                            "No application ID provided in payload {}".format(app)
+                        )
+                        raise Exception
+
+                    app["category_id"] = category.id
+
+                    if application_id not in current_api_ids:
+                        app["application_api_id"] = application_id
                         new_apps.append(app)
+                    else:
+                        # Update application info
+                        application = self.search(
+                            [("application_api_id", "=", application_id)], limit=1
+                        )
+                        if application_id == 1:
+                            _logger.info(
+                                "Updating {} with data {}".format(application_id, app)
+                            )
+                        application.write(app)
+                        handled_apps |= application
 
                 if new_apps:
                     _logger.info("Creating {} new applications".format(len(new_apps)))
-                    self.create(new_apps)
+                    handled_apps |= self.create(new_apps)
+
+                removed_apps = current_apps - handled_apps
+                if removed_apps:
+                    _logger.info("Removing apps {}...".format(removed_apps))
+                    removed_apps.unlink()
 
         except Exception:
             msg = _("Error occured when fetching application data")
