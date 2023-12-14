@@ -40,6 +40,7 @@
     ],
     "depends": [
         "website",
+        "mattermost_hook",
     ],
     "assets": {
         "web._assets_primary_variables": [

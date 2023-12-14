@@ -183,26 +183,27 @@ class DashboardApp(models.Model):
             self._get_applications()
         except Exception:
             # Send to mattermost
-            pass
-            # hook = (
-            #     self.env["mattermost.hook"]
-            #     .sudo()
-            #     .search(
-            #         [
-            #             ("res_model", "=", "dashboard.app.user"),
-            #             ("function", "=", "get_user_app_data"),
-            #             ("hook", "!=", False),
-            #         ],
-            #         limit=1,
-            #     )
-            # )
-            # if hook:
-            #     msg = (
-            #         "### :school: Dashboard data"
-            #         "\n Failed to fetch dashboard data!"
-            #     ).format(len(self))
-            #     hook.post_mattermost(msg)
+            _logger.error("Dashboard cron: sending error message to mattermost...")
+            hook = (
+                self.env["mattermost.hook"]
+                .sudo()
+                .search(
+                    [
+                        ("res_model", "=", "dashboard.app"),
+                        ("function", "=", "_get_applications"),
+                        ("hook", "!=", False),
+                    ],
+                    limit=1,
+                )
+            )
+            if hook:
+                msg = _(
+                    "### :no_entry: Dashboard application data"
+                    "\n Failed to fetch dashboard application data!"
+                ).format(len(self))
+                hook.post_mattermost(msg)
             raise
+
         exec_time = timeit.default_timer() - start
         _logger.info(
             "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)

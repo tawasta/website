@@ -46,7 +46,7 @@ class DashboardAppUser(models.Model):
 
     # 1. Private attributes
     _name = "dashboard.app.user"
-    _description = "Dashboard Application"
+    _description = "Dashboard Application User Data"
     _order = "sequence, id"
     _rec_name = "application_id"
     _sql_constraints = [
@@ -224,25 +224,25 @@ class DashboardAppUser(models.Model):
             self._get_user_data()
         except Exception:
             # Send to mattermost
-            pass
-            # hook = (
-            #     self.env["mattermost.hook"]
-            #     .sudo()
-            #     .search(
-            #         [
-            #             ("res_model", "=", "dashboard.app.user"),
-            #             ("function", "=", "get_user_app_data"),
-            #             ("hook", "!=", False),
-            #         ],
-            #         limit=1,
-            #     )
-            # )
-            # if hook:
-            #     msg = (
-            #         "### :school: Dashboard data user"
-            #         "\n Failed to fetch dashboard data!"
-            #     ).format(len(self))
-            #     hook.post_mattermost(msg)
+            _logger.error("Dashboard cron: sending error message to mattermost...")
+            hook = (
+                self.env["mattermost.hook"]
+                .sudo()
+                .search(
+                    [
+                        ("res_model", "=", "dashboard.app.user"),
+                        ("function", "=", "_get_user_data"),
+                        ("hook", "!=", False),
+                    ],
+                    limit=1,
+                )
+            )
+            if hook:
+                msg = _(
+                    "### :no_entry: Dashboard user data"
+                    "\n Failed to fetch dashboard user data!"
+                ).format(len(self))
+                hook.post_mattermost(msg)
             raise
 
         exec_time = timeit.default_timer() - start
