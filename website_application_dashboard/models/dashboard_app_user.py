@@ -156,20 +156,7 @@ class DashboardAppUser(models.Model):
             res = requests.get(endpoint_url, headers=headers, timeout=10)
             _logger.info("Response status code {}".format(res.status_code))
             if res.ok:
-                # data = res.json()
-                # _logger.info(json.dumps(data, indent=2, ensure_ascii=False))
-                data = [
-                    {
-                        "user_uid": "@tawasta.fi",
-                        "application_id": 1,
-                        "notification_count": 0,
-                    },
-                    {
-                        "user_uid": "aleksi@tawasta.fi",
-                        "application_id": 1,
-                        "url": "https://example.com/foo/bar12345",
-                    },
-                ]
+                data = res.json()
                 if not isinstance(data, list) or len(data) == 0:
                     msg = _("API response is not a list or size is 0!")
                     raise UserError(msg)
