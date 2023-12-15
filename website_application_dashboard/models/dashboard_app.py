@@ -86,14 +86,13 @@ class DashboardApp(models.Model):
         string="Category",
         help="To what category this application belongs to",
         required=True,
+        ondelete="cascade",
     )
     user_id = fields.Many2one(
         comodel_name="res.users",
         string="Created user",
         help="User created this personal dashboard application",
     )
-    # TODO: Do we need border color as well? Or use predefined classnames with
-    # ready made styles (3-5 pcs)?
     color = fields.Char(
         string="Color code",
         help="Color code for cards styling",
@@ -135,8 +134,8 @@ class DashboardApp(models.Model):
             _logger.info("Response status code {}".format(res.status_code))
             if res.ok:
                 data = res.json()
-                if not isinstance(data, list):
-                    msg = _("API response is not a list!")
+                if not isinstance(data, list) or len(data) == 0:
+                    msg = _("API response is not a list or size is 0!")
                     raise UserError(msg)
 
                 _logger.info(

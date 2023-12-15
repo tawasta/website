@@ -4,7 +4,7 @@
         <field name="name">dashboard.app.user.form</field>
         <field name="model">dashboard.app.user</field>
         <field name="arch" type="xml">
-            <form string="Application user data">
+            <form string="User data">
                 <sheet>
                     <div class="oe_title">
                         <h1>
@@ -46,7 +46,7 @@
         <field name="name">dashboard.app.user.search</field>
         <field name="model">dashboard.app.user</field>
         <field name="arch" type="xml">
-           <search string="Application datas">
+           <search string="User datas">
                 <field name="application_id" />
                 <field name="user_id" />
                 <field name="category_id" />
@@ -55,7 +55,7 @@
     </record>
 
     <record id="dashboard_app_user_action" model="ir.actions.act_window">
-        <field name="name">Application user data</field>
+        <field name="name">User data</field>
         <field name="res_model">dashboard.app.user</field>
         <field name="domain">[]</field>
         <field name="view_mode">tree,form</field>
@@ -64,13 +64,13 @@
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_empty_folder">
-                Create a new application user data
+                Create a new user data
             </p>
         </field>
     </record>
 
     <menuitem
-        name="Application user data"
+        name="User data"
         id="dashboard_app_user_menu"
         parent="website_dashboard_menu"
         action="dashboard_app_user_action"

@@ -68,7 +68,7 @@
     </record>
 
     <record id="dashboard_app_action" model="ir.actions.act_window">
-        <field name="name">Dashboard applications</field>
+        <field name="name">Applications</field>
         <field name="res_model">dashboard.app</field>
         <field name="domain">[]</field>
         <field name="view_mode">tree,form</field>
@@ -90,10 +90,10 @@
     />
 
     <menuitem
-        name="Dashboard applications"
+        name="Applications"
         id="dashboard_app_menu"
         parent="website_dashboard_menu"
         action="dashboard_app_action"
-        sequence="10"
+        sequence="20"
     />
 </odoo>

@@ -116,8 +116,8 @@ class DashboardAppCategory(models.Model):
             _logger.info("Response status code {}".format(res.status_code))
             if res.ok:
                 data = res.json()
-                if not isinstance(data, list):
-                    msg = _("API response is not a list!")
+                if not isinstance(data, list) or len(data) == 0:
+                    msg = _("API response is not a list or size is 0!")
                     raise UserError(msg)
 
                 _logger.info(

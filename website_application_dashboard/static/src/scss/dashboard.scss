@@ -87,6 +87,9 @@ $dashboard-card-min-height: 167px;
             border-radius: 0;
             .card-title {
                 color: $dashboard-white;
+                hyphens: auto;
+                max-width: 100%;
+                word-break: break-word;
             }
             .app-nofitication {
                 display: inline-block;

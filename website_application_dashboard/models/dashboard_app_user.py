@@ -67,6 +67,7 @@ class DashboardAppUser(models.Model):
         string="Application",
         help="What application this user info is related to",
         required=True,
+        ondelete="cascade",
     )
     category_id = fields.Many2one(
         comodel_name="dashboard.app.category",
@@ -155,63 +156,88 @@ class DashboardAppUser(models.Model):
             res = requests.get(endpoint_url, headers=headers, timeout=10)
             _logger.info("Response status code {}".format(res.status_code))
             if res.ok:
-                data = res.json()
-                if not isinstance(data, list):
-                    msg = _("API response is not a list!")
+                # data = res.json()
+                # _logger.info(json.dumps(data, indent=2, ensure_ascii=False))
+                data = [
+                    {
+                        "user_uid": "@tawasta.fi",
+                        "application_id": 1,
+                        "notification_count": 0,
+                    },
+                    {
+                        "user_uid": "aleksi@tawasta.fi",
+                        "application_id": 1,
+                        "url": "https://example.com/foo/bar12345",
+                    },
+                ]
+                if not isinstance(data, list) or len(data) == 0:
+                    msg = _("API response is not a list or size is 0!")
                     raise UserError(msg)
 
                 _logger.info(
                     "Received {} user datas, update user datas".format(len(data))
                 )
-
                 for el in data:
                     email = el.get("user_uid")
-                    user = self.env["res.users"].search(
-                        [
-                            ("email", "=", email),
-                        ],
-                        limit=1,
+                    search_domain = [("login", "=", email)]
+                    search_limit = 1
+                    if email[:2] == "%@":
+                        # Special case, everyone matching wildcard %@tawasta.fi
+                        search_email = "%{}".format(email)
+                        search_domain = [("login", "like", search_email)]
+                        search_limit = None
+
+                    users = self.env["res.users"].search(
+                        search_domain,
+                        limit=search_limit,
                     )
-                    application = self.env["dashboard.app"].search(
-                        [
-                            ("application_api_id", "=", el.get("application_id")),
-                        ],
-                        limit=1,
-                    )
-                    if not user:
-                        msg = _("User not found with email {}").format(email)
+                    if not users:
+                        msg = _("Users not found with email {}").format(email)
                         _logger.error(msg)
                         continue
 
-                    if not application:
-                        msg = _("Application not found with ID {}").format(
-                            el.get("application_id")
+                    if len(users) > 1:
+                        _logger.info(
+                            "We are updating {} users with {}".format(len(users), email)
                         )
-                        _logger.error(msg)
-                        continue
 
-                    vals = {}
-                    if el.get("notification_count"):
-                        vals["notification_count"] = el.get("notification_count")
-                    if el.get("url"):
-                        vals["url"] = el.get("url")
-
-                    user_data = self.env["dashboard.app.user"].search(
-                        [
-                            ("user_id", "=", user.id),
-                            ("application_id", "=", application.id),
-                        ]
-                    )
-                    if user_data:
-                        user_data.update(vals)
-                    else:
-                        vals.update(
-                            {
-                                "user_id": user.id,
-                                "application_id": application.id,
-                            }
+                    for user in users:
+                        application = self.env["dashboard.app"].search(
+                            [
+                                ("application_api_id", "=", el.get("application_id")),
+                            ],
+                            limit=1,
                         )
-                        self.create(vals)
+
+                        if not application:
+                            msg = _("Application not found with ID {}").format(
+                                el.get("application_id")
+                            )
+                            _logger.error(msg)
+                            continue
+
+                        vals = {}
+                        if el.get("notification_count"):
+                            vals["notification_count"] = el.get("notification_count")
+                        if el.get("url"):
+                            vals["url"] = el.get("url")
+
+                        user_data = self.env["dashboard.app.user"].search(
+                            [
+                                ("user_id", "=", user.id),
+                                ("application_id", "=", application.id),
+                            ]
+                        )
+                        if user_data:
+                            user_data.update(vals)
+                        else:
+                            vals.update(
+                                {
+                                    "user_id": user.id,
+                                    "application_id": application.id,
+                                }
+                            )
+                            self.create(vals)
         except Exception:
             msg = _("Error occured when fetching user data")
             _logger.error(msg)
