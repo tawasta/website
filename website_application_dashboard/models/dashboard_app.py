@@ -135,59 +135,59 @@ class DashboardApp(models.Model):
             _logger.info("Response status code {}".format(res.status_code))
             if res.ok:
                 data = res.json()
+                if not isinstance(data, list):
+                    msg = _("API response is not a list!")
+                    raise UserError(msg)
+
                 _logger.info(
                     "Received {} applications, create missing ones".format(len(data))
                 )
-                current_apps = self.search(
+                current = self.search(
                     [
                         ("user_id", "=", False),
                     ]
                 )
-                current_api_ids = current_apps.mapped("application_api_id")
-                new_apps = []
-                handled_apps = self.env["dashboard.app"]
-                for app in data:
-                    category_id = app.pop("category_id")
+                current_api_ids = current.mapped("application_api_id")
+                new_recs = []
+                handled = self.env["dashboard.app"]
+                for rec_data in data:
+                    category_id = rec_data.pop("category_id")
                     # Find category with ID
                     category = self.env["dashboard.app.category"].search(
                         [("category_api_id", "=", category_id)], limit=1
                     )
                     if not category:
                         _logger.error("No category found with {}".format(category_id))
-                        raise Exception
+                        continue
 
-                    application_id = app.pop("application_id")
+                    application_id = rec_data.pop("application_id")
                     if not application_id:
                         _logger.error(
-                            "No application ID provided in payload {}".format(app)
+                            "No application ID provided in payload {}".format(rec_data)
                         )
-                        raise Exception
+                        continue
 
-                    app["category_id"] = category.id
+                    rec_data["category_id"] = category.id
 
                     if application_id not in current_api_ids:
-                        app["application_api_id"] = application_id
-                        new_apps.append(app)
+                        rec_data["application_api_id"] = application_id
+                        new_recs.append(rec_data)
                     else:
                         # Update application info
-                        application = self.search(
+                        rec = self.search(
                             [("application_api_id", "=", application_id)], limit=1
                         )
-                        if application_id == 1:
-                            _logger.info(
-                                "Updating {} with data {}".format(application_id, app)
-                            )
-                        application.write(app)
-                        handled_apps |= application
+                        rec.write(rec_data)
+                        handled |= rec
 
-                if new_apps:
-                    _logger.info("Creating {} new applications".format(len(new_apps)))
-                    handled_apps |= self.create(new_apps)
+                if new_recs:
+                    _logger.info("Creating {} new applications".format(len(new_recs)))
+                    handled |= self.create(new_recs)
 
-                removed_apps = current_apps - handled_apps
-                if removed_apps:
-                    _logger.info("Removing apps {}...".format(removed_apps))
-                    removed_apps.unlink()
+                removed_recs = current - handled
+                if removed_recs:
+                    _logger.info("Removing apps {}...".format(removed_recs))
+                    removed_recs.unlink()
 
         except Exception:
             msg = _("Error occured when fetching application data")

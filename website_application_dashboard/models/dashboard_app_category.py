@@ -116,6 +116,10 @@ class DashboardAppCategory(models.Model):
             _logger.info("Response status code {}".format(res.status_code))
             if res.ok:
                 data = res.json()
+                if not isinstance(data, list):
+                    msg = _("API response is not a list!")
+                    raise UserError(msg)
+
                 _logger.info(
                     "Received {} categories, create missing ones".format(len(data))
                 )
@@ -123,16 +127,45 @@ class DashboardAppCategory(models.Model):
                     [
                         ("category_api_id", "!=", False),
                     ]
-                ).mapped("category_api_id")
+                )
+                current_api_ids = current.mapped("category_api_id")
                 new_recs = []
-                for category in data:
-                    if category.get("category_id") not in current:
-                        category["category_api_id"] = category.pop("category_id")
-                        new_recs.append(category)
+                handled = self.env["dashboard.app.category"]
+                for rec_data in data:
+                    category_id = rec_data.pop("category_id")
+                    if not category_id:
+                        _logger.error("No category ID provided: {}".format(rec_data))
+                        continue
+
+                    if category_id not in current_api_ids:
+                        rec_data["category_api_id"] = category_id
+                        duplicate = self.search([("name", "=", rec_data.get("name"))])
+                        if len(duplicate) > 0:
+                            _logger.error(
+                                "Duplicate for category was found"
+                                " with name {}, skipping...".format(
+                                    rec_data.get("name")
+                                )
+                            )
+                            continue
+
+                        new_recs.append(rec_data)
+                    else:
+                        # Update category info
+                        rec = self.search(
+                            [("category_api_id", "=", category_id)], limit=1
+                        )
+                        rec.write(rec_data)
+                        handled |= rec
 
                 if new_recs:
                     _logger.info("Creating {} new categories".format(len(new_recs)))
-                    self.create(new_recs)
+                    handled |= self.create(new_recs)
+
+                removed_recs = current - handled
+                if removed_recs:
+                    _logger.info("Removing categories {}...".format(removed_recs))
+                    removed_recs.unlink()
 
         except Exception:
             msg = _("Error occured when fetching category data")

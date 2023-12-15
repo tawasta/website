@@ -156,6 +156,10 @@ class DashboardAppUser(models.Model):
             _logger.info("Response status code {}".format(res.status_code))
             if res.ok:
                 data = res.json()
+                if not isinstance(data, list):
+                    msg = _("API response is not a list!")
+                    raise UserError(msg)
+
                 _logger.info(
                     "Received {} user datas, update user datas".format(len(data))
                 )
