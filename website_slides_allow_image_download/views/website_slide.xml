@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template
+        id="slide_content_detailed"
+        inherit_id="website_slides.slide_content_detailed"
+    >
+        <xpath expr="//ul[@class='nav nav-tabs o_wslides_lesson_nav']/li[last()]" position="after">
+            <t t-set="img_url" t-value="website.image_url(slide, 'image_1024')" />
+            <t t-set="img_url_split" t-value="img_url.split('unique')[0]"/>
+            <a t-if="slide.slide_type == 'infographic'"
+               t-attf-href="#{img_url_split}download=true" target="_blank"
+               class="btn btn-primary">
+                <i class="fa fa-download"></i> Download
+            </a>
+
+
+        </xpath>
+    </template>
+</odoo>
