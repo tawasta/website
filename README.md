@@ -23,7 +23,6 @@ addon | version | maintainers | summary
 [website_blog_rss_feed](website_blog_rss_feed/) | 14.0.1.1.1 |  | Ability to create custom RSS Feeds with multiple blogs.
 [website_blog_settings](website_blog_settings/) | 14.0.1.1.0 |  | Customization settings under website frontend customize menu
 [website_blog_teaser](website_blog_teaser/) | 14.0.1.0.0 |  | Edit blog post teaser from backend
-[website_blog_twitter_default_share_text](website_blog_twitter_default_share_text/) | 14.0.1.0.0 |  | Make the default text customizable for when user shares blog posts to Twitter
 [website_channel_messages](website_channel_messages/) | 14.0.1.0.1 |  | Channelmessages for website
 [website_contactus_email](website_contactus_email/) | 14.0.1.0.0 |  | Contact Us form sents by email
 [website_environment_ribbon](website_environment_ribbon/) | 14.0.1.0.0 |  | Show environment ribbon on website also. Only shows text 'TEST' on website side.
@@ -45,6 +44,7 @@ addon | version | maintainers | summary
 [website_references_snippet](website_references_snippet/) | 14.0.1.0.0 |  | Website References Snippet
 [website_sale_hide_product_default_info](website_sale_hide_product_default_info/) | 14.0.1.0.0 |  | Website sale product hide default info
 [website_settings](website_settings/) | 14.0.1.0.4 |  | Website toggleable settings under customize menu and other setting options
+[website_slides_allow_image_download](website_slides_allow_image_download/) | 14.0.1.0.0 |  | Website Slides Allow Image Download
 [website_slides_content_search](website_slides_content_search/) | 14.0.1.0.0 |  | Search through website slides contents on the website
 [website_slides_settings](website_slides_settings/) | 14.0.1.1.0 |  | Website Slides toggleable settings under website customize menu
 [website_team_snippet](website_team_snippet/) | 14.0.1.0.0 |  | Website team Snippet

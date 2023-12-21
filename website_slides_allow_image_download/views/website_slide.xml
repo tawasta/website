@@ -1,12 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <template id="slide_content_detailed" inherit_id="website_slides.slide_content_detailed">
-        <xpath expr="//ul[@class='nav nav-tabs o_wslides_lesson_nav']/li[last()]" position="after">
+    <template
+        id="slide_content_detailed"
+        inherit_id="website_slides.slide_content_detailed"
+    >
+        <xpath
+            expr="//ul[@class='nav nav-tabs o_wslides_lesson_nav']/li[last()]"
+            position="after"
+        >
             <t t-if="slide.slide_type == 'infographic' and slide.datas">
                 <!-- Luo URL latausta varten -->
-                <t t-set="download_url" t-value="'/slides/slide/download/' + str(slide.id)" />
-                <a t-attf-href="#{download_url}" target="_blank" class="btn btn-primary">
-                    <i class="fa fa-download"></i> Download
+                <t
+                    t-set="download_url"
+                    t-value="'/slides/slide/download/' + str(slide.id)"
+                />
+                <a
+                    t-attf-href="#{download_url}"
+                    target="_blank"
+                    class="btn btn-primary"
+                >
+                    <i class="fa fa-download" /> Download
                 </a>
             </t>
         </xpath>

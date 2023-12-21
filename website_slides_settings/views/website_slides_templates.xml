@@ -61,7 +61,10 @@
             active="False"
             customize_show="True"
         >
-            <xpath expr="//nav[@class='col-md-8 d-none d-md-flex']" position="attributes">
+            <xpath
+                expr="//nav[@class='col-md-8 d-none d-md-flex']"
+                position="attributes"
+            >
                 <!-- Lisää tähän muutokset, jotka haluat tehdä kyseiselle form-elementille -->
                 <attribute name="class">d-none</attribute>
             </xpath>
