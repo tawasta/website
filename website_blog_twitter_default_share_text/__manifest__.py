@@ -1,7 +1,7 @@
 ##############################################################################
 #
-#    Author: Tawasta
-#    Copyright 2020 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Author: Oy Tawasta OS Technologies Ltd.
+#    Copyright 2023 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -17,9 +17,10 @@
 #    along with this program. If not, see http://www.gnu.org/licenses/agpl.html
 #
 ##############################################################################
+
 {
-    "name": "Website Slides Allow Image Download",
-    "summary": "Website Slides Allow Image Download",
+    "name": "Website Blog: Customizable Twitter Default Share Text",
+    "summary": "Make the default text customizable for when user shares blog posts to Twitter",
     "version": "14.0.1.0.0",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
@@ -27,10 +28,13 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "external_dependencies": {"python": [], "bin": []},
+    "external_dependencies": {
+        "python": [],
+        "bin": [],
+    },
     "depends": [
-        "website_slides",
+        "website_blog",
     ],
-    "data": ["views/website_slide.xml"],
+    "data": ["views/assets_frontend.xml", "views/res_config_settings.xml"],
     "demo": [],
 }
