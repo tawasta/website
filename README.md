@@ -44,6 +44,7 @@ addon | version | maintainers | summary
 [website_references_snippet](website_references_snippet/) | 14.0.1.0.0 |  | Website References Snippet
 [website_sale_hide_product_default_info](website_sale_hide_product_default_info/) | 14.0.1.0.0 |  | Website sale product hide default info
 [website_settings](website_settings/) | 14.0.1.0.4 |  | Website toggleable settings under customize menu and other setting options
+[website_slides_allow_image_download](website_slides_allow_image_download/) | 14.0.1.0.0 |  | Website Slides Allow Image Download
 [website_slides_content_search](website_slides_content_search/) | 14.0.1.0.0 |  | Search through website slides contents on the website
 [website_slides_settings](website_slides_settings/) | 14.0.1.1.0 |  | Website Slides toggleable settings under website customize menu
 [website_team_snippet](website_team_snippet/) | 14.0.1.0.0 |  | Website team Snippet
