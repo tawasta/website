@@ -22,13 +22,15 @@
     "summary": "Website Slides Allow Image Download",
     "version": "14.0.1.0.0",
     "category": "Website",
-    "website": "https://gitlab.com/tawasta/odoo/elearning",
+    "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
     "external_dependencies": {"python": [], "bin": []},
-    "depends": ["website_slides",],
+    "depends": [
+        "website_slides",
+    ],
     "data": ["views/website_slide.xml"],
     "demo": [],
 }
