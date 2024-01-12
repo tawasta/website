@@ -57,6 +57,7 @@ $dashboard-card-min-height: 167px;
 
     .card {
         border-radius: 0px;
+        cursor: pointer;
 
         .app-icon {
             width: $dashboard-card-icon-width;
@@ -90,6 +91,7 @@ $dashboard-card-min-height: 167px;
                 hyphens: auto;
                 max-width: 100%;
                 word-break: break-word;
+                text-align: center;
             }
             .app-nofitication {
                 display: inline-block;
