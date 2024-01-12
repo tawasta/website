@@ -13,6 +13,7 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
             "click .app-btn-hide": "_toggleVisiblityApp",
             "click .app-card": "_openApp",
             "click .app-info": "_openInfo",
+            "click .app-btn-delete": "_deleteApp",
         },
 
         /**
@@ -30,6 +31,7 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
                 $(".app-btn-hide").removeClass("d-none");
                 $("#app_dashboard").addClass("editing-dashboard");
                 $(".app-card-create").removeClass("d-none");
+                $(".app-btn-delete").removeClass("d-none");
             }
         },
 
@@ -51,6 +53,7 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
             $(".app-btn-hide").removeClass("d-none");
             $("#app_dashboard").addClass("editing-dashboard");
             $(".app-card-create").removeClass("d-none");
+            $(".app-btn-delete").removeClass("d-none");
             const url = new URL(window.location);
             url.searchParams.set("editing", 1);
             window.history.replaceState(null, null, url.toString());
@@ -183,6 +186,18 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
             const info = $(ev.target).data("info") || "";
             $("#application_info_text").html(info);
             $("#modal_application_info").modal("show");
+        },
+
+        /**
+         * Delete own app
+         *
+         * @private
+         * @param {Event} ev
+         */
+        _deleteApp: function (ev) {
+            ev.preventDefault();
+            ev.stopPropagation();
+            // TODO: Add effect, delete when clicking "Save"?
         },
     });
 });
