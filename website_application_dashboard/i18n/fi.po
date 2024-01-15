@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0-20230807\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-15 07:26+0000\n"
-"PO-Revision-Date: 2024-01-15 09:27+0200\n"
+"POT-Creation-Date: 2024-01-15 12:03+0000\n"
+"PO-Revision-Date: 2024-01-15 14:04+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -64,6 +64,15 @@ msgstr "<option value=\"\">Valitse...</option>"
 #: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
 msgid "<option value=\"-1\">Last</option>"
 msgstr "<option value=\"-1\">Viimeinen</option>"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid ""
+"<strong class=\"me-auto\">Removed application</strong>\n"
+"                                <small>Just now</small>"
+msgstr ""
+"<strong class=\"me-auto\">Sovellus poistettiin</strong>\n"
+"                                <small>Hetki sitten</small>"
 
 #. module: website_application_dashboard
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__application_api_id
@@ -438,6 +447,12 @@ msgstr "Näytä"
 #: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
 msgid "Submit"
 msgstr "Lähetä"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid "To confirm application removal, you still have to save the edit."
+msgstr ""
+"Sinun tulee vielä tallentaa sivu, jotta sovellus poistetaan lopullisesti."
 
 #. module: website_application_dashboard
 #: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__category_id

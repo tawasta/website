@@ -201,6 +201,10 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
             const target = $(ev.target).closest(".app-card");
             $(target).addClass("removed");
             $(target).fadeOut();
+
+            // eslint-disable-next-line no-undef
+            const toast = new Toast(document.getElementById("removed_app_toast"));
+            toast.show();
         },
     });
 });
