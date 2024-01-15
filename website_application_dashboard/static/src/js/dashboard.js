@@ -84,6 +84,7 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
                     data[$(this).attr("app-id")] = {
                         position: el,
                         hidden: $(card).hasClass("app-hidden"),
+                        removed: $(card).hasClass("removed"),
                     };
                 })
                 .promise()
@@ -128,7 +129,6 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
         _setAppPosition: function (ev) {
             ev.preventDefault();
             const target = $(ev.target).closest(".app-card");
-            // TODO: If selected app is after, insertAfter?
             $(".editing-app").insertBefore(target);
             // Clean up
             $(".app-card")
@@ -197,7 +197,10 @@ odoo.define("website_application_dashboard.dashboard", function (require) {
         _deleteApp: function (ev) {
             ev.preventDefault();
             ev.stopPropagation();
-            // TODO: Add effect, delete when clicking "Save"?
+            // Add effect when clicking remove, delete when clicking "Save"
+            const target = $(ev.target).closest(".app-card");
+            $(target).addClass("removed");
+            $(target).fadeOut();
         },
     });
 });

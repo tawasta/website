@@ -33,6 +33,7 @@
         "data/ir_config_parameter_data.xml",
         "security/res_groups.xml",
         "security/ir.model.access.csv",
+        "security/application_security.xml",
         "views/dashboard_app_views.xml",
         "views/dashboard_app_user_views.xml",
         "views/dashboard_app_category_views.xml",

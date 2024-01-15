@@ -81,19 +81,35 @@ class ApplicationDashboardController(http.Controller):
         type="json",
         auth="user",
     )
-    def dashboard_save(self, **post):
-        """Save dashboard page - positions and visibility"""
-        for app_id in post.get("data"):
-            sequence = post.get("data").get(app_id).get("position")
-            hidden = post.get("data").get(app_id).get("hidden")
-            data = request.env["dashboard.app.user"].browse(int(app_id))
-            data.write(
-                {
-                    "sequence": sequence,
-                    "visible": not hidden,
-                }
-            )
-            data.sequence = sequence
+    def dashboard_save(self, data, **post):
+        """Save dashboard page - positions, visibility and delete own apps"""
+        current_user = request.env.user
+        categ_id = request.env.ref(
+            "website_application_dashboard.dashboard_app_category_personal"
+        ).id
+        for app_id in data:
+            sequence = data.get(app_id).get("position")
+            hidden = data.get(app_id).get("hidden")
+            removed = data.get(app_id).get("removed")
+            user_data = request.env["dashboard.app.user"].browse(int(app_id))
+            if user_data:
+                app = user_data.application_id
+                if (
+                    removed
+                    and app.user_id.id == current_user.id
+                    and app.category_id.id == categ_id
+                ):
+                    # Check that user created application, then unlink data
+                    user_data.unlink()
+                    app.sudo().unlink()
+                    continue
+
+                user_data.write(
+                    {
+                        "sequence": sequence,
+                        "visible": not hidden,
+                    }
+                )
 
     @http.route(
         [
