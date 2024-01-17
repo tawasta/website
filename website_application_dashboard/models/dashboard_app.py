@@ -43,7 +43,6 @@ _logger = logging.getLogger(__name__)
 
 
 class DashboardApp(models.Model):
-
     # 1. Private attributes
     _name = "dashboard.app"
     _description = "Dashboard Application"
@@ -115,18 +114,23 @@ class DashboardApp(models.Model):
                 .sudo()
                 .get_param("website_application_dashboard.app_endpoint", "")
             )
-            api_key = (
+            auth_header = (
                 self.env["ir.config_parameter"]
                 .sudo()
-                .get_param("website_application_dashboard.api_key", "")
+                .get_param("website_application_dashboard.auth_header", "")
             )
-            if not (endpoint_url and api_key):
+            auth_header_value = (
+                self.env["ir.config_parameter"]
+                .sudo()
+                .get_param("website_application_dashboard.auth_header_value", "")
+            )
+            if not (endpoint_url and auth_header and auth_header_value):
                 _logger.error("Endpoint or API key missing")
                 raise Exception
 
             # Create headers and send request
             headers = {
-                "Authorization": "Bearer {}".format(api_key),
+                auth_header: auth_header_value,
                 "Accept": "application/json",
                 "Content-Type": "application/json",
             }

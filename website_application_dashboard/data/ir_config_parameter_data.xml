@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<odoo noupdate="1">
+<odoo noupdate="0">
     <record id="dashboard_app_endpoint" model="ir.config_parameter" forcecreate="True">
         <field name="key">website_application_dashboard.app_endpoint</field>
         <field name="value">https://testendpoint.tawasta.fi/app</field>
@@ -19,8 +19,21 @@
         <field name="value">https://testendpoint.tawasta.fi/user</field>
     </record>
 
-    <record id="dashboard_user_api_key" model="ir.config_parameter" forcecreate="True">
-        <field name="key">website_application_dashboard.api_key</field>
-        <field name="value">3d55d133-ea01-42ff-bc40-17fd246e7d58</field>
+    <record
+        id="dashboard_user_auth_header"
+        model="ir.config_parameter"
+        forcecreate="True"
+    >
+        <field name="key">website_application_dashboard.auth_header</field>
+        <field name="value">Authorization</field>
+    </record>
+
+    <record
+        id="dashboard_user_auth_header_value"
+        model="ir.config_parameter"
+        forcecreate="True"
+    >
+        <field name="key">website_application_dashboard.auth_header_value</field>
+        <field name="value">Bearer 3d55d133-ea01-42ff-bc40-17fd246e7d58</field>
     </record>
 </odoo>

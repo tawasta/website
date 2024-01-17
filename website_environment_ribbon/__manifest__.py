@@ -25,7 +25,7 @@
     "license": "AGPL-3",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "category": "Website",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "depends": ["web", "website", "web_environment_ribbon"],
     "data": ["views/assets_frontend.xml"],
     "demo": [],
