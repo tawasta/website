@@ -49,7 +49,7 @@
         ],
         "web.assets_frontend": [
             "website_application_dashboard/static/src/scss/dashboard.scss",
-            "website_application_dashboard/static/src/js/dashboard.js",
+            "website_application_dashboard/static/src/js/dashboard.esm.js",
         ],
     },
     "application": False,
