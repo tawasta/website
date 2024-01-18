@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <!-- add the tag search -->
+        <template
+            id="course_slides_cards"
+            inherit_id="website_slides.course_slides_cards"
+            name="Tag-based Slide Search"
+        >
+
+            <!-- place it after the regular search form in DOM -->
+            <xpath expr="//form[@role='search']" position="after">
+
+                <div
+                    id="tag_based_slide_search_input_container"
+                    t-att-data-channel-id="channel.id"
+                >
+
+                    <div class="input-group position-relative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                Search by tag
+                            </span>
+                        </div>
+                        <select
+                            class="form-control input-lg"
+                            name="tag_based_slide_search_input"
+                            id="tag_based_slide_search_input"
+                        >
+                            <option
+                                value=""
+                                t-att-selected="not search_tag"
+                            >-- Select a tag --</option>
+
+                            <t t-foreach="slide_tags" t-as="slide_tag">
+                                <!-- put the target url into data attributes so it's ready to be redirected to in JS -->
+                                <!-- preselect the tag that is currently being searched for -->
+                                <option
+                                    t-attf-value="#{slide_tag['id']}"
+                                    t-attf-data-target-url="/slides/#{channel.id}/tag/#{slide_tag['id']}"
+                                    t-att-selected="search_tag and search_tag.id == slide_tag['id']"
+                                >
+                                    <t t-esc="slide_tag['name']" />
+                                </option>
+                            </t>
+                        </select>
+                        <div class="input-group-append">
+                            <button
+                                class="btn border"
+                                type="submit"
+                                aria-label="Search"
+                                title="Search"
+                                id="tag_based_slide_search_submit"
+                            >
+                                <i class="fa fa-search" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+
+        <!-- make the tag search toggleable in Customize menu -->
+        <template
+            id="hide_slides_search_in_content"
+            inherit_id="website_slides_tag_based_search.course_slides_cards"
+            name="Hide tag-based search box"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//div[@id='slide-search-tag-based-container']"
+                position="attributes"
+            >
+                <attribute name="class">d-none</attribute>
+            </xpath>
+        </template>
+    </data>
+</odoo>
