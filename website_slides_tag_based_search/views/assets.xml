@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template
+        id="assets_frontend"
+        inherit_id="website_slides.assets_frontend"
+        name="Tag-based slide search assets"
+    >
+        <xpath expr="//script[last()]" position="after">
+            <script
+                type="text/javascript"
+                src="/website_slides_tag_based_search/static/src/js/website_slides_tag_based_search.js"
+            />
+        </xpath>
+    </template>
+</odoo>

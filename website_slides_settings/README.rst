@@ -12,7 +12,12 @@ Website Slides Settings
    - Hide Member views on slide
    - Hide Share tab on slide
    - Hide User Profile on slide homepage
-   - Hide User Achievenemts on slide homepage
+   - Hide User Achievements on slide homepage
+   - Hide Breadcrumbs in slide and slide homepage header
+   - Hide "search courses" textbox in slide and slide homepage header
+   - Hide the tablist element in slides homepage header (the one that contains e.g. items "Course" and "Reviews"
+   - Hide the 'Search in content' search box
+   - Hide the 'Order by' dropdown of the content search results
 
 * Add banner image from backend to '/slides/all' view. This fixes a bug in Odoo editor 
   which does not allow changing the banner. NOTE: Remove this in migration as this is 
@@ -39,6 +44,8 @@ Contributors
 ------------
 
 * Miika Nissi <miika.nissi@tawasta.fi>
+* Valtteri Lattu <valtteri.lattu@tawasta.fi>
+* Timo Talvitie <timo.talvitie@tawasta.fi>
 
 Maintainer
 ----------

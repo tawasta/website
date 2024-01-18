@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2021- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
+#    Copyright 2024- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,9 +19,9 @@
 ##############################################################################
 
 {
-    "name": "Website Slides Settings",
-    "summary": "Website Slides toggleable settings under website customize menu",
-    "version": "14.0.1.1.1",
+    "name": "Website Slides: Rename 'Infographic' slide type to 'Image'",
+    "summary": "Rename infographic to image",
+    "version": "14.0.1.0.0",
     "category": "Website/eLearning",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
@@ -29,9 +29,5 @@
     "application": False,
     "installable": True,
     "depends": ["website_slides"],
-    "data": [
-        "views/website_slides_templates.xml",
-        "views/res_config_settings_views.xml",
-        "views/assets.xml",
-    ],
+    "data": [],
 }

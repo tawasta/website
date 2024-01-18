@@ -19,9 +19,9 @@
 ##############################################################################
 
 {
-    "name": "Website Slides Settings",
-    "summary": "Website Slides toggleable settings under website customize menu",
-    "version": "14.0.1.1.1",
+    "name": "Website Slides: Tag-based search",
+    "summary": "Tag-based search for slides",
+    "version": "14.0.1.0.0",
     "category": "Website/eLearning",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
@@ -31,7 +31,6 @@
     "depends": ["website_slides"],
     "data": [
         "views/website_slides_templates.xml",
-        "views/res_config_settings_views.xml",
         "views/assets.xml",
     ],
 }

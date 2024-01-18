@@ -43,7 +43,7 @@
         <template
             id="course_nav"
             inherit_id="website_slides.course_nav"
-            name="Hide search courses"
+            name="Hide 'Search Courses' box"
             active="False"
             customize_show="True"
         >
@@ -70,20 +70,74 @@
             </xpath>
 
         </template>
-        <!-- Hide profile_extra_info_tablist on Slide -->
+
+        <!-- note: the parent template has a 't-if="channel.channel_type == xxxx' check, and it contains
+        the .o_wslides_nav_tabs element twice. -->
+
+        <!-- Hide profile_extra_info_tablist on Slide (training) -->
         <template
-            id="hide_profile_extra_info_tablist"
+            id="hide_profile_extra_info_tablist_training"
             inherit_id="website_slides.course_main"
-            name="Hide tablist"
+            name="Hide tab navigation for training courses"
             active="False"
             customize_show="True"
         >
-            <xpath expr="//ul[@id='profile_extra_info_tablist']" position="attributes">
-                <!-- Lisää tähän muutokset, jotka haluat tehdä kyseiselle form-elementille -->
+            <xpath
+                expr="(//ul[hasclass('o_wslides_nav_tabs')])[1]"
+                position="attributes"
+            >
                 <attribute name="class">d-none</attribute>
             </xpath>
-
         </template>
+
+        <!-- Hide profile_extra_info_tablist on Slide (documentation)-->
+        <template
+            id="hide_profile_extra_info_tablist_documentation"
+            inherit_id="website_slides.course_main"
+            name="Hide tab navigation for documentation courses"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="(//ul[hasclass('o_wslides_nav_tabs')])[2]"
+                position="attributes"
+            >
+                <attribute name="class">d-none</attribute>
+            </xpath>
+        </template>
+
+        <!-- Hide "order by" dropdown on Slide -->
+        <template
+            id="hide_slides_order_by_dropdown"
+            inherit_id="website_slides.course_slides_cards"
+            name="Hide 'Order By' Dropdown"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//div[@id='navbarSupportedContent']/ul[2]"
+                position="attributes"
+            >
+                <attribute name="class">d-none</attribute>
+            </xpath>
+        </template>
+
+        <!-- Hide "Search in content" search box on Slide -->
+        <template
+            id="hide_slides_search_in_content"
+            inherit_id="website_slides.course_slides_cards"
+            name="Hide 'Search in content' search box"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//div[@id='navbarSupportedContent']/form[@role='search']"
+                position="attributes"
+            >
+                <attribute name="class">d-none</attribute>
+            </xpath>
+        </template>
+
         <!-- Hide Total Views on Slide -->
         <template
             id="hide_total_views"
