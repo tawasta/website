@@ -2,44 +2,45 @@
 <odoo>
     <data>
 
-        <!-- add the tag search -->
         <template
             id="course_slides_cards"
             inherit_id="website_slides.course_slides_cards"
             name="Tag-based Slide Search"
         >
 
-            <!-- place it after the regular search form in DOM -->
+            <!-- place the tag search after the regular search form in DOM.
+            Note that there is a scss file in the module that adjusts the flex properties of the parent div,
+            to make the tag search fit. Initially hidden, shown in JS. -->
             <xpath expr="//form[@role='search']" position="after">
 
                 <div
-                    id="tag_based_slide_search_input_container"
+                    id="tag_based_slide_search_container"
+                    class="mt-2 mb-2 d-none"
                     t-att-data-channel-id="channel.id"
+                    t-attf-data-target-url="/slides/#{channel.id}/"
                 >
 
                     <div class="input-group position-relative">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
-                                Search by tag
+                                <span
+                                    class="fa fa-spinner fa-spin d-none mr-1"
+                                /> Search by tags
                             </span>
                         </div>
                         <select
+                            multiple="multiple"
                             class="form-control input-lg"
                             name="tag_based_slide_search_input"
                             id="tag_based_slide_search_input"
                         >
-                            <option
-                                value=""
-                                t-att-selected="not search_tag"
-                            >-- Select a tag --</option>
 
                             <t t-foreach="slide_tags" t-as="slide_tag">
-                                <!-- put the target url into data attributes so it's ready to be redirected to in JS -->
-                                <!-- preselect the tag that is currently being searched for -->
+                                <!-- if on the results page, preselect the tags that are currently
+                                being searched for -->
                                 <option
                                     t-attf-value="#{slide_tag['id']}"
-                                    t-attf-data-target-url="/slides/#{channel.id}/tag/#{slide_tag['id']}"
-                                    t-att-selected="search_tag and search_tag.id == slide_tag['id']"
+                                    t-att-selected="search_tags and slide_tag['id'] in search_tags"
                                 >
                                     <t t-esc="slide_tag['name']" />
                                 </option>
@@ -58,6 +59,28 @@
                         </div>
                     </div>
                 </div>
+            </xpath>
+
+            <!-- Show message if no matches found -->
+            <xpath
+                expr="//div[contains(@class, 'container')]/t[@t-foreach='category_data']"
+                position="before"
+            >
+                <t t-if="search_tags">
+                    <t t-set="search_results_number" t-value="0" />
+                    <t t-foreach="category_data" t-as="category">
+                        <t
+                            t-set="search_results_number"
+                            t-value="search_results_number + category['total_slides']"
+                        />
+                    </t>
+                    <div
+                        t-if="search_results_number == 0"
+                        class="alert alert-info mt-4 mb-5 text-center"
+                    >
+                        No content was found using the selected tag combination.
+                    </div>
+                </t>
             </xpath>
         </template>
 

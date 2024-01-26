@@ -47,6 +47,7 @@ addon | version | maintainers | summary
 [website_settings](website_settings/) | 14.0.1.0.4 |  | Website toggleable settings under customize menu and other setting options
 [website_slides_allow_image_download](website_slides_allow_image_download/) | 14.0.1.0.0 |  | Website Slides Allow Image Download
 [website_slides_content_search](website_slides_content_search/) | 14.0.1.0.0 |  | Search through website slides contents on the website
+[website_slides_hide_categories_with_no_results](website_slides_hide_categories_with_no_results/) | 14.0.1.0.0 |  | Hide categories with no matches in search results
 [website_slides_settings](website_slides_settings/) | 14.0.1.1.1 |  | Website Slides toggleable settings under website customize menu
 [website_slides_slide_type_rename_infographic_to_image](website_slides_slide_type_rename_infographic_to_image/) | 14.0.1.0.0 |  | Rename infographic to image
 [website_slides_slide_type_rename_webpage_to_software](website_slides_slide_type_rename_webpage_to_software/) | 14.0.1.0.0 |  | Rename web page to software

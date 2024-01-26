@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <template
+            id="course_slides_cards"
+            inherit_id="website_slides.course_slides_cards"
+            name="Hide categories with no search results"
+        >
+
+            <!-- modify the condition that defines if category is shown or not-->
+            <xpath
+                expr="//div[contains(@class, 'container')]/t[@t-foreach='category_data']/div[1]"
+                position="attributes"
+            >
+                <attribute name="t-if">
+                    category['total_slides'] &gt; 0 and (category['slides'] or channel.can_publish) and (search_category and search_category.id == category['id'] or not search_category)
+                </attribute>
+            </xpath>
+
+    </template>
+
+    </data>
+</odoo>

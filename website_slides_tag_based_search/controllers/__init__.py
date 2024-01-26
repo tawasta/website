@@ -1,1 +1,1 @@
-from . import slides
+from . import tag_search
