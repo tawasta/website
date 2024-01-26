@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <template
+            id="course_slides_cards"
+            inherit_id="website_slides.course_slides_cards"
+            name="Tag-based Slide Search"
+        >
+
+            <!-- place the tag search after the regular search form in DOM.
+            Note that there is a scss file in the module that adjusts the flex properties of the parent div,
+            to make the tag search fit. Initially hidden, shown in JS. -->
+            <xpath expr="//form[@role='search']" position="after">
+
+                <div
+                    id="tag_based_slide_search_container"
+                    class="mt-2 mb-2 d-none"
+                    t-att-data-channel-id="channel.id"
+                    t-attf-data-target-url="/slides/#{channel.id}/"
+                >
+
+                    <div class="input-group position-relative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <span
+                                    class="fa fa-spinner fa-spin d-none mr-1"
+                                /> Search by tags
+                            </span>
+                        </div>
+                        <select
+                            multiple="multiple"
+                            class="form-control input-lg"
+                            name="tag_based_slide_search_input"
+                            id="tag_based_slide_search_input"
+                        >
+
+                            <t t-foreach="slide_tags" t-as="slide_tag">
+                                <!-- if on the results page, preselect the tags that are currently
+                                being searched for -->
+                                <option
+                                    t-attf-value="#{slide_tag['id']}"
+                                    t-att-selected="search_tags and slide_tag['id'] in search_tags"
+                                >
+                                    <t t-esc="slide_tag['name']" />
+                                </option>
+                            </t>
+                        </select>
+                        <div class="input-group-append">
+                            <button
+                                class="btn border"
+                                type="submit"
+                                aria-label="Search"
+                                title="Search"
+                                id="tag_based_slide_search_submit"
+                            >
+                                <i class="fa fa-search" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+
+            <!-- Show message if no matches found -->
+            <xpath
+                expr="//div[contains(@class, 'container')]/t[@t-foreach='category_data']"
+                position="before"
+            >
+                <t t-if="search_tags">
+                    <t t-set="search_results_number" t-value="0" />
+                    <t t-foreach="category_data" t-as="category">
+                        <t
+                            t-set="search_results_number"
+                            t-value="search_results_number + category['total_slides']"
+                        />
+                    </t>
+                    <div
+                        t-if="search_results_number == 0"
+                        class="alert alert-info mt-4 mb-5 text-center"
+                    >
+                        No content was found using the selected tag combination.
+                    </div>
+                </t>
+            </xpath>
+        </template>
+
+        <!-- make the tag search toggleable in Customize menu -->
+        <template
+            id="hide_slides_search_in_content"
+            inherit_id="website_slides_tag_based_search.course_slides_cards"
+            name="Hide tag-based search box"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//div[@id='slide-search-tag-based-container']"
+                position="attributes"
+            >
+                <attribute name="class">d-none</attribute>
+            </xpath>
+        </template>
+    </data>
+</odoo>
