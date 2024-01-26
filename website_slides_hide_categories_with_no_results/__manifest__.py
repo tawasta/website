@@ -19,8 +19,8 @@
 ##############################################################################
 
 {
-    "name": "Website Slides: Tag-based search",
-    "summary": "Tag-based search for slides",
+    "name": "Website Slides: Hide categories with no results",
+    "summary": "Hide categories with no matches in search results",
     "version": "14.0.1.0.0",
     "category": "Website/eLearning",
     "website": "https://gitlab.com/tawasta/odoo/website",
@@ -29,8 +29,5 @@
     "application": False,
     "installable": True,
     "depends": ["website_slides"],
-    "data": [
-        "views/website_slides_templates.xml",
-        "views/assets.xml",
-    ],
+    "data": ["views/website_slides_templates.xml"],
 }

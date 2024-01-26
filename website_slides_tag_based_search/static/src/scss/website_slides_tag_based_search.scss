@@ -1,0 +1,10 @@
+/* push the tag search into a new line */
+#courseMainTabContent {
+    #navbarSupportedContent {
+        flex-wrap: wrap;
+
+        #tag_based_slide_search_container {
+            flex-basis: 75%;
+        }
+    }
+}

@@ -11,5 +11,14 @@
                 src="/website_slides_tag_based_search/static/src/js/website_slides_tag_based_search.js"
             />
         </xpath>
+
+        <xpath expr="link[last()]" position="after">
+            <link
+                rel="stylesheet"
+                type="text/scss"
+                href="/website_slides_tag_based_search/static/src/scss/website_slides_tag_based_search.scss"
+            />
+        </xpath>
+
     </template>
 </odoo>

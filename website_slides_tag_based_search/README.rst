@@ -6,7 +6,9 @@
 Website Slides: tag-based search
 ================================
 
-* Add a tag-based search for slides 
+* Add a tag-based search for a channel's slides.
+* Supports for searching for multiple tags. "AND" condition is used when searching.
+
 
 Configuration
 =============
@@ -15,12 +17,11 @@ Configuration
   frontend's Customize menu)
 * Also the tag search can be hidden via the Customize menu
 
-
 Usage
 =====
 * Navigate to some course in frontend and you can see the tag search box.
-* Select a tag and hit search, and you will be shown a result page with slides matching
-  the selected tag
+* Select tags and hit search, and you will be shown a result page with slides matching
+  the selected tags.
 
 Known issues / Roadmap
 ======================
