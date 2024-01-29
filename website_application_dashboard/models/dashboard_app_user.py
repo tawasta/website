@@ -23,8 +23,8 @@ import logging
 import sys
 import timeit
 import traceback
-
 import requests
+import json
 
 # 3. Odoo imports (openerp):
 from odoo import _, fields, models
@@ -116,6 +116,13 @@ class DashboardAppUser(models.Model):
         )
         _logger.info("Found {} applications".format(len(all_apps)))
         user_datas = self.search([("user_id", "=", user_id)])
+
+        # Check if required to map items from cache
+        if len(user_datas) == 0:
+            self._create_user_data()
+            user_datas = self.search([("user_id", "=", user_id)])
+            _logger.info("Created {} datas from cache".format(len(user_datas)))
+
         user_apps = user_datas.mapped("application_id")
 
         for app in all_apps:
@@ -168,67 +175,13 @@ class DashboardAppUser(models.Model):
                 _logger.info(
                     "Received {} user datas, update user datas".format(len(data))
                 )
-                for el in data:
-                    email = el.get("user_uid")
-                    search_domain = [("login", "=", email)]
-                    search_limit = 1
-                    if email[:2] == "%@":
-                        # Special case, everyone matching wildcard %@tawasta.fi
-                        search_email = "%{}".format(email)
-                        search_domain = [("login", "like", search_email)]
-                        search_limit = None
+                website = self.env["website"].get_current_website()
+                website.last_dashboard_sync_time = fields.Datetime.now()
+                website.last_dashboard_user_data = json.dumps(
+                    data, indent=2, ensure_ascii=False
+                )
+                self._create_user_data(data)
 
-                    users = self.env["res.users"].search(
-                        search_domain,
-                        limit=search_limit,
-                    )
-                    if not users:
-                        msg = _("Users not found with email {}").format(email)
-                        _logger.error(msg)
-                        continue
-
-                    if len(users) > 1:
-                        _logger.info(
-                            "We are updating {} users with {}".format(len(users), email)
-                        )
-
-                    for user in users:
-                        application = self.env["dashboard.app"].search(
-                            [
-                                ("application_api_id", "=", el.get("application_id")),
-                            ],
-                            limit=1,
-                        )
-
-                        if not application:
-                            msg = _("Application not found with ID {}").format(
-                                el.get("application_id")
-                            )
-                            _logger.error(msg)
-                            continue
-
-                        vals = {}
-                        if el.get("notification_count"):
-                            vals["notification_count"] = el.get("notification_count")
-                        if el.get("url"):
-                            vals["url"] = el.get("url")
-
-                        user_data = self.env["dashboard.app.user"].search(
-                            [
-                                ("user_id", "=", user.id),
-                                ("application_id", "=", application.id),
-                            ]
-                        )
-                        if user_data:
-                            user_data.update(vals)
-                        else:
-                            vals.update(
-                                {
-                                    "user_id": user.id,
-                                    "application_id": application.id,
-                                }
-                            )
-                            self.create(vals)
         except Exception:
             msg = _("Error occured when fetching user data")
             _logger.error(msg)
@@ -236,6 +189,81 @@ class DashboardAppUser(models.Model):
             formatted_info = "".join(traceback.format_exception(*info))
             _logger.error(formatted_info)
             raise UserError(msg) from None
+
+    def _create_user_data(self, data=None):
+        """Create user data from API response or cache (old API response)"""
+        if not data:
+            # Use cache
+            website = self.env["website"].get_current_website()
+            cache_data = website.last_dashboard_user_data
+            data = cache_data and json.loads(cache_data)
+            _logger.info(
+                "Using cached data to init user datas for user {}".format(
+                    self.env.user.login
+                )
+            )
+
+        for el in data:
+            email = el.get("user_uid")
+            search_domain = [("login", "=", email)]
+            search_limit = 1
+            if email[:2] == "%@":
+                # Special case, everyone matching wildcard %@tawasta.fi
+                search_email = "%{}".format(email)
+                search_domain = [("login", "like", search_email)]
+                search_limit = None
+
+            users = self.env["res.users"].search(
+                search_domain,
+                limit=search_limit,
+            )
+            if not users:
+                msg = _("Users not found with email {}").format(email)
+                _logger.error(msg)
+                continue
+
+            if len(users) > 1:
+                _logger.info(
+                    "We are updating {} users with {}".format(len(users), email)
+                )
+
+            for user in users:
+                application = self.env["dashboard.app"].search(
+                    [
+                        ("application_api_id", "=", el.get("application_id")),
+                    ],
+                    limit=1,
+                )
+
+                if not application:
+                    msg = _("Application not found with ID {}").format(
+                        el.get("application_id")
+                    )
+                    _logger.error(msg)
+                    continue
+
+                vals = {}
+                if el.get("notification_count"):
+                    vals["notification_count"] = el.get("notification_count")
+                if el.get("url"):
+                    vals["url"] = el.get("url")
+
+                user_data = self.env["dashboard.app.user"].search(
+                    [
+                        ("user_id", "=", user.id),
+                        ("application_id", "=", application.id),
+                    ]
+                )
+                if user_data:
+                    user_data.update(vals)
+                else:
+                    vals.update(
+                        {
+                            "user_id": user.id,
+                            "application_id": application.id,
+                        }
+                    )
+                    self.create(vals)
 
     def action_cron_update_user_data(self):
         """Cron to update user data from API"""

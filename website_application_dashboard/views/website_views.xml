@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="website_form_view" model="ir.ui.view">
+        <field name="name">website.form.dashboard.cache</field>
+        <field name="model">website</field>
+        <field name="inherit_id" ref="website.view_website_form" />
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page
+                    string="Dashboard user data cache"
+                    name="dashboard_user_data_cache"
+                    groups="base.group_no_one"
+                >
+                    <group>
+                        <field name="last_dashboard_sync_time" readonly="1" />
+                        <field name="last_dashboard_user_data" readonly="1" />
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

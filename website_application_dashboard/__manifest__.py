@@ -37,6 +37,7 @@
         "views/dashboard_app_views.xml",
         "views/dashboard_app_user_views.xml",
         "views/dashboard_app_category_views.xml",
+        "views/website_views.xml",
         "views/website_dashboard.xml",
     ],
     "depends": [
