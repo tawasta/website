@@ -24,4 +24,35 @@
         <field name="key">website_application_dashboard.auth_header_value</field>
         <field name="value">Bearer 3d55d133-ea01-42ff-bc40-17fd246e7d58</field>
     </record>
+
+    <!-- API mode 'test' or 'prod' -->
+    <record id="dashboard_api_mode" model="ir.config_parameter">
+        <field name="key">website_application_dashboard.api_mode</field>
+        <field name="value">test</field>
+    </record>
+
+    <record id="dashboard_app_endpoint_test" model="ir.config_parameter">
+        <field name="key">website_application_dashboard.app_endpoint_test</field>
+        <field name="value">https://testendpoint.tawasta.fi/app</field>
+    </record>
+
+    <record id="dashboard_category_endpoint_test" model="ir.config_parameter">
+        <field name="key">website_application_dashboard.category_endpoint_test</field>
+        <field name="value">https://testendpoint.tawasta.fi/category</field>
+    </record>
+
+    <record id="dashboard_user_endpoint_test" model="ir.config_parameter">
+        <field name="key">website_application_dashboard.user_endpoint_test</field>
+        <field name="value">https://testendpoint.tawasta.fi/user</field>
+    </record>
+
+    <record id="dashboard_user_auth_header_test" model="ir.config_parameter">
+        <field name="key">website_application_dashboard.auth_header_test</field>
+        <field name="value">Authorization</field>
+    </record>
+
+    <record id="dashboard_user_auth_header_value_test" model="ir.config_parameter">
+        <field name="key">website_application_dashboard.auth_header_value_test</field>
+        <field name="value">Bearer 3d55d133-ea01-42ff-bc40-17fd246e7d58</field>
+    </record>
 </odoo>

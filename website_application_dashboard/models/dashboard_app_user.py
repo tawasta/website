@@ -138,20 +138,39 @@ class DashboardAppUser(models.Model):
     def _get_user_data(self):
         """Update user data from API"""
         try:
+            api_mode = (
+                self.env["ir.config_parameter"]
+                .sudo()
+                .get_param("website_application_dashboard.api_mode", "")
+            )
+            api_suffix = ""
+            if api_mode == "test":
+                api_suffix = "_test"
+
             endpoint_url = (
                 self.env["ir.config_parameter"]
                 .sudo()
-                .get_param("website_application_dashboard.user_endpoint", "")
+                .get_param(
+                    "website_application_dashboard.user_endpoint{}".format(api_suffix),
+                    "",
+                )
             )
             auth_header = (
                 self.env["ir.config_parameter"]
                 .sudo()
-                .get_param("website_application_dashboard.auth_header", "")
+                .get_param(
+                    "website_application_dashboard.auth_header{}".format(api_suffix), ""
+                )
             )
             auth_header_value = (
                 self.env["ir.config_parameter"]
                 .sudo()
-                .get_param("website_application_dashboard.auth_header_value", "")
+                .get_param(
+                    "website_application_dashboard.auth_header_value{}".format(
+                        api_suffix
+                    ),
+                    "",
+                )
             )
 
             if not (endpoint_url and auth_header and auth_header_value):

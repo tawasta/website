@@ -109,20 +109,39 @@ class DashboardApp(models.Model):
     def _get_applications(self):
         """Get applications from API"""
         try:
+            api_mode = (
+                self.env["ir.config_parameter"]
+                .sudo()
+                .get_param("website_application_dashboard.api_mode", "")
+            )
+            api_suffix = ""
+            if api_mode == "test":
+                api_suffix = "_test"
+
             endpoint_url = (
                 self.env["ir.config_parameter"]
                 .sudo()
-                .get_param("website_application_dashboard.app_endpoint", "")
+                .get_param(
+                    "website_application_dashboard.app_endpoint{}".format(api_suffix),
+                    "",
+                )
             )
             auth_header = (
                 self.env["ir.config_parameter"]
                 .sudo()
-                .get_param("website_application_dashboard.auth_header", "")
+                .get_param(
+                    "website_application_dashboard.auth_header{}".format(api_suffix), ""
+                )
             )
             auth_header_value = (
                 self.env["ir.config_parameter"]
                 .sudo()
-                .get_param("website_application_dashboard.auth_header_value", "")
+                .get_param(
+                    "website_application_dashboard.auth_header_value{}".format(
+                        api_suffix
+                    ),
+                    "",
+                )
             )
             if not (endpoint_url and auth_header and auth_header_value):
                 _logger.error("Endpoint or API key missing")
