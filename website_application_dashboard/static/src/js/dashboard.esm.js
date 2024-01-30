@@ -3,16 +3,16 @@
 import publicWidget from "@web/legacy/js/public/public_widget";
 
 publicWidget.registry.dashboard = publicWidget.Widget.extend({
-    selector: "#app_dashboard",
+    selector: "#wrapwrap",
     events: {
         "click #app_dashboard_edit": "_editDashboardClick",
         "click #app_dashboard_save": "_saveDashboardClick",
-        "click .app-card:not(.droppable)": "_editAppPosition",
-        "click .app-card.droppable": "_setAppPosition",
-        "click .app-btn-hide": "_toggleVisiblityApp",
-        "click .app-card": "_openApp",
-        "click .app-info": "_openInfo",
-        "click .app-btn-delete": "_deleteApp",
+        "click #app_dashboard .app-card:not(.droppable)": "_editAppPosition",
+        "click #app_dashboard .app-card.droppable": "_setAppPosition",
+        "click #app_dashboard .app-btn-hide": "_toggleVisiblityApp",
+        "click #app_dashboard .app-card": "_openApp",
+        "click #app_dashboard .app-info": "_openInfo",
+        "click #app_dashboard .app-btn-delete": "_deleteApp",
     },
 
     /**

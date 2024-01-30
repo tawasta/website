@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0-20240104\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-29 07:07+0000\n"
-"PO-Revision-Date: 2024-01-29 09:08+0200\n"
+"POT-Creation-Date: 2024-01-30 13:24+0000\n"
+"PO-Revision-Date: 2024-01-30 15:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -167,6 +167,16 @@ msgid "Applications belonging to this category"
 msgstr "Sovellukset, jotka kuuluvat tähän kategoriaan"
 
 #. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__color
+msgid "Background color code"
+msgstr "Taustavärin värikoodi"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__color
+msgid "Background color code for cards styling"
+msgstr "Taustavärin värikoodi sovelluskorttien tyylien asettamiseksi"
+
+#. module: website_application_dashboard
 #: model:ir.actions.act_window,name:website_application_dashboard.dashboard_app_category_action
 #: model:ir.ui.menu,name:website_application_dashboard.dashboard_app_category_menu
 #: model_terms:ir.ui.view,arch_db:website_application_dashboard.dashboard_app_category_search_view
@@ -199,16 +209,6 @@ msgstr "Kategorian nimi"
 #: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
 msgid "Close"
 msgstr "Sulje"
-
-#. module: website_application_dashboard
-#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__color
-msgid "Color code"
-msgstr "Värikoodi"
-
-#. module: website_application_dashboard
-#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__color
-msgid "Color code for cards styling"
-msgstr "Värikoodi sovelluskortin tyyliksi"
 
 #. module: website_application_dashboard
 #: model_terms:ir.actions.act_window,help:website_application_dashboard.dashboard_app_action
@@ -318,7 +318,7 @@ msgid "Display Name"
 msgstr "Näyttönimi"
 
 #. module: website_application_dashboard
-#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.website_layout_dashboard_edit
 msgid "Edit view <i class=\"fa fa-gear\" title=\"Edit\"/>"
 msgstr "Muokkaa näkymää <i class=\"fa fa-gear\" title=\"Muokkaa\"/>"
 
@@ -443,7 +443,7 @@ msgid "Position before card:"
 msgstr "Sijoita ennen korttia:"
 
 #. module: website_application_dashboard
-#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.website_layout_dashboard_edit
 msgid "Save <i class=\"fa fa-floppy-o\" title=\"Save\"/>"
 msgstr "Tallenna <i class=\"fa fa-floppy-o\" title=\"Tallenna\"/>"
 
@@ -462,6 +462,16 @@ msgstr "Näytä"
 #: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
 msgid "Submit"
 msgstr "Lähetä"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__text_color
+msgid "Text color code"
+msgstr "Tekstin värikoodi"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__text_color
+msgid "Text color code for cards styling"
+msgstr "Tekstin värikoodi sovelluskorttien ulkonäön asettamiseksi"
 
 #. module: website_application_dashboard
 #: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard

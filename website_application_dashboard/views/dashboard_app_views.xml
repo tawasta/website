@@ -21,6 +21,7 @@
                                 <field name="application_api_id" />
                                 <field name="user_id" />
                                 <field name="color" />
+                                <field name="text_color" />
                             </group>
                         </page>
                         <page string="User data" name="user_data">

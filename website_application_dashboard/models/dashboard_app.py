@@ -93,8 +93,12 @@ class DashboardApp(models.Model):
         help="User created this personal dashboard application",
     )
     color = fields.Char(
-        string="Color code",
-        help="Color code for cards styling",
+        string="Background color code",
+        help="Background color code for cards styling",
+    )
+    text_color = fields.Char(
+        string="Text color code",
+        help="Text color code for cards styling",
     )
 
     # 3. Default methods
