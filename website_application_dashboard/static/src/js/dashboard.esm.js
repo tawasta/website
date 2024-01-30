@@ -54,6 +54,7 @@ publicWidget.registry.dashboard = publicWidget.Widget.extend({
         $("#app_dashboard").addClass("editing-dashboard");
         $(".app-card-create").removeClass("d-none");
         $(".app-btn-delete").removeClass("d-none");
+        $(".create-card").removeClass("d-none");
         const url = new URL(window.location);
         url.searchParams.set("editing", 1);
         window.history.replaceState(null, null, url.toString());
@@ -71,6 +72,7 @@ publicWidget.registry.dashboard = publicWidget.Widget.extend({
         $("#app_dashboard_edit").removeClass("d-none");
         $("#editing_info").addClass("d-none");
         $(".app-btn-hide").addClass("d-none");
+        $(".create-card").addClass("d-none");
         $("#app_dashboard").removeClass("editing-dashboard");
         const url = new URL(window.location);
         url.searchParams.delete("editing");
