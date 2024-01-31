@@ -13,6 +13,7 @@ Website Slides Settings
    - Hide Share tab on slide
    - Hide User Profile on slide homepage
    - Hide User Achievements on slide homepage
+   - Hide "Share" button in slide homepage header   
    - Hide Breadcrumbs in slide and slide homepage header
    - Hide "search courses" textbox in slide and slide homepage header
    - Hide the tablist element in slides homepage header (the one that contains e.g. items "Course" and "Reviews"
