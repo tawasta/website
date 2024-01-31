@@ -106,6 +106,22 @@
             </xpath>
         </template>
 
+        <!-- Hide Share button on Slide -->
+        <template
+            id="hide_slides_share_button"
+            inherit_id="website_slides.course_main"
+            name="Hide 'Share' Button"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//i[hasclass('fa-share-square')]/parent::button"
+                position="attributes"
+            >
+                <attribute name="class">d-none</attribute>
+            </xpath>
+        </template>
+
         <!-- Hide "order by" dropdown on Slide -->
         <template
             id="hide_slides_order_by_dropdown"
