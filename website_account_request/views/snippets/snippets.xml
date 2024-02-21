@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template
+        id="account_request_snippets"
+        inherit_id="website.snippets"
+        name="Account request Snippets"
+    >
+        <xpath expr="//div[@id='snippet_structure']" position="before">
+            <div id="snippet_structure" class="o_panel">
+                <div class="o_panel_header">Account request</div>
+                <div class="o_panel_body">
+                    <t t-snippet="website_account_request.show_account_request">
+                        <keywords>account_request</keywords>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

@@ -17,6 +17,7 @@ addon | version | maintainers | summary
 [portal_details_name_extension](portal_details_name_extension/) | 14.0.1.0.0 |  | Portal details add name extension from connector_netvisor
 [portal_details_street2](portal_details_street2/) | 14.0.1.0.0 |  | Portal details add optional field street 2
 [website_accessibility_page](website_accessibility_page/) | 14.0.1.0.0 |  | Adds accessibility page
+[website_account_request](website_account_request/) | 14.0.1.0.0 |  | Website account request Snippet
 [website_all_messages](website_all_messages/) | 14.0.1.0.0 |  | All messages for website
 [website_blog_blogs_snippet](website_blog_blogs_snippet/) | 14.0.3.0.0 |  | Improved Blogs Snippets
 [website_blog_latest_post_tags](website_blog_latest_post_tags/) | 14.0.3.0.0 |  | Website Blog Latest Post Tags
