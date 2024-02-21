@@ -25,10 +25,9 @@ odoo.define("website_account_request.snippet", function (require) {
             if (!emailRegex.test(emailVal)) {
                 $emailError.text(_t("Please enter a valid email address.")).show();
                 return;
-            } else {
-                $emailError.hide();
             }
-            
+            $emailError.hide();
+
             loadingScreen();
             ajax.jsonRpc("/account/request", "call", {
                 email: emailVal,

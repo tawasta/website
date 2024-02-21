@@ -35,7 +35,11 @@
                                         required="required"
                                     />
                                 </div>
-                                <div id="emailError" class="text-danger mt-2" style="display: none;"></div>
+                                <div
+                                    id="emailError"
+                                    class="text-danger mt-2"
+                                    style="display: none;"
+                                />
                             </div>
                             <div class="text-center">
                                 <button
