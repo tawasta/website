@@ -1,4 +1,4 @@
-from odoo import http
+from odoo import _, http
 from odoo.http import request
 
 
@@ -20,23 +20,23 @@ class AccountRequestController(http.Controller):
         if not target_email:
             return {
                 "success": False,
-                "error": "Target email for account requests is not configured.",
+                "error": _("Target email for account requests is not configured."),
             }
 
-        subject = "Notification: New Demo Account Request"
-        body_html = """
-        <p>This is a notification to inform you that a new demo account request has
-        been received from <strong>{system_url}</strong>.
+        subject = _("Notification: New Demo Account Request")
+        body_html = _(
+            """
+        <p>This is a notification to inform you that a new demo account
+        request has been received from <strong>{system_url}</strong>.
         The details of the request are as follows:</p>
         <ul>
             <li>Email: {email}</li>
             <li>Request Origin: {system_url}</li>
         </ul>
-        <p>This notification is for your information only
-        and no immediate action is required on your part.</p>
-        """.format(
-            email=email, system_url=system_url
-        )
+        <p>This notification is for your information only and
+        no immediate action is required on your part.</p>
+        """
+        ).format(email=email, system_url=system_url)
         # Lähetä sähköpostiviesti
         mail_values = {
             "subject": subject,
@@ -60,4 +60,4 @@ class AccountRequestController(http.Controller):
                 "password": available_user.login,
             }
         else:
-            return {"success": False, "error": "No available demo accounts."}
+            return {"success": False, "error": _("No available demo accounts.")}
