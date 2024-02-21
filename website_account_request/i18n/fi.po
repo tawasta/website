@@ -6,14 +6,77 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0-20230925\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-21 09:11+0000\n"
-"PO-Revision-Date: 2024-02-21 09:11+0000\n"
+"POT-Creation-Date: 2024-02-21 09:30+0000\n"
+"PO-Revision-Date: 2024-02-21 09:30+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: website_account_request
+#: code:addons/website_account_request/controllers/main.py:0
+#, python-format
+msgid ""
+"\n"
+"        <p>This is a notification to inform you that a new demo account\n"
+"        request has been received from <strong>{system_url}</strong>.\n"
+"        The details of the request are as follows:</p>\n"
+"        <ul>\n"
+"            <li>Email: {email}</li>\n"
+"            <li>Request Origin: {system_url}</li>\n"
+"        </ul>\n"
+"        <p>This notification is for your information only and\n"
+"        no immediate action is required on your part.</p>\n"
+"        "
+msgstr ""
+"\n"
+"        <p>Tämä on ilmoitus siitä, että olemme saaneet uuden demo-tilin\n"
+"        pyynnön osoitteesta <strong>{system_url}</strong>.\n"
+"        Pyynnön yksityiskohdat ovat seuraavat:</p>\n"
+"        <ul>\n"
+"            <li>Sähköposti: {email}</li>\n"
+"            <li>Pyynnön alkuperä: {system_url}</li>\n"
+"        </ul>\n"
+"        <p>Tämä ilmoitus on tarkoitettu vain tiedoksesi,\n"
+"        eikä se vaadi sinulta välittömiä toimenpiteitä.</p>\n"
+"        "
+
+#. module: website_account_request
+#. openerp-web
+#: code:addons/website_account_request/static/src/js/account_request.js:0
+#, python-format
+msgid "<p><a href='/web/login' class='btn btn-primary'>Log In</a></p>"
+msgstr "<p><a href='/web/login' class='btn btn-primary'>Kirjaudu sisään</a></p>"
+
+#. module: website_account_request
+#. openerp-web
+#: code:addons/website_account_request/static/src/js/account_request.js:0
+#, python-format
+msgid "<p><b>Login:</b> "
+msgstr "<p><b>Tunnus:</b> "
+
+#. module: website_account_request
+#. openerp-web
+#: code:addons/website_account_request/static/src/js/account_request.js:0
+#, python-format
+msgid "<p><b>Password:</b> "
+msgstr "<p><b>Salasana:</b> "
+
+#. module: website_account_request
+#. openerp-web
+#: code:addons/website_account_request/static/src/js/account_request.js:0
+#, python-format
+msgid "<p>With these credentials, you can log into the demo installation. "
+msgstr "<p>Näillä tunnuksilla voit kirjautua demo-asennukseen. "
+
+#. module: website_account_request
+#. openerp-web
+#: code:addons/website_account_request/static/src/js/account_request.js:0
+#, python-format
+msgid "<p>Your account request has been processed successfully.</p>"
+msgstr "<p>Tilipyynnön käsittely onnistui.</p>"
 
 #. module: website_account_request
 #: model_terms:ir.ui.view,arch_db:website_account_request.show_account_request
@@ -46,6 +109,18 @@ msgid "Email"
 msgstr "Sähköposti"
 
 #. module: website_account_request
+#: code:addons/website_account_request/controllers/main.py:0
+#, python-format
+msgid "No available demo accounts."
+msgstr "Ei saatavilla olevia demo-tunnuksia."
+
+#. module: website_account_request
+#: code:addons/website_account_request/controllers/main.py:0
+#, python-format
+msgid "Notification: New Demo Account Request"
+msgstr "Ilmoitus: Uusi demo-tilin pyyntö"
+
+#. module: website_account_request
 #: model_terms:ir.ui.view,arch_db:website_account_request.show_account_request
 msgid "Request Your Account"
 msgstr "Pyydä tunnuksesi"
@@ -54,6 +129,12 @@ msgstr "Pyydä tunnuksesi"
 #: model_terms:ir.ui.view,arch_db:website_account_request.show_account_request
 msgid "Send Request"
 msgstr "Lähetä pyyntö"
+
+#. module: website_account_request
+#: code:addons/website_account_request/controllers/main.py:0
+#, python-format
+msgid "Target email for account requests is not configured."
+msgstr "Kohdesähköposti tilipyyntöjä varten ei ole määritetty."
 
 #. module: website_account_request
 #: model:res.groups,comment:website_account_request.group_demo_users
