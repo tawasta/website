@@ -3,6 +3,8 @@ odoo.define("website_account_request.snippet", function (require) {
 
     var publicWidget = require("web.public.widget");
     var ajax = require("web.ajax");
+    var core = require("web.core");
+    var _t = core._t;
     var loadingScreen = require("website_utilities.loader").loadingScreen;
 
     publicWidget.registry.accountRequestForm = publicWidget.Widget.extend({
@@ -22,15 +24,21 @@ odoo.define("website_account_request.snippet", function (require) {
             }).then(function (result) {
                 if (result.success) {
                     var loginInfoHtml =
-                        "<p>Your account request has been processed successfully.</p>" +
-                        "<p><b>Login:</b> " +
+                        _t(
+                            "<p>Your account request has been processed successfully.</p>"
+                        ) +
+                        _t("<p><b>Login:</b> ") +
                         result.login +
-                        "</p>" +
-                        "<p><b>Password:</b> " +
+                        _t("</p>") +
+                        _t("<p><b>Password:</b> ") +
                         result.password +
-                        "</p>" +
-                        "<p>With these credentials, you can log into the demo installation. " +
-                        "<p><a href='/web/login' class='btn btn-primary'>Log In</a></p>";
+                        _t("</p>") +
+                        _t(
+                            "<p>With these credentials, you can log into the demo installation. "
+                        ) +
+                        _t(
+                            "<p><a href='/web/login' class='btn btn-primary'>Log In</a></p>"
+                        );
 
                     $("#requestSuccessModal .modal-body").html(loginInfoHtml);
                     $("#requestSuccessModal").modal("show");

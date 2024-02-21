@@ -1,0 +1,71 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_account_request
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20230925\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-21 09:11+0000\n"
+"PO-Revision-Date: 2024-02-21 09:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_account_request
+#: model_terms:ir.ui.view,arch_db:website_account_request.show_account_request
+msgid "<span aria-label=\"Close\">&amp;times;</span>"
+msgstr "<span aria-label=\"Sulje\">&amp;times;</span>"
+
+#. module: website_account_request
+#: model_terms:ir.ui.view,arch_db:website_account_request.show_account_request
+msgid "Account Request Submitted"
+msgstr "Tunnuspyyntö suoritettu"
+
+#. module: website_account_request
+#: model_terms:ir.ui.view,arch_db:website_account_request.account_request_snippets
+msgid "Account request"
+msgstr "Tunnuspyyntö"
+
+#. module: website_account_request
+#: model_terms:ir.ui.view,arch_db:website_account_request.show_account_request
+msgid "Close"
+msgstr "Sulje"
+
+#. module: website_account_request
+#: model:res.groups,name:website_account_request.group_demo_users
+msgid "Demo Users"
+msgstr "Demo käyttäjät"
+
+#. module: website_account_request
+#: model_terms:ir.ui.view,arch_db:website_account_request.show_account_request
+msgid "Email"
+msgstr "Sähköposti"
+
+#. module: website_account_request
+#: model_terms:ir.ui.view,arch_db:website_account_request.show_account_request
+msgid "Request Your Account"
+msgstr "Pyydä tunnuksesi"
+
+#. module: website_account_request
+#: model_terms:ir.ui.view,arch_db:website_account_request.show_account_request
+msgid "Send Request"
+msgstr "Lähetä pyyntö"
+
+#. module: website_account_request
+#: model:res.groups,comment:website_account_request.group_demo_users
+msgid "This group is assigned to demo users."
+msgstr "Tämä ryhmä on takroitettu demo tunnuksille"
+
+#. module: website_account_request
+#: model_terms:ir.ui.view,arch_db:website_account_request.account_request_snippets
+msgid "account_request"
+msgstr ""
+
+#. module: website_account_request
+#: model_terms:ir.ui.view,arch_db:website_account_request.show_account_request
+msgid "example@domain.com"
+msgstr ""
