@@ -17,7 +17,17 @@ odoo.define("website_account_request.snippet", function (require) {
             ev.preventDefault();
             var $form = $(ev.currentTarget);
             var $email = $form.find("#email");
+            var $emailError = $form.find("#emailError");
             var emailVal = $email.val();
+
+            // Sähköpostin muodon tarkistus
+            var emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+            if (!emailRegex.test(emailVal)) {
+                $emailError.text(_t("Please enter a valid email address.")).show();
+                return;
+            }
+            $emailError.hide();
+
             loadingScreen();
             ajax.jsonRpc("/account/request", "call", {
                 email: emailVal,
