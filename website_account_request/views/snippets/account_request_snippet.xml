@@ -2,7 +2,7 @@
 <odoo>
     <!-- template for our snippet -->
     <template id="show_account_request" name="Account request">
-        <div class="oe_structure"/>
+        <div class="oe_structure" />
         <section class="s_account_request py-5">
             <div class="container">
                 <!-- Bootstrap Card -->
@@ -13,18 +13,34 @@
                     <div class="card-body">
                         <!-- Account Request Form -->
                         <form id="account_request_form" class="s_account_request_form">
-                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <input
+                                type="hidden"
+                                name="csrf_token"
+                                t-att-value="request.csrf_token()"
+                            />
                             <div class="form-group">
                                 <label for="email" class="form-label">Email</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                        <span class="input-group-text"><i
+                                                class="fa fa-envelope"
+                                            /></span>
                                     </div>
-                                    <input type="email" id="email" name="email" class="form-control" placeholder="example@domain.com" required="required" />
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        class="form-control"
+                                        placeholder="example@domain.com"
+                                        required="required"
+                                    />
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary">Send Request</button>
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary"
+                                >Send Request</button>
                             </div>
                         </form>
                     </div>
@@ -33,19 +49,38 @@
         </section>
 
         <!-- MODAL -->
-        <div class="modal fade" id="requestSuccessModal" tabindex="-1" role="dialog" aria-labelledby="requestSuccessModalLabel" aria-hidden="true">
+        <div
+            class="modal fade"
+            id="requestSuccessModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="requestSuccessModalLabel"
+            aria-hidden="true"
+        >
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-primary text-white">
-                        <h5 class="modal-title" id="requestSuccessModalLabel">Account Request Submitted</h5>
-                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <h5
+                            class="modal-title"
+                            id="requestSuccessModalLabel"
+                        >Account Request Submitted</h5>
+                        <button
+                            type="button"
+                            class="close text-white"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                        >
                             <span aria-label="Close">&amp;times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                        <button
+                            type="button"
+                            class="btn btn-outline-primary"
+                            data-dismiss="modal"
+                        >Close</button>
                     </div>
                 </div>
             </div>
