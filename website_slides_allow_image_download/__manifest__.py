@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Tawasta
-#    Copyright 2020 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2024 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,9 +18,9 @@
 #
 ##############################################################################
 {
-    "name": "Website Slides Allow Image Download",
-    "summary": "Website Slides Allow Image Download",
-    "version": "14.0.1.0.0",
+    "name": "Website Slides: Keep Original Image for Downloading",
+    "summary": "Stores original high-res image and provides a download button",
+    "version": "14.0.2.0.0",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
@@ -31,6 +31,10 @@
     "depends": [
         "website_slides",
     ],
-    "data": ["views/website_slide.xml"],
+    "data": [
+        "views/website_slide.xml",
+        "views/slide_slide.xml",
+        "views/res_config_settings.xml",
+    ],
     "demo": [],
 }

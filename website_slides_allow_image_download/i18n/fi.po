@@ -1,0 +1,78 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_slides_allow_image_download
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20230925\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-14 12:42+0000\n"
+"PO-Revision-Date: 2024-03-14 12:42+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_slides_allow_image_download
+#: model_terms:ir.ui.view,arch_db:website_slides_allow_image_download.slide_content_detailed
+msgid "<i class=\"fa fa-download\"/> Download Image"
+msgstr "<i class=\"fa fa-download\"/> Lataa kuva"
+
+#. module: website_slides_allow_image_download
+#: model:ir.model,name:website_slides_allow_image_download.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: website_slides_allow_image_download
+#: model:ir.model.fields,field_description:website_slides_allow_image_download.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:website_slides_allow_image_download.field_slide_slide__display_name
+msgid "Display Name"
+msgstr "Näyttönimi"
+
+#. module: website_slides_allow_image_download
+#: model:ir.model.fields,field_description:website_slides_allow_image_download.field_res_config_settings__id
+#: model:ir.model.fields,field_description:website_slides_allow_image_download.field_slide_slide__id
+msgid "ID"
+msgstr "Tunniste (ID)"
+
+#. module: website_slides_allow_image_download
+#: model:ir.model.fields,field_description:website_slides_allow_image_download.field_slide_slide__image_uncompressed
+msgid "Image (uncompressed original)"
+msgstr "Kuva (alkuperäinen, pakkaamaton)"
+
+#. module: website_slides_allow_image_download
+#: model_terms:ir.ui.view,arch_db:website_slides_allow_image_download.res_config_settings_form_view
+msgid "Keep also uncompressed, high resolution versions of images"
+msgstr "Säilytä kuvista myös pakkaamattomat, alkuperäiset versiot"
+
+#. module: website_slides_allow_image_download
+#: model:ir.model.fields,field_description:website_slides_allow_image_download.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:website_slides_allow_image_download.field_slide_slide____last_update
+msgid "Last Modified on"
+msgstr "Viimeksi muokattu"
+
+#. module: website_slides_allow_image_download
+#: model:ir.model.fields,field_description:website_slides_allow_image_download.field_res_config_settings__website_slides_show_download_link_for_images
+msgid "Show Download Link for Images"
+msgstr "Näytä latauslinkki kuvien tallentamiselle"
+
+#. module: website_slides_allow_image_download
+#: model_terms:ir.ui.view,arch_db:website_slides_allow_image_download.res_config_settings_form_view
+msgid ""
+"Show an image download link to the user on website. If uncompressed images are being stored, those are\n"
+"                            provided. If not, then the highest possible quality versions of the compressed images."
+msgstr ""
+"Näytä verkkosivuilla käyttäjälle kuvan latauslinkki. Jos pakkaamattomat kuvat säilytetään, lataus kohdistuu niihin. "
+"Muussa tapauksessa ladataan Odoon parhaimmalla laadulla pakkaamat kuvat"
+
+#. module: website_slides_allow_image_download
+#: model:ir.model,name:website_slides_allow_image_download.model_slide_slide
+msgid "Slides"
+msgstr ""
+
+#. module: website_slides_allow_image_download
+#: model:ir.model.fields,field_description:website_slides_allow_image_download.field_res_config_settings__website_slides_store_uncompressed_images
+msgid "Store also Uncompressed Versions of Images"
+msgstr "Tallenna myös pakkaamattomat versiot kuvista"

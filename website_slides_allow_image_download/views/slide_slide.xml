@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_slide_slide_form" model="ir.ui.view">
+        <field
+            name="name"
+        >slide.slide.form.inherit.website.slides.allow.image.download</field>
+        <field name="model">slide.slide</field>
+        <field name="inherit_id" ref="website_slides.view_slide_slide_form" />
+        <field name="arch" type="xml">
+
+            <!-- Added for onchange's needs only -->
+            <field name="slide_resource_downloadable" position="after">
+                <field name="image_uncompressed" invisible="1" />
+            </field>
+
+            <!-- Hide core image thumbnail field for clarity, so user
+            does not attempt to modify images via that, which would ignore
+            handling the uncompressed image -->
+            <field name="image_1920" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
