@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="website_settings.assets_topmenu_social_icons" model="ir.asset">
+        <field name="name">topmenu social icons assets</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">website_settings/static/src/css/style.css</field>
+        <field name="sequence" eval="99"/>
+    </record>
+    <!--<template
+        id="assets_topmenu_social_icons"
+        name="topmenu_social_icons_assets"
+        inherit_id="website.assets_frontend"
+    >
+        <xpath expr="//link[last()]" position="after">
+            <link
+                rel="stylesheet"
+                type="text/css"
+                href="/website_settings/static/src/css/style.css"
+            />
+        </xpath>
+    </template>-->
+</odoo>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- Replace a banner which can't be replaced otherwise -->
+        <!-- This has been fixed in core. Remove in next migration -->
+        <template id="courses_all_banner" inherit_id="website_slides.courses_all">
+            <xpath expr="//section[@class='s_banner']" position="attributes">
+                <attribute name="t-attf-style">
+                    background-image: url(#{website.image_url(website, 'slides_banner_image')}); background-size: cover; background-position: 80% 20%
+                </attribute>
+            </xpath>
+        </template>
+        <!-- Hide channel/course sidebar -->
+        <template
+            id="hide_course_sidebar"
+            inherit_id="website_slides.course_main"
+            name="Hide Course Sidebar"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//div[@class='o_wslides_course_main']//div//div//div[@class='col-12 col-md-4 col-lg-3 mt-3 mt-md-0']//t"
+                position="replace"
+            >
+            </xpath>
+        </template>
+        <!-- Hide All Views on Slide -->
+        <template
+            id="hide_all_views"
+            inherit_id="website_slides.slide_content_detailed"
+            name="Hide All Views"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//div[@id='statistic']//div[@class='row']//div[1]"
+                position="attributes"
+            >
+                <attribute name="class">d-none</attribute>
+            </xpath>
+        </template>
+        <!-- Hide Search Courses on Slide -->
+        <template
+            id="course_nav"
+            inherit_id="website_slides.course_nav"
+            name="Hide 'Search Courses' box"
+            active="False"
+            customize_show="True"
+        >
+            <xpath expr="//div[@class='col-md-4 d-none d-md-flex flex-row align-items-center justify-content-end']" position="attributes">
+                <!-- Lisää tähän muutokset, jotka haluat tehdä kyseiselle form-elementille -->
+                <attribute name="class">d-none</attribute>
+            </xpath>
+
+        </template>
+        <!-- Hide breadcrumbs on Slide -->
+        <template
+            id="hide_breadcrumbs"
+            inherit_id="website_slides.course_nav"
+            name="Hide breadcrumbs"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//nav[@class='col-md-8 d-none d-md-flex']"
+                position="attributes"
+            >
+                <!-- Lisää tähän muutokset, jotka haluat tehdä kyseiselle form-elementille -->
+                <attribute name="class">d-none</attribute>
+            </xpath>
+
+        </template>
+
+        <!-- note: the parent template has a 't-if="channel.channel_type == xxxx' check, and it contains
+        the .o_wslides_nav_tabs element twice. -->
+
+        <!-- Hide profile_extra_info_tablist on Slide (training) -->
+        <template
+            id="hide_profile_extra_info_tablist_training"
+            inherit_id="website_slides.course_main"
+            name="Hide tab navigation for training courses"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="(//ul[hasclass('o_wslides_nav_tabs')])[1]"
+                position="attributes"
+            >
+                <attribute name="class">d-none</attribute>
+            </xpath>
+        </template>
+
+        <!-- Hide profile_extra_info_tablist on Slide (documentation)-->
+        <template
+            id="hide_profile_extra_info_tablist_documentation"
+            inherit_id="website_slides.course_main"
+            name="Hide tab navigation for documentation courses"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//ul[@class='nav nav-tabs o_wslides_nav_tabs flex-nowrap']"
+                position="attributes"
+            >
+                <attribute name="class">d-none</attribute>
+            </xpath>
+        </template>
+
+        <!-- Hide Share button on Slide -->
+        <!-- 17 versiossa ei taida olla tätä share buttonia
+        <template
+            id="hide_slides_share_button"
+            inherit_id="website_slides.course_main"
+            name="Hide 'Share' Button"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//div[@class='mt-3 d-grid o_not_editable']"
+                position="attributes"
+            >
+                <attribute name="class">d-none</attribute>
+            </xpath>
+        </template>
+        -->
+        <!-- Hide "order by" dropdown on Slide -->
+        <template
+            id="hide_slides_order_by_dropdown"
+            inherit_id="website_slides.course_slides_cards"
+            name="Hide 'Order By' Dropdown"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//li[@class='nav-item dropdown ms-lg-auto']"
+                position="attributes"
+            >
+                <attribute name="class">d-none</attribute>
+            </xpath>
+        </template>
+
+        <!-- Hide "Search in content" search box on Slide -->
+        <template
+            id="hide_slides_search_in_content"
+            inherit_id="website_slides.course_slides_cards"
+            name="Hide 'Search in content' search box"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//form[@role='search']"
+                position="attributes"
+            >
+                <attribute name="class">d-none</attribute>
+            </xpath>
+        </template>
+
+        <!-- Hide Total Views on Slide -->
+        <template
+            id="hide_total_views"
+            inherit_id="website_slides.slide_content_detailed"
+            name="Hide Total Views"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//div[@id='statistic']//div[@class='row']//div[1]//table//tbody//tr[2]"
+                position="attributes"
+            >
+                <attribute name="class">border-top-0 d-none</attribute>
+            </xpath>
+        </template>
+        <!-- Hide Member Views on Slide -->
+        <template
+            id="hide_member_views"
+            inherit_id="website_slides.slide_content_detailed"
+            name="Hide Member Views"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//div[@id='statistic']//div[@class='row']//div[1]//table//tbody//tr[3]"
+                position="attributes"
+            >
+                <attribute name="class">d-none</attribute>
+            </xpath>
+        </template>
+        <!-- Hide Public Views on Slide -->
+        <template
+            id="hide_public_views"
+            inherit_id="website_slides.slide_content_detailed"
+            name="Hide Public Views"
+            active="False"
+            customize_show="True"
+        >
+            <xpath
+                expr="//div[@id='statistic']//div[@class='row']//div[1]//table//tbody//tr[4]"
+                position="attributes"
+            >
+                <attribute name="class">d-none</attribute>
+            </xpath>
+        </template>
+        <!-- Hide share tab on Slide -->
+        <template
+            id="hide_share_tab"
+            inherit_id="website_slides.slide_content_detailed"
+            name="Hide Share Tab"
+            active="False"
+            customize_show="True"
+        >
+            <xpath expr="(//a[@class='btn btn-light border ms-2 my-1'])[2]" position="attributes">
+                <attribute name="class">nav-item d-none</attribute>
+            </xpath>
+            <!--<xpath expr="//div[@id='share']" position="attributes">
+                <attribute name="class">tab-pane fade d-none</attribute>
+            </xpath>-->
+        </template>
+        <!-- Hide statistics tab on Slide -->
+        <template
+            id="hide_statistics_tab"
+            inherit_id="website_slides.slide_content_detailed"
+            name="Hide Statistics Tab"
+            active="False"
+            customize_show="True"
+        >
+            <xpath expr="//a[@href='#statistic']//.." position="attributes">
+                <attribute name="class">nav-item d-none</attribute>
+            </xpath>
+            <xpath expr="//div[@id='statistic']" position="attributes">
+                <attribute name="class">tab-pane fade d-none</attribute>
+            </xpath>
+        </template>
+        <!-- Hide user profile on homepage -->
+        <template
+            id="hide_slides_home_user_profile_small"
+            inherit_id="website_slides.slides_home_user_profile_small"
+            name="Hide User Profile"
+            active="False"
+            customize_show="True"
+        >
+            <xpath expr="//div[hasclass('o_wslides_home_aside')]" position="attributes">
+                <attribute name="class" separator=" " add="d-none" />
+            </xpath>
+        </template>
+        <!-- Hide user achievements on homepage -->
+        <template
+            id="hide_slides_home_user_achievements_small"
+            inherit_id="website_slides.slides_home_user_achievements_small"
+            name="Hide User Achievements"
+            active="False"
+            customize_show="True"
+        >
+            <xpath expr="//div[hasclass('o_wslides_home_aside')]" position="attributes">
+                <attribute name="class" separator=" " add="d-none" />
+            </xpath>
+        </template>
+        <!-- Disable default fullscreen -->
+        <template
+            id="course_slides_list_slide_disable_default_fullscreen"
+            inherit_id="website_slides.course_slides_list_slide"
+            name="Disable Default Fullscreen"
+            active="True"
+            customize_show="True"
+        >
+            <xpath
+                expr="//a[hasclass('o_wslides_js_slides_list_slide_link')]"
+                position="attributes"
+            >
+                <attribute
+                    name="class"
+                    separator=" "
+                    add="o_wslides_js_slides_list_slide_link_disable"
+                />
+            </xpath>
+        </template>
+
+    </data>
+</odoo>
