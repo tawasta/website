@@ -159,7 +159,7 @@ class WebsiteUnreadMessagesController(http.Controller):
             ("author_id", "ilike", search),
             ("record_name", "ilike", search),
         ])
-        logging.info(user_messages);
+
         for um in user_messages:
             is_message_not_read = request.env["mail.notification"].search([
                 ("mail_message_id", "=", um.id),
@@ -168,10 +168,6 @@ class WebsiteUnreadMessagesController(http.Controller):
             ])
             if is_message_not_read:
                 message_list.append(um.id)
-
-        logging.info(message_list);
-
-
 
         #messages_count = message_model.search_count(domain)
         messages_count = len(message_list)
