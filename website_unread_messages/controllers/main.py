@@ -24,6 +24,7 @@ from datetime import datetime
 
 from odoo import _, http
 from odoo.http import request
+import logging
 
 # 2. Known third party imports:
 # 3. Odoo imports (openerp):
@@ -139,18 +140,37 @@ class WebsiteUnreadMessagesController(http.Controller):
             return request.render("website.404")
 
         # Recordset of unread messages
-        domain = [
-            # ("website_published", "=", True),
+        # domain = [
+        #     # ("website_published", "=", True),
+        #     ("notified_partner_ids", "=", partner_id),
+        #     ("website_url", "!=", False),
+        #     "|",
+        #     ("author_id", "ilike", search),
+        #     ("record_name", "ilike", search),
+        #     "&",
+        #     ("notification_ids.res_partner_id", "=", partner_id),
+        #     ("notification_ids.is_read", "=", False),
+        # ]
+        message_list = []
+        user_messages = request.env["mail.message"].search([
             ("notified_partner_ids", "=", partner_id),
             ("website_url", "!=", False),
             "|",
             ("author_id", "ilike", search),
             ("record_name", "ilike", search),
-            "&",
-            ("notification_ids.res_partner_id", "=", partner_id),
-            ("notification_ids.is_read", "=", False),
-        ]
-        messages_count = message_model.search_count(domain)
+        ])
+
+        for um in user_messages:
+            is_message_not_read = request.env["mail.notification"].search([
+                ("mail_message_id", "=", um.id),
+                ("res_partner_id", "=", partner_id),
+                ("is_read", "=", False),
+            ])
+            if is_message_not_read:
+                message_list.append(um.id)
+
+        #messages_count = message_model.search_count(domain)
+        messages_count = len(message_list)
         url = "/unread_messages"
         total_count = messages_count
         pager_limit = 50
@@ -162,9 +182,12 @@ class WebsiteUnreadMessagesController(http.Controller):
             scope=7,
             url_args=post,
         )
-        messages = message_model.sudo().search(
-            domain, order="id DESC", limit=pager_limit, offset=pager["offset"]
-        )
+        # messages = message_model.sudo().search(
+        #     domain, order="id DESC", limit=pager_limit, offset=pager["offset"]
+        # )
+        messages = request.env["mail.message"].sudo().search([
+            ("id", "in", message_list),
+        ], order="id DESC", limit=pager_limit, offset=pager["offset"])
         search_url = "/unread_messages?%s" % (search)
 
         message_start = abs(50 - page * pager_limit) + 1
@@ -181,3 +204,4 @@ class WebsiteUnreadMessagesController(http.Controller):
             "current_search": search,
         }
         return request.render("website_unread_messages.unread_messages", values)
+
