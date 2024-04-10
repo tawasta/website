@@ -144,14 +144,33 @@ class WebsiteUnreadMessagesController(http.Controller):
             # ("website_published", "=", True),
             ("notified_partner_ids", "=", partner_id),
             ("website_url", "!=", False),
+            "|",
+            ("author_id", "ilike", search),
+            ("record_name", "ilike", search),
+            "&",
             ("notification_ids.res_partner_id", "=", partner_id),
             ("notification_ids.is_read", "=", False),
-            # "|",
-            # ("author_id", "ilike", search),
-            # ("record_name", "ilike", search),
         ]
+        message_list = []
+        user_messages = request.env["mail.message"].search([
+            ("notified_partner_ids", "=", partner_id),
+            ("website_url", "!=", False),
+            "|",
+            ("author_id", "ilike", search),
+            ("record_name", "ilike", search),
+        ])
+        logging.info(user_messages);
+        for um in user_messages:
+            is_message_not_read = request.env["mail.notification"].search([
+                ("mail_message_id", "=", um.id),
+                ("res_partner_id", "=", partner_id),
+                ("is_read", "=", False),
+            ])
+            if is_message_not_read:
+                message_list.append(um)
 
-        logging.info(domain);
+        logging.info(message_list);
+
         messages_count = message_model.search_count(domain)
         url = "/unread_messages"
         total_count = messages_count
@@ -167,16 +186,6 @@ class WebsiteUnreadMessagesController(http.Controller):
         messages = message_model.sudo().search(
             domain, order="id DESC", limit=pager_limit, offset=pager["offset"]
         )
-        logging.info("======MESSAGES======");
-        logging.info(messages);
-
-        for me in messages:
-            for noti in me.notification_ids:
-                logging.info(noti.res_partner_id);
-                logging.info(noti.is_read);
-
-            logging.info("=====SEURAAVA VIESTI=====");
-
         search_url = "/unread_messages?%s" % (search)
 
         message_start = abs(50 - page * pager_limit) + 1
@@ -193,3 +202,4 @@ class WebsiteUnreadMessagesController(http.Controller):
             "current_search": search,
         }
         return request.render("website_unread_messages.unread_messages", values)
+
