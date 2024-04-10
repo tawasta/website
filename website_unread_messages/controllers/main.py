@@ -176,8 +176,6 @@ class WebsiteUnreadMessagesController(http.Controller):
                 if noti.res_partner_id == partner_id and noti.is_read == False:
                     logging.info(noti);
 
-            if me.notified_partner_ids == partner_id:
-                logging.info("====LOYTYY====");
         search_url = "/unread_messages?%s" % (search)
 
         message_start = abs(50 - page * pager_limit) + 1
