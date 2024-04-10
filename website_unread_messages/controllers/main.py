@@ -144,12 +144,11 @@ class WebsiteUnreadMessagesController(http.Controller):
             # ("website_published", "=", True),
             ("notified_partner_ids", "=", partner_id),
             ("website_url", "!=", False),
+            ("notification_ids.res_partner_id", "=", partner_id),
+            ("notification_ids.is_read", "=", False),
             "|",
             ("author_id", "ilike", search),
             ("record_name", "ilike", search),
-            "&",
-            ("notification_ids.res_partner_id", "=", partner_id),
-            ("notification_ids.is_read", "!=", True),
         ]
 
         logging.info(domain);
