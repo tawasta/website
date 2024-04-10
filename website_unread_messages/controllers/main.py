@@ -176,6 +176,8 @@ class WebsiteUnreadMessagesController(http.Controller):
                 logging.info(noti.res_partner_id);
                 logging.info(noti.is_read);
 
+            logging.info("=====SEURAAVA VIESTI=====");
+
         search_url = "/unread_messages?%s" % (search)
 
         message_start = abs(50 - page * pager_limit) + 1
