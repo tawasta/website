@@ -1,0 +1,61 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_crm_contact_form_select_based_lead_name
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20240216\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-10 13:25+0000\n"
+"PO-Revision-Date: 2024-04-10 13:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_crm_contact_form_select_based_lead_name
+#: model:ir.model.fields.selection,name:website_crm_contact_form_select_based_lead_name.selection__crm_lead__name_selection_based__feedback
+msgid "Feedback"
+msgstr "Palaute"
+
+#. module: website_crm_contact_form_select_based_lead_name
+#: model:ir.model,name:website_crm_contact_form_select_based_lead_name.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Liidi/mahdollisuus"
+
+#. module: website_crm_contact_form_select_based_lead_name
+#: model:ir.model.fields,field_description:website_crm_contact_form_select_based_lead_name.field_crm_lead__name_selection_based
+msgid "Name from Preselected Options"
+msgstr "Valintalistaan pohjautuva aihe/nimi"
+
+#. module: website_crm_contact_form_select_based_lead_name
+#: model:ir.model.fields.selection,name:website_crm_contact_form_select_based_lead_name.selection__crm_lead__name_selection_based__other
+msgid "Other Reason"
+msgstr "Muu"
+
+#. module: website_crm_contact_form_select_based_lead_name
+#: model:ir.model.fields.selection,name:website_crm_contact_form_select_based_lead_name.selection__crm_lead__name_selection_based__product_reservation
+msgid "Product Reservation"
+msgstr "Tuotteen ennakkovaraus"
+
+#. module: website_crm_contact_form_select_based_lead_name
+#: model:ir.model.fields.selection,name:website_crm_contact_form_select_based_lead_name.selection__crm_lead__name_selection_based__reclamation
+msgid "Reclamation"
+msgstr "Reklamaatiot"
+
+#. module: website_crm_contact_form_select_based_lead_name
+#: model:ir.model.fields.selection,name:website_crm_contact_form_select_based_lead_name.selection__crm_lead__name_selection_based__resale
+msgid "Resale"
+msgstr "Jälleenmyynti"
+
+#. module: website_crm_contact_form_select_based_lead_name
+#: model:ir.model.fields.selection,name:website_crm_contact_form_select_based_lead_name.selection__crm_lead__name_selection_based__returns
+msgid "Returns"
+msgstr "Palautukset"
+
+#. module: website_crm_contact_form_select_based_lead_name
+#: model:ir.model.fields.selection,name:website_crm_contact_form_select_based_lead_name.selection__crm_lead__name_selection_based__technical_support
+msgid "Technical Support"
+msgstr "Tekninen tuki"
