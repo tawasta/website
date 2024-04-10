@@ -8,7 +8,10 @@
         <!--<xpath expr="//div[hasclass('js_get_posts')]" position="attributes">
             <attribute name="data-posts-limit">7</attribute>
         </xpath>-->
-        <xpath expr="//t[@t-call='website.s_dynamic_snippet_template']" position="attributes">
+        <xpath
+            expr="//t[@t-call='website.s_dynamic_snippet_template']"
+            position="attributes"
+        >
             <attribute name="data-posts-limit">7</attribute>
         </xpath>
     </template>
