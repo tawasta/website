@@ -151,6 +151,8 @@ class WebsiteUnreadMessagesController(http.Controller):
             ("notification_ids.res_partner_id", "=", partner_id),
             ("notification_ids.is_read", "=", False),
         ]
+
+        logging.info(domain);
         messages_count = message_model.search_count(domain)
         url = "/unread_messages"
         total_count = messages_count
