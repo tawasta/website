@@ -142,13 +142,13 @@ class WebsiteUnreadMessagesController(http.Controller):
         # Recordset of unread messages
         domain = [
             # ("website_published", "=", True),
-            ("notified_partner_ids", "in", request.env.user.partner_id.ids),
+            ("notified_partner_ids", "=", partner_id),
             ("website_url", "!=", False),
             "|",
             ("author_id", "ilike", search),
             ("record_name", "ilike", search),
             "&",
-            ("notification_ids.res_partner_id", "=", request.env.user.partner_id.id),
+            ("notification_ids.res_partner_id", "=", partner_id),
             ("notification_ids.is_read", "=", False),
         ]
 
@@ -173,8 +173,8 @@ class WebsiteUnreadMessagesController(http.Controller):
 
         for me in messages:
             for noti in me.notification_ids:
-                if noti.res_partner_id == partner_id and noti.is_read == False:
-                    logging.info(noti);
+                logging.info(noti.res_partner_id);
+                logging.info(noti.is_read);
 
         search_url = "/unread_messages?%s" % (search)
 
