@@ -36,7 +36,7 @@
     ],
     "assets": {
         "web.assets_frontend": [
-            '/website_slides_settings/static/src/js/slides_course_slides_list.js',
+            "/website_slides_settings/static/src/js/slides_course_slides_list.js",
         ]
-    }
+    },
 }
