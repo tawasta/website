@@ -167,7 +167,7 @@ class WebsiteUnreadMessagesController(http.Controller):
                 ("is_read", "=", False),
             ])
             if is_message_not_read:
-                message_list.append(um)
+                message_list.append(um.id)
 
         logging.info(message_list);
 
