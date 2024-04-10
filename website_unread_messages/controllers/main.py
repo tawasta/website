@@ -142,13 +142,13 @@ class WebsiteUnreadMessagesController(http.Controller):
         # Recordset of unread messages
         domain = [
             # ("website_published", "=", True),
-            ("notified_partner_ids", "=", partner_id),
+            ("notified_partner_ids", "in", request.env.user.partner_id.ids),
             ("website_url", "!=", False),
             "|",
             ("author_id", "ilike", search),
             ("record_name", "ilike", search),
             "&",
-            ("notification_ids.res_partner_id", "=", partner_id),
+            ("notification_ids.res_partner_id", "=", request.env.user.partner_id.id),
             ("notification_ids.is_read", "=", False),
         ]
 
