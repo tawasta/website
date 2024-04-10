@@ -24,6 +24,7 @@ from datetime import datetime
 
 from odoo import _, http
 from odoo.http import request
+import logging
 
 # 2. Known third party imports:
 # 3. Odoo imports (openerp):
@@ -165,6 +166,8 @@ class WebsiteUnreadMessagesController(http.Controller):
         messages = message_model.sudo().search(
             domain, order="id DESC", limit=pager_limit, offset=pager["offset"]
         )
+        logging.info("======MESSAGES======");
+        logging.info(messages);
         search_url = "/unread_messages?%s" % (search)
 
         message_start = abs(50 - page * pager_limit) + 1
