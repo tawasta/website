@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template
+        id="s_latest_posts_limit"
+        inherit_id="website_blog.s_blog_posts"
+        name="Blog Posts"
+    >
+        <!--<xpath expr="//div[hasclass('js_get_posts')]" position="attributes">
+            <attribute name="data-posts-limit">7</attribute>
+        </xpath>-->
+        <xpath
+            expr="//t[@t-call='website.s_dynamic_snippet_template']"
+            position="attributes"
+        >
+            <attribute name="data-posts-limit">7</attribute>
+        </xpath>
+    </template>
+    <template
+        id="s_latest_posts_options_limit"
+        inherit_id="website.s_dynamic_snippet_options_template"
+    >
+        <xpath expr="//div[@t-attf-data-js='#{snippet_name}']" position="inside">
+            <we-select
+                string="Number of posts"
+                data-no-preview="true"
+                data-attribute-name="postsLimit"
+                class="o_we_inline"
+            >
+                <we-button data-select-data-attribute="1">1</we-button>
+                <we-button data-select-data-attribute="1">1</we-button>
+                <we-button data-select-data-attribute="2">2</we-button>
+                <we-button data-select-data-attribute="3">3</we-button>
+                <we-button data-select-data-attribute="4">4</we-button>
+                <we-button data-select-data-attribute="6">6</we-button>
+                <we-button data-select-data-attribute="7">7</we-button>
+                <we-button data-select-data-attribute="8">8</we-button>
+                <we-button data-select-data-attribute="9">9</we-button>
+                <we-button data-select-data-attribute="10">10</we-button>
+                <we-button data-select-data-attribute="11">11</we-button>
+                <we-button data-select-data-attribute="12">12</we-button>
+                <we-button data-select-data-attribute="13">13</we-button>
+                <we-button data-select-data-attribute="14">14</we-button>
+                <we-button data-select-data-attribute="15">15</we-button>
+                <we-button data-select-data-attribute="16">16</we-button>
+                <we-button data-select-data-attribute="17">17</we-button>
+                <we-button data-select-data-attribute="18">18</we-button>
+                <we-button data-select-data-attribute="19">19</we-button>
+                <we-button data-select-data-attribute="20">20</we-button>
+            </we-select>
+        </xpath>
+    </template>
+
+</odoo>

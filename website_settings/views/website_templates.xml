@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Hide Sign in button -->
+    <template
+        id="hide_signin_button"
+        inherit_id="portal.user_sign_in"
+        name="Hide Sign In"
+        active="False"
+        customize_show="True"
+    >
+        <xpath expr="//li" position="attributes">
+            <attribute
+                name="t-attf-class"
+            >#{_item_class} o_no_autohide_item d-none</attribute>
+        </xpath>
+    </template>
+    <!-- Add Social Icons to navbar -->
+    <template
+        id="navbar_social_icons"
+        inherit_id="website.navbar_nav"
+        name="Social Icons in Top Menu"
+        active="False"
+        customize_show="True"
+    >
+        <xpath expr="//ul[@id='top_menu']" position="after">
+            <div id="topmenu-social-icons" class="text-right" style="height: 2rem;">
+                <t
+                    t-foreach="['youtube', 'twitter', 'linkedin', 'instagram', 'github', 'facebook']"
+                    t-as="item"
+                >
+                    <a
+                        t-if="website['social_' + item]"
+                        t-att-target="'_blank'"
+                        t-att-href="website['social_' + item]"
+                    >
+                        <i t-attf-class="fa fa-2x fa-{{ item }}" />
+                    </a>
+                </t>
+            </div>
+        </xpath>
+    </template>
+    <template id="login_layout_editable" inherit_id="website.login_layout">
+        <xpath expr="//div[@class='oe_website_login_container']" position="before">
+            <div id="wrap-before" class="oe_structure oe_empty">
+            </div>
+        </xpath>
+        <xpath expr="//div[@class='oe_website_login_container']" position="after">
+            <div id="wrap-after" class="oe_structure oe_empty">
+            </div>
+        </xpath>
+    </template>
+</odoo>

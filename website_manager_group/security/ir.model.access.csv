@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_website_manager,website.website.manager,website.model_website,group_website_manager,1,1,1,1
+access_website_page_manager,Web Page Manager,website.model_website_page,group_website_manager,1,1,1,1
+access_website_rewrite_manager,Web Rewrite Manager,website.model_website_rewrite,group_website_manager,1,1,1,1
+access_website_route_manager,access_website_manager_route,website.model_website_route,group_website_manager,1,1,1,1
+access_website_robots_manager,access.website.robots.manager,website.model_website_robots,group_website_manager,1,1,1,0
