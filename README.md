@@ -20,6 +20,6 @@ addon | version | maintainers | summary
 [website_hide_login](website_hide_login/) | 17.0.1.0.0 |  | Hide Odoo native login, but show oAuth-logins
 [website_manager_group](website_manager_group/) | 17.0.1.0 |  | new Website Permission Group to limit access for designers & editors
 [website_settings](website_settings/) | 17.0.1.0 |  | Website toggleable settings under customize menu and other setting options
-[website_slides_settings](website_slides_settings/) | 17.0.1.0 |  | Website Slides toggleable settings under website customize menu
+[website_slides_settings](website_slides_settings/) | 17.0.1.0.1 |  | Website Slides toggleable settings under website customize menu
 
 [//]: # (end addons)

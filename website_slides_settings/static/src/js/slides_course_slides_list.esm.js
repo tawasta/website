@@ -1,12 +1,12 @@
 /** @odoo-module **/
 
-import publicWidget from "@web/legacy/js/public/public_widget";
-import {_t} from "@web/core/l10n/translation";
 import {SlideCoursePage} from "@website_slides/js/slides_course_page";
+import publicWidget from "@web/legacy/js/public/public_widget";
 
 publicWidget.registry.websiteSlidesCourseSlidesList = SlideCoursePage.extend({
     _updateHref: function () {
         this.$(".o_wslides_js_slides_list_slide_link").each(function () {
+            /* eslint-disable no-negated-condition */
             if (!$(this).hasClass("o_wslides_js_slides_list_slide_link_disable")) {
                 var href = $(this).attr("href");
                 var operator = href.indexOf("?") !== -1 ? "&" : "?";
