@@ -16,6 +16,7 @@ addon | version | maintainers | summary
 [website_blog_settings](website_blog_settings/) | 17.0.1.0 |  | Customization settings under website frontend customize menu
 [website_crm_contact_form_select_based_lead_name](website_crm_contact_form_select_based_lead_name/) | 17.0.1.0.0 |  | Allows configuring web leads' subject to be based on a selection list instead of freetext
 [website_environment_ribbon](website_environment_ribbon/) | 17.0.1.0.0 |  | Show environment ribbon on website also. Only shows text 'TEST' on website side.
+[website_finnish_language_to_country](website_finnish_language_to_country/) | 17.0.1.0.0 |  | Country is Finland if Website Language is Finnish
 [website_hide_info](website_hide_info/) | 17.0.1.0 |  | Hides Odoo System Information on at /website/info
 [website_hide_login](website_hide_login/) | 17.0.1.0.0 |  | Hide Odoo native login, but show oAuth-logins
 [website_manager_group](website_manager_group/) | 17.0.1.0 |  | new Website Permission Group to limit access for designers & editors
