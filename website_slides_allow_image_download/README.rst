@@ -21,8 +21,8 @@ Configuration
 Usage
 =====
 * Create a slide with a high resolution image either
-  - Via frontend's "Upload new content", you can use the type "Presentation"
-  - Via backend, you can use the type "Document"
+  * Via frontend's "Upload new content", you can use the type "Presentation"
+  * Via backend, you can use the type "Document"
 * Go to the slide page in frontend, and you will see a Download button
 * For any legacy images that may exist from before the module was 
   installed, the button downloads the compressed image provided by Odoo core.

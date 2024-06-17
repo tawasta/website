@@ -42,7 +42,8 @@ class Slide(models.Model):
             # In backend the image_uncompressed value is already present and should not
             # be copied from datas, as datas may contain an empty value, depending
             # on slide_type.
-            if uploaded_from_website:
+
+            if uploaded_from_website and values.get("datas"):
                 values["image_uncompressed"] = values["datas"]
 
             self = self.with_context(image_no_postprocess=True)

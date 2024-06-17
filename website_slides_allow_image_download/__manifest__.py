@@ -20,7 +20,7 @@
 {
     "name": "Website Slides: Keep Original Image for Downloading",
     "summary": "Stores original high-res image and provides a download button",
-    "version": "14.0.2.0.0",
+    "version": "14.0.2.0.1",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
