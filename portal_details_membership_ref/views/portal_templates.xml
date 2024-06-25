@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="portal_layout_membership_ref" inherit_id="portal.side_content">
+        <xpath
+            expr="//div[@class='o_portal_my_details']//div[@t-field='user_id.partner_id']"
+            position="after"
+        >
+            <t t-if="user_id.partner_id.ref">
+                <div class="mt-1">
+                    <i
+                        class="fa fa-id-card fa-fw text-muted"
+                        role="img"
+                        aria-label="Membership Number"
+                        title="Membership Number"
+                    />
+                    <span
+                        itemprop="membershipNumber"
+                        t-esc="user_id.partner_id.ref"
+                        class="pl-1"
+                    />
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>
