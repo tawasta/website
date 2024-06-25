@@ -13,6 +13,7 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [portal_details_domicile](portal_details_domicile/) | 17.0.1.0.0 |  | Portal details - Edit domicile information
 [portal_details_firstname](portal_details_firstname/) | 17.0.1.0.0 |  | Portal details replace name with first name and last name
+[portal_details_membership_ref](portal_details_membership_ref/) | 17.0.1.0.0 |  | Show Membership Reference (partner.ref) in portal details.
 [portal_details_name_extension](portal_details_name_extension/) | 17.0.1.0.0 |  | Show name_extension in /my/account
 [portal_details_street2](portal_details_street2/) | 17.0.1.0.0 |  | Portal details add optional field street 2
 [res_country_website_published](res_country_website_published/) | 17.0.1.0.0 |  | Manually choose countries that will be shown on Website
