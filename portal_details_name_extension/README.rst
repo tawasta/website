@@ -5,7 +5,7 @@
 =============================
 Portal Details Name Extension
 =============================
-* Portal details (/my/account/) add name extension from connector_netvisor
+* Show Name Extension field in /my/account
 
 Configuration
 =============
