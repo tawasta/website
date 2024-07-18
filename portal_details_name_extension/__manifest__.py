@@ -21,13 +21,13 @@
 {
     "name": "Portal Details Name Extension",
     "summary": "Show name_extension in /my/account",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["portal", "connector_netvisor"],
+    "depends": ["portal", "res_partner_name_extension"],
     "data": ["views/portal_templates.xml"],
 }
