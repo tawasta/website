@@ -1,0 +1,16 @@
+.o_header_announcement_stripe {
+    z-index: 24;
+    overflow: hidden;
+    position: relative;
+    background-color: o-color("footer");
+    color: #fff;
+}
+.o_header_announcement_stripe > p {
+    display: block;
+    padding: 7px 20px 6px;
+    text-align: center;
+    margin-bottom: 0;
+}
+.o_header_announcement_stripe a {
+    color: #fff;
+}

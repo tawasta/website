@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template
+        id="template_header_announcement_stripe"
+        inherit_id="website.layout"
+        active="True"
+    >
+        <xpath expr="//header[@id='top']" position="before">
+            <t t-if="website.header_announcement_stripe_show">
+                <div class="o_header_announcement_stripe">
+                    <t t-raw="website.header_announcement_stripe_text" />
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>
