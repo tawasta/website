@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- List box layout -->
+    <template id="s_latest_posts_list_box_template">
+        <div
+            t-foreach="posts"
+            t-as="p"
+            t-attf-class="#{'col-lg-12' if columns == 1 else 'col-md-6 col-lg-6' if columns == 2 else 'col-md-6 col-lg-4' if columns == 3 else 'col-md-6 col-lg-3' if columns == 4 else 'col-12'} s_latest_posts_post mt-3 d-flex"
+        >
+            <div>
+                <span
+                    class="s_latest_posts_list_box_category"
+                    t-field="p.blog_id.name"
+                />
+                <a
+                    class="s_latest_posts_list_box_link s_latest_posts_post_cover flex-grow-0 flex-shrink-0 align-self-baseline position-relative"
+                    t-att-title="'Read' + p.name"
+                    t-attf-href="/blog/#{p.blog_id.id}/#{p.id}"
+                >
+<t t-call="website.record_cover">
+                    <t t-set="_record" t-value="p" />
+                        <t
+                            t-set="additionnal_classes"
+                            t-value="'w-100 h-100 bg-200 position-absolute d-none'"
+                        />
+                        <div
+                            class="s_latest_posts_loader d-flex d-none align-items-center justify-content-center bg-200"
+                        >
+                            <div class="d-none rounded-circle bg-black-25 w-25 h-25" />
+                        </div>
+                    </t>
+                    <div class="s_latest_posts_post_title mb-1" t-field="p.name" />
+                </a>
+            </div>
+        </div>
+    </template>
+    <!-- Squares layout -->
+    <template id="s_latest_posts_square_template">
+        <div
+            t-foreach="posts"
+            t-as="p"
+            t-attf-class="#{'col-lg-12' if columns == 1 else 'col-md-6 col-lg-6' if columns == 2 else 'col-md-6 col-lg-4' if columns == 3 else 'col-md-6 col-lg-3' if columns == 4 else 'col-md-6 col-lg-3'} s_latest_posts_post pb32"
+        >
+            <div class="card">
+                <a
+                    class="s_latest_posts_post_cover"
+                    t-attf-href="/blog/#{p.blog_id.id}/#{p.id}"
+                >
+                    <t t-call="website.record_cover">
+                        <t t-set="_record" t-value="p" />
+                       <t
+                            t-set="additionnal_classes"
+                            t-value="'loading_container thumb'"
+                        />
+                    </t>
+                </a>
+                <div class="card-body text-center">
+                    <span t-field="p.post_date" t-options='{"format": "dd.MM.yyyy"}' />
+                    <h4 class="card-title">
+                        <t t-esc="p.name" />
+                        <t t-if="p.subtitle">
+                            <span> (<t t-esc="p.subtitle" />)</span>
+                        </t>
+                    </h4>
+                    <p class="card-text" t-field="p.teaser" />
+                </div>
+                <div class="card-footer text-center">
+                    <a
+                        t-attf-href="/blog/#{p.blog_id.id}/#{p.id}"
+                        class="btn-link"
+                    >Read more <span class="fa fa-angle-double-right" /></a>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- Big picture layout -->
+    <template
+        id="s_latest_posts_big_picture_template_columns"
+        inherit_id="website_blog.dynamic_filter_template_blog_post_big_picture"
+    >
+        <xpath expr="//figure[@t-as='data']" position="attributes">
+            <attribute
+                name="t-attf-class"
+            >#{'col-lg-12' if columns == 1 else 'col-md-6 col-lg-6' if columns == 2 else 'col-md-6 col-lg-4' if columns == 3 else 'col-md-6 col-lg-3' if columns == 4 else 'col-md-6 col-lg-4'} s_latest_posts_post my-3</attribute>
+        </xpath>
+    </template>
+    <!-- Horizontal layout -->
+    <template
+        id="s_latest_posts_horizontal_template_columns"
+        inherit_id="website_blog.dynamic_filter_template_blog_post_horizontal"
+    >
+        <xpath expr="//figure[@t-as='data']" position="attributes">
+            <attribute
+                name="t-attf-class"
+            >#{'col-lg-12' if columns == 1 else 'col-md-6 col-lg-6' if columns == 2 else 'col-md-6 col-lg-4' if columns == 3 else 'col-md-6 col-lg-3' if columns == 4 else 'col-md-6 col-lg-4'} post s_latest_posts_post</attribute>
+        </xpath>
+    </template>
+    <!-- Card layout -->
+    <template
+        id="s_latest_posts_card_template_columns"
+        inherit_id="website_blog.dynamic_filter_template_blog_post_card"
+    >
+        <xpath expr="//div[@t-as='data']" position="attributes">
+            <attribute
+                name="t-attf-class"
+            >#{'col-lg-12' if columns == 1 else 'col-md-6 col-lg-6' if columns == 2 else 'col-md-6 col-lg-4' if columns == 3 else 'col-md-6 col-lg-3' if columns == 4 else 'col-md-6 col-lg-4'} s_latest_posts_post pb32</attribute>
+        </xpath>
+    </template>
+    <!-- List layout -->
+    <template
+        id="s_latest_posts_list_template_columns"
+        inherit_id="website_blog.dynamic_filter_template_blog_post_list"
+    >
+        <xpath expr="//div[@t-as='data']" position="attributes">
+            <attribute
+                name="t-attf-class"
+            >#{'col-lg-12' if columns == 1 else 'col-md-6 col-lg-6' if columns == 2 else 'col-md-6 col-lg-4' if columns == 3 else 'col-md-6 col-lg-3' if columns == 4 else 'col-12'} s_latest_posts_post mt-3 d-flex</attribute>
+        </xpath>
+    </template>
+<!--     <template -->
+<!--         id="s_latest_posts_columns" -->
+<!--         inherit_id="website_blog.s_blog_posts" -->
+<!--         name="Blog Posts" -->
+<!--     > -->
+<!--         <xpath expr="//div[hasclass('js_get_posts')]" position="attributes"> -->
+<!--             <attribute name="data-posts-columns">3</attribute> -->
+<!--         </xpath> -->
+<!--     </template> -->
+    <!-- Options -->
+    <template
+        id="s_latest_posts_options_inherit"
+        inherit_id="website_blog.s_dynamic_snippet_options_template"
+    >
+<!--         <xpath -->
+<!--             expr="//we-button[@data-select-data-attribute='website_blog.s_latest_posts_card_template']" -->
+<!--             position="after" -->
+<!--         > -->
+<!--             <we-button -->
+<!--                 data-select-data-attribute="website_blog_blogs_snippet.s_latest_posts_square_template" -->
+<!--                 data-select-class="s_latest_posts_square" -->
+<!--                 data-name="square_opt" -->
+<!--             >Squares</we-button> -->
+<!--             <we-button -->
+<!--                 data-select-data-attribute="website_blog_blogs_snippet.s_latest_posts_list_box_template" -->
+<!--                 data-select-class="s_latest_posts_list_box" -->
+<!--                 data-name="list_box_opt" -->
+<!--             >List box</we-button> -->
+<!--         </xpath> -->
+        <xpath expr="//we-select[@data-name='blog_opt']" position="after">
+            <we-select
+                string="Only show promoted posts"
+                data-no-preview="true"
+                name="blog_promoted_posts"
+                data-attribute-name="promoted"
+            >
+                <we-button data-select-data-attribute="true">Yes</we-button>
+                <we-button data-select-data-attribute="false">No</we-button>
+            </we-select>
+            <we-select
+                string="Number of columns"
+                data-no-preview="true"
+                data-attribute-name="postsColumns"
+                class="o_we_inline"
+            >
+                <we-button data-select-data-attribute="1">1</we-button>
+                <we-button data-select-data-attribute="2">2</we-button>
+                <we-button data-select-data-attribute="3">3</we-button>
+                <we-button data-select-data-attribute="4">4</we-button>
+            </we-select>
+        </xpath>
+    </template>
+</odoo>
