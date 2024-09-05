@@ -31,7 +31,11 @@
     "depends": ["website", "portal"],
     "data": [
         "views/website_templates.xml",
-        "views/assets.xml",
         "views/res_config_settings.xml",
     ],
+    'assets': {
+        'web.assets_frontend': [
+            'website_settings/static/src/css/style.css"',
+        ],
+    },
 }
