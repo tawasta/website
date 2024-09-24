@@ -21,7 +21,7 @@
 {
     "name": "Website Utilities",
     "summary": "Useful website utilities",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",

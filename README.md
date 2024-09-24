@@ -56,6 +56,6 @@ addon | version | maintainers | summary
 [website_team_snippet](website_team_snippet/) | 14.0.1.0.0 |  | Website team Snippet
 [website_translations](website_translations/) | 14.0.1.4.4 |  | Website translations in backend
 [website_unread_messages](website_unread_messages/) | 14.0.3.1.1 |  | Unread messages for website
-[website_utilities](website_utilities/) | 14.0.1.0.0 |  | Useful website utilities
+[website_utilities](website_utilities/) | 14.0.1.0.1 |  | Useful website utilities
 
 [//]: # (end addons)
