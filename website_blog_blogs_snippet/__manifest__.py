@@ -18,15 +18,15 @@
 #
 ##############################################################################
 {
-    "name": "Website Blog Blogs Snippet",
-    "summary": "Improved Blogs Snippets",
-    "version": "17.0.1.0.0",
+    "name": "Website Blog Blogs Snippet (DEPRECATED)",
+    "summary": "Improved Blogs Snippets (deprecated)",
+    "version": "17.0.2.0.0",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
-    "installable": True,
+    "installable": False,
     "depends": ["web", "website_blog"],
     "data": ["views/website_blog_views.xml", "views/snippets/s_latest_posts.xml"],
     "assets": {
