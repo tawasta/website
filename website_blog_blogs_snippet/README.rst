@@ -9,6 +9,14 @@ Website Blog Blogs Snippet
 * New Improved Snippet for Blog Posts "List box"
 * Ability to select number of columns per row for each layout
 * Ability to only show promoted blog posts in snippets
+* Deprecated and flagged as uninstallable in 17.0
+
+  * Core blog post snippet in 17.0 is good to inherit and customize,
+    instead of rewriting a new snippet. It contains multiple layouts
+    out of the box.
+  * website_blog_snippet_extra_options provides the blog post promotion
+    feature for the core blog post snippet.
+    
 
 Configuration
 =============
@@ -30,6 +38,7 @@ Contributors
 
 * Miika Nissi <miika.nissi@tawasta.fi>
 * Timo Kekäläinen <timo.kekalainen@tawasta.fi>
+* Timo Talvitie <timo.talvitie@tawasta.fi>
 
 Maintainer
 ----------

@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2022- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
+#    Copyright 2024- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -17,22 +17,17 @@
 #    along with this program. If not, see http://www.gnu.org/licenses/agpl.html
 #
 ##############################################################################
+
 {
-    "name": "Website Blog Blogs Snippet (DEPRECATED)",
-    "summary": "Improved Blogs Snippets (deprecated)",
-    "version": "17.0.2.0.0",
-    "category": "Website",
+    "name": "Website 'Blog Posts' Snippet Extra Options",
+    "summary": "Additional configurations for the core snippet",
+    "version": "17.0.1.0.0",
+    "category": "Event",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
-    "installable": False,
-    "depends": ["web", "website_blog"],
-    "data": ["views/website_blog_views.xml", "views/snippets/s_latest_posts.xml"],
-    "assets": {
-        "web.assets_frontend": [
-            "/website_blog_blogs_snippet/static/src/js/s_latest_posts.esm.js",
-            "/website_blog_blogs_snippet/static/src/scss/s_latest_posts.scss",
-        ]
-    },
+    "installable": True,
+    "depends": ["website_blog"],
+    "data": ["views/blog_post_views.xml", "data/blog_snippet_template_data.xml"],
 }
