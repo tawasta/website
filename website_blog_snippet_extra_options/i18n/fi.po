@@ -1,0 +1,41 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_blog_snippet_extra_options
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20240603\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-25 11:17+0000\n"
+"PO-Revision-Date: 2024-09-25 11:17+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_blog_snippet_extra_options
+#: model:ir.model,name:website_blog_snippet_extra_options.model_blog_post
+msgid "Blog Post"
+msgstr "Blogikirjoitus"
+
+#. module: website_blog_snippet_extra_options
+#: model:ir.model.fields,field_description:website_blog_snippet_extra_options.field_blog_post__is_promoted
+msgid "Promoted"
+msgstr "Mainostettu blogikirjoitus"
+
+#. module: website_blog_snippet_extra_options
+#: model:website.snippet.filter,name:website_blog_snippet_extra_options.dynamic_filter_promoted_latest_blog_posts
+msgid "Promoted Latest Blog Posts"
+msgstr "Mainostetut uusimmat blogikirjoitukset"
+
+#. module: website_blog_snippet_extra_options
+#: model:website.snippet.filter,name:website_blog_snippet_extra_options.dynamic_filter_promoted_most_viewed_blog_posts
+msgid "Promoted Most Viewed Blog Posts"
+msgstr "Mainostetut katsotuimmat blogikirjoitukset"
+
+#. module: website_blog_snippet_extra_options
+#: model:ir.model.fields,help:website_blog_snippet_extra_options.field_blog_post__is_promoted
+msgid "Promoted posts can be shown in a post widget."
+msgstr "Mainostettuja blogikirjoituksia voidaan suodattaa näkymään verkkosivun blogikirjoitus-widgetissä"
