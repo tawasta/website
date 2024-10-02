@@ -31,7 +31,7 @@ addon | version | maintainers | summary
 [website_manager_group](website_manager_group/) | 17.0.1.0 |  | new Website Permission Group to limit access for designers & editors
 [website_remove_editor_rights_from_sale_administrators](website_remove_editor_rights_from_sale_administrators/) | 17.0.1.0.0 |  | Remove the automatically granted editor access
 [website_settings](website_settings/) | 17.0.1.0 |  | Website toggleable settings under customize menu and other setting options
-[website_slides_settings](website_slides_settings/) | 17.0.1.0.1 |  | Website Slides toggleable settings under website customize menu
+[website_slides_settings](website_slides_settings/) | 17.0.1.0.2 |  | Website Slides toggleable settings under website customize menu
 
 
 Unported addons
