@@ -25,7 +25,7 @@
     "website": "https://gitlab.com/tawasta/odoo/website",
     "category": "Website",
     "version": "17.0.1.0.0",
-    "depends": ["web", "website", "web_environment_ribbon"],
+    "depends": ["portal", "website"],
     "data": [],
     "demo": [],
     "assets": {},
