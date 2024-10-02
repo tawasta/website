@@ -1,5 +1,5 @@
 from odoo.addons.web.controllers.utils import is_user_internal
-from odoo.addons.web.controllers.home import Home as WebHome
+from odoo.addons.portal.controllers.web import Home as WebHome
 
 
 class Home(WebHome):
