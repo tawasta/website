@@ -21,7 +21,7 @@
 {
     "name": "Portal Details Name Extension",
     "summary": "Show name_extension in /my/account",
-    "version": "17.0.1.0.1",
+    "version": "17.0.1.0.2",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
