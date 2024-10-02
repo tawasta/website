@@ -2,10 +2,11 @@
 <odoo>
     <template
         id="portal_my_details_name_extension"
-        inherit_id="portal.portal_my_details"
+        inherit_id="portal.portal_my_details_fields"
     >
         <xpath expr="//input[@name='email']//.." position="before">
             <div
+                name="name-extension-input"
                 t-attf-class="form-group #{error.get('name_extension') and 'o_has_error' or ''} col-xl-6"
             >
                 <label
