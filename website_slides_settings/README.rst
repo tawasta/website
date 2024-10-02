@@ -21,12 +21,12 @@ Website Slides Settings
    - Hide the 'Order by' dropdown of the content search results
 
 * Add banner image from backend to '/slides/all' view. This fixes a bug in Odoo editor 
-  which does not allow changing the banner. NOTE: Remove this in migration as this is 
-  fixed upstream. Keep for v14 as deprecated feature as removing field is risky.
+  which does not allow changing the banner.
 
 Configuration
 =============
-\-
+* Set the slides banner image from backend website Settings
+* Toggle other settings via website builder as needed
 
 Usage
 =====
