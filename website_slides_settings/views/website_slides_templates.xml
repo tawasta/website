@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- oca-hooks:disable=xml-dangerous-qweb-replace-low-priority -->
 <odoo>
-    <!-- Replace a banner which can't be replaced otherwise -->
-    <!-- This has been fixed in core. Remove in next migration -->
+    <!-- Replace a banner which can't be replaced otherwise. Do separately for all three sections (my courses, certifications, all courses) -->
     <template id="courses_all_banner" inherit_id="website_slides.courses_all">
-        <xpath expr="//section[@class='s_banner']" position="attributes">
+
+        <xpath expr="(//section[hasclass('s_banner')])[1]" position="attributes">
+            <attribute name="style" />
             <attribute name="t-attf-style">
-                background-image: url(#{website.image_url(website, 'slides_banner_image')}); background-size: cover; background-position: 80% 20%
+                background-image: url(#{website.image_url(website, 'slides_banner_image')}); background-size: cover; background-position: 80% 20%;
             </attribute>
         </xpath>
+
+        <xpath expr="(//section[hasclass('s_banner')])[2]" position="attributes">
+            <attribute name="style" />
+            <attribute name="t-attf-style">
+                background-image: url(#{website.image_url(website, 'slides_banner_image')}); background-size: cover; background-position: 80% 20%;
+            </attribute>
+        </xpath>
+
+        <xpath expr="(//section[hasclass('s_banner')])[3]" position="attributes">
+            <attribute name="style" />
+            <attribute name="t-attf-style">
+                background-image: url(#{website.image_url(website, 'slides_banner_image')}); background-size: cover; background-position: 80% 20%;
+            </attribute>
+        </xpath>
+
+
     </template>
     <!-- Hide channel/course sidebar -->
     <template
