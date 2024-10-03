@@ -2,14 +2,11 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=====================
-Website Blog RSS Feed
-=====================
-* Ability to create custom RSS Feeds with multiple blogs.
-* Improves Website Blog RSS feed generation
-   - Uses atom rss 1.0 specification for content.
-   - Uses atom rss 2.0 specification for image enclosure:
-      - https://www.rssboard.org/rss-specification#ltenclosuregtSubelementOfLtitemgt
+================================
+Website Blog RSS Multi-blog Feed
+================================
+* Ability to create custom RSS Feeds with multiple blogs' contents
+  which are then available at URLs such as /feed/1
 
 Configuration
 =============
