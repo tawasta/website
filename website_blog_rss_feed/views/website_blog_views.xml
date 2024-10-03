@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <!-- Blog Rss Feed Views -->
-    <record id="view_blog_feed_tree" model="ir.ui.view">
-        <field name="name">blog.feed.tree</field>
-        <field name="model">blog.feed</field>
+    <!-- Blog Rss multifeed Views -->
+    <record id="view_blog_multifeed_tree" model="ir.ui.view">
+        <field name="name">blog.multifeed.tree</field>
+        <field name="model">blog.multifeed</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name" />
@@ -13,11 +13,11 @@
             </tree>
         </field>
     </record>
-    <record id="view_blog_feed_form" model="ir.ui.view">
-        <field name="name">blog.feed.form</field>
-        <field name="model">blog.feed</field>
+    <record id="view_blog_multifeed_form" model="ir.ui.view">
+        <field name="name">blog.multifeed.form</field>
+        <field name="model">blog.multifeed</field>
         <field name="arch" type="xml">
-            <form string="Feed">
+            <form string="Multifeed">
                 <sheet>
                     <group>
                         <field name="name" />
@@ -29,17 +29,17 @@
             </form>
         </field>
     </record>
-    <record id="action_feeds" model="ir.actions.act_window">
-        <field name="name">Blog Feeds</field>
-        <field name="res_model">blog.feed</field>
+    <record id="action_multifeeds" model="ir.actions.act_window">
+        <field name="name">Blog Multifeeds</field>
+        <field name="res_model">blog.multifeed</field>
         <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="view_blog_feed_tree" />
+        <field name="view_id" ref="view_blog_multifeed_tree" />
     </record>
     <menuitem
-        id="menu_website_blog_feed_global"
+        id="menu_website_blog_multifeed_global"
         parent="website_blog.menu_website_blog_root_global"
-        name="Blog Feeds"
-        action="action_feeds"
+        name="Blog RSS Multifeeds"
+        action="action_multifeeds"
         sequence="25"
     />
 </odoo>

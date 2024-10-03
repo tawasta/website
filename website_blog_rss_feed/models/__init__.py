@@ -1,1 +1,2 @@
-from . import website_blog
+from . import blog_blog
+from . import blog_multifeed
