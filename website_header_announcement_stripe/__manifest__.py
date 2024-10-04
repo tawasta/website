@@ -21,7 +21,7 @@
 {
     "name": "Website Header Announcement Stripe",
     "summary": "Announcement Stripe to Website header",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
