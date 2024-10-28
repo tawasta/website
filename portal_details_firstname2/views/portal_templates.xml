@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template
+        id="portal_my_details_fields"
+        inherit_id="portal_details_firstname.portal_my_details_firstname"
+        priority="100"
+    >
+        <xpath expr="//div[@id='div_firstname']" position="after">
+            <div
+                t-attf-class="form-group #{error.get('name2') and 'o_has_error' or ''} col-xl-6"
+            >
+                <label class="col-form-label" for="firstname2">Other names</label>
+                <input
+                    type="text"
+                    name="firstname2"
+                    t-attf-class="form-control #{error.get('firstname2') and 'is-invalid' or ''}"
+                    t-att-value="firstname2 or partner.firstname2"
+                />
+            </div>
+        </xpath>
+    </template>
+</odoo>
