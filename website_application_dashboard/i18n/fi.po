@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0-20240104\n"
+"Project-Id-Version: Odoo Server 17.0-20240819\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-30 13:24+0000\n"
-"PO-Revision-Date: 2024-01-30 15:26+0200\n"
+"POT-Creation-Date: 2024-11-05 12:06+0000\n"
+"PO-Revision-Date: 2024-11-05 14:07+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -88,6 +88,11 @@ msgstr "Sovelluksen tunniste"
 #, python-format
 msgid "API response is not a list or size is 0!"
 msgstr "Rajapinnan vastaus ei ole lista tai listan koko on 0!"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid "Additional information abot the application"
+msgstr "Lisätietoja sovellukseen liittyen"
 
 #. module: website_application_dashboard
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app_user__application_id
@@ -378,6 +383,16 @@ msgid "Info for the application"
 msgstr "Sovelluksen ohjeet"
 
 #. module: website_application_dashboard
+#: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app__mobilefriendly
+msgid "Is the application mobile friendly"
+msgstr "Onko sovellus mobiiliyhteensopiva"
+
+#. module: website_application_dashboard
+#: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
+msgid "Is the application mobilefriendly"
+msgstr "Onko sovellus mobiiliyhteensopiva"
+
+#. module: website_application_dashboard
 #: model:ir.model.fields,help:website_application_dashboard.field_dashboard_app_user__visible
 msgid "Is this application visible to the user"
 msgstr "Onko sovellus näkyvissä käyttäjälle"
@@ -415,6 +430,11 @@ msgstr "Viimeinen vastaus rajapinnasta, jota käytetään välimuistina"
 #: model:ir.model.fields,help:website_application_dashboard.field_website__last_dashboard_sync_time
 msgid "Last time data was retrieved from API"
 msgstr "Viimeinen ajanhetki, jolloin tiedot rajapinnasta haettiin"
+
+#. module: website_application_dashboard
+#: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__mobilefriendly
+msgid "Mobile friendly"
+msgstr "Mobiiliyhteensopivuus"
 
 #. module: website_application_dashboard
 #: model:ir.model.fields,field_description:website_application_dashboard.field_dashboard_app__name

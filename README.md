@@ -18,7 +18,7 @@ addon | version | maintainers | summary
 [portal_details_name_extension](portal_details_name_extension/) | 17.0.1.0.2 |  | Show name_extension in /my/account
 [portal_details_street2](portal_details_street2/) | 17.0.1.0.0 |  | Portal details add optional field street 2
 [res_country_website_published](res_country_website_published/) | 17.0.1.0.0 |  | Manually choose countries that will be shown on Website
-[website_application_dashboard](website_application_dashboard/) | 17.0.1.0.0 |  | Application dashboard for redirecting users to applications
+[website_application_dashboard](website_application_dashboard/) | 17.0.1.1.0 |  | Application dashboard for redirecting users to applications
 [website_blog_rss_feed](website_blog_rss_feed/) | 17.0.2.0.0 |  | Ability to create custom RSS Feeds with multiple blogs.
 [website_blog_settings](website_blog_settings/) | 17.0.1.0 |  | Customization settings under website frontend customize menu
 [website_blog_snippet_extra_options](website_blog_snippet_extra_options/) | 17.0.1.0.0 |  | Additional configurations for the core snippet
