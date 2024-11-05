@@ -91,7 +91,7 @@ msgstr "Rajapinnan vastaus ei ole lista tai listan koko on 0!"
 
 #. module: website_application_dashboard
 #: model_terms:ir.ui.view,arch_db:website_application_dashboard.application_dashboard
-msgid "Additional information abot the application"
+msgid "Additional information about the application"
 msgstr "Lisätietoja sovellukseen liittyen"
 
 #. module: website_application_dashboard
