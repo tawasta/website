@@ -32,6 +32,14 @@
                                             src="/website_application_dashboard/static/src/img/info_icon.svg"
                                             class="app-icon app-info"
                                             t-att-data-info="app.application_id.info"
+                                            alt="Additional information about the application"
+                                        />
+                                        <img
+                                            t-if="app.application_id.mobilefriendly"
+                                            src="/website_application_dashboard/static/src/img/mobilefriendly_icon.svg"
+                                            class="app-icon app-mobile-icon"
+                                            alt="Is the application mobilefriendly"
+                                            title="Is the application mobilefriendly"
                                         />
                                         <div
                                             class="card-body p-3 d-flex flex-column"

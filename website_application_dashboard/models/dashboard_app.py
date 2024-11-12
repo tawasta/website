@@ -100,6 +100,10 @@ class DashboardApp(models.Model):
         string="Text color code",
         help="Text color code for cards styling",
     )
+    mobilefriendly = fields.Boolean(
+        string="Mobile friendly",
+        help="Is the application mobile friendly",
+    )
 
     # 3. Default methods
 
