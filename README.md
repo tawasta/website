@@ -30,6 +30,9 @@ addon | version | maintainers | summary
 [website_hide_info](website_hide_info/) | 17.0.1.0 |  | Hides Odoo System Information on at /website/info
 [website_hide_login](website_hide_login/) | 17.0.1.0.0 |  | Hide Odoo native login, but show oAuth-logins
 [website_hide_login_database_link](website_hide_login_database_link/) | 17.0.1.0.0 |  | Hides Database link on the login screen
+[website_limit_editing_rights_by_record_type_base](website_limit_editing_rights_by_record_type_base/) | 17.0.1.1.0 |  | Base functionality for allowing users to edit only certain types of website pages
+[website_limit_editing_rights_by_record_type_elearning](website_limit_editing_rights_by_record_type_elearning/) | 17.0.1.0.0 |  | Allow users to edit only website pages that are eLearning-related
+[website_limit_editing_rights_by_record_type_event](website_limit_editing_rights_by_record_type_event/) | 17.0.1.0.0 |  | Allowing users to edit only website pages that are event-related
 [website_manager_group](website_manager_group/) | 17.0.1.0 |  | new Website Permission Group to limit access for designers & editors
 [website_remove_editor_rights_from_sale_administrators](website_remove_editor_rights_from_sale_administrators/) | 17.0.1.0.0 |  | Remove the automatically granted editor access
 [website_settings](website_settings/) | 17.0.1.0 |  | Website toggleable settings under customize menu and other setting options
