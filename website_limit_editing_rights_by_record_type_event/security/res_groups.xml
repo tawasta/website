@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record
+        id="group_website_limit_editing_rights_by_record_type_event"
+        model="res.groups"
+    >
+        <field name="name">Website: Limit Editing Rights by Record Type (events)</field>
+        <field name="category_id" ref="base.module_category_website_website" />
+        <field
+            name="implied_ids"
+            eval="[(4, ref('website_limit_editing_rights_by_record_type_base.group_website_limit_editing_rights_by_record_type_base'))]"
+        />
+    </record>
+</odoo>
