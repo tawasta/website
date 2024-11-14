@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- group_website_restricted_editor works well with these, as it prevents
+     editing generic parts of the website like header and footer -->
+    <record
+        id="group_website_limit_editing_rights_by_record_type_base"
+        model="res.groups"
+    >
+        <field name="name">Website: Limit Editing Rights by Record Type (base)</field>
+        <field name="category_id" ref="base.module_category_website_website" />
+        <field
+            name="implied_ids"
+            eval="[(4, ref('website.group_website_restricted_editor'))]"
+        />
+    </record>
+</odoo>
