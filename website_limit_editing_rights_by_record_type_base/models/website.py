@@ -48,11 +48,11 @@ class Website(models.Model):
             )
 
     def check_limited_website_editor_access(self, record_model, record_id):
-        # Access rights check function called from JS when editor is launched
+        # Access rights check function called from JS when editor is launched.
         if self.env.user.has_group(
             "website_limit_editing_rights_by_record_type_base.group_website_limit_editing_rights_by_record_type_base"
         ):
             self._check_model_access(record_model)
             self._check_record_access(record_model, record_id)
 
-        return
+        return self._get_models_allowed_to_be_edited()

@@ -1,7 +1,7 @@
 /** @odoo-module **/
 
-import {registry} from "@web/core/registry";
 import {patch} from "@web/core/utils/patch";
+import {registry} from "@web/core/registry";
 
 // Access the "Edit" systray button via the registry
 const EditWebsiteSystray = registry
@@ -17,14 +17,17 @@ patch(EditWebsiteSystray.prototype, {
     async startEdit() {
         // Check what kind of record's page is being edited
         const recordModel =
-            this.env.services.website.currentWebsite.metadata["mainObject"]["model"];
+            this.env.services.website.currentWebsite.metadata.mainObject.model;
+
         const recordId =
-            this.env.services.website.currentWebsite.metadata["mainObject"]["id"];
+            this.env.services.website.currentWebsite.metadata.mainObject.id;
+
+        const websiteId = this.env.services.website.currentWebsite.id;
 
         await this.env.services.orm.call(
             "website",
             "check_limited_website_editor_access",
-            [[1]],
+            [[websiteId]],
             {record_model: recordModel, record_id: recordId}
         );
 

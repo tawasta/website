@@ -9,11 +9,14 @@ Website: Limit Editing Rights by Record Type (base)
 * Base functionality for allowing users to edit only certain types of website pages
 * You'll likely want install also the record type specific modules for the 
   actual limiting of editing to e.g. event and/or eLearning related content
+* Also grants rights to translate the related terms in frontend, without allowing
+  translating e.g. headers and footers
 
 Configuration
 =============
 * Add the users of your choice to the new "Website: Limit Editing Rights by Record Type (base)"
-  group. They also get auto-added to the core "Restricted Editor" group
+  group. They also get auto-added to the core "Restricted Editor" group. Ensure they are not
+  in the "Editor and Designer" group.
 
 Usage
 =====
