@@ -8,7 +8,7 @@ patch(WysiwygAdapterComponent.prototype, {
      * Restrict which terms show up as translatable in the website translation UI
      */
     async startEdition() {
-        super.startEdition(...arguments);
+        const res = await super.startEdition(...arguments);
 
         let accessCheckNeeded = false;
 
@@ -53,5 +53,7 @@ patch(WysiwygAdapterComponent.prototype, {
                 .removeAttr("data-oe-translation-state")
                 .removeAttr("contenteditable");
         }
+
+        return res;
     },
 });
