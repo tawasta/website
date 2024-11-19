@@ -20,7 +20,7 @@ Configuration
 
 Usage
 =====
-* In frontend try to launch the Editor with an user that is in the new group, and you will get an
+* In frontend try to launch the editor or translation view with an user that is in the new group, and you will get an
   access denied error for any page's editor.
 * You can install the related event/eLearning modules that will whitelist editing for their content types
 
