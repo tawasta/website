@@ -2,12 +2,15 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-========================================================
-Website: Limit Editing Rights by Record Type (eLearning)
-========================================================
+=====================================================================
+Website: Limit Editing Rights by Record Type (eLearning) (DEPRECATED)
+=====================================================================
 
 * Allow users to edit their company's eLearning related pages but prevent editing
   other types of pages (blogs, regular pages etc.)
+* Deprecated and set as uninstallable: https://github.com/odoo/odoo/commit/5d717f3ff5ce83faf2ce12ef03942bb00684eb68 
+  and other related changes to 17.0 core break this functionality, and also support similar functionality 
+  for the Website Restricted Editor Group out of the box.
 
 Configuration
 =============

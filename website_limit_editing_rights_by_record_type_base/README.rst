@@ -2,15 +2,18 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-===================================================
-Website: Limit Editing Rights by Record Type (base)
-===================================================
+================================================================
+Website: Limit Editing Rights by Record Type (base) (DEPRECATED)
+================================================================
 
 * Base functionality for allowing users to edit only certain types of website pages
 * You'll likely want install also the record type specific modules for the 
   actual limiting of editing to e.g. event and/or eLearning related content
 * Also grants rights to translate the related terms in frontend, without allowing
   translating e.g. headers and footers
+* Deprecated and set as uninstallable: https://github.com/odoo/odoo/commit/5d717f3ff5ce83faf2ce12ef03942bb00684eb68 
+  and other related changes to 17.0 core break this functionality, and also support similar functionality 
+  for the Website Restricted Editor Group out of the box.
 
 Configuration
 =============
