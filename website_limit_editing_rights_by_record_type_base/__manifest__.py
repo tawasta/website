@@ -19,15 +19,15 @@
 ##############################################################################
 
 {
-    "name": "Website: Limit Editing Rights by Record Type (base)",
-    "summary": "Base functionality for allowing users to edit only certain types of website pages",
+    "name": "Website: Limit Editing Rights by Record Type (base) (DEPRECATED)",
+    "summary": "Base functionality for allowing users to edit only certain types of website pages (deprecated)",
     "version": "17.0.1.1.1",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
-    "installable": True,
+    "installable": False,
     "depends": ["website", "web_editor"],
     "data": ["security/res_groups.xml"],
     "assets": {
