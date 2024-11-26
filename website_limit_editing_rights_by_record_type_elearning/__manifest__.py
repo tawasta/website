@@ -19,15 +19,15 @@
 ##############################################################################
 
 {
-    "name": "Website: Limit Editing Rights by Record Type (eLearning)",
-    "summary": "Allow users to edit only website pages that are eLearning-related",
+    "name": "Website: Limit Editing Rights by Record Type (eLearning) (DEPRECATED)",
+    "summary": "Allow users to edit only website pages that are eLearning-related (deprecated)",
     "version": "17.0.1.0.0",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
-    "installable": True,
+    "installable": False,
     "depends": ["website_limit_editing_rights_by_record_type_base"],
     "data": ["security/res_groups.xml"],
 }
