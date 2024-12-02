@@ -31,6 +31,8 @@
     "data": ["views/auth_signup_login_templates.xml"],
     "assets": {
         "web.assets_frontend": [
+            "/website_auth_signup_recaptcha/static/src/js/signup.esm.js",
+            "/website_auth_signup_recaptcha/static/src/js/reset.esm.js",
             "https://www.google.com/recaptcha/api.js",
         ],
     },
