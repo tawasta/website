@@ -7,6 +7,7 @@ Website Blog RSS Multi-blog Feed
 ================================
 * Ability to create custom RSS Feeds with multiple blogs' contents
   which are then available at URLs such as /feed/1
+* Blog posts' cover images will be included in the feed, if they exist
 
 Configuration
 =============

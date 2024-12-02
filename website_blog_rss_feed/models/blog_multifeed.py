@@ -22,7 +22,7 @@
 from werkzeug import urls
 
 # 3. Odoo imports (openerp):
-from odoo import fields, models
+from odoo import fields, models, api
 
 # 2. Known third party imports:
 
@@ -40,17 +40,26 @@ class WebsiteBlogMultifeed(models.Model):
     _description = "Blog RSS Multifeed"
     _order = "name"
 
+    # 2. Fields declaration
+    @api.model
+    def _get_lang(self):
+        return self.env["res.lang"].get_installed()
+
     name = fields.Char("Name", required=True, translate=True)
     description = fields.Text("Description", translate=True)
     feed_url = fields.Char("Feed URL", readonly=1, compute="_compute_feed_url")
+    lang = fields.Selection(
+        required=True,
+        selection=_get_lang,
+        string="Language",
+        help="Posts will be shown in this language in the RSS feed",
+    )
     blog_ids = fields.Many2many(
         "blog.blog",
         string="Blogs",
         help="Blogs to include into this multifeed",
         index=True,
     )
-
-    # 2. Fields declaration
 
     # 3. Default methods
 
