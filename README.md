@@ -19,7 +19,7 @@ addon | version | maintainers | summary
 [portal_details_street2](portal_details_street2/) | 17.0.1.0.0 |  | Portal details add optional field street 2
 [res_country_website_published](res_country_website_published/) | 17.0.1.0.0 |  | Manually choose countries that will be shown on Website
 [website_application_dashboard](website_application_dashboard/) | 17.0.1.1.0 |  | Application dashboard for redirecting users to applications
-[website_blog_rss_feed](website_blog_rss_feed/) | 17.0.2.0.0 |  | Ability to create custom RSS Feeds with multiple blogs.
+[website_blog_rss_feed](website_blog_rss_feed/) | 17.0.2.1.0 |  | Ability to create custom RSS Feeds with multiple blogs.
 [website_blog_settings](website_blog_settings/) | 17.0.1.0 |  | Customization settings under website frontend customize menu
 [website_blog_snippet_extra_options](website_blog_snippet_extra_options/) | 17.0.1.0.0 |  | Additional configurations for the core snippet
 [website_crm_contact_form_select_based_lead_name](website_crm_contact_form_select_based_lead_name/) | 17.0.1.0.0 |  | Allows configuring web leads' subject to be based on a selection list instead of freetext
