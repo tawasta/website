@@ -5,7 +5,7 @@
 ============================
 Website Partner Email Prompt
 ============================
-\-
+* Prompts portal users to complete their email via modal if missing
 
 Configuration
 =============

@@ -1,4 +1,4 @@
-from odoo import http
+from odoo import http, _
 from odoo.http import request
 
 
@@ -20,6 +20,11 @@ class PartnerEmailPrompt(http.Controller):
         partner = request.env.user.partner_id
         if email:
             partner.sudo().write({'email': email})
-            return {'success': True, 'message': 'Your email has been successfully updated!'}
-        return {'success': False, 'error': 'Invalid email address. Please try again.'}
-
+            return {
+                'success': True,
+                'message': _('Your email has been successfully updated!')
+            }
+        return {
+            'success': False,
+            'error': _('Invalid email address. Please try again.')
+        }
