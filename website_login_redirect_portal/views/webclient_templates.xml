@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="login_portal" inherit_id="web.login" name="Login">
+        <xpath expr="//input[@name='redirect']" position="attributes">
+            <attribute name="t-attf-value">#{'/my/home/' if not redirect else redirect}</attribute>
+        </xpath>
+    </template>
+</odoo>
