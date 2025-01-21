@@ -1,6 +1,7 @@
 exclude: |
   (?x)
   # NOT INSTALLABLE ADDONS
+  ^website_auth_signup_recaptcha/|
   ^website_blog_blogs_snippet/|
   ^website_limit_editing_rights_by_record_type_base/|
   ^website_limit_editing_rights_by_record_type_elearning/|

@@ -40,6 +40,7 @@ Unported addons
 ---------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[website_auth_signup_recaptcha](website_auth_signup_recaptcha/) | 17.0.1.0.0 (unported) |  | Recaptcha functionality for website signup (deprecated)
 [website_blog_blogs_snippet](website_blog_blogs_snippet/) | 17.0.2.0.0 (unported) |  | Improved Blogs Snippets (deprecated)
 [website_limit_editing_rights_by_record_type_base](website_limit_editing_rights_by_record_type_base/) | 17.0.1.1.1 (unported) |  | Base functionality for allowing users to edit only certain types of website pages (deprecated)
 [website_limit_editing_rights_by_record_type_elearning](website_limit_editing_rights_by_record_type_elearning/) | 17.0.1.0.0 (unported) |  | Allow users to edit only website pages that are eLearning-related (deprecated)
