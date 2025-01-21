@@ -18,15 +18,15 @@
 #
 ##############################################################################
 {
-    "name": "Website auth signup recaptcha",
-    "version": "17.0.1.0",
+    "name": "Website auth signup recaptcha (DEPRECATED)",
+    "version": "17.0.1.0.0",
     "category": "Website",
-    "summary": "Hides Odoo System Information on at /website/info",
+    "summary": "Recaptcha functionality for website signup (deprecated)",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Futural",
     "license": "AGPL-3",
     "application": False,
-    "installable": True,
+    "installable": False,
     "depends": ["auth_signup", "recaptcha_v2"],
     "data": ["views/auth_signup_login_templates.xml"],
     "assets": {

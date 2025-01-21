@@ -4,15 +4,22 @@ import publicWidget from "@web/legacy/js/public/public_widget";
 
 publicWidget.registry.SignUpForm.include({
     /**
+
+     */
+    /**
      * Override the `_onSubmit` method to add reCAPTCHA validation
      * while preserving the original functionality.
+     *
+     * @param {*} ev
+     * @returns {void}
      */
     _onSubmit: function (ev) {
         // Tarkista reCAPTCHA-vastaus ennen mitään muuta
         var recaptchaResponse = $("#g-recaptcha-response").val();
         if (!recaptchaResponse) {
             // Jos reCAPTCHA ei ole suoritettu, näytä virheilmoitus
-            ev.preventDefault(); // Estä lomakkeen oletuslähetys
+            // Estä lomakkeen oletuslähetys
+            ev.preventDefault();
             this.$("#err").text("Please complete the reCAPTCHA verification.");
             return false;
         }

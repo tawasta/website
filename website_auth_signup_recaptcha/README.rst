@@ -2,10 +2,11 @@
         :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
         :alt: License: AGPL-3
 
-=============================
-Website auth signup recaptcha
-=============================
+==========================================
+Website auth signup recaptcha (DEPRECATED)
+==========================================
 * This module integrates Google reCAPTCHA into the signup and reset password forms of the Odoo Website module to enhance security and prevent bot submissions.
+* Deprecated and flagged as uninstallable: does not currently successfully block spam registrations. Needs further work, in the meantime, a 3rd party module usage is recommended.
 
 Configuration
 =============
@@ -32,6 +33,7 @@ Contributors
 ------------
 
 * Valtteri Lattu <valtteri.lattu@futural.fi>
+* Timo Talvitie <timo.talvitie@futural.fi>
 
 Maintainer
 ----------
