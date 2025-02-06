@@ -32,13 +32,13 @@
                             <!-- New Username -->
                             <div class="mb-3">
                                 <label for="new_login" class="form-label fw-bold">New Username</label>
-                                <input type="text" class="form-control" id="new_login" name="new_login" required="1" placeholder="Enter new username" />
+                                <input type="email" class="form-control" id="new_login" name="new_login" required="1" placeholder="Enter new username" />
                             </div>
 
                             <!-- Confirm New Username -->
                             <div class="mb-3">
                                 <label for="confirm_login" class="form-label fw-bold">Confirm New Username</label>
-                                <input type="text" class="form-control" id="confirm_login" name="confirm_login" required="1" placeholder="Re-enter new username" />
+                                <input type="email" class="form-control" id="confirm_login" name="confirm_login" required="1" placeholder="Re-enter new username" />
                             </div>
 
                             <div class="text-end">
