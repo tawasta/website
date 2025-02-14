@@ -1,24 +1,26 @@
 /** @odoo-module **/
 
-import { registry } from '@web/core/registry';
-import publicWidget from '@web/legacy/js/public/public_widget';
-import { jsonrpc } from "@web/core/network/rpc_service";
+import {registry} from "@web/core/registry";
+import publicWidget from "@web/legacy/js/public/public_widget";
+import {jsonrpc} from "@web/core/network/rpc_service";
 
 publicWidget.registry.ResTeams = publicWidget.Widget.extend({
-    selector: '.team',
+    selector: ".team",
 
     /**
      * @override
      */
-    async start() {  // Marking the function as async
+    async start() {
+        // Marking the function as async
         await this._super.apply(this, arguments);
 
-        var $teamHtml = this.$el.find('#res-team-row');
+        var $teamHtml = this.$el.find("#res-team-row");
 
-        if ($teamHtml.length) { // Ensure the element exists
+        if ($teamHtml.length) {
+            // Ensure the element exists
             try {
                 const data = await jsonrpc("/team/", {});
-                
+
                 let html = "";
                 data.forEach((team) => {
                     html += `<div class="col-lg-4 col-md-6 mb-4 mb-lg-0 mt-3">
@@ -41,6 +43,4 @@ publicWidget.registry.ResTeams = publicWidget.Widget.extend({
             }
         }
     },
-
 });
-

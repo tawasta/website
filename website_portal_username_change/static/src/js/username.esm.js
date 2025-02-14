@@ -1,41 +1,50 @@
 /** @odoo-module **/
 
 import publicWidget from "@web/legacy/js/public/public_widget";
-import { jsonrpc } from "@web/core/network/rpc_service";
+import {jsonrpc} from "@web/core/network/rpc_service";
 import Dialog from "@web/legacy/js/core/dialog";
 import {_t} from "@web/core/l10n/translation";
 
 var ChangeUsernameModal = publicWidget.Widget.extend({
-    selector: '.o_portal_wrap',
+    selector: ".o_portal_wrap",
     events: {
-        'click #changeUsernameModal': '_onClickChangeUsernameButton',
+        "click #changeUsernameModal": "_onClickChangeUsernameButton",
     },
 
     start: function () {
         this._super.apply(this, arguments);
-        $(document).on("submit", "#change_username_form", this._onFormSubmit.bind(this));
+        $(document).on(
+            "submit",
+            "#change_username_form",
+            this._onFormSubmit.bind(this)
+        );
     },
 
     _onClickChangeUsernameButton: function (ev) {
         ev.preventDefault();
         ev.stopPropagation();
-        
-        jsonrpc("/my/change_username/modal", {}).then(function (modalContent) {
-            const $modal = $(modalContent);
-            $modal.find('.modal-body > div').removeClass('container');
-            $modal.appendTo(document.body);
-            const modalBS = new Modal($modal[0], { backdrop: 'static', keyboard: false });
-            modalBS.show();
 
-            $modal.on('click', '.btn-close', function () {
-                $modal.remove();
+        jsonrpc("/my/change_username/modal", {})
+            .then(function (modalContent) {
+                const $modal = $(modalContent);
+                $modal.find(".modal-body > div").removeClass("container");
+                $modal.appendTo(document.body);
+                const modalBS = new Modal($modal[0], {
+                    backdrop: "static",
+                    keyboard: false,
+                });
+                modalBS.show();
+
+                $modal.on("click", ".btn-close", function () {
+                    $modal.remove();
+                });
+                $modal.on("hidden.bs.modal", function () {
+                    $modal.remove();
+                });
+            })
+            .catch(function (err) {
+                console.error("Failed to load modal content", err);
             });
-            $modal.on('hidden.bs.modal', function () {
-                $modal.remove();
-            });
-        }).catch(function (err) {
-            console.error("Failed to load modal content", err);
-        });
     },
 
     _onFormSubmit: function (ev) {
@@ -43,12 +52,12 @@ var ChangeUsernameModal = publicWidget.Widget.extend({
         ev.stopPropagation();
 
         const $form = $(ev.currentTarget);
-        const actionUrl = $form.attr('action');
+        const actionUrl = $form.attr("action");
         const formData = new FormData($form[0]);
         this._showLoadingScreen();
         $.ajax({
             url: actionUrl,
-            type: 'POST',
+            type: "POST",
             data: formData,
             processData: false,
             contentType: false,
@@ -58,7 +67,7 @@ var ChangeUsernameModal = publicWidget.Widget.extend({
                     this._showErrorMessage(jsonResponse.msg);
                 } else {
                     this._showSuccessMessage(jsonResponse.success);
-                    $form.closest('.modal').modal('hide');
+                    $form.closest(".modal").modal("hide");
                 }
             },
             error: (err) => {
@@ -107,11 +116,11 @@ var ChangeUsernameModal = publicWidget.Widget.extend({
                     <p>Loading, please wait...</p>
                 </div>
             </div>`;
-        $('body').append(loadingMessage);
+        $("body").append(loadingMessage);
     },
 
     _hideLoadingScreen: function () {
-        $('#loading-screen').remove();
+        $("#loading-screen").remove();
     },
 
     _showErrorMessage: function (message) {
@@ -127,7 +136,6 @@ var ChangeUsernameModal = publicWidget.Widget.extend({
             ],
         }).open();
     },
-
 });
 
 publicWidget.registry.ChangeUsernameModal = ChangeUsernameModal;
