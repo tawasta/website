@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- template for our snippet -->
+    <template id="show_references" name="References - Dynamic">
+        <section class="references">
+            <div class="container">
+                <div class="text-center py-5">
+                    <h2 class="h1">Our References</h2>
+                </div>
+
+                <div class="row justify-content-center" id="res-references-row" />
+            </div>
+        </section>
+    </template>
+</odoo>
