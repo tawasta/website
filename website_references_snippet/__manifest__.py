@@ -19,8 +19,8 @@
 ##############################################################################
 {
     "name": "Website References Snippet",
-    "summary": "Website References Snippet",
-    "version": "17.0.1.0.0",
+    "summary": "Snippet for showing e.g. company's clients on a web page",
+    "version": "17.0.1.0.1",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",

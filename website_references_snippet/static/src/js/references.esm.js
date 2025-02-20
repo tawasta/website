@@ -1,24 +1,25 @@
 /** @odoo-module **/
 
-import { registry } from '@web/core/registry';
-import publicWidget from '@web/legacy/js/public/public_widget';
-import { jsonrpc } from "@web/core/network/rpc_service";
+import {jsonrpc} from "@web/core/network/rpc_service";
+import publicWidget from "@web/legacy/js/public/public_widget";
 
 publicWidget.registry.ResReferences = publicWidget.Widget.extend({
-    selector: '.references',
+    selector: ".references",
 
     /**
      * @override
      */
-    async start() {  // Marking the function as async
+    async start() {
+        // Marking the function as async
         await this._super.apply(this, arguments);
 
-        var $refHtml = this.$el.find('#res-references-row');
+        var $refHtml = this.$el.find("#res-references-row");
 
-        if ($refHtml.length) { // Ensure the element exists
+        if ($refHtml.length) {
+            // Ensure the element exists
             try {
                 const data = await jsonrpc("/get_references/", {});
-                
+
                 let html = "";
                 data.forEach((reference) => {
                     html += `<div class="pt16 pb16 o_colored_level col-lg-2">
@@ -28,11 +29,11 @@ publicWidget.registry.ResReferences = publicWidget.Widget.extend({
                             </div>`;
                 });
 
-                $refHtml.html(html); // Set innerHTML properly
+                // Set innerHTML properly
+                $refHtml.html(html);
             } catch (error) {
                 console.error("Error fetching team data:", error);
             }
         }
     },
-
 });
