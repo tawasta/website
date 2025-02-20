@@ -19,8 +19,8 @@
 ##############################################################################
 {
     "name": "Website team Snippet",
-    "summary": "Website team Snippet",
-    "version": "17.0.1.0.0",
+    "summary": "Snippet for showing e.g. company personnel on a web page",
+    "version": "17.0.1.0.1",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",

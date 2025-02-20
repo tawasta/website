@@ -31,7 +31,7 @@
         </record>
 
         <record id="res_team_action" model="ir.actions.act_window">
-            <field name="name">team</field>
+            <field name="name">Team</field>
             <field name="res_model">res.team</field>
             <field name="view_mode">tree,form</field>
         </record>
@@ -39,7 +39,7 @@
         <menuitem
         id="res_team_menu"
         name="team"
-        parent="website.menu_website_pages_list"
+        parent="website.menu_content"
         action="res_team_action"
     />
 

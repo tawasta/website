@@ -37,7 +37,7 @@
         <menuitem
         id="res_references_menu"
         name="References"
-        parent="website.menu_website_pages_list"
+        parent="website.menu_content"
         action="res_references_action"
     />
 
