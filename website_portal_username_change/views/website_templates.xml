@@ -14,6 +14,7 @@
                             <i class="fa fa-user-edit"/> Change Username
                 </button>
             </section>
+        </xpath>
     </template>
 
     <template id="change_username_modal" name="Change Username Modal">
