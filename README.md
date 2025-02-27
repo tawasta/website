@@ -31,9 +31,12 @@ addon | version | maintainers | summary
 [website_hide_login](website_hide_login/) | 17.0.1.0.0 |  | Hide Odoo native login, but show oAuth-logins
 [website_hide_login_database_link](website_hide_login_database_link/) | 17.0.1.0.0 |  | Hides Database link on the login screen
 [website_manager_group](website_manager_group/) | 17.0.1.0 |  | new Website Permission Group to limit access for designers & editors
+[website_portal_username_change](website_portal_username_change/) | 17.0.1.0.0 |  | website_portal_username_change
+[website_references_snippet](website_references_snippet/) | 17.0.1.0.1 |  | Snippet for showing e.g. company's clients on a web page
 [website_remove_editor_rights_from_sale_administrators](website_remove_editor_rights_from_sale_administrators/) | 17.0.1.0.0 |  | Remove the automatically granted editor access
 [website_settings](website_settings/) | 17.0.1.0 |  | Website toggleable settings under customize menu and other setting options
 [website_slides_settings](website_slides_settings/) | 17.0.1.0.2 |  | Website Slides toggleable settings under website customize menu
+[website_team_snippet](website_team_snippet/) | 17.0.1.0.1 |  | Snippet for showing e.g. company personnel on a web page
 
 
 Unported addons

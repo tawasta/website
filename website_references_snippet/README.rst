@@ -5,15 +5,15 @@
 ==========================
 Website References Snippet
 ==========================
-
+* Snippet for showing e.g. company's clients on a web page
 
 Configuration
 =============
-\-
+* Add references via Website -> Site -> References
 
 Usage
 =====
-\-
+* Drag and drop the "Referemces - Dynamic" block to web page with website builder
 
 Known issues / Roadmap
 ======================
@@ -26,6 +26,7 @@ Contributors
 ------------
 
 * Valtteri Lattu <valtteri.lattu@tawasta.fi>
+* Timo Talvitie <timo.talvitie@futural.fi>
 
 Maintainer
 ----------
