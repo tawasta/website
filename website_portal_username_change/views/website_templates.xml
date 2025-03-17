@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <template id="change_username_button" inherit_id="portal.side_content">
-        <xpath expr="//a[@class='btn btn-link p-0 mt-3']" position="after">
-            <div class="d-flex flex-column gap-2">
-                <button type="button" class="btn btn-primary" id="changeUsernameModal">
-                            <i class="fa fa-user-edit" /> Change Username
-                </button>
-            </div>
 
+    <template id="change_username_button" inherit_id="portal.portal_my_security">
+        <xpath expr="//section[@name='portal_change_password']" position="after">
+
+            <section name="portal_change_username">
+                <h4>Change username</h4>
+                <div class="alert alert-secondary">
+                    <i class="fa fa-warning"></i>
+                    This change does not affect your account's email address, where messages and notifications are sent. It only updates your login username.
+                </div>
+                <button type="button" class="btn btn-secondary" id="changeUsernameModal">
+                            <i class="fa fa-user-edit"/> Change Username
+                </button>
+            </section>
         </xpath>
     </template>
 
