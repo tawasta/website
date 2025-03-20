@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="blog_post_content" inherit_id="website_blog.blog_post_content">
+
+        <xpath expr="//div[@t-field='blog_post.content']" position="attributes">
+            <attribute name="t-if">blog_post.user_has_access</attribute>
+        </xpath>
+
+        <xpath expr="//div[@t-field='blog_post.content']" position="after">
+            <div t-else="" t-field="blog_post.teaser" />
+        </xpath>
+    </template>
+
+</odoo>
