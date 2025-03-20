@@ -19,15 +19,15 @@
 ##############################################################################
 
 {
-    "name": "Website: Limit Editing Rights by Record Type (Events)",
-    "summary": "Allowing users to edit only website pages that are event-related",
+    "name": "Website: Limit Editing Rights by Record Type (Events) (DEPRECATED)",
+    "summary": "Allowing users to edit only website pages that are event-related (deprecated)",
     "version": "17.0.1.0.0",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
-    "installable": True,
+    "installable": False,
     "depends": ["website_limit_editing_rights_by_record_type_base"],
     "data": ["security/res_groups.xml"],
 }

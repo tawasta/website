@@ -3,7 +3,10 @@
 
     <!-- Atom Feed -->
     <template id="blog_multifeed">&lt;?xml version="1.0" encoding="utf-8"?&gt;
-    <feed t-att-xmlns="'http://www.w3.org/2005/Atom'">
+    <feed
+            t-att-xmlns="'http://www.w3.org/2005/Atom'"
+            xmlns:media="http://search.yahoo.com/mrss/"
+        >
         <title t-esc="multifeed.name" />
         <link t-att-href="'%s/blog' % (base_url)" />
         <id t-esc="'%s/blog/' % (base_url)" />
@@ -16,6 +19,14 @@
             <id t-esc="'%s%s' % (base_url, post.website_url)" />
             <author><name t-esc="post.sudo().author_id.name" /></author>
             <summary t-esc="html2plaintext(post.teaser)" />
+
+            <t t-if="post.id in blog_images">
+                <media:content
+                        t-att-url="blog_images[post.id]['image_url']"
+                        t-att-type="blog_images[post.id]['image_mimetype']"
+                    />
+            </t>
+
             <updated t-esc="str(post.post_date).replace(' ', 'T') + 'Z'" />
         </entry>
     </feed>
