@@ -37,12 +37,14 @@ addon | version | maintainers | summary
 [website_hide_info](website_hide_info/) | 14.0.1.0.1 |  | Hides Odoo System Information on at /website/info
 [website_hide_login](website_hide_login/) | 14.0.1.0.0 |  | Hide Odoo native login, but show oAuth-logins
 [website_kanban_board](website_kanban_board/) | 14.0.1.0.0 |  | Website Kanban Board
+[website_login_redirect_portal](website_login_redirect_portal/) | 14.0.1.0.0 |  | Redirect to Portal view after login
 [website_logo_redirect](website_logo_redirect/) | 14.0.1.0.0 |  | Redirects website logo to a custom URL
 [website_logout_redirect_login](website_logout_redirect_login/) | 14.0.1.0.0 |  | Redirect to Login view after Logout
 [website_manager_group](website_manager_group/) | 14.0.1.0.0 |  | new Website Permission Group to limit access for designers & editors
 [website_marker_map](website_marker_map/) | 14.0.1.0.0 |  | Map thats shows markers and info windows on google maps that it gets from the backend
 [website_messages_base](website_messages_base/) | 14.0.1.0.1 |  | Base for website messages features
 [website_messages_email](website_messages_email/) | 14.0.1.0.1 |  | Email template for website messages
+[website_partner_email_prompt](website_partner_email_prompt/) | 14.0.1.0.1 |  | Prompts portal users to complete their email via modal if missing
 [website_references_snippet](website_references_snippet/) | 14.0.1.0.0 |  | Website References Snippet
 [website_sale_hide_product_default_info](website_sale_hide_product_default_info/) | 14.0.1.0.0 |  | Website sale product hide default info
 [website_settings](website_settings/) | 14.0.1.0.5 |  | Website toggleable settings under customize menu and other setting options

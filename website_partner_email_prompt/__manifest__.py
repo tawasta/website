@@ -28,5 +28,5 @@
     "application": False,
     "installable": True,
     "depends": ["website", "portal"],
-    "data": ["views/assets.xml","views/email_prompt.xml"],
+    "data": ["views/assets.xml", "views/email_prompt.xml"],
 }
