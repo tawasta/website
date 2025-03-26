@@ -16,6 +16,7 @@ addon | version | maintainers | summary
 [portal_details_membership_ref](portal_details_membership_ref/) | 14.0.1.0.0 |  | Show Membership Reference (partner.ref) in portal details.
 [portal_details_name_extension](portal_details_name_extension/) | 14.0.1.0.0 |  | Portal details add name extension from connector_netvisor
 [portal_details_street2](portal_details_street2/) | 14.0.1.0.0 |  | Portal details add optional field street 2
+[portal_my_account_restrict_access_account](portal_my_account_restrict_access_account/) | 14.0.1.0.0 |  | Restrict access to invoicing-related items in My Account per user
 [portal_my_account_restrict_access_sale](portal_my_account_restrict_access_sale/) | 14.0.1.0.0 |  | Restrict access to sale-related items in My Account per user
 [website_accessibility_page](website_accessibility_page/) | 14.0.1.0.0 |  | Adds accessibility page
 [website_account_request](website_account_request/) | 14.0.1.0.0 |  | Website account request Snippet

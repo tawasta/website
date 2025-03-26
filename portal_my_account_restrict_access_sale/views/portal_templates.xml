@@ -2,23 +2,18 @@
 <odoo>
     <template id="portal_my_home_sale" inherit_id="sale.portal_my_home_sale">
         <!-- Quotations -->
-        <xpath
-            expr="(//t[@t-call='portal.portal_docs_entry'])[1]"
-            position="attributes"
-        >
+        <xpath expr="//t[@t-value=&quot;'/my/quotes'&quot;]//.." position="attributes">
             <attribute
                 name="t-if"
             >not env.user.partner_id.portal_hide_sale_menuitems</attribute>
         </xpath>
 
         <!-- Sales Orders-->
-        <xpath
-            expr="(//t[@t-call='portal.portal_docs_entry'])[2]"
-            position="attributes"
-        >
+        <xpath expr="//t[@t-value=&quot;'/my/orders'&quot;]//.." position="attributes">
             <attribute
                 name="t-if"
             >not env.user.partner_id.portal_hide_sale_menuitems</attribute>
         </xpath>
+
     </template>
 </odoo>
