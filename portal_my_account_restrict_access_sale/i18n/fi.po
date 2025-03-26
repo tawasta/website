@@ -1,0 +1,53 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* portal_my_account_restrict_access_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20230925\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-26 05:21+0000\n"
+"PO-Revision-Date: 2025-03-26 05:21+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: portal_my_account_restrict_access_sale
+#: model:ir.model,name:portal_my_account_restrict_access_sale.model_res_partner
+msgid "Contact"
+msgstr "Kontakti"
+
+#. module: portal_my_account_restrict_access_sale
+#: model:ir.model.fields,field_description:portal_my_account_restrict_access_sale.field_res_partner__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: portal_my_account_restrict_access_sale
+#: model:ir.model.fields,help:portal_my_account_restrict_access_sale.field_procountor_res_partner__portal_hide_sale_menuitems
+#: model:ir.model.fields,help:portal_my_account_restrict_access_sale.field_res_partner__portal_hide_sale_menuitems
+#: model:ir.model.fields,help:portal_my_account_restrict_access_sale.field_res_users__portal_hide_sale_menuitems
+msgid ""
+"Hide 'Quotations' and 'Sale Orders' menuitems in portal, and prevent access "
+"to their related pages"
+msgstr ""
+"Piilottaa 'Tarjoukset' ja 'Myyntitilaukset' -valinnat portaalissa, ja estää niihin liittyville sivuille pääsyn"
+
+#. module: portal_my_account_restrict_access_sale
+#: model:ir.model.fields,field_description:portal_my_account_restrict_access_sale.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: portal_my_account_restrict_access_sale
+#: model:ir.model.fields,field_description:portal_my_account_restrict_access_sale.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr "Viimeksi muokattu"
+
+#. module: portal_my_account_restrict_access_sale
+#: model:ir.model.fields,field_description:portal_my_account_restrict_access_sale.field_procountor_res_partner__portal_hide_sale_menuitems
+#: model:ir.model.fields,field_description:portal_my_account_restrict_access_sale.field_res_partner__portal_hide_sale_menuitems
+#: model:ir.model.fields,field_description:portal_my_account_restrict_access_sale.field_res_users__portal_hide_sale_menuitems
+msgid "Portal: Hide Sale-related menuitems"
+msgstr "Portaali: Piilota valikon myyntivalinnat"

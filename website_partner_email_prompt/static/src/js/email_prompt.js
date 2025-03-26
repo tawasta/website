@@ -18,15 +18,17 @@ odoo.define("website_partner_email_prompt.email_prompt", function (require) {
             csrf_token: core.csrf_token,
         };
 
-        ajax.jsonRpc(route, "call", payload).then(function (res) {
-            if (res) {
-                $("body").append(res);
-                $("#emailPromptModal").modal({ backdrop: "static", keyboard: false });
-                $("#emailPromptModal").modal("show");
-            }
-        }).guardedCatch(function () {
-            console.error("Error during email check.");
-        });
+        ajax.jsonRpc(route, "call", payload)
+            .then(function (res) {
+                if (res) {
+                    $("body").append(res);
+                    $("#emailPromptModal").modal({backdrop: "static", keyboard: false});
+                    $("#emailPromptModal").modal("show");
+                }
+            })
+            .guardedCatch(function () {
+                console.error("Error during email check.");
+            });
     }
 
     // Käynnistä tarkistus heti sivun lataamisen jälkeen
@@ -42,29 +44,50 @@ odoo.define("website_partner_email_prompt.email_prompt", function (require) {
             email: $("#emailInput").val(),
         };
 
-        ajax.jsonRpc(route, "call", payload).then(function (res) {
-            if (res.success) {
-                // Näytä onnistumisen dialog
-                new Dialog(null, {
-                    title: core._t("Success"),
-                    size: "medium",
-                    $content: $("<div/>").html(res.message),
-                    buttons: [
-                        {
-                            text: core._t("OK"),
-                            close: true,
-                            click: function () {
-                                location.reload(); // Päivitä sivu onnistumisen jälkeen
+        ajax.jsonRpc(route, "call", payload)
+            .then(function (res) {
+                if (res.success) {
+                    // Näytä onnistumisen dialog
+                    new Dialog(null, {
+                        title: core._t("Success"),
+                        size: "medium",
+                        $content: $("<div/>").html(res.message),
+                        buttons: [
+                            {
+                                text: core._t("OK"),
+                                close: true,
+                                click: function () {
+                                    location.reload(); // Päivitä sivu onnistumisen jälkeen
+                                },
                             },
-                        },
-                    ],
-                }).open();
-            } else {
-                // Näytä virhedialog
+                        ],
+                    }).open();
+                } else {
+                    // Näytä virhedialog
+                    new Dialog(null, {
+                        title: core._t("Error"),
+                        size: "medium",
+                        $content: $("<div/>").html(
+                            res.error ||
+                                core._t("An error occurred while updating your email.")
+                        ),
+                        buttons: [
+                            {
+                                text: core._t("OK"),
+                                close: true,
+                            },
+                        ],
+                    }).open();
+                }
+            })
+            .guardedCatch(function () {
+                // Odottamaton virhe
                 new Dialog(null, {
-                    title: core._t("Error"),
+                    title: core._t("Unexpected Error"),
                     size: "medium",
-                    $content: $("<div/>").html(res.error || core._t("An error occurred while updating your email.")),
+                    $content: $("<div/>").html(
+                        core._t("An unexpected error occurred. Please try again later.")
+                    ),
                     buttons: [
                         {
                             text: core._t("OK"),
@@ -72,20 +95,6 @@ odoo.define("website_partner_email_prompt.email_prompt", function (require) {
                         },
                     ],
                 }).open();
-            }
-        }).guardedCatch(function () {
-            // Odottamaton virhe
-            new Dialog(null, {
-                title: core._t("Unexpected Error"),
-                size: "medium",
-                $content: $("<div/>").html(core._t("An unexpected error occurred. Please try again later.")),
-                buttons: [
-                    {
-                        text: core._t("OK"),
-                        close: true,
-                    },
-                ],
-            }).open();
-        });
+            });
     });
 });

@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2021- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
+#    Copyright 2025- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -17,16 +17,20 @@
 #    along with this program. If not, see http://www.gnu.org/licenses/agpl.html
 #
 ##############################################################################
+
 {
-    "name": "Website Partner Email Prompt",
-    "version": "14.0.1.0.1",
+    "name": "Portal: Restrict Access to Menuitems in My Account (contract)",
+    "summary": "Restrict access to contract-related items in My Account per user",
+    "version": "14.0.1.0.0",
     "category": "Website",
-    "summary": "Prompts portal users to complete their email via modal if missing",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["website", "portal"],
-    "data": ["views/assets.xml", "views/email_prompt.xml"],
+    "depends": ["contract", "product"],
+    "data": [
+        "views/portal_templates.xml",
+        "views/res_partner.xml",
+    ],
 }

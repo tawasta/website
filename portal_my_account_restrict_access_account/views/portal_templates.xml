@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="portal_my_home_invoice" inherit_id="account.portal_my_home_invoice">
+        <!-- Invoices and Bills -->
+        <xpath
+            expr="//t[@t-value=&quot;'/my/invoices'&quot;]//.."
+            position="attributes"
+        >
+            <attribute
+                name="t-if"
+            >not env.user.partner_id.portal_hide_invoicing_menuitems</attribute>
+        </xpath>
+    </template>
+</odoo>

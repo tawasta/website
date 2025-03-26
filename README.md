@@ -16,6 +16,9 @@ addon | version | maintainers | summary
 [portal_details_membership_ref](portal_details_membership_ref/) | 14.0.1.0.0 |  | Show Membership Reference (partner.ref) in portal details.
 [portal_details_name_extension](portal_details_name_extension/) | 14.0.1.0.0 |  | Portal details add name extension from connector_netvisor
 [portal_details_street2](portal_details_street2/) | 14.0.1.0.0 |  | Portal details add optional field street 2
+[portal_my_account_restrict_access_account](portal_my_account_restrict_access_account/) | 14.0.1.0.0 |  | Restrict access to invoicing-related items in My Account per user
+[portal_my_account_restrict_access_contract](portal_my_account_restrict_access_contract/) | 14.0.1.0.0 |  | Restrict access to contract-related items in My Account per user
+[portal_my_account_restrict_access_sale](portal_my_account_restrict_access_sale/) | 14.0.1.0.0 |  | Restrict access to sale-related items in My Account per user
 [website_accessibility_page](website_accessibility_page/) | 14.0.1.0.0 |  | Adds accessibility page
 [website_account_request](website_account_request/) | 14.0.1.0.0 |  | Website account request Snippet
 [website_all_messages](website_all_messages/) | 14.0.1.0.0 |  | All messages for website
@@ -37,12 +40,14 @@ addon | version | maintainers | summary
 [website_hide_info](website_hide_info/) | 14.0.1.0.1 |  | Hides Odoo System Information on at /website/info
 [website_hide_login](website_hide_login/) | 14.0.1.0.0 |  | Hide Odoo native login, but show oAuth-logins
 [website_kanban_board](website_kanban_board/) | 14.0.1.0.0 |  | Website Kanban Board
+[website_login_redirect_portal](website_login_redirect_portal/) | 14.0.1.0.0 |  | Redirect to Portal view after login
 [website_logo_redirect](website_logo_redirect/) | 14.0.1.0.0 |  | Redirects website logo to a custom URL
 [website_logout_redirect_login](website_logout_redirect_login/) | 14.0.1.0.0 |  | Redirect to Login view after Logout
 [website_manager_group](website_manager_group/) | 14.0.1.0.0 |  | new Website Permission Group to limit access for designers & editors
 [website_marker_map](website_marker_map/) | 14.0.1.0.0 |  | Map thats shows markers and info windows on google maps that it gets from the backend
 [website_messages_base](website_messages_base/) | 14.0.1.0.1 |  | Base for website messages features
 [website_messages_email](website_messages_email/) | 14.0.1.0.1 |  | Email template for website messages
+[website_partner_email_prompt](website_partner_email_prompt/) | 14.0.1.0.1 |  | Prompts portal users to complete their email via modal if missing
 [website_references_snippet](website_references_snippet/) | 14.0.1.0.0 |  | Website References Snippet
 [website_sale_hide_product_default_info](website_sale_hide_product_default_info/) | 14.0.1.0.0 |  | Website sale product hide default info
 [website_settings](website_settings/) | 14.0.1.0.5 |  | Website toggleable settings under customize menu and other setting options
