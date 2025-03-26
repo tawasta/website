@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template
+        id="portal_my_home_contract"
+        inherit_id="contract.portal_my_home_contract"
+    >
+        <!-- Contracts -->
+        <xpath
+            expr="//t[@t-value=&quot;'/my/contracts'&quot;]//.."
+            position="attributes"
+        >
+            <attribute
+                name="t-if"
+            >not env.user.partner_id.portal_hide_contract_menuitems</attribute>
+        </xpath>
+    </template>
+</odoo>
