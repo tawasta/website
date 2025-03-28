@@ -30,6 +30,7 @@
     "installable": True,
     "depends": ["website_blog"],
     "data": [
+        "views/blog_blog_form.xml",
         "views/blog_post_form.xml",
         "views/blog_post_content_template.xml",
     ],
