@@ -6,7 +6,8 @@
         <field name="inherit_id" ref="website_blog.view_blog_post_form" />
         <field name="arch" type="xml">
             <field name="post_date" position="after">
-                <field name="paid_article" widget="boolean_toggle" />
+                <field name="paywall" widget="boolean_toggle" />
+                <field name="paywall_description" invisible="not paywall" />
             </field>
         </field>
     </record>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_blog_blog_form" model="ir.ui.view">
+        <field name="name">blog.blog.form.paywall</field>
+        <field name="model">blog.blog</field>
+        <field name="inherit_id" ref="website_blog.view_blog_blog_form" />
+        <field name="arch" type="xml">
+            <field name="website_id" position="after">
+                <field name="paywall" widget="boolean_toggle" />
+                <field name="paywall_description" invisible="not paywall" />
+                <field
+                    name="paywall_domain"
+                    invisible="not paywall"
+                    widget="domain"
+                    options='{"model": "res.partner"}'
+                />
+            </field>
+        </field>
+    </record>
+</odoo>

@@ -7,11 +7,15 @@
             <section name="portal_change_username">
                 <h4>Change username</h4>
                 <div class="alert alert-secondary">
-                    <i class="fa fa-warning"></i>
+                    <i class="fa fa-warning" />
                     This change does not affect your account's email address, where messages and notifications are sent. It only updates your login username.
                 </div>
-                <button type="button" class="btn btn-secondary" id="changeUsernameModal">
-                            <i class="fa fa-user-edit"/> Change Username
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="changeUsernameModal"
+                >
+                            <i class="fa fa-user-edit" /> Change Username
                 </button>
             </section>
         </xpath>
