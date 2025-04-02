@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="snippets" inherit_id="website.snippets" name="Wide Banner Snippet Integration">
+        <xpath expr="//t" position="inside">
+            <t t-snippet="website_banner.s_advertisement" string="Advertisements" t-thumbnail="/website/static/src/img/s_banner_snippet.svg"/>
+        </xpath>
+    </template>
+</odoo>

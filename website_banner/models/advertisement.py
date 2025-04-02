@@ -24,19 +24,25 @@ class Advertisement(models.Model):
     view_count = fields.Integer(default=0)
     click_count = fields.Integer(default=0)
 
-    @api.model
-    def get_random_ad(self, category_id):
-        now = datetime.now()
-        ads = self.search([
-            ('advertisement_category_id', '=', category_id),
-            ('is_active', '=', True),
-            ('start_date', '<=', now),
-            ('end_date', '>=', now),
-        ])
-        return random.choice(ads) if ads else None
+    image_url = fields.Char(compute='_compute_image_url', readonly=True)
+
+    @api.depends('image')
+    def _compute_image_url(self):
+        for record in self:
+            if record.image:
+                record.image_url = f"/web/image/{record._name}/{record.id}/image"
+            else:
+                record.image_url = "/web/static/img/placeholder.png"
 
     def increment_view(self):
         self.sudo().write({'view_count': self.view_count + 1})
 
     def increment_click(self):
         self.sudo().write({'click_count': self.click_count + 1})
+
+    @property
+    def cover_properties(self):
+        return {
+            'image_field': 'image',
+            'default_image': '/web/static/img/placeholder.png',
+        }

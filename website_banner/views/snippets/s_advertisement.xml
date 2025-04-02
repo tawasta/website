@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="s_advertisement" name="Banner Ad">
+        <t t-call="website.s_dynamic_snippet_template">
+            <t t-set="snippet_name" t-value="'dynamic_snippet_advertisement'"/>
+            <t t-set="snippet_classes" t-value="'s_dynamic_snippet_advertisement'"/>
+        </t>
+    </template>
+
+    <!-- Dynamic snippet layout (will appear in the dropdown) -->
+    <template id="dynamic_filter_template_advertisement_advertisement_picture" name="Advertisement Picture Layout">
+    <figure t-foreach="records" t-as="data" class="w-100 s_advertisement_ad">
+        <t t-set="record" t-value="data['_record']"/>
+        <a class="position-relative d-block overflow-hidden rounded" t-att-href="record.url" t-att-data-id="record.id" t-att-data-advertisement-id="record.id" target="_blank">
+            <img t-att-src="record.image_url"
+                 alt="Advertisement"
+                 class="w-100 h-100 object-fit-cover position-relative rounded shadow-sm"/>
+            <figcaption class="text-center position-absolute w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white">
+                <div class="h5 bg-dark bg-opacity-50 px-3 py-1 rounded" t-out="record.name"/>
+            </figcaption>
+        </a>
+    </figure>
+</template>
+
+
+    <!-- Register snippet in the website.snippets panel -->
+    <template id="s_advertisement_registry" inherit_id="website.snippets" name="Register Advertisement Snippet">
+        <xpath expr="//div[@id='snippet_structure']" position="inside">
+            <div class="o_panel">
+                <div class="o_panel_header">Advertisement</div>
+                <div class="o_panel_body">
+                    <t t-snippet="website_banner.s_advertisement"
+                       string="Ad Banner"
+                       t-thumbnail="/web/static/img/placeholder.png"/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Snippet options, injected into website.snippet_options -->
+    <template id="s_dynamic_snippet_advertisement_options" inherit_id="website.snippet_options">
+    <xpath expr="." position="inside">
+        <t t-call="website_banner.s_dynamic_snippet_advertisement_options_template">
+            <t t-set="snippet_name" t-value="'dynamic_snippet_advertisement'"/>
+            <t t-set="snippet_selector" t-value="'.s_dynamic_snippet_advertisement'"/>
+        </t>
+    </xpath>
+</template>
+
+<template id="s_dynamic_snippet_advertisement_options_template" inherit_id="website.s_dynamic_snippet_options_template">
+    <xpath expr="//we-select[@data-name='filter_opt']" position="after">
+        <we-select t-if="snippet_name == 'dynamic_snippet_advertisement'"
+                   string="Category"
+                   data-name="category_opt"
+                   data-attribute-name="filterByCategoryId"
+                   data-model="advertisement.category"
+                   data-fields="['name']"
+                   data-limit="50"
+                   data-no-preview="true">
+            <we-button data-select-data-attribute="-1">All Categories</we-button>
+        </we-select>
+    </xpath>
+</template>
+
+
+    <record id="website_banner.s_advertisement_000_jss" model="ir.asset">
+        <field name="name">Advertisement 000 JS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">website_banner/static/src/snippets/s_advertisement/000.esm.js</field>
+    </record>
+
+
+</odoo>
