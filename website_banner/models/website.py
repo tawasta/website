@@ -36,8 +36,6 @@ class WebsiteSnippetFilterRandom(models.Model):
 
             try:
                 model_name = filter_sudo.model_id
-                _logger.info("MODEL: %s", model_name)
-                _logger.info("DOMAIN: %s", domain)
 
                 # Hae kaikki ilman limit, jos advertisement.advertisement
                 if model_name == "advertisement.advertisement":
@@ -47,7 +45,6 @@ class WebsiteSnippetFilterRandom(models.Model):
                         .with_context(**literal_eval(filter_sudo.context))
                         .search(domain)
                     )
-                    _logger.info("ALL RECORDS: %s", all_records)
 
                     if all_records:
                         records = sample(list(all_records), k=1)  # yksi random
