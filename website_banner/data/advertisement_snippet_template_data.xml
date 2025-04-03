@@ -21,6 +21,6 @@
             ref="website_banner.dynamic_snippet_advertisement_filter"
         />
         <field name="field_names">name,url,image_url</field>
-        <field name="limit" eval="10" />
+        <field name="limit" eval="1" />
     </record>
 </odoo>
