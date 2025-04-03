@@ -1,0 +1,26 @@
+<odoo>
+    <!-- Backend filter record -->
+    <record id="dynamic_snippet_advertisement_filter" model="ir.filters">
+        <field name="name">Mainokset (aktiiviset)</field>
+        <field name="model_id">advertisement.advertisement</field>
+        <field name="user_id" eval="False" />
+        <field name="domain">[
+            ('is_active', '=', True),
+            ('start_date', '&lt;=', context_today()),
+            ('end_date', '&gt;=', context_today())
+        ]</field>
+        <field name="sort">[]</field>
+        <field name="action_id" ref="website.action_website" />
+    </record>
+
+    <!-- Website dynamic filter (this connects templates + fields + filter) -->
+    <record id="dynamic_filter_advertisement" model="website.snippet.filter">
+        <field name="name">Mainosfilteri</field>
+        <field
+            name="filter_id"
+            ref="website_banner.dynamic_snippet_advertisement_filter"
+        />
+        <field name="field_names">name,url,image_url</field>
+        <field name="limit" eval="10" />
+    </record>
+</odoo>

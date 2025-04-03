@@ -30,14 +30,18 @@
     "depends": ["website"],
     "data": [
         "security/ir.model.access.csv",
-        "views/snippets/banner_snippet.xml",
-        "views/snippets/banner_snippet_inherit.xml",
+        "data/advertisement_snippet_template_data.xml",
+        "views/snippets/s_advertisement.xml",
+        "views/snippets/snippets.xml",
         "views/advertisement_view.xml",
     ],
     "assets": {
         "web.assets_frontend": [
-            "/website_banner/static/src/js/main.esm.js",
-            '/website_banner/static/src/scss/main.scss',
+            "/website_banner/static/src/scss/main.scss",
+            "/website_banner/static/src/js/tracker.esm.js",
+        ],
+        "website.assets_wysiwyg": [
+            "/website_banner/static/src/snippets/s_advertisement/options.esm.js",
         ],
     },
 }
