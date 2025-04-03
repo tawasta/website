@@ -8,6 +8,7 @@ const DynamicSnippetAdvertisement = DynamicSnippet.extend({
     selector: ".s_dynamic_snippet_advertisement",
     disabledInEditableMode: false,
 
+    // Add optional category filter to the domain
     _getSearchDomain() {
         const domain = this._super(...arguments);
         const categoryId = parseInt(this.el.dataset.filterByCategoryId || -1);
@@ -16,7 +17,7 @@ const DynamicSnippetAdvertisement = DynamicSnippet.extend({
         }
         return domain;
     },
-
+    // After rendering, hook into ad elements for tracking
     /**
      * @override
      */

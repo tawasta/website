@@ -27,6 +27,7 @@ class Advertisement(models.Model):
 
     image_url = fields.Char(compute="_compute_image_url", readonly=True)
 
+    # Computed image URL for use in frontend
     @api.depends("image")
     def _compute_image_url(self):
         for record in self:
@@ -41,6 +42,7 @@ class Advertisement(models.Model):
     def increment_click(self):
         self.sudo().write({"click_count": self.click_count + 1})
 
+    # Used by snippet rendering to get image and fallback
     @property
     def cover_properties(self):
         return {

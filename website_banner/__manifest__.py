@@ -38,7 +38,6 @@
     "assets": {
         "web.assets_frontend": [
             "/website_banner/static/src/scss/main.scss",
-            "/website_banner/static/src/js/tracker.esm.js",
         ],
         "website.assets_wysiwyg": [
             "/website_banner/static/src/snippets/s_advertisement/options.esm.js",
