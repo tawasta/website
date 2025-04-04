@@ -78,18 +78,14 @@
         inherit_id="website.s_dynamic_snippet_options_template"
     >
     <xpath expr="//we-select[@data-name='filter_opt']" position="after">
-        <we-select
-                t-if="snippet_name == 'dynamic_snippet_advertisement'"
-                string="Category"
-                data-name="category_opt"
-                data-attribute-name="filterByCategoryId"
-                data-model="advertisement.category"
-                data-fields="['name']"
-                data-limit="50"
-                data-no-preview="true"
-            >
-            <we-button data-select-data-attribute="-1">All Categories</we-button>
-        </we-select>
+        <we-many2many string="Categories"
+                    data-name="category_tag_opt"
+                    data-attribute-name="advertisementCategoryIds"
+                    data-no-preview="true"
+                    data-model="advertisement.category"
+                    data-allow-delete="true"
+                    data-fakem2m="true"
+                    data-select-data-attribute=""/>
     </xpath>
 </template>
 

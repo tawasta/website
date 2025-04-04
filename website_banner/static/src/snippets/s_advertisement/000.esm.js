@@ -8,15 +8,33 @@ const DynamicSnippetAdvertisement = DynamicSnippet.extend({
     selector: ".s_dynamic_snippet_advertisement",
     disabledInEditableMode: false,
 
-    // Add optional category filter to the domain
-    _getSearchDomain() {
-        const domain = this._super(...arguments);
-        const categoryId = parseInt(this.el.dataset.filterByCategoryId || -1);
-        if (categoryId >= 0) {
-            domain.push(["advertisement_category_id", "=", categoryId]);
+    /**
+     * Gets the tag search domain
+     *
+     * @private
+     */
+    _getCategorySearchDomain() {
+        const searchDomain = [];
+        let advertisementCategoryIds = this.$el.get(0).dataset.advertisementCategoryIds;
+        advertisementCategoryIds = advertisementCategoryIds ? JSON.parse(advertisementCategoryIds) : [];
+        if (advertisementCategoryIds.length) {
+            searchDomain.push(['advertisement_category_ids', 'in', advertisementCategoryIds.map(categoryTag => categoryTag.id)]);
         }
-        return domain;
+        return searchDomain;
     },
+
+
+    /**
+     * Yhdistetään kaikki domainit
+     * @private
+     * @override
+     */
+    _getSearchDomain() {
+        const searchDomain = this._super.apply(this, arguments);
+        searchDomain.push(...this._getCategorySearchDomain());
+        return searchDomain;
+    },
+
     // After rendering, hook into ad elements for tracking
     /**
      * @override
