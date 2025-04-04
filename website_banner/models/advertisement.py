@@ -16,7 +16,11 @@ class Advertisement(models.Model):
     _description = "Advertisement"
 
     name = fields.Char(required=True)
-    advertisement_category_id = fields.Many2one("advertisement.category", required=True)
+    advertisement_category_ids = fields.Many2many(
+        "advertisement.category",
+        string="Categories"
+    )
+
     start_date = fields.Datetime(required=True)
     end_date = fields.Datetime(required=True)
     image = fields.Binary()

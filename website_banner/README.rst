@@ -6,28 +6,38 @@
 Website Banner
 ==============
 This module provides a dynamic and responsive banner for displaying advertisements on Odoo websites.  
-It fetches and displays a random **active** advertisement from a selected category, tracks **impressions** and **clicks**, and supports **time-based display conditions**.
+It fetches and displays one or more **random active advertisements** from selected **categories**, tracks **impressions** and **clicks**, and supports **time-based display conditions**.
 
+Features
+========
+- Displays advertisements in a banner format
+- **Supports multiple categories** using many2many selection
+- Filters by date (start/end) and active status
+- Tracks impressions and clicks via JSON-RPC
+- Fully integrated into the Odoo website editor as a dynamic snippet
 
 Configuration
 =============
 
-1. Go to **Website > Configuration > Advertisements**.
+1. Go to **Website > Configuration > Advertisement Categories**.
 2. Create one or more **Advertisement Categories**.
-3. Create **Advertisements** and configure the following:
-   - **Name**: Title of the ad.
-   - **Category**: Category the ad belongs to.
-   - **Start and End Date**: Validity period during which the ad is displayed.
-   - **URL**: Target link the banner points to.
-   - **Image**: Content shown in the banner.
-   - **Active**: Only active ads will be shown.
+3. Go to **Website > Configuration > Advertisements** and configure each ad:
+   - **Name**: Title of the ad
+   - **Categories**: One or more categories the ad belongs to
+   - **Start and End Date**: Visibility period
+   - **Target URL**: Link the ad should open
+   - **Image**: Ad content
+   - **Active**: Only active ads are shown
 
 Usage
 =====
-1. In the **Website Builder**, drag and drop the **Wide Banner** snippet onto your page.
-2. Set the `data-category-id` attribute in the snippet’s HTML to the desired advertisement category ID.
-3. The banner will automatically load a **random active ad** from the selected category using **JSON-RPC**.
-4. Banner **views** and **clicks** are automatically tracked per advertisement.
+
+1. Open the **Website Builder**.
+2. Drag and drop the **Advertisement Banner** snippet onto a page.
+3. Use the **snippet options panel** to select one or more advertisement categories.
+4. The banner will display a **random active advertisement** matching the selected categories.
+5. All **views and clicks** are tracked automatically via backend RPC calls.
+
 
 
 Known issues / Roadmap

@@ -36,7 +36,6 @@ class WebsiteSnippetFilterRandom(models.Model):
 
             try:
                 model_name = filter_sudo.model_id
-
                 # Hae kaikki ilman limit, jos advertisement.advertisement
                 if model_name == "advertisement.advertisement":
                     all_records = (
@@ -63,7 +62,6 @@ class WebsiteSnippetFilterRandom(models.Model):
                         )
                     )
 
-                _logger.info("RETURNED RECORDS: %s", records)
                 return self._filter_records_to_values(records)
 
             except MissingError:
