@@ -28,7 +28,7 @@
     "application": False,
     "installable": True,
     "depends": ["website", "portal"],
-    "data": ["security/ir.model.access.csv","views/prompt.xml", "views/website.xml"],
+    "data": ["security/ir.model.access.csv", "views/prompt.xml", "views/website.xml"],
     "assets": {
         "web.assets_frontend": [
             "/partner_data_promt/static/src/js/data_prompt.esm.js",

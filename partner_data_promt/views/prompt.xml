@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
     <!-- Form View -->
@@ -9,13 +9,17 @@
             <form string="Data Prompt Rule">
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="sequence"/>
-                        <field name="field_name"/>
-                        <field name="field_type" readonly="1"/>
-                        <field name="required"/>
-                        <field name="condition_domain" widget="domain" options='{"model": "res.partner"}'/>
-                        <field name="info_text"/>
+                        <field name="name" />
+                        <field name="sequence" />
+                        <field name="field_name" />
+                        <field name="field_type" readonly="1" />
+                        <field name="required" />
+                        <field
+                            name="condition_domain"
+                            widget="domain"
+                            options='{"model": "res.partner"}'
+                        />
+                        <field name="info_text" />
                     </group>
                 </sheet>
             </form>
@@ -28,11 +32,11 @@
         <field name="model">res.partner.data.prompt.rule</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="sequence" widget="handle"/>
-                <field name="name"/>
-                <field name="field_name"/>
-                <field name="field_type"/>
-                <field name="required"/>
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field name="field_name" />
+                <field name="field_type" />
+                <field name="required" />
             </tree>
         </field>
     </record>

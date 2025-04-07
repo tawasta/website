@@ -6,11 +6,10 @@ _logger = logging.getLogger(__name__)
 
 
 class PartnerDataPromptController(http.Controller):
-
-    @http.route('/my/data_check', type='json', auth="user", website=True)
+    @http.route("/my/data_check", type="json", auth="user", website=True)
     def data_check(self):
         partner = request.env.user.partner_id
-        rules = request.env['res.partner.data.prompt.rule'].sudo().search([])
+        rules = request.env["res.partner.data.prompt.rule"].sudo().search([])
 
         fields_to_ask = []
         field_data = []
@@ -27,23 +26,26 @@ class PartnerDataPromptController(http.Controller):
                 except Exception as e:
                     _logger.error("Invalid domain in rule %s: %s", rule.name, e)
                     continue
-                if not request.env['res.partner'].search_count(
-                        [('id', '=', partner.id)] + domain):
+                if not request.env["res.partner"].search_count(
+                    [("id", "=", partner.id)] + domain
+                ):
                     continue
 
             fields_to_ask.append(rule.field_name)
-            field_data.append({
-                'name': rule.field_name.name,
-                'type': rule.field_type,
-                'label': rule.info_text or rule.field_name.field_description,
-                'options': self._get_field_options(partner, rule)
-                           if rule.field_type in ['selection', 'many2one'] else [],
-            })
+            field_data.append(
+                {
+                    "name": rule.field_name.name,
+                    "type": rule.field_type,
+                    "label": rule.info_text or rule.field_name.field_description,
+                    "options": self._get_field_options(partner, rule)
+                    if rule.field_type in ["selection", "many2one"]
+                    else [],
+                }
+            )
 
         if fields_to_ask:
-            return request.env['ir.ui.view']._render_template(
-                "partner_data_promt.data_prompt_modal",
-                {'fields': field_data}
+            return request.env["ir.ui.view"]._render_template(
+                "partner_data_promt.data_prompt_modal", {"fields": field_data}
             )
         return False
 
@@ -53,21 +55,21 @@ class PartnerDataPromptController(http.Controller):
         field = partner._fields.get(field_name)
         if not field:
             return []
-        if field.type == 'selection':
+        if field.type == "selection":
             return field.selection
-        elif field.type == 'many2one':
+        elif field.type == "many2one":
             comodel = field.comodel_name
             records = request.env[comodel].sudo().search([], limit=100)
             return [(r.id, r.display_name) for r in records]
         return []
 
-
-
-    @http.route('/my/data_update', type='http', auth="user", methods=["POST"], website=True)
+    @http.route(
+        "/my/data_update", type="http", auth="user", methods=["POST"], website=True
+    )
     def data_update(self, **post):
         partner = request.env.user.partner_id
 
-        rules = request.env['res.partner.data.prompt.rule'].sudo().search([])
+        rules = request.env["res.partner.data.prompt.rule"].sudo().search([])
         allowed_fields = {rule.field_name.name: rule.field_type for rule in rules}
 
         values = {}
@@ -76,9 +78,9 @@ class PartnerDataPromptController(http.Controller):
                 continue
             raw_value = post.get(field_name)
             try:
-                if field_type == 'many2one':
+                if field_type == "many2one":
                     values[field_name] = int(raw_value) if raw_value else False
-                elif field_type == 'integer':
+                elif field_type == "integer":
                     values[field_name] = int(raw_value) if raw_value else False
                 else:
                     values[field_name] = raw_value
@@ -89,5 +91,4 @@ class PartnerDataPromptController(http.Controller):
             _logger.info("Updating partner fields: %s", values)
             partner.sudo().write(values)
 
-        return request.redirect('/')  # reload or redirect back to dashboard
-
+        return request.redirect("/")  # reload or redirect back to dashboard
