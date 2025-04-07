@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="banner_snippet_template" name="Wide Banner Snippet">
+        <section class="s_banner_snippet o_wide_banner" data-category-id="1">
+            <a class="s_banner_link" href="#" target="_blank">
+            <div class="s_banner_container">
+                <div class="s_banner_content">
+
+                        <img
+                            class="s_banner_image"
+                            src="/web/static/img/placeholder.png"
+                            alt="Advertisement"
+                        />
+
+                </div>
+            </div>
+            </a>
+        </section>
+    </template>
+</odoo>
