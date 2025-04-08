@@ -25,20 +25,25 @@
                 <label class="form-label" t-att-for="field['name']">
                   <t t-esc="field['label']" />
                 </label>
+
+                <!-- char & integer -->
                 <t t-if="field['type'] == 'char' or field['type'] == 'integer'">
                   <input
-                                        t-att-name="field['name']"
-                                        type="text"
-                                        class="form-control"
-                                        required="true"
-                                    />
+                                                    t-att-name="field['name']"
+                                                    type="text"
+                                                    class="form-control"
+                                                    t-att-data-required="field.get('required', False) and 'true' or 'false'"
+                                                />
                 </t>
-                <t t-if="field['type'] == 'selection' or field['type'] == 'many2one' or field['type'] == 'many2many'">
+
+                <!-- selection, many2one, many2many -->
+                <t t-if="field['type'] in ['selection', 'many2one', 'many2many']">
                   <select
-                      t-att-name="field['name']"
-                      class="form-control select2"
-                      t-att-multiple="'multiple'" if="field['type'] == 'many2many'"
-                  >
+                                                    t-att-name="field['name']"
+                                                    class="form-control select2"
+                                                    t-att-multiple="field['type'] == 'many2many' and 'multiple' or None"
+                                                    t-att-data-required="field.get('required', False) and 'true' or 'false'"
+                                                >
                     <t t-foreach="field['options']" t-as="opt">
                       <option t-att-value="opt[0]"><t t-esc="opt[1]" /></option>
                     </t>
@@ -46,6 +51,7 @@
                 </t>
               </div>
             </t>
+
           </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Save</button>

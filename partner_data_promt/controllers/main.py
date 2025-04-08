@@ -37,6 +37,7 @@ class PartnerDataPromptController(http.Controller):
                     "name": rule.field_name.name,
                     "type": rule.field_type,
                     "label": rule.info_text or rule.field_name.field_description,
+                    "required": rule.required,
                     "options": self._get_field_options(partner, rule)
                     if rule.field_type in ["selection", "many2one", "many2many"]
                     else [],
