@@ -38,10 +38,11 @@ class PartnerDataPromptController(http.Controller):
                     "type": rule.field_type,
                     "label": rule.info_text or rule.field_name.field_description,
                     "options": self._get_field_options(partner, rule)
-                    if rule.field_type in ["selection", "many2one"]
+                    if rule.field_type in ["selection", "many2one", "many2many"]
                     else [],
                 }
             )
+            _logger.info(field_data)
 
         if fields_to_ask:
             return request.env["ir.ui.view"]._render_template(
@@ -57,9 +58,11 @@ class PartnerDataPromptController(http.Controller):
             return []
         if field.type == "selection":
             return field.selection
-        elif field.type == "many2one":
+        elif field.type in ["many2one", "many2many"]:
             comodel = field.comodel_name
             records = request.env[comodel].sudo().search([], limit=100)
+            _logger.info("========RECORDS")
+            _logger.info(records)
             return [(r.id, r.display_name) for r in records]
         return []
 
@@ -82,6 +85,12 @@ class PartnerDataPromptController(http.Controller):
                     values[field_name] = int(raw_value) if raw_value else False
                 elif field_type == "integer":
                     values[field_name] = int(raw_value) if raw_value else False
+                elif field_type == "many2many":
+                    raw_list = request.httprequest.form.getlist(field_name)
+                    if raw_list:
+                        values[field_name] = [(6, 0, [int(x) for x in raw_list])]
+                    else:
+                        values[field_name] = [(5, 0, 0)]
                 else:
                     values[field_name] = raw_value
             except Exception as e:

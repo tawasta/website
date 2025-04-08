@@ -33,8 +33,12 @@
                                         required="true"
                                     />
                 </t>
-                <t t-if="field['type'] == 'selection' or field['type'] == 'many2one'">
-                  <select t-att-name="field['name']" class="form-control select2">
+                <t t-if="field['type'] == 'selection' or field['type'] == 'many2one' or field['type'] == 'many2many'">
+                  <select
+                      t-att-name="field['name']"
+                      class="form-control select2"
+                      t-att-multiple="'multiple'" if="field['type'] == 'many2many'"
+                  >
                     <t t-foreach="field['options']" t-as="opt">
                       <option t-att-value="opt[0]"><t t-esc="opt[1]" /></option>
                     </t>
