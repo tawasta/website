@@ -30,8 +30,10 @@
     "installable": True,
     "depends": ["website_blog"],
     "data": [
+        "data/ir_cron.xml",
         "views/blog_blog_form.xml",
         "views/blog_post_form.xml",
         "views/blog_post_content_template.xml",
+        "views/res_partner_form.xml",
     ],
 }

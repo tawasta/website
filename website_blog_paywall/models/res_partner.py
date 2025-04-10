@@ -4,18 +4,24 @@ from odoo import fields, models
 class Partner(models.Model):
     _inherit = "res.partner"
 
-    paywall = fields.Boolean(
-        "Paid articles",
-        help="Require a permission for reading posts in this blog",
-        default=False,
+    read_blog_post_ids = fields.Many2many(
+        string="Read blog posts",
+        comodel_name="blog.post",
+        relation="read_blog_post_rel",
+        readonly=True,
     )
 
-    paywall_description = fields.Html(
-        "Paywall description",
-        translate=True,
-        help="Tell your readers why this blog is behind a paywall",
+    read_free_blog_post_ids = fields.Many2many(
+        string="Free tier read blog posts",
+        comodel_name="blog.post",
+        relation="read_free_blog_post_rel",
+        readonly=True,
     )
 
-    paywall_domain = fields.Char(
-        string="Paywall criteria",
-    )
+    def _cron_reset_read_free_blog_post_ids(self):
+        records = self.search([])
+        records.reset_read_free_blog_post_ids()
+
+    def reset_read_free_blog_post_ids(self):
+        # Reset free tier blog posts
+        self.write({"read_free_blog_post_ids": False})

@@ -7,10 +7,18 @@
         <field name="arch" type="xml">
             <field name="website_id" position="after">
                 <field name="paywall" widget="boolean_toggle" />
+                <field name="paywall_free_articles" invisible="not paywall" />
                 <field name="paywall_description" invisible="not paywall" />
+                <field name="paywall_teaser_length" invisible="not paywall" />
                 <field
                     name="paywall_domain"
                     invisible="not paywall"
+                    widget="domain"
+                    options='{"model": "res.partner"}'
+                />
+                <field
+                    name="paywall_free_domain"
+                    invisible="paywall_free_articles &lt; 1"
                     widget="domain"
                     options='{"model": "res.partner"}'
                 />
