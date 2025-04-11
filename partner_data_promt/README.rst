@@ -20,7 +20,6 @@ Features
   - selection
   - many2one
 - Integrated with Bootstrap modal and Select2 (for dropdown fields)
-- Automat
 
 Configuration
 =============
