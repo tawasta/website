@@ -9,7 +9,7 @@ class PartnerDataPromptController(http.Controller):
     @http.route("/my/data_check", type="json", auth="user", website=True)
     def data_check(self):
         partner = request.env.user.partner_id
-        rules = request.env["res.partner.data.prompt.rule"].sudo().search([])
+        rules = request.env["res.partner.data.prompt.rule"].sudo().search([('active', '=', True)])
 
         fields_to_ask = []
         field_data = []

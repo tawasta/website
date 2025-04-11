@@ -24,6 +24,7 @@ class PartnerDataPromptRule(models.Model):
     )
     field_type = fields.Char(compute="_compute_field_type", store=True)
     sequence = fields.Integer(default=10)
+    active = fields.Boolean(string="Active")
 
     @api.depends("field_name")
     def _compute_field_type(self):

@@ -20,6 +20,7 @@
                             options='{"model": "res.partner"}'
                         />
                         <field name="info_text" />
+                        <field name="active" />
                     </group>
                 </sheet>
             </form>
@@ -37,6 +38,7 @@
                 <field name="field_name" />
                 <field name="field_type" />
                 <field name="required" />
+                <field name="active" />
             </tree>
         </field>
     </record>
