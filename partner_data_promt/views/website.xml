@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <template id="data_prompt_modal">
+    <div class="modal fade" id="partnerDataPromptModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <form
+                    class="modal-content"
+                    id="partnerDataPromptForm"
+                    t-attf-action="/my/data_update"
+                    method="post"
+                >
+          <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+          <div class="modal-header">
+            <h5 class="modal-title">Please complete your profile</h5>
+            <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        />
+          </div>
+          <div class="modal-body">
+            <t t-foreach="fields" t-as="field">
+              <div class="form-group mb-3">
+                <label class="form-label" t-att-for="field['name']">
+                  <t t-esc="field['label']" />
+                </label>
+
+                <!-- char & integer -->
+                <t t-if="field['type'] == 'char' or field['type'] == 'integer'">
+                  <input
+                                                    t-att-name="field['name']"
+                                                    type="text"
+                                                    class="form-control"
+                                                    t-att-data-required="field.get('required', False) and 'true' or 'false'"
+                                                />
+                </t>
+
+                <!-- selection, many2one, many2many -->
+                <t t-if="field['type'] in ['selection', 'many2one', 'many2many']">
+                  <select
+                                                    t-att-name="field['name']"
+                                                    class="form-control select2"
+                                                    t-att-multiple="field['type'] == 'many2many' and 'multiple' or None"
+                                                    t-att-data-required="field.get('required', False) and 'true' or 'false'"
+                                                >
+                    <t t-foreach="field['options']" t-as="opt">
+                      <option t-att-value="opt[0]"><t t-esc="opt[1]" /></option>
+                    </t>
+                  </select>
+                </t>
+              </div>
+            </t>
+
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </template>
+</odoo>

@@ -78,14 +78,16 @@
         inherit_id="website.s_dynamic_snippet_options_template"
     >
     <xpath expr="//we-select[@data-name='filter_opt']" position="after">
-        <we-many2many string="Categories"
-                    data-name="category_tag_opt"
-                    data-attribute-name="advertisementCategoryIds"
-                    data-no-preview="true"
-                    data-model="advertisement.category"
-                    data-allow-delete="true"
-                    data-fakem2m="true"
-                    data-select-data-attribute=""/>
+        <we-many2many
+                string="Categories"
+                data-name="category_tag_opt"
+                data-attribute-name="advertisementCategoryIds"
+                data-no-preview="true"
+                data-model="advertisement.category"
+                data-allow-delete="true"
+                data-fakem2m="true"
+                data-select-data-attribute=""
+            />
     </xpath>
 </template>
 

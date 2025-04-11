@@ -1,0 +1,64 @@
+.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+        :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+        :alt: License: AGPL-3
+
+===================
+Partner Data Prompt
+===================
+This module enables automatic prompting of missing partner data from portal users (customers) after login.
+Administrators can define dynamic rules for which fields should be requested, and under what conditions.
+
+
+Features
+========
+
+- Prompt portal users to complete missing partner fields
+- Define dynamic rules based on partner field, requirement, and domain condition
+- Fields supported:
+  - char
+  - integer
+  - selection
+  - many2one
+- Integrated with Bootstrap modal and Select2 (for dropdown fields)
+
+Configuration
+=============
+1. Go to *Website > Data Prompt Rules*
+2. Create a new rule:
+   - **Field**: Select a field from `res.partner`
+   - **Required**: Should the field be prompted if empty
+   - **Condition Domain** *(optional)*: Odoo domain in Python format, for example:
+     ::
+
+         [('is_company', '=', True)]
+
+   - **Prompt Text**: Custom explanation shown to the user for each field
+
+Usage
+=====
+1. User logs into the website (portal)
+2. If any fields defined in rules are missing:
+   - A modal window appears
+   - User is required to fill the missing fields
+3. Submitted data is saved directly to the partner record
+
+Known issues / Roadmap
+======================
+\-
+
+Credits
+=======
+
+Contributors
+------------
+
+* Valtteri Lattu <valtteri.lattu@futural.fi>
+
+Maintainer
+----------
+
+.. image:: http://tawasta.fi/templates/tawastrap/images/logo.png
+        :alt: Oy Tawasta OS Technologies Ltd.
+        :target: http://tawasta.fi/
+
+This module is maintained by Oy Tawasta OS Technologies Ltd.

@@ -17,8 +17,7 @@ class Advertisement(models.Model):
 
     name = fields.Char(required=True)
     advertisement_category_ids = fields.Many2many(
-        "advertisement.category",
-        string="Categories"
+        "advertisement.category", string="Categories"
     )
 
     start_date = fields.Datetime(required=True)

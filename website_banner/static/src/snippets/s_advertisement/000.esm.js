@@ -16,13 +16,18 @@ const DynamicSnippetAdvertisement = DynamicSnippet.extend({
     _getCategorySearchDomain() {
         const searchDomain = [];
         let advertisementCategoryIds = this.$el.get(0).dataset.advertisementCategoryIds;
-        advertisementCategoryIds = advertisementCategoryIds ? JSON.parse(advertisementCategoryIds) : [];
+        advertisementCategoryIds = advertisementCategoryIds
+            ? JSON.parse(advertisementCategoryIds)
+            : [];
         if (advertisementCategoryIds.length) {
-            searchDomain.push(['advertisement_category_ids', 'in', advertisementCategoryIds.map(categoryTag => categoryTag.id)]);
+            searchDomain.push([
+                "advertisement_category_ids",
+                "in",
+                advertisementCategoryIds.map((categoryTag) => categoryTag.id),
+            ]);
         }
         return searchDomain;
     },
-
 
     /**
      * Yhdistetään kaikki domainit
