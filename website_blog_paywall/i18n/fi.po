@@ -74,13 +74,13 @@ msgstr "Ilmaiset artikkelit"
 #: model:ir.model.fields,field_description:website_blog_paywall.field_res_users__read_free_blog_post_ids
 #, fuzzy
 msgid "Free tier read blog posts"
-msgstr "Ilmainen taso lue blogikirjoituksia"
+msgstr "Ilmaisen tason luetut artikkelit"
 
 #. module: website_blog_paywall
 #: model:ir.model.fields,field_description:website_blog_paywall.field_blog_post__paywall
 #, fuzzy
 msgid "Paid article"
-msgstr "Maksettu artikkeli"
+msgstr "Maksullinen artikkeli"
 
 #. module: website_blog_paywall
 #: model:ir.model.fields,field_description:website_blog_paywall.field_blog_blog__paywall
@@ -126,7 +126,7 @@ msgstr "Maksumuurin teaserin pituus"
 #: model:ir.model.fields,field_description:website_blog_paywall.field_res_users__read_blog_post_ids
 #, fuzzy
 msgid "Read blog posts"
-msgstr "Lue blogikirjoituksia"
+msgstr "Luetut artikkelit"
 
 #. module: website_blog_paywall
 #: model:ir.model.fields,help:website_blog_paywall.field_blog_blog__paywall

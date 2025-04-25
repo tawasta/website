@@ -1,6 +1,7 @@
 from odoo import api, fields, models
 from odoo.tools.safe_eval import safe_eval
 from odoo.addons.website.tools import text_from_html
+from odoo.http import request
 
 
 class BlogPost(models.Model):
@@ -109,6 +110,8 @@ class BlogPost(models.Model):
         elif self.env.user.has_group("website.group_website_restricted_editor"):
             # Allow reading for editors
             access = True
+        elif self._user_is_crawler():
+            access = True
         elif self.paywall and self.user_in_paywall_domain:
             # Allow reading for partners in partner domain
             access = True
@@ -139,6 +142,25 @@ class BlogPost(models.Model):
         res = free_tier_available or free_tier_allowed
 
         return res
+
+    def _user_is_crawler(self):
+        user_agent = request.httprequest.user_agent.string
+
+        allowed_crawlers = [
+            "googlebot",
+            "bingbot",
+            "yahoo!",
+            "baiduspider",
+            "yandexbot",
+            "duckduckbot",
+            "jeeves",
+            "teoma",
+            "ecosia",
+        ]
+
+        for crawler in allowed_crawlers:
+            if crawler in user_agent.lower():
+                return True
 
     def mark_post_as_read_by_user(self, user_id=False):
         self.ensure_one()
