@@ -49,6 +49,14 @@
                     </t>
                   </select>
                 </t>
+                <t t-if="field['type'] == 'date'">
+                  <input
+                    t-att-name="field['name']"
+                    type="date"
+                    class="form-control"
+                    t-att-data-required="field.get('required', False) and 'true' or 'false'"
+                  />
+                </t>
               </div>
             </t>
 
