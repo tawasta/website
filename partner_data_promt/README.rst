@@ -19,6 +19,8 @@ Features
   - integer
   - selection
   - many2one
+  - many2many
+  - date
 - Integrated with Bootstrap modal and Select2 (for dropdown fields)
 
 Configuration
