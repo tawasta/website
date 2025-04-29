@@ -50,13 +50,16 @@
                   </select>
                 </t>
                 <t t-if="field['type'] == 'date'">
-                  <input
+                    <input
                     t-att-name="field['name']"
-                    type="date"
-                    class="form-control"
+                    type="text"
+                    class="form-control datetimepicker-input"
+                    data-target="#datetimepicker1"
                     t-att-data-required="field.get('required', False) and 'true' or 'false'"
-                  />
+                />
+
                 </t>
+
               </div>
             </t>
 

@@ -1,6 +1,7 @@
 from odoo import http, _
 from odoo.http import request
 import logging
+from datetime import datetime
 
 _logger = logging.getLogger(__name__)
 
@@ -15,8 +16,6 @@ class PartnerDataPromptController(http.Controller):
         field_data = []
 
         for rule in rules:
-            if not rule.required:
-                continue
             field_value = getattr(partner, rule.field_name.name, False)
             if field_value:
                 continue
@@ -62,8 +61,6 @@ class PartnerDataPromptController(http.Controller):
         elif field.type in ["many2one", "many2many"]:
             comodel = field.comodel_name
             records = request.env[comodel].sudo().search([], limit=100)
-            _logger.info("========RECORDS")
-            _logger.info(records)
             return [(r.id, r.display_name) for r in records]
         return []
 
@@ -74,13 +71,21 @@ class PartnerDataPromptController(http.Controller):
         partner = request.env.user.partner_id
 
         rules = request.env["res.partner.data.prompt.rule"].sudo().search([])
-        allowed_fields = {rule.field_name.name: rule.field_type for rule in rules}
+        allowed_fields = {rule.field_name.name: {"type": rule.field_type, "required": rule.required} for rule in rules}
 
         values = {}
-        for field_name, field_type in allowed_fields.items():
+        for field_name, field_info in allowed_fields.items():
             if field_name not in post:
                 continue
+
+            field_type = field_info["type"]
+            is_required = field_info["required"]
             raw_value = post.get(field_name)
+
+            # Jos kenttä on tyhjä ja EI ole required -> älä tallenna mitään
+            if not raw_value and not is_required:
+                continue
+
             try:
                 if field_type == "many2one":
                     values[field_name] = int(raw_value) if raw_value else False
@@ -93,7 +98,18 @@ class PartnerDataPromptController(http.Controller):
                     else:
                         values[field_name] = [(5, 0, 0)]
                 elif field_type == "date":
-                    values[field_name] = raw_value or False
+                    if raw_value:
+                        try:
+                            date_obj = datetime.strptime(raw_value, "%d.%m.%Y")
+                            values[field_name] = date_obj.strftime("%Y-%m-%d")
+                        except ValueError:
+                            _logger.warning("Invalid date format for field %s: %s", field_name, raw_value)
+                            values[field_name] = False
+                    else:
+                        if is_required:
+                            values[field_name] = False
+                        else:
+                            continue  # Optional date, tyhjä -> ei tallenneta
                 else:
                     values[field_name] = raw_value
             except Exception as e:
@@ -103,4 +119,5 @@ class PartnerDataPromptController(http.Controller):
             _logger.info("Updating partner fields: %s", values)
             partner.sudo().write(values)
 
-        return request.redirect("/")  # reload or redirect back to dashboard
+        return request.redirect("/")
+
