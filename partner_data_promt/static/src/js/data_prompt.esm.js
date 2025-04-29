@@ -32,6 +32,49 @@ publicWidget.registry.PartnerDataPrompt = publicWidget.Widget.extend({
                         placeholder: "Select an option",
                         dropdownParent: $modal,
                     });
+
+                    // Alustetaan Tempus Dominus datepicker
+                    $modal.find('input.datetimepicker-input').each(function () {
+                        const element = this;
+                        if (typeof tempusDominus !== "undefined") {
+                            new tempusDominus.TempusDominus(element, {
+                                display: {
+                                    components: {
+                                        calendar: true,
+                                        date: true,
+                                        month: true,
+                                        year: true,
+                                        decades: true,
+                                        clock: false,
+                                    },
+                                    buttons: {
+                                        today: true,
+                                        clear: true,
+                                        close: true,
+                                    },
+                                    icons: {
+                                        time: 'fa fa-clock',
+                                        date: 'fa fa-calendar',
+                                        up: 'fa fa-arrow-up',
+                                        down: 'fa fa-arrow-down',
+                                        previous: 'fa fa-chevron-left',
+                                        next: 'fa fa-chevron-right',
+                                        today: 'fa fa-calendar-check',
+                                        clear: 'fa fa-trash',
+                                        close: 'fa fa-times',
+                                    },
+                                    viewMode: 'calendar',
+                                    toolbarPlacement: 'bottom',
+                                    calendarWeeks: true,
+                                },
+                                localization: {
+                                    format: 'dd.MM.yyyy',
+                                },
+                            });
+                        } else {
+                            console.error("Tempus Dominus is not loaded.");
+                        }
+                    });
                 });
 
                 // Lisätään validointi ennen lomakkeen lähetystä
