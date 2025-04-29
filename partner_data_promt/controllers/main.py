@@ -92,6 +92,8 @@ class PartnerDataPromptController(http.Controller):
                         values[field_name] = [(6, 0, [int(x) for x in raw_list])]
                     else:
                         values[field_name] = [(5, 0, 0)]
+                elif field_type == "date":
+                    values[field_name] = raw_value or False
                 else:
                     values[field_name] = raw_value
             except Exception as e:
