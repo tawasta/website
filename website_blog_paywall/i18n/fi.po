@@ -1,0 +1,194 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_blog_paywall
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20240924\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-09 13:54+0000\n"
+"PO-Revision-Date: 2025-04-09 16:56+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.6\n"
+
+#. module: website_blog_paywall
+#: model_terms:ir.ui.view,arch_db:website_blog_paywall.blog_post_content
+msgid "<i class=\"fa fa-info\" title=\"Free tier\"/>"
+msgstr "<i class=\"fa fa-info\" title=\"Ilmainen taso\"/>"
+
+#. module: website_blog_paywall
+#: model_terms:ir.ui.view,arch_db:website_blog_paywall.blog_post_content
+#, fuzzy
+msgid ""
+"<i class=\"fa fa-info\" title=\"Info\"/> <span>This is an article "
+"preview</span>"
+msgstr "<i j=\"0/\"><span>Tämä on artikkelin esikatselu</span></i>"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,help:website_blog_paywall.field_blog_blog__paywall_free_articles
+#: model:ir.model.fields,help:website_blog_paywall.field_blog_post__paywall_free_articles
+msgid "Allows a free tier for paid articles"
+msgstr "Sallii ilmaisen tason maksullisille artikkeleille"
+
+#. module: website_blog_paywall
+#: model:ir.model,name:website_blog_paywall.model_blog_blog
+msgid "Blog"
+msgstr "Blogi"
+
+#. module: website_blog_paywall
+#: model:ir.model,name:website_blog_paywall.model_blog_post
+msgid "Blog Post"
+msgstr "Blogikirjoitus"
+
+#. module: website_blog_paywall
+#: model:ir.actions.server,name:website_blog_paywall.ir_cron_reset_read_free_blog_post_ids_ir_actions_server
+#, fuzzy
+msgid "Blog paywall: reset free tier"
+msgstr "Blog maksumuuri: nollaa ilmainen taso"
+
+#. module: website_blog_paywall
+#: model_terms:ir.ui.view,arch_db:website_blog_paywall.view_partner_form
+msgid "Blog posts"
+msgstr "Blogiartikkelit"
+
+#. module: website_blog_paywall
+#: model:ir.model,name:website_blog_paywall.model_res_partner
+msgid "Contact"
+msgstr "Kontakti"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,field_description:website_blog_paywall.field_blog_blog__paywall_free_articles
+#: model:ir.model.fields,field_description:website_blog_paywall.field_blog_post__paywall_free_articles
+#, fuzzy
+msgid "Free articles"
+msgstr "Ilmaiset artikkelit"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,field_description:website_blog_paywall.field_res_partner__read_free_blog_post_ids
+#: model:ir.model.fields,field_description:website_blog_paywall.field_res_users__read_free_blog_post_ids
+#, fuzzy
+msgid "Free tier read blog posts"
+msgstr "Ilmaisen tason luetut artikkelit"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,field_description:website_blog_paywall.field_blog_post__paywall
+#, fuzzy
+msgid "Paid article"
+msgstr "Maksullinen artikkeli"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,field_description:website_blog_paywall.field_blog_blog__paywall
+#, fuzzy
+msgid "Paid articles"
+msgstr "Maksulliset artikkelit"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,field_description:website_blog_paywall.field_blog_blog__paywall_domain
+#: model:ir.model.fields,field_description:website_blog_paywall.field_blog_post__paywall_domain
+#, fuzzy
+msgid "Paywall criteria"
+msgstr "Maksumuurin kriteerit"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,field_description:website_blog_paywall.field_blog_blog__paywall_description
+#: model:ir.model.fields,field_description:website_blog_paywall.field_blog_post__paywall_description
+#, fuzzy
+msgid "Paywall description"
+msgstr "Maksumuurin kuvaus"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,field_description:website_blog_paywall.field_blog_blog__paywall_free_domain
+#: model:ir.model.fields,field_description:website_blog_paywall.field_blog_post__paywall_free_domain
+#, fuzzy
+msgid "Paywall free tier criteria"
+msgstr "Maksumuurin ilmaisen tason kriteerit"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,field_description:website_blog_paywall.field_blog_post__paywall_teaser
+#, fuzzy
+msgid "Paywall teaser"
+msgstr "Maksumuurin teaser"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,field_description:website_blog_paywall.field_blog_post__paywall_teaser_length
+#, fuzzy
+msgid "Paywall teaser length"
+msgstr "Maksumuurin teaserin pituus"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,field_description:website_blog_paywall.field_res_partner__read_blog_post_ids
+#: model:ir.model.fields,field_description:website_blog_paywall.field_res_users__read_blog_post_ids
+#, fuzzy
+msgid "Read blog posts"
+msgstr "Luetut artikkelit"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,help:website_blog_paywall.field_blog_blog__paywall
+#, fuzzy
+msgid "Require a permission for reading posts in this blog"
+msgstr "Vaadi lupa tämän blogin viestien lukemiseen"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,help:website_blog_paywall.field_blog_post__paywall
+#, fuzzy
+msgid "Require a permission for reading the article"
+msgstr "Vaadi lupa artikkelin lukemiseen"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,field_description:website_blog_paywall.field_blog_blog__paywall_teaser_length
+#, fuzzy
+msgid "Teaser length"
+msgstr "Teaserin pituus"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,help:website_blog_paywall.field_blog_blog__paywall_description
+#: model:ir.model.fields,help:website_blog_paywall.field_blog_post__paywall_description
+#, fuzzy
+msgid "Tell your readers why this blog is behind a paywall"
+msgstr "Kerro lukijoillesi, miksi tämä blogi on maksumuurin takana"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,field_description:website_blog_paywall.field_blog_post__user_read_free_blog_post_count
+#, fuzzy
+msgid "User blog post count"
+msgstr "Käyttäjien blogikirjoitusten määrä"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,field_description:website_blog_paywall.field_blog_post__user_in_paywall_free_domain
+#, fuzzy
+msgid "User has access to free content"
+msgstr "Käyttäjällä on pääsy ilmaiseen sisältöön"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,field_description:website_blog_paywall.field_blog_post__user_in_paywall_domain
+#, fuzzy
+msgid "User has access to paywall content"
+msgstr "Käyttäjällä on pääsy maksumuurin sisältöön"
+
+#. module: website_blog_paywall
+#: model:ir.model.fields,field_description:website_blog_paywall.field_blog_post__user_has_access
+#, fuzzy
+msgid "User has access to this article"
+msgstr "Käyttäjällä on pääsy tähän artikkeliin"
+
+#. module: website_blog_paywall
+#: model_terms:ir.ui.view,arch_db:website_blog_paywall.blog_post_content
+msgid "WRITE HERE OR DRAG BUILDING BLOCKS"
+msgstr "KIRJOITA TÄHÄN TAI RAAHAA RAKENNUSPALIKOITA"
+
+#. module: website_blog_paywall
+#: model_terms:ir.ui.view,arch_db:website_blog_paywall.blog_post_content
+#, fuzzy
+msgid "You have read"
+msgstr "Olet lukenut"
+
+#. module: website_blog_paywall
+#: model_terms:ir.ui.view,arch_db:website_blog_paywall.blog_post_content
+msgid "free articles."
+msgstr "ilmaista artikkelia."

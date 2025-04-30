@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="blog_post_content" inherit_id="website_blog.blog_post_content">
+
+        <xpath expr="//div[@t-field='blog_post.content']" position="before">
+            <div
+                id="blog_post_free_tier"
+                t-if="blog_post.user_has_access and blog_post.user_in_paywall_free_domain and not blog_post.user_in_paywall_domain"
+                class="mt-3 mb-3 alert alert-warning"
+            >
+                <div id="blog_post_free_tier_info">
+                    <i class="fa fa-info" title="Free tier" /> <span>You have read <span
+                            t-field="blog_post.user_read_free_blog_post_count"
+                        />/<span
+                            t-field="blog_post.paywall_free_articles"
+                        /> free articles.</span>
+                </div>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@t-field='blog_post.content']" position="attributes">
+            <attribute name="t-if">blog_post.user_has_access</attribute>
+        </xpath>
+
+        <xpath expr="//div[@t-field='blog_post.content']" position="after">
+            <div
+                t-else=""
+                data-editor-message="WRITE HERE OR DRAG BUILDING BLOCKS"
+                t-attf-class="o_wblog_post_content_field #{'js_tweet' if opt_blog_post_select_to_tweet else ''}"
+            >
+                <div id="blog_post_teaser" t-field="blog_post.paywall_teaser" />
+
+                <div id="blog_post_paywall" class="mt-3 mb-3 alert alert-info">
+                    <div id="blog_post_paywall_description_info" class="pb-3">
+                        <i class="fa fa-info" title="Info" /> <span
+                        >This is an article preview</span>
+                    </div>
+                    <div
+                        id="blog_post_paywall_description"
+                        class="mt-8"
+                        t-field="blog_post.paywall_description"
+                    />
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>
