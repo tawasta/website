@@ -15,6 +15,6 @@ class ResConfigSettings(models.TransientModel):
     data_prompt_interval_days = fields.Integer(
         string="Data Prompt Interval (Days)",
         related="website_id.data_prompt_interval_days",
-        default=90,
+        default=30,
         help="Show the profile update modal again if the last check is older than this many days.",
     )
