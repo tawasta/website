@@ -1,6 +1,15 @@
 from odoo import models, fields, api
 
 
+class ResPartner(models.Model):
+    _inherit = 'res.partner'
+
+    data_check_date = fields.Date(
+        string="Data Check Date",
+        help="The date when the user last reviewed or updated their information.",
+    )
+
+
 class PartnerDataPromptRule(models.Model):
     _name = "res.partner.data.prompt.rule"
     _description = "Partner Data Prompt Rule"

@@ -1,7 +1,7 @@
 from odoo import http, _
 from odoo.http import request
 import logging
-from datetime import datetime
+from datetime import datetime, date
 
 _logger = logging.getLogger(__name__)
 
@@ -10,6 +10,16 @@ class PartnerDataPromptController(http.Controller):
     @http.route("/my/data_check", type="json", auth="user", website=True)
     def data_check(self):
         partner = request.env.user.partner_id
+
+        website = request.env["website"].get_current_website()
+
+        interval_days = website.data_prompt_interval_days or 90
+
+        if partner.data_check_date:
+            days_since_check = (date.today() - partner.data_check_date).days
+            if days_since_check < interval_days:
+                return False
+
         rules = request.env["res.partner.data.prompt.rule"].sudo().search([('active', '=', True)])
 
         fields_to_ask = []
@@ -116,6 +126,7 @@ class PartnerDataPromptController(http.Controller):
                 _logger.warning("Error processing field %s: %s", field_name, e)
 
         if values:
+            values['data_check_date'] = date.today()
             _logger.info("Updating partner fields: %s", values)
             partner.sudo().write(values)
 
