@@ -13,30 +13,21 @@ class WebsiteSnippetFilterRandom(models.Model):
 
     def _prepare_values(self, limit=None, search_domain=None):
         self.ensure_one()
+
         max_limit = max(self.limit, 16)
         limit = limit and min(limit, max_limit) or max_limit
 
         if self.filter_id:
             filter_sudo = self.filter_id.sudo()
             domain = filter_sudo._get_eval_domain()
+            domain = self.get_additional_domain(filter_sudo.model_id, domain)
 
-            if "website_id" in self.env[filter_sudo.model_id]:
-                domain = expression.AND(
-                    [domain, self.env["website"].get_current_website().website_domain()]
-                )
-            if "company_id" in self.env[filter_sudo.model_id]:
-                website = self.env["website"].get_current_website()
-                domain = expression.AND(
-                    [domain, [("company_id", "in", [False, website.company_id.id])]]
-                )
-            if "is_published" in self.env[filter_sudo.model_id]:
-                domain = expression.AND([domain, [("is_published", "=", True)]])
             if search_domain:
                 domain = expression.AND([domain, search_domain])
 
             try:
                 model_name = filter_sudo.model_id
-                # Hae kaikki ilman limit, jos advertisement.advertisement
+
                 if model_name == "advertisement.advertisement":
                     all_records = (
                         self.env[model_name]
@@ -44,13 +35,8 @@ class WebsiteSnippetFilterRandom(models.Model):
                         .with_context(**literal_eval(filter_sudo.context))
                         .search(domain)
                     )
-
-                    if all_records:
-                        records = sample(list(all_records), k=1)  # yksi random
-                    else:
-                        records = all_records
+                    records = sample(list(all_records), k=1) if all_records else all_records
                 else:
-                    # Normaali haku rajalla
                     records = (
                         self.env[model_name]
                         .sudo(False)
