@@ -28,7 +28,7 @@
     "application": False,
     "installable": True,
     "depends": ["website", "portal"],
-    "data": ["security/ir.model.access.csv", "views/prompt.xml", "views/website.xml"],
+    "data": ["security/ir.model.access.csv", "views/partner.xml", "views/prompt.xml", "views/res_config_settings.xml", "views/website.xml"],
     'assets': {
         'web.assets_frontend': [
             'https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/css/tempus-dominus.min.css',

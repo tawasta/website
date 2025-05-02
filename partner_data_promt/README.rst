@@ -21,6 +21,7 @@ Features
   - many2one
   - many2many
   - date
+- Respects interval setting to avoid repeated prompts
 - Integrated with Bootstrap modal and Select2 (for dropdown fields)
 
 Configuration
@@ -35,14 +36,17 @@ Configuration
          [('is_company', '=', True)]
 
    - **Prompt Text**: Custom explanation shown to the user for each field
+3. Go to **Website Settings** and set **Data Prompt Interval (days)** to control how often the modal appears (default: 30 days)
 
 Usage
 =====
 1. User logs into the website (portal)
-2. If any fields defined in rules are missing:
-   - A modal window appears
-   - User is required to fill the missing fields
-3. Submitted data is saved directly to the partner record
+2. System checks whether:
+   - The configured interval since last prompt has passed
+   - There are active prompt rules with missing values for this user
+3. If applicable, a modal is shown requesting the user to fill in the missing data
+4. Submitted data is saved directly to `res.partner`
+5. Prompt timestamp (`data_check_date`) is updated
 
 Known issues / Roadmap
 ======================
