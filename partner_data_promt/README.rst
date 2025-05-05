@@ -6,23 +6,39 @@
 Partner Data Prompt
 ===================
 This module enables automatic prompting of missing partner data from portal users (customers) after login.
-Administrators can define dynamic rules for which fields should be requested, and under what conditions.
+Administrators can define dynamic rules for which partner fields should be requested, under which conditions, and how often.
 
 
 Features
 ========
 
-- Prompt portal users to complete missing partner fields
-- Define dynamic rules based on partner field, requirement, and domain condition
-- Fields supported:
-  - char
-  - integer
-  - selection
-  - many2one
-  - many2many
-  - date
-- Respects interval setting to avoid repeated prompts
-- Integrated with Bootstrap modal and Select2 (for dropdown fields)
+- Prompt portal users to fill in or confirm partner field values
+- Dynamically show fields based on active rule definitions
+- Respects an interval (in days) between prompts to avoid spamming users
+- Full support for:
+  - `char`
+  - `integer`
+  - `selection`
+  - `many2one`
+  - `many2many`
+  - `date`
+- Fully integrated with Bootstrap modal, Select2, and Tempus Dominus date picker
+- User can confirm data is up to date even if no changes are made
+
+Logic
+=====
+1. If there are **missing values** based on active rules and matching conditions →  
+   🔹 Show only **those missing fields**
+
+2. If **all fields are filled**, but **`data_check_date` is old** or not set →  
+   🔹 Show **all active rules' fields**, **regardless of whether condition matches or not**,  
+   🔹 Pre-fill all values for user to review and confirm
+
+3. If all fields are filled **and** check date is recent →  
+   🔹 No modal is shown
+
+This logic ensures a balance between accuracy (prompting when needed) and avoiding annoyance (skipping when recently confirmed).
+
 
 Configuration
 =============
@@ -40,13 +56,13 @@ Configuration
 
 Usage
 =====
-1. User logs into the website (portal)
-2. System checks whether:
-   - The configured interval since last prompt has passed
-   - There are active prompt rules with missing values for this user
-3. If applicable, a modal is shown requesting the user to fill in the missing data
-4. Submitted data is saved directly to `res.partner`
-5. Prompt timestamp (`data_check_date`) is updated
+1. User logs in to portal
+2. System checks:
+   - Missing data (based on rules + conditions)
+   - Last time user confirmed data (`data_check_date`)
+3. If needed, modal is shown with required or reviewable fields
+4. Submitted data is saved to `res.partner`
+5. `data_check_date` is updated
 
 Known issues / Roadmap
 ======================
