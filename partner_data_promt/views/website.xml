@@ -4,20 +4,20 @@
     <div class="modal fade" id="partnerDataPromptModal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <form
-                    class="modal-content"
-                    id="partnerDataPromptForm"
-                    t-attf-action="/my/data_update"
-                    method="post"
-                >
+          class="modal-content"
+          id="partnerDataPromptForm"
+          t-attf-action="/my/data_update"
+          method="post"
+        >
           <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
           <div class="modal-header">
             <h5 class="modal-title">Please complete your profile</h5>
             <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                        />
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            />
           </div>
           <div class="modal-body">
             <t t-foreach="fields" t-as="field">
@@ -29,47 +29,80 @@
                 <!-- char & integer -->
                 <t t-if="field['type'] == 'char' or field['type'] == 'integer'">
                   <input
-                                                    t-att-name="field['name']"
-                                                    type="text"
-                                                    class="form-control"
-                                                    t-att-data-required="field.get('required', False) and 'true' or 'false'"
-                                                />
+                    t-att-name="field['name']"
+                    type="text"
+                    class="form-control"
+                    t-att-data-required="field.get('required', False) and 'true' or 'false'"
+                    t-att-value="field.get('value', '')"
+                  />
                 </t>
 
-                <!-- selection, many2one, many2many -->
-                <t t-if="field['type'] in ['selection', 'many2one', 'many2many']">
+                <!-- selection & many2one -->
+                <t t-if="field['type'] in ['selection', 'many2one']">
                   <select
-                                                    t-att-name="field['name']"
-                                                    class="form-control select2"
-                                                    t-att-multiple="field['type'] == 'many2many' and 'multiple' or None"
-                                                    t-att-data-required="field.get('required', False) and 'true' or 'false'"
-                                                >
+                    t-att-name="field['name']"
+                    class="form-control select2"
+                    t-att-data-required="field.get('required', False) and 'true' or 'false'"
+                  >
                     <t t-foreach="field['options']" t-as="opt">
-                      <option t-att-value="opt[0]"><t t-esc="opt[1]" /></option>
+                      <option
+                        t-att-value="opt[0]"
+                        t-att-selected="opt[0] == field.get('value') and 'selected' or None"
+                      >
+                        <t t-esc="opt[1]" />
+                      </option>
                     </t>
                   </select>
                 </t>
+
+                <!-- many2many -->
+                <t t-if="field['type'] == 'many2many'">
+                  <select
+                    t-att-name="field['name']"
+                    class="form-control select2"
+                    multiple="multiple"
+                    t-att-data-required="field.get('required', False) and 'true' or 'false'"
+                  >
+                    <t t-set="selected_ids" t-value="field.get('value') or []"/>
+                    <t t-foreach="field['options']" t-as="opt">
+                      <option
+                        t-att-value="opt[0]"
+                        t-att-selected="opt[0] in selected_ids and 'selected' or None"
+                      >
+                        <t t-esc="opt[1]" />
+                      </option>
+                    </t>
+                  </select>
+                </t>
+
+                <!-- date -->
                 <t t-if="field['type'] == 'date'">
-                    <input
+                  <input
                     t-att-name="field['name']"
                     type="text"
                     class="form-control datetimepicker-input"
                     data-target="#datetimepicker1"
                     t-att-data-required="field.get('required', False) and 'true' or 'false'"
-                />
-
+                    t-att-value="field.get('value', '')"
+                  />
                 </t>
 
               </div>
             </t>
+
+            <!-- Confirmation checkbox -->
             <div class="form-check mt-3">
-              <input type="checkbox" class="form-check-input" name="confirm_data_is_accurate" data-toggle="confirm_data_is_accurate" id="confirmDataIsAccurate"/>
+              <input
+                type="checkbox"
+                class="form-check-input"
+                name="confirm_data_is_accurate"
+                data-toggle="confirm_data_is_accurate"
+                id="confirmDataIsAccurate"
+              />
               <label class="form-check-label" for="confirmDataIsAccurate">
                 I confirm that my information is up to date.
               </label>
             </div>
-
-
           </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Save</button>

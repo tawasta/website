@@ -10,55 +10,68 @@ class PartnerDataPromptController(http.Controller):
     @http.route("/my/data_check", type="json", auth="user", website=True)
     def data_check(self):
         partner = request.env.user.partner_id
-
         website = request.env["website"].get_current_website()
-
         interval_days = website.data_prompt_interval_days or 90
 
-        if partner.data_check_date:
-            days_since_check = (date.today() - partner.data_check_date).days
-            if days_since_check < interval_days:
-                return False
-
-        rules = request.env["res.partner.data.prompt.rule"].sudo().search([('active', '=', True)])
-
+        rules = request.env["res.partner.data.prompt.rule"].sudo().search([("active", "=", True)])
         fields_to_ask = []
-        field_data = []
+        all_fields_strict = []  # käytetään vain condition_domainin läpäisseisiin
+        all_fields_unfiltered = []  # kaikki aktiiviset säännöt
 
         for rule in rules:
-            field_value = getattr(partner, rule.field_name.name, False)
-            if field_value:
-                continue
+            field_name = rule.field_name.name
+            value = getattr(partner, field_name, False)
+
+            field_data = {
+                "name": field_name,
+                "type": rule.field_type,
+                "label": rule.info_text or rule.field_name.field_description,
+                "required": rule.required,
+                "value": value,
+                "options": self._get_field_options(partner, rule)
+                if rule.field_type in ["selection", "many2one", "many2many"]
+                else [],
+            }
+
+            # Kerätään AINA – käytetään kohdassa 2
+            all_fields_unfiltered.append(field_data)
+
+            # Suodatetaan condition_domainin perusteella
             if rule.condition_domain:
                 try:
                     domain = eval(rule.condition_domain)
                 except Exception as e:
                     _logger.error("Invalid domain in rule %s: %s", rule.name, e)
                     continue
-                if not request.env["res.partner"].search_count(
-                    [("id", "=", partner.id)] + domain
-                ):
+                if not request.env["res.partner"].search_count([("id", "=", partner.id)] + domain):
                     continue
 
-            fields_to_ask.append(rule.field_name)
-            field_data.append(
-                {
-                    "name": rule.field_name.name,
-                    "type": rule.field_type,
-                    "label": rule.info_text or rule.field_name.field_description,
-                    "required": rule.required,
-                    "options": self._get_field_options(partner, rule)
-                    if rule.field_type in ["selection", "many2one", "many2many"]
-                    else [],
-                }
-            )
-            _logger.info(field_data)
+            all_fields_strict.append(field_data)
 
+            if not value:
+                fields_to_ask.append(field_data)
+
+        # 1. Jos puuttuvia kenttiä → näytetään ne
         if fields_to_ask:
             return request.env["ir.ui.view"]._render_template(
-                "partner_data_promt.data_prompt_modal", {"fields": field_data}
+                "partner_data_promt.data_prompt_modal", {"fields": fields_to_ask}
             )
+
+        # 2. Check-date vanha → näytetään KAIKKI säännöt, ei suodateta mitään pois
+        if not partner.data_check_date or (
+            (date.today() - partner.data_check_date).days >= interval_days
+        ):
+            return request.env["ir.ui.view"]._render_template(
+                "partner_data_promt.data_prompt_modal", {"fields": all_fields_unfiltered}
+            )
+
+        # 3. Kaikki kunnossa ja check-date tuore → ei lomaketta
         return False
+
+
+
+
+
 
     @staticmethod
     def _get_field_options(partner, rule):
