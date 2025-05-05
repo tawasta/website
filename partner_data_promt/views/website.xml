@@ -62,6 +62,13 @@
 
               </div>
             </t>
+            <div class="form-check mt-3">
+              <input type="checkbox" class="form-check-input" name="confirm_data_is_accurate" data-toggle="confirm_data_is_accurate" id="confirmDataIsAccurate"/>
+              <label class="form-check-label" for="confirmDataIsAccurate">
+                I confirm that my information is up to date.
+              </label>
+            </div>
+
 
           </div>
           <div class="modal-footer">

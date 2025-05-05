@@ -79,7 +79,6 @@ class PartnerDataPromptController(http.Controller):
     )
     def data_update(self, **post):
         partner = request.env.user.partner_id
-
         rules = request.env["res.partner.data.prompt.rule"].sudo().search([])
         allowed_fields = {rule.field_name.name: {"type": rule.field_type, "required": rule.required} for rule in rules}
 
@@ -127,8 +126,10 @@ class PartnerDataPromptController(http.Controller):
 
         if values:
             values['data_check_date'] = date.today()
-            _logger.info("Updating partner fields: %s", values)
             partner.sudo().write(values)
+        elif post.get("confirm_data_is_accurate") == "on":
+            # No actual fields updated, but user confirmed data is accurate
+            partner.sudo().write({'data_check_date': date.today()})
 
         return request.redirect("/")
 
