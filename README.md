@@ -19,6 +19,7 @@ addon | version | maintainers | summary
 [portal_details_street2](portal_details_street2/) | 17.0.1.0.0 |  | Portal details add optional field street 2
 [res_country_website_published](res_country_website_published/) | 17.0.1.0.0 |  | Manually choose countries that will be shown on Website
 [website_application_dashboard](website_application_dashboard/) | 17.0.1.1.0 |  | Application dashboard for redirecting users to applications
+[website_banner](website_banner/) | 17.0.1.0.1 |  | Website
 [website_blog_paywall](website_blog_paywall/) | 17.0.1.0.0 |  | Add a paywall to blogs
 [website_blog_rss_feed](website_blog_rss_feed/) | 17.0.2.1.0 |  | Ability to create custom RSS Feeds with multiple blogs.
 [website_blog_settings](website_blog_settings/) | 17.0.1.0 |  | Customization settings under website frontend customize menu
@@ -37,6 +38,7 @@ addon | version | maintainers | summary
 [website_remove_editor_rights_from_sale_administrators](website_remove_editor_rights_from_sale_administrators/) | 17.0.1.0.0 |  | Remove the automatically granted editor access
 [website_settings](website_settings/) | 17.0.1.0 |  | Website toggleable settings under customize menu and other setting options
 [website_slides_settings](website_slides_settings/) | 17.0.1.0.2 |  | Website Slides toggleable settings under website customize menu
+[website_snippet_filter_core](website_snippet_filter_core/) | 17.0.1.0 |  | Refactored _prepare_values for extensible snippet filtering
 [website_team_snippet](website_team_snippet/) | 17.0.1.0.1 |  | Snippet for showing e.g. company personnel on a web page
 
 
