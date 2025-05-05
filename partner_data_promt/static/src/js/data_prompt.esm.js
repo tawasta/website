@@ -4,7 +4,7 @@ import publicWidget from "@web/legacy/js/public/public_widget";
 import {jsonrpc} from "@web/core/network/rpc_service";
 
 publicWidget.registry.PartnerDataPrompt = publicWidget.Widget.extend({
-    selector: "#wrap",
+    selector: ".o_portal_wrap",
 
     start: function () {
         this._super.apply(this, arguments);
