@@ -39,6 +39,7 @@ addon | version | maintainers | summary
 [website_remove_editor_rights_from_sale_administrators](website_remove_editor_rights_from_sale_administrators/) | 17.0.1.0.0 |  | Remove the automatically granted editor access
 [website_settings](website_settings/) | 17.0.1.0 |  | Website toggleable settings under customize menu and other setting options
 [website_slides_settings](website_slides_settings/) | 17.0.1.0.2 |  | Website Slides toggleable settings under website customize menu
+[website_snippet_filter_core](website_snippet_filter_core/) | 17.0.1.0 |  | Refactored _prepare_values for extensible snippet filtering
 [website_team_snippet](website_team_snippet/) | 17.0.1.0.1 |  | Snippet for showing e.g. company personnel on a web page
 
 
