@@ -51,18 +51,20 @@ class PartnerDataPromptController(http.Controller):
             if not value:
                 fields_to_ask.append(field_data)
 
-        # 1. Jos puuttuvia kenttiä → näytetään ne
-        if fields_to_ask:
-            return request.env["ir.ui.view"]._render_template(
-                "partner_data_promt.data_prompt_modal", {"fields": fields_to_ask}
-            )
+        
 
-        # 2. Check-date vanha → näytetään KAIKKI säännöt, ei suodateta mitään pois
+        # 1. Check-date vanha → näytetään KAIKKI säännöt, ei suodateta mitään pois
         if not partner.data_check_date or (
             (date.today() - partner.data_check_date).days >= interval_days
         ):
             return request.env["ir.ui.view"]._render_template(
                 "partner_data_promt.data_prompt_modal", {"fields": all_fields_unfiltered}
+            )
+
+        # 2. Jos puuttuvia kenttiä → näytetään ne
+        if fields_to_ask:
+            return request.env["ir.ui.view"]._render_template(
+                "partner_data_promt.data_prompt_modal", {"fields": fields_to_ask}
             )
 
         # 3. Kaikki kunnossa ja check-date tuore → ei lomaketta
