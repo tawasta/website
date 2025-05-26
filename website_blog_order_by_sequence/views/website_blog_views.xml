@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Blog Rss multifeed Views -->
+    <record id="view_blog_blog_list" model="ir.ui.view">
+        <field name="name">blog.blog.tree.inherit.sequence</field>
+        <field name="model">blog.blog</field>
+        <field name="inherit_id" ref="website_blog.view_blog_blog_list" />
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="sequence" widget="handle" />
+            </field>
+        </field>
+    </record>
+</odoo>
