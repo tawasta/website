@@ -91,4 +91,6 @@ class WebsiteSnippetFilter(models.Model):
     def _get_is_published_domain(self, model_name, domain):
         if "is_published" in self.env[model_name]:
             return expression.AND([domain, [("is_published", "=", True)]])
+
         return domain
+

@@ -21,6 +21,7 @@ addon | version | maintainers | summary
 [res_country_website_published](res_country_website_published/) | 17.0.1.0.0 |  | Manually choose countries that will be shown on Website
 [website_application_dashboard](website_application_dashboard/) | 17.0.1.1.0 |  | Application dashboard for redirecting users to applications
 [website_banner](website_banner/) | 17.0.1.0.1 |  | Website
+[website_blog_order_by_sequence](website_blog_order_by_sequence/) | 17.0.1.0.0 |  | Add a sequence field and use it when ordering blogs on website
 [website_blog_paywall](website_blog_paywall/) | 17.0.1.0.0 |  | Add a paywall to blogs
 [website_blog_rss_feed](website_blog_rss_feed/) | 17.0.2.1.0 |  | Ability to create custom RSS Feeds with multiple blogs.
 [website_blog_settings](website_blog_settings/) | 17.0.1.0 |  | Customization settings under website frontend customize menu

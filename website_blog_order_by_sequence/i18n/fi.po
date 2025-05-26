@@ -1,0 +1,26 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_blog_order_by_sequence
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20250428\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-26 10:34+0000\n"
+"PO-Revision-Date: 2025-05-26 10:34+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_blog_order_by_sequence
+#: model:ir.model,name:website_blog_order_by_sequence.model_blog_blog
+msgid "Blog"
+msgstr "Blogi"
+
+#. module: website_blog_order_by_sequence
+#: model:ir.model.fields,field_description:website_blog_order_by_sequence.field_blog_blog__sequence
+msgid "Sequence"
+msgstr "Järjestys"
