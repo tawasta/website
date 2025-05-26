@@ -11,6 +11,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[partner_data_promt](partner_data_promt/) | 17.0.1.0.0 |  | Prompts portal users to complete their email via modal if missing
 [portal_details_domicile](portal_details_domicile/) | 17.0.1.0.0 |  | Portal details - Edit domicile information
 [portal_details_firstname](portal_details_firstname/) | 17.0.1.0.0 |  | Portal details replace name with first name and last name
 [portal_details_firstname2](portal_details_firstname2/) | 17.0.1.0.0 |  | Add firstname 2 to portal details
