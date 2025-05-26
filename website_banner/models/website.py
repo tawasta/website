@@ -35,7 +35,9 @@ class WebsiteSnippetFilterRandom(models.Model):
                         .with_context(**literal_eval(filter_sudo.context))
                         .search(domain)
                     )
+
                     records = sample(list(all_records), k=1) if all_records else all_records
+
                 else:
                     records = (
                         self.env[model_name]

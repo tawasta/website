@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_website_config_settings_data_prompt" model="ir.ui.view">
+        <field name="name">res.config.settings.website.data.prompt</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="website.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='website_settings']" position="inside">
+                <setting id="data_prompt_interval_days_setting" string="Data Prompt Interval (days)"
+                         help="How often (in days) users are prompted for data on this website.">
+                    <field name="data_prompt_interval_days"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

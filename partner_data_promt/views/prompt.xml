@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Form View -->
+    <record id="view_partner_data_prompt_rule_form" model="ir.ui.view">
+        <field name="name">partner.data.prompt.rule.form</field>
+        <field name="model">res.partner.data.prompt.rule</field>
+        <field name="arch" type="xml">
+            <form string="Data Prompt Rule">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="sequence" />
+                        <field name="field_name" />
+                        <field name="field_type" readonly="1" />
+                        <field name="required" />
+                        <field
+                            name="condition_domain"
+                            widget="domain"
+                            options='{"model": "res.partner"}'
+                        />
+                        <field name="info_text" />
+                        <field name="active" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_partner_data_prompt_rule_tree" model="ir.ui.view">
+        <field name="name">partner.data.prompt.rule.tree</field>
+        <field name="model">res.partner.data.prompt.rule</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field name="field_name" />
+                <field name="field_type" />
+                <field name="required" />
+                <field name="active" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_partner_data_prompt_rule" model="ir.actions.act_window">
+        <field name="name">Data Prompt Rules</field>
+        <field name="res_model">res.partner.data.prompt.rule</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Täällä voit hallita sääntöjä, joiden perusteella asiakkailta kysytään puuttuvia tietoja.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem
+        id="menu_partner_data_prompt_rule"
+        name="Data Prompt Rules"
+        parent="website.menu_content"
+        action="action_partner_data_prompt_rule"
+    />
+
+</odoo>
