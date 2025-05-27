@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template
+        id="blog_post_card_inherit"
+        inherit_id="website_blog.dynamic_filter_template_blog_post_card"
+        name="Blog widget card view: remove 'in' term"
+        priority="101"
+    >
+
+        <xpath
+            expr="//a[@t-field='record.blog_id.name']/parent::span"
+            position="replace"
+        >
+            <span class="text-muted mb-0"><a
+                    class="fw-bold"
+                    t-field="record.blog_id.name"
+                    t-att-href="'/blog/%s' % record.blog_id.id"
+                />
+                <a t-if="is_sample" class="fw-bold" href="#">Sample</a>
+            </span>
+        </xpath>
+    </template>
+
+
+</odoo>
