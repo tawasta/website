@@ -4,7 +4,7 @@
         <field name="name">website.message.format.tree.view</field>
         <field name="model">website.message.format</field>
         <field name="arch" type="xml">
-            <tree string="Website message format" editable="top">
+            <tree editable="top">
                 <field name="id" />
                 <field name="res_model" colspan="4" />
                 <field name="url_format" colspan="4" />

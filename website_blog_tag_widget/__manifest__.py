@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2019- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
+#    Copyright 2022- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -17,38 +17,28 @@
 #    along with this program. If not, see http://www.gnu.org/licenses/agpl.html
 #
 ##############################################################################
-# 1. Standard library imports:
-from odoo import fields, models
-
-# 2. Known third party imports:
-# 3. Odoo imports (openerp):
-
-# 4. Imports from Odoo modules:
-
-# 5. Local imports in the relative form:
-
-# 6. Unknown third party imports:
-
-
-class Website(models.Model):
-    # 1. Private attributes
-    _inherit = "website"
-
-    # 2. Fields declaration
-    message_thread_model_ids = fields.Many2many(
-        comodel_name="ir.model",
-        string="Message thread models",
-        help="Which models are taken into account when calculating threads",
-    )
-
-    # 3. Default methods
-
-    # 4. Compute and search fields, in the same order that fields declaration
-
-    # 5. Constraints and onchanges
-
-    # 6. CRUD methods
-
-    # 7. Action methods
-
-    # 8. Business methods
+{
+    "name": "Website Blog Tag Widget",
+    "summary": "Website",
+    "version": "17.0.1.0.1",
+    "category": "Website",
+    "website": "https://gitlab.com/tawasta/odoo/website",
+    "author": "Tawasta",
+    "license": "AGPL-3",
+    "application": False,
+    "installable": True,
+    "depends": ["website", "website_snippet_filter_core"],
+    "data": [
+        "data/tagcloud_snippet_template_data.xml",
+        "views/snippets/s_tagcloud.xml",
+        "views/snippets/snippets.xml",
+    ],
+    "assets": {
+        "web.assets_frontend": [
+            "/website_blog_tag_widget/static/src/scss/main.scss",
+        ],
+        "website.assets_wysiwyg": [
+            "/website_blog_tag_widget/static/src/snippets/s_tagcloud/options.esm.js",
+        ],
+    },
+}

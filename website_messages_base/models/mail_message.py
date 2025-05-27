@@ -38,7 +38,6 @@ _logger = logging.getLogger(__name__)
 
 
 class MailMessage(models.Model):
-
     # 1. Private attributes
     _inherit = "mail.message"
 
