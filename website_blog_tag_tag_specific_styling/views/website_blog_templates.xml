@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Add classes to the blog listings (both table and list views) -->
+    <template id="posts_loop" inherit_id="website_blog.posts_loop">
+        <xpath expr="//article[@name='blog_post']" position="attributes">
+            <attribute
+                name="t-attf-class"
+                separator=" "
+                add="#{ blog_post.tags_css_classes or ''}"
+            />
+        </xpath>
+    </template>
+
+    <!-- Add classes to the individual blog pages (both sidebar-enabled and no-sidebar layouts -->
+    <template id="blog_post_complete" inherit_id="website_blog.blog_post_complete">
+        <xpath expr="(//div[@id='o_wblog_post_content'])[2]" position="attributes">
+            <attribute
+                name="t-attf-class"
+                separator=" "
+                add="#{ blog_post.tags_css_classes or ''}"
+            />
+        </xpath>
+
+        <xpath expr="(//div[@id='o_wblog_post_content'])[1]" position="attributes">
+            <attribute
+                name="t-attf-class"
+                separator=" "
+                add="#{ blog_post.tags_css_classes or ''}"
+            />
+        </xpath>
+
+    </template>
+
+</odoo>
