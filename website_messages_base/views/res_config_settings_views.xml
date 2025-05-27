@@ -28,7 +28,8 @@
                             </div>
                             <div
                                 class="content-group"
-                                invisible="not website_enable_reply">
+                                invisible="not website_enable_reply"
+                            >
                                 <label for="message_thread_model_ids" />
                                 <div class="text-muted">
                                     Calculate threads for models' messages
@@ -41,8 +42,7 @@
                                     />
                                 </div>
                             </div>
-                            <div
-                                invisible="not website_enable_reply">
+                            <div invisible="not website_enable_reply">
                                 <button
                                     string="Calculate thread IDs"
                                     name="action_message_thread_init"

@@ -18,7 +18,7 @@ publicWidget.registry.PartnerDataPrompt = publicWidget.Widget.extend({
                 const $modal = $(modalHtml);
                 $modal.find(".modal-body > div").removeClass("container");
                 $modal.appendTo(document.body);
-
+                // eslint-disable-next-line no-undef
                 const modalInstance = new Modal($modal[0], {
                     backdrop: "static",
                     keyboard: false,
@@ -34,9 +34,10 @@ publicWidget.registry.PartnerDataPrompt = publicWidget.Widget.extend({
                     });
 
                     // Alustetaan Tempus Dominus datepicker
-                    $modal.find('input.datetimepicker-input').each(function () {
+                    $modal.find("input.datetimepicker-input").each(function () {
                         const element = this;
                         if (typeof tempusDominus !== "undefined") {
+                            // eslint-disable-next-line no-undef
                             new tempusDominus.TempusDominus(element, {
                                 display: {
                                     components: {
@@ -53,22 +54,22 @@ publicWidget.registry.PartnerDataPrompt = publicWidget.Widget.extend({
                                         close: true,
                                     },
                                     icons: {
-                                        time: 'fa fa-clock',
-                                        date: 'fa fa-calendar',
-                                        up: 'fa fa-arrow-up',
-                                        down: 'fa fa-arrow-down',
-                                        previous: 'fa fa-chevron-left',
-                                        next: 'fa fa-chevron-right',
-                                        today: 'fa fa-calendar-check',
-                                        clear: 'fa fa-trash',
-                                        close: 'fa fa-times',
+                                        time: "fa fa-clock",
+                                        date: "fa fa-calendar",
+                                        up: "fa fa-arrow-up",
+                                        down: "fa fa-arrow-down",
+                                        previous: "fa fa-chevron-left",
+                                        next: "fa fa-chevron-right",
+                                        today: "fa fa-calendar-check",
+                                        clear: "fa fa-trash",
+                                        close: "fa fa-times",
                                     },
-                                    viewMode: 'calendar',
-                                    toolbarPlacement: 'bottom',
+                                    viewMode: "calendar",
+                                    toolbarPlacement: "bottom",
                                     calendarWeeks: true,
                                 },
                                 localization: {
-                                    format: 'dd.MM.yyyy',
+                                    format: "dd.MM.yyyy",
                                 },
                             });
                         } else {

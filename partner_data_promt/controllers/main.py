@@ -13,7 +13,11 @@ class PartnerDataPromptController(http.Controller):
         website = request.env["website"].get_current_website()
         interval_days = website.data_prompt_interval_days or 90
 
-        rules = request.env["res.partner.data.prompt.rule"].sudo().search([("active", "=", True)])
+        rules = (
+            request.env["res.partner.data.prompt.rule"]
+            .sudo()
+            .search([("active", "=", True)])
+        )
         fields_to_ask = []
         all_fields_strict = []  # käytetään vain condition_domainin läpäisseisiin
         all_fields_unfiltered = []  # kaikki aktiiviset säännöt
@@ -43,7 +47,9 @@ class PartnerDataPromptController(http.Controller):
                 except Exception as e:
                     _logger.error("Invalid domain in rule %s: %s", rule.name, e)
                     continue
-                if not request.env["res.partner"].search_count([("id", "=", partner.id)] + domain):
+                if not request.env["res.partner"].search_count(
+                    [("id", "=", partner.id)] + domain
+                ):
                     continue
 
             all_fields_strict.append(field_data)
@@ -51,14 +57,13 @@ class PartnerDataPromptController(http.Controller):
             if not value:
                 fields_to_ask.append(field_data)
 
-        
-
         # 1. Check-date vanha → näytetään KAIKKI säännöt, ei suodateta mitään pois
         if not partner.data_check_date or (
             (date.today() - partner.data_check_date).days >= interval_days
         ):
             return request.env["ir.ui.view"]._render_template(
-                "partner_data_promt.data_prompt_modal", {"fields": all_fields_unfiltered}
+                "partner_data_promt.data_prompt_modal",
+                {"fields": all_fields_unfiltered},
             )
 
         # 2. Jos puuttuvia kenttiä → näytetään ne
@@ -69,11 +74,6 @@ class PartnerDataPromptController(http.Controller):
 
         # 3. Kaikki kunnossa ja check-date tuore → ei lomaketta
         return False
-
-
-
-
-
 
     @staticmethod
     def _get_field_options(partner, rule):
@@ -95,7 +95,10 @@ class PartnerDataPromptController(http.Controller):
     def data_update(self, **post):
         partner = request.env.user.partner_id
         rules = request.env["res.partner.data.prompt.rule"].sudo().search([])
-        allowed_fields = {rule.field_name.name: {"type": rule.field_type, "required": rule.required} for rule in rules}
+        allowed_fields = {
+            rule.field_name.name: {"type": rule.field_type, "required": rule.required}
+            for rule in rules
+        }
 
         values = {}
         for field_name, field_info in allowed_fields.items():
@@ -127,7 +130,11 @@ class PartnerDataPromptController(http.Controller):
                             date_obj = datetime.strptime(raw_value, "%d.%m.%Y")
                             values[field_name] = date_obj.strftime("%Y-%m-%d")
                         except ValueError:
-                            _logger.warning("Invalid date format for field %s: %s", field_name, raw_value)
+                            _logger.warning(
+                                "Invalid date format for field %s: %s",
+                                field_name,
+                                raw_value,
+                            )
                             values[field_name] = False
                     else:
                         if is_required:
@@ -140,11 +147,10 @@ class PartnerDataPromptController(http.Controller):
                 _logger.warning("Error processing field %s: %s", field_name, e)
 
         if values:
-            values['data_check_date'] = date.today()
+            values["data_check_date"] = date.today()
             partner.sudo().write(values)
         elif post.get("confirm_data_is_accurate") == "on":
             # No actual fields updated, but user confirmed data is accurate
-            partner.sudo().write({'data_check_date': date.today()})
+            partner.sudo().write({"data_check_date": date.today()})
 
         return request.redirect("/")
-

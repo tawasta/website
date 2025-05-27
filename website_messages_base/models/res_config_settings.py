@@ -35,7 +35,6 @@ _logger = logging.getLogger(__name__)
 
 
 class ResConfigSettings(models.TransientModel):
-
     # 1. Private attributes
     _inherit = "res.config.settings"
 

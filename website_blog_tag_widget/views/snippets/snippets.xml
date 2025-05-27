@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template
+        id="snippets"
+        inherit_id="website.snippets"
+        name="Wide Banner Snippet Integration"
+    >
+        <xpath expr="//t" position="inside">
+            <t
+                t-snippet="website_blog_tag_widget.s_tagcloud"
+                string="Tag Cloud"
+                t-thumbnail="/website/static/src/img/s_banner_snippet.svg"
+            />
+        </xpath>
+    </template>
+</odoo>
