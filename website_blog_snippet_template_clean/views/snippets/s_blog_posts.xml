@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="dynamic_filter_template_blog_post_list_clean" name="Clean list layout">
+        <div t-foreach="records" t-as="data" class="s_blog_posts_post py-3 border-bottom">
+            <t t-set="record" t-value="data['_record']"/>
+            <a class="text-decoration-none" t-att-href="data['call_to_action_url']">
+                <div class="s_blog_posts_post_title fw-bold text-dark mb-1" t-field="record.name"/>
+            </a>
+            <div class="text-muted small mb-1">
+                <span t-field="record.post_date" t-options='{"format": "d.M.yyyy"}'/>
+            </div>
+            <div class="small fw-normal">
+
+                <t t-if="record.tag_ids">
+                    <t t-foreach="record.tag_ids" t-as="tag">
+                        <span t-field="tag.name" class="text-danger text-decoration-none me-2" />
+                    </t>
+                </t>
+            </div>
+        </div>
+    </template>
+
+</odoo>
