@@ -30,7 +30,6 @@ from odoo import _, fields, models
 
 
 class WebsiteMessageFormat(models.Model):
-
     # 1. Private attributes
     _name = "website.message.format"
     _description = "Website messages"

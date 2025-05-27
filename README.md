@@ -26,6 +26,7 @@ addon | version | maintainers | summary
 [website_blog_rss_feed](website_blog_rss_feed/) | 17.0.2.1.0 |  | Ability to create custom RSS Feeds with multiple blogs.
 [website_blog_settings](website_blog_settings/) | 17.0.1.0 |  | Customization settings under website frontend customize menu
 [website_blog_snippet_extra_options](website_blog_snippet_extra_options/) | 17.0.1.0.0 |  | Additional configurations for the core snippet
+[website_blog_tag_widget](website_blog_tag_widget/) | 17.0.1.0.1 |  | Website
 [website_crm_contact_form_select_based_lead_name](website_crm_contact_form_select_based_lead_name/) | 17.0.1.0.0 |  | Allows configuring web leads' subject to be based on a selection list instead of freetext
 [website_custom_redirect](website_custom_redirect/) | 17.0.1.0.0 |  | Allows customizing where to redirect website users
 [website_environment_ribbon](website_environment_ribbon/) | 17.0.1.0.0 |  | Show environment ribbon on website also. Only shows text 'TEST' on website side.
@@ -35,6 +36,7 @@ addon | version | maintainers | summary
 [website_hide_login](website_hide_login/) | 17.0.1.0.0 |  | Hide Odoo native login, but show oAuth-logins
 [website_hide_login_database_link](website_hide_login_database_link/) | 17.0.1.0.0 |  | Hides Database link on the login screen
 [website_manager_group](website_manager_group/) | 17.0.1.0 |  | new Website Permission Group to limit access for designers & editors
+[website_messages_base](website_messages_base/) | 17.0.1.0.1 |  | Base for website messages features
 [website_portal_username_change](website_portal_username_change/) | 17.0.1.0.0 |  | website_portal_username_change
 [website_references_snippet](website_references_snippet/) | 17.0.1.0.1 |  | Snippet for showing e.g. company's clients on a web page
 [website_remove_editor_rights_from_sale_administrators](website_remove_editor_rights_from_sale_administrators/) | 17.0.1.0.0 |  | Remove the automatically granted editor access

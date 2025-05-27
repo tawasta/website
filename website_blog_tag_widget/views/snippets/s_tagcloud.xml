@@ -8,10 +8,7 @@
         </t>
     </template>
 
-    <template
-        id="dynamic_filter_template_blog_tag_picture"
-        name="Tag Picture Layout"
-    >
+    <template id="dynamic_filter_template_blog_tag_picture" name="Tag Picture Layout">
     <div class="s_tagcloud_container py-4">
         <div class="container">
             <div class="s_tagcloud_tags d-flex flex-wrap gap-2 justify-content-start">
@@ -19,9 +16,9 @@
                 <t t-foreach="records" t-as="data">
                     <t t-set="record" t-value="data['_record']" />
                         <a
-                            t-att-href="'/blog/tag/%s' % record.id"
-                            class="badge border post_link text-decoration-none text-primary"
-                        >
+                                t-att-href="'/blog/tag/%s' % record.id"
+                                class="badge border post_link text-decoration-none text-primary"
+                            >
                             <t t-out="record.name" />
                         </a>
                 </t>

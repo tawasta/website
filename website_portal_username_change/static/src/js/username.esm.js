@@ -29,6 +29,7 @@ var ChangeUsernameModal = publicWidget.Widget.extend({
                 const $modal = $(modalContent);
                 $modal.find(".modal-body > div").removeClass("container");
                 $modal.appendTo(document.body);
+                // eslint-disable-next-line no-undef
                 const modalBS = new Modal($modal[0], {
                     backdrop: "static",
                     keyboard: false,

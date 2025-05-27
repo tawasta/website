@@ -93,4 +93,3 @@ class WebsiteSnippetFilter(models.Model):
             return expression.AND([domain, [("is_published", "=", True)]])
 
         return domain
-

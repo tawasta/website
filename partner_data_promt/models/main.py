@@ -2,7 +2,7 @@ from odoo import models, fields, api
 
 
 class ResPartner(models.Model):
-    _inherit = 'res.partner'
+    _inherit = "res.partner"
 
     data_check_date = fields.Date(
         string="Data Check Date",

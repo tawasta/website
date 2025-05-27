@@ -31,7 +31,6 @@ from odoo import fields, models
 
 
 class Website(models.Model):
-
     # 1. Private attributes
     _inherit = "website"
 

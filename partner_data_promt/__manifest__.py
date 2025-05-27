@@ -28,15 +28,19 @@
     "application": False,
     "installable": True,
     "depends": ["website", "portal"],
-    "data": ["security/ir.model.access.csv", "views/partner.xml", "views/prompt.xml", "views/res_config_settings.xml", "views/website.xml"],
-    'assets': {
-        'web.assets_frontend': [
-            'https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/css/tempus-dominus.min.css',
-            'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js',
-            'https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/js/tempus-dominus.min.js',
-            '/partner_data_promt/static/src/js/data_prompt.esm.js',
+    "data": [
+        "security/ir.model.access.csv",
+        "views/partner.xml",
+        "views/prompt.xml",
+        "views/res_config_settings.xml",
+        "views/website.xml",
+    ],
+    "assets": {
+        "web.assets_frontend": [
+            "https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/css/tempus-dominus.min.css",
+            "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js",
+            "https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/js/tempus-dominus.min.js",
+            "/partner_data_promt/static/src/js/data_prompt.esm.js",
         ],
     },
-
-
 }

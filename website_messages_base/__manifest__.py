@@ -31,7 +31,7 @@
     "depends": [
         "mail",
         "website",
-        #"website_utilities"
+        # "website_utilities"
     ],
     "data": [
         "security/ir.model.access.csv",

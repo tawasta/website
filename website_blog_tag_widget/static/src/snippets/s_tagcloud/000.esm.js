@@ -2,7 +2,6 @@
 
 import publicWidget from "@web/legacy/js/public/public_widget";
 import DynamicSnippet from "@website/snippets/s_dynamic_snippet/000";
-import {jsonrpc} from "@web/core/network/rpc_service";
 
 const DynamicSnippetTagcloud = DynamicSnippet.extend({
     selector: ".s_dynamic_snippet_tagcloud",

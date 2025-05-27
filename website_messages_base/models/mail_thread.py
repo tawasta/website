@@ -30,7 +30,6 @@ from odoo import models
 
 
 class MailThread(models.AbstractModel):
-
     # 1. Private attributes
     _inherit = "mail.thread"
 
