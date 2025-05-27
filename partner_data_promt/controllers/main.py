@@ -43,7 +43,7 @@ class PartnerDataPromptController(http.Controller):
             # Suodatetaan condition_domainin perusteella
             if rule.condition_domain:
                 try:
-                    domain = eval(rule.condition_domain)
+                    domain = eval(rule.condition_domain)  # pylint: disable=eval-used
                 except Exception as e:
                     _logger.error("Invalid domain in rule %s: %s", rule.name, e)
                     continue
