@@ -34,9 +34,6 @@
         "views/snippets/snippets.xml",
     ],
     "assets": {
-        "web.assets_frontend": [
-            "/website_blog_tag_widget/static/src/scss/main.scss",
-        ],
         "website.assets_wysiwyg": [
             "/website_blog_tag_widget/static/src/snippets/s_tagcloud/options.esm.js",
         ],
