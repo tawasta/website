@@ -1,0 +1,50 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_blog_tag_tag_specific_styling
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20250428\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-27 07:33+0000\n"
+"PO-Revision-Date: 2025-05-27 07:33+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_blog_tag_tag_specific_styling
+#: model:ir.model,name:website_blog_tag_tag_specific_styling.model_blog_post
+msgid "Blog Post"
+msgstr "Blogikirjoitus"
+
+#. module: website_blog_tag_tag_specific_styling
+#: model:ir.model,name:website_blog_tag_tag_specific_styling.model_blog_tag
+msgid "Blog Tag"
+msgstr "Blogin tägi"
+
+#. module: website_blog_tag_tag_specific_styling
+#: model:ir.model.fields,field_description:website_blog_tag_tag_specific_styling.field_blog_tag__css_classes
+msgid "CSS Classes"
+msgstr "CSS-luokat"
+
+#. module: website_blog_tag_tag_specific_styling
+#: model:ir.model.fields,field_description:website_blog_tag_tag_specific_styling.field_blog_post__tags_css_classes
+msgid "Tags 'CSS Classes"
+msgstr "Tagien CSS-luokat"
+
+#. module: website_blog_tag_tag_specific_styling
+#: model:ir.model.fields,help:website_blog_tag_tag_specific_styling.field_blog_post__tags_css_classes
+msgid "Technical field for concatenating all tags' CSS classes"
+msgstr "Tekninen apukenttä kaikkien tagiperustaiseten CSS-luokkien yhdistämiseen"
+
+#. module: website_blog_tag_tag_specific_styling
+#: model:ir.model.fields,help:website_blog_tag_tag_specific_styling.field_blog_tag__css_classes
+msgid ""
+"e.g. 'my-class my-another-class', can be used in website builder's CSS "
+"editor to style the content"
+msgstr ""
+"esim. 'my-class my-another-class', voidaan käyttää verkkosivueditorin CSS-editorissa "
+"sisällön teemaamiseen."
