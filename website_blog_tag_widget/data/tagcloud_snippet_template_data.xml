@@ -17,6 +17,6 @@
             ref="website_blog_tag_widget.dynamic_snippet_tagcloud_filter"
         />
         <field name="field_names">name</field>
-        <field name="limit" eval="1" />
+        <field name="limit" eval="60" />
     </record>
 </odoo>
