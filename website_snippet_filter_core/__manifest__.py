@@ -28,5 +28,7 @@
     "application": False,
     "installable": True,
     "depends": ["website"],
-    "data": [],
+    "data": [
+        "views/snippets/s_dynamic_snippet.xml",
+    ],
 }
