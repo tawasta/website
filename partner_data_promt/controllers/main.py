@@ -153,4 +153,6 @@ class PartnerDataPromptController(http.Controller):
             # No actual fields updated, but user confirmed data is accurate
             partner.sudo().write({"data_check_date": date.today()})
 
-        return request.redirect("/")
+        referrer = request.httprequest.referrer or "/"
+        return request.redirect(referrer)
+
