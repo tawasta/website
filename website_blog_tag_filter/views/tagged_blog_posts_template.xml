@@ -1,101 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="blog_posts_by_tag" name="Blog Posts by Tag">
-        <t t-call="website_blog.index">
-            <t t-set="opt_blog_cards_design" t-value="is_view_active('website_blog.opt_blog_cards_design')"/>
-            <t t-set="opt_blog_list_view" t-value="is_view_active('website_blog.opt_blog_list_view')"/>
-            <t t-set="opt_blog_readable" t-value="is_view_active('website_blog.opt_blog_readable')"/>
-            <t t-set="opt_blog_sidebar_show" t-value="is_view_active('website_blog.opt_blog_sidebar_show')"/>
-            <t t-set="opt_posts_loop_show_cover" t-value="is_view_active('website_blog.opt_posts_loop_show_cover')"/>
+  <template id="blog_posts_by_tag" name="Blog Posts by Tag">
+    <!-- Alusta blog_post jotta sidebarin templatet ei kaadu -->
+    <t t-set="blog_post" t-value="posts[0] if posts else None"/>
+    <t t-call="website_blog.index">
 
-            <section id="o_wblog_index_content" t-att-class="opt_blog_cards_design and 'o_wblog_page_cards_bg'">
-                <div class="container py-4">
-                    <div class="mb-4">
-                        <h2 class="fw-bold">
+      <!-- Head-osio -->
+      <t t-set="head">
+        <link t-if="blog" t-att-href="'/blog/%s/feed' % slug(blog)" type="application/atom+xml" rel="alternate" title="Atom Feed"/>
+        <meta t-if="active_tag_ids" name="robots" t-attf-content="none"/>
+      </t>
+
+      <!-- Aktiiviset optiot -->
+      <t t-set="opt_blog_cards_design" t-value="is_view_active('website_blog.opt_blog_cards_design')"/>
+      <t t-set="opt_blog_list_view" t-value="is_view_active('website_blog.opt_blog_list_view')"/>
+      <t t-set="opt_blog_readable" t-value="is_view_active('website_blog.opt_blog_readable')"/>
+      <t t-set="opt_blog_sidebar_show" t-value="is_view_active('website_blog.opt_blog_sidebar_show')"/>
+
+      <div id="o_wblog_blog_top">
+        <!-- Page header and droppable areas -->
+        <t t-if="not tag and not date_begin and not search">
+          <div id="o_wblog_blog_top_droppable">
+            <t t-if="blog">
+              <t t-set="oe_structure_blog_single_header_description">Edit the '<t t-esc="blog.name"/>' page header.</t>
+              <div t-field="blog.content"
+                   class="oe_structure"
+                   t-attf-id="oe_structure_blog_single_header_#{blog.id}"
+                   t-att-data-editor-sub-message="oe_structure_blog_single_header_description"/>
+            </t>
+            <t t-elif="blogs">
+              <t t-set="oe_structure_blog_all_header_description">Edit the 'All Blogs' page header.</t>
+              <div class="oe_structure"
+                   id="oe_structure_blog_all_header"
+                   t-att-data-editor-sub-message="oe_structure_blog_all_header_description"/>
+            </t>
+          </div>
+        </t>
+        <t t-else="">
+          <t t-set="oe_structure_blog_filtered_header_description">Edit the 'Filter Results' page header.</t>
+          <div class="oe_structure"
+               id="oe_structure_blog_filtered_header"
+               t-att-data-editor-sub-message="oe_structure_blog_filtered_header_description"/>
+        </t>
+      </div>
+
+      <t t-set="blogs" t-value="blogs or []"/>
+
+      <section id="o_wblog_index_content" t-att-class="opt_blog_cards_design and 'o_wblog_page_cards_bg'">
+        <div class="container py-4">
+            <h2 class="fw-bold">
                             Posts tagged with "<t t-out="tag.name"/>"
                         </h2>
-                    </div>
+          <div t-if="original_search and posts" class="alert alert-warning mt-3">
+            No results found for '<span t-esc="original_search"/>'. Showing results for '<span t-esc="search"/>'.
+          </div>
 
-                    <div t-if="not posts" class="alert alert-warning text-center py-4">
-                        <i class="fa fa-info-circle me-2 text-muted"></i>
-                        No posts found with this tag.
-                    </div>
+          <!-- Flex container for posts and sidebar -->
+          <div t-attf-class="d-flex flex-column flex-lg-row #{opt_blog_sidebar_show and 'justify-content-between' or 'justify-content-center'}">
 
-                    <div t-if="posts" id="o_wblog_posts_loop" t-attf-class="row #{not opt_blog_readable and 'mx-n2'}">
-                        <t t-if="not opt_blog_list_view">
-                            <t t-if="opt_blog_readable">
-                                <t t-if="opt_blog_sidebar_show" t-set="colWidth" t-value="'col-md-6'"/>
-                                <t t-else="" t-set="colWidth" t-value="'col-md-6 col-xl-4'"/>
-                            </t>
-                            <t t-else="">
-                                <t t-if="opt_blog_sidebar_show" t-set="colWidth" t-value="'px-2 col-md-6 col-xl-4'"/>
-                                <t t-else="" t-set="colWidth" t-value="'px-2 col-sm-6 col-lg-4 col-xl-3'"/>
-                            </t>
-                        </t>
+            <!-- Posts container -->
+            <div id="o_wblog_posts_loop_container"
+                 t-attf-class="#{opt_blog_sidebar_show
+                                and (opt_blog_list_view and 'col-12 col-lg-8' or 'o_container_small mx-0 w-100 flex-shrink-0')
+                                or (opt_blog_list_view and 'col-12' or 'o_container')}">
 
-                        <t t-foreach="posts" t-as="blog_post">
-                            <div t-attf-class="pb-4 col-12 #{colWidth}" t-cache="blog_post,opt_blog_list_view,opt_blog_readable">
-                                <article t-attf-class="o_wblog_post position-relative #{'card h-100' if opt_blog_cards_design else ''}" name="blog_post">
-                                    <t t-if="opt_blog_list_view">
-                                        <div t-att-class="opt_blog_cards_design and 'card-body py-3'">
-                                            <t t-call="website_blog.post_heading"/>
-                                        </div>
-                                        <div t-if="not opt_blog_cards_design" class="py-2">
-                                            <t t-call="website_blog.post_info"/>
-                                        </div>
-                                        <div t-if="opt_posts_loop_show_cover">
-                                            <t t-call="website_blog.post_cover_image"/>
-                                        </div>
+              <t t-call="website_blog.posts_loop">
+                <t t-if="not blog" t-set="posts_list_show_parent_blog" t-value="True"/>
+              </t>
 
-                                        <!-- SIIRRETÄÄN MUUTTUJAT TEASERILLE -->
-                                        <t t-if="is_view_active('website_blog.opt_posts_loop_show_teaser')">
-                                            <t t-set="active_tag_ids" t-value="active_tag_ids"/>
-                                            <t t-set="tags_list" t-value="tags_list"/>
-                                            <t t-set="blog_url" t-value="blog_url"/>
-                                            <t t-call="website_blog.post_teaser"/>
-                                        </t>
+              <t t-call="website.pager">
+                <t t-set="classname" t-value="'justify-content-center'"/>
+                <t t-set="extraLinkClass" t-value="'post_link'"/>
+              </t>
+            </div>
 
-                                        <div t-if="opt_blog_cards_design" class="card-body pt-0 pb-2">
-                                            <t t-call="website_blog.post_info"/>
-                                        </div>
-                                        <div t-else="" class="mt-3">
-                                            <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" class="btn btn-primary">
-                                                Read more <i class="oi oi-chevron-right ms-2"/>
-                                            </a>
-                                        </div>
-                                    </t>
+            <!-- Sidebar container -->
+            <t t-if="opt_blog_sidebar_show">
+              <div id="o_wblog_sidebar_col" class="ps-lg-5 col-12 col-lg-4 flex-grow-1">
+                <t t-call="website_blog.blog_post_sidebar"/> <!-- Oikea sidebar-template kutsu -->
+              </div>
+            </t>
 
-                                    <t t-if="not opt_blog_list_view">
-                                        <t t-if="opt_posts_loop_show_cover" t-call="website_blog.post_cover_image"/>
-                                        <div t-att-class="opt_blog_cards_design and 'card-body px-2 py-0 mb-2'">
-                                            <t t-call="website_blog.post_heading"/>
-                                            <div t-if="is_view_active('website_blog.opt_posts_loop_show_teaser')">
-                                                <t t-set="active_tag_ids" t-value="active_tag_ids"/>
-                                                <t t-set="tags_list" t-value="tags_list"/>
-                                                <t t-set="blog_url" t-value="blog_url"/>
-                                                <t t-call="website_blog.post_teaser"/>
-                                            </div>
-                                        </div>
-                                        <div t-attf-class="o_wblog_normalize_font #{'card-footer px-2 pb-2' if opt_blog_cards_design else 'pe-2 pb-2'}">
-                                            <t t-call="website_blog.post_info"/>
-                                        </div>
-                                    </t>
-
-                                    <span t-if="not blog_post.website_published" class="bg-danger small py-1 px-2 position-absolute o_not_editable" style="top:0; right:0">unpublished</span>
-                                </article>
-                            </div>
-                        </t>
-                    </div>
-
-                    <div t-if="pager" class="mt-5 d-flex justify-content-center">
-                        <t t-call="website.pager">
-                            <t t-set="pager" t-value="pager"/>
-                            <t t-set="classname" t-valuef="justify-content-center"/>
-                            <t t-set="extraLinkClass" t-valuef="post_link"/>
-                        </t>
-                    </div>
-                </div>
-            </section>
-        </t>
-    </template>
+          </div>
+        </div>
+      </section>
+    </t>
+  </template>
 </odoo>
