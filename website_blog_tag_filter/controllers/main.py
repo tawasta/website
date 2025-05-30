@@ -41,4 +41,5 @@ class BlogTagController(http.Controller):
             'active_tag_ids': [tag_id],
             'tags_list': tags_list,
             'blog_url': blog_url,
+            'search_count': total,  # Lisää tämä
         })
