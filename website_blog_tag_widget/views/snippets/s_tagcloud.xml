@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-
     <template id="s_tagcloud" name="Tag cloud">
         <t t-call="website.s_dynamic_snippet_template">
             <t t-set="snippet_name" t-value="'dynamic_snippet_tagcloud'" />
@@ -9,30 +8,27 @@
     </template>
 
     <template id="dynamic_filter_template_blog_tag_picture" name="Tag Picture Layout">
-    <div class="s_tagcloud_container py-4">
-        <div class="container">
-            <div class="s_tagcloud_tags d-flex flex-wrap gap-2 justify-content-start">
-                <div class="h5">
-                <t t-foreach="records" t-as="data">
-                    <t t-set="record" t-value="data['_record']" />
-                        <a
-                                t-att-href="'/blog/tag/%s' % record.id"
-                                class="badge border post_link text-decoration-none text-primary"
-                            >
-                            <t t-out="record.name" />
+        <t t-set="snippet" t-value="snippet or {}"/>
+        <div class="s_tagcloud_container py-4 w-100">
+            <div class="container">
+                <!-- oletusarvoinen col_count -->
+                <t t-set="col_count" t-value="1"/>
+
+                <div class="s_tagcloud_tags row columns-1">
+                    <t t-foreach="records" t-as="data">
+                        <t t-set="record" t-value="data['_record']"/>
+                        <a t-att-href="'/blog/tag/%s' % record.id"
+                           class="badge border post_link text-decoration-none text-primary me-1 mb-1 d-inline-block">
+                            <t t-out="record.name"/>
                         </a>
-                </t>
+                    </t>
                 </div>
             </div>
         </div>
-    </div>
-</template>
+    </template>
 
-    <template
-        id="s_tagcloud_registry"
-        inherit_id="website.snippets"
-        name="Register tagcloud Snippet"
-    >
+
+    <template id="s_tagcloud_registry" inherit_id="website.snippets" name="Register tagcloud Snippet">
         <xpath expr="//div[@id='snippet_structure']" position="inside">
             <div class="o_panel">
                 <div class="o_panel_header">Tag cloud</div>
@@ -47,24 +43,18 @@
         </xpath>
     </template>
 
-    <template
-        id="s_dynamic_snippet_tagcloud_options"
-        inherit_id="website.snippet_options"
-    >
-    <xpath expr="." position="inside">
-        <t t-call="website_blog_tag_widget.s_dynamic_snippet_tagcloud_options_template">
-            <t t-set="snippet_name" t-value="'dynamic_snippet_tagcloud'" />
-            <t t-set="snippet_selector" t-value="'.s_dynamic_snippet_tagcloud'" />
-        </t>
-    </xpath>
-</template>
+    <template id="s_dynamic_snippet_tagcloud_options" inherit_id="website.snippet_options">
+        <xpath expr="." position="inside">
+            <t t-call="website_blog_tag_widget.s_dynamic_snippet_tagcloud_options_template">
+                <t t-set="snippet_name" t-value="'dynamic_snippet_tagcloud'" />
+                <t t-set="snippet_selector" t-value="'.s_dynamic_snippet_tagcloud'" />
+            </t>
+        </xpath>
+    </template>
 
-<template
-        id="s_dynamic_snippet_tagcloud_options_template"
-        inherit_id="website.s_dynamic_snippet_options_template"
-    >
-    <xpath expr="//we-select[@data-name='filter_opt']" position="after">
-        <we-many2many
+    <template id="s_dynamic_snippet_tagcloud_options_template" inherit_id="website.s_dynamic_snippet_options_template">
+        <xpath expr="//we-select[@data-name='filter_opt']" position="after">
+            <we-many2many
                 string="Categories"
                 data-name="category_tag_opt"
                 data-attribute-name="tagcloudCategoryIds"
@@ -74,17 +64,23 @@
                 data-fakem2m="true"
                 data-select-data-attribute=""
             />
-    </xpath>
-</template>
+            <we-select
+                string="Column Count"
+                data-name="column_count_opt"
+                data-attribute-name="columnCount"
+                data-no-preview="true"
+            >
+                <we-button t-foreach="[2,3,4,5,6]" t-as="col"
+                           t-att-data-select-data-attribute="col"
+                           t-esc="col"/>
+            </we-select>
 
+        </xpath>
+    </template>
 
-    <record id="s_tagcloud_000_jss" model="ir.asset">
+    <record id="s_tagcloud_000_js" model="ir.asset">
         <field name="name">Tagcloud 000 JS</field>
         <field name="bundle">web.assets_frontend</field>
-        <field
-            name="path"
-        >website_blog_tag_widget/static/src/snippets/s_tagcloud/000.esm.js</field>
+        <field name="path">website_blog_tag_widget/static/src/snippets/s_tagcloud/000.esm.js</field>
     </record>
-
-
 </odoo>

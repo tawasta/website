@@ -33,4 +33,10 @@
         </div>
     </template>
 
+    <record id="s_blog_posts_clean_000_js" model="ir.asset">
+        <field name="name">Tagcloud 000 JS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">website_blog_snippet_template_clean/static/src/snippets/s_blog_posts/options.esm.js</field>
+    </record>
+
 </odoo>
