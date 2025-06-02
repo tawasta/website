@@ -48,7 +48,7 @@ function applyColumnLayout(container, itemSelector = 'div') {
 
 
 const DynamicSnippetBlogPostsClean = DynamicSnippet.extend({
-    selector: ".s_dynamic_snippet_blog_posts[data-template-key='website_blog_snippet_template_clean.dynamic_filter_template_blog_post_list_clean']",
+    selector: ".s_dynamic_snippet_blog_posts[data-template-key='website_blog_snippet_templates.dynamic_filter_template_blog_post_card_custom'], .s_dynamic_snippet_blog_posts[data-template-key='website_blog_snippet_templates.dynamic_filter_template_blog_post_list_clean']",
     disabledInEditableMode: false,
 
     async _render() {
