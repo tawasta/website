@@ -9,41 +9,27 @@ import DynamicSnippet from "@website/snippets/s_dynamic_snippet/000";
  * @param {string} itemSelector - Valitsin elementeille, jotka jaetaan sarakkeisiin
  */
 function applyColumnLayout(container, itemSelector = 'div') {
-    // Haetaan sarakkeiden määrä attribuutista data-column-count, oletuksena 1
     const count = Number(container.closest('[data-column-count]')?.dataset.columnCount) || 1;
+    const colClass = {2: 'col-6', 3: 'col-4', 4: 'col-3', 5: 'col-2', 6: 'col-2'}[count] || 'col-12';
 
-    // Tarkistetaan, onko jo olemassa olevia sarakkeita
     const existingColumns = container.querySelectorAll('.row > .d-flex');
     if (existingColumns.length) {
-        // Määritellään Bootstrap-sarakeluokat sarakemäärän mukaan
-        const colClassMap = {2: 'col-6', 3: 'col-4', 4: 'col-3', 5: 'col-2', 6: 'col-2'};
-        const colClass = colClassMap[count] || 'col-12';
-
-        // Päivitetään olemassa olevien sarakkeiden luokat
         existingColumns.forEach(col => {
             col.className = col.className.replace(/col-\d+/g, '').trim();
             col.classList.add(colClass);
         });
-
-        // Päivitetään containerin luokka sarakemäärän mukaiseksi
         container.className = container.className.replace(/columns-\d+/g, '').trim();
         container.classList.add(`columns-${count}`);
         return;
     }
 
-    // Haetaan kaikki elementit, jotka halutaan jakaa sarakkeisiin
     const items = Array.from(container.querySelectorAll(itemSelector));
     if (!items.length) return;
-    // Tyhjennetään container
+
     container.innerHTML = '';
-
-    const colClassMap = {2: 'col-6', 3: 'col-4', 4: 'col-3', 5: 'col-2', 6: 'col-2'};
-    const colClass = colClassMap[count] || 'col-12';
-
-    // Lasketaan kuinka monta itemiä per sarake ja ylijäämät
     const base = Math.floor(items.length / count);
     const extra = items.length % count;
-    // Luodaan sarakkeet ja jaetaan itemit niihin
+
     for (let i = 0; i < count; i++) {
         const colDiv = document.createElement('div');
         colDiv.className = colClass;
@@ -54,10 +40,9 @@ function applyColumnLayout(container, itemSelector = 'div') {
         for (let j = start; j < end; j++) {
             colDiv.appendChild(items[j]);
         }
-
         container.appendChild(colDiv);
     }
-    // Päivitetään containerin luokka sarakemäärän mukaiseksi
+
     container.className = container.className.replace(/columns-\d+/g, '').trim();
     container.classList.add(`columns-${count}`);
 }
@@ -68,13 +53,30 @@ const DynamicSnippetBlogPostsClean = DynamicSnippet.extend({
 
     async _render() {
         await this._super(...arguments);
-        const container = this.el.querySelector('.dynamic_snippet_template');
-        if (container) {
-            setTimeout(() => {
-                console.log("Applying clean layout...");
-                applyColumnLayout(container, '.s_blog_posts_post');
-            }, 50);  // Viive voi auttaa jos DOM ei ole vielä valmis
-        }
+        const section = this.el.closest('section');
+        const container = section?.querySelector('.dynamic_snippet_template');
+        if (!container) return;
+
+        // Käytetään requestAnimationFrame DOM-valmiuden varmistamiseksi
+        requestAnimationFrame(() => {
+            const attrs = {
+                showImage: section.dataset.show_image === "true",
+                showTags: section.dataset.show_tags === "true",
+                showBlog: section.dataset.show_blog === "true",
+            };
+
+            if (!attrs.showImage) {
+                container.querySelectorAll('.o_record_cover_container').forEach(el => el.remove());
+            }
+            if (!attrs.showTags) {
+                container.querySelectorAll('.small.fw-normal').forEach(el => el.remove());
+            }
+            if (!attrs.showBlog) {
+                container.querySelectorAll('.text-uppercase.text-primary.small.mb-1').forEach(el => el.remove());
+            }
+
+            applyColumnLayout(container, '.s_blog_posts_post');
+        });
     },
 });
 

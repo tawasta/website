@@ -6,18 +6,20 @@
 Website Blog Snippet Template Clean
 ===================================
 
-This module provides a clean, minimalist **list-style layout** for Odoo's website blog post snippet.
-
-It removes unnecessary visual elements like thumbnails and cards, focusing on **clean typography, date and tags**, as shown in the screenshot.
+This module provides a **clean, minimalist list-style layout** for the dynamic blog post snippet in Odoo Website. It removes unnecessary visual elements and uses a structured column layout that adapts to your content and settings.
 
 Features
 ========
 
-* Simple and elegant blog post list layout
-* Responsive by default (no fixed widths or heights)
-* No images — only text content: title, date, and tags
-* Uses blog tags with minimal styling
-* Designed to fit naturally on homepages or blog listing sections
+✔ Clean, list-style layout for blog posts  
+✔ Optional display toggles for:
+   * Cover image
+   * Blog name
+   * Tags  
+✔ Automatic responsive column layout based on selection  
+✔ Uses Odoo’s dynamic snippet system — fully editable in the Website Builder  
+✔ No additional configuration needed  
+✔ Fully compatible with multi-column layouts
 
 Configuration
 =============
@@ -28,8 +30,11 @@ Usage
 =====
 
 1. Go to Website → Edit.
-2. Drag the *Blog Posts* snippet to your page.
-3. From snippet options, select **Clean list layout**.
+2. Drag the *Blog Posts* dynamic snippet to your page.
+3. In the snippet options:
+   - Select the **Clean list layout**.
+   - Toggle **Show Image**, **Show Tags**, and **Show Blog** according to your preference.
+4. Save and publish.
 
 Known issues / Roadmap
 ======================
