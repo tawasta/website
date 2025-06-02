@@ -12,23 +12,15 @@ This Odoo module extends the dynamic blog post snippet in the Website Builder wi
 Features
 ========
 
-✔ Two blog post layouts:
-   * 🧾 Clean list layout (minimalistic, text-focused)
-   * 🖼️ Card-style layout (visual, image-focused)
-
-✔ Optional display toggles for:
-   * Cover image
-   * Tags
-   * Blog name
-
-✔ Automatic multi-column layout (based on section settings)
-
-✔ Seamless integration with Odoo Website Builder:
-   * Fully editable in drag-and-drop editor
-   * Dynamic and responsive
-   * No coding required
-
-✔ Easy to extend and modify
+- Clean list-style layout for blog posts
+- Optional display toggles for:
+  - Cover image
+  - Tags
+  - Blog name
+- Card-style layout with image and metadata
+- Automatic responsive column layout
+- Fully editable via the Odoo Website Builder
+- No configuration required
 
 Configuration
 =============
@@ -43,12 +35,12 @@ Usage
 3. Open the snippet options:
    - Choose your preferred layout:  
      **Clean list layout** or **Card-style layout**
-   - Toggle visibility for:  
-     ✅ Post image  
-     ✅ Tags  
-     ✅ Blog name  
-4. Adjust column count from the section settings if needed (e.g. 2, 3, 4…)
-5. Save and publish.
+   - Toggle visibility for:
+     - Post image  
+     - Tags  
+     - Blog name  
+4. Adjust the column count from the section settings if needed (e.g., 2, 3, 4).
+5. Save and publish the page.
 
 Known issues / Roadmap
 ======================
