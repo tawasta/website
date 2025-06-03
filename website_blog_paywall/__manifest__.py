@@ -21,14 +21,14 @@
 {
     "name": "Blog Paywall",
     "summary": "Add a paywall to blogs",
-    "version": "17.0.1.0.0",
+    "version": "17.0.2.0.0",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Futural",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["website_blog"],
+    "depends": ["partner_domain_filter", "website_blog"],
     "data": [
         "data/ir_cron.xml",
         "views/blog_blog_form.xml",

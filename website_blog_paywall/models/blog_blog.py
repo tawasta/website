@@ -27,10 +27,14 @@ class Blog(models.Model):
         default=200,
     )
 
-    paywall_domain = fields.Char(
+    partner_domain_filter_ids = fields.Many2many(
+        "partner.domain.filter",
+        "blog_domain_filter_rel",
         string="Paywall criteria",
     )
 
-    paywall_free_domain = fields.Char(
+    partner_free_domain_filter_ids = fields.Many2many(
+        "partner.domain.filter",
+        "blog_free_domain_filter_rel",
         string="Paywall free tier criteria",
     )
