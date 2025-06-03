@@ -22,7 +22,7 @@
     "name": "Website Blog: Tag-Specific Styling",
     "summary": "Add classes to blog-related DOM elements, to be then styled with "
     "website builder's CSS editor",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
