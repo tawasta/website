@@ -11,16 +11,15 @@
                 <field name="paywall_description" invisible="not paywall" />
                 <field name="paywall_teaser_length" invisible="not paywall" />
                 <field
-                    name="paywall_domain"
+                    name="partner_domain_filter_ids"
+                    widget="many2many_tags"
                     invisible="not paywall"
-                    widget="domain"
-                    options='{"model": "res.partner"}'
                 />
                 <field
-                    name="paywall_free_domain"
+                    name="partner_free_domain_filter_ids"
+                    widget="many2many_tags"
+                    options="{'color_field': 'color'}"
                     invisible="paywall_free_articles &lt; 1"
-                    widget="domain"
-                    options='{"model": "res.partner"}'
                 />
             </field>
         </field>
