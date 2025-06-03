@@ -70,7 +70,7 @@
                 data-attribute-name="columnCount"
                 data-no-preview="true"
             >
-                <we-button t-foreach="[2,3,4,5,6]" t-as="col"
+                <we-button t-foreach="[1,2,3,4,5,6]" t-as="col"
                            t-att-data-select-data-attribute="col"
                            t-esc="col"/>
             </we-select>
