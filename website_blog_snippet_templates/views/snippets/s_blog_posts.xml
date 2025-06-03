@@ -25,10 +25,10 @@
 
                 <!-- Post Tags -->
 
-                    <div class="small fw-normal">
+                    <div class="fw-normal">
                         <t t-if="blog_post.tag_ids">
                             <t t-foreach="blog_post.tag_ids" t-as="tag">
-                                <span class="text-danger text-decoration-none me-2" t-field="tag.name"/>
+                                <span class="badge border post_link text-decoration-none text-primary me-1 mb-1 d-inline-block o_post_link_js_loaded" t-field="tag.name"/>
                             </t>
                         </t>
                     </div>
@@ -59,7 +59,7 @@
                     <t t-if="blog_post.tag_ids">
                         <div class="d-flex flex-wrap gap-2 mb-2">
                             <t t-foreach="blog_post.tag_ids" t-as="tag">
-                                <span class="badge rounded-pill bg-light border text-muted small px-2 py-1" t-field="tag.name"/>
+                                <span class="badge border post_link text-decoration-none text-primary me-1 mb-1 d-inline-block o_post_link_js_loaded" t-field="tag.name"/>
                             </t>
                         </div>
                     </t>
