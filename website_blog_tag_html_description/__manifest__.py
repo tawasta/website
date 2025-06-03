@@ -19,10 +19,9 @@
 ##############################################################################
 
 {
-    "name": "Website Blog: Tag-Specific Styling",
-    "summary": "Add classes to blog-related DOM elements, to be then styled with "
-    "website builder's CSS editor",
-    "version": "17.0.1.0.1",
+    "name": "Website Blog: HTML Description for Tag",
+    "summary": "New field, shown in frontend tag page when only single tag is selected",
+    "version": "17.0.1.0.0",
     "category": "Website",
     "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",

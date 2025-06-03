@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Place the tag HTML description above the blog listing -->
+    <template id="blog_post_short" inherit_id="website_blog.blog_post_short">
+
+        <xpath
+            expr="//section[@id='o_wblog_index_content']//div[@t-if='original_search and posts']"
+            position="before"
+        >
+            <t t-if="show_tag_html_description">
+                <h1 t-field="active_tag_id.name" />
+                <t t-raw="active_tag_id.html_description" />
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Hide the article count and tag small tag buttons below the description -->
+    <template id="posts_loop" inherit_id="website_blog.posts_loop">
+        <xpath
+            expr="(//div[@id='o_wblog_posts_loop']//div[@t-if='posts'])[2]"
+            position="attributes"
+        >
+            <attribute
+                name="t-if"
+                separator=" and "
+                add="not show_tag_html_description"
+            />
+        </xpath>
+
+        <xpath
+            expr="(//div[@id='o_wblog_posts_loop']//div[@t-if='posts'])[1]"
+            position="attributes"
+        >
+            <attribute
+                name="t-if"
+                separator=" and "
+                add="not show_tag_html_description"
+            />
+        </xpath>
+
+        <xpath
+            expr="//div[@id='o_wblog_posts_loop']//t[@t-if='tag']"
+            position="attributes"
+        >
+            <attribute
+                name="t-if"
+                separator=" and "
+                add="not show_tag_html_description"
+            />
+        </xpath>
+
+    </template>
+</odoo>

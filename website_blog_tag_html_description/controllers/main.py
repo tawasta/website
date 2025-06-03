@@ -1,4 +1,5 @@
 from odoo.addons.website_blog.controllers.main import WebsiteBlog
+from odoo.http import request
 
 import logging
 
@@ -18,6 +19,10 @@ class WebsiteBlogSequence(WebsiteBlog):
         search=None,
         **post,
     ):
+        # Check if the generic blog view is being used to show the contents of a
+        # single tag. If yes, pass the tag object so that its name and html description
+        # will be rendered in frontend
+
         res = super()._prepare_blog_values(
             blogs=blogs,
             blog=blog,
@@ -30,7 +35,12 @@ class WebsiteBlogSequence(WebsiteBlog):
             **post,
         )
 
-        # Reorder the blogs by sequence
-        res["blogs"] = sorted(blogs, key=lambda blog: blog.sequence)
+        if len(res["active_tag_ids"]) == 1:
+            res["show_tag_html_description"] = True
+            res["active_tag_id"] = request.env["blog.tag"].search(
+                [("id", "=", res["active_tag_ids"][0])]
+            )
+        else:
+            res["show_tag_html_description"] = False
 
         return res
