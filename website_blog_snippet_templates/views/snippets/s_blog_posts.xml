@@ -28,7 +28,10 @@
                     <div class="fw-normal">
                         <t t-if="blog_post.tag_ids">
                             <t t-foreach="blog_post.tag_ids" t-as="tag">
-                                <span class="badge border post_link text-decoration-none text-primary me-1 mb-1 d-inline-block o_post_link_js_loaded" t-field="tag.name"/>
+                                <a t-att-href="'/blog/tag/%s' % tag.id"
+                                   class="badge border post_link text-decoration-none text-primary me-1 mb-1 d-inline-block">
+                                    <t t-out="tag.name"/>
+                                </a>
                             </t>
                         </t>
                     </div>
@@ -59,7 +62,10 @@
                     <t t-if="blog_post.tag_ids">
                         <div class="d-flex flex-wrap gap-2 mb-2">
                             <t t-foreach="blog_post.tag_ids" t-as="tag">
-                                <span class="badge border post_link text-decoration-none text-primary me-1 mb-1 d-inline-block o_post_link_js_loaded" t-field="tag.name"/>
+                                <a t-att-href="'/blog/tag/%s' % tag.id"
+                                   class="badge border post_link text-decoration-none text-primary me-1 mb-1 d-inline-block">
+                                    <t t-out="tag.name"/>
+                                </a>
                             </t>
                         </div>
                     </t>
