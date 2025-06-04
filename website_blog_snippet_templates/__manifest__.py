@@ -31,4 +31,9 @@
     "data": [
         "views/snippets/s_blog_posts.xml",
     ],
+    "assets": {
+        "web.assets_frontend": [
+            "/website_blog_snippet_templates/static/src/scss/main.scss",
+        ],
+    },
 }

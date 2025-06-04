@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="dynamic_filter_template_blog_post_list_clean" name="Clean list layout">
+        <div class="s_dynamic_snippet_blog_posts">
+            <div t-foreach="records" t-as="data" class="s_blog_posts_post py-3 border-bottom">
+                <t t-set="blog_post" t-value="data['_record']"/>
+                <t t-call="website_blog_snippet_templates.post_cover_image"/>
+
+                <!-- Post Title -->
+                <a t-att-href="data['call_to_action_url']" class="text-decoration-none">
+                    <div class="s_blog_posts_post_title fw-bold text-dark mb-1" t-field="blog_post.name"/>
+                </a>
+
+                <t t-if="blog_post.blog_id">
+                    <div class="text-uppercase text-primary small mb-1">
+                        <span t-field="blog_post.blog_id.name"/>
+                    </div>
+                </t>
+
+                <!-- Post Date -->
+                <div class="text-muted small mb-1">
+                    <span t-field="blog_post.post_date" t-options='{"format": "d.M.yyyy"}'/>
+                </div>
+
+                <!-- Post Tags -->
+
+                    <div class="fw-normal">
+                        <t t-if="blog_post.tag_ids">
+                            <t t-foreach="blog_post.tag_ids" t-as="tag">
+                                <span class="badge border post_link text-decoration-none text-primary me-1 mb-1 d-inline-block o_post_link_js_loaded" t-field="tag.name"/>
+                            </t>
+                        </t>
+                    </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="dynamic_filter_template_blog_post_card_custom" name="Card-style layout">
+        <div class="s_dynamic_snippet_blog_posts">
+            <div t-foreach="records" t-as="data" class="s_blog_posts_post card shadow-sm mb-4 overflow-hidden border-0">
+                <t t-set="blog_post" t-value="data['_record']"/>
+
+                <!-- Cover Image -->
+                <a t-att-href="data['call_to_action_url']">
+                    <t t-call="website_blog_snippet_templates.post_cover_image"/>
+                </a>
+
+                <div class="card-body px-3 pb-3 pt-2 d-flex flex-column justify-content-between">
+                    <!-- Post Title -->
+                    <a t-att-href="data['call_to_action_url']" class="text-decoration-none">
+                        <h5 class="fw-bold text-dark mb-2" t-field="blog_post.name"/>
+                    </a>
+
+                    <!-- Description / Teaser -->
+                    <p class="text-body small mb-3" t-field="blog_post.teaser"/>
+
+                    <!-- Tags after teaser -->
+                    <t t-if="blog_post.tag_ids">
+                        <div class="d-flex flex-wrap gap-2 mb-2">
+                            <t t-foreach="blog_post.tag_ids" t-as="tag">
+                                <span class="badge border post_link text-decoration-none text-primary me-1 mb-1 d-inline-block o_post_link_js_loaded" t-field="tag.name"/>
+                            </t>
+                        </div>
+                    </t>
+
+                    <!-- Date and Blog Name -->
+                    <div class="d-flex justify-content-between align-items-center text-muted small">
+                        <span t-field="blog_post.post_date" t-options='{"format": "d.m.yyyy"}'/>
+                        <t t-if="blog_post.blog_id">
+                            <span class="fw-medium" t-field="blog_post.blog_id.name"/>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+    <template id="post_cover_image">
+    <t t-if="opt_blog_cards_design and not opt_blog_list_view" t-set="classes" t-value="'card-img-top mb-2'"/>
+    <t t-if="not opt_blog_cards_design and opt_blog_list_view" t-set="classes" t-value="'o_wblog_post_cover_nocard'"/>
+
+    <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}"
+       t-attf-class="text-decoration-none d-block #{classes or 'mb-2'}"
+       t-att-style="not blog_post.website_published and 'opacity:0.6;'">
+
+        <t t-call="website.record_cover">
+            <t t-set="_record" t-value="blog_post"/>
+
+            <!-- Nämä luokat oli alunperin authorin sisällä, mutta nyt asetetaan suoraan -->
+            <t t-set="additionnal_classes" t-value="'o_wblog_post_list_author o_list_cover d-flex text-white w-100 o_not_editable ' + ('p-3 h5 m-0' if opt_blog_list_view else 'px-2 pb-2 pt-3 clean-img')"/>
+            <t t-set="hide_date" t-value="True"/>
+        </t>
+    </a>
+</template>
+
+
+    <record id="s_blog_posts_clean_000_js" model="ir.asset">
+        <field name="name">Tagcloud 000 JS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">website_blog_snippet_templates/static/src/snippets/s_blog_posts/options.esm.js</field>
+    </record>
+
+    <template id="s_dynamic_snippet_blog_posts_show_image_option"
+          inherit_id="website.s_dynamic_snippet_options_template">
+    
+    <!-- Lisää valinta vain blogi-snippetille -->
+    <xpath expr="//we-select[@data-name='template_opt']" position="after">
+        <we-select t-if="snippet_name == 'dynamic_snippet_blog_posts'"
+                   string="Show post image"
+                   class="o_we_sublevel_1 o_we_inline"
+                   data-no-preview="true"
+                   data-name="show_image_opt"
+                   data-attribute-name="show_image">
+            <we-button data-select-data-attribute="true">Yes</we-button>
+            <we-button data-select-data-attribute="false">No</we-button>
+        </we-select>
+        <we-select t-if="snippet_name == 'dynamic_snippet_blog_posts'"
+               string="Show post tags"
+               class="o_we_sublevel_1 o_we_inline"
+               data-no-preview="true"
+               data-name="show_tags_opt"
+               data-attribute-name="show_tags">
+        <we-button data-select-data-attribute="true">Yes</we-button>
+        <we-button data-select-data-attribute="false">No</we-button>
+    </we-select>
+    <we-select t-if="snippet_name == 'dynamic_snippet_blog_posts'"
+               string="Show blog"
+               class="o_we_sublevel_1 o_we_inline"
+               data-no-preview="true"
+               data-name="show_blog_opt"
+               data-attribute-name="show_blog">
+        <we-button data-select-data-attribute="true">Yes</we-button>
+        <we-button data-select-data-attribute="false">No</we-button>
+    </we-select>
+    </xpath>
+</template>
+
+
+</odoo>

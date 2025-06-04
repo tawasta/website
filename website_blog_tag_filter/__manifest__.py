@@ -1,7 +1,7 @@
 ##############################################################################
 #
-#    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2021- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
+#    Author: Futural Oy
+#    Copyright 2025 Futural Oy (https://futural.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -17,18 +17,19 @@
 #    along with this program. If not, see http://www.gnu.org/licenses/agpl.html
 #
 ##############################################################################
+
 {
-    "name": "Website Snippet Filter Core Override",
-    "version": "17.0.1.0",
+    "name": "Blog Tag Filter",
+    "summary": "Display blog posts by tag on /tag/<id>",
+    "version": "17.0.1.0.0",
     "category": "Website",
-    "summary": "Refactored _prepare_values for extensible snippet filtering",
     "website": "https://gitlab.com/tawasta/odoo/website",
-    "author": "Tawasta",
+    "author": "Futural",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["website"],
+    "depends": ["website_blog"],
     "data": [
-        "views/snippets/s_dynamic_snippet.xml",
+        "views/tagged_blog_posts_template.xml",
     ],
 }
