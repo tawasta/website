@@ -2,6 +2,9 @@ from odoo import api, fields, models
 from odoo.tools.safe_eval import safe_eval
 from odoo.addons.website.tools import text_from_html
 from odoo.http import request
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class BlogPost(models.Model):
@@ -14,8 +17,12 @@ class BlogPost(models.Model):
 
     paywall_description = fields.Html(related="blog_id.paywall_description")
 
-    paywall_domain = fields.Char(related="blog_id.paywall_domain")
-    paywall_free_domain = fields.Char(related="blog_id.paywall_free_domain")
+    partner_domain_filter_ids = fields.Many2many(
+        related="blog_id.partner_domain_filter_ids"
+    )
+    partner_free_domain_filter_ids = fields.Many2many(
+        related="blog_id.partner_free_domain_filter_ids"
+    )
     paywall_free_articles = fields.Integer(related="blog_id.paywall_free_articles")
 
     paywall_teaser = fields.Text(
@@ -65,35 +72,33 @@ class BlogPost(models.Model):
 
     def _compute_user_in_paywall_domain(self):
         partner = self.env["res.partner"].sudo()
-        partner_id = self.env.user.partner_id.id
+        user_partner_id = self.env.user.partner_id.id
 
         for record in self:
-            paywall_domain = False
-            if record.paywall_domain:
-                paywall_domain = [("id", "=", partner_id)] + safe_eval(
-                    record.paywall_domain
+            user_in_partner_domain = False
+            for partner_domain in record.partner_domain_filter_ids:
+                domain = [("id", "=", user_partner_id)] + safe_eval(
+                    partner_domain.filter_domain
                 )
+                if partner.search(domain):
+                    user_in_partner_domain = True
 
-            if paywall_domain and partner.search(paywall_domain):
-                record.user_in_paywall_domain = True
-            else:
-                record.user_in_paywall_domain = False
+            record.user_in_paywall_domain = user_in_partner_domain
 
     def _compute_user_in_paywall_free_domain(self):
         partner = self.env["res.partner"].sudo()
-        partner_id = self.env.user.partner_id.id
+        user_partner_id = self.env.user.partner_id.id
 
         for record in self:
-            paywall_free_domain = False
-            if self.paywall_free_domain:
-                paywall_free_domain = [("id", "=", partner_id)] + safe_eval(
-                    self.paywall_free_domain
+            user_in_partner_domain = False
+            for partner_domain in record.partner_free_domain_filter_ids:
+                domain = [("id", "=", user_partner_id)] + safe_eval(
+                    partner_domain.filter_domain
                 )
+                if partner.search(domain):
+                    user_in_partner_domain = True
 
-            if paywall_free_domain and partner.search(paywall_free_domain):
-                record.user_in_paywall_free_domain = True
-            else:
-                record.user_in_paywall_free_domain = False
+            record.user_in_paywall_free_domain = user_in_partner_domain
 
     def _compute_user_read_free_blog_post_count(self):
         for record in self:
@@ -106,14 +111,19 @@ class BlogPost(models.Model):
 
         if not self.paywall:
             # Allow reading for free articles
+            _logger.debug("Reading allowed: No paywall")
             access = True
         elif self.env.user.has_group("website.group_website_restricted_editor"):
             # Allow reading for editors
+            _logger.debug("Reading allowed: User is an editor")
             access = True
         elif self._user_is_crawler():
+            # Allow reading for crawlers
+            _logger.debug("Reading allowed: User is a crawler")
             access = True
         elif self.paywall and self.user_in_paywall_domain:
             # Allow reading for partners in partner domain
+            _logger.debug("Reading allowed: User is an allowed user")
             access = True
         elif (
             self.paywall
@@ -121,9 +131,11 @@ class BlogPost(models.Model):
             and self._user_free_tier_available()
         ):
             # Allow reading in free tier
+            _logger.debug("Reading allowed: User is in free tier")
             access = True
         else:
             # Don't allow reading
+            _logger.debug("Reading disallowed")
             access = False
 
         return access
@@ -173,14 +185,14 @@ class BlogPost(models.Model):
             # Add blog post to all read posts
             partner.read_blog_post_ids += self
 
-        paywall_free_domain = False
-        if self.paywall_free_domain:
-            paywall_free_domain = [("id", "=", partner.id)] + safe_eval(
-                self.paywall_free_domain
+        paywall_free_domain = [("id", "=", partner.id)]
+        for domain_filter in self.partner_free_domain_filter_ids:
+            paywall_free_domain = paywall_free_domain + safe_eval(
+                domain_filter.filter_domain
             )
 
         if (
-            paywall_free_domain
+            self.partner_free_domain_filter_ids
             and partner in partner.search(paywall_free_domain)
             and self not in partner.read_free_blog_post_ids
             and self.user_read_free_blog_post_count < self.paywall_free_articles

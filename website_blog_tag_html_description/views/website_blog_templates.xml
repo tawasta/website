@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <!-- Place the tag HTML description above the blog listing -->
-    <template id="blog_post_short" inherit_id="website_blog.blog_post_short">
+    <template id="posts_loop" inherit_id="website_blog.posts_loop">
 
+        <!-- Place the tag HTML description above the blog listing -->
         <xpath
-            expr="//section[@id='o_wblog_index_content']//div[@t-if='original_search and posts']"
+            expr="(//div[@id='o_wblog_posts_loop']//div[@t-if='posts'])[1]"
             position="before"
         >
             <t t-if="show_tag_html_description">
@@ -13,10 +13,8 @@
                 <t t-raw="active_tag_id.html_description" />
             </t>
         </xpath>
-    </template>
 
-    <!-- Hide the article count and tag small tag buttons below the description -->
-    <template id="posts_loop" inherit_id="website_blog.posts_loop">
+        <!-- Hide the article count and tag small tag buttons below the description -->
         <xpath
             expr="(//div[@id='o_wblog_posts_loop']//div[@t-if='posts'])[2]"
             position="attributes"
