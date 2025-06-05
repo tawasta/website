@@ -55,7 +55,8 @@
     <template id="s_dynamic_snippet_tagcloud_options_template" inherit_id="website.s_dynamic_snippet_options_template">
         <xpath expr="//we-select[@data-name='filter_opt']" position="after">
             <we-many2many
-                string="Categories"
+                t-if="snippet_name == 'dynamic_snippet_tagcloud'"
+                string="Tag Categories"
                 data-name="category_tag_opt"
                 data-attribute-name="tagcloudCategoryIds"
                 data-no-preview="true"

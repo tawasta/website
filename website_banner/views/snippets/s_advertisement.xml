@@ -79,7 +79,8 @@
     >
     <xpath expr="//we-select[@data-name='filter_opt']" position="after">
         <we-many2many
-                string="Categories"
+                t-if="snippet_name == 'dynamic_snippet_advertisement'"
+                string="Ad Categories"
                 data-name="category_tag_opt"
                 data-attribute-name="advertisementCategoryIds"
                 data-no-preview="true"
