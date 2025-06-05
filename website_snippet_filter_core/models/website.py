@@ -10,17 +10,19 @@ _logger = logging.getLogger(__name__)
 class WebsiteSnippetFilter(models.Model):
     _inherit = "website.snippet.filter"
 
-
-    @api.constrains('limit')
+    @api.constrains("limit")
     def _check_limit(self):
         """Mallikohtainen limit-tarkistus."""
         for record in self:
-            model_name = record.filter_id.model_id if record.filter_id else record.model_name
+            model_name = (
+                record.filter_id.model_id if record.filter_id else record.model_name
+            )
             max_limit = record._get_model_max_limit(model_name)
             if not (1 <= record.limit <= max_limit):
-                raise ValidationError(_(
-                    "The limit for model '%s' must be between 1 and %d."
-                ) % (model_name or 'unknown', max_limit))
+                raise ValidationError(
+                    _("The limit for model '%s' must be between 1 and %d.")
+                    % (model_name or "unknown", max_limit)
+                )
 
     def _get_model_max_limit(self, model_name):
         # Määritä mallikohtainen max limit, oletuksena palauttaa 16

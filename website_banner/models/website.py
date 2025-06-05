@@ -13,10 +13,7 @@ class WebsiteSnippetFilterRandom(models.Model):
         """Yliajaa hakulogiikan advertisement-mallille."""
         if model_name == "advertisement.advertisement":
             all_records = (
-                self.env[model_name]
-                .sudo(False)
-                .with_context(**context)
-                .search(domain)
+                self.env[model_name].sudo(False).with_context(**context).search(domain)
             )
             return sample(list(all_records), k=1) if all_records else all_records
 

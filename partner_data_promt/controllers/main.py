@@ -155,4 +155,3 @@ class PartnerDataPromptController(http.Controller):
 
         referrer = request.httprequest.referrer or "/"
         return request.redirect(referrer)
-
