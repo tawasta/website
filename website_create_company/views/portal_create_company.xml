@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+        <template id="company_create" name="Create a company">
+            <t t-call="website.layout">
+              <div id="create_company_container" class="container mt-4">
+                <h1>Create a new company</h1>
+                <form action="/company/create" method="post">
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input
+                            type="text"
+                            name="name"
+                            required="required"
+                            class="form-control"
+                        />
+                  </div>
+                  <div class="form-group">
+                    <label for="company_registry">Company Registry</label>
+                    <input
+                            type="text"
+                            name="company_registry"
+                            required="required"
+                            class="form-control"
+                        />
+                  </div>
+                  <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                </form>
+              </div>
+            </t>
+    </template>
+
+</odoo>
