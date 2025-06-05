@@ -1,5 +1,6 @@
 from odoo import models
 
+
 class WebsiteSnippetFilterBlog(models.Model):
     _inherit = "website.snippet.filter"
 

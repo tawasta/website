@@ -1,8 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <template id="custom_dynamic_snippet_options_inherit" inherit_id="website.s_dynamic_snippet_options_template" name="Custom Dynamic Snippet Options">
-        <xpath expr="//we-select[@data-name='number_of_records_opt']/we-button" position="replace">
-            <we-button t-foreach="range(1, 61)" t-as="value" t-att-data-select-data-attribute="value" t-esc="value"/>
+    <template
+        id="custom_dynamic_snippet_options_inherit"
+        inherit_id="website.s_dynamic_snippet_options_template"
+        name="Custom Dynamic Snippet Options"
+        priority="100"
+    >
+        <xpath
+            expr="//we-select[@data-name='number_of_records_opt']/we-button"
+            position="replace"
+        >
+            <we-button
+                t-foreach="range(1, 61)"
+                t-as="value"
+                t-att-data-select-data-attribute="value"
+                t-esc="value"
+            />
         </xpath>
     </template>
 </odoo>
