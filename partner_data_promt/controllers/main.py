@@ -1,7 +1,8 @@
-from odoo import http, _
-from odoo.http import request
 import logging
-from datetime import datetime, date
+from datetime import date, datetime
+
+from odoo import http
+from odoo.http import request
 
 _logger = logging.getLogger(__name__)
 

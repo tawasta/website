@@ -2,17 +2,17 @@
 <odoo noupdate="1">
     <record id="dashboard_app_endpoint" model="ir.config_parameter">
         <field name="key">website_application_dashboard.app_endpoint</field>
-        <field name="value">https://testendpoint.tawasta.fi/app</field>
+        <field name="value">https://testendpoint.futural.fi/app</field>
     </record>
 
     <record id="dashboard_category_endpoint" model="ir.config_parameter">
         <field name="key">website_application_dashboard.category_endpoint</field>
-        <field name="value">https://testendpoint.tawasta.fi/category</field>
+        <field name="value">https://testendpoint.futural.fi/category</field>
     </record>
 
     <record id="dashboard_user_endpoint" model="ir.config_parameter">
         <field name="key">website_application_dashboard.user_endpoint</field>
-        <field name="value">https://testendpoint.tawasta.fi/user</field>
+        <field name="value">https://testendpoint.futural.fi/user</field>
     </record>
 
     <record id="dashboard_user_auth_header" model="ir.config_parameter">
@@ -33,17 +33,17 @@
 
     <record id="dashboard_app_endpoint_test" model="ir.config_parameter">
         <field name="key">website_application_dashboard.app_endpoint_test</field>
-        <field name="value">https://testendpoint.tawasta.fi/app</field>
+        <field name="value">https://testendpoint.futural.fi/app</field>
     </record>
 
     <record id="dashboard_category_endpoint_test" model="ir.config_parameter">
         <field name="key">website_application_dashboard.category_endpoint_test</field>
-        <field name="value">https://testendpoint.tawasta.fi/category</field>
+        <field name="value">https://testendpoint.futural.fi/category</field>
     </record>
 
     <record id="dashboard_user_endpoint_test" model="ir.config_parameter">
         <field name="key">website_application_dashboard.user_endpoint_test</field>
-        <field name="value">https://testendpoint.tawasta.fi/user</field>
+        <field name="value">https://testendpoint.futural.fi/user</field>
     </record>
 
     <record id="dashboard_user_auth_header_test" model="ir.config_parameter">

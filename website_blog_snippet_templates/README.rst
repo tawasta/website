@@ -33,12 +33,12 @@ Usage
 1. Go to **Website → Edit**.
 2. Drag and drop the **Blog Posts** snippet into your page.
 3. Open the snippet options:
-   - Choose your preferred layout:  
+   - Choose your preferred layout:
      **Clean list layout** or **Card-style layout**
    - Toggle visibility for:
-     - Post image  
-     - Tags  
-     - Blog name  
+     - Post image
+     - Tags
+     - Blog name
 4. Adjust the column count from the section settings if needed (e.g., 2, 3, 4).
 5. Save and publish the page.
 
@@ -52,13 +52,13 @@ Credits
 Contributors
 ------------
 
-* Valtteri Lattu <valtteri.lattu@tawasta.fi>
+* Valtteri Lattu <valtteri.lattu@futural.fi>
 
 Maintainer
 ----------
 
-.. image:: http://tawasta.fi/templates/tawastrap/images/logo.png
-   :alt: Oy Tawasta OS Technologies Ltd.
-   :target: http://tawasta.fi/
+.. image:: https://futural.fi/templates/tawastrap/images/logo.png
+   :alt: Futural Oy
+   :target: https://futural.fi/
 
-This module is maintained by Oy Tawasta OS Technologies Ltd.
+This module is maintained by Futural Oy

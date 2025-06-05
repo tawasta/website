@@ -16,7 +16,7 @@ Website Blog Blogs Snippet
     out of the box.
   * website_blog_snippet_extra_options provides the blog post promotion
     feature for the core blog post snippet.
-    
+
 
 Configuration
 =============
@@ -36,15 +36,15 @@ Credits
 Contributors
 ------------
 
-* Miika Nissi <miika.nissi@tawasta.fi>
-* Timo Kekäläinen <timo.kekalainen@tawasta.fi>
-* Timo Talvitie <timo.talvitie@tawasta.fi>
+* Miika Nissi <miika.nissi@futural.fi>
+* Timo Kekäläinen <timo.kekalainen@futural.fi>
+* Timo Talvitie <timo.talvitie@futural.fi>
 
 Maintainer
 ----------
 
-.. image:: http://tawasta.fi/templates/tawastrap/images/logo.png
-   :alt: Oy Tawasta OS Technologies Ltd.
-   :target: http://tawasta.fi/
+.. image:: https://futural.fi/templates/tawastrap/images/logo.png
+   :alt: Futural Oy
+   :target: https://futural.fi/
 
-This module is maintained by Oy Tawasta OS Technologies Ltd.
+This module is maintained by Futural Oy

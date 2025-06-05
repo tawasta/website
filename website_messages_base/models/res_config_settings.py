@@ -1,7 +1,7 @@
 ##############################################################################
 #
-#    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2019- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
+#    Author: Futural Oy
+#    Copyright 2019- Futural Oy (https://futural.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -59,7 +59,7 @@ class ResConfigSettings(models.TransientModel):
     # 6. CRUD methods
     @api.model
     def get_values(self):
-        res = super(ResConfigSettings, self).get_values()
+        res = super().get_values()
         website_enable_reply = (
             self.env["ir.config_parameter"]
             .sudo()
@@ -71,7 +71,7 @@ class ResConfigSettings(models.TransientModel):
         return res
 
     def set_values(self):
-        super(ResConfigSettings, self).set_values()
+        super().set_values()
         self.env["ir.config_parameter"].sudo().set_param(
             "website_enable_reply", bool(self.website_enable_reply)
         )

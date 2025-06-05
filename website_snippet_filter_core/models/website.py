@@ -1,8 +1,9 @@
-from odoo import models, api, fields, _
+import logging
+from ast import literal_eval
+
+from odoo import _, api, models
 from odoo.exceptions import MissingError, ValidationError
 from odoo.osv import expression
-from ast import literal_eval
-import logging
 
 _logger = logging.getLogger(__name__)
 

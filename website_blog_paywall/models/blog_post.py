@@ -1,8 +1,10 @@
-from odoo import api, fields, models
-from odoo.tools.safe_eval import safe_eval
-from odoo.addons.website.tools import text_from_html
-from odoo.http import request
 import logging
+
+from odoo import api, fields, models
+from odoo.http import request
+from odoo.tools.safe_eval import safe_eval
+
+from odoo.addons.website.tools import text_from_html
 
 _logger = logging.getLogger(__name__)
 

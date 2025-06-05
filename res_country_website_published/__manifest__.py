@@ -1,7 +1,7 @@
 ##############################################################################
 #
-#    Author: Tawasta
-#    Copyright 2019 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Author: Futural
+#    Copyright 2019 Futural Oy (https://futural.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -23,8 +23,8 @@
     "summary": "Manually choose countries that will be shown on Website",
     "version": "17.0.1.0.0",
     "category": "Website",
-    "website": "https://gitlab.com/tawasta/odoo/website",
-    "author": "Tawasta",
+    "website": "https://github.com/tawasta/website",
+    "author": "Futural",
     "license": "AGPL-3",
     "application": False,
     "installable": True,

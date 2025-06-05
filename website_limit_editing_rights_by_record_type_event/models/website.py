@@ -1,5 +1,4 @@
-from odoo import models, _
-from odoo.exceptions import AccessDenied
+from odoo import models
 
 
 class Website(models.Model):

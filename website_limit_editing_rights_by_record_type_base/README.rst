@@ -7,12 +7,12 @@ Website: Limit Editing Rights by Record Type (base) (DEPRECATED)
 ================================================================
 
 * Base functionality for allowing users to edit only certain types of website pages
-* You'll likely want install also the record type specific modules for the 
+* You'll likely want install also the record type specific modules for the
   actual limiting of editing to e.g. event and/or eLearning related content
 * Also grants rights to translate the related terms in frontend, without allowing
   translating e.g. headers and footers
-* Deprecated and set as uninstallable: https://github.com/odoo/odoo/commit/5d717f3ff5ce83faf2ce12ef03942bb00684eb68 
-  and other related changes to 17.0 core break this functionality, and also support similar functionality 
+* Deprecated and set as uninstallable: https://github.com/odoo/odoo/commit/5d717f3ff5ce83faf2ce12ef03942bb00684eb68
+  and other related changes to 17.0 core break this functionality, and also support similar functionality
   for the Website Restricted Editor Group out of the box.
 
 Configuration
@@ -37,13 +37,13 @@ Credits
 Contributors
 ------------
 
-* Timo Talvitie <timo.talvitie@tawasta.fi>
+* Timo Talvitie <timo.talvitie@futural.fi>
 
 Maintainer
 ----------
 
-.. image:: http://tawasta.fi/templates/tawastrap/images/logo.png
-   :alt: Oy Tawasta OS Technologies Ltd.
-   :target: http://tawasta.fi/
+.. image:: https://futural.fi/templates/tawastrap/images/logo.png
+   :alt: Futural Oy
+   :target: https://futural.fi/
 
-This module is maintained by Oy Tawasta OS Technologies Ltd.
+This module is maintained by Futural Oy
