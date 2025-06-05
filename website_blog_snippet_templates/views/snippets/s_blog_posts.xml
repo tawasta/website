@@ -9,7 +9,7 @@
             <div
                 t-foreach="records"
                 t-as="data"
-                class="s_blog_posts_post py-3 border-bottom"
+                class="s_blog_posts_post border-bottom"
             >
                 <t t-set="blog_post" t-value="data['_record']" />
                 <t t-call="website_blog_snippet_templates.post_cover_image" />
@@ -62,7 +62,7 @@
             <div
                 t-foreach="records"
                 t-as="data"
-                class="s_blog_posts_post card shadow-sm mb-4 overflow-hidden border-0"
+                class="s_blog_posts_post card shadow-sm overflow-hidden border-0"
             >
                 <t t-set="blog_post" t-value="data['_record']" />
 

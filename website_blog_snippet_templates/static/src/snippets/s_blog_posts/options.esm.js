@@ -77,7 +77,7 @@ const DynamicSnippetBlogPostsClean = DynamicSnippet.extend({
                         .forEach((el) => el.remove());
                 }
                 applyColumnLayout(container, ".s_blog_posts_post");
-            }, 50); // Viive voi auttaa jos DOM ei ole vielä valmis
+            }, 75); // Viive voi auttaa jos DOM ei ole vielä valmis
         }
     },
 });

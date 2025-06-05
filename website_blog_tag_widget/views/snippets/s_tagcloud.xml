@@ -9,7 +9,7 @@
 
     <template id="dynamic_filter_template_blog_tag_picture" name="Tag Picture Layout">
         <t t-set="snippet" t-value="snippet or {}" />
-        <div class="s_tagcloud_container py-4 w-100">
+        <div class="s_tagcloud_container w-100">
             <div class="container">
                 <!-- oletusarvoinen col_count -->
                 <t t-set="col_count" t-value="1" />
