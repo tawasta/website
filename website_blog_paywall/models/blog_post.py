@@ -1,8 +1,10 @@
-from odoo import api, fields, models
-from odoo.tools.safe_eval import safe_eval
-from odoo.addons.website.tools import text_from_html
-from odoo.http import request
 import logging
+
+from odoo import api, fields, models
+from odoo.http import request
+from odoo.tools.safe_eval import safe_eval
+
+from odoo.addons.website.tools import text_from_html
 
 _logger = logging.getLogger(__name__)
 
@@ -199,6 +201,7 @@ class BlogPost(models.Model):
         ):
             # Add post to free tier read posts
             partner.read_free_blog_post_ids += self
-            self.env.cr.commit()
+            #
+            self.env.cr.commit()  # pylint: disable=E8102
 
         return True

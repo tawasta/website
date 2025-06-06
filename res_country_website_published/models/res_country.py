@@ -1,4 +1,4 @@
-from odoo import models, fields, _
+from odoo import fields, models
 
 
 class ResCountry(models.Model):
@@ -6,9 +6,6 @@ class ResCountry(models.Model):
 
     website_published = fields.Boolean(
         string="Show in Website Country Selection",
-        help=_(
-            """Adds this country to selectable countries on eCommerce and
-                  My Account"""
-        ),
+        help="Adds this country to selectable countries on eCommerce and My Account",
         default=False,
     )

@@ -6,7 +6,7 @@ import DynamicSnippet from "@website/snippets/s_dynamic_snippet/000";
 /**
  * Asettaa sarakkeiden asettelun annetulle containerille.
  * @param {HTMLElement} container - Elementti, johon sarakkeet lisätään
- * @param {string} itemSelector - Valitsin elementeille, jotka jaetaan sarakkeisiin
+ * @param {String} itemSelector - Valitsin elementeille, jotka jaetaan sarakkeisiin
  */
 function applyColumnLayout(container, itemSelector = "div") {
     const count =

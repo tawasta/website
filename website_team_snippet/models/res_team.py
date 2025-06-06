@@ -7,8 +7,8 @@ class ResTeam(models.Model):
     _order = "sequence"
 
     name = fields.Char()
-    professional_title = fields.Char(string="Professional title")
+    professional_title = fields.Char()
 
     description = fields.Text()
     image = fields.Binary()
-    sequence = fields.Integer(string="Sequence")
+    sequence = fields.Integer()

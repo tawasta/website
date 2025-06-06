@@ -7,9 +7,9 @@ Website Blog: Remove 'in' Term from Blog Widget Card Layout
 ===========================================================
 * Hide the word prefix normally shown before blog's tags
   that does not translate well in e.g. Finnish
-* The term cannot be removed with website editor and is 
+* The term cannot be removed with website editor and is
   inconvenient to hide with CSS, so a module is used.
-  
+
 
 Configuration
 =============
@@ -35,8 +35,8 @@ Contributors
 Maintainer
 ----------
 
-.. image:: http://tawasta.fi/templates/tawastrap/images/logo.png
-   :alt: Oy Tawasta OS Technologies Ltd.
-   :target: http://tawasta.fi/
+.. image:: https://futural.fi/templates/tawastrap/images/logo.png
+   :alt: Futural Oy
+   :target: https://futural.fi/
 
-This module is maintained by Oy Tawasta OS Technologies Ltd.
+This module is maintained by Futural Oy

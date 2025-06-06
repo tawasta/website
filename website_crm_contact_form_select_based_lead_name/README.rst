@@ -31,7 +31,7 @@ Usage
 
 Known issues / Roadmap
 ======================
-* The model contains certain subjects such as "Resale" and "Returns". 
+* The model contains certain subjects such as "Resale" and "Returns".
   If you need others, inherit and override as needed
 
 Credits
@@ -40,13 +40,13 @@ Credits
 Contributors
 ------------
 
-* Timo Talvitie <timo.talvitie@tawasta.fi>
+* Timo Talvitie <timo.talvitie@futural.fi>
 
 Maintainer
 ----------
 
-.. image:: http://tawasta.fi/templates/tawastrap/images/logo.png
-   :alt: Oy Tawasta OS Technologies Ltd.
-   :target: http://tawasta.fi/
+.. image:: https://futural.fi/templates/tawastrap/images/logo.png
+   :alt: Futural Oy
+   :target: https://futural.fi/
 
-This module is maintained by Oy Tawasta OS Technologies Ltd.
+This module is maintained by Futural Oy

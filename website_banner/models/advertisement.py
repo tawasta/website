@@ -1,6 +1,4 @@
-from odoo import models, fields, api
-from datetime import datetime
-import random
+from odoo import api, fields, models
 
 
 class AdvertisementCategory(models.Model):

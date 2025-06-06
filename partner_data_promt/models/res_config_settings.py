@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import fields, models
 
 
 class Website(models.Model):
@@ -18,5 +18,6 @@ class ResConfigSettings(models.TransientModel):
         string="Data Prompt Interval (Days)",
         related="website_id.data_prompt_interval_days",
         default=30,
-        help="Show the profile update modal again if the last check is older than this many days.",
+        help="Show the profile update modal again "
+        "if the last check is older than this many days.",
     )

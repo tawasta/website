@@ -8,8 +8,8 @@ Website: Limit Editing Rights by Record Type (eLearning) (DEPRECATED)
 
 * Allow users to edit their company's eLearning related pages but prevent editing
   other types of pages (blogs, regular pages etc.)
-* Deprecated and set as uninstallable: https://github.com/odoo/odoo/commit/5d717f3ff5ce83faf2ce12ef03942bb00684eb68 
-  and other related changes to 17.0 core break this functionality, and also support similar functionality 
+* Deprecated and set as uninstallable: https://github.com/odoo/odoo/commit/5d717f3ff5ce83faf2ce12ef03942bb00684eb68
+  and other related changes to 17.0 core break this functionality, and also support similar functionality
   for the Website Restricted Editor Group out of the box.
 
 Configuration
@@ -31,13 +31,13 @@ Credits
 Contributors
 ------------
 
-* Timo Talvitie <timo.talvitie@tawasta.fi>
+* Timo Talvitie <timo.talvitie@futural.fi>
 
 Maintainer
 ----------
 
-.. image:: http://tawasta.fi/templates/tawastrap/images/logo.png
-   :alt: Oy Tawasta OS Technologies Ltd.
-   :target: http://tawasta.fi/
+.. image:: https://futural.fi/templates/tawastrap/images/logo.png
+   :alt: Futural Oy
+   :target: https://futural.fi/
 
-This module is maintained by Oy Tawasta OS Technologies Ltd.
+This module is maintained by Futural Oy

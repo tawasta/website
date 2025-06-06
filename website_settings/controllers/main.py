@@ -7,7 +7,7 @@ from odoo.addons.portal.controllers.web import Home as home
 class SocietyHome(home):
     @http.route()
     def web_login(self, redirect=None, *args, **kw):
-        response = super(SocietyHome, self).web_login(redirect=redirect, *args, **kw)
+        response = super().web_login(*args, redirect=redirect, **kw)
         # MFA: Check pre_uid if half way authed
         if (
             not redirect

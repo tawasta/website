@@ -7,7 +7,7 @@ import DynamicSnippet from "@website/snippets/s_dynamic_snippet/000";
  * Sarakkeiden jako tagcloud-snippetille.
  *
  * @param {Element} container - Elementti, johon sarakkeet rakennetaan
- * @param {string} itemSelector - CSS-selector, jolla sisällöt haetaan
+ * @param {String} itemSelector - CSS-selector, jolla sisällöt haetaan
  */
 function applyColumnLayout(container, itemSelector = "div") {
     const count =
