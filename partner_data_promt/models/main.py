@@ -5,7 +5,6 @@ class ResPartner(models.Model):
     _inherit = "res.partner"
 
     data_check_date = fields.Date(
-        string="Data Check Date",
         help="The date when the user last reviewed or updated their information.",
     )
 
@@ -33,7 +32,7 @@ class PartnerDataPromptRule(models.Model):
     )
     field_type = fields.Char(compute="_compute_field_type", store=True)
     sequence = fields.Integer(default=10)
-    active = fields.Boolean(string="Active")
+    active = fields.Boolean()
 
     @api.depends("field_name")
     def _compute_field_type(self):

@@ -20,7 +20,8 @@
 
 {
     "name": "Website CRM: Selection-based Contact Form Opportunity Subject",
-    "summary": "Allows configuring web leads' subject to be based on a selection list instead of freetext",
+    "summary": "Allows configuring web leads' subject "
+    "to be based on a selection list instead of freetext",
     "version": "17.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/tawasta/website",

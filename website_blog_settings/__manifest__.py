@@ -21,7 +21,7 @@
 {
     "name": "Website Blog Settings",
     "summary": "Customization settings under website frontend customize menu",
-    "version": "17.0.1.0",
+    "version": "17.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/tawasta/website",
     "author": "Futural",

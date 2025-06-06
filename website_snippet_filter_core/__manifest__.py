@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Website Snippet Filter Core Override",
-    "version": "17.0.1.0",
+    "version": "17.0.1.0.0",
     "category": "Website",
     "summary": "Refactored _prepare_values for extensible snippet filtering",
     "website": "https://github.com/tawasta/website",

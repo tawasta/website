@@ -201,6 +201,7 @@ class BlogPost(models.Model):
         ):
             # Add post to free tier read posts
             partner.read_free_blog_post_ids += self
-            self.env.cr.commit()
+            #
+            self.env.cr.commit()  # pylint: disable=E8102
 
         return True

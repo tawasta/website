@@ -20,8 +20,9 @@
 
 {
     "name": "Website Settings",
-    "summary": "Website toggleable settings under customize menu and other setting options",
-    "version": "17.0.1.0",
+    "summary": "Website toggleable settings "
+    "under customize menu and other setting options",
+    "version": "17.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/tawasta/website",
     "author": "Futural",

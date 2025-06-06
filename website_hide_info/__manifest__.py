@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Website Hide Info",
-    "version": "17.0.1.0",
+    "version": "17.0.1.0.0",
     "category": "Website",
     "summary": "Hides Odoo System Information on at /website/info",
     "website": "https://github.com/tawasta/website",
