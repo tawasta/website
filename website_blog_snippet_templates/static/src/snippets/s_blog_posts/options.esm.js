@@ -36,7 +36,6 @@ function applyColumnLayout(container, itemSelector = "div") {
 
     container.className = container.className.replace(/columns-\d+/g, "").trim();
     container.classList.add(`columns-${count}`);
-    console.log("=========MENEEHAN TANNE===========");
 }
 
 function waitForElements(container, selector, timeout = 3000) {
