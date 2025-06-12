@@ -27,4 +27,4 @@ class Extension(Website):
                 ):
                     user.partner_id.country_id = request.env.ref("base.fi")
 
-        return super(Extension, self).change_lang(lang, r)
+        return super().change_lang(lang, r)

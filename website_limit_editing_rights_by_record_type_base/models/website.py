@@ -1,7 +1,7 @@
-from odoo import models, _
-from odoo.exceptions import AccessError, AccessDenied
-
 import logging
+
+from odoo import _, models
+from odoo.exceptions import AccessDenied, AccessError
 
 _logger = logging.getLogger(__name__)
 

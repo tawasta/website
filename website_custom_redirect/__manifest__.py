@@ -1,7 +1,7 @@
 ##############################################################################
 #
-#    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2024 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Author: Futural Oy
+#    Copyright 2024 Futural Oy (https://futural.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,9 +20,9 @@
 {
     "name": "Website Custom Redirect",
     "summary": "Allows customizing where to redirect website users",
-    "author": "Tawasta",
+    "author": "Futural",
     "license": "AGPL-3",
-    "website": "https://gitlab.com/tawasta/odoo/website",
+    "website": "https://github.com/tawasta/website",
     "category": "Website",
     "version": "17.0.1.0.0",
     "depends": ["portal", "website"],

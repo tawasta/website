@@ -1,7 +1,7 @@
 ##############################################################################
 #
-#    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2023- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
+#    Author: Futural Oy
+#    Copyright 2023- Futural Oy (https://futural.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,12 +19,13 @@
 ##############################################################################
 
 # 1. Standard library imports:
+import json
 import logging
 import sys
 import timeit
 import traceback
+
 import requests
-import json
 
 # 3. Odoo imports (openerp):
 from odoo import _, fields, models
@@ -114,14 +115,14 @@ class DashboardAppUser(models.Model):
                 ("user_id", "=", self.env.uid),
             ]
         )
-        _logger.info("Found {} applications".format(len(all_apps)))
+        _logger.info(f"Found {len(all_apps)} applications")
         user_datas = self.search([("user_id", "=", user_id)])
 
         # Check if required to map items from cache
         if len(user_datas) == 0:
             self._create_user_data()
             user_datas = self.search([("user_id", "=", user_id)])
-            _logger.info("Created {} datas from cache".format(len(user_datas)))
+            _logger.info(f"Created {len(user_datas)} datas from cache")
 
         user_apps = user_datas.mapped("application_id")
 
@@ -151,24 +152,20 @@ class DashboardAppUser(models.Model):
                 self.env["ir.config_parameter"]
                 .sudo()
                 .get_param(
-                    "website_application_dashboard.user_endpoint{}".format(api_suffix),
+                    f"website_application_dashboard.user_endpoint{api_suffix}",
                     "",
                 )
             )
             auth_header = (
                 self.env["ir.config_parameter"]
                 .sudo()
-                .get_param(
-                    "website_application_dashboard.auth_header{}".format(api_suffix), ""
-                )
+                .get_param(f"website_application_dashboard.auth_header{api_suffix}", "")
             )
             auth_header_value = (
                 self.env["ir.config_parameter"]
                 .sudo()
                 .get_param(
-                    "website_application_dashboard.auth_header_value{}".format(
-                        api_suffix
-                    ),
+                    f"website_application_dashboard.auth_header_value{api_suffix}",
                     "",
                 )
             )
@@ -184,16 +181,14 @@ class DashboardAppUser(models.Model):
                 "Content-Type": "application/json",
             }
             res = requests.get(endpoint_url, headers=headers, timeout=10)
-            _logger.info("Response status code {}".format(res.status_code))
+            _logger.info(f"Response status code {res.status_code}")
             if res.ok:
                 data = res.json()
                 if not isinstance(data, list) or len(data) == 0:
                     msg = _("API response is not a list or size is 0!")
                     raise UserError(msg)
 
-                _logger.info(
-                    "Received {} user datas, update user datas".format(len(data))
-                )
+                _logger.info(f"Received {len(data)} user datas, update user datas")
                 website = self.env["website"].get_current_website()
                 website.last_dashboard_sync_time = fields.Datetime.now()
                 website.last_dashboard_user_data = json.dumps(
@@ -217,9 +212,7 @@ class DashboardAppUser(models.Model):
             cache_data = website.last_dashboard_user_data
             data = cache_data and json.loads(cache_data)
             _logger.info(
-                "Using cached data to init user datas for user {}".format(
-                    self.env.user.login
-                )
+                f"Using cached data to init user datas for user {self.env.user.login}"
             )
 
         for el in data:
@@ -227,8 +220,8 @@ class DashboardAppUser(models.Model):
             search_domain = [("login", "=", email)]
             search_limit = 1
             if email[:2] == "%@":
-                # Special case, everyone matching wildcard %@tawasta.fi
-                search_email = "%{}".format(email)
+                # Special case, everyone matching wildcard %@futural.fi
+                search_email = f"%{email}"
                 search_domain = [("login", "like", search_email)]
                 search_limit = None
 
@@ -242,9 +235,7 @@ class DashboardAppUser(models.Model):
                 continue
 
             if len(users) > 1:
-                _logger.info(
-                    "We are updating {} users with {}".format(len(users), email)
-                )
+                _logger.info(f"We are updating {len(users)} users with {email}")
 
             for user in users:
                 application = self.env["dashboard.app"].search(
@@ -314,8 +305,6 @@ class DashboardAppUser(models.Model):
             raise
 
         exec_time = timeit.default_timer() - start
-        _logger.info(
-            "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)
-        )
+        _logger.info(f"Dashboard cron: total execution in {exec_time:.2f} seconds!")
 
     # 8. Business methods

@@ -1,7 +1,7 @@
 ##############################################################################
 #
-#    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2023- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
+#    Author: Futural Oy
+#    Copyright 2023- Futural Oy (https://futural.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -130,24 +130,20 @@ class DashboardApp(models.Model):
                 self.env["ir.config_parameter"]
                 .sudo()
                 .get_param(
-                    "website_application_dashboard.app_endpoint{}".format(api_suffix),
+                    f"website_application_dashboard.app_endpoint{api_suffix}",
                     "",
                 )
             )
             auth_header = (
                 self.env["ir.config_parameter"]
                 .sudo()
-                .get_param(
-                    "website_application_dashboard.auth_header{}".format(api_suffix), ""
-                )
+                .get_param(f"website_application_dashboard.auth_header{api_suffix}", "")
             )
             auth_header_value = (
                 self.env["ir.config_parameter"]
                 .sudo()
                 .get_param(
-                    "website_application_dashboard.auth_header_value{}".format(
-                        api_suffix
-                    ),
+                    f"website_application_dashboard.auth_header_value{api_suffix}",
                     "",
                 )
             )
@@ -162,16 +158,14 @@ class DashboardApp(models.Model):
                 "Content-Type": "application/json",
             }
             res = requests.get(endpoint_url, headers=headers, timeout=10)
-            _logger.info("Response status code {}".format(res.status_code))
+            _logger.info(f"Response status code {res.status_code}")
             if res.ok:
                 data = res.json()
                 if not isinstance(data, list) or len(data) == 0:
                     msg = _("API response is not a list or size is 0!")
                     raise UserError(msg)
 
-                _logger.info(
-                    "Received {} applications, create missing ones".format(len(data))
-                )
+                _logger.info(f"Received {len(data)} applications, create missing ones")
                 current = self.search(
                     [
                         ("user_id", "=", False),
@@ -187,13 +181,13 @@ class DashboardApp(models.Model):
                         [("category_api_id", "=", category_id)], limit=1
                     )
                     if not category:
-                        _logger.error("No category found with {}".format(category_id))
+                        _logger.error(f"No category found with {category_id}")
                         continue
 
                     application_id = rec_data.pop("application_id")
                     if not application_id:
                         _logger.error(
-                            "No application ID provided in payload {}".format(rec_data)
+                            f"No application ID provided in payload {rec_data}"
                         )
                         continue
 
@@ -211,12 +205,12 @@ class DashboardApp(models.Model):
                         handled |= rec
 
                 if new_recs:
-                    _logger.info("Creating {} new applications".format(len(new_recs)))
+                    _logger.info(f"Creating {len(new_recs)} new applications")
                     handled |= self.create(new_recs)
 
                 removed_recs = current - handled
                 if removed_recs:
-                    _logger.info("Removing apps {}...".format(removed_recs))
+                    _logger.info(f"Removing apps {removed_recs}...")
                     removed_recs.unlink()
 
         except Exception:
@@ -257,8 +251,6 @@ class DashboardApp(models.Model):
             raise
 
         exec_time = timeit.default_timer() - start
-        _logger.info(
-            "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)
-        )
+        _logger.info(f"Dashboard cron: total execution in {exec_time:.2f} seconds!")
 
     # 8. Business methods

@@ -1,7 +1,7 @@
 ##############################################################################
 #
-#    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2023- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
+#    Author: Futural Oy
+#    Copyright 2023- Futural Oy (https://futural.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -104,26 +104,20 @@ class DashboardAppCategory(models.Model):
                 self.env["ir.config_parameter"]
                 .sudo()
                 .get_param(
-                    "website_application_dashboard.category_endpoint{}".format(
-                        api_suffix
-                    ),
+                    f"website_application_dashboard.category_endpoint{api_suffix}",
                     "",
                 )
             )
             auth_header = (
                 self.env["ir.config_parameter"]
                 .sudo()
-                .get_param(
-                    "website_application_dashboard.auth_header{}".format(api_suffix), ""
-                )
+                .get_param(f"website_application_dashboard.auth_header{api_suffix}", "")
             )
             auth_header_value = (
                 self.env["ir.config_parameter"]
                 .sudo()
                 .get_param(
-                    "website_application_dashboard.auth_header_value{}".format(
-                        api_suffix
-                    ),
+                    f"website_application_dashboard.auth_header_value{api_suffix}",
                     "",
                 )
             )
@@ -138,16 +132,14 @@ class DashboardAppCategory(models.Model):
                 "Content-Type": "application/json",
             }
             res = requests.get(endpoint_url, headers=headers, timeout=10)
-            _logger.info("Response status code {}".format(res.status_code))
+            _logger.info(f"Response status code {res.status_code}")
             if res.ok:
                 data = res.json()
                 if not isinstance(data, list) or len(data) == 0:
                     msg = _("API response is not a list or size is 0!")
                     raise UserError(msg)
 
-                _logger.info(
-                    "Received {} categories, create missing ones".format(len(data))
-                )
+                _logger.info(f"Received {len(data)} categories, create missing ones")
                 current = self.search(
                     [
                         ("category_api_id", "!=", False),
@@ -159,7 +151,7 @@ class DashboardAppCategory(models.Model):
                 for rec_data in data:
                     category_id = rec_data.pop("category_id")
                     if not category_id:
-                        _logger.error("No category ID provided: {}".format(rec_data))
+                        _logger.error(f"No category ID provided: {rec_data}")
                         continue
 
                     if category_id not in current_api_ids:
@@ -184,12 +176,12 @@ class DashboardAppCategory(models.Model):
                         handled |= rec
 
                 if new_recs:
-                    _logger.info("Creating {} new categories".format(len(new_recs)))
+                    _logger.info(f"Creating {len(new_recs)} new categories")
                     handled |= self.create(new_recs)
 
                 removed_recs = current - handled
                 if removed_recs:
-                    _logger.info("Removing categories {}...".format(removed_recs))
+                    _logger.info(f"Removing categories {removed_recs}...")
                     removed_recs.unlink()
 
         except Exception:
@@ -230,8 +222,6 @@ class DashboardAppCategory(models.Model):
             raise
 
         exec_time = timeit.default_timer() - start
-        _logger.info(
-            "Dashboard cron: total execution in {:.2f} seconds!".format(exec_time)
-        )
+        _logger.info(f"Dashboard cron: total execution in {exec_time:.2f} seconds!")
 
     # 8. Business methods

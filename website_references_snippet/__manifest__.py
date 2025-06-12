@@ -1,7 +1,7 @@
 ##############################################################################
 #
-#    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2022- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
+#    Author: Futural Oy
+#    Copyright 2022- Futural Oy (https://futural.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -22,8 +22,8 @@
     "summary": "Snippet for showing e.g. company's clients on a web page",
     "version": "17.0.1.0.1",
     "category": "Website",
-    "website": "https://gitlab.com/tawasta/odoo/website",
-    "author": "Tawasta",
+    "website": "https://github.com/tawasta/website",
+    "author": "Futural",
     "license": "AGPL-3",
     "application": False,
     "installable": True,

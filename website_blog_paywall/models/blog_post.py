@@ -1,8 +1,10 @@
-from odoo import api, fields, models
-from odoo.tools.safe_eval import safe_eval
-from odoo.addons.website.tools import text_from_html
-from odoo.http import request
 import logging
+
+from odoo import api, fields, models
+from odoo.http import request
+from odoo.tools.safe_eval import safe_eval
+
+from odoo.addons.website.tools import text_from_html
 
 _logger = logging.getLogger(__name__)
 
@@ -155,24 +157,65 @@ class BlogPost(models.Model):
 
         return res
 
-    def _user_is_crawler(self):
-        user_agent = request.httprequest.user_agent.string
+    def _user_is_crawler(self) -> bool:
+        user_agent = request.httprequest.user_agent.string.lower()
+        return any(crawler in user_agent for crawler in self._get_allowed_crawlers())
 
-        allowed_crawlers = [
-            "googlebot",
-            "bingbot",
-            "yahoo!",
+    def _get_allowed_crawlers(self):
+        # Return list of allowed web crawlers
+        return [
+            "360spider",
+            "adsbot",
+            "ahrefsbot",
+            "applebot",
+            "archive.org_bot",
             "baiduspider",
-            "yandexbot",
+            "bingbot",
+            "blexbot",
+            "ccbot",
+            "curl",
+            "dotbot",
             "duckduckbot",
-            "jeeves",
-            "teoma",
             "ecosia",
+            "facebookexternalhit",
+            "feedfetcher",
+            "gigabot",
+            "googlebot",
+            "heritrix",
+            "httpclient",
+            "ia_archiver",
+            "jeeves",
+            "lighthouse",
+            "linkdexbot",
+            "ltx71",
+            "mj12bot",
+            "msnbot",
+            "nutch",
+            "page_peeker",
+            "petalbot",
+            "phantomjs",
+            "pinterestbot",
+            "python-requests",
+            "rogerbot",
+            "scrapy",
+            "seokicks",
+            "seznambot",
+            "siteauditbot",
+            "slackbot",
+            "sogou",
+            "sosospider",
+            "spbot",
+            "teoma",
+            "trendictionbot",
+            "twitterbot",
+            "urlappendbot",
+            "vagabondo",
+            "w3c_validator",
+            "wget",
+            "yahoo!",
+            "yandexbot",
+            "yeti",
         ]
-
-        for crawler in allowed_crawlers:
-            if crawler in user_agent.lower():
-                return True
 
     def mark_post_as_read_by_user(self, user_id=False):
         self.ensure_one()
@@ -199,6 +242,7 @@ class BlogPost(models.Model):
         ):
             # Add post to free tier read posts
             partner.read_free_blog_post_ids += self
-            self.env.cr.commit()
+            #
+            self.env.cr.commit()  # pylint: disable=E8102
 
         return True

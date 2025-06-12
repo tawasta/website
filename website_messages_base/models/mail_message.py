@@ -1,7 +1,7 @@
 ##############################################################################
 #
-#    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2019- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Author: Futural Oy
+#    Copyright 2019- Futural Oy (https://futural.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -64,7 +64,7 @@ class MailMessage(models.Model):
         module this function
         so the urls are calculated (for better performance)
         """
-        website_url = str()
+        website_url = ""
         for record in self:
             # Find url format from system parameters
             # which can be find by key

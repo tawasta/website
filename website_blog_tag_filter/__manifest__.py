@@ -23,7 +23,7 @@
     "summary": "Display blog posts by tag on /tag/<id>",
     "version": "17.0.1.0.0",
     "category": "Website",
-    "website": "https://gitlab.com/tawasta/odoo/website",
+    "website": "https://github.com/tawasta/website",
     "author": "Futural",
     "license": "AGPL-3",
     "application": False,

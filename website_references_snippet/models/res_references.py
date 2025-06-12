@@ -9,4 +9,4 @@ class ResReferences(models.Model):
     name = fields.Char()
     description = fields.Text()
     image = fields.Binary()
-    sequence = fields.Integer(string="Sequence")
+    sequence = fields.Integer()
