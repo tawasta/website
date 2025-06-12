@@ -1,7 +1,7 @@
 /** @odoo-module **/
 
-import publicWidget from '@web/legacy/js/public/public_widget';
-import { patch } from "@web/core/utils/patch";
+import publicWidget from "@web/legacy/js/public/public_widget";
+import {patch} from "@web/core/utils/patch";
 
 patch(publicWidget.registry.websiteSlidesCourseSlidesList.prototype, {
     /**
