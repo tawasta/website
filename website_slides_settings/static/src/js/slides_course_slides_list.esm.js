@@ -1,46 +1,24 @@
 /** @odoo-module **/
 
-import {SlideCoursePage} from "@website_slides/js/slides_course_page";
-import publicWidget from "@web/legacy/js/public/public_widget";
+import publicWidget from '@web/legacy/js/public/public_widget';
+import { patch } from "@web/core/utils/patch";
 
-publicWidget.registry.websiteSlidesCourseSlidesList = SlideCoursePage.extend({
-    _updateHref: function () {
+patch(publicWidget.registry.websiteSlidesCourseSlidesList.prototype, {
+    /**
+     * Override _updateHref to inject custom logic
+     */
+    _updateHref() {
+        // Kutsu alkuperäistä metodia (jos haluat säilyttää sen muun toiminnallisuuden)
+        this._super.apply(this, arguments);
+
+        // Oma mukautettu logiikka:
         this.$(".o_wslides_js_slides_list_slide_link").each(function () {
-            /* eslint-disable no-negated-condition */
+            // Lisää "fullscreen=1" vain jos elementillä EI ole tiettyä luokkaa
             if (!$(this).hasClass("o_wslides_js_slides_list_slide_link_disable")) {
-                var href = $(this).attr("href");
-                var operator = href.indexOf("?") !== -1 ? "&" : "?";
+                const href = $(this).attr("href");
+                const operator = href.includes("?") ? "&" : "?";
                 $(this).attr("href", href + operator + "fullscreen=1");
             }
         });
-
-        if (this._super) {
-            this._super.apply(this, arguments);
-        }
     },
 });
-
-export default publicWidget.registry.websiteSlidesCourseSlidesList;
-
-/* eslint-disable no-undef, no-negated-condition */
-/*
-odoo.define("website_slides_settings.course.slides.list", ["@website_slides/js/slides_course_slides_list"], function (require) {
-    "use strict";
-    var websiteSlidesCourseSlidesList = require("@website_slides/js/slides_course_slides_list");
-    console.log("websiteSlidesCourseSlidesList", websiteSlidesCourseSlidesList);
-    console.log("prototype", Object.getPrototypeOf(websiteSlidesCourseSlidesList));
-    console.log("constructor", websiteSlidesCourseSlidesList.constructor);
-
-    websiteSlidesCourseSlidesList.include({
-
-        _updateHref: function () {
-            this.$(".o_wslides_js_slides_list_slide_link").each(function () {
-                if (!$(this).hasClass("o_wslides_js_slides_list_slide_link_disable")) {
-                    var href = $(this).attr("href");
-                    var operator = href.indexOf("?") !== -1 ? "&" : "?";
-                    $(this).attr("href", href + operator + "fullscreen=1");
-                }
-            });
-        },
-    });
-});*/
