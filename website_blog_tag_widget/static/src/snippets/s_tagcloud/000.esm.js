@@ -10,8 +10,8 @@ import DynamicSnippet from "@website/snippets/s_dynamic_snippet/000";
  * @param {String} itemSelector - CSS-selector, jolla sisällöt haetaan
  */
 function applyColumnLayout(container, itemSelector = "div") {
-    const count =
-        Number(container.closest("[data-column-count]")?.dataset.columnCount) || 1;
+    const closestEl = container.closest("[data-column-count]");
+    const count = Number(closestEl ? closestEl.dataset.columnCount : undefined) || 1;
 
     const items = Array.from(container.querySelectorAll(itemSelector));
     if (!items.length) return;
