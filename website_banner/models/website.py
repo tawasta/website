@@ -1,7 +1,7 @@
-from odoo import models
-from odoo.exceptions import MissingError
-from random import sample
 import logging
+from random import sample
+
+from odoo import models
 
 _logger = logging.getLogger(__name__)
 

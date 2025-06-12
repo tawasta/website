@@ -13,14 +13,14 @@ Website Slides Settings
    - Hide Share tab on slide
    - Hide User Profile on slide homepage
    - Hide User Achievements on slide homepage
-   - Hide "Share" button in slide homepage header   
+   - Hide "Share" button in slide homepage header
    - Hide Breadcrumbs in slide and slide homepage header
    - Hide "search courses" textbox in slide and slide homepage header
    - Hide the tablist element in slides homepage header (the one that contains e.g. items "Course" and "Reviews"
    - Hide the 'Search in content' search box
    - Hide the 'Order by' dropdown of the content search results
 
-* Add banner image from backend to '/slides/all' view. This fixes a bug in Odoo editor 
+* Add banner image from backend to '/slides/all' view. This fixes a bug in Odoo editor
   which does not allow changing the banner.
 
 Configuration
@@ -34,8 +34,8 @@ Usage
 
 Known issues / Roadmap
 ======================
-* Add banner image from backend to '/slides/all' view. This fixes a bug in Odoo editor 
-  which does not allow changing the banner. NOTE: Remove this in migration as this is 
+* Add banner image from backend to '/slides/all' view. This fixes a bug in Odoo editor
+  which does not allow changing the banner. NOTE: Remove this in migration as this is
   fixed upstream. Keep for v14 as deprecated feature as removing field is risky.
 
 Credits
@@ -44,15 +44,15 @@ Credits
 Contributors
 ------------
 
-* Miika Nissi <miika.nissi@tawasta.fi>
-* Valtteri Lattu <valtteri.lattu@tawasta.fi>
-* Timo Talvitie <timo.talvitie@tawasta.fi>
+* Miika Nissi <miika.nissi@futural.fi>
+* Valtteri Lattu <valtteri.lattu@futural.fi>
+* Timo Talvitie <timo.talvitie@futural.fi>
 
 Maintainer
 ----------
 
-.. image:: http://tawasta.fi/templates/tawastrap/images/logo.png
-   :alt: Oy Tawasta OS Technologies Ltd.
-   :target: http://tawasta.fi/
+.. image:: https://futural.fi/templates/tawastrap/images/logo.png
+   :alt: Futural Oy
+   :target: https://futural.fi/
 
-This module is maintained by Oy Tawasta OS Technologies Ltd.
+This module is maintained by Futural Oy

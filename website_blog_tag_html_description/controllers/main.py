@@ -1,7 +1,8 @@
-from odoo.addons.website_blog.controllers.main import WebsiteBlog
+import logging
+
 from odoo.http import request
 
-import logging
+from odoo.addons.website_blog.controllers.main import WebsiteBlog
 
 _logger = logging.getLogger(__name__)
 

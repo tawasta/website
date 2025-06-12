@@ -21,9 +21,9 @@
 {
     "name": "Blog Paywall",
     "summary": "Add a paywall to blogs",
-    "version": "17.0.2.0.0",
+    "version": "17.0.2.0.1",
     "category": "Website",
-    "website": "https://gitlab.com/tawasta/odoo/website",
+    "website": "https://github.com/tawasta/website",
     "author": "Futural",
     "license": "AGPL-3",
     "application": False,

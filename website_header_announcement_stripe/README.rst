@@ -5,8 +5,8 @@
 ==================================
 Website Header Announcement Stripe
 ==================================
-* Adds an announcement stripe to website header - This can be used to display 
-  information and it is always visible at the top of the website. 
+* Adds an announcement stripe to website header - This can be used to display
+  information and it is always visible at the top of the website.
 
 Configuration
 =============
@@ -20,8 +20,8 @@ Usage
 
 Known issues / Roadmap
 ======================
-- Header text is written as html field so care needs to be taken to not add breaking 
-  html code or other elements such as images. 
+- Header text is written as html field so care needs to be taken to not add breaking
+  html code or other elements such as images.
 
 Credits
 =======
@@ -29,13 +29,13 @@ Credits
 Contributors
 ------------
 
-* Miika Nissi <miika.nissi@tawasta.fi>
+* Miika Nissi <miika.nissi@futural.fi>
 
 Maintainer
 ----------
 
-.. image:: http://tawasta.fi/templates/tawastrap/images/logo.png
-   :alt: Oy Tawasta OS Technologies Ltd.
-   :target: http://tawasta.fi/
+.. image:: https://futural.fi/templates/tawastrap/images/logo.png
+   :alt: Futural Oy
+   :target: https://futural.fi/
 
-This module is maintained by Oy Tawasta OS Technologies Ltd.
+This module is maintained by Futural Oy

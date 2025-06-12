@@ -5,7 +5,7 @@
 ==============
 Website Banner
 ==============
-This module provides a dynamic and responsive banner for displaying advertisements on Odoo websites.  
+This module provides a dynamic and responsive banner for displaying advertisements on Odoo websites.
 It fetches and displays one or more **random active advertisements** from selected **categories**, tracks **impressions** and **clicks**, and supports **time-based display conditions**.
 
 Features
@@ -50,13 +50,13 @@ Credits
 Contributors
 ------------
 
-* Valtteri Lattu <valtteri.lattu@tawasta.fi>
+* Valtteri Lattu <valtteri.lattu@futural.fi>
 
 Maintainer
 ----------
 
-.. image:: http://tawasta.fi/templates/tawastrap/images/logo.png
-   :alt: Oy Tawasta OS Technologies Ltd.
-   :target: http://tawasta.fi/
+.. image:: https://futural.fi/templates/tawastrap/images/logo.png
+   :alt: Futural Oy
+   :target: https://futural.fi/
 
-This module is maintained by Oy Tawasta OS Technologies Ltd.
+This module is maintained by Futural Oy

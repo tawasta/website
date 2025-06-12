@@ -1,4 +1,5 @@
 from odoo import http
+
 from odoo.addons.website_blog.controllers.main import WebsiteBlog
 
 

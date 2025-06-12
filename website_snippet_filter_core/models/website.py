@@ -1,8 +1,9 @@
-from odoo import models, api, fields, _
+import logging
+from ast import literal_eval
+
+from odoo import _, api, models
 from odoo.exceptions import MissingError, ValidationError
 from odoo.osv import expression
-from ast import literal_eval
-import logging
 
 _logger = logging.getLogger(__name__)
 
@@ -20,8 +21,11 @@ class WebsiteSnippetFilter(models.Model):
             max_limit = record._get_model_max_limit(model_name)
             if not (1 <= record.limit <= max_limit):
                 raise ValidationError(
-                    _("The limit for model '%s' must be between 1 and %d.")
-                    % (model_name or "unknown", max_limit)
+                    _("The limit for model '%(model)s' must be between 1 and %(max)d.")
+                    % {
+                        "model": model_name or "unknown",
+                        "max": max_limit,
+                    }
                 )
 
     def _get_model_max_limit(self, model_name):
@@ -55,11 +59,11 @@ class WebsiteSnippetFilter(models.Model):
                 return self._filter_records_to_values(records)
 
             except MissingError:
-                _logger.warning(
-                    "The provided domain %s in 'ir.filters' generated a MissingError in '%s'",
-                    domain,
-                    self._name,
+                warn = (
+                    f"The provided domain '{domain}' in 'ir.filters' "
+                    f"generated a MissingError in '{self._name}'"
                 )
+                _logger.warning(warn)
                 return []
 
         elif self.action_server_id:
@@ -75,15 +79,16 @@ class WebsiteSnippetFilter(models.Model):
                     or []
                 )
             except MissingError:
-                _logger.warning(
-                    "The provided domain %s in 'ir.actions.server' generated a MissingError in '%s'",
-                    search_domain,
-                    self._name,
+                warn = (
+                    f"The provided domain '{search_domain}' in 'ir.actions.server' "
+                    f"generated a MissingError in '{self._name}'"
                 )
+                _logger.warning(warn)
                 return []
 
     def _search_records(self, model_name, domain, context, sort, limit):
-        """Hae tietueet. Tätä metodia voi yliajaa erikoistapauksiin, kuten advertisement."""
+        """Hae tietueet. Tätä metodia voi yliajaa erikoistapauksiin,
+        kuten advertisement."""
         return (
             self.env[model_name]
             .sudo(False)

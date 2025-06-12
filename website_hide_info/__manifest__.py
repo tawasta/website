@@ -1,7 +1,7 @@
 ##############################################################################
 #
-#    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2021- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
+#    Author: Futural Oy
+#    Copyright 2021- Futural Oy (https://futural.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,11 +19,11 @@
 ##############################################################################
 {
     "name": "Website Hide Info",
-    "version": "17.0.1.0",
+    "version": "17.0.1.0.0",
     "category": "Website",
     "summary": "Hides Odoo System Information on at /website/info",
-    "website": "https://gitlab.com/tawasta/odoo/website",
-    "author": "Tawasta",
+    "website": "https://github.com/tawasta/website",
+    "author": "Futural",
     "license": "AGPL-3",
     "application": False,
     "installable": True,

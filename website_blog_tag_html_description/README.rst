@@ -6,7 +6,7 @@
 Website Blog: HTML Description for Tag
 ======================================
 * New field for tags
-* Is shown in frontend top of tag page, along with tag title, instead of 
+* Is shown in frontend top of tag page, along with tag title, instead of
   "x articles" text and tag links, when a single tag is selected
   from tag cloud.
 * If multiple tags are selected, the frontend top of tag page falls back
@@ -20,7 +20,7 @@ Configuration
 
 Usage
 =====
-* Click a blog tag on the website to see a reformatted tag page 
+* Click a blog tag on the website to see a reformatted tag page
   with the HTML description and tag title
 
 
@@ -39,8 +39,8 @@ Contributors
 Maintainer
 ----------
 
-.. image:: http://tawasta.fi/templates/tawastrap/images/logo.png
-   :alt: Oy Tawasta OS Technologies Ltd.
-   :target: http://tawasta.fi/
+.. image:: https://futural.fi/templates/tawastrap/images/logo.png
+   :alt: Futural Oy
+   :target: https://futural.fi/
 
-This module is maintained by Oy Tawasta OS Technologies Ltd.
+This module is maintained by Futural Oy

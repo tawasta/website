@@ -27,14 +27,14 @@ Features
 
 Logic
 =====
-1. If there are **missing values** based on active rules and matching conditions →  
+1. If there are **missing values** based on active rules and matching conditions →
    🔹 Show only **those missing fields**
 
-2. If **all fields are filled**, but **`data_check_date` is old** or not set →  
-   🔹 Show **all active rules' fields**, **regardless of whether condition matches or not**,  
+2. If **all fields are filled**, but **`data_check_date` is old** or not set →
+   🔹 Show **all active rules' fields**, **regardless of whether condition matches or not**,
    🔹 Pre-fill all values for user to review and confirm
 
-3. If all fields are filled **and** check date is recent →  
+3. If all fields are filled **and** check date is recent →
    🔹 No modal is shown
 
 This logic ensures a balance between accuracy (prompting when needed) and avoiding annoyance (skipping when recently confirmed).
@@ -79,8 +79,8 @@ Contributors
 Maintainer
 ----------
 
-.. image:: http://tawasta.fi/templates/tawastrap/images/logo.png
-        :alt: Oy Tawasta OS Technologies Ltd.
-        :target: http://tawasta.fi/
+.. image:: https://futural.fi/templates/tawastrap/images/logo.png
+        :alt: Futural Oy
+        :target: https://futural.fi/
 
-This module is maintained by Oy Tawasta OS Technologies Ltd.
+This module is maintained by Futural Oy
