@@ -4,8 +4,9 @@ import publicWidget from "@web/legacy/js/public/public_widget";
 import DynamicSnippet from "@website/snippets/s_dynamic_snippet/000";
 
 function applyColumnLayout(container, itemSelector = "div") {
-    const count =
-        Number(container.closest("[data-column-count]")?.dataset.columnCount) || 1;
+    const closestEl = container.closest("[data-column-count]");
+    const count = Number(closestEl ? closestEl.dataset.columnCount : undefined) || 1;
+
     const colClassMap = {2: "col-6", 3: "col-4", 4: "col-3", 5: "col-2", 6: "col-2"};
     const colClass = colClassMap[count] || "col-12";
 
@@ -66,20 +67,29 @@ const DynamicSnippetBlogPostsClean = DynamicSnippet.extend({
     async _render() {
         await this._super(...arguments);
         const section = this.el.closest("section");
-        const container = section?.querySelector(".dynamic_snippet_template");
+        const container = section
+            ? section.querySelector(".dynamic_snippet_template")
+            : null;
+
         if (container) {
             const showImage = section.getAttribute("data-show_image") === "true";
             const showTags = section.getAttribute("data-show_tags") === "true";
             const showBlog = section.getAttribute("data-show_blog") === "true";
 
             if (!showImage) {
-                container.querySelectorAll(".o_record_cover_container").forEach(el => el.remove());
+                container
+                    .querySelectorAll(".o_record_cover_container")
+                    .forEach((el) => el.remove());
             }
             if (!showTags) {
-                container.querySelectorAll(".small.fw-normal").forEach(el => el.remove());
+                container
+                    .querySelectorAll(".small.fw-normal")
+                    .forEach((el) => el.remove());
             }
             if (!showBlog) {
-                container.querySelectorAll(".text-uppercase.text-primary.small.mb-1").forEach(el => el.remove());
+                container
+                    .querySelectorAll(".text-uppercase.text-primary.small.mb-1")
+                    .forEach((el) => el.remove());
             }
 
             const elements = await waitForElements(container, ".s_blog_posts_post");
@@ -94,4 +104,4 @@ const DynamicSnippetBlogPostsClean = DynamicSnippet.extend({
 
 publicWidget.registry.dynamic_snippet_blog_posts_clean = DynamicSnippetBlogPostsClean;
 
-export { DynamicSnippetBlogPostsClean };
+export {DynamicSnippetBlogPostsClean};
