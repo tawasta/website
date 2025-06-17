@@ -105,4 +105,4 @@ const DynamicSnippetBlogPostsClean = DynamicSnippet.extend({
 
 publicWidget.registry.dynamic_snippet_blog_posts_clean = DynamicSnippetBlogPostsClean;
 
-export { DynamicSnippetBlogPostsClean };
+export {DynamicSnippetBlogPostsClean};
