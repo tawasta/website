@@ -19,8 +19,8 @@
 ##############################################################################
 
 {
-    "name": "Signup url override",
-    "summary": "Signup url override",
+    "name": "Signup URL Referer Fix",
+    "summary": "Fix signup URL domain mismatch using HTTP Referer",
     "version": "17.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/tawasta/website",

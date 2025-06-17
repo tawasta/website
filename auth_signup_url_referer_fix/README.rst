@@ -6,14 +6,21 @@
 Signup url override
 ===================
 
+This module fixes an issue where the generated signup URL can have the wrong domain,
+especially when accessed via reverse proxies or multiple domain aliases.
+
+It uses the `Referer` HTTP header as a trusted source to replace the domain
+in the generated signup URL in reset password context (`/reset_password`),
+to ensure the resulting link points to the correct domain for the user.
 
 Configuration
 =============
-
+No configuration needed.
 
 Usage
 =====
-\-
+1. Install the module
+2. When users reset their password, the signup URL will now reflect the correct domain (based on the HTTP referer)
 
 Known issues / Roadmap
 ======================
