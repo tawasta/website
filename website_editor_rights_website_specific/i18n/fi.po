@@ -1,0 +1,48 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_editor_rights_website_specific
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20250428\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-17 10:20+0000\n"
+"PO-Revision-Date: 2025-06-17 10:20+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_editor_rights_website_specific
+#: model_terms:ir.ui.view,arch_db:website_editor_rights_website_specific.view_website_form
+msgid "Editing Rights"
+msgstr "Muokkausoikeudet"
+
+#. module: website_editor_rights_website_specific
+#: model:ir.model.fields,help:website_editor_rights_website_specific.field_website__allowed_editor_group_id
+msgid ""
+"If set, to edit this website the user needs to be also in this group, in "
+"addition to the standard Website Editor or Website Restricted Editor group."
+msgstr ""
+"Jos asetettu, muokatakseen tätä verkkosivustoa käyttäjän pitää kuulua tähän ryhmään, "
+"sen lisäksi että hänellä on Muokkaajan tai Rajoitetun Muokkaajan käyttöoikeudet."
+
+#. module: website_editor_rights_website_specific
+#: model:ir.model.fields,field_description:website_editor_rights_website_specific.field_website__allowed_editor_group_id
+msgid "Required Group Membership for Editing"
+msgstr "Vaadittu käyttöoikeusryhmä muokkaamiseen"
+
+#. module: website_editor_rights_website_specific
+#: model:ir.model,name:website_editor_rights_website_specific.model_website
+msgid "Website"
+msgstr "Verkkosivu"
+
+#. module: website_editor_rights_website_specific
+#. odoo-python
+#: code:addons/website_editor_rights_website_specific/controllers/main.py:0
+#: code:addons/website_editor_rights_website_specific/models/website.py:0
+#, python-format
+msgid "You do not have permissions edit website %s."
+msgstr "Sinulla ei ole käyttöoikeuksia muokata verkkosivua %s."
