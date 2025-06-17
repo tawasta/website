@@ -72,28 +72,29 @@ const DynamicSnippetBlogPostsClean = DynamicSnippet.extend({
             : null;
 
         if (container) {
-            const showImage = section.getAttribute("data-show_image") === "true";
-            const showTags = section.getAttribute("data-show_tags") === "true";
-            const showBlog = section.getAttribute("data-show_blog") === "true";
-
-            if (!showImage) {
-                container
-                    .querySelectorAll(".o_record_cover_container")
-                    .forEach((el) => el.remove());
-            }
-            if (!showTags) {
-                container
-                    .querySelectorAll(".small.fw-normal")
-                    .forEach((el) => el.remove());
-            }
-            if (!showBlog) {
-                container
-                    .querySelectorAll(".text-uppercase.text-primary.small.mb-1")
-                    .forEach((el) => el.remove());
-            }
-
             const elements = await waitForElements(container, ".s_blog_posts_post");
+
             if (elements) {
+                const showImage = section.getAttribute("data-show_image") === "true";
+                const showTags = section.getAttribute("data-show_tags") === "true";
+                const showBlog = section.getAttribute("data-show_blog") === "true";
+
+                if (!showImage) {
+                    container
+                        .querySelectorAll(".o_record_cover_container")
+                        .forEach((el) => el.remove());
+                }
+                if (!showTags) {
+                    container
+                        .querySelectorAll(".small.fw-normal")
+                        .forEach((el) => el.remove());
+                }
+                if (!showBlog) {
+                    container
+                        .querySelectorAll(".text-uppercase.text-primary.small.mb-1")
+                        .forEach((el) => el.remove());
+                }
+
                 applyColumnLayout(container, ".s_blog_posts_post");
             } else {
                 console.warn("Blog post elements not found within timeout");
@@ -104,4 +105,4 @@ const DynamicSnippetBlogPostsClean = DynamicSnippet.extend({
 
 publicWidget.registry.dynamic_snippet_blog_posts_clean = DynamicSnippetBlogPostsClean;
 
-export {DynamicSnippetBlogPostsClean};
+export { DynamicSnippetBlogPostsClean };
