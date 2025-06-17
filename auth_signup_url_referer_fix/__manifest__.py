@@ -28,7 +28,8 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["auth_signup",],
-    "data": [
+    "depends": [
+        "auth_signup",
     ],
+    "data": [],
 }
