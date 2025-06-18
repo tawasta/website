@@ -31,8 +31,8 @@ class ResPartner(models.Model):
             if (
                 signup_url
                 and request_path
-                and "/reset_password" in request_path
-                and "/reset_password" in signup_url
+                and ("/reset_password" in request_path or "/signup" in request_path)
+                and ("/reset_password" in signup_url or "/signup" in signup_url)
                 and referer
             ):
                 parsed_referer = werkzeug.urls.url_parse(referer)
