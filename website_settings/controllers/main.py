@@ -1,7 +1,8 @@
 from odoo import http
 from odoo.http import request
-
+import logging
 from odoo.addons.portal.controllers.web import Home as home
+_logger = logging.getLogger(__name__)
 
 
 class SocietyHome(home):
@@ -18,6 +19,7 @@ class SocietyHome(home):
                 request.website.sudo().landing_page_group_text
                 or request.website.sudo().landing_page
             ):
+                _logger.info("======LANDING PAGE VALUE %s", request.website.sudo().landing_page)
                 get_param = request.env["ir.config_parameter"].sudo().get_param
                 group_param = get_param("group.landing.page")
                 is_in_group = (
