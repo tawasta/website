@@ -127,44 +127,29 @@ class Website(models.Model):
     def rule_is_enumerable(self, rule):
         """Checks that it is possible to generate sensible GET queries for
            a given rule (if the endpoint matches its own requirements)."""
-        endpoint = getattr(rule, "endpoint", None)
-        _logger.debug(
-            "Checking rule_is_enumerable for rule=%r, endpoint=%r (%s)",
-            getattr(rule, "rule", None), endpoint, type(endpoint)
-        )
-
-        # Gather routing properties
-        try:
-            methods = endpoint.routing.get('methods') or ['GET']
-        except AttributeError as e:
-            _logger.exception(
-                "Missing 'routing' or 'methods' on endpoint=%r for rule=%r",
-                endpoint, getattr(rule, "rule", None)
-            )
-            return False
-
-        converters = list(getattr(rule, "_converters", {}).values())
+        endpoint = rule.endpoint
+        methods = endpoint.routing.get('methods') or ['GET']
+        converters = list(rule._converters.values())
 
         if not (
             'GET' in methods
-            and endpoint.routing.get('type') == 'http'
-            and endpoint.routing.get('auth') in ('none', 'public')
+            and endpoint.routing['type'] == 'http'
+            and endpoint.routing['auth'] in ('none', 'public')
             and endpoint.routing.get('website', False)
             and all(hasattr(converter, 'generate') for converter in converters)
         ):
-            _logger.debug(
-                "Exiting early as rule/endpoint did not pass basic GET/http/auth/website checks"
-            )
             return False
 
-        # Finally check the endpoint's signature
+        # don't list routes without argument having no default value or converter
         try:
+            # Handle both partial and regular endpoints
             func = endpoint.func if isinstance(endpoint, partial) else endpoint.original_endpoint
             sign = inspect.signature(func)
         except Exception as e:
             _logger.exception(
-                "Error inspecting endpoint in rule_is_enumerable. Rule=%r endpoint=%r error=%s",
-                getattr(rule, "rule", None), endpoint, str(e)
+                "Error in rule_is_enumerable for rule %s. "
+                "Endpoint: %r, routing: %r, error: %s",
+                getattr(rule, 'rule', None), endpoint, getattr(endpoint, 'routing', None), str(e)
             )
             return False
 
@@ -172,13 +157,8 @@ class Website(models.Model):
         supported_kinds = (inspect.Parameter.POSITIONAL_ONLY,
                            inspect.Parameter.POSITIONAL_OR_KEYWORD)
 
-        result = all(
+        return all(
             p.name in rule._converters
             for p in params
             if p.kind in supported_kinds and p.default is inspect.Parameter.empty
         )
-        _logger.debug(
-            "Rule is enumerable result=%s for rule=%r endpoint=%r",
-            result, getattr(rule, "rule", None), endpoint
-        )
-        return result
