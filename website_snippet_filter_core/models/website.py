@@ -121,6 +121,9 @@ class WebsiteSnippetFilter(models.Model):
             return expression.AND([domain, [("is_published", "=", True)]])
         return domain
 
+class Website(models.Model):
+    _inherit = "website"
+
     def rule_is_enumerable(self, rule):
         """Checks that it is possible to generate sensible GET queries for
            a given rule (if the endpoint matches its own requirements)."""
