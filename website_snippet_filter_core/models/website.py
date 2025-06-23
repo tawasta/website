@@ -5,6 +5,9 @@ from odoo import _, api, models
 from odoo.exceptions import MissingError, ValidationError
 from odoo.osv import expression
 
+import inspect
+from functools import partial
+
 _logger = logging.getLogger(__name__)
 
 
@@ -126,3 +129,42 @@ class WebsiteSnippetFilter(models.Model):
         if "is_published" in self.env[model_name]:
             return expression.AND([domain, [("is_published", "=", True)]])
         return domain
+
+    def rule_is_enumerable(self, rule):
+        """Checks that it is possible to generate sensible GET queries for
+           a given rule (if the endpoint matches its own requirements)."""
+        endpoint = rule.endpoint
+        methods = endpoint.routing.get('methods') or ['GET']
+        converters = list(rule._converters.values())
+
+        if not (
+            'GET' in methods
+            and endpoint.routing['type'] == 'http'
+            and endpoint.routing['auth'] in ('none', 'public')
+            and endpoint.routing.get('website', False)
+            and all(hasattr(converter, 'generate') for converter in converters)
+        ):
+            return False
+
+        # don't list routes without argument having no default value or converter
+        try:
+            # Handle both partial and regular endpoints
+            func = endpoint.func if isinstance(endpoint, partial) else endpoint.original_endpoint
+            sign = inspect.signature(func)
+        except Exception as e:
+            _logger.exception(
+                "Error in rule_is_enumerable for rule %s. "
+                "Endpoint: %r, routing: %r, error: %s",
+                getattr(rule, 'rule', None), endpoint, getattr(endpoint, 'routing', None), str(e)
+            )
+            return False
+
+        params = list(sign.parameters.values())[1:]  # skip self
+        supported_kinds = (inspect.Parameter.POSITIONAL_ONLY,
+                           inspect.Parameter.POSITIONAL_OR_KEYWORD)
+
+        return all(
+            p.name in rule._converters
+            for p in params
+            if p.kind in supported_kinds and p.default is inspect.Parameter.empty
+        )
