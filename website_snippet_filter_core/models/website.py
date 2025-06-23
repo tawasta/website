@@ -32,12 +32,10 @@ class WebsiteSnippetFilter(models.Model):
                 )
 
     def _get_model_max_limit(self, model_name):
-        # Määritä mallikohtainen max limit, oletuksena palauttaa 16
         return 16
 
     def _prepare_values(self, limit=None, search_domain=None):
         self.ensure_one()
-
         model_name = self.filter_id.model_id if self.filter_id else self.model_name
         max_limit = self._get_model_max_limit(model_name)
         max_limit = max(self.limit, max_limit)
@@ -62,13 +60,11 @@ class WebsiteSnippetFilter(models.Model):
                 return self._filter_records_to_values(records)
 
             except MissingError:
-                warn = (
-                    f"The provided domain '{domain}' in 'ir.filters' "
-                    f"generated a MissingError in '{self._name}'"
+                _logger.warning(
+                    "The provided domain '%s' in 'ir.filters' generated MissingError in '%s'",
+                    domain, self._name
                 )
-                _logger.warning(warn)
                 return []
-
         elif self.action_server_id:
             try:
                 return (
@@ -78,20 +74,16 @@ class WebsiteSnippetFilter(models.Model):
                         search_domain=search_domain,
                     )
                     .sudo()
-                    .run()
-                    or []
+                    .run() or []
                 )
             except MissingError:
-                warn = (
-                    f"The provided domain '{search_domain}' in 'ir.actions.server' "
-                    f"generated a MissingError in '{self._name}'"
+                _logger.warning(
+                    "The provided domain '%s' in 'ir.actions.server' generated MissingError in '%s'",
+                    search_domain, self._name
                 )
-                _logger.warning(warn)
                 return []
 
     def _search_records(self, model_name, domain, context, sort, limit):
-        """Hae tietueet. Tätä metodia voi yliajaa erikoistapauksiin,
-        kuten advertisement."""
         return (
             self.env[model_name]
             .sudo(False)
@@ -104,7 +96,6 @@ class WebsiteSnippetFilter(models.Model):
         )
 
     def get_additional_domain(self, model_name, base_domain):
-        """Return additional domain clauses based on the model."""
         base_domain = self._get_website_domain(model_name, base_domain)
         base_domain = self._get_company_domain(model_name, base_domain)
         base_domain = self._get_is_published_domain(model_name, base_domain)
@@ -133,29 +124,44 @@ class WebsiteSnippetFilter(models.Model):
     def rule_is_enumerable(self, rule):
         """Checks that it is possible to generate sensible GET queries for
            a given rule (if the endpoint matches its own requirements)."""
-        endpoint = rule.endpoint
-        methods = endpoint.routing.get('methods') or ['GET']
-        converters = list(rule._converters.values())
+        endpoint = getattr(rule, "endpoint", None)
+        _logger.debug(
+            "Checking rule_is_enumerable for rule=%r, endpoint=%r (%s)",
+            getattr(rule, "rule", None), endpoint, type(endpoint)
+        )
+
+        # Gather routing properties
+        try:
+            methods = endpoint.routing.get('methods') or ['GET']
+        except AttributeError as e:
+            _logger.exception(
+                "Missing 'routing' or 'methods' on endpoint=%r for rule=%r",
+                endpoint, getattr(rule, "rule", None)
+            )
+            return False
+
+        converters = list(getattr(rule, "_converters", {}).values())
 
         if not (
             'GET' in methods
-            and endpoint.routing['type'] == 'http'
-            and endpoint.routing['auth'] in ('none', 'public')
+            and endpoint.routing.get('type') == 'http'
+            and endpoint.routing.get('auth') in ('none', 'public')
             and endpoint.routing.get('website', False)
             and all(hasattr(converter, 'generate') for converter in converters)
         ):
+            _logger.debug(
+                "Exiting early as rule/endpoint did not pass basic GET/http/auth/website checks"
+            )
             return False
 
-        # don't list routes without argument having no default value or converter
+        # Finally check the endpoint's signature
         try:
-            # Handle both partial and regular endpoints
             func = endpoint.func if isinstance(endpoint, partial) else endpoint.original_endpoint
             sign = inspect.signature(func)
         except Exception as e:
             _logger.exception(
-                "Error in rule_is_enumerable for rule %s. "
-                "Endpoint: %r, routing: %r, error: %s",
-                getattr(rule, 'rule', None), endpoint, getattr(endpoint, 'routing', None), str(e)
+                "Error inspecting endpoint in rule_is_enumerable. Rule=%r endpoint=%r error=%s",
+                getattr(rule, "rule", None), endpoint, str(e)
             )
             return False
 
@@ -163,8 +169,13 @@ class WebsiteSnippetFilter(models.Model):
         supported_kinds = (inspect.Parameter.POSITIONAL_ONLY,
                            inspect.Parameter.POSITIONAL_OR_KEYWORD)
 
-        return all(
+        result = all(
             p.name in rule._converters
             for p in params
             if p.kind in supported_kinds and p.default is inspect.Parameter.empty
         )
+        _logger.debug(
+            "Rule is enumerable result=%s for rule=%r endpoint=%r",
+            result, getattr(rule, "rule", None), endpoint
+        )
+        return result
