@@ -1,7 +1,6 @@
 /** @odoo-module **/
 
 import publicWidget from "@web/legacy/js/public/public_widget";
-import DynamicSnippet from "@website/snippets/s_dynamic_snippet/000";
 
 function applyColumnLayout(container, itemSelector = "div") {
     const closestEl = container.closest("[data-column-count]");
@@ -59,50 +58,52 @@ function waitForElements(container, selector, timeout = 3000) {
     });
 }
 
-const DynamicSnippetBlogPostsClean = DynamicSnippet.extend({
+const BlogPostCustomizer = publicWidget.Widget.extend({
     selector:
         ".s_dynamic_snippet_blog_posts[data-template-key='website_blog_snippet_templates.dynamic_filter_template_blog_post_card_custom'], .s_dynamic_snippet_blog_posts[data-template-key='website_blog_snippet_templates.dynamic_filter_template_blog_post_list_clean']",
-    disabledInEditableMode: false,
 
-    async _render() {
+    async start() {
         await this._super(...arguments);
-        const section = this.el.closest("section");
-        const container = section
-            ? section.querySelector(".dynamic_snippet_template")
-            : null;
 
-        if (container) {
-            const elements = await waitForElements(container, ".s_blog_posts_post");
+        // Viive varmistaa, että Odoo ehti hakea ja renderöidä postit
+        setTimeout(async () => {
+            const section = this.el.closest("section");
+            const container = section?.querySelector(".dynamic_snippet_template");
 
-            if (elements) {
-                const showImage = section.getAttribute("data-show_image") === "true";
-                const showTags = section.getAttribute("data-show_tags") === "true";
-                const showBlog = section.getAttribute("data-show_blog") === "true";
+            if (container) {
+                const elements = await waitForElements(container, ".s_blog_posts_post");
 
-                if (!showImage) {
-                    container
-                        .querySelectorAll(".o_record_cover_container")
-                        .forEach((el) => el.remove());
+                if (elements) {
+                    const showImage =
+                        section.getAttribute("data-show_image") === "true";
+                    const showTags = section.getAttribute("data-show_tags") === "true";
+                    const showBlog = section.getAttribute("data-show_blog") === "true";
+
+                    if (!showImage) {
+                        container
+                            .querySelectorAll(".o_record_cover_container")
+                            .forEach((el) => el.remove());
+                    }
+                    if (!showTags) {
+                        container
+                            .querySelectorAll(".small.fw-normal")
+                            .forEach((el) => el.remove());
+                    }
+                    if (!showBlog) {
+                        container
+                            .querySelectorAll(".text-uppercase.text-primary.small.mb-1")
+                            .forEach((el) => el.remove());
+                    }
+
+                    applyColumnLayout(container, ".s_blog_posts_post");
+                } else {
+                    console.warn("Blog post elements not found within timeout");
                 }
-                if (!showTags) {
-                    container
-                        .querySelectorAll(".small.fw-normal")
-                        .forEach((el) => el.remove());
-                }
-                if (!showBlog) {
-                    container
-                        .querySelectorAll(".text-uppercase.text-primary.small.mb-1")
-                        .forEach((el) => el.remove());
-                }
-
-                applyColumnLayout(container, ".s_blog_posts_post");
-            } else {
-                console.warn("Blog post elements not found within timeout");
             }
-        }
+        }, 300); // Pieni viive että ehtii varmasti piirtyä
     },
 });
 
-publicWidget.registry.dynamic_snippet_blog_posts_clean = DynamicSnippetBlogPostsClean;
+publicWidget.registry.blog_post_customizer = BlogPostCustomizer;
 
-export {DynamicSnippetBlogPostsClean};
+export {BlogPostCustomizer};
