@@ -74,7 +74,8 @@ const BlogPostCustomizer = publicWidget.Widget.extend({
                 const elements = await waitForElements(container, ".s_blog_posts_post");
 
                 if (elements) {
-                    const showImage = section.getAttribute("data-show_image") === "true";
+                    const showImage =
+                        section.getAttribute("data-show_image") === "true";
                     const showTags = section.getAttribute("data-show_tags") === "true";
                     const showBlog = section.getAttribute("data-show_blog") === "true";
 
@@ -99,10 +100,10 @@ const BlogPostCustomizer = publicWidget.Widget.extend({
                     console.warn("Blog post elements not found within timeout");
                 }
             }
-        }, 300); // pieni viive että ehtii varmasti piirtyä
+        }, 300); // Pieni viive että ehtii varmasti piirtyä
     },
 });
 
 publicWidget.registry.blog_post_customizer = BlogPostCustomizer;
 
-export { BlogPostCustomizer };
+export {BlogPostCustomizer};
