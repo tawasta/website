@@ -28,17 +28,16 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["website_messages_base"],
+    "depends": ["website_messages_base", "website_utilities"],
     "data": [
         "data/website_unread_messages_data.xml",
         "views/res_config_settings_views.xml",
-        #"views/website_unread_messages_static.xml",
         "views/website_unread_message.xml",
     ],
     'assets': {
         'web.assets_frontend': [
-            #'/website_unread_message/static/src/js/unread_messages.esm.js',
-            #'/website_unread_message/static/src/js/mark_read.esm.js',
+            '/website_unread_messages/static/src/js/unread_messages.esm.js',
+            '/website_unread_messages/static/src/js/mark_read.esm.js',
         ],
     },
 }
