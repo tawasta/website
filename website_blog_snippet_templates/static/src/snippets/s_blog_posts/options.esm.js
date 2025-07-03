@@ -100,7 +100,7 @@ const BlogPostCustomizer = publicWidget.Widget.extend({
                     console.warn("Blog post elements not found within timeout");
                 }
             }
-        }, 300); // Pieni viive että ehtii varmasti piirtyä
+        }, 600); // Pieni viive että ehtii varmasti piirtyä
     },
 });
 
