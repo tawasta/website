@@ -15,7 +15,10 @@
                 <t t-call="website_blog_snippet_templates.post_cover_image" />
 
                 <!-- Post Title -->
-                <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" class="text-decoration-none">
+                <a
+                    t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}"
+                    class="text-decoration-none"
+                >
                     <div
                         class="s_blog_posts_post_title fw-bold text-dark mb-1"
                         t-field="blog_post.name"
