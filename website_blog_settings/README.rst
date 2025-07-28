@@ -9,10 +9,12 @@ Website Blog Settings
   - Disable sidebar blog index
   - Hide regular cover comments
   - Hide regular cover image
+  - Show social media share icons also under blog post
 
 Configuration
 =============
-\-
+* Access the settings via website editor's Customize menu when 
+  viewing the blog pages.
 
 Usage
 =====
@@ -29,6 +31,7 @@ Contributors
 ------------
 
 * Miika Nissi <miika.nissi@futural.fi>
+* Timo Talvitie <timo.talvitie@futural.fi>
 
 Maintainer
 ----------
