@@ -9,6 +9,7 @@
                         <field name="image" widget="image" class="oe_avatar" />
                         <group>
                             <field name="name" />
+                            <field name="link" placeholder="https://example.com" />
                             <field name="description" />
                         </group>
                     </sheet>
@@ -24,6 +25,7 @@
                     <field name="sequence" widget="handle" />
                     <field name="name" />
                     <field name="description" />
+                    <field name="link" placeholder="https://example.com" />
                 </tree>
             </field>
         </record>
