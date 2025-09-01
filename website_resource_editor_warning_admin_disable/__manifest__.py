@@ -27,9 +27,7 @@
     "author": "Futural",
     "license": "AGPL-3",
     "data": [],
-    "depends": [
-        "web", "website", "web_editor"
-    ],
+    "depends": ["web"],
     "assets": {
         "web.assets_frontend_minimal": [
             "website_resource_editor_warning_admin_disable/static/src/js/resource_editor_warning.esm.js",
