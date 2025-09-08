@@ -10,6 +10,7 @@
                 <field name="description" optional="hide" />
                 <field name="lang" />
                 <field name="feed_url" widget="url" optional="show" />
+                <field name="use_short_image_urls" optional="hide" />
                 <field name="blog_ids" widget="many2many_tags" optional="show" />
             </tree>
         </field>
@@ -24,7 +25,8 @@
                         <field name="name" />
                         <field name="description" />
                         <field name="lang" />
-                        <field name="feed_url" widget="url" invisible="not feed_url" />
+                        <field name="feed_url" widget="url" />
+                        <field name="use_short_image_urls" />
                     </group>
                     <field name="blog_ids" />
                 </sheet>
