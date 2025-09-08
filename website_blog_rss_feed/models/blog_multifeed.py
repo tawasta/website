@@ -17,12 +17,18 @@ class WebsiteBlogMultifeed(models.Model):
     name = fields.Char(required=True, translate=True)
     description = fields.Text(translate=True)
     feed_url = fields.Char("Feed URL", readonly=1, compute="_compute_feed_url")
+    use_short_image_urls = fields.Boolean(
+        string="Use short image URLs in feed",
+        help="Image URLs will be shortened to e.g. "
+        "https://my-odoo-installation/web/image/123456 ",
+    )
     lang = fields.Selection(
         required=True,
         selection=_get_lang,
         string="Language",
         help="Posts will be shown in this language in the RSS feed",
     )
+
     blog_ids = fields.Many2many(
         "blog.blog",
         string="Blogs",

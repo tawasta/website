@@ -8,6 +8,7 @@
             xmlns:media="http://search.yahoo.com/mrss/"
         >
         <title t-esc="multifeed.name" />
+        <link rel="self" type="application/atom+xml" t-att-href="multifeed.feed_url" />
         <link t-att-href="'%s/blog' % (base_url)" />
         <id t-esc="'%s/blog/' % (base_url)" />
         <updated

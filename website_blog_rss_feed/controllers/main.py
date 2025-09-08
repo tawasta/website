@@ -61,8 +61,15 @@ class WebsiteBlogRssMultifeed(WebsiteBlog):
                         .ensure_one()
                     )
 
+                    if multifeed.use_short_image_urls:
+                        image_url = (
+                            f"{multifeed.get_base_url()}/web/image/{attachment_id}"
+                        )
+                    else:
+                        image_url = multifeed.get_base_url() + blog_path
+
                     image_info = {
-                        "image_url": multifeed.get_base_url() + blog_path,
+                        "image_url": image_url,
                         "image_mimetype": image_attachment.mimetype,
                     }
 
