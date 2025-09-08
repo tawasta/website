@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0-20241118\n"
+"Project-Id-Version: Odoo Server 17.0-20250428\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-02 07:38+0000\n"
-"PO-Revision-Date: 2024-12-02 07:38+0000\n"
+"POT-Creation-Date: 2025-09-08 06:47+0000\n"
+"PO-Revision-Date: 2025-09-08 06:47+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -91,6 +91,15 @@ msgid "ID"
 msgstr ""
 
 #. module: website_blog_rss_feed
+#: model:ir.model.fields,help:website_blog_rss_feed.field_blog_multifeed__use_short_image_urls
+msgid ""
+"Image URLs will be shortened to e.g. https://my-odoo-"
+"installation/web/image/123456 "
+msgstr ""
+"Kuvien URLit lyhennetään muotoon https://my-odoo-"
+"installation/web/image/123456 "
+
+#. module: website_blog_rss_feed
 #: model:ir.model.fields,field_description:website_blog_rss_feed.field_blog_multifeed__lang
 msgid "Language"
 msgstr "Kieli"
@@ -119,3 +128,8 @@ msgstr "Nimi"
 #: model:ir.model.fields,help:website_blog_rss_feed.field_blog_multifeed__lang
 msgid "Posts will be shown in this language in the RSS feed"
 msgstr "Blogit näytetään RSS-feedissä tällä kielellä"
+
+#. module: website_blog_rss_feed
+#: model:ir.model.fields,field_description:website_blog_rss_feed.field_blog_multifeed__use_short_image_urls
+msgid "Use short image URLs in feed"
+msgstr "Käytä feedin kuvissa lyhyitä URLeja"
