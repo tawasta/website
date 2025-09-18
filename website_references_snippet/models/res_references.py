@@ -10,3 +10,4 @@ class ResReferences(models.Model):
     description = fields.Text()
     image = fields.Binary()
     sequence = fields.Integer()
+    link = fields.Char("Website Link")
