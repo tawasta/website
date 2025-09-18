@@ -22,10 +22,17 @@ publicWidget.registry.ResReferences = publicWidget.Widget.extend({
 
                 let html = "";
                 data.forEach((reference) => {
+                    let url = reference.link || "#";
+
+                    if (url && !/^https?:\/\//i.test(url)) {
+                        url = "https://" + url;
+                    }
                     html += `<div class="pt16 pb16 o_colored_level col-lg-2">
-                                <div class="img img-fluid mx-auto" style="display: flex; justify-content: center; align-items: center; height: 100%;  /* tai mikä tahansa korkeus */">
-                                    <img class="img img-fluid mx-auto" src="data:image/png;base64,${reference.image}"/>
-                                </div>
+                                <a href="${url}" target="_blank" style="text-decoration:none;">
+                                    <div class="img img-fluid mx-auto" style="display: flex; justify-content: center; align-items: center; height: 100%;  /* tai mikä tahansa korkeus */">
+                                        <img class="img img-fluid mx-auto" src="data:image/png;base64,${reference.image}"/>
+                                    </div>
+                                </a>
                             </div>`;
                 });
 
