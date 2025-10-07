@@ -23,7 +23,7 @@
     "summary": "User Role Switcher",
     "version": "14.0.1.0.0",
     "category": "Web",
-    "website": "https://gitlab.com/tawasta/odoo/web",
+    "website": "https://gitlab.com/tawasta/odoo/website",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,

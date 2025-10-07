@@ -19,6 +19,7 @@ addon | version | maintainers | summary
 [portal_my_account_restrict_access_account](portal_my_account_restrict_access_account/) | 14.0.1.0.0 |  | Restrict access to invoicing-related items in My Account per user
 [portal_my_account_restrict_access_contract](portal_my_account_restrict_access_contract/) | 14.0.1.0.0 |  | Restrict access to contract-related items in My Account per user
 [portal_my_account_restrict_access_sale](portal_my_account_restrict_access_sale/) | 14.0.1.0.0 |  | Restrict access to sale-related items in My Account per user
+[user_role_switcher](user_role_switcher/) | 14.0.1.0.0 |  | User Role Switcher
 [website_accessibility_page](website_accessibility_page/) | 14.0.1.0.0 |  | Adds accessibility page
 [website_account_request](website_account_request/) | 14.0.1.0.0 |  | Website account request Snippet
 [website_all_messages](website_all_messages/) | 14.0.1.0.0 |  | All messages for website
