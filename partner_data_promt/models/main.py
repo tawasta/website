@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from odoo import api, fields, models
 
 
@@ -32,7 +33,13 @@ class PartnerDataPromptRule(models.Model):
     )
     field_type = fields.Char(compute="_compute_field_type", store=True)
     sequence = fields.Integer(default=10)
-    active = fields.Boolean()
+    active = fields.Boolean(default=True)
+    ask_on_full_check = fields.Boolean(
+        string="Ask on full check for everyone",
+        help="Show this field to all users during a periodic full data check, "
+             "regardless of condition_domain or current value.",
+        default=False,
+    )
 
     @api.depends("field_name")
     def _compute_field_type(self):
