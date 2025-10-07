@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import logging
 from datetime import date, datetime
 
@@ -17,8 +16,10 @@ class PartnerDataPromptController(http.Controller):
         Logiikka:
           1) Jos data_check_date puuttuu TAI on ≥ interval_days vanha:
              - Näytä ne säännöt, joissa ask_on_full_check = True
-             - Fallback: jos yhtään ei ole merkitty, näytä condition_domainin läpäisseet (all_fields_strict)
-          2) Muulloin: jos puuttuvia kenttiä (condition_domain huomioiden), näytä vain ne
+             - Fallback: jos yhtään ei ole merkitty,
+             - näytä condition_domainin läpäisseet (all_fields_strict)
+          2) Muulloin: jos puuttuvia kenttiä (condition_domain huomioiden),
+            näytä vain ne
           3) Muuten: ei lomaketta
         """
         partner = request.env.user.partner_id
@@ -31,10 +32,10 @@ class PartnerDataPromptController(http.Controller):
             .search([("active", "=", True)])
         )
 
-        fields_to_ask = []          # condition_domain läpäisseet ja partnerilta puuttuvat
-        all_fields_strict = []      # condition_domain läpäisseet (arvosta riippumatta)
+        fields_to_ask = []  # condition_domain läpäisseet ja partnerilta puuttuvat
+        all_fields_strict = []  # condition_domain läpäisseet (arvosta riippumatta)
         all_fields_unfiltered = []  # kaikki aktiiviset säännöt (debug/fallback)
-        rule_fields = []            # [(rule, field_data), ...] ask_on_full_check -suodatusta varten
+        rule_fields = []  # ask_on_full_check -suodatusta varten
 
         for rule in rules:
             field_name = rule.field_name.name
@@ -68,7 +69,11 @@ class PartnerDataPromptController(http.Controller):
                         ):
                             passed = False
                     except Exception as e:
-                        _logger.error("Error evaluating condition_domain in rule %s: %s", rule.name, e)
+                        _logger.error(
+                            "Error evaluating condition_domain in rule %s: %s",
+                            rule.name,
+                            e,
+                        )
                         passed = False
 
             if passed:
@@ -85,7 +90,7 @@ class PartnerDataPromptController(http.Controller):
             # Näytä kentät, jotka on merkitty kysyttäväksi kaikilta täystarkistuksessa
             fields_for_full = [fd for r, fd in rule_fields if r.ask_on_full_check]
 
-            # Fallback: jos yksikään sääntö ei ole merkitty, näytä condition_domainin läpäisseet
+            # jos yksikään sääntö ei ole merkitty, näytä condition_domainin läpäisseet
             if not fields_for_full:
                 fields_for_full = all_fields_strict
 

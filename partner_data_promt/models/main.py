@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from odoo import api, fields, models
 
 
@@ -37,7 +36,7 @@ class PartnerDataPromptRule(models.Model):
     ask_on_full_check = fields.Boolean(
         string="Ask on full check for everyone",
         help="Show this field to all users during a periodic full data check, "
-             "regardless of condition_domain or current value.",
+        "regardless of condition_domain or current value.",
         default=False,
     )
 
