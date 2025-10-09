@@ -71,9 +71,14 @@ class PartnerDataPromptController(http.Controller):
                     passed = False
                 else:
                     try:
-                        if not request.env["res.partner"].search_count(
+                        count = request.env["res.partner"].sudo().search_count(
                             [("id", "=", partner.id)] + (domain or [])
-                        ):
+                        )
+                        _logger.info(
+                            "[data_check] domain_check partner_id=%s rule=%s count=%s",
+                            partner.id, rule.name, count
+                        )
+                        if not count:
                             passed = False
                             _logger.info("[data_check] rule=%s did NOT pass condition_domain", rule.name)
                     except Exception as e:
