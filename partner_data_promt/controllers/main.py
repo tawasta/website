@@ -26,11 +26,15 @@ class PartnerDataPromptController(http.Controller):
         website = request.env["website"].get_current_website()
         interval_days = website.data_prompt_interval_days or 90
 
+        _logger.info("[data_check] partner_id=%s data_check_date=%s interval_days=%s",
+                     partner.id, partner.data_check_date, interval_days)
+
         rules = (
             request.env["res.partner.data.prompt.rule"]
             .sudo()
             .search([("active", "=", True)])
         )
+        _logger.info("[data_check] active_rules_count=%s", len(rules))
 
         fields_to_ask = []  # condition_domain läpäisseet ja partnerilta puuttuvat
         all_fields_strict = []  # condition_domain läpäisseet (arvosta riippumatta)
@@ -53,14 +57,17 @@ class PartnerDataPromptController(http.Controller):
             }
 
             all_fields_unfiltered.append(field_data)
+            _logger.info("[data_check] checking rule=%s field=%s value=%s required=%s",
+                         rule.name, field_name, value, rule.required)
 
             # condition_domain-suodatus normaalikäyttöä varten
             passed = True
             if rule.condition_domain:
                 try:
                     domain = safe_eval(rule.condition_domain)
+                    _logger.info("[data_check] rule=%s domain=%s", rule.name, domain)
                 except Exception as e:
-                    _logger.error("Invalid domain in rule %s: %s", rule.name, e)
+                    _logger.info("[data_check] Invalid domain in rule=%s err=%s", rule.name, e)
                     passed = False
                 else:
                     try:
@@ -68,18 +75,16 @@ class PartnerDataPromptController(http.Controller):
                             [("id", "=", partner.id)] + (domain or [])
                         ):
                             passed = False
+                            _logger.info("[data_check] rule=%s did NOT pass condition_domain", rule.name)
                     except Exception as e:
-                        _logger.error(
-                            "Error evaluating condition_domain in rule %s: %s",
-                            rule.name,
-                            e,
-                        )
+                        _logger.info("[data_check] Error evaluating domain in rule=%s err=%s", rule.name, e)
                         passed = False
 
             if passed:
                 all_fields_strict.append(field_data)
                 if not value:
                     fields_to_ask.append(field_data)
+                    _logger.info("[data_check] field_missing=%s (added to ask-list)", field_name)
 
             rule_fields.append((rule, field_data))
 
@@ -87,13 +92,18 @@ class PartnerDataPromptController(http.Controller):
         if not partner.data_check_date or (
             (date.today() - partner.data_check_date).days >= interval_days
         ):
+            _logger.info("[data_check] case=1 full check triggered")
+
             # Näytä kentät, jotka on merkitty kysyttäväksi kaikilta täystarkistuksessa
             fields_for_full = [fd for r, fd in rule_fields if r.ask_on_full_check]
 
             # jos yksikään sääntö ei ole merkitty, näytä condition_domainin läpäisseet
             if not fields_for_full:
                 fields_for_full = all_fields_strict
+                _logger.info("[data_check] no ask_on_full_check rules → using all_fields_strict")
 
+            _logger.info("[data_check] returning fields_for_full=%s",
+                         [f["name"] for f in fields_for_full])
             return request.env["ir.ui.view"]._render_template(
                 "partner_data_promt.data_prompt_modal",
                 {"fields": fields_for_full},
@@ -101,12 +111,16 @@ class PartnerDataPromptController(http.Controller):
 
         # 2) Jos puuttuvia kenttiä (condition_domain huomioiden) → näytetään ne
         if fields_to_ask:
+            _logger.info("[data_check] case=2 returning missing fields=%s",
+                         [f["name"] for f in fields_to_ask])
             return request.env["ir.ui.view"]._render_template(
                 "partner_data_promt.data_prompt_modal", {"fields": fields_to_ask}
             )
 
         # 3) Kaikki kunnossa ja check-date tuore → ei lomaketta
+        _logger.info("[data_check] case=3 no form to show")
         return False
+
 
     @staticmethod
     def _get_field_options(partner, rule):
