@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <record id="view_res_users_form_inherit" model="ir.ui.view">
+    <field name="name">res.users.form.inherit.role</field>
+    <field name="model">res.users</field>
+    <field name="inherit_id" ref="base_user_role.view_res_users_form_inherit" />
+    <field name="arch" type="xml">
+        <!-- Role line näkyy vain jos current_role_id on tyhjä -->
+        <!--<xpath expr="//field[@name='role_line_ids']" position="attributes">
+            <attribute name="attrs">{'invisible': [('current_role_id', '!=', False)]}</attribute>
+        </xpath>-->
+        <xpath expr="//field[@name='role_line_ids']" position="after">
+            <group
+                    string="Roles"
+                    attrs="{'invisible': [('current_role_id', '=', False)]}"
+                >
+                <field name="allowed_role_ids" widget="many2many_tags" />
+                <field name="current_role_id" readonly="1" />
+            </group>
+        </xpath>
+    </field>
+  </record>
+
+</odoo>
