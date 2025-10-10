@@ -11,6 +11,7 @@
                     <group>
                         <field name="name" />
                         <field name="sequence" />
+                        <field name="ask_on_full_check" />
                         <field name="field_name" />
                         <field name="field_type" readonly="1" />
                         <field name="required" />
@@ -35,6 +36,7 @@
             <tree>
                 <field name="sequence" widget="handle" />
                 <field name="name" />
+                <field name="ask_on_full_check" />
                 <field name="field_name" />
                 <field name="field_type" />
                 <field name="required" />
