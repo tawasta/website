@@ -1,4 +1,4 @@
-from odoo import api, fields, models, _
+from odoo import fields, models
 
 
 class ResUsersAllowedRoleLine(models.Model):
@@ -28,5 +28,9 @@ class ResUsersAllowedRoleLine(models.Model):
     )
 
     _sql_constraints = [
-        ("user_role_unique", "unique(user_id, role_id)", "Role already added for this user."),
+        (
+            "user_role_unique",
+            "unique(user_id, role_id)",
+            "Role already added for this user.",
+        ),
     ]

@@ -1,4 +1,5 @@
 import logging
+
 from odoo import _, api, fields, models
 from odoo.exceptions import AccessError, UserError
 
@@ -35,7 +36,8 @@ class ResUsers(models.Model):
         if forbidden:
             names = ", ".join(forbidden.mapped("display_name"))
             raise UserError(
-                _("The following roles are not allowed to be added or selected: %s") % names
+                _("The following roles are not allowed to be added or selected: %s")
+                % names
             )
 
     def _ensure_core_role_is_only(self, role):
@@ -84,59 +86,33 @@ class ResUsers(models.Model):
         return user
 
     def write(self, vals):
-        """Do NOT sync allowed lines to core. Only touch core when current_role_id changes."""
-        roles_to_check = self.env["res.users.role"]
-
-        # Validate new roles referenced in allowed_role_line_ids commands (robust)
-        if "allowed_role_line_ids" in vals:
-            cmd_list = vals.get("allowed_role_line_ids") or []
-            line_model = self.env["res.users.allowed.role.line"]
-            for item in cmd_list:
-                if not isinstance(item, (list, tuple)) or not item:
-                    continue
-                cmd = item[0]
-                if cmd == 0 and len(item) >= 3 and isinstance(item[2], dict):
-                    rid = item[2].get("role_id")
-                    if rid:
-                        roles_to_check |= self.env["res.users.role"].browse(int(rid))
-                elif cmd == 4 and len(item) >= 2:
-                    line = line_model.browse(int(item[1]))
-                    if line.role_id:
-                        roles_to_check |= line.role_id
-                elif cmd == 6 and len(item) >= 3:
-                    line_ids = item[2] or []
-                    lines = line_model.browse([int(x) for x in line_ids])
-                    roles_to_check |= lines.mapped("role_id")
-
-        # Validate current role if it's being changed
+        """Validate after write; only touch core when current_role_id changes."""
+        Role = self.env["res.users.role"]
         new_role = False
-        if vals.get("current_role_id"):
-            new_role = self.env["res.users.role"].browse(int(vals["current_role_id"]))
-            roles_to_check |= new_role
 
-        if roles_to_check:
-            self._check_roles_are_allowed(roles_to_check)
+        # Optional quick fail for explicitly set current_role_id
+        if vals.get("current_role_id"):
+            new_role = Role.browse(int(vals["current_role_id"]))
+            self._check_roles_are_allowed(new_role)
 
         res = super().write(vals)
 
-        # If allowed lines changed, ensure current role is still allowed
-        if "allowed_role_line_ids" in vals:
-            for user in self:
-                if user.current_role_id and user.current_role_id not in user.allowed_role_line_ids.mapped("role_id"):
-                    raise UserError(
-                        _("Active role '%s' must remain among the user's allowed roles.")
-                        % user.current_role_id.display_name
-                    )
+        # Post-validate against actual persisted state
+        for user in self.sudo():
+            allowed_roles = user.allowed_role_line_ids.mapped("role_id")
+            if allowed_roles:
+                user._check_roles_are_allowed(allowed_roles)
 
-        # If current role changed, enforce it in core and apply company
+            if user.current_role_id and user.current_role_id not in allowed_roles:
+                raise UserError(
+                    _("Active role '%s' must be one of the user's allowed roles.")
+                    % user.current_role_id.display_name
+                )
+
+        # If current role was changed, enforce it in core and apply company
         if new_role:
             for user in self:
                 if user.current_role_id:
-                    if user.current_role_id not in user.allowed_role_line_ids.mapped("role_id"):
-                        raise UserError(
-                            _("Active role '%s' must be one of the user's allowed roles.")
-                            % user.current_role_id.display_name
-                        )
                     user._ensure_core_role_is_only(user.current_role_id)
                     user._apply_company_from_allowed_line(user.current_role_id)
 
