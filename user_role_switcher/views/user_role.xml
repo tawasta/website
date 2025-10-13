@@ -4,7 +4,7 @@
         <!-- Linkki käyttäjän roolien vaihtoon -->
         <xpath expr="//*[@id='o_logout_divider']" position="before">
             <button
-                t-if="request.env.user.allowed_role_ids and len(request.env.user.allowed_role_ids) &gt; 1"
+                t-if="request.env.user.allowed_role_line_ids and len(request.env.user.allowed_role_line_ids) &gt; 1"
                 class="dropdown-item text-primary font-weight-bold"
                 type="button"
                 data-toggle="modal"
@@ -68,7 +68,7 @@
                                         class="form-control select2"
                                     >
                                         <t
-                                            t-foreach="request.env.user.allowed_role_ids"
+                                            t-foreach="request.env.user.allowed_role_line_ids.mapped('role_id')"
                                             t-as="role"
                                         >
                                             <option

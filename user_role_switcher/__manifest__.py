@@ -30,6 +30,7 @@
     "installable": True,
     "depends": ["base", "web"],
     "data": [
+        "security/ir.model.access.csv",
         "views/res_users_views.xml",
         "views/user_role.xml",
     ],
