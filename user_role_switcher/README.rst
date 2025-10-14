@@ -6,57 +6,73 @@
 User Role Switcher
 ==================
 
-This module extends Odoo's multi-role functionality by allowing a user 
-to **switch their active role** at runtime. It ensures that rights and 
-groups are consistently updated based on the selected role, while 
-maintaining strong security restrictions.
+Switch your **active user role** at runtime while keeping security tight
+and Odoo core role logic in sync. This module lets administrators define
+*Allowed Roles* per user and allows end-users to switch their current
+role from the portal header (dropdown + modal) or from their profile.
 
 Key Features
 ============
 
-* Define **Allowed Roles** per user.
+* Define **Allowed Roles** per user, with optional company preference.
 * Users can switch their **active role** (`current_role_id`) 
-  from the **portal dropdown** or their profile.
+  from the **portal dropdown** or their **user form**.
 * Automatically updates `role_line_ids` and user groups 
-  via Odoo core role logic.
-* Security rules:
+  using Odoo's core role logic.
+* Strict security rules:
   
   - Only the logged-in user can change their own role.
-  - Superuser (admin, `base.user_root`) cannot switch roles.
-  - Roles outside the configured `allowed_role_ids` are rejected.
-  - System-critical groups (``base.group_no_one``, ``base.group_system``) are protected.
+  - Superuser (`base.user_root`) cannot switch roles.
+  - Roles outside the configured *Allowed Roles* are rejected.
+  - System-critical groups (`base.group_no_one`, `base.group_system`) are protected.
+* Optional automatic **company switching** when a role has a company defined.
 
 Configuration
 =============
-No special configuration required. After installing:
+No special configuration is required. After installing:
 
 1. Go to **Settings → Users**.
-2. Define *Allowed Roles* for a user.
+2. Under the **Roles** section:
+   - Add one or more **Allowed Roles** for the user.
+   - Optionally define a **Company** to activate when that role is chosen.
 3. The first allowed role is automatically applied if no current role is set.
 
 Usage
 =====
 
 **Backend:**
-- If `current_role_id` is empty, the user form shows the standard `role_line_ids` field.
-- Once a role is selected, `Allowed Roles` and `Current Role` are displayed instead.
+
+* The user form displays **Allowed Roles** and **Current Role** fields.
+* Only roles marked as *Allow adding to Allowed Roles* can be selected.
+* If a user’s active role changes, the module:
+  - Updates the Odoo core `role_line_ids` accordingly.
+  - Refreshes user groups to match the selected role.
+  - Switches company if configured on the allowed role line.
 
 **Portal:**
-- Users see a **Change Role** option in the dropdown menu.
-- A modal popup lists all allowed roles, and the user can switch instantly.
-- The page reloads with the updated rights.
+
+* Users see a **Change Role** option in the portal dropdown.
+* Clicking it opens a modal listing all allowed roles.
+* Selecting a new role updates access rights instantly.
+* The page reloads automatically with the new permissions.
+
+**Example Flow:**
+1. A user has two allowed roles: *Portal User* and *Internal Sales*.
+2. While logged in as a portal user, they click **Change Role → Internal Sales**.
+3. The module updates the backend role, reloads access rights, and optionally switches the company.
+
 
 **Special Use Case**
 --------------------
-This module is primarily intended for **special scenarios** where a single user 
-needs to operate in two very distinct contexts:
+This module is primarily intended for cases where one user must operate in 
+two distinct contexts, such as:
 
 * As a **portal user**.
-* As a **restricted internal user** (e.g. with very limited access to backend models).
+* As a **restricted internal user**.
 
-By enforcing **one active role at a time**, the module prevents mixing portal 
-and internal permissions, which could otherwise create security risks or lead 
-to confusing access rights.
+By enforcing **one active role at a time**, the module prevents 
+mixing portal and internal permissions, avoiding access confusion 
+and improving security.
 
 Known issues / Roadmap
 ======================
