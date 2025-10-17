@@ -13,9 +13,9 @@ class PartnerDataPromptController(http.Controller):
     def data_check(self):
         """Palauta datan tarkistus -modalin kentät tilanteen mukaan.
 
-        UUSI LOGIIKKA:
+        LOGIIKKA:
           - Näytä lomake vain, jos data_check_date on None TAI MENNEISYYDESSÄ.
-          - Kun käyttäjä on kuitannut/tallentanut, asetetaan data_check_date tulevaisuuteen:
+          - Kun käyttäjä on kuitannut, asetetaan data_check_date tulevaisuuteen:
             today + interval_days. Väliaikana lomaketta ei näytetä lainkaan, vaikka
             sääntöjä tulisi lisää tai nykyiset triggaavat.
           - Täystarkistuksessa näytetään sekä ask_on_full_check=True -säännöt
@@ -32,7 +32,8 @@ class PartnerDataPromptController(http.Controller):
             interval_days,
         )
 
-        # Näytetään modal VAIN, jos tarkistus on erääntynyt (menneisyydessä) tai ei ole tehty
+        # Näytetään modal VAIN, jos tarkistus on erääntynyt (menneisyydessä)
+        # tai ei ole tehty
         show_full_check = (
             not partner.data_check_date or partner.data_check_date < date.today()
         )
@@ -49,7 +50,7 @@ class PartnerDataPromptController(http.Controller):
         _logger.info("[data_check] active_rules_count=%s", len(rules))
 
         all_fields_strict = []  # condition_domain läpäisseet field_datat
-        rule_fields = []        # (rule, field_data) -parit
+        rule_fields = []  # (rule, field_data) -parit
 
         for rule in rules:
             field_name = rule.field_name.name
@@ -144,7 +145,10 @@ class PartnerDataPromptController(http.Controller):
         "/my/data_update", type="http", auth="user", methods=["POST"], website=True
     )
     def data_update(self, **post):
-        """Päivitä partnerin tiedot lomakkeen postista ja siirrä data_check_date tulevaisuuteen."""
+        """
+        Päivitä partnerin tiedot lomakkeen postista
+        ja siirrä data_check_date tulevaisuuteen.
+        """
         partner = request.env.user.partner_id
         rules = request.env["res.partner.data.prompt.rule"].sudo().search([])
         allowed_fields = {
