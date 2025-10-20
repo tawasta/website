@@ -60,7 +60,7 @@ class ResUsers(models.Model):
             return
         target = line.company_id
         if target not in user.company_ids:
-            user.write({"company_ids": [(4, target.id)]})
+            user.write({"company_ids": [(6, 0, [target.id])]})
         if user.company_id != target:
             user.write({"company_id": target.id})
 
