@@ -59,10 +59,10 @@ class ResUsers(models.Model):
         if not line or not line.company_id:
             return
         target = line.company_id
-        if target not in user.company_ids:
-            user.write({"company_ids": [(6, 0, [target.id])]})
         if user.company_id != target:
-            user.write({"company_id": target.id})
+            user.sudo().write({"company_id": target.id})
+        if target not in user.company_ids:
+            user.sudo().write({"company_ids": [(6, 0, [target.id])]})
 
     @api.model
     def create(self, vals):
