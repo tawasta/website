@@ -75,7 +75,6 @@ class ResUsers(models.Model):
 
         if vals:
             user.write(vals)
-        
 
     @api.model
     def create(self, vals):
