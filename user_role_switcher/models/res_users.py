@@ -52,17 +52,30 @@ class ResUsers(models.Model):
         user.set_groups_from_roles(force=True)
 
     def _apply_company_from_allowed_line(self, role):
-        """Switch company to the one set on the user's allowed role line, if any."""
+        """Switch company to the one set on the user's allowed role line, if any,
+        without tripping the core _check_company constraint.
+        """
         self.ensure_one()
         user = self.sudo()
         line = user.allowed_role_line_ids.filtered(lambda l: l.role_id == role)[:1]
         if not line or not line.company_id:
             return
+
         target = line.company_id
-        if user.company_id != target:
-            user.sudo().write({"company_id": target.id})
+
+        vals = {}
+        # 1) Make sure target is in allowed companies, but don't remove others yet
         if target not in user.company_ids:
-            user.sudo().write({"company_ids": [(6, 0, [target.id])]})
+            # Non-destructive add so current company stays allowed during the write
+            vals["company_ids"] = [(4, target.id)]
+
+        # 2) Switch current company (safe now that target is in company_ids)
+        if user.company_id != target:
+            vals["company_id"] = target.id
+
+        if vals:
+            user.write(vals)
+        
 
     @api.model
     def create(self, vals):
