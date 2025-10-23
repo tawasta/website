@@ -73,12 +73,6 @@ class ResUsers(models.Model):
                 "company_id": target.id,
                 "company_ids": [(6, 0, [target.id])],
             })
-        else:
-            # Muun käyttäjän kohdalla voidaan tehdä kerralla: sekä company_id että company_ids (6, 0, ...)
-            user.write({
-                "company_id": target.id,
-                "company_ids": [(6, 0, [target.id])],
-            })
 
 
     @api.model
