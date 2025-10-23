@@ -64,16 +64,14 @@ class ResUsers(models.Model):
         target = line.company_id
 
         if user.id == self.env.user.id:
-            # Oma käyttäjä: ensin varmista, että target on sallituissa yrityksissä,
-            # jotta Users.write ei pudota company_id:tä (katsoo nykyistä company_ids-tilaa).
             if target not in user.company_ids:
                 user.write({"company_ids": [(4, target.id)]})
-            # Nyt voit asettaa sekä current companyn että YLIAJAA company_ids turvallisesti.
-            user.write({
-                "company_id": target.id,
-                "company_ids": [(6, 0, [target.id])],
-            })
-
+            user.write(
+                {
+                    "company_id": target.id,
+                    "company_ids": [(6, 0, [target.id])],
+                }
+            )
 
     @api.model
     def create(self, vals):
