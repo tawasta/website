@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Peritään alkuperäinen data-prompt -modal ja poistetaan sulkunappi -->
+    <template id="data_prompt_modal_strict"
+              inherit_id="partner_data_promt.data_prompt_modal">
+        <!-- Poistetaan headerin close-nappi -->
+        <xpath expr="//button[@data-bs-dismiss='modal']" position="replace"/>
+    </template>
+</odoo>
