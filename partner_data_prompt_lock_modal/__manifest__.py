@@ -21,7 +21,7 @@
     "name": "Partner Data Prompt – Force Completion",
     "version": "17.0.1.0.0",
     "category": "Website",
-    "summary": "Estää profiilimodalin sulkemisen ennen kuin pakolliset kentät on täytetty",
+    "summary": "Partner Data Prompt – Force Completion",
     "website": "https://github.com/tawasta/website",
     "author": "Futural",
     "license": "AGPL-3",
