@@ -20,7 +20,7 @@
 
 {
     "name": "Website: Limit Editing Rights by Record Type (base) (DEPRECATED)",
-    "summary": "Base functionality for allowing users to edit only certain types of website pages (deprecated)",
+    "summary": "Allow users to edit only certain types of website pages (deprecated)",
     "version": "17.0.1.1.1",
     "category": "Website",
     "website": "https://github.com/tawasta/website",
