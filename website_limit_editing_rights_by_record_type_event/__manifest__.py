@@ -20,7 +20,7 @@
 
 {
     "name": "Website: Limit Editing Rights by Record Type (Events) (DEPRECATED)",
-    "summary": "Allowing users to edit only website pages that are event-related (deprecated)",
+    "summary": "Allows users to edit only event-related website pages (deprecated)",
     "version": "17.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/tawasta/website",
