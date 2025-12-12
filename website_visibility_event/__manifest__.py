@@ -28,7 +28,11 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["website_visibility_base", "event", "website_event",],
+    "depends": [
+        "website_visibility_base",
+        "event",
+        "website_event",
+    ],
     "data": [
         "views/event.xml",
     ],

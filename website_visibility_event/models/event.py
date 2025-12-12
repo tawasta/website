@@ -1,31 +1,39 @@
+import logging
+
 from odoo import fields, models
 from odoo.http import request
 from odoo.osv import expression
-import logging
+
 _logger = logging.getLogger(__name__)
 
+
 class EventEvent(models.Model):
-    _inherit = 'event.event'
+    _inherit = "event.event"
 
     visible_website_ids = fields.Many2many(
-        'website',
-        string='Visible on Websites',
+        "website",
+        string="Visible on Websites",
         index=True,
     )
 
     def can_access_from_current_website(self, website_id=False):
-        current_id = website_id or request.env['website'].get_current_website().id
+        current_id = website_id or request.env["website"].get_current_website().id
         for rec in self:
-            if rec.visible_website_ids and current_id not in rec.visible_website_ids.ids:
+            if (
+                rec.visible_website_ids
+                and current_id not in rec.visible_website_ids.ids
+            ):
                 return False
         return True
-    
+
     def search(self, args, **kwargs):
         wid = self.env.context.get("website_id")
         if wid:
-            dom = expression.OR([
-                [("visible_website_ids", "=", False)],
-                [("visible_website_ids", "in", [wid])],
-            ])
+            dom = expression.OR(
+                [
+                    [("visible_website_ids", "=", False)],
+                    [("visible_website_ids", "in", [wid])],
+                ]
+            )
             args = expression.AND([args, dom])
         return super().search(args, **kwargs)

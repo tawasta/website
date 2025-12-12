@@ -28,7 +28,11 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["website_visibility_base", "sale", "website_sale",],
+    "depends": [
+        "website_visibility_base",
+        "sale",
+        "website_sale",
+    ],
     "data": [
         "views/product.xml",
     ],

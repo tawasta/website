@@ -28,7 +28,10 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["website_blog", "website_visibility_base",],
+    "depends": [
+        "website_blog",
+        "website_visibility_base",
+    ],
     "data": [
         "views/website_blog_views.xml",
     ],

@@ -28,7 +28,10 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["website_visibility_base", "website_slides",],
+    "depends": [
+        "website_visibility_base",
+        "website_slides",
+    ],
     "data": [
         "views/slide_channel.xml",
     ],

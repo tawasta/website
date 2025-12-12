@@ -1,8 +1,9 @@
 from odoo import models
 from odoo.osv import expression
 
+
 class Website(models.Model):
-    _inherit = 'website'
+    _inherit = "website"
 
     def website_domain(self, website_id=False, m2m_field=None):
         """Backwards compatible extension of the core helper.
@@ -15,7 +16,9 @@ class Website(models.Model):
             return super().website_domain(website_id)
 
         wid = website_id or self.id
-        return expression.OR([
-            [(m2m_field, '=', False)],
-            [(m2m_field, 'in', wid)],
-        ])
+        return expression.OR(
+            [
+                [(m2m_field, "=", False)],
+                [(m2m_field, "in", wid)],
+            ]
+        )
