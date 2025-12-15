@@ -20,7 +20,7 @@
 
 {
     "name": "Website: Limit Editing Rights by Record Type (eLearning) (DEPRECATED)",
-    "summary": "Allow users to edit only website pages that are eLearning-related (deprecated)",
+    "summary": "Allow users to edit only eLearning-related website pages (deprecated)",
     "version": "17.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/tawasta/website",

@@ -12,6 +12,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[auth_signup_url_referer_fix](auth_signup_url_referer_fix/) | 17.0.1.0.0 |  | Fix signup URL domain mismatch using HTTP Referer
 [partner_data_promt](partner_data_promt/) | 17.0.1.0.0 |  | Prompts portal users to complete their email via modal if missing
 [portal_details_domicile](portal_details_domicile/) | 17.0.1.0.0 |  | Portal details - Edit domicile information
 [portal_details_firstname](portal_details_firstname/) | 17.0.1.0.0 |  | Portal details replace name with first name and last name
@@ -24,9 +25,9 @@ addon | version | maintainers | summary
 [website_banner](website_banner/) | 17.0.1.0.1 |  | Website
 [website_blog_blog_widget_remove_in_term](website_blog_blog_widget_remove_in_term/) | 17.0.1.0.0 |  | Hide the word prefix normally shown before blog's tags
 [website_blog_order_by_sequence](website_blog_order_by_sequence/) | 17.0.1.0.0 |  | Add a sequence field and use it when ordering blogs on website
-[website_blog_paywall](website_blog_paywall/) | 17.0.2.0.0 |  | Add a paywall to blogs
+[website_blog_paywall](website_blog_paywall/) | 17.0.2.0.1 |  | Add a paywall to blogs
 [website_blog_rss_feed](website_blog_rss_feed/) | 17.0.2.1.0 |  | Ability to create custom RSS Feeds with multiple blogs.
-[website_blog_settings](website_blog_settings/) | 17.0.1.0 |  | Customization settings under website frontend customize menu
+[website_blog_settings](website_blog_settings/) | 17.0.1.0.1 |  | Customization settings under website frontend customize menu
 [website_blog_snippet_extra_options](website_blog_snippet_extra_options/) | 17.0.1.0.0 |  | Additional configurations for the core snippet
 [website_blog_snippet_templates](website_blog_snippet_templates/) | 17.0.1.0.1 |  | Website
 [website_blog_tag_filter](website_blog_tag_filter/) | 17.0.1.0.0 |  | Display blog posts by tag on /tag/<id>
@@ -35,21 +36,27 @@ addon | version | maintainers | summary
 [website_blog_tag_widget](website_blog_tag_widget/) | 17.0.1.0.1 |  | Website
 [website_crm_contact_form_select_based_lead_name](website_crm_contact_form_select_based_lead_name/) | 17.0.1.0.0 |  | Allows configuring web leads' subject to be based on a selection list instead of freetext
 [website_custom_redirect](website_custom_redirect/) | 17.0.1.0.0 |  | Allows customizing where to redirect website users
+[website_editor_rights_website_specific](website_editor_rights_website_specific/) | 17.0.1.0.0 |  | In multiwebsite environment, specify for each website who can edit it
 [website_environment_ribbon](website_environment_ribbon/) | 17.0.1.0.0 |  | Show environment ribbon on website also. Only shows text 'TEST' on website side.
 [website_finnish_language_to_country](website_finnish_language_to_country/) | 17.0.1.0.0 |  | Country is Finland if Website Language is Finnish
 [website_header_announcement_stripe](website_header_announcement_stripe/) | 17.0.1.0.1 |  | Announcement Stripe to Website header
-[website_hide_info](website_hide_info/) | 17.0.1.0 |  | Hides Odoo System Information on at /website/info
+[website_hide_info](website_hide_info/) | 17.0.1.0.0 |  | Hides Odoo System Information on at /website/info
 [website_hide_login](website_hide_login/) | 17.0.1.0.0 |  | Hide Odoo native login, but show oAuth-logins
 [website_hide_login_database_link](website_hide_login_database_link/) | 17.0.1.0.0 |  | Hides Database link on the login screen
-[website_manager_group](website_manager_group/) | 17.0.1.0 |  | new Website Permission Group to limit access for designers & editors
+[website_manager_group](website_manager_group/) | 17.0.1.0.0 |  | new Website Permission Group to limit access for designers & editors
 [website_messages_base](website_messages_base/) | 17.0.1.0.1 |  | Base for website messages features
 [website_portal_username_change](website_portal_username_change/) | 17.0.1.0.0 |  | website_portal_username_change
 [website_references_snippet](website_references_snippet/) | 17.0.1.0.1 |  | Snippet for showing e.g. company's clients on a web page
 [website_remove_editor_rights_from_sale_administrators](website_remove_editor_rights_from_sale_administrators/) | 17.0.1.0.0 |  | Remove the automatically granted editor access
-[website_settings](website_settings/) | 17.0.1.0 |  | Website toggleable settings under customize menu and other setting options
+[website_settings](website_settings/) | 17.0.1.0.0 |  | Website toggleable settings under customize menu and other setting options
 [website_slides_settings](website_slides_settings/) | 17.0.1.0.2 |  | Website Slides toggleable settings under website customize menu
-[website_snippet_filter_core](website_snippet_filter_core/) | 17.0.1.0 |  | Refactored _prepare_values for extensible snippet filtering
+[website_snippet_filter_core](website_snippet_filter_core/) | 17.0.1.0.0 |  | Refactored _prepare_values for extensible snippet filtering
 [website_team_snippet](website_team_snippet/) | 17.0.1.0.1 |  | Snippet for showing e.g. company personnel on a web page
+[website_visibility_base](website_visibility_base/) | 17.0.1.0.0 |  | Website Visibility Base
+[website_visibility_blog](website_visibility_blog/) | 17.0.1.0.0 |  | Website Blog: Visibility
+[website_visibility_event](website_visibility_event/) | 17.0.1.0.0 |  | Website Event: Visibility
+[website_visibility_product](website_visibility_product/) | 17.0.1.0.0 |  | Website Product: Visibility
+[website_visibility_slides](website_visibility_slides/) | 17.0.1.0.0 |  | Website Slide: Visibility
 
 
 Unported addons
@@ -58,8 +65,8 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [website_auth_signup_recaptcha](website_auth_signup_recaptcha/) | 17.0.1.0.0 (unported) |  | Recaptcha functionality for website signup (deprecated)
 [website_blog_blogs_snippet](website_blog_blogs_snippet/) | 17.0.2.0.0 (unported) |  | Improved Blogs Snippets (deprecated)
-[website_limit_editing_rights_by_record_type_base](website_limit_editing_rights_by_record_type_base/) | 17.0.1.1.1 (unported) |  | Base functionality for allowing users to edit only certain types of website pages (deprecated)
-[website_limit_editing_rights_by_record_type_elearning](website_limit_editing_rights_by_record_type_elearning/) | 17.0.1.0.0 (unported) |  | Allow users to edit only website pages that are eLearning-related (deprecated)
-[website_limit_editing_rights_by_record_type_event](website_limit_editing_rights_by_record_type_event/) | 17.0.1.0.0 (unported) |  | Allowing users to edit only website pages that are event-related (deprecated)
+[website_limit_editing_rights_by_record_type_base](website_limit_editing_rights_by_record_type_base/) | 17.0.1.1.1 (unported) |  | Allow users to edit only certain types of website pages (deprecated)
+[website_limit_editing_rights_by_record_type_elearning](website_limit_editing_rights_by_record_type_elearning/) | 17.0.1.0.0 (unported) |  | Allow users to edit only eLearning-related website pages (deprecated)
+[website_limit_editing_rights_by_record_type_event](website_limit_editing_rights_by_record_type_event/) | 17.0.1.0.0 (unported) |  | Allows users to edit only event-related website pages (deprecated)
 
 [//]: # (end addons)

@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Futural Oy
-#    Copyright 2024 Futural Oy (https://futural.fi)
+#    Copyright 2025- Futural Oy (https://futural.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,25 +19,21 @@
 ##############################################################################
 
 {
-    "name": "Website: Limit Editing Rights by Record Type (base) (DEPRECATED)",
-    "summary": "Allow users to edit only certain types of website pages (deprecated)",
-    "version": "17.0.1.1.1",
+    "name": "Website Event: Visibility",
+    "summary": "Website Event: Visibility",
+    "version": "17.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/tawasta/website",
     "author": "Futural",
     "license": "AGPL-3",
     "application": False,
-    "installable": False,
-    "depends": ["website", "web_editor"],
-    "data": ["security/res_groups.xml"],
-    "assets": {
-        "website.assets_editor": [
-            "website_limit_editing_rights_by_record_type_base/static/src/js/systray_translate_website.esm.js",
-            "website_limit_editing_rights_by_record_type_base/static/src/js/systray_edit_website.esm.js",
-        ],
-        "website.backend_assets_all_wysiwyg": [
-            "website/static/src/components/wysiwyg_adapter/wysiwyg_adapter.js",
-            "website_limit_editing_rights_by_record_type_base/static/src/js/wysiwyg_adapter.esm.js",
-        ],
-    },
+    "installable": True,
+    "depends": [
+        "website_visibility_base",
+        "event",
+        "website_event",
+    ],
+    "data": [
+        "views/event.xml",
+    ],
 }
