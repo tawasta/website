@@ -36,6 +36,7 @@ addon | version | maintainers | summary
 [website_blog_tag_widget](website_blog_tag_widget/) | 17.0.1.0.1 |  | Website
 [website_crm_contact_form_select_based_lead_name](website_crm_contact_form_select_based_lead_name/) | 17.0.1.0.0 |  | Allows configuring web leads' subject to be based on a selection list instead of freetext
 [website_custom_redirect](website_custom_redirect/) | 17.0.1.0.0 |  | Allows customizing where to redirect website users
+[website_disable_free_sign_up_in_login](website_disable_free_sign_up_in_login/) | 17.0.1.0.0 |  | Disable to create an account from login when 'Free sign up' is enabled
 [website_editor_rights_website_specific](website_editor_rights_website_specific/) | 17.0.1.0.0 |  | In multiwebsite environment, specify for each website who can edit it
 [website_environment_ribbon](website_environment_ribbon/) | 17.0.1.0.0 |  | Show environment ribbon on website also. Only shows text 'TEST' on website side.
 [website_finnish_language_to_country](website_finnish_language_to_country/) | 17.0.1.0.0 |  | Country is Finland if Website Language is Finnish
