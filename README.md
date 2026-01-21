@@ -41,7 +41,7 @@ addon | version | maintainers | summary
 [website_finnish_language_to_country](website_finnish_language_to_country/) | 17.0.1.0.0 |  | Country is Finland if Website Language is Finnish
 [website_header_announcement_stripe](website_header_announcement_stripe/) | 17.0.1.0.1 |  | Announcement Stripe to Website header
 [website_hide_info](website_hide_info/) | 17.0.1.0.0 |  | Hides Odoo System Information on at /website/info
-[website_hide_login](website_hide_login/) | 17.0.1.0.0 |  | Hide Odoo native login, but show oAuth-logins
+[website_hide_login](website_hide_login/) | 17.0.1.1.0 |  | Hide Odoo native login, but show oAuth-logins
 [website_hide_login_database_link](website_hide_login_database_link/) | 17.0.1.0.0 |  | Hides Database link on the login screen
 [website_manager_group](website_manager_group/) | 17.0.1.0.0 |  | new Website Permission Group to limit access for designers & editors
 [website_messages_base](website_messages_base/) | 17.0.1.0.1 |  | Base for website messages features

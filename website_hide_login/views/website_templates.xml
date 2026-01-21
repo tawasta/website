@@ -43,4 +43,18 @@
         </xpath>
     </template>
 
+    <template
+        id="signup_account"
+        inherit_id="auth_signup.login"
+        name="Hide 'Don't have an account?'"
+        active="True"
+        customize_show="True"
+    >
+        <xpath
+            expr="//div[@class='justify-content-between mt-2 d-flex small']"
+            position="attributes"
+        >
+            <attribute name="class">d-none</attribute>
+        </xpath>
+    </template>
 </odoo>
