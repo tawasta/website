@@ -6,7 +6,7 @@ function applyColumnLayout(container, itemSelector = "div") {
     const closestEl = container.closest("[data-column-count]");
     const count = Number(closestEl ? closestEl.dataset.columnCount : undefined) || 1;
 
-    const colClassMap = { 2: "col-6", 3: "col-4", 4: "col-3", 5: "col-2", 6: "col-2" };
+    const colClassMap = {2: "col-6", 3: "col-4", 4: "col-3", 5: "col-2", 6: "col-2"};
     const colClass = colClassMap[count] || "col-12";
 
     const row = container.querySelector(".row");
@@ -87,13 +87,17 @@ const BlogPostCustomizer = publicWidget.Widget.extend({
 
             // Poista kuva, jos valittu pois
             if (!showImage) {
-                container.querySelectorAll(".o_record_cover_container").forEach((el) => el.remove());
+                container
+                    .querySelectorAll(".o_record_cover_container")
+                    .forEach((el) => el.remove());
             }
 
             // Poista tagit, jos valittu pois
             // Huom: tämä osuu sekä clean-list että card-layoutiin (badge/tag-alueet)
             if (!showTags) {
-                container.querySelectorAll(".fw-normal, .d-flex.flex-wrap.gap-2").forEach((el) => el.remove());
+                container
+                    .querySelectorAll(".fw-normal, .d-flex.flex-wrap.gap-2")
+                    .forEach((el) => el.remove());
             }
 
             // Poista blogin nimi (clean-listissä se on tuo text-uppercase...)
@@ -111,4 +115,4 @@ const BlogPostCustomizer = publicWidget.Widget.extend({
 
 publicWidget.registry.blog_post_customizer = BlogPostCustomizer;
 
-export { BlogPostCustomizer };
+export {BlogPostCustomizer};
