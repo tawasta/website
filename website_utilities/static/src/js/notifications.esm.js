@@ -1,25 +1,25 @@
 /** @odoo-module **/
 
-import { _t } from "@web/core/l10n/translation";
+import {_t} from "@web/core/l10n/translation";
 
 let container = null;
 
 const TYPE_CONFIG = {
-    info: { color: "#007bff", iconClass: "fa fa-info-circle" },
-    success: { color: "#28a745", iconClass: "fa fa-check-circle" },
-    warning: { color: "#ffc107", iconClass: "fa fa-exclamation-triangle" },
-    error: { color: "#dc3545", iconClass: "fa fa-times-circle" },
+    info: {color: "#007bff", iconClass: "fa fa-info-circle"},
+    success: {color: "#28a745", iconClass: "fa fa-check-circle"},
+    warning: {color: "#ffc107", iconClass: "fa fa-exclamation-triangle"},
+    error: {color: "#dc3545", iconClass: "fa fa-times-circle"},
 };
 
 /**
  * Näyttää toast-notifikaation.
  *
  * @param {Object} opts - Asetukset
- * @param {string} [opts.title=_t("Notice")] - Otsikko
- * @param {string} opts.message - Viesti (pakollinen)
+ * @param {String} [opts.title=_t("Notice")] - Otsikko
+ * @param {String} opts.message - Viesti (pakollinen)
  * @param {'info'|'success'|'warning'|'error'} [opts.type='info'] - Tyyppi
- * @param {number} [opts.duration=5000] - Näyttöaika millisekunteina
- * @param {boolean} [opts.dismissible=true] - Voiko sulkea manuaalisesti
+ * @param {Number} [opts.duration=5000] - Näyttöaika millisekunteina
+ * @param {Boolean} [opts.dismissible=true] - Voiko sulkea manuaalisesti
  */
 export function showNotification({
     title = _t("Notice"),
@@ -55,7 +55,7 @@ export function showNotification({
         document.body.appendChild(container);
     }
 
-    const { color, iconClass } = TYPE_CONFIG[type] || TYPE_CONFIG.info;
+    const {color, iconClass} = TYPE_CONFIG[type] || TYPE_CONFIG.info;
 
     const toast = document.createElement("div");
     toast.className = `custom-toast custom-toast-${type}`;
@@ -86,9 +86,35 @@ export function showNotification({
         </div>
     `;
 
+    // Define first -> no-use-before-define fixed
+    const dismissToast = (element, timeoutId) => {
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
+        element.style.animation = "toastFadeOut 0.35s ease forwards";
+        element.setAttribute("aria-hidden", "true");
+        element.removeAttribute("role");
+        element.removeAttribute("tabindex");
+
+        element.addEventListener(
+            "animationend",
+            () => {
+                element.remove();
+                if (container && container.children.length === 0) {
+                    container.remove();
+                    container = null;
+                }
+            },
+            {once: true}
+        );
+    };
+
+    let timeoutId = null;
+
     if (dismissible) {
         const btn = document.createElement("button");
         btn.setAttribute("aria-label", _t("Close notification"));
+        btn.type = "button";
         btn.style.cssText = `
             background: transparent;
             border: none;
@@ -103,11 +129,11 @@ export function showNotification({
             transition: color 0.2s ease;
         `;
         btn.innerHTML = "&times;";
-        btn.onclick = () => dismissToast(toast);
+        btn.onclick = () => dismissToast(toast, timeoutId);
         btn.onkeydown = (ev) => {
             if (ev.key === "Enter" || ev.key === " ") {
                 ev.preventDefault();
-                dismissToast(toast);
+                dismissToast(toast, timeoutId);
             }
         };
         toast.appendChild(btn);
@@ -116,25 +142,9 @@ export function showNotification({
     container.appendChild(toast);
     toast.focus();
 
-    const timeoutId = setTimeout(() => {
-        dismissToast(toast);
+    timeoutId = window.setTimeout(() => {
+        dismissToast(toast, timeoutId);
     }, duration);
-
-    function dismissToast(element) {
-        clearTimeout(timeoutId);
-        element.style.animation = "toastFadeOut 0.35s ease forwards";
-        element.setAttribute("aria-hidden", "true");
-        element.removeAttribute("role");
-        element.removeAttribute("tabindex");
-
-        element.addEventListener("animationend", () => {
-            element.remove();
-            if (container && container.children.length === 0) {
-                container.remove();
-                container = null;
-            }
-        }, { once: true });
-    }
 }
 
 if (!document.getElementById("custom-toast-styles")) {

@@ -23,8 +23,8 @@
     "summary": "Useful website utilities",
     "version": "17.0.1.0.0",
     "category": "Website",
-    "website": "https://gitlab.com/tawasta/odoo/website",
-    "author": "Tawasta",
+    "website": "https://github.com/tawasta/website",
+    "author": "Futural",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
@@ -34,8 +34,8 @@
         "web.assets_frontend": [
             "/website_utilities/static/src/js/loader.esm.js",
             "/website_utilities/static/src/js/notifications.esm.js",
-            #"/website_utilities/static/src/js/toast.esm.js",
-            #"/website_utilities/static/src/css/toast.scss",
+            # "/website_utilities/static/src/js/toast.esm.js",
+            # "/website_utilities/static/src/css/toast.scss",
         ]
     },
 }

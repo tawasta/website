@@ -1,6 +1,6 @@
 /** @odoo-module **/
 
-import { _t } from "@web/core/l10n/translation";
+import {_t} from "@web/core/l10n/translation";
 
 /**
  * Luodaan overlay-elementti dynaamisesti.
