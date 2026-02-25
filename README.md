@@ -34,6 +34,7 @@ addon | version | maintainers | summary
 [website_blog_tag_html_description](website_blog_tag_html_description/) | 17.0.1.0.0 |  | New field, shown in frontend tag page when only single tag is selected
 [website_blog_tag_tag_specific_styling](website_blog_tag_tag_specific_styling/) | 17.0.1.0.1 |  | Add classes to blog-related DOM elements, to be then styled with website builder's CSS editor
 [website_blog_tag_widget](website_blog_tag_widget/) | 17.0.1.0.1 |  | Website
+[website_blog_view_domain](website_blog_view_domain/) | 17.0.1.0.0 |  | Website Blog: blog_id domain by website
 [website_crm_contact_form_select_based_lead_name](website_crm_contact_form_select_based_lead_name/) | 17.0.1.0.0 |  | Allows configuring web leads' subject to be based on a selection list instead of freetext
 [website_custom_redirect](website_custom_redirect/) | 17.0.1.0.0 |  | Allows customizing where to redirect website users
 [website_disable_free_sign_up_in_login](website_disable_free_sign_up_in_login/) | 17.0.1.0.0 |  | Disable to create an account from login when 'Free sign up' is enabled
