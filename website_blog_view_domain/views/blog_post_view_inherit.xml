@@ -7,25 +7,18 @@
         <field name="inherit_id" ref="website_blog.blog_post_view_form_add"/>
 
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='blog_id']" position="attributes">
-                <attribute name="domain">
-                    ['|', ('website_id','=',False),
-                        ('website_id','=', context.get('website_id'))]
-                </attribute>
-            </xpath>
-        </field>
-    </record>
+            <xpath expr="//field[@name='blog_id']" position="replace">
 
-    <record id="blog_post_view_form_add_domain_manager" model="ir.ui.view">
-        <field name="name">blog.post.view.form.add.domain.manager</field>
-        <field name="model">blog.post</field>
-        <field name="inherit_id" ref="website_blog.blog_post_view_form_add"/>
-        <field name="priority" eval="999"/>
+                <!-- 1) Kaikille muille kuin website managerille: rajaus website_id mukaan -->
+                <field name="blog_id" string="Select Blog"
+                    groups="!website_manager_group.group_website_manager"
+                    domain="['|', ('website_id','=',False),
+                                    ('website_id','=', context.get('website_id'))]"/>
 
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='blog_id']" position="attributes"
-                groups="website_manager_group.group_website_manager">
-                <attribute name="domain">[]</attribute>
+                <!-- 2) Website managerille: ei rajausta -->
+                <field name="blog_id" string="Select Blog"
+                    groups="website_manager_group.group_website_manager"/>
+
             </xpath>
         </field>
     </record>
