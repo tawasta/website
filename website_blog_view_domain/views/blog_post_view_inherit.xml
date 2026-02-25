@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- 1) Kaikille: website_id -domain -->
-    <record id="blog_post_view_form_add_inherit_website_domain_all" model="ir.ui.view">
-        <field name="name">blog.post.view.form.add.inherit.website.domain.all</field>
+    <!-- 1) Kaikille käyttäjille: rajaa blog_id website_id:n mukaan -->
+    <record id="blog_post_view_form_add_domain_by_website_all" model="ir.ui.view">
+        <field name="name">blog.post.view.form.add.domain.by.website.all</field>
         <field name="model">blog.post</field>
         <field name="inherit_id" ref="website_blog.blog_post_view_form_add"/>
         <field name="arch" type="xml">
@@ -16,17 +16,22 @@
         </field>
     </record>
 
-    <!-- 2) Website manager: poista domain -->
-    <record id="blog_post_view_form_add_inherit_website_domain_manager_override" model="ir.ui.view">
-        <field name="name">blog.post.view.form.add.inherit.website.domain.manager.override</field>
+    <!-- 2) Poikkeus: website manager -ryhmä näkee KAIKKI -> domain tyhjäksi -->
+    <record id="blog_post_view_form_add_domain_manager_override" model="ir.ui.view">
+        <field name="name">blog.post.view.form.add.domain.manager.override</field>
         <field name="model">blog.post</field>
         <field name="inherit_id" ref="website_blog.blog_post_view_form_add"/>
+
+        <!-- tämä on se ainoa ryhmä, jota tarvitsee käyttää -->
         <field name="groups_id" eval="[(6,0,[ref('website_manager_group.group_website_manager')])]"/>
-        <field name="priority" eval="100"/>
+
+        <!-- varmistaa että override ajetaan viimeisenä -->
+        <field name="priority" eval="999"/>
+
         <field name="arch" type="xml">
             <xpath expr="//field[@name='blog_id']" position="attributes">
-                <!-- tyhjä domain = ei rajausta -->
-                <attribute name="domain"></attribute>
+                <!-- IMPORTANT: käytä [] (tyhjä domain) eikä tyhjää tagia -->
+                <attribute name="domain">[]</attribute>
             </xpath>
         </field>
     </record>
