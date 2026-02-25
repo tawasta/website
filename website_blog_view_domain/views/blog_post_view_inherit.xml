@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- 1) Kaikille: website_id -domain -->
+    <record id="blog_post_view_form_add_inherit_website_domain_all" model="ir.ui.view">
+        <field name="name">blog.post.view.form.add.inherit.website.domain.all</field>
+        <field name="model">blog.post</field>
+        <field name="inherit_id" ref="website_blog.blog_post_view_form_add"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='blog_id']" position="attributes">
+                <attribute name="domain">
+                    ['|', ('website_id','=',False),
+                          ('website_id','=', context.get('website_id'))]
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- 2) Website manager: poista domain -->
+    <record id="blog_post_view_form_add_inherit_website_domain_manager_override" model="ir.ui.view">
+        <field name="name">blog.post.view.form.add.inherit.website.domain.manager.override</field>
+        <field name="model">blog.post</field>
+        <field name="inherit_id" ref="website_blog.blog_post_view_form_add"/>
+        <field name="groups_id" eval="[(6,0,[ref('website_manager_group.group_website_manager')])]"/>
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='blog_id']" position="attributes">
+                <!-- tyhjä domain = ei rajausta -->
+                <attribute name="domain"></attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
