@@ -54,6 +54,7 @@ addon | version | maintainers | summary
 [website_slides_settings](website_slides_settings/) | 17.0.1.0.2 |  | Website Slides toggleable settings under website customize menu
 [website_snippet_filter_core](website_snippet_filter_core/) | 17.0.1.0.0 |  | Refactored _prepare_values for extensible snippet filtering
 [website_team_snippet](website_team_snippet/) | 17.0.1.0.1 |  | Snippet for showing e.g. company personnel on a web page
+[website_utilities](website_utilities/) | 17.0.1.0.0 |  | Useful website utilities
 [website_visibility_base](website_visibility_base/) | 17.0.1.0.0 |  | Website Visibility Base
 [website_visibility_blog](website_visibility_blog/) | 17.0.1.0.0 |  | Website Blog: Visibility
 [website_visibility_event](website_visibility_event/) | 17.0.1.0.0 |  | Website Event: Visibility
