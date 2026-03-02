@@ -13,6 +13,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [auth_signup_url_referer_fix](auth_signup_url_referer_fix/) | 17.0.1.0.0 |  | Fix signup URL domain mismatch using HTTP Referer
+[partner_data_prompt_lock_modal](partner_data_prompt_lock_modal/) | 17.0.1.0.0 |  | Partner Data Prompt – Force Completion
 [partner_data_promt](partner_data_promt/) | 17.0.1.0.0 |  | Prompts portal users to complete their email via modal if missing
 [portal_details_domicile](portal_details_domicile/) | 17.0.1.0.0 |  | Portal details - Edit domicile information
 [portal_details_firstname](portal_details_firstname/) | 17.0.1.0.0 |  | Portal details replace name with first name and last name
@@ -50,6 +51,7 @@ addon | version | maintainers | summary
 [website_portal_username_change](website_portal_username_change/) | 17.0.1.0.0 |  | website_portal_username_change
 [website_references_snippet](website_references_snippet/) | 17.0.1.0.1 |  | Snippet for showing e.g. company's clients on a web page
 [website_remove_editor_rights_from_sale_administrators](website_remove_editor_rights_from_sale_administrators/) | 17.0.1.0.0 |  | Remove the automatically granted editor access
+[website_resource_editor_warning_admin_disable](website_resource_editor_warning_admin_disable/) | 17.0.1.0.0 |  | Disable resource editor warning for admins
 [website_settings](website_settings/) | 17.0.1.0.0 |  | Website toggleable settings under customize menu and other setting options
 [website_slides_settings](website_slides_settings/) | 17.0.1.0.2 |  | Website Slides toggleable settings under website customize menu
 [website_snippet_filter_core](website_snippet_filter_core/) | 17.0.1.0.0 |  | Refactored _prepare_values for extensible snippet filtering
