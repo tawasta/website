@@ -33,6 +33,7 @@
                                         type="text"
                                         class="form-control"
                                         t-att-data-required="field.get('required', False) and 'true' or 'false'"
+                                        t-att-pattern="field['name'] == 'email' and '[^@]+@[^@]+\\.[^@]+' or None"
                                         t-att-value="field.get('value', '')"
                                     />
                 </t>
