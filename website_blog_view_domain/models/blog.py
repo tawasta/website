@@ -1,24 +1,24 @@
-# -*- coding: utf-8 -*-
 import logging
+
 from odoo import api, models
 from odoo.osv import expression
 
 _logger = logging.getLogger(__name__)
 
+
 class BlogBlog(models.Model):
     _inherit = "blog.blog"
 
     def _get_current_website_id(self):
-        website = self.env['website'].get_current_website()
+        website = self.env["website"].get_current_website()
         wid = website.id if website else False
-        _logger.info("BLOG DEBUG: get_current_website() -> %s", wid)
         return wid
 
     def _website_filter_domain(self):
         wid = self._get_current_website_id()
         if not wid:
             return []
-        return [('website_id', '=', wid)]   # vain tämän websiten blogit
+        return [("website_id", "=", wid)]  # vain tämän websiten blogit
 
     def _apply_website_filter(self, domain):
         domain = domain or []
@@ -42,14 +42,11 @@ class BlogBlog(models.Model):
         domain = self._apply_website_filter(domain or [])
         return super().search_count(domain)
 
-    # ✅ Odoo 17 core signatuuri
     @api.model
-    def web_search_read(self, domain, specification, offset=0, limit=None, order=None, count_limit=None):
+    def web_search_read(
+        self, domain, specification, offset=0, limit=None, order=None, count_limit=None
+    ):
         domain = self._apply_website_filter(domain or [])
-        _logger.info(
-            "BLOG DEBUG: web_search_read domain=%s spec_keys=%s",
-            domain, list((specification or {}).keys())
-        )
         return super().web_search_read(
             domain,
             specification,
