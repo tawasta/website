@@ -30,6 +30,6 @@
     "installable": True,
     "depends": ["website_blog"],
     "data": [
-        "views/blog_post_view_inherit.xml",
+        # "views/blog_post_view_inherit.xml",
     ],
 }
