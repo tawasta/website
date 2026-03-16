@@ -59,6 +59,7 @@ addon | version | maintainers | summary
 [website_visibility_event](website_visibility_event/) | 17.0.1.0.0 |  | Website Event: Visibility
 [website_visibility_product](website_visibility_product/) | 17.0.1.0.0 |  | Website Product: Visibility
 [website_visibility_slides](website_visibility_slides/) | 17.0.1.0.0 |  | Website Slide: Visibility
+[website_visitor_improve](website_visitor_improve/) | 17.0.1.0.0 |  | Improve website visitor cleanup cron by enforcing search limit
 
 
 Unported addons

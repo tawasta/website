@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="website.website_visitor_cron" model="ir.cron">
-        <field name="code">model._cron_unlink_old_visitors(batch_size=500, limit=500)</field>
+        <field
+            name="code"
+        >model._cron_unlink_old_visitors(batch_size=500, limit=500)</field>
     </record>
 </odoo>
