@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="s_membership_fee_calculator" name="Membership Fee Calculator">
+        <section class="s_membership_fee_calculator pt32 pb32">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8 col-12">
+                        <div class="mfc_card card shadow-sm">
+                            <div class="card-body p-4">
+                                <h4 class="mfc_title card-title mb-3 text-center">
+                                    Membership Fee Calculator
+                                </h4>
+                                <p class="mfc_subtitle text-muted text-center mb-4">
+                                    Enter your details below to estimate your membership fee.
+                                </p>
+
+                                <div class="mfc_form_group mb-3">
+                                    <label
+                                        class="form-label mfc_label"
+                                        for="calculator_fee_basis"
+                                    >
+                                    Annual Turnover
+                                </label>
+                                    <div class="input-group">
+                                        <input
+                                            type="text"
+                                            id="calculator_fee_basis"
+                                            class="form-control mfc_input"
+                                            inputmode="decimal"
+                                            placeholder="0.00"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div class="d-grid mb-3">
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary mfc_calculate_btn"
+                                    >
+                                        Calculate
+                                    </button>
+                                </div>
+
+                                <div
+                                    id="calculator_fee_result"
+                                    class="mfc_result text-center fw-bold fs-5"
+                                    style="min-height:2rem;"
+                                >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

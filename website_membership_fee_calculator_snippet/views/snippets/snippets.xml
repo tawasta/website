@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template
+        id="s_membership_fee_calculator_snippet"
+        inherit_id="website.snippets"
+        name="Membership Fee Calculator – snippet menu entry"
+    >
+        <xpath
+            expr="//div[@id='snippet_effect']/div[hasclass('o_panel_body')]"
+            position="inside"
+        >
+            <t
+                t-snippet="website_membership_fee_calculator_snippet.s_membership_fee_calculator"
+                string="Membership Fee Calculator"
+                t-thumbnail="/website_membership_fee_calculator_snippet/static/description/snippet_thumb.svg"
+            />
+        </xpath>
+    </template>
+</odoo>
