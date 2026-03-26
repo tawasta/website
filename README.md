@@ -47,6 +47,7 @@ addon | version | maintainers | summary
 [website_hide_login](website_hide_login/) | 17.0.1.1.0 |  | Hide Odoo native login, but show oAuth-logins
 [website_hide_login_database_link](website_hide_login_database_link/) | 17.0.1.0.0 |  | Hides Database link on the login screen
 [website_manager_group](website_manager_group/) | 17.0.1.0.0 |  | new Website Permission Group to limit access for designers & editors
+[website_membership_fee_calculator_snippet](website_membership_fee_calculator_snippet/) | 17.0.1.0.0 |  | Drag-and-drop website snippet for visitor to estimate membership fees
 [website_messages_base](website_messages_base/) | 17.0.1.0.1 |  | Base for website messages features
 [website_portal_username_change](website_portal_username_change/) | 17.0.1.0.0 |  | website_portal_username_change
 [website_references_snippet](website_references_snippet/) | 17.0.1.0.1 |  | Snippet for showing e.g. company's clients on a web page
