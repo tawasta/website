@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="blog_post_view_form_add_domain_all" model="ir.ui.view">
+        <field name="name">blog.post.view.form.add.domain.all</field>
+        <field name="model">blog.post</field>
+        <field name="priority" eval="101" />
+        <field name="inherit_id" ref="website_blog.blog_post_view_form_add" />
+
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='blog_id']" position="replace">
+
+                <!-- 1) Kaikille muille kuin website managerille: rajaus website_id mukaan -->
+                <field
+                    name="blog_id"
+                    string="Select Blog"
+                    groups="!website_manager_group.group_website_manager"
+                    domain="['|', ('website_id','=',False),
+                                    ('website_id','=', context.get('website_id'))]"
+                />
+
+                <!-- 2) Website managerille: ei rajausta -->
+                <field
+                    name="blog_id"
+                    string="Select Blog"
+                    groups="website_manager_group.group_website_manager"
+                />
+
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
