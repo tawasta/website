@@ -29,7 +29,7 @@ class BlogBlog(models.Model):
             )
             return []
 
-        is_manager = self.env.user.has_group("website.group_website_manager")
+        is_manager = self.env.user.has_group("website_manager_group.group_website_manager")
         has_visible_websites = "visible_website_ids" in self._fields
 
         _logger.warning(
