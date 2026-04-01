@@ -13,13 +13,26 @@ class BlogBlog(models.Model):
         website = self.env["website"].get_current_website()
         wid = website.id if website else False
         _logger.warning(
-            "[blog.blog] Current website resolved: website=%s wid=%s " "user=%s(%s)",
+            "[blog.blog] Current website resolved: "
+            "website=%s wid=%s user=%s(%s)",
             website.display_name if website else None,
             wid,
             self.env.user.login,
             self.env.user.id,
         )
         return wid
+
+    def _is_website_manager(self):
+        is_manager = self.env.user.has_group(
+            "website_manager_group.group_website_manager"
+        )
+        _logger.warning(
+            "[blog.blog] _is_website_manager: user=%s(%s) manager=%s",
+            self.env.user.login,
+            self.env.user.id,
+            is_manager,
+        )
+        return is_manager
 
     def _website_filter_domain(self):
         wid = self._get_current_website_id()
@@ -29,7 +42,7 @@ class BlogBlog(models.Model):
             )
             return []
 
-        is_manager = self.env.user.has_group("website_manager_group.group_website_manager")
+        is_manager = self._is_website_manager()
         has_visible_websites = "visible_website_ids" in self._fields
 
         _logger.warning(
@@ -53,8 +66,8 @@ class BlogBlog(models.Model):
                 ]
             else:
                 _logger.warning(
-                    "[blog.blog] Field visible_website_ids not found "
-                    "on blog.blog, fallback domain used"
+                    "[blog.blog] Field visible_website_ids not found on "
+                    "blog.blog, fallback domain used"
                 )
                 domain = [
                     "|",
@@ -81,30 +94,53 @@ class BlogBlog(models.Model):
         final_domain = expression.AND([domain, wdom]) if wdom else domain
 
         _logger.warning(
-            "[blog.blog] Apply website filter: "
-            "original_domain=%s website_domain=%s final_domain=%s",
+            "[blog.blog] Apply website filter: original_domain=%s "
+            "website_domain=%s final_domain=%s",
             domain,
             wdom,
             final_domain,
         )
         return final_domain
 
+    def _search_env_for_test(self):
+        is_manager = self._is_website_manager()
+        if is_manager:
+            _logger.warning(
+                "[blog.blog] Using sudo() for manager search in test"
+            )
+            return self.sudo()
+        return self
+
     @api.model
     def name_search(self, name="", args=None, operator="ilike", limit=100):
-        args = self._apply_website_filter(args or [])
         _logger.warning(
-            "[blog.blog] name_search called: name=%s operator=%s " "limit=%s args=%s",
+            "[blog.blog] RAW name_search incoming: name=%s args=%s "
+            "operator=%s limit=%s",
             name,
+            args,
             operator,
             limit,
-            args,
         )
-        res = super().name_search(
+
+        args = self._apply_website_filter(args or [])
+
+        _logger.warning(
+            "[blog.blog] FILTERED name_search: name=%s args=%s "
+            "operator=%s limit=%s",
+            name,
+            args,
+            operator,
+            limit,
+        )
+
+        model = self._search_env_for_test()
+        res = super(BlogBlog, model).name_search(
             name=name,
             args=args,
             operator=operator,
             limit=limit,
         )
+
         _logger.warning(
             "[blog.blog] name_search result count=%s result=%s",
             len(res),
@@ -114,35 +150,73 @@ class BlogBlog(models.Model):
 
     @api.model
     def search(self, domain=None, offset=0, limit=None, order=None):
-        domain = self._apply_website_filter(domain or [])
         _logger.warning(
-            "[blog.blog] search called: domain=%s offset=%s " "limit=%s order=%s",
+            "[blog.blog] RAW search incoming: domain=%s offset=%s "
+            "limit=%s order=%s",
             domain,
             offset,
             limit,
             order,
         )
-        res = super().search(
+
+        domain = self._apply_website_filter(domain or [])
+
+        _logger.warning(
+            "[blog.blog] FILTERED search: domain=%s offset=%s "
+            "limit=%s order=%s",
+            domain,
+            offset,
+            limit,
+            order,
+        )
+
+        model = self._search_env_for_test()
+        res = super(BlogBlog, model).search(
             domain,
             offset=offset,
             limit=limit,
             order=order,
         )
+
         _logger.warning(
             "[blog.blog] search result ids=%s count=%s",
             res.ids,
             len(res),
         )
+
+        for blog in res:
+            _logger.warning(
+                "[blog.blog] result record: id=%s name=%s "
+                "website_id=%s visible_website_ids=%s",
+                blog.id,
+                blog.display_name,
+                blog.website_id.id if blog.website_id else False,
+                (
+                    blog.visible_website_ids.ids
+                    if "visible_website_ids" in blog._fields
+                    else []
+                ),
+            )
+
         return res
 
     @api.model
     def search_count(self, domain=None):
-        domain = self._apply_website_filter(domain or [])
         _logger.warning(
-            "[blog.blog] search_count called: domain=%s",
+            "[blog.blog] RAW search_count incoming: domain=%s",
             domain,
         )
-        res = super().search_count(domain)
+
+        domain = self._apply_website_filter(domain or [])
+
+        _logger.warning(
+            "[blog.blog] FILTERED search_count: domain=%s",
+            domain,
+        )
+
+        model = self._search_env_for_test()
+        res = super(BlogBlog, model).search_count(domain)
+
         _logger.warning(
             "[blog.blog] search_count result=%s",
             res,
@@ -159,11 +233,9 @@ class BlogBlog(models.Model):
         order=None,
         count_limit=None,
     ):
-        domain = self._apply_website_filter(domain or [])
         _logger.warning(
-            "[blog.blog] web_search_read called: domain=%s "
-            "spec_keys=%s offset=%s limit=%s order=%s "
-            "count_limit=%s",
+            "[blog.blog] RAW web_search_read incoming: domain=%s "
+            "spec_keys=%s offset=%s limit=%s order=%s count_limit=%s",
             domain,
             list(specification.keys()) if specification else [],
             offset,
@@ -171,7 +243,16 @@ class BlogBlog(models.Model):
             order,
             count_limit,
         )
-        res = super().web_search_read(
+
+        domain = self._apply_website_filter(domain or [])
+
+        _logger.warning(
+            "[blog.blog] FILTERED web_search_read: domain=%s",
+            domain,
+        )
+
+        model = self._search_env_for_test()
+        res = super(BlogBlog, model).web_search_read(
             domain,
             specification,
             offset=offset,
@@ -179,6 +260,7 @@ class BlogBlog(models.Model):
             order=order,
             count_limit=count_limit,
         )
+
         _logger.warning(
             "[blog.blog] web_search_read result=%s",
             res,
