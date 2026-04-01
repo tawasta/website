@@ -64,7 +64,6 @@ class BlogBlog(models.Model):
 
     @api.model
     def name_search(self, name="", args=None, operator="ilike", limit=100):
-
         args = self._apply_website_filter(args or [])
 
         model = self._search_env_for_test()
@@ -79,7 +78,6 @@ class BlogBlog(models.Model):
 
     @api.model
     def search(self, domain=None, offset=0, limit=None, order=None):
-
         domain = self._apply_website_filter(domain or [])
 
         model = self._search_env_for_test()
@@ -94,7 +92,6 @@ class BlogBlog(models.Model):
 
     @api.model
     def search_count(self, domain=None):
-
         domain = self._apply_website_filter(domain or [])
 
         model = self._search_env_for_test()
@@ -112,7 +109,6 @@ class BlogBlog(models.Model):
         order=None,
         count_limit=None,
     ):
-
         domain = self._apply_website_filter(domain or [])
 
         model = self._search_env_for_test()
