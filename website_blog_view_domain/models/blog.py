@@ -18,12 +18,20 @@ class BlogBlog(models.Model):
         wid = self._get_current_website_id()
         if not wid:
             return []
-        return [("website_id", "=", wid)]  # vain tämän websiten blogit
+
+        if self.env.user.has_group("website.group_website_manager"):
+            return [
+                "|",
+                "|",
+                ("website_id", "=", False),
+                ("website_id", "=", wid),
+                ("visible_website_ids", "in", [wid]),
+            ]
+
+        return [("website_id", "=", wid)]
 
     def _apply_website_filter(self, domain):
         domain = domain or []
-        if self.env.user.has_group("website.group_website_manager"):
-            return domain
         wdom = self._website_filter_domain()
         return expression.AND([domain, wdom]) if wdom else domain
 
