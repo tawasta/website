@@ -18,7 +18,13 @@ class BlogBlog(models.Model):
         wid = self._get_current_website_id()
         if not wid:
             return []
-        return [("website_id", "=", wid)]  # vain tämän websiten blogit
+
+        return [
+            "|", "|",
+            ("website_id", "=", False),
+            ("website_id", "=", wid),
+            ("website_ids", "in", [wid]),
+        ]
 
     def _apply_website_filter(self, domain):
         domain = domain or []
