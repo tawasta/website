@@ -23,7 +23,7 @@ class BlogBlog(models.Model):
             "|", "|",
             ("website_id", "=", False),
             ("website_id", "=", wid),
-            ("website_ids", "in", [wid]),
+            ("visible_website_ids", "in", [wid]),
         ]
 
     def _apply_website_filter(self, domain):
