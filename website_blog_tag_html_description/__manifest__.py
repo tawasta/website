@@ -21,7 +21,7 @@
 {
     "name": "Website Blog: HTML Description for Tag",
     "summary": "New field, shown in frontend tag page when only single tag is selected",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "category": "Website",
     "website": "https://github.com/tawasta/website",
     "author": "Futural",
