@@ -10,7 +10,7 @@
         >
             <t t-if="show_tag_html_description">
                 <h1 t-field="active_tag_id.name" />
-                <t t-raw="active_tag_id.html_description" />
+                <t t-out="active_tag_id.html_description" />
             </t>
         </xpath>
 
