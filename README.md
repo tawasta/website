@@ -32,7 +32,7 @@ addon | version | maintainers | summary
 [website_blog_snippet_extra_options](website_blog_snippet_extra_options/) | 17.0.1.0.0 |  | Additional configurations for the core snippet
 [website_blog_snippet_templates](website_blog_snippet_templates/) | 17.0.1.0.1 |  | Website
 [website_blog_tag_filter](website_blog_tag_filter/) | 17.0.1.0.0 |  | Display blog posts by tag on /tag/<id>
-[website_blog_tag_html_description](website_blog_tag_html_description/) | 17.0.1.0.0 |  | New field, shown in frontend tag page when only single tag is selected
+[website_blog_tag_html_description](website_blog_tag_html_description/) | 17.0.1.0.1 |  | New field, shown in frontend tag page when only single tag is selected
 [website_blog_tag_tag_specific_styling](website_blog_tag_tag_specific_styling/) | 17.0.1.0.1 |  | Add classes to blog-related DOM elements, to be then styled with website builder's CSS editor
 [website_blog_tag_widget](website_blog_tag_widget/) | 17.0.1.0.1 |  | Website
 [website_blog_view_domain](website_blog_view_domain/) | 17.0.1.0.0 |  | Website Blog: blog_id domain by website
