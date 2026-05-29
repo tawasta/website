@@ -30,13 +30,18 @@
     "depends": ["website"],
     "data": [
         "security/ir.model.access.csv",
-        "views/snippets/references_snippet.xml",
-        "views/snippets/snippets.xml",
         "views/reference.xml",
+        "data/snippet_filter.xml",
+        "views/snippets/s_references.xml",
+        "views/snippets/snippets.xml",
+        "views/snippets/options.xml",
     ],
     "assets": {
         "web.assets_frontend": [
-            "/website_references_snippet/static/src/js/references.esm.js",
-        ]
+            "website_references_snippet/static/src/snippets/s_references/000.esm.js",
+        ],
+        "website.assets_wysiwyg": [
+            "website_references_snippet/static/src/snippets/s_references/options.esm.js",
+        ],
     },
 }

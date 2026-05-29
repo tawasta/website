@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="s_references" name="References">
+        <section
+            class="s_references_snippet s_dynamic_snippet py-5 bg-100"
+            data-snippet="s_references"
+            data-name="References"
+            data-filter-id="website_references_snippet.dynamic_filter_references"
+            data-template-key="website_references_snippet.dynamic_filter_template_res_references_card"
+            data-number-of-records="6"
+            data-filter-by-category-ids="[]">
+
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-6 fw-bold mb-3">Our References</h2>
+                </div>
+
+                <div class="row g-4 dynamic_snippet_template"/>
+            </div>
+        </section>
+    </template>
+
+    <template id="dynamic_filter_template_res_references_card" name="References Card">
+        <t t-foreach="records" t-as="data">
+            <t t-set="record" t-value="data['_record']"/>
+
+            <div class="col-12">
+                <article class="card h-100 border shadow rounded-4 overflow-hidden bg-white">
+
+                    <div class="ratio ratio-4x3 bg-light border-bottom">
+                        <div class="d-flex align-items-center justify-content-center p-5">
+                            <img
+                                t-if="data.get('image')"
+                                t-att-src="data['image']"
+                                t-att-alt="record.name"
+                                class="img-fluid mh-100"/>
+
+                            <div
+                                t-if="not data.get('image')"
+                                class="bg-white border rounded-circle d-flex align-items-center justify-content-center p-4">
+                                <i class="fa fa-building fa-2x text-muted" aria-hidden="true"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body p-4 d-flex flex-column">
+                        <h3 class="h4 fw-bold mb-3" t-field="record.name"/>
+
+                        <p
+                            t-if="record.description"
+                            class="text-muted mb-4"
+                            t-field="record.description"/>
+
+                        <div class="mt-auto pt-3" t-if="record.link">
+                            <a
+                                t-att-href="record.link"
+                                class="btn btn-primary w-100 fw-semibold">
+                                View Reference
+                                <i class="fa fa-arrow-right ms-2" aria-hidden="true"/>
+                            </a>
+                        </div>
+                    </div>
+
+                </article>
+            </div>
+        </t>
+    </template>
+</odoo>

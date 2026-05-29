@@ -1,46 +1,101 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-        <record id="res_references_form_view" model="ir.ui.view">
-            <field name="name">res.references.form.view</field>
-            <field name="model">res.references</field>
-            <field name="arch" type="xml">
-                <form string="References">
-                    <sheet>
-                        <field name="image" widget="image" class="oe_avatar" />
-                        <group>
-                            <field name="name" />
-                            <field name="link" placeholder="https://example.com" />
-                            <field name="description" />
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
+    <record id="res_references_category_view_tree" model="ir.ui.view">
+        <field name="name">res.references.category.tree</field>
+        <field name="model">res.references.category</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
 
-        <record id="res_references_tree_view" model="ir.ui.view">
-            <field name="name">res.references.tree.view</field>
-            <field name="model">res.references</field>
-            <field name="arch" type="xml">
-                <tree>
-                    <field name="sequence" widget="handle" />
-                    <field name="name" />
-                    <field name="description" />
-                    <field name="link" placeholder="https://example.com" />
-                </tree>
-            </field>
-        </record>
+    <record id="res_references_category_view_form" model="ir.ui.view">
+        <field name="name">res.references.category.form</field>
+        <field name="model">res.references.category</field>
+        <field name="arch" type="xml">
+            <form string="Reference Category">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="sequence"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-        <record id="res_references_action" model="ir.actions.act_window">
-            <field name="name">References</field>
-            <field name="res_model">res.references</field>
-            <field name="view_mode">tree,form</field>
-        </record>
+    <record id="res_references_category_action" model="ir.actions.act_window">
+        <field name="name">Reference Categories</field>
+        <field name="res_model">res.references.category</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 
-        <menuitem
-        id="res_references_menu"
+    <record id="res_references_view_tree" model="ir.ui.view">
+        <field name="name">res.references.tree</field>
+        <field name="model">res.references</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="category_id"/>
+                <field name="link"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="res_references_view_form" model="ir.ui.view">
+        <field name="name">res.references.form</field>
+        <field name="model">res.references</field>
+        <field name="arch" type="xml">
+            <form string="Reference">
+                <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <group>
+                        <field name="name"/>
+                        <field name="category_id"/>
+                        <field name="link" placeholder="https://example.com"/>
+                        <field name="sequence"/>
+                        <field name="active"/>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="res_references_action" model="ir.actions.act_window">
+        <field name="name">References</field>
+        <field name="res_model">res.references</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="res_references_root_menu"
         name="References"
         parent="website.menu_content"
-        action="res_references_action"
+        sequence="50"
     />
 
+    <menuitem
+        id="res_references_menu"
+        name="References"
+        parent="res_references_root_menu"
+        action="res_references_action"
+        sequence="10"
+    />
+
+    <menuitem
+        id="res_references_category_menu"
+        name="Categories"
+        parent="res_references_root_menu"
+        action="res_references_category_action"
+        sequence="20"
+    />
 </odoo>
