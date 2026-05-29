@@ -78,12 +78,6 @@
                     </div>
 
                     <div class="s_reference_card__body">
-                        <p
-                            t-if="record.description"
-                            class="s_reference_card__description"
-                            t-field="record.description"
-                        />
-
                         <a
                             t-if="record.button_link"
                             t-att-href="record.button_link"
