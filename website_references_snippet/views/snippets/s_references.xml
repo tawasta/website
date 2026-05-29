@@ -30,7 +30,7 @@
                     class="card h-100 border shadow rounded-4 overflow-hidden bg-white"
                 >
 
-                    <div class="ratio ratio-4x3 bg-light border-bottom">
+                    <div class="ratio ratio-4x3 bg-white border-bottom">
                         <div
                             class="d-flex align-items-center justify-content-center p-5"
                         >
