@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="res_references_category_view_tree" model="ir.ui.view">
         <field name="name">res.references.category.tree</field>
         <field name="model">res.references.category</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="sequence" widget="handle"/>
-                <field name="name"/>
-                <field name="active"/>
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field name="active" />
             </tree>
         </field>
     </record>
@@ -19,9 +19,9 @@
             <form string="Reference Category">
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="sequence"/>
-                        <field name="active"/>
+                        <field name="name" />
+                        <field name="sequence" />
+                        <field name="active" />
                     </group>
                 </sheet>
             </form>
@@ -39,11 +39,11 @@
         <field name="model">res.references</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="sequence" widget="handle"/>
-                <field name="name"/>
-                <field name="category_id"/>
-                <field name="link"/>
-                <field name="active"/>
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field name="category_id" />
+                <field name="link" />
+                <field name="active" />
             </tree>
         </field>
     </record>
@@ -54,16 +54,16 @@
         <field name="arch" type="xml">
             <form string="Reference">
                 <sheet>
-                    <field name="image" widget="image" class="oe_avatar"/>
+                    <field name="image" widget="image" class="oe_avatar" />
                     <group>
-                        <field name="name"/>
-                        <field name="category_id"/>
-                        <field name="link" placeholder="https://example.com"/>
-                        <field name="sequence"/>
-                        <field name="active"/>
+                        <field name="name" />
+                        <field name="category_id" />
+                        <field name="link" placeholder="https://example.com" />
+                        <field name="sequence" />
+                        <field name="active" />
                     </group>
                     <group>
-                        <field name="description"/>
+                        <field name="description" />
                     </group>
                 </sheet>
             </form>

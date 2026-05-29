@@ -28,10 +28,12 @@ class WebsiteSnippetFilter(models.Model):
 
             merged = []
             for index in range(0, max(len(samples), len(data))):
-                merged.append({
-                    **samples[index % len(samples)],
-                    **data[index % len(data)],
-                })
+                merged.append(
+                    {
+                        **samples[index % len(samples)],
+                        **data[index % len(data)],
+                    }
+                )
             samples = merged
 
         return samples

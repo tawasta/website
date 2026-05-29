@@ -1,6 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <template id="s_references_options" inherit_id="website.snippet_options" name="References Options">
+    <template
+        id="s_references_options"
+        inherit_id="website.snippet_options"
+        name="References Options"
+    >
         <xpath expr="." position="inside">
             <div data-selector=".s_references_snippet" data-js="references_snippet">
 
@@ -8,13 +12,15 @@
                     string="Filter"
                     data-name="filter_opt"
                     data-attribute-name="filterId"
-                    data-no-preview="true"/>
+                    data-no-preview="true"
+                />
 
                 <we-select
                     string="Template"
                     data-name="template_opt"
                     data-attribute-name="templateKey"
-                    data-no-preview="true"/>
+                    data-no-preview="true"
+                />
 
                 <we-select string="Records" data-attribute-name="numberOfRecords">
                     <we-button data-select-data-attribute="3">3</we-button>
@@ -26,9 +32,14 @@
 
                 <we-select string="Category" data-attribute-name="filterByCategoryIds">
                     <we-button data-select-data-attribute="[]">All</we-button>
-                    <t t-foreach="request.env['res.references.category'].sudo().search([('active', '=', True)], order='sequence, name')" t-as="category">
-                        <we-button t-att-data-select-data-attribute="'[%s]' % category.id">
-                            <t t-out="category.name"/>
+                    <t
+                        t-foreach="request.env['res.references.category'].sudo().search([('active', '=', True)], order='sequence, name')"
+                        t-as="category"
+                    >
+                        <we-button
+                            t-att-data-select-data-attribute="'[%s]' % category.id"
+                        >
+                            <t t-out="category.name" />
                         </we-button>
                     </t>
                 </we-select>
