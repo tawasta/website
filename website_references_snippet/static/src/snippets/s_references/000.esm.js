@@ -16,6 +16,7 @@ const DynamicSnippetReferences = DynamicSnippet.extend({
             categoryIds: this.el.dataset.filterByCategoryIds,
             filterId: this.el.dataset.filterId,
             templateKey: this.el.dataset.templateKey,
+            hasGenericClass: this.el.classList.contains("s_dynamic_snippet"),
         });
 
         return this._super.apply(this, arguments);
