@@ -1,0 +1,104 @@
+.s_references_hover {
+    background:
+        radial-gradient(circle at top left, rgba(124, 73, 112, 0.10), transparent 32rem),
+        linear-gradient(180deg, #f8f8fa 0%, #ffffff 100%);
+
+    &__eyebrow {
+        display: inline-flex;
+        margin-bottom: 0.75rem;
+        color: #7c4970;
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+}
+
+.s_reference_card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(17, 24, 39, 0.08);
+    border-radius: 1.5rem;
+    box-shadow: 0 1rem 3rem rgba(17, 24, 39, 0.08);
+    overflow: hidden;
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+
+    &:hover {
+        transform: translateY(-0.35rem);
+        border-color: rgba(124, 73, 112, 0.24);
+        box-shadow: 0 1.5rem 4rem rgba(17, 24, 39, 0.13);
+    }
+
+    &__logo_wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 15rem;
+        padding: 3rem;
+        background:
+            radial-gradient(circle at center, rgba(255, 255, 255, 1), rgba(248, 248, 250, 0.92));
+    }
+
+    &__logo_link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 9rem;
+        text-decoration: none;
+    }
+
+    &__logo {
+        max-width: 78%;
+        max-height: 9rem;
+        object-fit: contain;
+        filter: saturate(1.02);
+    }
+
+    &__placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        background: #ffffff;
+        color: #9ca3af;
+        box-shadow: inset 0 0 0 1px rgba(17, 24, 39, 0.08);
+
+        .fa {
+            font-size: 2rem;
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        padding: 1.75rem;
+        border-top: 1px solid rgba(17, 24, 39, 0.06);
+    }
+
+    &__description {
+        margin: 0 0 1.5rem;
+        color: #6b7280;
+        line-height: 1.65;
+    }
+
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: auto;
+        color: #7c4970;
+        font-weight: 700;
+        text-decoration: none;
+
+        &:hover {
+            color: darken(#7c4970, 8%);
+            text-decoration: none;
+        }
+    }
+}

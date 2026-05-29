@@ -39,6 +39,7 @@
     "assets": {
         "web.assets_frontend": [
             "website_references_snippet/static/src/snippets/s_references/000.esm.js",
+            "website_references_snippet/static/src/scss/s_references.scss",
         ],
         "website.assets_wysiwyg": [
             "website_references_snippet/static/src/snippets/s_references/options.esm.js",

@@ -14,7 +14,7 @@ class ResReferencesCategory(models.Model):
 class ResReferences(models.Model):
     _name = "res.references"
     _description = "References"
-    _order = "sequence, id"
+    _order = "featured desc, sequence asc, id asc"
 
     name = fields.Char(required=True, translate=True)
     description = fields.Text(translate=True)
@@ -22,9 +22,13 @@ class ResReferences(models.Model):
     sequence = fields.Integer(default=10)
     active = fields.Boolean(default=True)
     link = fields.Char(string="Website Link")
+    button_link = fields.Char()
     category_id = fields.Many2one(
         "res.references.category",
         string="Category",
         index=True,
         ondelete="set null",
+    )
+    featured = fields.Boolean(
+        default=False,
     )

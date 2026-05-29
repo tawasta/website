@@ -2,7 +2,7 @@
 <odoo>
     <template id="s_references" name="References">
         <section
-            class="s_references_snippet s_dynamic_snippet py-5 bg-100"
+            class="s_references_snippet s_references_hover py-5"
             data-snippet="s_references"
             data-name="References"
             data-filter-id="website_references_snippet.dynamic_filter_references"
@@ -12,8 +12,18 @@
         >
 
             <div class="container">
-                <div class="text-center mb-5">
-                    <h2 class="display-6 fw-bold mb-3">Our References</h2>
+                <div class="row justify-content-center text-center mb-5">
+                    <div class="col-lg-8">
+                        <span class="s_references_hover__eyebrow">
+                            Customer references
+                        </span>
+                        <h2 class="display-5 fw-bold mb-3">
+                            Our References
+                        </h2>
+                        <p class="lead text-muted mb-0">
+                            Trusted customers, partners and success stories.
+                        </p>
+                    </div>
                 </div>
 
                 <div class="row g-4 dynamic_snippet_template" />
@@ -26,53 +36,63 @@
             <t t-set="record" t-value="data['_record']" />
 
             <div class="col-12">
-                <article
-                    class="card h-100 border shadow rounded-4 overflow-hidden bg-white"
-                >
-
-                    <div class="ratio ratio-4x3 bg-white border-bottom">
-                        <div
-                            class="d-flex align-items-center justify-content-center p-5"
+                <article class="s_reference_card h-100">
+                    <div class="s_reference_card__logo_wrap">
+                        <a
+                            t-if="record.link"
+                            t-att-href="record.link"
+                            class="s_reference_card__logo_link"
                         >
+
                             <img
                                 t-if="data.get('image')"
                                 t-att-src="data['image']"
                                 t-att-alt="record.name"
-                                class="img-fluid mh-100"
+                                class="s_reference_card__logo"
                             />
 
                             <div
                                 t-if="not data.get('image')"
-                                class="bg-white border rounded-circle d-flex align-items-center justify-content-center p-4"
+                                class="s_reference_card__placeholder"
                             >
-                                <i
-                                    class="fa fa-building fa-2x text-muted"
-                                    aria-hidden="true"
-                                />
+                                <i class="fa fa-building" aria-hidden="true" />
+                            </div>
+                        </a>
+
+                        <div t-if="not record.link" class="s_reference_card__logo_link">
+
+                            <img
+                                t-if="data.get('image')"
+                                t-att-src="data['image']"
+                                t-att-alt="record.name"
+                                class="s_reference_card__logo"
+                            />
+
+                            <div
+                                t-if="not data.get('image')"
+                                class="s_reference_card__placeholder"
+                            >
+                                <i class="fa fa-building" aria-hidden="true" />
                             </div>
                         </div>
                     </div>
 
-                    <div class="card-body p-4 d-flex flex-column">
-                        <h3 class="h4 fw-bold mb-3" t-field="record.name" />
-
+                    <div class="s_reference_card__body">
                         <p
                             t-if="record.description"
-                            class="text-muted mb-4"
+                            class="s_reference_card__description"
                             t-field="record.description"
                         />
 
-                        <div class="mt-auto pt-3" t-if="record.link">
-                            <a
-                                t-att-href="record.link"
-                                class="btn btn-primary w-100 fw-semibold"
-                            >
-                                View Reference
-                                <i class="fa fa-arrow-right ms-2" aria-hidden="true" />
-                            </a>
-                        </div>
+                        <a
+                            t-if="record.button_link"
+                            t-att-href="record.button_link"
+                            class="s_reference_card__link"
+                        >
+                            Read customer story
+                            <i class="fa fa-arrow-right" aria-hidden="true" />
+                        </a>
                     </div>
-
                 </article>
             </div>
         </t>

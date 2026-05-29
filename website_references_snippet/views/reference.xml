@@ -58,7 +58,9 @@
                     <group>
                         <field name="name" />
                         <field name="category_id" />
+                        <field name="featured" />
                         <field name="link" placeholder="https://example.com" />
+                        <field name="button_link" placeholder="https://example.com" />
                         <field name="sequence" />
                         <field name="active" />
                     </group>
