@@ -30,19 +30,16 @@
                     <we-button data-select-data-attribute="16">16</we-button>
                 </we-select>
 
-                <we-select string="Category" data-attribute-name="filterByCategoryIds">
-                    <we-button data-select-data-attribute="[]">All</we-button>
-                    <t
-                        t-foreach="request.env['res.references.category'].sudo().search([('active', '=', True)], order='sequence, name')"
-                        t-as="category"
-                    >
-                        <we-button
-                            t-att-data-select-data-attribute="'[%s]' % category.id"
-                        >
-                            <t t-out="category.name" />
-                        </we-button>
-                    </t>
-                </we-select>
+                <we-many2many
+                    string="Categories"
+                    data-name="reference_category_opt"
+                    data-attribute-name="referenceCategoryIds"
+                    data-no-preview="true"
+                    data-model="res.references.category"
+                    data-allow-delete="true"
+                    data-fakem2m="true"
+                    data-select-data-attribute=""
+                />
 
             </div>
         </xpath>

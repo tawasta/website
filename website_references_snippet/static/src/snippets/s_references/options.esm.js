@@ -18,6 +18,7 @@ const DynamicSnippetReferencesOptions = dynamicSnippetOptions.extend({
      * @override
      */
     _setOptionsDefaultValues() {
+        this._setOptionValue("referenceCategoryIds", JSON.stringify([]));
         this._setOptionValue("numberOfRecords", 6);
         this._super.apply(this, arguments);
     },

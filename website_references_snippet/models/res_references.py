@@ -23,12 +23,13 @@ class ResReferences(models.Model):
     active = fields.Boolean(default=True)
     link = fields.Char(string="Website Link")
     button_link = fields.Char()
-    category_id = fields.Many2one(
+
+    category_ids = fields.Many2many(
         "res.references.category",
-        string="Category",
-        index=True,
-        ondelete="set null",
+        "res_references_category_rel",
+        "reference_id",
+        "category_id",
+        string="Categories",
     )
-    featured = fields.Boolean(
-        default=False,
-    )
+
+    featured = fields.Boolean(default=False)
