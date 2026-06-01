@@ -8,7 +8,7 @@
             data-filter-id="website_references_snippet.dynamic_filter_references"
             data-template-key="website_references_snippet.dynamic_filter_template_res_references_card"
             data-number-of-records="6"
-            data-filter-by-category-ids="[]"
+            data-reference-category-ids="[]"
         >
 
             <div class="container">

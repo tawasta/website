@@ -41,7 +41,7 @@
             <tree>
                 <field name="sequence" widget="handle" />
                 <field name="name" />
-                <field name="category_id" />
+                <field name="category_ids" widget="many2many_tags" />
                 <field name="link" />
                 <field name="active" />
             </tree>
@@ -57,7 +57,7 @@
                     <field name="image" widget="image" class="oe_avatar" />
                     <group>
                         <field name="name" />
-                        <field name="category_id" />
+                        <field name="category_ids" widget="many2many_tags" />
                         <field name="featured" />
                         <field name="link" placeholder="https://example.com" />
                         <field name="button_link" placeholder="https://example.com" />

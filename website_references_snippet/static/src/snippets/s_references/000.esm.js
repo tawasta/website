@@ -13,7 +13,7 @@ const DynamicSnippetReferences = DynamicSnippet.extend({
     start: function () {
         console.debug("[references] start", {
             element: this.el,
-            categoryIds: this.el.dataset.filterByCategoryIds,
+            categoryIds: this.el.dataset.referenceCategoryIds,
             filterId: this.el.dataset.filterId,
             templateKey: this.el.dataset.templateKey,
             hasGenericClass: this.el.classList.contains("s_dynamic_snippet"),
@@ -23,34 +23,35 @@ const DynamicSnippetReferences = DynamicSnippet.extend({
     },
 
     /**
-     * @override
      * @private
      */
-    _getSearchDomain: function () {
-        let searchDomain = this._super.apply(this, arguments);
-        const rawCategoryIds = this.el.dataset.filterByCategoryIds || "[]";
+    _getReferenceCategorySearchDomain: function () {
+        const rawCategoryIds = this.el.dataset.referenceCategoryIds || "[]";
 
         let categoryIds = [];
         try {
             categoryIds = JSON.parse(rawCategoryIds)
+                .map((category) =>
+                    typeof category === "object" && category !== null
+                        ? category.id
+                        : category
+                )
                 .map((id) => parseInt(id))
                 .filter((id) => id > 0);
         } catch (error) {
             console.warn("[references] invalid category ids", rawCategoryIds, error);
         }
 
-        if (categoryIds.length) {
-            searchDomain = searchDomain.concat([["category_id", "in", categoryIds]]);
-        }
+        return categoryIds.length ? [["category_ids", "in", categoryIds]] : [];
+    },
 
-        console.debug("[references] search domain", {
-            title: this.el.querySelector("h2")?.textContent?.trim(),
-            rawCategoryIds: rawCategoryIds,
-            categoryIds: categoryIds,
-            searchDomain: searchDomain,
-        });
-
-        return searchDomain;
+    /**
+     * @override
+     * @private
+     */
+    _getSearchDomain: function () {
+        const searchDomain = this._super.apply(this, arguments);
+        return searchDomain.concat(this._getReferenceCategorySearchDomain());
     },
 });
 

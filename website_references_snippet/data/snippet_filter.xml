@@ -14,7 +14,7 @@
         <field name="filter_id" ref="website_references_snippet.ir_filter_references" />
         <field
             name="field_names"
-        >name,description,image,link,button_link,category_id</field>
+        >name,description,image,link,button_link,category_ids</field>
         <field name="limit" eval="16" />
     </record>
 </odoo>
