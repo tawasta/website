@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template
+        id="s_references_options"
+        inherit_id="website.snippet_options"
+        name="References Options"
+    >
+        <xpath expr="." position="inside">
+            <div data-selector=".s_references_snippet" data-js="references_snippet">
+
+                <we-select
+                    string="Filter"
+                    data-name="filter_opt"
+                    data-attribute-name="filterId"
+                    data-no-preview="true"
+                />
+
+                <we-select
+                    string="Template"
+                    data-name="template_opt"
+                    data-attribute-name="templateKey"
+                    data-no-preview="true"
+                />
+
+                <we-select string="Records" data-attribute-name="numberOfRecords">
+                    <we-button data-select-data-attribute="3">3</we-button>
+                    <we-button data-select-data-attribute="6">6</we-button>
+                    <we-button data-select-data-attribute="9">9</we-button>
+                    <we-button data-select-data-attribute="12">12</we-button>
+                    <we-button data-select-data-attribute="16">16</we-button>
+                </we-select>
+
+                <we-many2many
+                    string="Categories"
+                    data-name="reference_category_opt"
+                    data-attribute-name="referenceCategoryIds"
+                    data-no-preview="true"
+                    data-model="res.references.category"
+                    data-allow-delete="true"
+                    data-fakem2m="true"
+                    data-select-data-attribute=""
+                />
+
+            </div>
+        </xpath>
+    </template>
+</odoo>
