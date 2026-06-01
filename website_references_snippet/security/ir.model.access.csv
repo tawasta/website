@@ -1,2 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_res_references,access_res_references,model_res_references,,1,1,1,1
+access_res_references_user,res.references user,model_res_references,base.group_user,1,1,1,1
+access_res_references_category_user,res.references.category user,model_res_references_category,base.group_user,1,1,1,1
+access_res_references_public,res.references public,model_res_references,base.group_public,1,0,0,0
+access_res_references_category_public,res.references.category public,model_res_references_category,base.group_public,1,0,0,0
+access_res_references_portal,res.references portal,model_res_references,base.group_portal,1,0,0,0
+access_res_references_category_portal,res.references.category portal,model_res_references_category,base.group_portal,1,0,0,0
