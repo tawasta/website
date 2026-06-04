@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
-
 import logging
 
 from odoo import models
-from odoo.http import request, Response
+from odoo.http import Response, request
 
 _logger = logging.getLogger(__name__)
 
@@ -28,10 +26,13 @@ class IrHttp(models.AbstractModel):
         response = Response.load(response)
         domain = cls.get_utm_domain_cookies()
 
-        for url_parameter, __, cookie_name in request.env["utm.mixin"].tracking_fields():
+        for url_parameter, __, cookie_name in request.env[
+            "utm.mixin"
+        ].tracking_fields():
             if (
                 url_parameter in request.params
-                and request.httprequest.cookies.get(cookie_name) != request.params[url_parameter]
+                and request.httprequest.cookies.get(cookie_name)
+                != request.params[url_parameter]
             ):
                 try:
                     response.set_cookie(
