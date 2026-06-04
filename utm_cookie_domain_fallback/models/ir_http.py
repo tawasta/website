@@ -12,19 +12,25 @@ class IrHttp(models.AbstractModel):
     @classmethod
     def _set_utm(cls, response):
         """
-        Odoo 17 core sets UTM cookies with domain=request.httprequest.host.
-
-        Some runtime host values are not valid cookie domains. This can happen
-        behind reverse proxies, with ports, internal hostnames, local/dev hosts,
-        or otherwise invalid Host headers. Werkzeug raises ValueError and Odoo
-        returns 500 for URLs containing utm_source / utm_medium / utm_campaign.
-
-        Keep Odoo's original behavior first. If setting the cookie with the
-        original domain fails, retry without explicit domain. That creates a
-        valid host-only cookie and prevents the page request from crashing.
+        Temporary debug version for investigating invalid UTM cookie domains.
         """
+
         response = Response.load(response)
         domain = cls.get_utm_domain_cookies()
+
+        _logger.warning(
+            "UTM DEBUG START: "
+            "domain=%r host=%r http_host=%r server_name=%r server_port=%r "
+            "url=%r x_forwarded_host=%r x_forwarded_proto=%r",
+            domain,
+            request.httprequest.host,
+            request.httprequest.environ.get("HTTP_HOST"),
+            request.httprequest.environ.get("SERVER_NAME"),
+            request.httprequest.environ.get("SERVER_PORT"),
+            request.httprequest.url,
+            request.httprequest.headers.get("X-Forwarded-Host"),
+            request.httprequest.headers.get("X-Forwarded-Proto"),
+        )
 
         for url_parameter, __, cookie_name in request.env[
             "utm.mixin"
@@ -34,6 +40,18 @@ class IrHttp(models.AbstractModel):
                 and request.httprequest.cookies.get(cookie_name)
                 != request.params[url_parameter]
             ):
+                _logger.warning(
+                    "UTM DEBUG COOKIE: "
+                    "cookie_name=%r url_parameter=%r value=%r "
+                    "domain=%r host=%r http_host=%r",
+                    cookie_name,
+                    url_parameter,
+                    request.params[url_parameter],
+                    domain,
+                    request.httprequest.host,
+                    request.httprequest.environ.get("HTTP_HOST"),
+                )
+
                 try:
                     response.set_cookie(
                         cookie_name,
@@ -42,18 +60,29 @@ class IrHttp(models.AbstractModel):
                         domain=domain,
                         cookie_type="optional",
                     )
+
                 except ValueError as error:
                     _logger.warning(
-                        "Invalid UTM cookie domain %r for host %r while setting %r. "
-                        "Retrying without explicit domain. Error: %s",
+                        "UTM DEBUG COOKIE FAILED: "
+                        "cookie_name=%r domain=%r host=%r http_host=%r "
+                        "server_name=%r server_port=%r error=%s",
+                        cookie_name,
                         domain,
                         request.httprequest.host,
-                        cookie_name,
+                        request.httprequest.environ.get("HTTP_HOST"),
+                        request.httprequest.environ.get("SERVER_NAME"),
+                        request.httprequest.environ.get("SERVER_PORT"),
                         error,
                     )
+
                     response.set_cookie(
                         cookie_name,
                         request.params[url_parameter],
                         max_age=31 * 24 * 3600,
                         cookie_type="optional",
+                    )
+
+                    _logger.warning(
+                        "UTM DEBUG COOKIE FALLBACK OK: " "cookie_name=%r",
+                        cookie_name,
                     )
