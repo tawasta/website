@@ -32,7 +32,9 @@ class IrHttp(models.AbstractModel):
             request.httprequest.headers.get("X-Forwarded-Proto"),
         )
 
-        for url_parameter, __, cookie_name in request.env["utm.mixin"].tracking_fields():
+        for url_parameter, __, cookie_name in request.env[
+            "utm.mixin"
+        ].tracking_fields():
             if (
                 url_parameter in request.params
                 and request.httprequest.cookies.get(cookie_name)
@@ -81,7 +83,6 @@ class IrHttp(models.AbstractModel):
                     )
 
                     _logger.warning(
-                        "UTM DEBUG COOKIE FALLBACK OK: "
-                        "cookie_name=%r",
+                        "UTM DEBUG COOKIE FALLBACK OK: " "cookie_name=%r",
                         cookie_name,
                     )
