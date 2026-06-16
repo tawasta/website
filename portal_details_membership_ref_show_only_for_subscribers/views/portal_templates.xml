@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template
+        id="portal_layout_membership_ref"
+        inherit_id="portal_details_membership_ref.portal_layout_membership_ref"
+    >
+        <!-- add extra condition for visibility -->
+        <xpath expr="//t[@t-if='user_id.partner_id.ref']" position="attributes">
+            <attribute
+                name="t-if"
+                separator=" and "
+                add="show_partner_ref_in_sidebar"
+            />
+        </xpath>
+    </template>
+</odoo>

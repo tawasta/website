@@ -19,6 +19,7 @@ addon | version | maintainers | summary
 [portal_details_firstname](portal_details_firstname/) | 17.0.1.0.0 |  | Portal details replace name with first name and last name
 [portal_details_firstname2](portal_details_firstname2/) | 17.0.1.0.0 |  | Add firstname 2 to portal details
 [portal_details_membership_ref](portal_details_membership_ref/) | 17.0.1.0.0 |  | Show Membership Reference (partner.ref) in portal details.
+[portal_details_membership_ref_show_only_for_subscribers](portal_details_membership_ref_show_only_for_subscribers/) | 17.0.1.0.0 |  | Membership Reference visibility is limited to users with an ongoing subscription.
 [portal_details_name_extension](portal_details_name_extension/) | 17.0.1.0.2 |  | Show name_extension in /my/account
 [portal_details_street2](portal_details_street2/) | 17.0.1.0.0 |  | Portal details add optional field street 2
 [res_country_website_published](res_country_website_published/) | 17.0.1.0.0 |  | Manually choose countries that will be shown on Website
