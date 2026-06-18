@@ -52,6 +52,7 @@ addon | version | maintainers | summary
 [website_membership_fee_calculator_snippet](website_membership_fee_calculator_snippet/) | 17.0.1.0.0 |  | Drag-and-drop website snippet for visitor to estimate membership fees
 [website_messages_base](website_messages_base/) | 17.0.1.0.1 |  | Base for website messages features
 [website_portal_username_change](website_portal_username_change/) | 17.0.1.0.0 |  | website_portal_username_change
+[website_profile_hide_email_validation_message](website_profile_hide_email_validation_message/) | 17.0.1.0.0 |  | Website Profile Hide Email Validation Message
 [website_references_snippet](website_references_snippet/) | 17.0.1.0.1 |  | Snippet for showing e.g. company's clients on a web page
 [website_remove_editor_rights_from_sale_administrators](website_remove_editor_rights_from_sale_administrators/) | 17.0.1.0.0 |  | Remove the automatically granted editor access
 [website_resource_editor_warning_admin_disable](website_resource_editor_warning_admin_disable/) | 17.0.1.0.0 |  | Disable resource editor warning for admins
