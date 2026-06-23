@@ -5,17 +5,15 @@
 ==============================================
 Website Profile Hide Email Validation Message
 ==============================================
-* Automatically validat users with no karma so they dont get the
-email validation message pop-up
+* Hides the email validation pop-up messages from elearning sites
 
 Configuration
 =============
-* Install the module, no configuration needed
+* Install module and users stop receiving the pop-ups
 
 Usage
 =====
-* When module is installed, users automatically get 3 karma points, so the 
-message gets suppressed
+\-
 
 Known issues / Roadmap
 ======================
