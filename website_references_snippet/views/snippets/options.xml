@@ -27,7 +27,15 @@
                     <we-button data-select-data-attribute="6">6</we-button>
                     <we-button data-select-data-attribute="9">9</we-button>
                     <we-button data-select-data-attribute="12">12</we-button>
-                    <we-button data-select-data-attribute="16">16</we-button>
+                    <we-button data-select-data-attribute="15">15</we-button>
+                    <we-button data-select-data-attribute="18">18</we-button>
+                    <we-button data-select-data-attribute="21">21</we-button>
+                    <we-button data-select-data-attribute="24">24</we-button>
+                    <we-button data-select-data-attribute="27">27</we-button>
+                    <we-button data-select-data-attribute="30">30</we-button>
+                    <we-button data-select-data-attribute="33">33</we-button>
+                    <we-button data-select-data-attribute="36">36</we-button>
+                    <we-button data-select-data-attribute="39">39</we-button>
                 </we-select>
 
                 <we-many2many
