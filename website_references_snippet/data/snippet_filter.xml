@@ -15,6 +15,6 @@
         <field
             name="field_names"
         >name,description,image,link,button_link,category_ids</field>
-        <field name="limit" eval="16" />
+        <field name="limit" eval="60" />
     </record>
 </odoo>

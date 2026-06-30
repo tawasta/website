@@ -27,7 +27,7 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["website"],
+    "depends": ["website", "website_snippet_filter_core"],
     "data": [
         "security/ir.model.access.csv",
         "views/reference.xml",
