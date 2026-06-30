@@ -5,7 +5,7 @@ class WebsiteSnippetFilter(models.Model):
     _inherit = "website.snippet.filter"
 
     def _get_model_max_limit(self, model_name):
-        if model_name == "blog.tag":
+        if model_name == "res.references":
             return 60
         return super()._get_model_max_limit(model_name)
 
