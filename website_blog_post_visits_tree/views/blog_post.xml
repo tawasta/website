@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="view_blog_post_list_inherit_visits" model="ir.ui.view">
         <field name="name">blog.post.list.inherit.visits</field>
         <field name="model">blog.post</field>
-        <field name="inherit_id" ref="website_blog.view_blog_post_list"/>
+        <field name="inherit_id" ref="website_blog.view_blog_post_list" />
         <field name="arch" type="xml">
             <field name="write_date" position="after">
-                <field name="visits" optional="show"/>
+                <field name="visits" optional="show" />
             </field>
         </field>
     </record>
