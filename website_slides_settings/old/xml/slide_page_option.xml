@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+<t t-name="website_slides_settings.CoursesPageOption">
+    <!-- Hide "Search Courses" box from slide page -->
+    <BuilderRow label.translate="Hide 'Search courses' box">
+      <BuilderCheckbox
+        action="'websiteConfig'"
+        actionParam="{views: ['website_slides_settings.opt_hide_slide_page_search_courses']}"
+      />
+    </BuilderRow>
+  </t>
+</templates>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+<t t-name="website_slides_settings.CoursesPageOption">
+    <!-- "Search Courses" box -->
+    <BuilderRow label.translate="Hide 'Search courses' box">
+      <BuilderCheckbox
+        action="'websiteConfig'"
+        actionParam="{views: ['website_slides_settings.opt_hide_slide_page_search_courses']}"
+      />
+    </BuilderRow>
+
+    <!-- Breadcrumps -->
+    <BuilderRow label.translate="Hide Breadcrumbs">
+      <BuilderCheckbox
+        action="'websiteConfig'"
+        actionParam="{views: ['website_slides_settings.opt_hide_slide_page_breadcrumbs']}"
+      />
+    </BuilderRow>
+
+    <!-- Sidebar -->
+    <BuilderRow label.translate="Hide Sidebar">
+      <BuilderCheckbox
+        action="'websiteConfig'"
+        actionParam="{views: ['website_slides_settings.opt_hide_slide_page_sidebar']}"
+      />
+    </BuilderRow>
+
+    <!-- Tab Navigation -->
+    <BuilderRow label.translate="Hide Tab Navigation">
+      <BuilderCheckbox
+        action="'websiteConfig'"
+        actionParam="{views: ['website_slides_settings.opt_hide_slide_page_tab_navigation']}"
+      />
+    </BuilderRow>
+
+    <!-- Order By-->
+    <BuilderRow label.translate="Hide Order By">
+      <BuilderCheckbox
+        action="'websiteConfig'"
+        actionParam="{views: ['website_slides_settings.opt_hide_slide_page_order_by']}"
+      />
+    </BuilderRow>
+
+    <!-- Search in content -->
+    <BuilderRow label.translate="Hide 'Search in content'">
+      <BuilderCheckbox
+        action="'websiteConfig'"
+        actionParam="{views: ['website_slides_settings.opt_hide_slide_page_search_in_content']}"
+      />
+    </BuilderRow>
+  </t>
+</templates>

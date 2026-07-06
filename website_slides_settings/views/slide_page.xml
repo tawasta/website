@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <!-- "Search Courses" box -->
+  <template
+    id="opt_hide_slide_page_search_courses"
+    inherit_id="website_slides.course_nav"
+    name="Hide slide page 'Search courses' box"
+    active="False"
+  >
+    <xpath expr="//t[@t-call='website.website_search_box_input']" position="attributes">
+      <attribute name="t-if">false</attribute>
+    </xpath>
+  </template>
+
+  <!-- Breadcrumbs -->
+  <template
+    id="opt_hide_slide_page_breadcrumbs"
+    inherit_id="website_slides.course_nav"
+    name="Hide slide page breadcrumps"
+    active="False"
+  >
+    <xpath expr="//ol[hasclass('breadcrumb')]" position="attributes">
+      <attribute name="t-if">false</attribute>
+    </xpath>
+  </template>
+
+  <!-- Sidebar -->
+  <template
+    id="opt_hide_slide_page_sidebar"
+    inherit_id="website_slides.course_sidebar"
+    name="Hide slide page sidebar"
+    active="False"
+  >
+    <xpath expr="//div[hasclass('o_wslides_course_sidebar')]" position="attributes">
+      <attribute name="t-if">false</attribute>
+    </xpath>
+  </template>
+
+  <!-- Tab Navigation -->
+  <template
+    id="opt_hide_slide_page_tab_navigation"
+    inherit_id="website_slides.course_main"
+    name="Hide slide page tab navigation"
+    active="False"
+  >
+    <xpath expr="//ul[hasclass('nav-tabs')]" position="attributes">
+      <attribute name="t-if">false</attribute>
+    </xpath>
+  </template>
+
+  <!-- Order by-->
+  <template
+    id="opt_hide_slide_page_order_by"
+    inherit_id="website_slides.course_slides_cards"
+    name="Hide slide page tab navigation"
+    active="False"
+  >
+    <xpath expr="//li[hasclass('dropdown')]" position="attributes">
+      <attribute name="t-if">false</attribute>
+    </xpath>
+  </template>
+
+  <!-- Search In Content -->
+  <template
+    id="opt_hide_slide_page_search_in_content"
+    inherit_id="website_slides.course_slides_cards"
+    name="Hide search in content"
+    active="False"
+  >
+    <xpath expr="//form[@role='search']" position="attributes">
+      <attribute name="t-if">false</attribute>
+    </xpath>
+  </template>
+
+  </template>
+</odoo>
