@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_users_allowed_role_line_admin,res.users.allowed.role.line admin,model_res_users_allowed_role_line,base.group_system,1,1,1,1
+access_res_users_allowed_role_line_user,res.users.allowed.role.line user,model_res_users_allowed_role_line,base.group_user,1,1,1,1
+access_res_users_allowed_role_line_portal,res.users.allowed.role.line portal,model_res_users_allowed_role_line,base.group_portal,1,1,1,1
