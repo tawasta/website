@@ -23,6 +23,7 @@ addon | version | maintainers | summary
 [portal_details_name_extension](portal_details_name_extension/) | 17.0.1.0.2 |  | Show name_extension in /my/account
 [portal_details_street2](portal_details_street2/) | 17.0.1.0.0 |  | Portal details add optional field street 2
 [res_country_website_published](res_country_website_published/) | 17.0.1.0.0 |  | Manually choose countries that will be shown on Website
+[user_role_switcher](user_role_switcher/) | 17.0.1.0.0 |  | Let users switch their active res.users.role at runtime
 [utm_cookie_domain_fallback](utm_cookie_domain_fallback/) | 17.0.1.0.0 |  | UTM Cookie Domain Fallback
 [website_application_dashboard](website_application_dashboard/) | 17.0.1.1.0 |  | Application dashboard for redirecting users to applications
 [website_banner](website_banner/) | 17.0.1.0.1 |  | Website

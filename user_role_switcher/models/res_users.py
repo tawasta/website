@@ -43,7 +43,7 @@ class ResUsers(models.Model):
         """
         self.ensure_one()
         user = self.sudo()
-        user.role_line_ids.filtered(lambda l: l.role_id != role).unlink()
+        user.role_line_ids.filtered(lambda li: li.role_id != role).unlink()
         if role not in user.role_line_ids.role_id:
             self.env["res.users.role.line"].sudo().create(
                 {"user_id": user.id, "role_id": role.id}
@@ -62,7 +62,7 @@ class ResUsers(models.Model):
         if self.id != self.env.user.id:
             return
         line = self.sudo().allowed_role_line_ids.filtered(
-            lambda l: l.role_id == role
+            lambda li: li.role_id == role
         )[:1]
         if not line.company_id:
             return
