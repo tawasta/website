@@ -23,12 +23,14 @@ addon | version | maintainers | summary
 [portal_details_name_extension](portal_details_name_extension/) | 17.0.1.0.2 |  | Show name_extension in /my/account
 [portal_details_street2](portal_details_street2/) | 17.0.1.0.0 |  | Portal details add optional field street 2
 [res_country_website_published](res_country_website_published/) | 17.0.1.0.0 |  | Manually choose countries that will be shown on Website
+[user_role_switcher](user_role_switcher/) | 17.0.1.0.0 |  | Let users switch their active res.users.role at runtime
 [utm_cookie_domain_fallback](utm_cookie_domain_fallback/) | 17.0.1.0.0 |  | UTM Cookie Domain Fallback
 [website_application_dashboard](website_application_dashboard/) | 17.0.1.1.0 |  | Application dashboard for redirecting users to applications
 [website_banner](website_banner/) | 17.0.1.0.1 |  | Website
 [website_blog_blog_widget_remove_in_term](website_blog_blog_widget_remove_in_term/) | 17.0.1.0.0 |  | Hide the word prefix normally shown before blog's tags
 [website_blog_order_by_sequence](website_blog_order_by_sequence/) | 17.0.1.0.0 |  | Add a sequence field and use it when ordering blogs on website
 [website_blog_paywall](website_blog_paywall/) | 17.0.2.0.1 |  | Add a paywall to blogs
+[website_blog_post_visits_tree](website_blog_post_visits_tree/) | 17.0.1.0.0 |  | Website Blog Post Visits List View
 [website_blog_rss_feed](website_blog_rss_feed/) | 17.0.2.1.0 |  | Ability to create custom RSS Feeds with multiple blogs.
 [website_blog_settings](website_blog_settings/) | 17.0.1.0.1 |  | Customization settings under website frontend customize menu
 [website_blog_snippet_extra_options](website_blog_snippet_extra_options/) | 17.0.1.0.0 |  | Additional configurations for the core snippet
