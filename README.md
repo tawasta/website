@@ -16,7 +16,7 @@ addon | version | maintainers | summary
 [partner_data_prompt_lock_modal](partner_data_prompt_lock_modal/) | 17.0.1.0.0 |  | Partner Data Prompt – Force Completion
 [partner_data_promt](partner_data_promt/) | 17.0.1.0.0 |  | Prompts portal users to complete their email via modal if missing
 [portal_details_domicile](portal_details_domicile/) | 17.0.1.0.0 |  | Portal details - Edit domicile information
-[portal_details_firstname](portal_details_firstname/) | 17.0.1.0.0 |  | Portal details replace name with first name and last name
+[portal_details_firstname](portal_details_firstname/) | 17.0.1.0.1 |  | Portal details replace name with first name and last name
 [portal_details_firstname2](portal_details_firstname2/) | 17.0.1.0.0 |  | Add firstname 2 to portal details
 [portal_details_membership_ref](portal_details_membership_ref/) | 17.0.1.0.0 |  | Show Membership Reference (partner.ref) in portal details.
 [portal_details_membership_ref_show_only_for_subscribers](portal_details_membership_ref_show_only_for_subscribers/) | 17.0.1.0.0 |  | Membership Reference visibility is limited to users with an ongoing subscription.

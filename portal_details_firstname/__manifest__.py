@@ -21,7 +21,7 @@
 {
     "name": "Portal Details First Name",
     "summary": "Portal details replace name with first name and last name",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "category": "Website",
     "website": "https://github.com/tawasta/website",
     "author": "Futural",
