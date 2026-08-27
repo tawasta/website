@@ -25,6 +25,7 @@ addon | version | maintainers | summary
 [res_country_website_published](res_country_website_published/) | 17.0.1.0.0 |  | Manually choose countries that will be shown on Website
 [user_role_switcher](user_role_switcher/) | 17.0.1.0.0 |  | Let users switch their active res.users.role at runtime
 [utm_cookie_domain_fallback](utm_cookie_domain_fallback/) | 17.0.1.0.0 |  | UTM Cookie Domain Fallback
+[web_editor_fontawesome6_compat](web_editor_fontawesome6_compat/) | 17.0.1.0.0 |  | Fix the web editor's icon picker and email icon conversion when base_fontawesome provides FontAwesome >= 6
 [website_application_dashboard](website_application_dashboard/) | 17.0.1.1.0 |  | Application dashboard for redirecting users to applications
 [website_banner](website_banner/) | 17.0.1.0.1 |  | Website
 [website_blog_blog_widget_remove_in_term](website_blog_blog_widget_remove_in_term/) | 17.0.1.0.0 |  | Hide the word prefix normally shown before blog's tags
