@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Futural Oy
-#    Copyright 2021- Futural Oy (https://futural.fi)
+#    Copyright 2026- Futural Oy (https://futural.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,15 +19,23 @@
 ##############################################################################
 
 {
-    "name": "Portal Details First Name",
-    "summary": "Portal details replace name with first name and last name",
-    "version": "17.0.1.0.1",
+    "name": "Web Editor: FontAwesome 6 Compatibility",
+    "summary": "Fix the web editor's icon picker and email icon conversion "
+    "when base_fontawesome provides FontAwesome >= 6",
+    "version": "17.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/tawasta/website",
     "author": "Futural",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["portal", "partner_firstname"],
-    "data": ["views/portal_templates.xml"],
+    "depends": ["web_editor", "base_fontawesome"],
+    "assets": {
+        "web.assets_backend": [
+            "web_editor_fontawesome6_compat/static/src/js/fonts_fa6_compat.esm.js",
+        ],
+        "web.assets_frontend": [
+            "web_editor_fontawesome6_compat/static/src/js/fonts_fa6_compat.esm.js",
+        ],
+    },
 }
