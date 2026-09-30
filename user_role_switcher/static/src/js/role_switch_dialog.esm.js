@@ -1,10 +1,10 @@
 /** @odoo-module **/
 
-import { Component, onWillStart, useState } from "@odoo/owl";
-import { browser } from "@web/core/browser/browser";
-import { Dialog } from "@web/core/dialog/dialog";
-import { _t } from "@web/core/l10n/translation";
-import { useService } from "@web/core/utils/hooks";
+import {Component, onWillStart, useState} from "@odoo/owl";
+import {Dialog} from "@web/core/dialog/dialog";
+import {_t} from "@web/core/l10n/translation";
+import {browser} from "@web/core/browser/browser";
+import {useService} from "@web/core/utils/hooks";
 
 export class RoleSwitchDialog extends Component {
     setup() {
@@ -12,7 +12,7 @@ export class RoleSwitchDialog extends Component {
         this.rpc = useService("rpc");
         this.user = useService("user");
         this.title = _t("Select Active Role");
-        this.state = useState({ roles: [], selectedRoleId: false });
+        this.state = useState({roles: [], selectedRoleId: false});
 
         onWillStart(async () => {
             const lines = await this.orm.searchRead(
@@ -49,5 +49,5 @@ export class RoleSwitchDialog extends Component {
     }
 }
 RoleSwitchDialog.template = "user_role_switcher.RoleSwitchDialog";
-RoleSwitchDialog.components = { Dialog };
-RoleSwitchDialog.props = { close: Function };
+RoleSwitchDialog.components = {Dialog};
+RoleSwitchDialog.props = {close: Function};

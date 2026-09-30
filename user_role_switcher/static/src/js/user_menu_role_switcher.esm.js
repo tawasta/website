@@ -1,9 +1,9 @@
 /** @odoo-module **/
 
-import { _t } from "@web/core/l10n/translation";
-import { registry } from "@web/core/registry";
-import { session } from "@web/session";
-import { RoleSwitchDialog } from "./role_switch_dialog";
+import {RoleSwitchDialog} from "./role_switch_dialog.esm";
+import {_t} from "@web/core/l10n/translation";
+import {registry} from "@web/core/registry";
+import {session} from "@web/session";
 
 function changeRoleItem(env) {
     return {
