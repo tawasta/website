@@ -39,4 +39,11 @@
         "views/res_users_views.xml",
         "views/user_role.xml",
     ],
+    "assets": {
+        "web.assets_backend": [
+            "user_role_switcher/static/src/js/role_switch_dialog.esm.js",
+            "user_role_switcher/static/src/js/role_switch_dialog.xml",
+            "user_role_switcher/static/src/js/user_menu_role_switcher.esm.js",
+        ],
+    },
 }

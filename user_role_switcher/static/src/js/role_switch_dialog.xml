@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="user_role_switcher.RoleSwitchDialog">
+        <Dialog title="title" size="'md'">
+            <div class="form-group">
+                <label for="user_role_switcher_select">Select Role</label>
+                <select
+                    id="user_role_switcher_select"
+                    class="form-select"
+                    t-on-change="onRoleChange"
+                >
+                    <t t-foreach="state.roles" t-as="role" t-key="role.id">
+                        <option
+                            t-att-value="role.id"
+                            t-att-selected="role.id === state.selectedRoleId"
+                        >
+                            <t t-esc="role.name" />
+                        </option>
+                    </t>
+                </select>
+            </div>
+            <t t-set-slot="footer">
+                <button class="btn btn-primary" t-on-click="onSave">Save</button>
+                <button
+                    class="btn btn-secondary"
+                    t-on-click="() => this.props.close()"
+                >Cancel</button>
+            </t>
+        </Dialog>
+    </t>
+
+</templates>
