@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Futural Oy
-#    Copyright 2019- Futural Oy (https://futural.fi)
+#    Copyright 2026- Futural Oy (https://futural.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,31 +19,16 @@
 ##############################################################################
 
 {
-    "name": "User Role Switcher",
-    "summary": "Let users switch their active res.users.role at runtime",
+    "name": "Website Blog: Don't Overwrite Published Date",
+    "summary": "Keep an existing blog post published_date when "
+    "the post is toggled as published",
     "version": "17.0.1.0.0",
-    "category": "Web",
+    "category": "Website",
     "website": "https://github.com/tawasta/website",
     "author": "Futural",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "base",
-        "web",
-        "portal",
-        "base_user_role",
-    ],
-    "data": [
-        "security/ir.model.access.csv",
-        "views/res_users_views.xml",
-        "views/user_role.xml",
-    ],
-    "assets": {
-        "web.assets_backend": [
-            "user_role_switcher/static/src/js/role_switch_dialog.esm.js",
-            "user_role_switcher/static/src/js/role_switch_dialog.xml",
-            "user_role_switcher/static/src/js/user_menu_role_switcher.esm.js",
-        ],
-    },
+    "depends": ["website_blog"],
+    "data": [],
 }
