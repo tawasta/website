@@ -20,3 +20,19 @@ class PortalRoleSwitcher(http.Controller):
         role = request.env["res.users.role"].browse(int(role_id))
         user.switch_role(role)
         return request.redirect(request.httprequest.referrer or "/my")
+
+    @http.route(
+        ["/user_role_switcher/switch"],
+        type="json",
+        auth="user",
+    )
+    def switch_backend_role(self, role_id, **kwargs):
+        """Backend (JSON-RPC) counterpart of :meth:`switch_portal_role`.
+
+        Security is enforced on :meth:`res.users.switch_role` itself
+        (own-user check, allowed/locked role checks), not here.
+        """
+        user = request.env.user.sudo()
+        role = request.env["res.users.role"].browse(int(role_id))
+        user.switch_role(role)
+        return True
