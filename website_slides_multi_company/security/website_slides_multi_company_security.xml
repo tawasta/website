@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record id="rule_slide_channel_multi_company" model="ir.rule">
+        <field name="name">Course: multi-company</field>
+        <field name="model_id" ref="website_slides.model_slide_channel" />
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+
+    <record id="rule_slide_channel_partner_multi_company" model="ir.rule">
+        <field name="name">Course Attendee: multi-company</field>
+        <field name="model_id" ref="website_slides.model_slide_channel_partner" />
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+
+    <record id="rule_slide_slide_multi_company" model="ir.rule">
+        <field name="name">Course Content: multi-company</field>
+        <field name="model_id" ref="website_slides.model_slide_slide" />
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+
+    <record id="rule_slide_slide_partner_multi_company" model="ir.rule">
+        <field name="name">Course Content Attendee: multi-company</field>
+        <field name="model_id" ref="website_slides.model_slide_slide_partner" />
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+
+    <record id="rule_slide_slide_resource_multi_company" model="ir.rule">
+        <field name="name">Course Content Resource: multi-company</field>
+        <field name="model_id" ref="website_slides.model_slide_slide_resource" />
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+
+    <record id="rule_slide_question_multi_company" model="ir.rule">
+        <field name="name">Course Quiz Question: multi-company</field>
+        <field name="model_id" ref="website_slides.model_slide_question" />
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+
+    <record id="rule_slide_answer_multi_company" model="ir.rule">
+        <field name="name">Course Quiz Answer: multi-company</field>
+        <field name="model_id" ref="website_slides.model_slide_answer" />
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>
