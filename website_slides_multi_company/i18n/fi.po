@@ -1,0 +1,74 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_slides_multi_company
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-06 00:00+0000\n"
+"PO-Revision-Date: 2026-10-06 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_slides_multi_company
+#: model:ir.model,name:website_slides_multi_company.model_slide_slide_resource
+msgid "Additional resource for a particular slide"
+msgstr "Lisämateriaali tietylle dialle"
+
+#. module: website_slides_multi_company
+#: model:ir.model,name:website_slides_multi_company.model_slide_channel_partner
+msgid "Channel / Partners (Members)"
+msgstr "Kanava / Kumppanit (Jäsenet)"
+
+#. module: website_slides_multi_company
+#: model:ir.model.fields,field_description:website_slides_multi_company.field_slide_answer__company_id
+#: model:ir.model.fields,field_description:website_slides_multi_company.field_slide_channel__company_id
+#: model:ir.model.fields,field_description:website_slides_multi_company.field_slide_channel_partner__company_id
+#: model:ir.model.fields,field_description:website_slides_multi_company.field_slide_question__company_id
+#: model:ir.model.fields,field_description:website_slides_multi_company.field_slide_slide__company_id
+#: model:ir.model.fields,field_description:website_slides_multi_company.field_slide_slide_partner__company_id
+#: model:ir.model.fields,field_description:website_slides_multi_company.field_slide_slide_resource__company_id
+msgid "Company"
+msgstr "Yritys"
+
+#. module: website_slides_multi_company
+#: model:ir.model,name:website_slides_multi_company.model_slide_question
+msgid "Content Quiz Question"
+msgstr "Sisällön kyselyn kysymys"
+
+#. module: website_slides_multi_company
+#: model:ir.model,name:website_slides_multi_company.model_slide_channel
+msgid "Course"
+msgstr "Kurssi"
+
+#. module: website_slides_multi_company
+#: model:ir.model.fields,help:website_slides_multi_company.field_slide_channel__company_id
+msgid "Leave empty to share the course with all companies."
+msgstr "Jätä tyhjäksi, jos kurssi jaetaan kaikille yrityksille."
+
+#. module: website_slides_multi_company
+#: model:ir.model,name:website_slides_multi_company.model_slide_slide_partner
+msgid "Slide / Partner decorated m2m"
+msgstr "Dia / Kumppani m2m kenttä"
+
+#. module: website_slides_multi_company
+#: model:ir.model,name:website_slides_multi_company.model_slide_answer
+msgid "Slide Question's Answer"
+msgstr "Dian kysymyksen vastaus"
+
+#. module: website_slides_multi_company
+#: model:ir.model,name:website_slides_multi_company.model_slide_slide
+msgid "Slides"
+msgstr "Esitykset"
+
+#. module: website_slides_multi_company
+#. odoo-python
+#: code:addons/website_slides_multi_company/models/slide_channel.py:0
+#, python-format
+msgid "The website of the course %(course)s belongs to another company."
+msgstr "Kurssin %(course)s verkkosivu kuuluu toiselle yritykselle."
