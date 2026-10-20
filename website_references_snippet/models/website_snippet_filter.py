@@ -6,7 +6,7 @@ class WebsiteSnippetFilter(models.Model):
 
     def _get_model_max_limit(self, model_name):
         if model_name == "res.references":
-            return 60
+            return 70
         return super()._get_model_max_limit(model_name)
 
     def _get_hardcoded_sample(self, model):
