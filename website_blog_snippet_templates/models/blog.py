@@ -16,9 +16,7 @@ class BlogPost(models.Model):
                 blog_post.teaser = blog_post.teaser_manual
                 continue
 
-            document = lxml_html.fromstring(
-                blog_post.content or "<div></div>"
-            )
+            document = lxml_html.fromstring(blog_post.content or "<div></div>")
 
             content = " ".join(document.itertext())
             content = html.unescape(content)
