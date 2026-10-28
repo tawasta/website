@@ -36,6 +36,17 @@
                     <we-button data-select-data-attribute="33">33</we-button>
                     <we-button data-select-data-attribute="36">36</we-button>
                     <we-button data-select-data-attribute="39">39</we-button>
+                    <we-button data-select-data-attribute="42">42</we-button>
+                    <we-button data-select-data-attribute="45">45</we-button>
+                    <we-button data-select-data-attribute="48">48</we-button>
+                    <we-button data-select-data-attribute="51">51</we-button>
+                    <we-button data-select-data-attribute="54">54</we-button>
+                    <we-button data-select-data-attribute="57">57</we-button>
+                    <we-button data-select-data-attribute="60">60</we-button>
+                    <we-button data-select-data-attribute="63">63</we-button>
+                    <we-button data-select-data-attribute="66">66</we-button>
+                    <we-button data-select-data-attribute="69">69</we-button>
+                    <we-button data-select-data-attribute="70">70</we-button>
                 </we-select>
 
                 <we-many2many
