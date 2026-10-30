@@ -7,6 +7,10 @@ Website Manager Group
 =====================
 Creates a new permission group Website Manager and limits the permissions for Website Editor & Designer
 
+The group is listed under the Website privilege after Editor and Designer.
+The backend menu Website > Site > HTML / CSS Editor and the website settings
+are visible only to Website Managers.
+
 Configuration
 =============
 \-
@@ -28,6 +32,7 @@ Contributors
 * Miika Nissi <miika.nissi@futural.fi>
 * Timo Kekäläinen <timo.kekalainen@futural.fi>
 * Joona Isoaho <joona.isoaho@futural.fi>
+* Valtteri Lattu <valtteri.lattu@futural.fi>
 
 Maintainer
 ----------

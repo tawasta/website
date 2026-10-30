@@ -21,7 +21,7 @@
 {
     "name": "Website Manager Group",
     "summary": "new Website Permission Group to limit access for designers & editors",
-    "version": "19.0.1.0.0",
+    "version": "19.0.1.0.1",
     "category": "Website",
     "website": "https://github.com/tawasta/website",
     "author": "Futural",
