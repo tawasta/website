@@ -30,7 +30,7 @@ addon | version | maintainers | summary
 [website_banner](website_banner/) | 17.0.1.0.1 |  | Website
 [website_blog_blog_widget_remove_in_term](website_blog_blog_widget_remove_in_term/) | 17.0.1.0.0 |  | Hide the word prefix normally shown before blog's tags
 [website_blog_order_by_sequence](website_blog_order_by_sequence/) | 17.0.1.0.0 |  | Add a sequence field and use it when ordering blogs on website
-[website_blog_paywall](website_blog_paywall/) | 17.0.2.0.1 |  | Add a paywall to blogs
+[website_blog_paywall](website_blog_paywall/) | 17.0.2.0.2 |  | Add a paywall to blogs
 [website_blog_post_visits_tree](website_blog_post_visits_tree/) | 17.0.1.0.0 |  | Website Blog Post Visits List View
 [website_blog_published_date_no_overwrite](website_blog_published_date_no_overwrite/) | 17.0.1.0.0 |  | Keep an existing blog post published_date when the post is toggled as published
 [website_blog_rss_feed](website_blog_rss_feed/) | 17.0.2.1.0 |  | Ability to create custom RSS Feeds with multiple blogs.

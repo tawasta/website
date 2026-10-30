@@ -8,6 +8,10 @@ Blog Paywall
 
 Add a paywall to blogs. Show a preview, but require a login for full article
 
+The scheduled action "Blog paywall: reset free tier" runs weekly and clears the
+free tier read blog posts only from partners that have any, so that partners
+without read posts are not updated.
+
 Configuration
 =============
 \-
@@ -27,6 +31,7 @@ Contributors
 ------------
 
 -  Jarmo Kortetjärvi <jarmo.kortetjarvi@futural.fi>
+-  Valtteri Lattu <valtteri.lattu@futural.fi>
 
 Maintainer
 ----------
