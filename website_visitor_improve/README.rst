@@ -12,7 +12,10 @@ By default, the cleanup process may attempt to process a large number of records
 
 The module overrides the existing cron job behavior to:
 - Enforce a search limit when fetching inactive visitors
-- Process records in batches
+- Search, lock and delete the visitors one batch at a time (100 visitors per batch, 500 per run)
+- Skip visitors that another transaction is currently working on (``FOR UPDATE SKIP LOCKED``)
+- Stop the run with a warning instead of failing when a visitor was deleted or updated concurrently,
+  for example by a login merging the visitor into a partner. The remaining visitors are cleaned on the next run.
 - Automatically commit transactions between batches (outside testing environments)
 
 Configuration
