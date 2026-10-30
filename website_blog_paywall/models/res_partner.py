@@ -19,7 +19,9 @@ class Partner(models.Model):
     )
 
     def _cron_reset_read_free_blog_post_ids(self):
-        records = self.search([])
+        # Only touch partners that have something to reset, so that the cron
+        # does not lock every partner row and collide with concurrent updates
+        records = self.search([("read_free_blog_post_ids", "!=", False)])
         records.reset_read_free_blog_post_ids()
 
     def reset_read_free_blog_post_ids(self):
