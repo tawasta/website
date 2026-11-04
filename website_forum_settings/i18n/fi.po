@@ -16,6 +16,29 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: website_forum_settings
+#: model:ir.model,name:website_forum_settings.model_forum_forum
+msgid "Forum"
+msgstr "Keskustelupalsta"
+
+#. module: website_forum_settings
+#: model_terms:ir.ui.view,arch_db:website_forum_settings.forum_forum_view_form
+msgid "Question Form"
+msgstr "Kysymyslomake"
+
+#. module: website_forum_settings
+#: model:ir.model.fields,help:website_forum_settings.field_forum_forum__show_question_example
+msgid ""
+"Show an example of a good and a bad question title on the new question form."
+msgstr ""
+"Näytä uuden kysymyksen lomakkeella esimerkki hyvästä ja huonosta kysymyksen "
+"otsikosta."
+
+#. module: website_forum_settings
+#: model:ir.model.fields,field_description:website_forum_settings.field_forum_forum__show_question_example
+msgid "Show Question Title Example"
+msgstr "Näytä esimerkki kysymyksen otsikosta"
+
+#. module: website_forum_settings
 #: model_terms:ir.ui.view,arch_db:website_forum_settings.forum_forum_view_form
 msgid "Social Media Sharing"
 msgstr "Some-jakaminen"

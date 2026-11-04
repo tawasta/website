@@ -48,7 +48,7 @@ addon | version | maintainers | summary
 [website_editor_rights_website_specific](website_editor_rights_website_specific/) | 17.0.1.0.0 |  | In multiwebsite environment, specify for each website who can edit it
 [website_environment_ribbon](website_environment_ribbon/) | 17.0.1.0.0 |  | Show environment ribbon on website also. Only shows text 'TEST' on website side.
 [website_finnish_language_to_country](website_finnish_language_to_country/) | 17.0.1.0.0 |  | Country is Finland if Website Language is Finnish
-[website_forum_settings](website_forum_settings/) | 17.0.1.0.0 |  | Additional configuration options for website forums
+[website_forum_settings](website_forum_settings/) | 17.0.1.1.0 |  | Additional configuration options for website forums
 [website_header_announcement_stripe](website_header_announcement_stripe/) | 17.0.1.0.1 |  | Announcement Stripe to Website header
 [website_hide_info](website_hide_info/) | 17.0.1.0.0 |  | Hides Odoo System Information on at /website/info
 [website_hide_login](website_hide_login/) | 17.0.1.1.0 |  | Hide Odoo native login, but show oAuth-logins

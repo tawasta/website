@@ -21,7 +21,7 @@
 {
     "name": "Website Forum Settings",
     "summary": "Additional configuration options for website forums",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.1.0",
     "category": "Website",
     "website": "https://github.com/tawasta/website",
     "author": "Futural",
@@ -29,5 +29,8 @@
     "application": False,
     "installable": True,
     "depends": ["website_forum"],
-    "data": ["views/forum_forum_views.xml"],
+    "data": [
+        "views/forum_forum_templates.xml",
+        "views/forum_forum_views.xml",
+    ],
 }

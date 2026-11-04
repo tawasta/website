@@ -10,21 +10,23 @@ Website Forum Settings
 
   - Disabling the "Thanks for posting!" social share modal that is shown
     after posting a question or an answer
+  - Hiding the question title example ("Example" link) on the new question
+    form
 
 Configuration
 =============
 * Go to Website > Configuration > Forums and open a forum to see the
   new settings in the Options tab. 
 
-
 Usage
 =====
-\-
+* Just open the forum on the website to see the configuration options
+  in effect.
 
 Known issues / Roadmap
 ======================
-* Module can be extended with other general-purpose configuration options
-  in the future.
+* Module can be used for storing other general-purpose 
+  configuration options in the future.
 
 Credits
 =======

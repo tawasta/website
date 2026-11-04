@@ -11,6 +11,9 @@
                 <group string="Social Media Sharing" name="group_sharing">
                     <field name="allow_share" />
                 </group>
+                <group string="Question Form" name="group_question_form">
+                    <field name="show_question_example" />
+                </group>
             </xpath>
         </field>
     </record>
