@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="new_question" inherit_id="website_forum.new_question">
+        <!-- The parent div holds only the "Example" toggle and its collapse -->
+        <xpath expr="//div[@id='newQuestionExample']/.." position="attributes">
+            <attribute name="t-if">forum.show_question_example</attribute>
+        </xpath>
+    </template>
+</odoo>

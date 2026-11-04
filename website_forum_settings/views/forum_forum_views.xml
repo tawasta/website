@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="forum_forum_view_form" model="ir.ui.view">
+        <field name="name">forum.forum.view.form.settings</field>
+        <field name="model">forum.forum</field>
+        <field name="inherit_id" ref="website_forum.forum_forum_view_form" />
+        <field name="arch" type="xml">
+            <!-- Core field controlling the post-share modal already exists,
+             but it is not exposed in the core views -->
+            <xpath expr="//group[@name='group_order']" position="after">
+                <group string="Social Media Sharing" name="group_sharing">
+                    <field name="allow_share" />
+                </group>
+                <group string="Question Form" name="group_question_form">
+                    <field name="show_question_example" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
