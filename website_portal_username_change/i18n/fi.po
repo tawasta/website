@@ -84,6 +84,11 @@ msgid "Enter new username"
 msgstr "Syötä uusi käyttäjätunnus"
 
 #. module: website_portal_username_change
+#: model_terms:ir.ui.view,arch_db:website_portal_username_change.change_username_modal
+msgid "Enter your current password"
+msgstr "Syötä nykyinen salasanasi"
+
+#. module: website_portal_username_change
 #. odoo-javascript
 #: code:addons/website_portal_username_change/static/src/js/username.esm.js:0
 #, python-format
@@ -115,6 +120,11 @@ msgstr "OK"
 #, python-format
 msgid "Only portal users can change their username here."
 msgstr "Vain portaalikäyttäjät voivat vaihtaa käyttäjätunnuksensa täällä."
+
+#. module: website_portal_username_change
+#: model_terms:ir.ui.view,arch_db:website_portal_username_change.change_username_modal
+msgid "Password"
+msgstr "Salasana"
 
 #. module: website_portal_username_change
 #: model_terms:ir.ui.view,arch_db:website_portal_username_change.change_username_modal
@@ -183,3 +193,10 @@ msgstr "Käyttäjätunnus vaihdettu onnistuneesti! Sinut kirjataan ulos."
 #, python-format
 msgid "Usernames do not match."
 msgstr "Käyttäjätunnukset eivät täsmää."
+
+#. module: website_portal_username_change
+#. odoo-python
+#: code:addons/website_portal_username_change/controllers/main.py:0
+#, python-format
+msgid "Wrong password."
+msgstr "Väärä salasana."

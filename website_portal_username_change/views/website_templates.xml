@@ -113,6 +113,23 @@
                                 />
                             </div>
 
+                            <!-- Current Password -->
+                            <div class="mb-3">
+                                <label
+                                    for="change_username_password"
+                                    class="form-label fw-bold"
+                                >Password</label>
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    id="change_username_password"
+                                    name="password"
+                                    required="1"
+                                    autocomplete="current-password"
+                                    placeholder="Enter your current password"
+                                />
+                            </div>
+
                             <div class="text-end">
                                 <button
                                     type="button"

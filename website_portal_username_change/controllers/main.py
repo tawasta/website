@@ -1,6 +1,7 @@
 import json
 
 from odoo import _, http
+from odoo.exceptions import AccessDenied
 from odoo.http import request
 from odoo.tools.mail import single_email_re
 
@@ -30,6 +31,12 @@ class PortalUserController(http.Controller):
                         "msg": _("Only portal users can change their username here."),
                     }
                 )
+                return json.dumps(response)
+
+            # Checked before any lookup so that a hijacked session cannot
+            # change the credential or probe existing logins
+            if not self._is_password_valid(post.get("password", "")):
+                response.update({"error": True, "msg": _("Wrong password.")})
                 return json.dumps(response)
 
             new_login = post.get("new_login", "").strip()
@@ -88,6 +95,16 @@ class PortalUserController(http.Controller):
             )
 
         return json.dumps(response)
+
+    def _is_password_valid(self, password):
+        # Same check as core uses before deactivating a portal account
+        if not password:
+            return False
+        try:
+            request.env["res.users"]._check_credentials(password, {"interactive": True})
+        except AccessDenied:
+            return False
+        return True
 
     def _is_partner_email_sync_enabled(self):
         # sudo: portal users cannot read system parameters
