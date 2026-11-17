@@ -110,6 +110,13 @@ msgid "OK"
 msgstr "OK"
 
 #. module: website_portal_username_change
+#. odoo-python
+#: code:addons/website_portal_username_change/controllers/main.py:0
+#, python-format
+msgid "Only portal users can change their username here."
+msgstr "Vain portaalikäyttäjät voivat vaihtaa käyttäjätunnuksensa täällä."
+
+#. module: website_portal_username_change
 #: model_terms:ir.ui.view,arch_db:website_portal_username_change.change_username_modal
 msgid "Re-enter new username"
 msgstr "Syötä uusi käyttäjätunnus uudelleen"

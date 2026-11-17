@@ -4,7 +4,7 @@
     <template id="change_username_button" inherit_id="portal.portal_my_security">
         <xpath expr="//section[@name='portal_change_password']" position="after">
 
-            <section name="portal_change_username">
+            <section name="portal_change_username" t-if="request.env.user._is_portal()">
                 <h4>Change username</h4>
                 <t
                     t-set="sync_partner_email"

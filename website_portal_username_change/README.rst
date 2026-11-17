@@ -7,6 +7,7 @@ Website Portal: Username Change Option
 ======================================
 
 * Adds a "Change Username" button to the portal security page (/my/security).
+  The button and the change are available to portal users only.
 * The user enters and confirms the new username, and is logged out after
   the change. Every change is logged as an internal note on the user's contact.
 

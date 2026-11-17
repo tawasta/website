@@ -21,6 +21,17 @@ class PortalUserController(http.Controller):
 
         try:
             user = request.env.user
+            # The login is written with sudo, so internal users must not be
+            # able to bypass the admin-only login change through this route
+            if not user._is_portal():
+                response.update(
+                    {
+                        "error": True,
+                        "msg": _("Only portal users can change their username here."),
+                    }
+                )
+                return json.dumps(response)
+
             new_login = post.get("new_login", "").strip()
             confirm_login = post.get("confirm_login", "").strip()
 
