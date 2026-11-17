@@ -1,0 +1,178 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_portal_username_change
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_portal_username_change
+#: model_terms:ir.ui.view,arch_db:website_portal_username_change.change_username_button
+msgid "<i class=\"fa fa-user-edit\"/> Change Username"
+msgstr "<i class=\"fa fa-user-edit\"/> Vaihda käyttäjätunnus"
+
+#. module: website_portal_username_change
+#: model_terms:ir.ui.view,arch_db:website_portal_username_change.res_config_settings_view_form
+msgid ""
+"Also update the contact email when a portal user changes their username"
+msgstr ""
+"Päivitä myös kontaktin sähköpostiosoite, kun portaalikäyttäjä vaihtaa "
+"käyttäjätunnuksensa"
+
+#. module: website_portal_username_change
+#. odoo-python
+#: code:addons/website_portal_username_change/controllers/main.py:0
+#, python-format
+msgid "An error occurred while changing the username."
+msgstr "Käyttäjätunnuksen vaihdossa tapahtui virhe."
+
+#. module: website_portal_username_change
+#: model_terms:ir.ui.view,arch_db:website_portal_username_change.change_username_modal
+msgid "Cancel"
+msgstr "Peruuta"
+
+#. module: website_portal_username_change
+#: model_terms:ir.ui.view,arch_db:website_portal_username_change.change_username_modal
+msgid "Change Username"
+msgstr "Vaihda käyttäjätunnus"
+
+#. module: website_portal_username_change
+#: model_terms:ir.ui.view,arch_db:website_portal_username_change.change_username_button
+msgid "Change username"
+msgstr "Vaihda käyttäjätunnus"
+
+#. module: website_portal_username_change
+#: model_terms:ir.ui.view,arch_db:website_portal_username_change.change_username_button
+msgid ""
+"Changing your username also updates your account's email address, where "
+"messages and notifications are sent."
+msgstr ""
+"Käyttäjätunnuksen vaihto päivittää myös tilisi sähköpostiosoitteen, johon "
+"viestit ja ilmoitukset lähetetään."
+
+#. module: website_portal_username_change
+#: model_terms:ir.ui.view,arch_db:website_portal_username_change.change_username_modal
+msgid "Close"
+msgstr "Sulje"
+
+#. module: website_portal_username_change
+#: model:ir.model,name:website_portal_username_change.model_res_config_settings
+msgid "Config Settings"
+msgstr "Asetukset"
+
+#. module: website_portal_username_change
+#: model_terms:ir.ui.view,arch_db:website_portal_username_change.change_username_modal
+msgid "Confirm New Username"
+msgstr "Vahvista uusi käyttäjätunnus"
+
+#. module: website_portal_username_change
+#: model_terms:ir.ui.view,arch_db:website_portal_username_change.change_username_modal
+msgid "Current Username"
+msgstr "Nykyinen käyttäjätunnus"
+
+#. module: website_portal_username_change
+#: model_terms:ir.ui.view,arch_db:website_portal_username_change.change_username_modal
+msgid "Enter new username"
+msgstr "Syötä uusi käyttäjätunnus"
+
+#. module: website_portal_username_change
+#. odoo-javascript
+#: code:addons/website_portal_username_change/static/src/js/username.esm.js:0
+#, python-format
+msgid "Error"
+msgstr "Virhe"
+
+#. module: website_portal_username_change
+#: model_terms:ir.ui.view,arch_db:website_portal_username_change.change_username_modal
+msgid "New Username"
+msgstr "Uusi käyttäjätunnus"
+
+#. module: website_portal_username_change
+#. odoo-python
+#: code:addons/website_portal_username_change/controllers/main.py:0
+#, python-format
+msgid "New username cannot be empty."
+msgstr "Uusi käyttäjätunnus ei voi olla tyhjä."
+
+#. module: website_portal_username_change
+#. odoo-javascript
+#: code:addons/website_portal_username_change/static/src/js/username.esm.js:0
+#, python-format
+msgid "OK"
+msgstr "OK"
+
+#. module: website_portal_username_change
+#: model_terms:ir.ui.view,arch_db:website_portal_username_change.change_username_modal
+msgid "Re-enter new username"
+msgstr "Syötä uusi käyttäjätunnus uudelleen"
+
+#. module: website_portal_username_change
+#: model_terms:ir.ui.view,arch_db:website_portal_username_change.change_username_modal
+msgid "Save Changes"
+msgstr "Tallenna muutokset"
+
+#. module: website_portal_username_change
+#. odoo-javascript
+#: code:addons/website_portal_username_change/static/src/js/username.esm.js:0
+#, python-format
+msgid "Success"
+msgstr "Onnistuminen"
+
+#. module: website_portal_username_change
+#. odoo-python
+#: code:addons/website_portal_username_change/controllers/main.py:0
+#, python-format
+msgid "The new username must be a valid email address."
+msgstr "Uuden käyttäjätunnuksen on oltava kelvollinen sähköpostiosoite."
+
+#. module: website_portal_username_change
+#: model_terms:ir.ui.view,arch_db:website_portal_username_change.change_username_button
+msgid ""
+"This change does not affect your account's email address, where messages "
+"and notifications are sent. It only updates your login username."
+msgstr ""
+"Tämä muutos ei vaikuta tilisi sähköpostiosoitteeseen, johon viestit ja "
+"ilmoitukset lähetetään. Se päivittää vain kirjautumisessa käytettävän "
+"käyttäjätunnuksen."
+
+#. module: website_portal_username_change
+#. odoo-python
+#: code:addons/website_portal_username_change/controllers/main.py:0
+#, python-format
+msgid "This username is already taken."
+msgstr "Tämä käyttäjätunnus on jo käytössä."
+
+#. module: website_portal_username_change
+#: model:ir.model.fields,field_description:website_portal_username_change.field_res_config_settings__portal_username_change_sync_partner_email
+msgid "Update Contact Email on Portal Username Change"
+msgstr "Päivitä kontaktin sähköposti portaalin käyttäjätunnuksen vaihdossa"
+
+#. module: website_portal_username_change
+#. odoo-python
+#: code:addons/website_portal_username_change/controllers/main.py:0
+#, python-format
+msgid "Username changed from %(old_login)s to %(new_login)s via the portal."
+msgstr ""
+"Käyttäjätunnus vaihdettu portaalissa: %(old_login)s → %(new_login)s."
+
+#. module: website_portal_username_change
+#. odoo-python
+#: code:addons/website_portal_username_change/controllers/main.py:0
+#, python-format
+msgid "Username changed successfully! You will be logged out."
+msgstr "Käyttäjätunnus vaihdettu onnistuneesti! Sinut kirjataan ulos."
+
+#. module: website_portal_username_change
+#. odoo-python
+#: code:addons/website_portal_username_change/controllers/main.py:0
+#, python-format
+msgid "Usernames do not match."
+msgstr "Käyttäjätunnukset eivät täsmää."

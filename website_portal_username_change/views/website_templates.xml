@@ -6,9 +6,18 @@
 
             <section name="portal_change_username">
                 <h4>Change username</h4>
+                <t
+                    t-set="sync_partner_email"
+                    t-value="request.env['ir.config_parameter'].sudo().get_param('website_portal_username_change.sync_partner_email')"
+                />
                 <div class="alert alert-secondary">
                     <i class="fa fa-warning" />
-                    This change does not affect your account's email address, where messages and notifications are sent. It only updates your login username.
+                    <t t-if="sync_partner_email">
+                        Changing your username also updates your account's email address, where messages and notifications are sent.
+                    </t>
+                    <t t-else="">
+                        This change does not affect your account's email address, where messages and notifications are sent. It only updates your login username.
+                    </t>
                 </div>
                 <button
                     type="button"

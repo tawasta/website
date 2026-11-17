@@ -19,17 +19,18 @@
 ##############################################################################
 
 {
-    "name": "website_portal_username_change",
-    "summary": "website_portal_username_change",
-    "version": "17.0.1.0.0",
+    "name": "Website Portal: Username Change Option",
+    "summary": "Allow the portal user to change their username",
+    "version": "17.0.1.1.0",
     "category": "Website",
     "website": "https://github.com/tawasta/website",
     "author": "Futural",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["portal"],
+    "depends": ["base_setup", "portal"],
     "data": [
+        "views/res_config_settings_views.xml",
         "views/website_templates.xml",
     ],
     "assets": {

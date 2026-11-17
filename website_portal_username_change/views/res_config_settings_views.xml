@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field
+            name="name"
+        >res.config.settings.view.form.inherit.website.portal.username.change</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='access_rights']" position="before">
+                <setting
+                    id="portal_username_change_sync_partner_email"
+                    help="Also update the contact email when a portal user changes their username"
+                >
+                    <field name="portal_username_change_sync_partner_email" />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
