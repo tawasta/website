@@ -2,38 +2,26 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=======================================
-Change Username Feature for Odoo Portal
-=======================================
+======================================
+Website Portal: Username Change Option
+======================================
 
-This module adds a feature to the Odoo portal that allows users to change their username directly from the frontend. The change is facilitated through a user-friendly modal interface and includes validation to ensure a smooth process.
-
-* Features
-   - Allows users to update their username from the portal.
-   - Displays the current username in the modal.
-   - Requires users to confirm the new username.
-   - Prevents duplicate usernames.
-   - Automatically logs out users after a successful update.
-   - Provides real-time validation and error handling.
-
+* Adds a "Change Username" button to the portal security page (/my/security).
+  The button and the change are available to portal users only.
+* The user enters and confirms the new username and their current password,
+  and is logged out after the change. Every change is logged as an internal note on the user's contact.
 
 Configuration
 =============
-\-
+* Optionally, in Settings > General Settings toggle the 
+  "Update Contact Email on Portal Username Change" setting on (off by default)
+
+  * When enabled, the new username is also written as the contact's email
+    address, and it must be a valid email address.
 
 Usage
 =====
-The user clicks the Change Username button.
-
-A modal pops up displaying the current username and fields for entering a new username.
-
-The user enters and confirms the new username.
-
-If the input is valid, the username is updated in the system.
-
-The user is logged out and redirected to the login page.
-
-Any errors (e.g., username already taken) are displayed in a modal dialog.
+* Navigate to Portal > Security > Change Username.
 
 Known issues / Roadmap
 ======================
@@ -46,6 +34,7 @@ Contributors
 ------------
 
 * Valtteri Lattu <valtteri.lattu@futural.fi>
+* Timo Talvitie <timo.talvitie@futural.fi>
 
 Maintainer
 ----------
