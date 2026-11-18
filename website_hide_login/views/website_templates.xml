@@ -49,7 +49,9 @@
     customize_show="True"
   >
     <xpath expr="//t[@t-value='auth_btns + passkey_btn']" position="attributes">
-      <attribute name="t-value">auth_btns + passkey_btn if debug else auth_btns</attribute>
+      <attribute
+        name="t-value"
+      >auth_btns + passkey_btn if debug else auth_btns</attribute>
     </xpath>
   </template>
 
