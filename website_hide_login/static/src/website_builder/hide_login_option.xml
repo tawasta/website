@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="website_hide_login.HideLoginOption">
+        <BuilderContext action="'websiteConfig'">
+            <BuilderRow label.translate="Hide native login">
+                <BuilderCheckbox actionParam="{views: ['website_hide_login.login']}" />
+            </BuilderRow>
+            <BuilderRow label.translate="Hide &quot;or&quot; separator">
+                <BuilderCheckbox
+                    actionParam="{views: ['website_hide_login.providers']}"
+                />
+            </BuilderRow>
+            <BuilderRow label.translate="Hide &quot;Use a Passkey&quot;">
+                <BuilderCheckbox
+                    actionParam="{views: ['website_hide_login.passkey_login']}"
+                />
+            </BuilderRow>
+            <BuilderRow label.translate="Hide &quot;Reset Password&quot;">
+                <BuilderCheckbox
+                    actionParam="{views: ['website_hide_login.signup_login']}"
+                />
+            </BuilderRow>
+            <BuilderRow label.translate="Hide &quot;Don't have an account?&quot;">
+                <BuilderCheckbox
+                    actionParam="{views: ['website_hide_login.signup_account']}"
+                />
+            </BuilderRow>
+        </BuilderContext>
+    </t>
+</templates>
