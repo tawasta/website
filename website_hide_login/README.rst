@@ -12,12 +12,18 @@ Hide Odoo native login, but show oAuth-logins
 * Hides the "- or -" separator, "Reset Password" and "Don't have an account?"
 * Hides "Use a Passkey" and the user switch ("Choose a user")
 * Hiding is visual only: password login is still accepted by the server
-* The native login is shown in debug mode (``/web/login?debug=1``)
-* Each part can be toggled from the website editor (Customize)
+* The native login, the "- or -" separator and "Use a Passkey" are shown in
+  debug mode (``/web/login?debug=1``). "Reset Password" and "Don't have an
+  account?" stay hidden in debug mode too.
 
 Configuration
 =============
-\-
+Each part can be shown or hidden in the website editor:
+
+* Open the login page in the website editor (Website, path ``/web/login``)
+  and click Edit.
+* Click the login area: the Login Page options list a switch for each hidden
+  part.
 
 Usage
 =====

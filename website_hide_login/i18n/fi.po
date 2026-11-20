@@ -15,3 +15,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: website_hide_login
+#. odoo-javascript
+#: code:addons/website_hide_login/static/src/website_builder/hide_login_option.xml:0
+msgid "Hide \"Don't have an account?\""
+msgstr "Piilota \"Eikö sinulla ole tiliä?\""
+
+#. module: website_hide_login
+#. odoo-javascript
+#: code:addons/website_hide_login/static/src/website_builder/hide_login_option.xml:0
+msgid "Hide \"Reset Password\""
+msgstr "Piilota \"Vaihda salasana\""
+
+#. module: website_hide_login
+#. odoo-javascript
+#: code:addons/website_hide_login/static/src/website_builder/hide_login_option.xml:0
+msgid "Hide \"Use a Passkey\""
+msgstr "Piilota \"Käytä salasana-avainta\""
+
+#. module: website_hide_login
+#. odoo-javascript
+#: code:addons/website_hide_login/static/src/website_builder/hide_login_option.xml:0
+msgid "Hide \"or\" separator"
+msgstr "Piilota \"tai\"-erotin"
+
+#. module: website_hide_login
+#. odoo-javascript
+#: code:addons/website_hide_login/static/src/website_builder/hide_login_option.xml:0
+msgid "Hide native login"
+msgstr "Piilota tunnus- ja salasanakirjautuminen"
+
+#. module: website_hide_login
+#. odoo-javascript
+#: code:addons/website_hide_login/static/src/website_builder/hide_login_option_plugin.esm.js:0
+msgid "Login Page"
+msgstr "Kirjautumissivu"

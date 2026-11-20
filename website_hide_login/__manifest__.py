@@ -21,7 +21,7 @@
 {
     "name": "Website: hide native login",
     "summary": "Hide Odoo native login, but show oAuth-logins",
-    "version": "19.0.1.0.0",
+    "version": "19.0.1.1.0",
     "category": "Website",
     "website": "https://github.com/tawasta/website",
     "author": "Futural",
@@ -32,4 +32,9 @@
     "data": [
         "views/website_templates.xml",
     ],
+    "assets": {
+        "website.website_builder_assets": [
+            "website_hide_login/static/src/website_builder/**/*",
+        ],
+    },
 }
